@@ -38,7 +38,7 @@ AUDIO_FILES	:=
 #
 # Every file requires an accompanying .grit file,
 # so gfx/test.png needs gfx/test.grit
-GRAPHICS	:= graphics/test.png
+GRAPHICS	:= graphics/*.png
 
 # Source files to compile
 SOURCES		:= src/*.c
