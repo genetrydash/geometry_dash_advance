@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "Makefile": "makefile",
+        "*.asm": "gbz80",
+        "main.h": "c",
+        "metaspr.h": "c",
+        "tonc.h": "c",
+        "memory.h": "c"
+    }
+}
