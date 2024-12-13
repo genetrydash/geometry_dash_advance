@@ -1,10 +1,12 @@
 #include "main.h"
 
-u32 player_x; // in subpixels
-u32 player_y; // in subpixels
+// Position variables, in subpixels
+u32 player_x;
+u32 player_y;
 
-s16 player_x_speed; // in subpixels
-s16 player_y_speed; // in subpixels
+// Speed variables, in subpixels/frame
+s16 player_x_speed;
+s16 player_y_speed;
 
 // Relative position on screen in pixels
 u16 relative_player_x;
@@ -41,6 +43,7 @@ const u16 speed_constants[] = {
     0x51E  // x4
 };
 
+// Current speed portal
 u8 speed_portal = SPEED_X1;
 
 // in subpixels
@@ -75,7 +78,7 @@ void player_main() {
     
     if (player_x >= 0x5000) {
         scroll_x_subacc += player_x_speed;
-        // Set relative to 0x50 so it doesn't jitter in place
+        // Set relative x to 0x50 so it doesn't jitter in place
         relative_player_x = 0x50;
     } else {
         // Calculate relative positions on screen
@@ -104,6 +107,7 @@ void player_main() {
 void cube_gamemode() {
     gravity = CUBE_GRAVITY;
     
+    // Depending on which direction the gravity points, apply gravity and cap speed in one direction or in the other
     if (gravity_dir) {
         player_y_speed -= gravity;
         if (player_y_speed < -CUBE_MAX_Y_SPEED) player_y_speed = -CUBE_MAX_Y_SPEED;
@@ -112,13 +116,15 @@ void cube_gamemode() {
         if (player_y_speed > CUBE_MAX_Y_SPEED) player_y_speed = CUBE_MAX_Y_SPEED;
     }
 
+    // If on floor and holding A or UP, jump
     if (on_floor && key_held(KEY_A | KEY_UP)) {
         player_y_speed += (gravity_dir ? CUBE_JUMP_SPEED : -CUBE_JUMP_SPEED);
     }
     
+    // Apply y speed
     player_y += player_y_speed;
 }
 
 void ship_gamemode() {
-
+    // TODO: ship gamemode
 }

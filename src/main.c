@@ -26,7 +26,7 @@ void decompress_column();
 void scroll_H();
 
 s32 main() {
-    // Enable BG 1 and 2
+    // Enable BG 0 and 1, also enable sprites
     REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1;
 
     REG_BG0CNT  = BG_CBB(0) | BG_SBB(16) | BG_REG_32x32;
@@ -37,15 +37,17 @@ s32 main() {
 	REG_BG1HOFS = 0;
 	REG_BG1VOFS = 0;
 
-
+    // Init OAM and VRAM
     oam_init(shadow_oam, 128);
     memcpy32(&tile_mem[4][0], cube_pngTiles, cube_pngTilesLen / sizeof(u32));
     memcpy32(&tile_mem[0][0], metatiles_pngTiles, metatiles_pngTilesLen / sizeof(u32));
 	memcpy16(pal_obj_mem, cube_pngPal, cube_pngPalLen / sizeof(u16));
 	memcpy16(pal_bg_mem, metatiles_pngPal, metatiles_pngPalLen / sizeof(u16));
 
+    // TODO: put this in a function and call it on death, also unhardcode it
     level_pointer = (u16*) &stereomadness_level_data;
 
+    // Set seam position 
     seam_x = scroll_x;
     seam_y = scroll_y;
 
@@ -55,6 +57,7 @@ s32 main() {
     length = *level_pointer;
     level_pointer++;
 
+    // Level height
     curr_level_height = STEREOMADNESS_LEVEL_HEIGHT;
 
     player_y = (curr_level_height << 12) - 0x10;

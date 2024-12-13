@@ -29,12 +29,14 @@ const u16 ground_pattern[] = {
     GROUND_TILE_3, GROUND_TILE_4, GROUND_TILE_4, GROUND_TILE_4
 };
 
+// Pixel to check collision on.
 u16 coll_x;
 u16 coll_y;
 
-u32 coll_pushed_y;
+// Collision eject
+u32 eject = 0;
 
-u32 run_coll(u32 x, u32 y) ;
+u32 run_coll(u32 x, u32 y);
 
 void collision_main() {
     // TODO: right side collision and death stuff
@@ -71,11 +73,12 @@ u16 obtain_block(u32 x, u32 y) {
 }
 
 u16 obtain_collision_type(u32 x, u32 y) {
+    // Obtain the col type from the table, indexed by metatile ID
     return coll_type_table[obtain_block(x,y)];
 }
-u32 eject = 0;
 
 u32 col_type_lookup(u16 col_type, u32 x, u32 y) {
+    // Positions inside block, top left pixel is [0,0]
     u32 x_inside_block = (x & 0x0f);
     u32 y_inside_block = (y & 0x0f);
 
@@ -98,6 +101,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y) {
                 break;
             }
             return 0;
+        // Everything else
         default:
             return 0;
     }
