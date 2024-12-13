@@ -1,0 +1,4 @@
+#
+# Brinstar : 64x64t, 4bpp, SBB-layout, not compressed.
+#
+-gt -gTFF00DC -gB4 -mR4 -mLs -Mh2 -Mw2

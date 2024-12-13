@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "/opt/devkitpro/libtonc/include",
                 "${workspaceFolder}/build",
-                "${workspaceFolder}/source"
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/levels"
             ],
             "defines": [],
             "cStandard": "c17",

@@ -41,7 +41,7 @@ AUDIO_FILES	:=
 GRAPHICS	:= graphics/*.png
 
 # Source files to compile
-SOURCES		:= src/*.c
+SOURCES		:= src/*.c levels/*.s
 
 # Include directories
 INCLUDES	:= include
