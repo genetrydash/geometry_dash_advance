@@ -4,13 +4,9 @@
 
 u8 nextSpr = 0;
 
-const u16 testSpr[] = {
+const u16 playerSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(0) | 0,
-    0,
-    ATTR0_4BPP | ATTR0_SQUARE | 0x30, 
-    ATTR1_SIZE_32x32 | ATTR1_HFLIP,
+    ATTR1_SIZE_16x16,
     ATTR2_PALBANK(0) | 0,
     0,
     0xffff

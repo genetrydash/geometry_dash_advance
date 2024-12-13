@@ -1,5 +1,5 @@
 import csv
-import math
+import sys
 
 def load_csv_to_array(file_path):
     """Reads a CSV file and loads it into a 2D list."""
@@ -57,17 +57,17 @@ def export_header_file(level_name, level_array, compressed, output_path):
         file.write(f"extern const unsigned short {level_name}_level_data[{level_name.upper()}_RLE_DATA_SIZE];\n")
 
 def main():
-    level_name = "cantletgo"
-    file_path = f"levels/{level_name}_.csv"  # Replace with your CSV file path
-    output_s_path = f"levels/{level_name}.s"  # Output .s file
-    output_h_path = f"levels/{level_name}.h"  # Output .h file
-    
-    level_array = load_csv_to_array(file_path)
-    compressed = rle_compress_level(level_array)
-    export_compressed_to_s_file(level_name, compressed, output_s_path)
-    export_header_file(level_name, level_array, compressed, output_h_path)
-    
-    print(f"Exported compressed data to {output_s_path} and header to {output_h_path}")
+    for level_name in sys.argv[1:]:
+        file_path = f"levels/{level_name}_.csv"  # Replace with your CSV file path
+        output_s_path = f"levels/{level_name}.s"  # Output .s file
+        output_h_path = f"levels/{level_name}.h"  # Output .h file
+        
+        level_array = load_csv_to_array(file_path)
+        compressed = rle_compress_level(level_array)
+        export_compressed_to_s_file(level_name, compressed, output_s_path)
+        export_header_file(level_name, level_array, compressed, output_h_path)
+        
+        print(f"Exported compressed data to {output_s_path} and header to {output_h_path}")
 
 if __name__ == "__main__":
     main()

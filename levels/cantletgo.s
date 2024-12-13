@@ -7,9 +7,101 @@
 .hidden cantletgo_level_data
 cantletgo_level_data:
     .hword 0
-    .hword 647    @ Value 0 repeats 647 times
-    .hword 53
-    .hword 1    @ Value 53 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 16
+    .hword 1    @ Value 16 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 18
