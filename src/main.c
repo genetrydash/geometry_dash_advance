@@ -2,8 +2,8 @@
 #include "main.h"
 #include "memory.h"
 
-int scroll_x = 0, scroll_y = 0;
-int old_scroll_x;
+uint scroll_x = 0, scroll_y = 0;
+uint scroll_x_for_decompression;
 char scroll_x_dir = 0;
 char scroll_y_dir = 0;
 
@@ -48,11 +48,15 @@ int main() {
 
     curr_level_height = CANTLETGO_LEVEL_HEIGHT;
 
-    for (int i = 0; i < 64; i++) {
-        
-        scroll_H();
-        seam_x += 4;
+    for (int i = 0; i < 16; i++) {
+        decompress_column();
+        for (int j = 0; j < 4; j++) {
+            scroll_H();
+            seam_x += 4;
+        }
     }
+
+    scroll_x_for_decompression = 0;
 
 	while(1) {
         // Wait for VSYNC
@@ -63,7 +67,6 @@ int main() {
 
         // Copy OAM buffer into OAM
         oam_copy(oam_mem, shadow_oam, 128);
-        old_scroll_x = scroll_x;
         scroll_x += key_tri_horz();
 		scroll_y += key_tri_vert();
 
@@ -126,8 +129,9 @@ void scroll_V() {
 }
 
 void screen_scroll_load() {
-    if ((old_scroll_x & 0xfffffff0) < (scroll_x & 0xfffffff0)) {
+    if (scroll_x_for_decompression < (scroll_x & 0xfffffff0)) {
         decompress_column();
+        scroll_x_for_decompression += 16;
     } 
     if (scroll_x_dir) {
         seam_x = scroll_x + SCREEN_WIDTH;
