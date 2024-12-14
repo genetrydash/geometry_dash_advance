@@ -85,7 +85,8 @@ s32 main() {
         nextSpr = 0;
 
         // Copy OAM buffer into OAM
-        oam_copy(oam_mem, shadow_oam, 128);
+        obj_copy(oam_mem, shadow_oam, 128);
+        obj_aff_copy(obj_aff_mem, obj_aff_buffer, 1);
 
         // Run player routines
         player_main();

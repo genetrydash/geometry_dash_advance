@@ -4,6 +4,7 @@
 
 // OAM buffer
 OAM_SPR shadow_oam[128];
+OBJ_AFFINE *obj_aff_buffer = (OBJ_AFFINE*) shadow_oam;
 
 // Level buffer
 EWRAM_DATA u16 level_buffer[MAX_LEVEL_HEIGHT*LEVEL_BUFFER_WIDTH];

@@ -6,8 +6,8 @@
 u8 nextSpr = 0;
 
 const u16 playerSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_16x16,
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
     ATTR2_PALBANK(0) | 0,
     0,
     0xffff
@@ -27,7 +27,7 @@ void oam_metaspr(u16 x, u8 y, const u16 *data) {
         data[i + 2]);         // ATTR2
 
         // Set position
-        obj_set_pos(newSpr, x + (data[i] & 0x1ff), y + (data[i + 1] & 0xff));
+        obj_set_pos(newSpr, x + (data[i + 1] & 0x1ff), y + (data[i] & 0xff));
         
         // Increment into next sprite
         nextSpr++;

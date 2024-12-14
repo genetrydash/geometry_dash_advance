@@ -5,5 +5,4 @@ TODO:
 - Level system
 - Level tilesets
 - Death system
-- Make cube do ro ta te
 - Right side collision

@@ -20,6 +20,9 @@ u8 on_floor;
 // Current player gamemode
 u8 gamemode;
 
+// Cube rotation angle
+u16 cube_rotation = 0;
+
 // Gamemode IDs
 enum GAMEMODE_TYPE {
     CUBE,
@@ -99,10 +102,15 @@ void player_main() {
         // Calculate relative positions on screen
         relative_player_x = ((player_x >> 8) - scroll_x);
     }
+
     relative_player_y = ((player_y >> 8) - scroll_y);
 
+
     // Draw player
-    oam_metaspr(relative_player_x, relative_player_y, playerSpr);
+    oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr);
+    obj_aff_identity(&obj_aff_buffer[0]);
+
+    obj_aff_rotate(&obj_aff_buffer[0], cube_rotation);
 
     // Gamemode specific routines
     switch (gamemode) {
@@ -136,6 +144,13 @@ void cube_gamemode() {
     // If on floor and holding A or UP, jump
     if (on_floor && key_held(KEY_A | KEY_UP)) {
         player_y_speed += (gravity_dir ? CUBE_JUMP_SPEED : -CUBE_JUMP_SPEED);
+        
+    }
+
+    if (!on_floor) {
+        cube_rotation -= 0x500;
+    } else {
+        cube_rotation &= 0xc000;
     }
     
     // Apply y speed
