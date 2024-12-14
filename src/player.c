@@ -105,8 +105,8 @@ void player_main() {
 
     relative_player_y = ((player_y >> 8) - scroll_y);
     // Draw player
-    u8 x_offset = (cube_rotation >= 0x8000 ? 8 : 7);
-    u8 y_offset = (cube_rotation >= 0x4000 && cube_rotation < 0xc000 ? 8 : 7);
+    u8 x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
+    u8 y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
     oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr);
     obj_aff_identity(&obj_aff_buffer[0]);
 
