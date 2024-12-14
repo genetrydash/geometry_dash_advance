@@ -3,13 +3,13 @@
 #include "memory.h"
 
 // in pixels
-u32 scroll_x = 0;
+u64 scroll_x = 0;
 u32 scroll_y = 0;
-u32 scroll_x_for_decompression;
+u8 decompressed_column;
 
 // both variables are in subpixels
-u32 scroll_x_subacc = 0;
-u32 scroll_y_subacc = 0;
+u16 scroll_x_subacc = 0;
+u16 scroll_y_subacc = 0;
 
 // 0 : up | 1 : down
 s8 scroll_y_dir = 0;
@@ -33,16 +33,19 @@ s32 main() {
 	REG_BG0HOFS = 0;
 	REG_BG0VOFS = 0;
 
-    REG_BG1CNT  = BG_CBB(1) | BG_SBB(18) | BG_REG_64x32;
+    REG_BG1CNT  = BG_CBB(1) | BG_SBB(18) | BG_REG_32x32;
 	REG_BG1HOFS = 0;
 	REG_BG1VOFS = 0;
 
     // Init OAM and VRAM
     oam_init(shadow_oam, 128);
-    memcpy32(&tile_mem[4][0], cube_pngTiles, cube_pngTilesLen / sizeof(u32));
     memcpy32(&tile_mem[0][0], metatiles_pngTiles, metatiles_pngTilesLen / sizeof(u32));
-	memcpy16(pal_obj_mem, cube_pngPal, cube_pngPalLen / sizeof(u16));
-	memcpy16(pal_bg_mem, metatiles_pngPal, metatiles_pngPalLen / sizeof(u16));
+	memcpy16(pal_bg_mem, blockPalette, sizeof(blockPalette) / sizeof(u16));
+
+    memcpy32(&tile_mem[4][0], cube_pngTiles, cube_pngTilesLen / sizeof(u32));
+    memcpy32(&tile_mem[4][4], portal_pngTiles, portal_pngTilesLen / sizeof(u32));
+	memcpy16(pal_obj_mem, cube_pngPal, 16);
+	memcpy16(&pal_obj_mem[16], portal_pngPal, 8);
 
     // TODO: put this in a function and call it on death, also unhardcode it
     level_pointer = (u16*) &stereomadness_level_data;
@@ -60,9 +63,8 @@ s32 main() {
     // Level height
     curr_level_height = STEREOMADNESS_LEVEL_HEIGHT;
 
-    player_y = (curr_level_height << 12) - 0x10;
-    scroll_y_subacc = player_y - 0x8000;
-    scroll_y = scroll_y_subacc >> 8;
+    player_y = ((GROUND_HEIGHT - 1) << 12);
+    scroll_y = ((player_y) - 0x7000) >> 8;
 
     for (s32 i = 0; i < 16; i++) {
         decompress_column();
@@ -73,7 +75,7 @@ s32 main() {
         }
     }
 
-    scroll_x_for_decompression = 0;
+    decompressed_column = 0;
 
 	while(1) {
         // Wait for VSYNC
@@ -98,26 +100,24 @@ s32 main() {
     return 0;
 }
 
-#define SSB_MAP_WIDTH CANTLETGO_LEVEL_WIDTH
-
-#define SSB_WIDTH 16
-#define SSB_HEIGHT 16
-#define SSB_SIZE SSB_WIDTH * SSB_HEIGHT
-
-#define SSB_HOR_SIZE SSB_MAP_WIDTH * SSB_SIZE
-
 void scroll_H() {
-    for (s32 i = 0; i < 12; i += 1) {
-        for (s32 j = 0; j < 2; j++) {
+    for (s32 mt = 0; mt < 12; mt += 1) {
+        for (s32 vtile = 0; vtile < 2; vtile++) {
+            // Get metatile positions from seam
             s32 metatile_x = (seam_x >> 4) & 0x1f;
             s32 metatile_y = (seam_y >> 4);
 
+            // Get metatile from the buffer
             s32 metatile = level_buffer[metatile_x + (metatile_y * LEVEL_BUFFER_WIDTH)];
 
+            // Get tile position from the seam
             s32 x = (seam_x >> 3) & 0x1f;
             s32 y = (seam_y >> 3) & 0x1f;
+
+            // Obtain tile from the metatile table
             s32 tile = metatiles_pngMetaTiles[(metatile << 2) | (x & 1) | ((y & 1) << 1)];
 
+            // Put tile and advance to next tile
             se_plot(&se_mem[16][0], x, y, tile);
             seam_y += 8;
         }
@@ -125,17 +125,23 @@ void scroll_H() {
 }
 
 void scroll_V() {
-    for (s32 i = 0; i < 16; i += 1) {
-        for (s32 j = 0; j < 2; j++) {
+    for (s32 mt = 0; mt < 16; mt += 1) {
+        for (s32 htile = 0; htile < 2; htile++) {
+            // Get metatile positions from seam
             s32 metatile_x = (seam_x >> 4) & 0x1f;
             s32 metatile_y = (seam_y >> 4);
-
+            
+            // Get metatile from the buffer
             s32 metatile = level_buffer[metatile_x + (metatile_y * LEVEL_BUFFER_WIDTH)];
             
+            // Get tile position from the seam
             s32 x = (seam_x >> 3) & 0x1f;
             s32 y = (seam_y >> 3) & 0x1f;
+
+            // Obtain tile from the metatile table
             s32 tile = metatiles_pngMetaTiles[(metatile << 2) | (x & 1) | ((y & 1) << 1)];
 
+            // Put tile and advance to next tile
             se_plot(&se_mem[16][0], x, y, tile);
             seam_x += 8;
         }
@@ -143,50 +149,61 @@ void scroll_V() {
 }
 
 void screen_scroll_load() {
-    if (scroll_x_for_decompression < (scroll_x & 0xfffffff0)) {
+    // If the scroll x value changed block position, decompress a new column
+    if (decompressed_column != ((scroll_x >> 4) & 0xff)) {
         decompress_column();
-        scroll_x_for_decompression += 16;
+        decompressed_column += 1;
     } 
-
+    
+    // Draw horizontal seam
     seam_x = scroll_x + SCREEN_WIDTH;
     seam_y = scroll_y;
     
     scroll_H();
-    
 
-    if (scroll_y_dir) {
-        seam_x = scroll_x;
-        seam_y = scroll_y + SCREEN_HEIGHT;
+    // Draw bottom seam
+    seam_x = scroll_x;
+    seam_y = scroll_y + SCREEN_HEIGHT;
+    
+    scroll_V();
+    
+    // Draw top seam
+    seam_x = scroll_x;
+    seam_y = scroll_y - 8;
         
-        scroll_V();
-    } else {
-        seam_x = scroll_x;
-        seam_y = scroll_y - 8;
-        
-        scroll_V();
-    }
+    scroll_V();
 }
 
 void decompress_column() {
+    // RLE decompress an entire column of curr_level_height blocks
     for (s32 i = 0; i < curr_level_height; i++) {
         if (length == 0) {
+            // If next RLE packet is ready, start with it
             value = *level_pointer;
             level_pointer++;
             length = *level_pointer;
             level_pointer++;
         }
 
-        level_buffer[curr_column + (i * LEVEL_BUFFER_WIDTH)] = value;
+        // Put the block on the buffer, exactly curr_level_height blocks above the ground and then i blocks down
+        level_buffer[curr_column + (((GROUND_HEIGHT) - curr_level_height + i) * LEVEL_BUFFER_WIDTH)] = value;
         length--;
     }
 
-    for (s32 i = curr_level_height; i < MAX_LEVEL_HEIGHT; i++) {
-        if (i == curr_level_height) {
+    // Put ground
+    for (s32 i = GROUND_HEIGHT; i < MAX_LEVEL_HEIGHT; i++) {
+        if (i == GROUND_HEIGHT) {
+            // If we are at the first row of blocks, use the top row blocks
             level_buffer[curr_column + (i * LEVEL_BUFFER_WIDTH)] = ground_pattern[curr_column & 0x3];
         } else {
+            // Else, the middle ground blocks
             level_buffer[curr_column + (i * LEVEL_BUFFER_WIDTH)] = ground_pattern[4 + (curr_column & 0x3)];
         }
     }
+
+    // Increment for the next column of metatiles
     curr_column++;
+
+    // If we are past the buffer width, go back to the start of it
     if (curr_column >= LEVEL_BUFFER_WIDTH) curr_column = 0;
 }

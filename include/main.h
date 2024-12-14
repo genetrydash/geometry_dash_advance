@@ -5,10 +5,10 @@
 #include "player.h"
 #include "collision.h"
 
-extern u32 scroll_x;
+extern u64 scroll_x;
 extern u32 scroll_y;
 
-extern u32 scroll_x_subacc;
-extern u32 scroll_y_subacc;
+extern u16 scroll_x_subacc;
+extern u16 scroll_y_subacc;
 
 extern s8 scroll_y_dir;

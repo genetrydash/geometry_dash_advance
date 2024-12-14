@@ -41,26 +41,30 @@ u32 run_coll(u32 x, u32 y);
 void collision_main() {
     // TODO: right side collision and death stuff
     if (!gravity_dir) {
-        // Going down
-        coll_x = player_x >> 8;
-        coll_y = player_y >> 8;
-        
-        if (run_coll(coll_x, coll_y + CUBE_HEIGHT)) {
-            return;
-        }
-        if (run_coll(coll_x + CUBE_WIDTH, coll_y + CUBE_HEIGHT)) {
-            return;
+        if (player_y_speed > 0) {
+            // Going down
+            coll_x = player_x >> 8;
+            coll_y = player_y >> 8;
+            
+            if (run_coll(coll_x, coll_y + CUBE_HEIGHT)) {
+                return;
+            }
+            if (run_coll(coll_x + CUBE_WIDTH, coll_y + CUBE_HEIGHT)) {
+                return;
+            }
         }
     } else {
-        // Going up
-        coll_x = player_x >> 8;
-        coll_y = player_y >> 8;
+        if (player_y_speed < 0) {
+            // Going up
+            coll_x = player_x >> 8;
+            coll_y = player_y >> 8;
 
-        if (run_coll(coll_x, coll_y)) {
-            return;
-        }
-        if (run_coll(coll_x + CUBE_WIDTH, coll_y)) {
-            return;
+            if (run_coll(coll_x, coll_y)) {
+                return;
+            }
+            if (run_coll(coll_x + CUBE_WIDTH, coll_y)) {
+                return;
+            }
         }
     }
 }
@@ -118,10 +122,5 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y) {
 
 u32 run_coll(u32 x, u32 y) {
     u16 col_type = obtain_collision_type(x, y);
-    if (!col_type_lookup(col_type, x, y)) {
-        // If nothing was detected, no floor
-        on_floor = 0;
-        return 0;
-    }
-    return 1;
+    return col_type_lookup(col_type, x, y);
 }

@@ -3,7 +3,7 @@
 #define CUBE_WIDTH 0x10
 #define CUBE_HEIGHT 0x10
 
-extern u32 player_x;
+extern u64 player_x;
 extern u32 player_y;
 
 extern s16 player_x_speed;

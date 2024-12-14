@@ -17,6 +17,8 @@
         "chr.h": "c",
         "player.h": "c",
         "collision.h": "c",
-        "cantletgo.h": "c"
+        "cantletgo.h": "c",
+        "metatiles.png.h": "c",
+        "cube.png.h": "c"
     }
 }

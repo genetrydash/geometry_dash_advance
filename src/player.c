@@ -1,7 +1,7 @@
 #include "main.h"
 
 // Position variables, in subpixels
-u32 player_x;
+u64 player_x; // gota love giant levels
 u32 player_y;
 
 // Speed variables, in subpixels/frame
@@ -51,6 +51,9 @@ u8 speed_portal = SPEED_X1;
 #define CUBE_MAX_Y_SPEED 0x600
 #define CUBE_JUMP_SPEED 0x590
 
+#define TOP_SCROLL_Y 0x2c
+#define BOTTOM_SCROLL_Y SCREEN_HEIGHT-0x2c
+
 void cube_gamemode();
 void ship_gamemode();
 
@@ -60,31 +63,43 @@ void player_main() {
 
     // Set player speed
     player_x_speed = speed_constants[speed_portal];
-    
-    // Convert subpixels to pixels
-    scroll_x = scroll_x_subacc >> 8;
 
     // This scrolls the screen on the y axis
-    if (relative_player_y >= SCREEN_HEIGHT-0x28 && player_y_speed > 0) {
-        scroll_y_subacc += player_y_speed;
+    if (relative_player_y >= BOTTOM_SCROLL_Y && player_y_speed > 0) {
+        scroll_y_subacc += player_y_speed & 0xff;
         scroll_y_dir = 1;
-    } else if (relative_player_y <= 0x28 && player_y_speed < 0) {
-        scroll_y_subacc += player_y_speed;
+        // If there was an overflow, add 1 to scroll y
+        if (scroll_y_subacc > 0xff) {
+            scroll_y++;
+            scroll_y_subacc &= 0xff;
+        }
+        scroll_y += player_y_speed >> 8;
+    } else if (relative_player_y <= TOP_SCROLL_Y && player_y_speed < 0) {
+        scroll_y_subacc += player_y_speed & 0xff;
         scroll_y_dir = 0;
+        // If there was an overflow, add 1 to scroll y
+        if (scroll_y_subacc > 0xff) {
+            scroll_y++;
+            scroll_y_subacc &= 0xff;
+        }
+        scroll_y += player_y_speed >> 8;
     }
-    
-    // Convert subpixels to pixels
-    scroll_y = scroll_y_subacc >> 8;
     
     if (player_x >= 0x5000) {
-        scroll_x_subacc += player_x_speed;
+        scroll_x_subacc += player_x_speed & 0xff;
         // Set relative x to 0x50 so it doesn't jitter in place
         relative_player_x = 0x50;
+        // If there was an overflow last frame, add 1 to scroll x
+        if (scroll_x_subacc > 0xff) {
+            scroll_x++;
+            scroll_x_subacc &= 0xff;
+        }
+        scroll_x += player_x_speed >> 8;
     } else {
         // Calculate relative positions on screen
-        relative_player_x = ((player_x >> 8) - (scroll_x_subacc >> 8));
+        relative_player_x = ((player_x >> 8) - scroll_x);
     }
-    relative_player_y = ((player_y >> 8) - (scroll_y_subacc >> 8));
+    relative_player_y = ((player_y >> 8) - scroll_y);
 
     // Draw player
     oam_metaspr(relative_player_x, relative_player_y, playerSpr);
@@ -101,6 +116,8 @@ void player_main() {
 
     // Update player x
     player_x += player_x_speed;
+
+    on_floor = 0;
 }
 
 

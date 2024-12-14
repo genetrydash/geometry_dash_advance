@@ -1,6 +1,7 @@
 #include <tonc.h>
 
 #define MAX_LEVEL_HEIGHT 128
+#define GROUND_HEIGHT MAX_LEVEL_HEIGHT - 4
 #define LEVEL_BUFFER_WIDTH 32
 
 typedef OBJ_ATTR OAM_SPR;
