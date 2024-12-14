@@ -104,10 +104,10 @@ void player_main() {
     }
 
     relative_player_y = ((player_y >> 8) - scroll_y);
-
-    u8 offset = cube_rotation > 0x8000 ? 7 : 8;
     // Draw player
-    oam_metaspr(relative_player_x - offset, relative_player_y - offset, playerSpr);
+    u8 x_offset = (cube_rotation >= 0x8000 ? 8 : 7);
+    u8 y_offset = (cube_rotation >= 0x4000 && cube_rotation < 0xc000 ? 8 : 7);
+    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr);
     obj_aff_identity(&obj_aff_buffer[0]);
 
     obj_aff_rotate(&obj_aff_buffer[0], cube_rotation);
@@ -147,10 +147,11 @@ void cube_gamemode() {
         
     }
 
+    // If the cube is on the air, rotate, else, snap to nearest 
     if (!on_floor) {
         cube_rotation -= 0x500;
     } else {
-        cube_rotation &= 0xc000;
+        cube_rotation = (cube_rotation + 0x2000) & 0xC000;
     }
     
     // Apply y speed
