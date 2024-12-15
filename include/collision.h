@@ -2,10 +2,10 @@
 
 void collision_main();
 
-#define GROUND_TILE_1 0x88
-#define GROUND_TILE_2 0x89
-#define GROUND_TILE_3 0x02
-#define GROUND_TILE_4 0x06
+#define GROUND_TILE_1 2
+#define GROUND_TILE_2 2
+#define GROUND_TILE_3 2
+#define GROUND_TILE_4 2
 
 enum COL_TYPES {
     COL_NONE,
@@ -15,5 +15,4 @@ enum COL_TYPES {
     COL_SLAB_BOTTOM,
 };
 
-extern const u16 coll_type_table[];
 extern const u16 ground_pattern[];

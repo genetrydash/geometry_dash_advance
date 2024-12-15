@@ -195,6 +195,10 @@ run: $(ELFFILE)
 	@echo "run $(ELFFILE)"
 	$(SILENT)$(RUNNER) $<
 
-.PHONY: dirs clean run
+levels:
+	@echo "Making levels..."
+	bash export_levels.sh
+
+.PHONY: levels dirs clean run
 
 -include $(DEPENDS)

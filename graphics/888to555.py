@@ -18,7 +18,7 @@ def rgb888_to_rgb555_24bit(rgb888):
     g_5 = (g >> 3) & 0x1F  # 5 bits for green
     b_5 = (b >> 3) & 0x1F  # 5 bits for blue
     
-    # Combine into a 16-bit RGB555 value
+    # Combine into a 16-bit BGR555 value
     rgb555 = (b_5 << 10) | (g_5 << 5) | r_5
     
     return rgb555
@@ -39,20 +39,22 @@ def convert_list_rgb888_to_rgb555_24bit(rgb888_list):
 if __name__ == "__main__":
     # List of RGB888 colors as 24-bit integers
     rgb888_list = [
-        0x0071EE,
-        0x0063CF,
-        0x0055B5,
-        0x004A9E,
-        0x00408A,
-        0x002D61,
-        0x00244D,
-        0x001A37,
-        0x000E1D,
+        0x0000F8,
+        0x0000D0,
+        0x0000A8,
+        0x000078,
+        0x000050,
+        0x000028,
         0x000000,
-        0xffffff,
-        0x93C6FF,
-        0x6FB4FF,
-        0x409CFF
+        0x5050F8,
+        0xA8A8F8,
+        0xF8F8F8,
+        0x5000A8,
+        0x800078,
+        0xA80050,
+        0xD00028,
+        0xF80000,
+        0xF8F800
     ]
     
     # Convert the list

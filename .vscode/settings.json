@@ -19,6 +19,8 @@
         "collision.h": "c",
         "cantletgo.h": "c",
         "metatiles.png.h": "c",
-        "cube.png.h": "c"
+        "cube.png.h": "c",
+        "stereomadness.h": "c",
+        "includes.h": "c"
     }
 }

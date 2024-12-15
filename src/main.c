@@ -1,6 +1,7 @@
 #include <tonc.h>
 #include "main.h"
 #include "memory.h"
+#include "metatiles.h"
 
 // in pixels
 u64 scroll_x = 0;
@@ -39,7 +40,7 @@ s32 main() {
 
     // Init OAM and VRAM
     oam_init(shadow_oam, 128);
-    memcpy32(&tile_mem[0][0], metatiles_pngTiles, metatiles_pngTilesLen / sizeof(u32));
+    memcpy32(&tile_mem[0][0], blockset, 16*1024 / sizeof(u32));
 	memcpy16(pal_bg_mem, blockPalette, sizeof(blockPalette) / sizeof(u16));
 
     memcpy32(&tile_mem[4][0], cube_pngTiles, cube_pngTilesLen / sizeof(u32));
@@ -116,7 +117,7 @@ void scroll_H() {
             s32 y = (seam_y >> 3) & 0x1f;
 
             // Obtain tile from the metatile table
-            s32 tile = metatiles_pngMetaTiles[(metatile << 2) | (x & 1) | ((y & 1) << 1)];
+            s32 tile = metatiles[metatile][(x & 1) | ((y & 1) << 1)];
 
             // Put tile and advance to next tile
             se_plot(&se_mem[16][0], x, y, tile);
@@ -140,7 +141,7 @@ void scroll_V() {
             s32 y = (seam_y >> 3) & 0x1f;
 
             // Obtain tile from the metatile table
-            s32 tile = metatiles_pngMetaTiles[(metatile << 2) | (x & 1) | ((y & 1) << 1)];
+            s32 tile = metatiles[metatile][(x & 1) | ((y & 1) << 1)];
 
             // Put tile and advance to next tile
             se_plot(&se_mem[16][0], x, y, tile);

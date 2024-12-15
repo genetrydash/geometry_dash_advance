@@ -1,27 +1,5 @@
 #include "main.h"
-
-// Collision types indexed by metatile ID
-const u16 coll_type_table[] = {
-    COL_NONE, COL_ALL,      COL_ALL,  COL_SLAB_BOTTOM, COL_NONE,  COL_NONE,  COL_ALL,   COL_NONE, // 0x0000-0x0007
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0008-0x000f
-    COL_ALL,  COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_ALL,   COL_ALL,  // 0x0010-0x0017
-    COL_NONE, COL_SLAB_TOP, COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0018-0x001f
-    COL_ALL,  COL_ALL,      COL_ALL,  COL_ALL,         COL_ALL,   COL_ALL,   COL_ALL,   COL_ALL,  // 0x0020-0x0027
-    COL_ALL,  COL_ALL,      COL_ALL,  COL_ALL,         COL_ALL,   COL_ALL,   COL_ALL,   COL_NONE, // 0x0028-0x002f
-    COL_ALL,  COL_ALL,      COL_ALL,  COL_ALL,         COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0030-0x0037
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0038-0x003f
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0040-0x0047
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0048-0x004f
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0050-0x0057
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0058-0x005f
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0060-0x0067
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0068-0x006f
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0070-0x0077
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0078-0x007f
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0080-0x0087
-    COL_ALL,  COL_ALL,      COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0088-0x008f
-    COL_NONE, COL_NONE,     COL_NONE, COL_NONE,        COL_NONE,  COL_NONE,  COL_NONE,  COL_NONE, // 0x0090-0x0097
-};
+#include "metatiles.h"
 
 // Ground pattern
 const u16 ground_pattern[] = {
@@ -78,7 +56,7 @@ u16 obtain_block(u32 x, u32 y) {
 
 u16 obtain_collision_type(u32 x, u32 y) {
     // Obtain the col type from the table, indexed by metatile ID
-    return coll_type_table[obtain_block(x,y)];
+    return metatiles[obtain_block(x,y)][4];
 }
 
 u32 col_type_lookup(u16 col_type, u32 x, u32 y) {
