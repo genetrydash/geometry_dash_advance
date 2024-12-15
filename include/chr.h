@@ -1,7 +1,6 @@
 #include <tonc.h>
 #include "cube.png.h"
-#include "../levels/cantletgo.h"
-#include "../levels/stereomadness.h"
+#include "../levels/includes.h"
 #include "../graphics/includes.h"
 #include "portal.png.h"
 

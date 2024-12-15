@@ -21,6 +21,7 @@
         "metatiles.png.h": "c",
         "cube.png.h": "c",
         "stereomadness.h": "c",
-        "includes.h": "c"
+        "includes.h": "c",
+        "stereomadness_l1.h": "c"
     }
 }

@@ -14,49 +14,51 @@ u16 coll_y;
 // Collision eject
 u32 eject = 0;
 
-u32 run_coll(u32 x, u32 y);
+u32 run_coll(u32 x, u32 y, u32 layer);
 
 void collision_main() {
     // TODO: right side collision and death stuff
-    if (!gravity_dir) {
-        if (player_y_speed > 0) {
-            // Going down
-            coll_x = player_x >> 8;
-            coll_y = player_y >> 8;
-            
-            if (run_coll(coll_x, coll_y + CUBE_HEIGHT)) {
-                return;
+    for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
+        if (!gravity_dir) {
+            if (player_y_speed > 0) {
+                // Going down
+                coll_x = player_x >> 8;
+                coll_y = player_y >> 8;
+                
+                if (run_coll(coll_x, coll_y + CUBE_HEIGHT, layer)) {
+                    return;
+                }
+                if (run_coll(coll_x + CUBE_WIDTH, coll_y + CUBE_HEIGHT, layer)) {
+                    return;
+                }
             }
-            if (run_coll(coll_x + CUBE_WIDTH, coll_y + CUBE_HEIGHT)) {
-                return;
-            }
-        }
-    } else {
-        if (player_y_speed < 0) {
-            // Going up
-            coll_x = player_x >> 8;
-            coll_y = player_y >> 8;
+        } else {
+            if (player_y_speed < 0) {
+                // Going up
+                coll_x = player_x >> 8;
+                coll_y = player_y >> 8;
 
-            if (run_coll(coll_x, coll_y)) {
-                return;
-            }
-            if (run_coll(coll_x + CUBE_WIDTH, coll_y)) {
-                return;
+                if (run_coll(coll_x, coll_y, layer)) {
+                    return;
+                }
+                if (run_coll(coll_x + CUBE_WIDTH, coll_y, layer)) {
+                    return;
+                }
             }
         }
     }
 }
 
-u16 obtain_block(u32 x, u32 y) {
+u16 obtain_block(u32 x, u32 y, u32 layer) {
     u32 block_x = (x >> 4) & 0x1f; // Get block x in buffer (0-31)
     u32 block_y = y >> 4;          // Get block y in buffer, not capped for easy level vertical extension
 
-    return level_buffer[block_x + block_y * LEVEL_BUFFER_WIDTH];
+    return level_buffer[layer][block_x + block_y * LEVEL_BUFFER_WIDTH];
 }
 
-u16 obtain_collision_type(u32 x, u32 y) {
+u16 obtain_collision_type(u32 x, u32 y, u32 layer) {
     // Obtain the col type from the table, indexed by metatile ID
-    return metatiles[obtain_block(x,y)][4];
+    return metatiles[obtain_block(x,y,layer)][4];
 }
 
 u32 col_type_lookup(u16 col_type, u32 x, u32 y) {
@@ -98,7 +100,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y) {
     return 1;
 }
 
-u32 run_coll(u32 x, u32 y) {
-    u16 col_type = obtain_collision_type(x, y);
+u32 run_coll(u32 x, u32 y, u32 layer) {
+    u16 col_type = obtain_collision_type(x, y, layer);
     return col_type_lookup(col_type, x, y);
 }

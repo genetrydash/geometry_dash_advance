@@ -3,9 +3,9 @@
 
 .section .rodata
 .align 2
-.global stereomadness_level_data
-.hidden stereomadness_level_data
-stereomadness_level_data:
+.global stereomadness_l1_level_data
+.hidden stereomadness_l1_level_data
+stereomadness_l1_level_data:
     .hword 0
     .hword 485    @ Value 0 repeats 485 times
     .hword 1
