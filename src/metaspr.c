@@ -13,6 +13,14 @@ const u16 playerSpr[] = {
     0xffff
 };
 
+const u16 shipSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
+    ATTR2_PALBANK(0) | 4,
+    0,
+    0xffff
+};
+
 // TODO: figure out affine sprites
 void oam_metaspr(u16 x, u8 y, const u16 *data) {
     u32 i = 0;

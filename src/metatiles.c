@@ -7,7 +7,7 @@
 #define V_FLIP 1
 
 // Goes like this TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT, COL_TYPE
-SCR_ENTRY metatiles[][5] = {
+const SCR_ENTRY metatiles[][5] = {
     Metatile("AIR",            SE_BUILD(0x00, 0, 0, 0), SE_BUILD(0x00, 0, 0, 0), SE_BUILD(0x00, 0, 0, 0), SE_BUILD(0x00, 0, 0, 0), COL_NONE)
     Metatile("SPIKE_UP",       SE_BUILD(0x00, 0, 0, 0), SE_BUILD(0x00, 0, 0, 0), SE_BUILD(0x00, 0, 0, 0), SE_BUILD(0x00, 0, 0, 0), COL_NONE)
     Metatile("BASIC_BLOCK",    SE_BUILD(0x0e, 0, 0, 0), SE_BUILD(0x0f, 0, 0, 0), SE_BUILD(0x10, 0, 0, 0), SE_BUILD(0x11, 0, 0, 0), COL_ALL)

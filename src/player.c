@@ -18,25 +18,11 @@ u8 gravity_dir;
 u8 on_floor;
 
 // Current player gamemode
-u8 gamemode;
+u8 gamemode = 1;
 
 // Cube rotation angle
 u16 cube_rotation = 0;
 
-// Gamemode IDs
-enum GAMEMODE_TYPE {
-    CUBE,
-    SHIP
-};
-
-// Portal speed IDs
-enum SPEEDS {
-    SPEED_X05,
-    SPEED_X1,
-    SPEED_X2,
-    SPEED_X3,
-    SPEED_X4,
-};
 // in subpixels
 const u16 speed_constants[] = {
     0x23B, // x0.5
@@ -49,10 +35,11 @@ const u16 speed_constants[] = {
 // Current speed portal
 u8 speed_portal = SPEED_X1;
 
-// in subpixels
-#define CUBE_GRAVITY 0x6B
-#define CUBE_MAX_Y_SPEED 0x600
-#define CUBE_JUMP_SPEED 0x590
+
+// Draw player
+u8 x_offset;
+u8 y_offset;
+
 
 #define TOP_SCROLL_Y 0x2c
 #define BOTTOM_SCROLL_Y SCREEN_HEIGHT-0x2c
@@ -104,13 +91,10 @@ void player_main() {
     }
 
     relative_player_y = ((player_y >> 8) - scroll_y);
-    // Draw player
-    u8 x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
-    u8 y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
-    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr);
-    obj_aff_identity(&obj_aff_buffer[0]);
-
-    obj_aff_rotate(&obj_aff_buffer[0], cube_rotation);
+    
+    x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
+    y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
+    
 
     // Gamemode specific routines
     switch (gamemode) {
@@ -121,6 +105,9 @@ void player_main() {
             ship_gamemode();
             break;
     }
+    obj_aff_identity(&obj_aff_buffer[0]);
+
+    obj_aff_rotate(&obj_aff_buffer[0], cube_rotation);
 
     // Update player x
     player_x += player_x_speed;
@@ -128,6 +115,10 @@ void player_main() {
     on_floor = 0;
 }
 
+// in subpixels
+#define CUBE_GRAVITY 0x6B
+#define CUBE_MAX_Y_SPEED 0x600
+#define CUBE_JUMP_SPEED 0x590
 
 void cube_gamemode() {
     gravity = CUBE_GRAVITY;
@@ -156,8 +147,34 @@ void cube_gamemode() {
     
     // Apply y speed
     player_y += player_y_speed;
+
+    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr);
 }
 
+// in subpixels
+#define SHIP_GRAVITY 0x20
+#define SHIP_GRAVITY_HOLDING 0x28
+#define SHIP_MAX_Y_SPEED 0x2B0
+
 void ship_gamemode() {
-    // TODO: ship gamemode
+    u8 sign = gravity_dir ? -1 : 1;
+
+    if (key_held(KEY_A | KEY_UP)) {
+        cube_rotation = (-(player_y_speed * sign) >> 7) * 0x700; 
+
+        gravity = SHIP_GRAVITY_HOLDING;
+        player_y_speed -= gravity * sign;
+    } else {
+        cube_rotation = (-(player_y_speed * sign) >> 7) * 0x700; 
+
+        gravity = SHIP_GRAVITY;
+        player_y_speed += gravity * sign;
+    }
+    
+    player_y_speed = CLAMP(player_y_speed, -SHIP_MAX_Y_SPEED, SHIP_MAX_Y_SPEED);
+    
+    // Apply y speed
+    player_y += player_y_speed;
+
+    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipSpr);
 }

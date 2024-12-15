@@ -1,3 +1,3 @@
 #include <tonc.h>
 
-extern SCR_ENTRY metatiles[][5];
+extern const SCR_ENTRY metatiles[][5];

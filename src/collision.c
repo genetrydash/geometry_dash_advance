@@ -14,36 +14,84 @@ u16 coll_y;
 // Collision eject
 u32 eject = 0;
 
-u32 run_coll(u32 x, u32 y, u32 layer);
+enum COL_SIDES {
+    TOP,
+    BOTTOM,
+    RIGHT
+};
+
+u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
+void collision_cube();
+void collision_ship();
 
 void collision_main() {
     // TODO: right side collision and death stuff
+    switch (gamemode) {
+        case CUBE:
+            collision_cube();
+            break;
+        case SHIP:
+            collision_ship();
+            break;
+    }
+}
+
+void collision_cube() {
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         if (!gravity_dir) {
-            if (player_y_speed > 0) {
+            if (player_y_speed >= 0) {
                 // Going down
                 coll_x = player_x >> 8;
                 coll_y = player_y >> 8;
                 
-                if (run_coll(coll_x, coll_y + CUBE_HEIGHT, layer)) {
+                if (run_coll(coll_x, coll_y + CUBE_HEIGHT, layer, BOTTOM)) {
                     return;
                 }
-                if (run_coll(coll_x + CUBE_WIDTH, coll_y + CUBE_HEIGHT, layer)) {
+                if (run_coll(coll_x + CUBE_WIDTH, coll_y + CUBE_HEIGHT, layer, BOTTOM)) {
                     return;
                 }
             }
         } else {
-            if (player_y_speed < 0) {
+            if (player_y_speed <= 0) {
                 // Going up
                 coll_x = player_x >> 8;
                 coll_y = player_y >> 8;
 
-                if (run_coll(coll_x, coll_y, layer)) {
+                if (run_coll(coll_x, coll_y, layer, TOP)) {
                     return;
                 }
-                if (run_coll(coll_x + CUBE_WIDTH, coll_y, layer)) {
+                if (run_coll(coll_x + CUBE_WIDTH, coll_y, layer, TOP)) {
                     return;
                 }
+            }
+        }
+    }
+}
+
+void collision_ship() {
+    for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
+        if (player_y_speed >= 0) {
+            // Going down
+            coll_x = player_x >> 8;
+            coll_y = (player_y >> 8) + ((0x10 - SHIP_HEIGHT) >> 1);
+            
+            if (run_coll(coll_x, coll_y + SHIP_HEIGHT, layer, BOTTOM)) {
+                return;
+            }
+            if (run_coll(coll_x + SHIP_WIDTH, coll_y + SHIP_HEIGHT, layer, BOTTOM)) {
+                return;
+            }
+        }
+        if (player_y_speed <= 0) {
+            // Going up
+            coll_x = player_x >> 8;
+            coll_y = (player_y >> 8) + ((0x10 - SHIP_HEIGHT) >> 1);
+
+            if (run_coll(coll_x, coll_y, layer, TOP)) {
+                return;
+            }
+            if (run_coll(coll_x + SHIP_WIDTH, coll_y, layer, TOP)) {
+                return;
             }
         }
     }
@@ -61,7 +109,7 @@ u16 obtain_collision_type(u32 x, u32 y, u32 layer) {
     return metatiles[obtain_block(x,y,layer)][4];
 }
 
-u32 col_type_lookup(u16 col_type, u32 x, u32 y) {
+u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     // Positions inside block, top left pixel is [0,0]
     u32 x_inside_block = (x & 0x0f);
     u32 y_inside_block = (y & 0x0f);
@@ -75,7 +123,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y) {
             break;
         case COL_SLAB_TOP:
             if (y_inside_block < 0x8) {
-                eject = y_inside_block;
+                eject = y_inside_block & 0x07;
                 break;
             }
             return 0;
@@ -92,15 +140,18 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y) {
 
     // Set related vars and set new player y position
     player_y_speed = 0;
-    player_y &= 0xffffff00;
-    player_y -= eject << 8;
+    if (side == TOP) {
+        player_y -= (eject | 0xfffffff8) << 8;
+    } else if (side == BOTTOM) {   
+        player_y -= eject << 8;
+    }
 
     // We are on the floor so allow jumping and stuff
     on_floor = 1;
     return 1;
 }
 
-u32 run_coll(u32 x, u32 y, u32 layer) {
+u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
     u16 col_type = obtain_collision_type(x, y, layer);
-    return col_type_lookup(col_type, x, y);
+    return col_type_lookup(col_type, x, y, side);
 }
