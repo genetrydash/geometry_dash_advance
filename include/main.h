@@ -4,6 +4,7 @@
 #include "chr.h"
 #include "player.h"
 #include "collision.h"
+#include "decompression.h"
 
 extern u64 scroll_x;
 extern u32 scroll_y;
