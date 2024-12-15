@@ -56,4 +56,9 @@ SCR_ENTRY metatiles[][5] = {
     
     Metatile("BASIC_BLOCK_DARK",    SE_BUILD(0x26, 0, 0, 0), SE_BUILD(0x27, 0, 0, 0), SE_BUILD(0x28, 0, 0, 0), SE_BUILD(0x29, 0, 0, 0), COL_ALL)
     
+    Metatile("SLAB_UP",    SE_BUILD(0x4e, 0, 0, 0), SE_BUILD(0x4f, 0, 0, 0),      SE_BUILD(0x00, 0, 0, 0),      SE_BUILD(0x00, 0, 0, 0),      COL_SLAB_TOP)
+    Metatile("SLAB_DOWN",  SE_BUILD(0x00, 0, 0, 0), SE_BUILD(0x00, 0, 0, 0),      SE_BUILD(0x4e, 0, 0, V_FLIP), SE_BUILD(0x4f, 0, 0, V_FLIP), COL_SLAB_BOTTOM)
+    Metatile("SLAB_LEFT",  SE_BUILD(0x50, 0, 0, 0), SE_BUILD(0x00, 0, 0, 0),      SE_BUILD(0x51, 0, 0, 0),      SE_BUILD(0x00, 0, 0, 0),      COL_NONE)
+    Metatile("SLAB_RIGHT", SE_BUILD(0x00, 0, 0, 0), SE_BUILD(0x50, 0, H_FLIP, 0), SE_BUILD(0x00, 0, 0, 0),      SE_BUILD(0x51, 0, H_FLIP, 0), COL_NONE)
+    
 };

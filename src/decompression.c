@@ -83,7 +83,7 @@ void scroll_H(u32 layer) {
             s32 tile = metatiles[metatile][(x & 1) | ((y & 1) << 1)];
 
             // Put tile and advance to next tile
-            se_plot(&se_mem[16 + layer][0], x, y, tile);
+            se_plot(&se_mem[24 + layer][0], x, y, tile);
             seam_y += 8;
         }
     }   
@@ -107,7 +107,7 @@ void scroll_V(u32 layer) {
             s32 tile = metatiles[metatile][(x & 1) | ((y & 1) << 1)];
 
             // Put tile and advance to next tile
-            se_plot(&se_mem[16 + layer][0], x, y, tile);
+            se_plot(&se_mem[24 + layer][0], x, y, tile);
             seam_x += 8;
         }
     }

@@ -1,3 +1,4 @@
 #include <tonc.h>
 
-extern u8 blockset[16*1024];
+extern TILE blockset[1024];
+extern TILE player0_icon[1024];

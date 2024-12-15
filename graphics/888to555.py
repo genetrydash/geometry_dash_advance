@@ -39,22 +39,8 @@ def convert_list_rgb888_to_rgb555_24bit(rgb888_list):
 if __name__ == "__main__":
     # List of RGB888 colors as 24-bit integers
     rgb888_list = [
-        0x0000F8,
-        0x0000D0,
-        0x0000A8,
-        0x000078,
-        0x000050,
-        0x000028,
-        0x000000,
-        0x5050F8,
-        0xA8A8F8,
-        0xF8F8F8,
-        0x5000A8,
-        0x800078,
-        0xA80050,
-        0xD00028,
-        0xF80000,
-        0xF8F800
+        0x001800, 0x005008, 0x006800, 0x00F820, 0x00C058, 0x008890, 0x0020F8, 0x000850, 0x000018, 0xffffff, 0x00FFFF
+
     ]
     
     # Convert the list
@@ -62,4 +48,4 @@ if __name__ == "__main__":
     
     # Display results
     for original, converted in zip(rgb888_list, converted_colors):
-        print(f"RGB888: 0x{original:06X} -> RGB555: 0x{converted:04X}")
+        print(f"0x{converted:04X}, ", end="")
