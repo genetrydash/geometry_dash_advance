@@ -21,11 +21,16 @@ const u16 shipSpr[] = {
     0xffff
 };
 
+const u16 *obj_sprites[] = {
+    playerSpr,
+    shipSpr
+};
+
 // TODO: figure out affine sprites
 void oam_metaspr(u16 x, u8 y, const u16 *data) {
     u32 i = 0;
     // Continue until end of data
-    while (data[i] != 0xffff) {
+    while (data[i] != 0xffff && i < 128) {
         // Get next sprite slot
         OAM_SPR *newSpr = &shadow_oam[nextSpr];
         // Set attributes

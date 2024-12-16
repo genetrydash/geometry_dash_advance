@@ -17,3 +17,15 @@ u8 curr_level_height;
 
 // Pointer to level data for decompression
 u16 *level_pointer[LEVEL_LAYERS];
+
+// Scroll variables
+// in pixels
+u64 scroll_x = 0;
+u32 scroll_y = 0;
+
+// both variables are in subpixels
+u16 scroll_x_subacc = 0;
+u16 scroll_y_subacc = 0;
+
+// 0 : up | 1 : down
+s8 scroll_y_dir = 0;

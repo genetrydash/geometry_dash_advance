@@ -3,17 +3,6 @@
 #include "memory.h"
 #include "metatiles.h"
 
-// in pixels
-u64 scroll_x = 0;
-u32 scroll_y = 0;
-
-// both variables are in subpixels
-u16 scroll_x_subacc = 0;
-u16 scroll_y_subacc = 0;
-
-// 0 : up | 1 : down
-s8 scroll_y_dir = 0;
-
 s32 main() {
     // Enable BG 0, 1 and 2, also enable sprites
     REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2;
@@ -42,6 +31,7 @@ s32 main() {
     // TODO: put this in a function and call it on death, also unhardcode it
     level_pointer[0] = (u16*) &stereomadness_l1_level_data;
     level_pointer[1] = (u16*) &stereomadness_l2_level_data;
+    sprite_pointer = (u32*) &stereomadness_spr_data;
     
     // Level height
     curr_level_height = STEREOMADNESS_LEVEL_HEIGHT;
@@ -68,11 +58,15 @@ s32 main() {
         obj_copy(oam_mem, shadow_oam, 128);
         obj_aff_copy(obj_aff_mem, obj_aff_buffer, 1);
 
-        // Run player routines
-        player_main();
 
 		REG_BG0HOFS = REG_BG1HOFS = scroll_x;
 		REG_BG0VOFS = REG_BG1VOFS = scroll_y;
+        
+        // Run player routines
+        player_main();
+
+        display_objects();
+        load_next_object();
 
         // Run scroll routines
         screen_scroll_load();

@@ -6,8 +6,10 @@
 .global stereomadness_l1_level_data
 .hidden stereomadness_l1_level_data
 stereomadness_l1_level_data:
+    .hword 1
+    .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 485    @ Value 0 repeats 485 times
+    .hword 484    @ Value 0 repeats 484 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
@@ -1236,996 +1238,324 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 9 repeats 1 times
     .hword 7
     .hword 3    @ Value 7 repeats 3 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
     .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 935    @ Value 0 repeats 935 times
     .hword 20
     .hword 2    @ Value 20 repeats 2 times
     .hword 17
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
-    .hword 7    @ Value 0 repeats 7 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 348    @ Value 0 repeats 348 times
     .hword 17
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 17
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
     .hword 8    @ Value 0 repeats 8 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
     .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 8    @ Value 0 repeats 8 times
+    .hword 349    @ Value 0 repeats 349 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
     .hword 1    @ Value 20 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 1
+    .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 233    @ Value 0 repeats 233 times
     .hword 20
     .hword 1    @ Value 20 repeats 1 times
     .hword 17
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
-    .hword 8    @ Value 0 repeats 8 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 25    @ Value 0 repeats 25 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 9    @ Value 0 repeats 9 times
+    .hword 143    @ Value 0 repeats 143 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
     .hword 0
-    .hword 8    @ Value 0 repeats 8 times
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 1
+    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 1
+    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 25    @ Value 0 repeats 25 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
     .hword 1    @ Value 20 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 7    @ Value 0 repeats 7 times
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 1
+    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 1
+    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 1
+    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 24    @ Value 0 repeats 24 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
     .hword 2    @ Value 20 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
     .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 0
-    .hword 10    @ Value 0 repeats 10 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 206    @ Value 0 repeats 206 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 20
     .hword 3    @ Value 20 repeats 3 times
     .hword 17
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
-    .hword 6    @ Value 0 repeats 6 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 23    @ Value 0 repeats 23 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 9    @ Value 0 repeats 9 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 6
     .hword 2    @ Value 6 repeats 2 times
     .hword 10
@@ -2235,9 +1565,9 @@ stereomadness_l1_level_data:
     .hword 8
     .hword 1    @ Value 8 repeats 1 times
     .hword 6
-    .hword 18    @ Value 6 repeats 18 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 2    @ Value 6 repeats 2 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2248,10 +1578,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2262,10 +1590,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2276,10 +1602,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2290,10 +1614,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2304,10 +1626,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2318,10 +1638,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2332,10 +1650,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2346,10 +1662,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2360,10 +1674,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2374,10 +1686,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2388,10 +1698,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 2
-    .hword 16    @ Value 2 repeats 16 times
-    .hword 1
-    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -2402,10 +1710,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 14
@@ -2418,10 +1724,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 6
-    .hword 16    @ Value 6 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 0
+    .hword 17    @ Value 0 repeats 17 times
     .hword 7
     .hword 3    @ Value 7 repeats 3 times
     .hword 11
@@ -5150,8 +4454,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 22 repeats 1 times
     .hword 5
     .hword 1    @ Value 5 repeats 1 times
-    .hword 47
-    .hword 1    @ Value 47 repeats 1 times
+    .hword 0
+    .hword 1    @ Value 0 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5174,8 +4478,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 22 repeats 1 times
     .hword 5
     .hword 1    @ Value 5 repeats 1 times
-    .hword 47
-    .hword 1    @ Value 47 repeats 1 times
+    .hword 0
+    .hword 1    @ Value 0 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5198,8 +4502,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 22 repeats 1 times
     .hword 5
     .hword 1    @ Value 5 repeats 1 times
-    .hword 47
-    .hword 1    @ Value 47 repeats 1 times
+    .hword 0
+    .hword 1    @ Value 0 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5222,8 +4526,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 7 repeats 1 times
     .hword 5
     .hword 1    @ Value 5 repeats 1 times
-    .hword 47
-    .hword 1    @ Value 47 repeats 1 times
+    .hword 0
+    .hword 1    @ Value 0 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23

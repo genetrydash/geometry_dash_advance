@@ -14,3 +14,11 @@ extern EWRAM_DATA u16 level_buffer[LEVEL_LAYERS][MAX_LEVEL_HEIGHT*LEVEL_BUFFER_W
 extern u8 curr_column;
 extern u8 curr_level_height;
 extern u16 *level_pointer[2];
+
+extern u64 scroll_x;
+extern u32 scroll_y;
+
+extern u16 scroll_x_subacc;
+extern u16 scroll_y_subacc;
+
+extern s8 scroll_y_dir;
