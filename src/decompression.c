@@ -24,7 +24,7 @@ void decompress_first_screen() {
     // Decompress the first screen
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         curr_column = 0;
-        seam_x = scroll_x;
+        seam_x = scroll_x >> 8;
         // Init RLE values for this layer
         value[layer] = *level_pointer[layer];
         level_pointer[layer]++;
@@ -36,7 +36,7 @@ void decompress_first_screen() {
             put_ground_column();
             // Draw this column
             for (s32 j = 0; j < 2; j++) {
-                seam_y = scroll_y;
+                seam_y = scroll_y >> 8;
                 scroll_H(layer);
                 seam_x += 8;
             }
@@ -115,7 +115,7 @@ void scroll_V(u32 layer) {
 
 void screen_scroll_load() {
     // If the scroll x value changed block position, decompress a new column in both layers
-    if (decompressed_column != ((scroll_x >> 4) & 0xff)) {
+    if (decompressed_column != ((scroll_x >> 12) & 0xff)) {
         decompress_column(0);
         decompress_column(1);
         put_ground_column();
@@ -126,20 +126,20 @@ void screen_scroll_load() {
     
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Draw horizontal seam
-        seam_x = scroll_x + SCREEN_WIDTH;
-        seam_y = scroll_y;
+        seam_x = (scroll_x >> 8) + SCREEN_WIDTH;
+        seam_y = scroll_y >> 8;
         
         scroll_H(layer);
 
         // Draw bottom seam
-        seam_x = scroll_x;
-        seam_y = scroll_y + SCREEN_HEIGHT;
+        seam_x = scroll_x >> 8;
+        seam_y = (scroll_y >> 8) + SCREEN_HEIGHT;
         
         scroll_V(layer);
         
         // Draw top seam
-        seam_x = scroll_x;
-        seam_y = scroll_y - 8;
+        seam_x = scroll_x >> 8;
+        seam_y = (scroll_y >> 8) - 8;
             
         scroll_V(layer);
     }

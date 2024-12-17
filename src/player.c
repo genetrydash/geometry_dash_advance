@@ -36,8 +36,8 @@ const u16 speed_constants[] = {
     0x51E  // x4
 };
 
-// Current speed portal
-u8 speed_portal = SPEED_X1;
+// Current speed ID
+u8 speed_id = SPEED_X1;
 
 
 // Draw player
@@ -52,54 +52,26 @@ void cube_gamemode();
 void ship_gamemode();
 
 void player_main() {    
-    // Run collision
-    collision_main();
-
     // Set player speed
-    player_x_speed = speed_constants[speed_portal];
+    player_x_speed = speed_constants[speed_id];
+
+    // Update player x
+    player_x += player_x_speed;
+    
+    // This scrolls the screen on the x axis
+    if (relative_player_x >= 0x50) {
+        scroll_x += player_x_speed;
+    }
 
     // This scrolls the screen on the y axis
     if (relative_player_y >= BOTTOM_SCROLL_Y && player_y_speed > 0) {
-        scroll_y_subacc += player_y_speed & 0xff;
         scroll_y_dir = 1;
-        // If there was an overflow, add 1 to scroll y
-        if (scroll_y_subacc > 0xff) {
-            scroll_y++;
-            scroll_y_subacc &= 0xff;
-        }
-        scroll_y += player_y_speed >> 8;
-    } else if (relative_player_y <= TOP_SCROLL_Y && player_y_speed < 0) {
-        scroll_y_subacc += player_y_speed & 0xff;
+        scroll_y += player_y_speed;
+    } else if (relative_player_y <= TOP_SCROLL_Y && player_y_speed < 0) { 
         scroll_y_dir = 0;
-        // If there was an overflow, add 1 to scroll y
-        if (scroll_y_subacc > 0xff) {
-            scroll_y++;
-            scroll_y_subacc &= 0xff;
-        }
-        scroll_y += player_y_speed >> 8;
+        scroll_y += player_y_speed;
     }
     
-    if (player_x >= 0x5000) {
-        scroll_x_subacc += player_x_speed & 0xff;
-        // Set relative x to 0x50 so it doesn't jitter in place
-        relative_player_x = 0x50;
-        // If there was an overflow last frame, add 1 to scroll x
-        if (scroll_x_subacc > 0xff) {
-            scroll_x++;
-            scroll_x_subacc &= 0xff;
-        }
-        scroll_x += player_x_speed >> 8;
-    } else {
-        // Calculate relative positions on screen
-        relative_player_x = ((player_x >> 8) - scroll_x);
-    }
-
-    relative_player_y = ((player_y >> 8) - scroll_y);
-    
-    x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
-    y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
-    
-
     // Gamemode specific routines
     switch (gamemode) {
         case CUBE:
@@ -112,11 +84,6 @@ void player_main() {
     obj_aff_identity(&obj_aff_buffer[0]);
 
     obj_aff_rotate(&obj_aff_buffer[0], cube_rotation);
-
-    // Update player x
-    player_x += player_x_speed;
-
-    on_floor = 0;
 }
 
 // in subpixels
@@ -140,8 +107,7 @@ void cube_gamemode() {
 
     // If on floor and holding A or UP, jump
     if (on_floor && key_held(KEY_A | KEY_UP)) {
-        player_y_speed += (gravity_dir ? CUBE_JUMP_SPEED : -CUBE_JUMP_SPEED);
-        
+        player_y_speed += (gravity_dir ? CUBE_JUMP_SPEED : -CUBE_JUMP_SPEED);        
     }
 
     // If the cube is on the air, rotate, else, snap to nearest 
@@ -150,9 +116,18 @@ void cube_gamemode() {
     } else {
         cube_rotation = (cube_rotation + 0x2000) & 0xC000;
     }
-    
-    // Apply y speed
+
+    // Apply player y
     player_y += player_y_speed;
+
+    // Run collision
+    collision_cube();
+
+    relative_player_x = (player_x - scroll_x) >> 8;
+    relative_player_y = (player_y - scroll_y) >> 8;
+
+    x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
+    y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
 
     oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr);
 }
@@ -181,9 +156,18 @@ void ship_gamemode() {
     }
     
     player_y_speed = CLAMP(player_y_speed, -SHIP_MAX_Y_SPEED, SHIP_MAX_Y_SPEED);
-    
-    // Apply y speed
+
+    // Apply player y
     player_y += player_y_speed;
+
+    // Run collision
+    collision_ship();
+
+    relative_player_x = (player_x - scroll_x) >> 8;
+    relative_player_y = (player_y - scroll_y) >> 8;
+
+    x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
+    y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
 
     oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipSpr);
 }

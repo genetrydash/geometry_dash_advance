@@ -33,7 +33,7 @@ extern s16 player_y_speed;
 extern s16 gravity;
 extern u8 gravity_dir;
 
-extern u8 speed_portal;
+extern u8 speed_id;
 
 extern u8 gamemode;
 

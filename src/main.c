@@ -38,11 +38,11 @@ s32 main() {
     curr_level_height = STEREOMADNESS_LEVEL_HEIGHT;
 
     player_y = ((GROUND_HEIGHT - 1) << 12);
-    scroll_y = ((player_y) - 0x7000) >> 8;
+    scroll_y = (player_y) - 0x7000;
 
     // Set seam position 
-    seam_x = scroll_x;
-    seam_y = scroll_y;
+    seam_x = scroll_x >> 8;
+    seam_y = scroll_y >> 8;
     
     decompress_first_screen();
 
@@ -60,18 +60,20 @@ s32 main() {
         obj_aff_copy(obj_aff_mem, obj_aff_buffer, 1);
 
 
-		REG_BG0HOFS = REG_BG1HOFS = scroll_x;
-		REG_BG0VOFS = REG_BG1VOFS = scroll_y;
+		REG_BG0HOFS = REG_BG1HOFS = scroll_x >> 8;
+		REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
         
+        // Run scroll routines
+        screen_scroll_load();
+
+        // END OF VBLANK STUFF
+
         // Run player routines
         player_main();
 
+        // Run object routines
         display_objects();
         load_next_object();
-        check_obj_collision();
-
-        // Run scroll routines
-        screen_scroll_load();
     }
 
     return 0;

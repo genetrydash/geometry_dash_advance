@@ -1,6 +1,7 @@
 #include <tonc.h>
 
-void collision_main();
+void collision_cube();
+void collision_ship();
 
 #define GROUND_TILE_1 2
 #define GROUND_TILE_2 2

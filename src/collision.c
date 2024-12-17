@@ -21,22 +21,9 @@ enum COL_SIDES {
 };
 
 u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
-void collision_cube();
-void collision_ship();
-
-void collision_main() {
-    // TODO: right side collision and death stuff
-    switch (gamemode) {
-        case CUBE:
-            collision_cube();
-            break;
-        case SHIP:
-            collision_ship();
-            break;
-    }
-}
 
 void collision_cube() {
+    on_floor = 0;
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         if (!gravity_dir) {
             if (player_y_speed >= 0) {
@@ -69,6 +56,7 @@ void collision_cube() {
 }
 
 void collision_ship() {
+    on_floor = 0;
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         if (player_y_speed >= 0) {
             // Going down
@@ -141,13 +129,22 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     // Set related vars and set new player y position
     player_y_speed = 0;
     if (side == TOP) {
+        if (gravity_dir) {
+            // We are resting on the ceiling so allow jumping and stuff
+            on_floor = 1;
+        }
         player_y -= (eject | 0xfffffff8) << 8;
     } else if (side == BOTTOM) {   
+        if (!gravity_dir) {
+            // We are resting on the floor so allow jumping and stuff
+            on_floor = 1;
+        }
         player_y -= eject << 8;
     }
+    // Remove subpixels
+    player_y &= 0xffffff00;
+    scroll_y &= 0xffffff00;
 
-    // We are on the floor so allow jumping and stuff
-    on_floor = 1;
     return 1;
 }
 

@@ -6,6 +6,7 @@
 #define LEVEL_LAYERS 2
 
 typedef OBJ_ATTR OAM_SPR;
+#define UNUSED __unused
 
 extern OAM_SPR shadow_oam[128];
 extern OBJ_AFFINE *obj_aff_buffer;
@@ -17,8 +18,5 @@ extern u16 *level_pointer[2];
 
 extern u64 scroll_x;
 extern u32 scroll_y;
-
-extern u16 scroll_x_subacc;
-extern u16 scroll_y_subacc;
 
 extern s8 scroll_y_dir;
