@@ -44,10 +44,10 @@ void collision_cube() {
                 coll_x = player_x >> 8;
                 coll_y = player_y >> 8;
                 
-                if (run_coll(coll_x, coll_y + CUBE_HEIGHT, layer, BOTTOM)) {
+                if (run_coll(coll_x, coll_y + player_height, layer, BOTTOM)) {
                     return;
                 }
-                if (run_coll(coll_x + CUBE_WIDTH, coll_y + CUBE_HEIGHT, layer, BOTTOM)) {
+                if (run_coll(coll_x + player_width, coll_y + player_height, layer, BOTTOM)) {
                     return;
                 }
             }
@@ -60,7 +60,7 @@ void collision_cube() {
                 if (run_coll(coll_x, coll_y, layer, TOP)) {
                     return;
                 }
-                if (run_coll(coll_x + CUBE_WIDTH, coll_y, layer, TOP)) {
+                if (run_coll(coll_x + player_width, coll_y, layer, TOP)) {
                     return;
                 }
             }
@@ -73,24 +73,24 @@ void collision_ship() {
         if (player_y_speed >= 0) {
             // Going down
             coll_x = player_x >> 8;
-            coll_y = (player_y >> 8) + ((0x10 - SHIP_HEIGHT) >> 1);
+            coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
             
-            if (run_coll(coll_x, coll_y + SHIP_HEIGHT, layer, BOTTOM)) {
+            if (run_coll(coll_x, coll_y + player_height, layer, BOTTOM)) {
                 return;
             }
-            if (run_coll(coll_x + SHIP_WIDTH, coll_y + SHIP_HEIGHT, layer, BOTTOM)) {
+            if (run_coll(coll_x + player_width, coll_y + player_height, layer, BOTTOM)) {
                 return;
             }
         }
         if (player_y_speed <= 0) {
             // Going up
             coll_x = player_x >> 8;
-            coll_y = (player_y >> 8) + ((0x10 - SHIP_HEIGHT) >> 1);
+            coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
 
             if (run_coll(coll_x, coll_y, layer, TOP)) {
                 return;
             }
-            if (run_coll(coll_x + SHIP_WIDTH, coll_y, layer, TOP)) {
+            if (run_coll(coll_x + player_width, coll_y, layer, TOP)) {
                 return;
             }
         }

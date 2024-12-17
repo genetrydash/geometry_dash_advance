@@ -21,10 +21,11 @@ s32 main() {
 
     // Init OAM and VRAM
     oam_init(shadow_oam, 128);
-    memcpy32(&tile_mem[0][0], blockset, sizeof(blockset) / sizeof(TILE));
+    memcpy32(&tile_mem[0][0], blockset, sizeof(blockset) / 4);
 	memcpy16(pal_bg_mem, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
 
-    memcpy32(&tile_mem_obj[0][0], player0_icon, sizeof(player0_icon) / sizeof(TILE));
+    memcpy32(&tile_mem_obj[0][0], player0_icon, sizeof(player0_icon) / 4);
+    memcpy32(&tile_mem_obj[0][64], sprites_chr, sizeof(sprites_chr) / 4);
     //memcpy32(&tile_mem_obj[0][4], portal_pngTiles, portal_pngTilesLen / sizeof(u32));
 	memcpy16(pal_obj_mem, spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
@@ -67,6 +68,7 @@ s32 main() {
 
         display_objects();
         load_next_object();
+        check_obj_collision();
 
         // Run scroll routines
         screen_scroll_load();

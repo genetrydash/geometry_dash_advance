@@ -1714,12 +1714,10 @@ stereomadness_l1_level_data:
     .hword 17    @ Value 0 repeats 17 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 14
-    .hword 1    @ Value 14 repeats 1 times
-    .hword 10
-    .hword 1    @ Value 10 repeats 1 times
+    .hword 5
+    .hword 1    @ Value 5 repeats 1 times
     .hword 0
-    .hword 3    @ Value 0 repeats 3 times
+    .hword 4    @ Value 0 repeats 4 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
@@ -1727,11 +1725,11 @@ stereomadness_l1_level_data:
     .hword 0
     .hword 17    @ Value 0 repeats 17 times
     .hword 7
-    .hword 3    @ Value 7 repeats 3 times
+    .hword 2    @ Value 7 repeats 2 times
     .hword 11
     .hword 1    @ Value 11 repeats 1 times
     .hword 0
-    .hword 3    @ Value 0 repeats 3 times
+    .hword 4    @ Value 0 repeats 4 times
     .hword 9
     .hword 1    @ Value 9 repeats 1 times
     .hword 13

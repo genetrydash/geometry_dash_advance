@@ -24,6 +24,9 @@ enum SPEEDS {
 extern u64 player_x;
 extern u32 player_y;
 
+extern u16 player_width;
+extern u16 player_height;
+
 extern s16 player_x_speed;
 extern s16 player_y_speed;
 

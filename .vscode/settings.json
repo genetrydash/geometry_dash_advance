@@ -26,6 +26,7 @@
         "decompression.h": "c",
         "sprite_loading.h": "c",
         "stereomadness_l2.h": "c",
-        "levels.h": "c"
+        "levels.h": "c",
+        "typeinfo": "c"
     }
 }

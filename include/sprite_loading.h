@@ -7,3 +7,4 @@ extern u32 *sprite_pointer;
 
 void load_next_object();
 void display_objects();
+void check_obj_collision();

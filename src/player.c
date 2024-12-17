@@ -4,6 +4,10 @@
 u64 player_x; // gota love giant levels
 u32 player_y;
 
+// Player dimensions, in pixels
+u16 player_width;
+u16 player_height;
+
 // Speed variables, in subpixels/frame
 s16 player_x_speed;
 s16 player_y_speed;
@@ -18,7 +22,7 @@ u8 gravity_dir;
 u8 on_floor;
 
 // Current player gamemode
-u8 gamemode = 1;
+u8 gamemode = CUBE;
 
 // Cube rotation angle
 u16 cube_rotation = 0;
@@ -122,6 +126,8 @@ void player_main() {
 
 void cube_gamemode() {
     gravity = CUBE_GRAVITY;
+    player_width = CUBE_WIDTH;
+    player_height = CUBE_HEIGHT;
     
     // Depending on which direction the gravity points, apply gravity and cap speed in one direction or in the other
     if (gravity_dir) {
@@ -157,6 +163,9 @@ void cube_gamemode() {
 #define SHIP_MAX_Y_SPEED 0x2B0
 
 void ship_gamemode() {
+    player_width = SHIP_WIDTH;
+    player_height = SHIP_HEIGHT;
+
     u8 sign = gravity_dir ? -1 : 1;
 
     if (key_held(KEY_A | KEY_UP)) {
