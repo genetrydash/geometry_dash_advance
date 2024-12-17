@@ -52,14 +52,15 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                     out_file.write(f"   .word {hex(x)}\n")
                     out_file.write(f"   .hword {hex(y)}\n")
                     out_file.write(f"   .hword {hex(gid)}\n")
-                print(f"Objects exported to {output_s_path}")
                 out_file.write(f"   .byte 0xff\n")
+                print(f"Object data size: {len(objects) * 8 + 1} B")
+                print(f"Exported object data to {output_s_path} and {output_h_path}")
             with open(output_h_path, 'w') as file:
                 file.write("// Sprite data Header\n")
                 file.write(f"#define {level_name.upper()}_TOTAL_SPR {counter}\n")
                 file.write(f"extern const unsigned int {level_name}_spr_data[({level_name.upper()}_TOTAL_SPR * 2) + 1];\n")
 
-            return
+            return len(objects) * 8 + 1
     
     # If layer not found or doesn't contain objects, raise an error
     raise ValueError(f"Layer '{layer_name}' not found or does not contain objects.")
@@ -116,17 +117,22 @@ def export_header_file(level_name, layer, level_array, compressed, output_path):
         file.write(f"extern const unsigned short {level_name}_{layer}_level_data[{level_name.upper()}_{layer}_RLE_DATA_SIZE];\n")
 
 def main():
+    total_total_size = 0
     for level_name in sys.argv[1:]:
+        print(f"---{level_name}---")
+        total_size = 0
         layer = "l1"
         file_path = f"levels/{level_name}.json" # Replace with your CSV file path
         output_s_path = f"levels/{level_name}_{layer}.s"  # Output .s file
         output_h_path = f"levels/{level_name}_{layer}.h"  # Output .h file
         
         level_array = load_json_to_array(file_path, layer)
-        print(level_array)
         compressed = rle_compress_level(level_array)
+        total_size += len(compressed)
+        print(f"Layer {layer} size: {len(compressed)} B")
         export_compressed_to_s_file(level_name, layer, compressed, output_s_path)
         export_header_file(level_name, layer, level_array, compressed, output_h_path)
+        print(f"Exported compressed data to {output_s_path} and header to {output_h_path}")
 
         layer = f"l2"
         file_path = f"levels/{level_name}.json" # Replace with your CSV file path
@@ -135,15 +141,20 @@ def main():
                
         level_array = load_json_to_array(file_path, layer)
         compressed = rle_compress_level(level_array)
+        total_size += len(compressed)
+        print(f"Layer {layer} size: {len(compressed)} B")
         export_compressed_to_s_file(level_name, layer, compressed, output_s_path)
         export_header_file(level_name, layer, level_array, compressed, output_h_path)
+        print(f"Exported compressed data to {output_s_path} and header to {output_h_path}")
 
         layer = f"SP"
         output_s_path = f"levels/{level_name}_{layer}.s"  # Output .s file
         output_h_path = f"levels/{level_name}_{layer}.h"  # Output .h file
-        export_objects_to_assembly(file_path, level_name, layer, output_s_path, output_h_path)
+        total_size += export_objects_to_assembly(file_path, level_name, layer, output_s_path, output_h_path)
         
-        print(f"Exported compressed data to {output_s_path} and header to {output_h_path}")
+        print(f"{level_name} TOTAL size: {total_size} B")
+        total_total_size += total_size
 
+    print(f"All levels TOTAL size: {total_total_size} B")
 if __name__ == "__main__":
     main()

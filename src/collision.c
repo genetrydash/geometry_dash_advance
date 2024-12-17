@@ -99,8 +99,8 @@ u16 obtain_collision_type(u32 x, u32 y, u32 layer) {
 
 u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     // Positions inside block, top left pixel is [0,0]
-    u32 x_inside_block = (x & 0x0f);
-    u32 y_inside_block = (y & 0x0f);
+    UNUSED u32 x_inside_block = x & 0x0f; // TODO: use this once there are more collision types
+    u32 y_inside_block = y & 0x0f;
 
     // TODO: death col types
     switch (col_type) {
