@@ -48,8 +48,8 @@ stereomadness_l1_level_data:
     .hword 25    @ Value 0 repeats 25 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
-    .hword 43
-    .hword 1    @ Value 43 repeats 1 times
+    .hword 20
+    .hword 1    @ Value 20 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
