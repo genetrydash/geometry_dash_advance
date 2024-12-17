@@ -41,7 +41,7 @@ AUDIO_FILES	:=
 GRAPHICS	:= graphics/*.png
 
 # Source files to compile
-SOURCES		:= src/*.c levels/*.s graphics/*.s
+SOURCES		:= src/*.c graphics/*.s $(shell find levels -name '*.s')
 
 # Include directories
 INCLUDES	:= include

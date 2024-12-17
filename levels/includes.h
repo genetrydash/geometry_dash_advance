@@ -1,3 +1,4 @@
-#include "stereomadness_l1.h"
-#include "stereomadness_l2.h"
-#include "stereomadness_SP.h"
+// stereomadness
+#include "stereomadness/l1.h"
+#include "stereomadness/l2.h"
+#include "stereomadness/SP.h"
