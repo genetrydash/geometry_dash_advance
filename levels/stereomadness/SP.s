@@ -6,14 +6,20 @@
 .hidden stereomadness_spr_data
 stereomadness_spr_data:
 @ Object 1
+   .word 0x270
+   .hword 0x180
+   .hword 0x3
+   .hword 0x100
+   .hword 0x1f
+@ Object 2
    .word 0x10a0
    .hword 0x150
    .hword 0x1
-@ Object 2
+@ Object 3
    .word 0x1a20
    .hword 0x158
    .hword 0x2
-@ Object 3
+@ Object 4
    .word 0x2fc0
    .hword 0x160
    .hword 0x1

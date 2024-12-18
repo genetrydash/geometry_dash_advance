@@ -118,6 +118,34 @@
                  "width":16,
                  "x":12224,
                  "y":352
+                }, 
+                {
+                 "gid":516,
+                 "height":16,
+                 "id":47,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Channel",
+                         "type":"string",
+                         "value":"BG"
+                        }, 
+                        {
+                         "name":"Color",
+                         "type":"color",
+                         "value":"#ffff0004"
+                        }, 
+                        {
+                         "name":"Frames",
+                         "type":"int",
+                         "value":32
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":624,
+                 "y":384
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -126,7 +154,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":47,
+ "nextobjectid":48,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",

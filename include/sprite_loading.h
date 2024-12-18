@@ -8,6 +8,8 @@ struct Object {
     u32 x;
     u16 y;
     u16 type;
+    u16 attrib1;
+    u16 attrib2;
 };
 
 struct ObjectSlot {
@@ -20,6 +22,7 @@ enum Obj_Types {
     NONE,
     SHIP_PORTAL,
     CUBE_PORTAL,
+    COL_TRIGGER,
     OBJ_COUNT
 };
 

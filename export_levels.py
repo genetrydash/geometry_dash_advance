@@ -2,6 +2,31 @@ import json
 import sys
 import os
 
+def rgb888_to_rgb555_24bit(rgb888):
+    """
+    Converts a 24-bit integer (RGB888) to a 16-bit integer (RGB555).
+    
+    Parameters:
+    - rgb888: 24-bit integer representing an RGB888 color.
+    
+    Returns:
+    - 16-bit integer representing an RGB555 color.
+    """
+    # Extract RGB888 components
+    r = (rgb888 >> 16) & 0xFF  # Extract red (highest byte)
+    g = (rgb888 >> 8) & 0xFF   # Extract green (middle byte)
+    b = rgb888 & 0xFF          # Extract blue (lowest byte)
+    
+    # Convert to RGB555
+    r_5 = (r >> 3) & 0x1F  # 5 bits for red
+    g_5 = (g >> 3) & 0x1F  # 5 bits for green
+    b_5 = (b >> 3) & 0x1F  # 5 bits for blue
+    
+    # Combine into a 16-bit BGR555 value
+    rgb555 = (b_5 << 10) | (g_5 << 5) | r_5
+    
+    return rgb555
+
 def load_json_to_array(file_path, layer_name):
     """Reads a JSON file and extracts the array at the path 'layers -> data'."""
     with open(file_path, 'r') as file:
@@ -52,6 +77,27 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                     out_file.write(f"   .word {hex(x)}\n")
                     out_file.write(f"   .hword {hex(y)}\n")
                     out_file.write(f"   .hword {hex(gid)}\n")
+                    if gid == 3: # COLOR TRIGGER
+                        properties = obj['properties']
+                        channel = properties[0]['value']
+                        frames = int(properties[2]['value'])
+                        
+                        channel_id = 0
+
+                        if channel == 'BG':
+                            channel_id == 4
+                        elif channel == 'G':
+                            channel_id == 5
+                        elif channel == 'OBJ':
+                            channel_id == 6
+                        else:
+                            channel_id = int(channel) - 1
+
+                        color = int(properties[1]['value'][3:], 16)
+                        color_bgr555 = rgb888_to_rgb555_24bit(color)
+                    
+                        out_file.write(f"   .hword {hex(frames << 3 | channel_id)}\n")
+                        out_file.write(f"   .hword {hex(color_bgr555)}\n")
                 out_file.write(f"   .byte 0xff\n")
                 print(f"Object data size: {len(objects) * 8 + 1} B")
                 print(f"Exported object data to {output_s_path} and {output_h_path}")

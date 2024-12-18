@@ -7,3 +7,4 @@
 #include "collision.h"
 #include "decompression.h"
 #include "sprite_loading.h"
+#include "color.h"
