@@ -131,17 +131,19 @@ void screen_scroll_load() {
         
         scroll_H(layer);
 
-        // Draw bottom seam
-        seam_x = scroll_x >> 8;
-        seam_y = (scroll_y >> 8) + SCREEN_HEIGHT;
-        
-        scroll_V(layer);
-        
-        // Draw top seam
-        seam_x = scroll_x >> 8;
-        seam_y = (scroll_y >> 8) - 8;
+        if (scroll_y_dir) {
+            // Draw bottom seam
+            seam_x = scroll_x >> 8;
+            seam_y = (scroll_y >> 8) + SCREEN_HEIGHT;
             
-        scroll_V(layer);
+            scroll_V(layer);
+        } else { 
+            // Draw top seam
+            seam_x = scroll_x >> 8;
+            seam_y = (scroll_y >> 8) - 8;
+                
+            scroll_V(layer);
+        }
     }
 }
 
