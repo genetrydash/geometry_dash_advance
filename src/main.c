@@ -62,6 +62,7 @@ s32 main() {
 		REG_BG0HOFS = REG_BG1HOFS = scroll_x >> 8;
 		REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
 
+        // Run color stuff
         run_col_triggers();
         
         // Run scroll routines
