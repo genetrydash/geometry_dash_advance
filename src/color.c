@@ -2,13 +2,25 @@
 
 #define BG_COLOR  0x00
 #define OBJ_COLOR 0x09
+#define COLOR_ID_COL 0x0D
 
 #define BG_OBJ_BLENDING_1 0x07
 #define BG_OBJ_BLENDING_2 0x08
+
+#define BG_COL_BLENDING_1 0x0A
+#define BG_COL_BLENDING_2 0x0B
+#define BG_COL_BLENDING_3 0x0C
 INLINE void blend_bg_and_obj(u32 pal) {
     // Blend both BG and OBJ colors and put it on palette slot 0x07 and 0x08
     clr_blend(&pal_bg_mem[pal], &pal_bg_mem[OBJ_COLOR + pal], &pal_bg_mem[BG_OBJ_BLENDING_1 + pal], 1, 0x0a);
     clr_blend(&pal_bg_mem[pal], &pal_bg_mem[OBJ_COLOR + pal], &pal_bg_mem[BG_OBJ_BLENDING_2 + pal], 1, 0x15);
+}
+
+INLINE void blend_bg_and_col(u32 pal) {
+    // Blend both BG and COL colors and put it on palette slot 0x0A, 0x0B and 0x0C
+    clr_blend(&pal_bg_mem[pal], &pal_bg_mem[COLOR_ID_COL + pal], &pal_bg_mem[BG_COL_BLENDING_1 + pal], 1, 0x0a);
+    clr_blend(&pal_bg_mem[pal], &pal_bg_mem[COLOR_ID_COL + pal], &pal_bg_mem[BG_COL_BLENDING_2 + pal], 1, 0x10);
+    clr_blend(&pal_bg_mem[pal], &pal_bg_mem[COLOR_ID_COL + pal], &pal_bg_mem[BG_COL_BLENDING_3 + pal], 1, 0x15);
 }
 
 // Set BG color on the 4 color palettes
@@ -23,6 +35,7 @@ void set_bg_color(COLOR color) {
         }
         
         blend_bg_and_obj(pal);
+        blend_bg_and_col(pal);
     }
 }
 
@@ -32,6 +45,7 @@ void set_obj_color(COLOR color) {
         pal_bg_mem[OBJ_COLOR + pal] = color;
         
         blend_bg_and_obj(pal);
+        blend_bg_and_col(pal);
     }
 }
 
