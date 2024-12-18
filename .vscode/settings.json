@@ -27,6 +27,8 @@
         "sprite_loading.h": "c",
         "stereomadness_l2.h": "c",
         "levels.h": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "compare": "c",
+        "cstdint": "c"
     }
 }

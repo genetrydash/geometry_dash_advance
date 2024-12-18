@@ -54,6 +54,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
         if layer['name'] == layer_name and 'objects' in layer:
             objects = layer['objects']
             counter = 0
+            byte_counter = 0
             sorted_objects = sorted(objects, key=lambda obj: (obj['x'], obj['y']))
             
             # Open the output file for writing
@@ -77,29 +78,32 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                     out_file.write(f"   .word {hex(x)}\n")
                     out_file.write(f"   .hword {hex(y)}\n")
                     out_file.write(f"   .hword {hex(gid)}\n")
+                    byte_counter += 8
                     if gid == 3: # COLOR TRIGGER
                         properties = obj['properties']
-                        channel = properties[0]['value']
-                        frames = int(properties[2]['value'])
+                        channel = str(properties[0]['value'])
+                        frames = int(properties[2]['value']) - 1
                         
                         channel_id = 0
 
-                        if channel == 'BG':
-                            channel_id == 4
-                        elif channel == 'G':
-                            channel_id == 5
-                        elif channel == 'OBJ':
-                            channel_id == 6
+                        if channel == "BG":
+                            channel_id = 4
+                        elif channel == "G":
+                            channel_id = 5
+                        elif channel == "OBJ":
+                            channel_id = 6
                         else:
                             channel_id = int(channel) - 1
 
                         color = int(properties[1]['value'][3:], 16)
                         color_bgr555 = rgb888_to_rgb555_24bit(color)
                     
-                        out_file.write(f"   .hword {hex(frames << 3 | channel_id)}\n")
+                        out_file.write(f"   .hword {hex((frames << 3) | channel_id)}\n")
                         out_file.write(f"   .hword {hex(color_bgr555)}\n")
+                        byte_counter += 4
                 out_file.write(f"   .byte 0xff\n")
-                print(f"Object data size: {len(objects) * 8 + 1} B")
+                byte_counter += 1
+                print(f"Object data size: {byte_counter} B")
                 print(f"Exported object data to {output_s_path} and {output_h_path}")
             with open(output_h_path, 'w') as file:
                 file.write("// Sprite data Header\n")

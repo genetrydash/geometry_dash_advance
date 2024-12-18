@@ -10,6 +10,8 @@ struct Object {
     u16 type;
     u16 attrib1;
     u16 attrib2;
+    u16 attrib3;
+    u16 attrib4;
 };
 
 struct ObjectSlot {
@@ -18,12 +20,23 @@ struct ObjectSlot {
     struct Object object;
 };
 
-enum Obj_Types {
+enum ObjTypes {
     NONE,
     SHIP_PORTAL,
     CUBE_PORTAL,
     COL_TRIGGER,
     OBJ_COUNT
+};
+
+enum ColorChannels {
+    COL1,
+    COL2,
+    COL3,
+    COL4,
+    BG,
+    GROUND,
+    OBJ,
+    CHANNEL_COUNT  
 };
 
 extern struct Object gObject;

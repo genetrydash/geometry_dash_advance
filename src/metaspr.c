@@ -23,10 +23,6 @@ const u16 shipSpr[] = {
     0xffff
 };
 
-const u16 emptySpr[] = {
-    0xffff
-};
-
 const u16 shipPortalSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_32x64,
@@ -46,9 +42,10 @@ const u16 cubePortalSpr[] = {
 };
 
 const u16 *obj_sprites[] = {
-    emptySpr,
+    NULL,
     shipPortalSpr,
-    cubePortalSpr
+    cubePortalSpr,
+    NULL // COL TRIGGER
 };
 
 // In pixels
@@ -58,6 +55,7 @@ const s16 obj_hitbox[][4] = {
     Object_Hitbox("NONE", 0, 0, 0, 0)
     Object_Hitbox("SHIP_PORTAL", 18, 46, -2, 1)
     Object_Hitbox("CUBE_PORTAL", 18, 46, -2, 1)
+    Object_Hitbox("COL_TRIGGER", 0, 0, 0, 0)
 };
 
 // TODO: figure out affine sprites
