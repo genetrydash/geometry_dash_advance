@@ -37,6 +37,10 @@ void set_bg_color(COLOR color) {
         blend_bg_and_obj(pal);
         blend_bg_and_col(pal);
     }
+    
+    // Portal colors also have a glow on them
+    clr_blend(&pal_bg_mem[0], &pal_bg_mem[0x112], &pal_bg_mem[0x117], 1, 0x0f);
+    clr_blend(&pal_bg_mem[0], &pal_bg_mem[0x122], &pal_bg_mem[0x127], 1, 0x0f);
 }
 
 void set_obj_color(COLOR color) {
