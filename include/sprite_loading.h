@@ -46,5 +46,6 @@ extern struct ObjectSlot object_buffer[MAX_OBJECTS];
 
 void load_next_object();
 void display_objects();
+void run_col_triggers();
 void check_obj_collision(u32 index);
 #endif

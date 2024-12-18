@@ -42,6 +42,17 @@ void load_next_object() {
     }
 }
 
+void do_collision(struct ObjectSlot *objectSlot);
+// This function runs col triggers. It is important it is done in VBLANK because it acceses palette memory
+void run_col_triggers() {
+    for (s32 index = 0; index < MAX_OBJECTS; index++) {
+        if (object_buffer[index].occupied) {
+            if (object_buffer[index].object.type == COL_TRIGGER) {    
+                do_collision(&object_buffer[index]);
+            }
+        }
+    }
+}
 void display_objects() {
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied) {
@@ -51,31 +62,26 @@ void display_objects() {
             s32 relative_x = curr_object.x - ((scroll_x >> 8) & 0xffffffff);
             s32 relative_y = curr_object.y - ((scroll_y >> 8) & 0xffff);
 
-            // Unload object in case that it is 128 pixels left to the screen if not a trigger
+            // Unload object in case that it is 128 pixels left to the screen and not a trigger
             if (curr_object.type != COL_TRIGGER) {
                 if (relative_x < -128) {
                     object_buffer[index].occupied = FALSE;
                 }
-            }
-            // If object's sprite is null, then do not draw anything
-            if (obj_sprites[curr_object.type] != NULL) {
-                // If object is inside the screen horizontally, continue
-                if (relative_x < SCREEN_WIDTH) { 
-                    // If it hasn't been activated already, check collision
-                    if (object_buffer[index].activated == FALSE) {
-                        check_obj_collision(index); 
-                    }  
+                // If object's sprite is null, then do not draw anything
+                if (obj_sprites[curr_object.type] != NULL) {
+                    // If object is inside the screen horizontally, continue
+                    if (relative_x < SCREEN_WIDTH) { 
+                        // If it hasn't been activated already, check collision
+                        if (object_buffer[index].activated == FALSE) {
+                            check_obj_collision(index); 
+                        }  
 
-                    // If the object is inside the screen vertically, display it
-                    if (relative_y > -128 && relative_y < SCREEN_HEIGHT) {
-                        oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type]);
+                        // If the object is inside the screen vertically, display it
+                        if (relative_y > -128 && relative_y < SCREEN_HEIGHT) {
+                            oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type]);
+                        }
                     }
                 }
-            } else {
-                // If there is no sprite associated, then just check for collision
-                if (object_buffer[index].activated == FALSE) {
-                    check_obj_collision(index); 
-                }  
             }
         }
     }
@@ -120,28 +126,23 @@ void do_collision(struct ObjectSlot *objectSlot) {
 void check_obj_collision(u32 index) {
     struct Object curr_object = object_buffer[index].object;
 
-    // Check if the object is a trigger, then run collision always
-    if (curr_object.type == COL_TRIGGER) {
+    u16 obj_width = obj_hitbox[curr_object.type][0];
+    u16 obj_height = obj_hitbox[curr_object.type][1];
+    s16 offset_x = obj_hitbox[curr_object.type][2];
+    s16 offset_y = obj_hitbox[curr_object.type][3];
+
+    u32 obj_x = curr_object.x + offset_x;
+    u32 obj_y = curr_object.y + offset_y;
+
+    u32 ply_x = player_x >> 8;
+    u32 ply_y = player_y >> 8;
+
+    // Check if a collision has happened
+    if (is_colliding(
+        ply_x, ply_y, player_width, player_height, 
+        obj_x, obj_y, obj_width, obj_height
+    )) {
+        // If yes, then run the collision routine
         do_collision(&object_buffer[index]);
-    } else {
-        u16 obj_width = obj_hitbox[curr_object.type][0];
-        u16 obj_height = obj_hitbox[curr_object.type][1];
-        s16 offset_x = obj_hitbox[curr_object.type][2];
-        s16 offset_y = obj_hitbox[curr_object.type][3];
-
-        u32 obj_x = curr_object.x + offset_x;
-        u32 obj_y = curr_object.y + offset_y;
-
-        u32 ply_x = player_x >> 8;
-        u32 ply_y = player_y >> 8;
-
-        // Check if a collision has happened
-        if (is_colliding(
-            ply_x, ply_y, player_width, player_height, 
-            obj_x, obj_y, obj_width, obj_height
-        )) {
-            // If yes, then run the collision routine
-            do_collision(&object_buffer[index]);
-        }
     }
 }

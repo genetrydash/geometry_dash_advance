@@ -59,9 +59,10 @@ s32 main() {
         obj_copy(oam_mem, shadow_oam, 128);
         obj_aff_copy(obj_aff_mem, obj_aff_buffer, 1);
 
-
 		REG_BG0HOFS = REG_BG1HOFS = scroll_x >> 8;
 		REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
+
+        run_col_triggers();
         
         // Run scroll routines
         screen_scroll_load();
