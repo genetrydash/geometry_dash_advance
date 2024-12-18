@@ -47,14 +47,11 @@ void decompress_first_screen() {
 
 void put_ground_column() {
     // Put ground column in the first layer, no need to put it in both as l1  will hide l2's ground
+    s32 count = 0;
     for (s32 i = GROUND_HEIGHT; i < MAX_LEVEL_HEIGHT; i++) {
-        if (i == GROUND_HEIGHT) {
-            // If we are at the first row of blocks, use the top row blocks
-            level_buffer[0][curr_column + (i * LEVEL_BUFFER_WIDTH)] = ground_pattern[curr_column & 0x3];
-        } else {
-            // Else, the middle ground blocks
-            level_buffer[0][curr_column + (i * LEVEL_BUFFER_WIDTH)] = ground_pattern[4 + (curr_column & 0x3)];
-        }
+        // If we are at the first row of blocks, use the top row blocks
+        level_buffer[0][curr_column + (i * LEVEL_BUFFER_WIDTH)] = ground_pattern[(count << 2) + (curr_column & 0x3)];
+        count++;
     }
 }
 void increment_column() {

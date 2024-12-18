@@ -60,5 +60,220 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("SLAB_DOWN",  SE_BUILD(0x00, 0, 0, 0), SE_BUILD(0x00, 0, 0, 0),      SE_BUILD(0x4e, 0, 0, V_FLIP), SE_BUILD(0x4f, 0, 0, V_FLIP), COL_SLAB_BOTTOM)
     Metatile("SLAB_LEFT",  SE_BUILD(0x50, 0, 0, 0), SE_BUILD(0x00, 0, 0, 0),      SE_BUILD(0x51, 0, 0, 0),      SE_BUILD(0x00, 0, 0, 0),      COL_NONE)
     Metatile("SLAB_RIGHT", SE_BUILD(0x00, 0, 0, 0), SE_BUILD(0x50, 0, H_FLIP, 0), SE_BUILD(0x00, 0, 0, 0),      SE_BUILD(0x51, 0, H_FLIP, 0), COL_NONE)
+
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+
+
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x30
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x38
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x40
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x48
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x50
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x58
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x60
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x68
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x70
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x78
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+
+    
+    
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x80
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x88
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+
+    
+    
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x90
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0x98
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+
+    
+    
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0xA0
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0xA8
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+
+    
+    
+    Metatile("GROUND_1",    SE_BUILD(0x180, 4, 0, 0), SE_BUILD(0x181, 4, 0, 0), SE_BUILD(0x190, 4, 0, 0), SE_BUILD(0x191, 4, 0, 0), COL_ALL) // 0xB0
+    Metatile("GROUND_2",    SE_BUILD(0x181, 4, 0, 0), SE_BUILD(0x181, 4, 0, 0), SE_BUILD(0x191, 4, 0, 0), SE_BUILD(0x191, 4, 0, 0), COL_ALL)
+    Metatile("GROUND_3",    SE_BUILD(0x181, 4, 0, 0), SE_BUILD(0x182, 4, 0, 0), SE_BUILD(0x191, 4, 0, 0), SE_BUILD(0x192, 4, 0, 0), COL_ALL)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0xB8
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+
+    Metatile("GROUND_4",    SE_BUILD(0x1a0, 4, 0, 0), SE_BUILD(0x1a1, 4, 0, 0), SE_BUILD(0x1b0, 4, 0, 0), SE_BUILD(0x1b1, 4, 0, 0), COL_ALL) // 0xC0
+    Metatile("GROUND_5",    SE_BUILD(0x1a1, 4, 0, 0), SE_BUILD(0x1a1, 4, 0, 0), SE_BUILD(0x1b1, 4, 0, 0), SE_BUILD(0x1b1, 4, 0, 0), COL_ALL)
+    Metatile("GROUND_6",    SE_BUILD(0x1a1, 4, 0, 0), SE_BUILD(0x1a2, 4, 0, 0), SE_BUILD(0x1b1, 4, 0, 0), SE_BUILD(0x1b2, 4, 0, 0), COL_ALL)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0xC8
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+
+    Metatile("GROUND_7",    SE_BUILD(0x1c0, 4, 0, 0), SE_BUILD(0x1c1, 4, 0, 0), SE_BUILD(0x1d0, 4, 0, 0), SE_BUILD(0x1d1, 4, 0, 0), COL_ALL) // 0xD0
+    Metatile("GROUND_8",    SE_BUILD(0x1c1, 4, 0, 0), SE_BUILD(0x1c1, 4, 0, 0), SE_BUILD(0x1d1, 4, 0, 0), SE_BUILD(0x1d1, 4, 0, 0), COL_ALL)
+    Metatile("GROUND_9",    SE_BUILD(0x1c1, 4, 0, 0), SE_BUILD(0x1c2, 4, 0, 0), SE_BUILD(0x1d1, 4, 0, 0), SE_BUILD(0x1d2, 4, 0, 0), COL_ALL)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0xD8
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+   
+    Metatile("GROUND_A",    SE_BUILD(0x1e0, 4, 0, 0), SE_BUILD(0x1e1, 4, 0, 0), SE_BUILD(0x1f0, 4, 0, 0), SE_BUILD(0x1f1, 4, 0, 0), COL_ALL) // 0xE0
+    Metatile("GROUND_B",    SE_BUILD(0x1e1, 4, 0, 0), SE_BUILD(0x1e1, 4, 0, 0), SE_BUILD(0x1f1, 4, 0, 0), SE_BUILD(0x1f1, 4, 0, 0), COL_ALL)
+    Metatile("GROUND_C",    SE_BUILD(0x1e1, 4, 0, 0), SE_BUILD(0x1e2, 4, 0, 0), SE_BUILD(0x1f1, 4, 0, 0), SE_BUILD(0x1f2, 4, 0, 0), COL_ALL)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0xE8
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
     
 };
