@@ -271,12 +271,13 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     // Set related vars and set new player y position
     
     if (side == TOP) {
-        if (gravity_dir) {
-            // We are resting on the ceiling so allow jumping and stuff
-            on_floor = 1;
-        }
         s16 eject_value = (eject | 0xfffffff8) << 8;
         if (eject_value >= -0x0600) {
+            if (gravity_dir) {
+                // We are resting on the ceiling so allow jumping and stuff
+                on_floor = 1;
+            }
+            
             player_y -= (eject | 0xfffffff8) << 8;
             player_y_speed = 0;
             // Remove subpixels
@@ -284,12 +285,12 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
             scroll_y &= 0xffffff00;
         }
     } else if (side == BOTTOM) {   
-        if (!gravity_dir) {
-            // We are resting on the floor so allow jumping and stuff
-            on_floor = 1;
-        }
         s16 eject_value = eject << 8;
         if (eject_value < 0x0600) {
+            if (!gravity_dir) {
+                // We are resting on the floor so allow jumping and stuff
+                on_floor = 1;
+            }
             player_y -= eject_value;
             player_y_speed = 0;
             // Remove subpixels
