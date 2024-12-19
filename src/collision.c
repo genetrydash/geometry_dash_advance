@@ -19,11 +19,12 @@ u32 eject = 0;
 enum COL_SIDES {
     TOP,
     BOTTOM,
-    RIGHT
+    CENTER
 };
 
 u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
 void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
+void do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
 
 void collision_cube() {
     on_floor = 0;
@@ -33,13 +34,11 @@ void collision_cube() {
         coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
         collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
 
-        // Check wall coll
-        coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1) + (player_height >> 1);
-
-        if (run_coll(coll_x + player_width, coll_y, layer, RIGHT)) {
-            player_death = TRUE;
-            return;
-        }
+        // Do center hitbox checks
+        coll_x = (player_x >> 8) + ((0x10 - player_width) >> 1);
+        coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
+        
+        do_center_checks(coll_x + 6, coll_y + 6, 2, 2, layer);
 
         if (!gravity_dir) {
             if (player_y_speed >= 0) {
@@ -79,22 +78,23 @@ void collision_ship() {
         coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
         collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
         
-        // Check wall coll
-        coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1) + (player_height >> 1);
+        // Do center hitbox checks
+        coll_x = (player_x >> 8) + ((0x10 - player_width) >> 1);
+        coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
 
-        if (run_coll(coll_x + player_width, coll_y, layer, RIGHT)) {
-            player_death = TRUE;
-            return;
-        }
+        do_center_checks(coll_x + 5, coll_y + 5, 2, 2, layer);
+
         if (player_y_speed >= 0) {
             // Going down
             coll_x = (player_x >> 8) + ((0x10 - player_width) >> 1);
             coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
             
             if (run_coll(coll_x, coll_y + player_height, layer, BOTTOM)) {
+                player_death = FALSE;
                 continue;
             }
             if (run_coll(coll_x + player_width, coll_y + player_height, layer, BOTTOM)) {
+                player_death = FALSE;
                 continue;
             }
         }
@@ -104,9 +104,11 @@ void collision_ship() {
             coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
 
             if (run_coll(coll_x, coll_y, layer, TOP)) {
+                player_death = FALSE;
                 continue;
             }
             if (run_coll(coll_x + player_width, coll_y, layer, TOP)) {
+                player_death = FALSE;
                 continue;
             }
         }
@@ -125,6 +127,28 @@ u16 obtain_collision_type(u32 x, u32 y, u32 layer) {
     return metatiles[obtain_block(x,y,layer)][4];
 }
 
+// GD cube has a small square hitbox where if a block collides with, then the player dies
+void do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer) {
+    if (run_coll(x, y, layer, CENTER)) {
+        player_death = TRUE;
+        return;
+    }
+
+    if (run_coll(x + width, y, layer, CENTER)) {
+        player_death = TRUE;
+        return;
+    }
+
+    if (run_coll(x, y + height, layer, CENTER)) {
+        player_death = TRUE;
+        return;
+    }
+
+    if (run_coll(x + width, y + height, layer, CENTER)) {
+        player_death = TRUE;
+        return;
+    }
+}
 // This function iterates through spikes that the player is touching and applies collision to it
 void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
     // Iterate through 4 metatiles, forming a 2x2 metatile square
