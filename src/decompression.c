@@ -63,7 +63,7 @@ void increment_column() {
 }
 
 void scroll_H(u32 layer) {
-    for (s32 mt = 0; mt < 12; mt += 1) {
+    for (s32 mt = 0; mt < 16; mt += 1) {
         for (s32 vtile = 0; vtile < 2; vtile++) {
             // Get metatile positions from seam
             s32 metatile_x = (seam_x >> 4) & 0x1f;
@@ -124,19 +124,19 @@ void screen_scroll_load() {
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Draw horizontal seam
         seam_x = (scroll_x >> 8) + SCREEN_WIDTH;
-        seam_y = scroll_y >> 8;
+        seam_y = (scroll_y >> 8) - 0x16;
         
         scroll_H(layer);
 
         // Draw bottom seam
         seam_x = scroll_x >> 8;
-        seam_y = (scroll_y >> 8) + SCREEN_HEIGHT;
+        seam_y = (scroll_y >> 8) + SCREEN_HEIGHT + 0x08;
         
         scroll_V(layer);
         
         // Draw top seam
         seam_x = scroll_x >> 8;
-        seam_y = (scroll_y >> 8) - 8;
+        seam_y = (scroll_y >> 8) - 0x16;
             
         scroll_V(layer);
     }
