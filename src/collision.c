@@ -48,10 +48,10 @@ void collision_cube() {
                 coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
                 
                 if (run_coll(coll_x, coll_y + player_height, layer, BOTTOM)) {
-                    return;
+                    continue;
                 }
                 if (run_coll(coll_x + player_width, coll_y + player_height, layer, BOTTOM)) {
-                    return;
+                    continue;
                 }
             }
         } else {
@@ -61,10 +61,10 @@ void collision_cube() {
                 coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
 
                 if (run_coll(coll_x, coll_y, layer, TOP)) {
-                    return;
+                    continue;
                 }
                 if (run_coll(coll_x + player_width, coll_y, layer, TOP)) {
-                    return;
+                    continue;
                 }
             }
         }
@@ -92,10 +92,10 @@ void collision_ship() {
             coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
             
             if (run_coll(coll_x, coll_y + player_height, layer, BOTTOM)) {
-                return;
+                continue;
             }
             if (run_coll(coll_x + player_width, coll_y + player_height, layer, BOTTOM)) {
-                return;
+                continue;
             }
         }
         if (player_y_speed <= 0) {
@@ -104,10 +104,10 @@ void collision_ship() {
             coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
 
             if (run_coll(coll_x, coll_y, layer, TOP)) {
-                return;
+                continue;
             }
             if (run_coll(coll_x + player_width, coll_y, layer, TOP)) {
-                return;
+                continue;
             }
         }
     }
