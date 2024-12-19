@@ -183,25 +183,33 @@ void reset_variables() {
 }
 
 void load_level(u32 level_ID) {
+    // Set level pointers
     level_pointer[0] = (u16*) level_defines[level_ID][0];
     level_pointer[1] = (u16*) level_defines[level_ID][1];
     sprite_pointer   = (u32*) level_defines[level_ID][2];
     
+    // Get level variables
     COLOR bg_color = level_defines[level_ID][3][0];
     COLOR ground_color = level_defines[level_ID][3][1];
     gamemode = level_defines[level_ID][3][2];
     speed_id = level_defines[level_ID][3][3];
     curr_level_height = level_defines[level_ID][3][4];
 
+    // Put player on the ground
     player_y = ((GROUND_HEIGHT - 1) << 12);  
     scroll_y = (player_y) - 0x7000;
 
+    // Copy palettes into the buffer
 	memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
 	memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
+
+    // Set BG and ground colors
     set_initial_color(bg_color, ground_color);
 
+    // Reset gameplay vars
     reset_variables();
-    // Set seam position 
+    
+    // Set seam position and decompress the first screen
     seam_x = scroll_x >> 8;
     seam_y = scroll_y >> 8;
     
@@ -211,13 +219,12 @@ void load_level(u32 level_ID) {
 }
 
 void reset_level() {
-    
     // Wait a bit before fading
     for (s32 frame = 0; frame < 30; frame++) {
         vid_vsync();
     }
 
-    // Fade
+    // Fade out
     for (s32 frame = 0; frame <= 32; frame += 4) {
         vid_vsync();
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, frame);
@@ -225,6 +232,7 @@ void reset_level() {
     oam_init(shadow_oam, 128);
     load_level(stereomadness_ID);
 
+    // Fade in
     for (s32 frame = 0; frame <= 32; frame += 4) {
         vid_vsync();
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);

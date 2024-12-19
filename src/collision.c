@@ -125,18 +125,23 @@ u16 obtain_collision_type(u32 x, u32 y, u32 layer) {
     return metatiles[obtain_block(x,y,layer)][4];
 }
 
+// This function iterates through spikes that the player is touching and applies collision to it
 void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
+    // Iterate through 4 metatiles, forming a 2x2 metatile square
+    // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
     for (u32 side = 0; side < 4; side++) {
+        // Get offset from the starting block
         u32 x_offset = (side & 1) ? 0x10 : 0;
         u32 y_offset = (side & 2) ? 0x10 : 0;
 
         u32 col_type = obtain_collision_type(x + x_offset, y + y_offset, layer);
 
+        // Spikes origin is in the top left pixel, aka 0,0 inside the metatile
         u32 spk_x = (x + x_offset) & 0xfffffff0;
         u32 spk_y = (y + y_offset) & 0xfffffff0;
 
         switch (col_type) {
-            // Spikes
+            // Normal spikes
             case COL_SPIKE_TOP:
                 if (is_colliding(
                     x, y, width, height,
