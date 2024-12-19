@@ -38,7 +38,7 @@ void collision_cube() {
         coll_x = (player_x >> 8) + ((0x10 - player_width) >> 1);
         coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
         
-        do_center_checks(coll_x + 6, coll_y + 6, 2, 2, layer);
+        do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
 
         if (!gravity_dir) {
             if (player_y_speed >= 0) {
@@ -82,7 +82,7 @@ void collision_ship() {
         coll_x = (player_x >> 8) + ((0x10 - player_width) >> 1);
         coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
 
-        do_center_checks(coll_x + 5, coll_y + 5, 2, 2, layer);
+        do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
 
         if (player_y_speed >= 0) {
             // Going down
