@@ -36,6 +36,7 @@ enum ColorChannels {
     BG,
     GROUND,
     OBJ,
+    LINE,
     CHANNEL_COUNT  
 };
 

@@ -88,10 +88,12 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
 
                         if channel == "BG":
                             channel_id = 4
-                        elif channel == "G":
+                        elif channel == "GROUND":
                             channel_id = 5
                         elif channel == "OBJ":
                             channel_id = 6
+                        elif channel == "LINE":
+                            channel_id = 7
                         else:
                             channel_id = int(channel) - 1
 
@@ -108,7 +110,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
             with open(output_h_path, 'w') as file:
                 file.write("// Sprite data Header\n")
                 file.write(f"#define {level_name.upper()}_TOTAL_SPR {counter}\n")
-                file.write(f"extern const unsigned int {level_name}_spr_data[({level_name.upper()}_TOTAL_SPR * 2) + 1];\n")
+                file.write(f"extern const unsigned short {level_name}_spr_data[({level_name.upper()}_TOTAL_SPR * 2) + 1];\n")
 
             return len(objects) * 8 + 1
     
@@ -157,22 +159,84 @@ def export_compressed_to_s_file(level_name, layer, compressed, output_path):
             
 def export_header_file(level_name, layer, level_array, compressed, output_path):
     """Exports a header file with references to the first chunk and the level width."""
-    level_height = len(level_array)  # Round up to the nearest multiple of 16
     rle_size = len(compressed) * 4  # Each RLE entry consists of a value and a count
     with open(output_path, 'w') as file:
         file.write("// Level Data Header\n")
-        file.write(f"#define {level_name.upper()}_LEVEL_HEIGHT {level_height}\n")
         file.write(f"#define {level_name.upper()}_{layer}_TOTAL_BLOCKS {len(level_array) * len(level_array[0])}\n")
         file.write(f"#define {level_name.upper()}_{layer}_RLE_DATA_SIZE {rle_size}\n")
         file.write(f"extern const unsigned short {level_name}_{layer}_level_data[{level_name.upper()}_{layer}_RLE_DATA_SIZE];\n")
 
 def export_includes_h(levels):
     with open("levels/includes.h", 'w') as file:
+        level_counter = 0
+        file.write("#pragma once\n\n")
+        file.write("#include <tonc.h>\n\n")
         for level_name in levels:
             file.write(f"// {level_name}\n")
+            file.write(f"#define {level_name}_ID {level_counter}\n\n")
             file.write(f"#include \"{level_name}/l1.h\"\n")
             file.write(f"#include \"{level_name}/l2.h\"\n")
             file.write(f"#include \"{level_name}/SP.h\"\n")
+            file.write(f"#include \"{level_name}/properties.h\"\n\n")
+
+            level_counter += 1
+
+        file.write(f"extern const u16 *level_defines[][4];\n")
+    
+    with open("levels/includes.c", 'w') as file:
+        file.write(f"#include \"includes.h\"\n")
+        file.write(f"const u16 *level_defines[][4] = {{\n")
+        for level_name in levels:
+            file.write(f"   {{ {level_name}_l1_level_data, {level_name}_l2_level_data, {level_name}_spr_data, {level_name}_properties }},\n")
+        
+        file.write("};\n")
+
+
+
+def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_path, level_array):
+    level_height = len(level_array)
+    # Load JSON
+    with open(json_file_path, 'r') as f:
+        json_data = json.load(f)
+
+    properties = json_data["properties"]
+
+    # BG color
+    bg_color = properties[0]['value']
+    if bg_color != "":
+        bg_color = int(bg_color[3:], 16)
+        bg_color_bgr555 = rgb888_to_rgb555_24bit(bg_color)
+    else:
+        bg_color_bgr555 = rgb888_to_rgb555_24bit(0x0000ff)
+
+    # Ground color
+    g_color = properties[1]['value']
+    if g_color != "":
+        g_color = int(g_color[3:], 16)
+        g_color_bgr555 = rgb888_to_rgb555_24bit(g_color)
+    else:
+        g_color_bgr555 = rgb888_to_rgb555_24bit(0x0000ff)
+    
+    gamemode = int(properties[2]['value'])
+    speed = int(properties[3]['value'])
+
+    with open(output_path_c, 'w') as file:
+        file.write(f"// {level_name} properties\n")
+
+        file.write(f"const unsigned short {level_name}_properties[] = {{\n")
+        file.write(f" /*BG color*/      {hex(bg_color_bgr555)},\n")
+        file.write(f" /*GROUND color*/  {hex(g_color_bgr555)},\n")
+        file.write(f" /*gamemode*/      {gamemode},\n")
+        file.write(f" /*speed*/         {speed},\n")
+        file.write(f" /*level height*/  {level_height},\n")
+        file.write(f"}};\n")
+
+    with open(output_path_h, 'w') as file:
+        file.write("#pragma once\n\n")
+        file.write(f"// {level_name} properties\n")
+
+        file.write(f"extern const unsigned short {level_name}_properties[];\n")
+
 
 def main():
     total_total_size = 0
@@ -215,6 +279,12 @@ def main():
         output_h_path = f"levels/{level_name}/{layer}.h"  # Output .h file
 
         total_size += export_objects_to_assembly(file_path, level_name, layer, output_s_path, output_h_path)
+
+        output_h_path = f"levels/{level_name}/properties.h"  # Output .h file
+        output_c_path = f"levels/{level_name}/properties.c"  # Output .c file
+
+        export_properties_to_h(level_name, output_h_path, output_c_path, file_path, level_array)
+
         
         print(f"{level_name} TOTAL size: {total_size} B")
         total_total_size += total_size

@@ -29,6 +29,7 @@
         "levels.h": "c",
         "typeinfo": "c",
         "compare": "c",
-        "cstdint": "c"
+        "cstdint": "c",
+        "l2.h": "c"
     }
 }

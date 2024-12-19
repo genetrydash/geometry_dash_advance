@@ -158,3 +158,22 @@ void decompress_column(u32 layer) {
         length[layer]--;
     }
 }
+
+void load_level(u32 level_ID) {
+    level_pointer[0] = (u16*) level_defines[level_ID][0];
+    level_pointer[1] = (u16*) level_defines[level_ID][1];
+    sprite_pointer   = (u32*) level_defines[level_ID][2];
+    
+    // Level height
+
+    COLOR bg_color = level_defines[level_ID][3][0];
+    COLOR ground_color = level_defines[level_ID][3][1];
+    gamemode = level_defines[level_ID][3][2];
+    speed_id = level_defines[level_ID][3][3];
+    curr_level_height = level_defines[level_ID][3][4];
+
+    set_bg_color(bg_color);
+    set_ground_color(ground_color);
+
+    
+}

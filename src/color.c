@@ -53,6 +53,33 @@ void set_obj_color(COLOR color) {
     }
 }
 
+// Set ground color on the ground palette
+void set_ground_color(COLOR color) {
+    // Set ground color
+    pal_bg_mem[0x40] = color;
+    pal_bg_mem[0x41] = color;
+
+    // Adjust brightness for each color
+    for (u32 index = 2; index < 7; index++) {
+        clr_adj_brightness(&pal_bg_mem[index + 0x40], &pal_bg_mem[index - 1 + 0x40], 1, float2fx(-0.15));
+    }
+}
+
+// Set line color
+void set_line_color(COLOR color) {
+    pal_bg_mem[0x48] = color;
+}
+
+
+// Set color channel of an specific palette
+void set_color_channel_color(COLOR color, u32 channel) {
+    // Set ground color
+    pal_bg_mem[0x0D + (channel << 4)] = color;
+
+    blend_bg_and_col(channel);
+}
+
+
 // Lerp between two BGR555 colors. Time is a value between 0 and 256 (both inclusive) and it is a fixed point value so 0 = 0.0, 128 = 0.5 and 256 = 1.0
 u16 lerp_color(COLOR color1, COLOR color2, FIXED time) {
     // Cap value to 1.0

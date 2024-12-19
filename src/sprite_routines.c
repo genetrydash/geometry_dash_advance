@@ -26,16 +26,22 @@ void col_trigger(struct ObjectSlot *objectSlot) {
         if (curr_frame == 0) {
             switch (channel) {
                 case BG:
-                    col_trigger.attrib3 = pal_bg_mem[0];           // Temp storage for old BG color
+                    col_trigger.attrib3 = pal_bg_mem[0x00];        // Temp storage for old BG color
+                    break;
+                case GROUND:
+                    col_trigger.attrib3 = pal_bg_mem[0x41];        // Temp storage for old GROUND color
                     break;
                 case OBJ:
                     col_trigger.attrib3 = pal_bg_mem[0x09];        // Temp storage for old OBJ color
+                    break;
+                case LINE:
+                    col_trigger.attrib3 = pal_bg_mem[0x48];
                     break;
                 case COL1:
                 case COL2:
                 case COL3:
                 case COL4:
-                    col_trigger.attrib3 = pal_bg_mem[0x0e * (channel << 4)];
+                    col_trigger.attrib3 = pal_bg_mem[0x0D + (channel << 4)];
                     break;
 
             }
@@ -52,18 +58,28 @@ void col_trigger(struct ObjectSlot *objectSlot) {
             lerped_color = lerp_color(old_color, new_color, lerp_value);
         } else {
             lerped_color = new_color;
-        }
+        } 
 
-        // TODO: ground, obj and color IDs
         // Run code depending on which channel
         switch (channel) {
             case BG:
                 set_bg_color(lerped_color);
                 break;
+            case GROUND:
+                set_ground_color(lerped_color);
+                break;
             case OBJ:
                 set_obj_color(lerped_color);
                 break;
-            
+            case LINE:
+                set_line_color(lerped_color);
+                break;
+            case COL1:
+            case COL2:
+            case COL3:
+            case COL4:
+                set_color_channel_color(lerped_color, channel);
+                break;
         }
 
         // If there are frames left, increment frame counter. If not, deoccupy the object slot

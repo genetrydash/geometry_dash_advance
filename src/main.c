@@ -29,13 +29,7 @@ s32 main() {
     //memcpy32(&tile_mem_obj[0][4], portal_pngTiles, portal_pngTilesLen / sizeof(u32));
 	memcpy16(pal_obj_mem, spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
-    // TODO: put this in a function and call it on death, also unhardcode it
-    level_pointer[0] = (u16*) &stereomadness_l1_level_data;
-    level_pointer[1] = (u16*) &stereomadness_l2_level_data;
-    sprite_pointer = (u32*) &stereomadness_spr_data;
-    
-    // Level height
-    curr_level_height = STEREOMADNESS_LEVEL_HEIGHT;
+    load_level(stereomadness_ID);
 
     player_y = ((GROUND_HEIGHT - 1) << 12);
     scroll_y = (player_y) - 0x7000;

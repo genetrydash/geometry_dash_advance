@@ -211,9 +211,9 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("GROUND_1",    SE_BUILD(0x180, 4, 0, 0), SE_BUILD(0x181, 4, 0, 0), SE_BUILD(0x190, 4, 0, 0), SE_BUILD(0x191, 4, 0, 0), COL_ALL) // 0xB0
     Metatile("GROUND_2",    SE_BUILD(0x181, 4, 0, 0), SE_BUILD(0x181, 4, 0, 0), SE_BUILD(0x191, 4, 0, 0), SE_BUILD(0x191, 4, 0, 0), COL_ALL)
     Metatile("GROUND_3",    SE_BUILD(0x181, 4, 0, 0), SE_BUILD(0x182, 4, 0, 0), SE_BUILD(0x191, 4, 0, 0), SE_BUILD(0x192, 4, 0, 0), COL_ALL)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("CEILING_1",   SE_BUILD(0x1f0, 4, 0, V_FLIP), SE_BUILD(0x1f1, 4, 0, V_FLIP), SE_BUILD(0x1e0, 4, 0, V_FLIP), SE_BUILD(0x1e1, 4, 0, V_FLIP), COL_ALL)
+    Metatile("CEILING_2",   SE_BUILD(0x1f1, 4, 0, V_FLIP), SE_BUILD(0x1f1, 4, 0, V_FLIP), SE_BUILD(0x1e1, 4, 0, V_FLIP), SE_BUILD(0x1e1, 4, 0, V_FLIP), COL_ALL)
+    Metatile("CEILING_3",   SE_BUILD(0x1f1, 4, 0, V_FLIP), SE_BUILD(0x1f2, 4, 0, V_FLIP), SE_BUILD(0x1e1, 4, 0, V_FLIP), SE_BUILD(0x1e2, 4, 0, V_FLIP), COL_ALL)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0xB8
@@ -228,9 +228,9 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("GROUND_4",    SE_BUILD(0x1a0, 4, 0, 0), SE_BUILD(0x1a1, 4, 0, 0), SE_BUILD(0x1b0, 4, 0, 0), SE_BUILD(0x1b1, 4, 0, 0), COL_ALL) // 0xC0
     Metatile("GROUND_5",    SE_BUILD(0x1a1, 4, 0, 0), SE_BUILD(0x1a1, 4, 0, 0), SE_BUILD(0x1b1, 4, 0, 0), SE_BUILD(0x1b1, 4, 0, 0), COL_ALL)
     Metatile("GROUND_6",    SE_BUILD(0x1a1, 4, 0, 0), SE_BUILD(0x1a2, 4, 0, 0), SE_BUILD(0x1b1, 4, 0, 0), SE_BUILD(0x1b2, 4, 0, 0), COL_ALL)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("CEILING_4",   SE_BUILD(0x1d0, 4, 0, V_FLIP), SE_BUILD(0x1d1, 4, 0, V_FLIP), SE_BUILD(0x1c0, 4, 0, V_FLIP), SE_BUILD(0x1c1, 4, 0, V_FLIP), COL_ALL)
+    Metatile("CEILING_5",   SE_BUILD(0x1d1, 4, 0, V_FLIP), SE_BUILD(0x1d1, 4, 0, V_FLIP), SE_BUILD(0x1c1, 4, 0, V_FLIP), SE_BUILD(0x1c1, 4, 0, V_FLIP), COL_ALL)
+    Metatile("CEILING_6",   SE_BUILD(0x1d1, 4, 0, V_FLIP), SE_BUILD(0x1d2, 4, 0, V_FLIP), SE_BUILD(0x1c1, 4, 0, V_FLIP), SE_BUILD(0x1c2, 4, 0, V_FLIP), COL_ALL)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0xC8
@@ -245,9 +245,9 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("GROUND_7",    SE_BUILD(0x1c0, 4, 0, 0), SE_BUILD(0x1c1, 4, 0, 0), SE_BUILD(0x1d0, 4, 0, 0), SE_BUILD(0x1d1, 4, 0, 0), COL_ALL) // 0xD0
     Metatile("GROUND_8",    SE_BUILD(0x1c1, 4, 0, 0), SE_BUILD(0x1c1, 4, 0, 0), SE_BUILD(0x1d1, 4, 0, 0), SE_BUILD(0x1d1, 4, 0, 0), COL_ALL)
     Metatile("GROUND_9",    SE_BUILD(0x1c1, 4, 0, 0), SE_BUILD(0x1c2, 4, 0, 0), SE_BUILD(0x1d1, 4, 0, 0), SE_BUILD(0x1d2, 4, 0, 0), COL_ALL)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("CEILING_7",   SE_BUILD(0x1b0, 4, 0, V_FLIP), SE_BUILD(0x1b1, 4, 0, V_FLIP), SE_BUILD(0x1a0, 4, 0, V_FLIP), SE_BUILD(0x1a1, 4, 0, V_FLIP), COL_ALL)
+    Metatile("CEILING_8",   SE_BUILD(0x1b1, 4, 0, V_FLIP), SE_BUILD(0x1b1, 4, 0, V_FLIP), SE_BUILD(0x1a1, 4, 0, V_FLIP), SE_BUILD(0x1a1, 4, 0, V_FLIP), COL_ALL)
+    Metatile("CEILING_9",   SE_BUILD(0x1b1, 4, 0, V_FLIP), SE_BUILD(0x1b2, 4, 0, V_FLIP), SE_BUILD(0x1a1, 4, 0, V_FLIP), SE_BUILD(0x1a2, 4, 0, V_FLIP), COL_ALL)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0xD8
@@ -262,9 +262,9 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("GROUND_A",    SE_BUILD(0x1e0, 4, 0, 0), SE_BUILD(0x1e1, 4, 0, 0), SE_BUILD(0x1f0, 4, 0, 0), SE_BUILD(0x1f1, 4, 0, 0), COL_ALL) // 0xE0
     Metatile("GROUND_B",    SE_BUILD(0x1e1, 4, 0, 0), SE_BUILD(0x1e1, 4, 0, 0), SE_BUILD(0x1f1, 4, 0, 0), SE_BUILD(0x1f1, 4, 0, 0), COL_ALL)
     Metatile("GROUND_C",    SE_BUILD(0x1e1, 4, 0, 0), SE_BUILD(0x1e2, 4, 0, 0), SE_BUILD(0x1f1, 4, 0, 0), SE_BUILD(0x1f2, 4, 0, 0), COL_ALL)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
-    Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
+    Metatile("CEILING_A",   SE_BUILD(0x190, 4, 0, V_FLIP), SE_BUILD(0x191, 4, 0, V_FLIP), SE_BUILD(0x180, 4, 0, V_FLIP), SE_BUILD(0x181, 4, 0, V_FLIP), COL_ALL)
+    Metatile("CEILING_B",   SE_BUILD(0x191, 4, 0, V_FLIP), SE_BUILD(0x191, 4, 0, V_FLIP), SE_BUILD(0x181, 4, 0, V_FLIP), SE_BUILD(0x181, 4, 0, V_FLIP), COL_ALL)
+    Metatile("CEILING_C",   SE_BUILD(0x191, 4, 0, V_FLIP), SE_BUILD(0x192, 4, 0, V_FLIP), SE_BUILD(0x181, 4, 0, V_FLIP), SE_BUILD(0x182, 4, 0, V_FLIP), COL_ALL)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), SE_BUILD(0, 0, 0, 0), COL_NONE) // 0xE8

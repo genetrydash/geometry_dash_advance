@@ -1239,13 +1239,489 @@ stereomadness_l1_level_data:
     .hword 7
     .hword 3    @ Value 7 repeats 3 times
     .hword 0
-    .hword 935    @ Value 0 repeats 935 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 20
     .hword 2    @ Value 20 repeats 2 times
     .hword 17
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
-    .hword 348    @ Value 0 repeats 348 times
+    .hword 20    @ Value 0 repeats 20 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 17
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
@@ -1253,7 +1729,15 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1261,7 +1745,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1269,7 +1761,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1277,7 +1777,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1285,7 +1793,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1293,7 +1809,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1301,7 +1825,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1309,7 +1841,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1317,7 +1857,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1325,7 +1873,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1333,7 +1889,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1341,7 +1905,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1349,7 +1921,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1357,7 +1937,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
@@ -1365,7 +1953,15 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 17
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
@@ -1373,189 +1969,887 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 0
-    .hword 349    @ Value 0 repeats 349 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 8    @ Value 0 repeats 8 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
     .hword 1    @ Value 20 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 233    @ Value 0 repeats 233 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 20
     .hword 1    @ Value 20 repeats 1 times
     .hword 17
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
-    .hword 25    @ Value 0 repeats 25 times
+    .hword 21    @ Value 0 repeats 21 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 143    @ Value 0 repeats 143 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 25    @ Value 0 repeats 25 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 8    @ Value 0 repeats 8 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
     .hword 1    @ Value 20 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 9    @ Value 0 repeats 9 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 24    @ Value 0 repeats 24 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 7    @ Value 0 repeats 7 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
     .hword 2    @ Value 20 repeats 2 times
     .hword 0
-    .hword 206    @ Value 0 repeats 206 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 20
     .hword 3    @ Value 20 repeats 3 times
     .hword 17
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
-    .hword 23    @ Value 0 repeats 23 times
+    .hword 19    @ Value 0 repeats 19 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 23
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 22    @ Value 0 repeats 22 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 6
     .hword 2    @ Value 6 repeats 2 times
     .hword 10
@@ -1567,7 +2861,15 @@ stereomadness_l1_level_data:
     .hword 6
     .hword 2    @ Value 6 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1579,7 +2881,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1591,7 +2901,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1603,7 +2921,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1615,7 +2941,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1627,7 +2961,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1639,7 +2981,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1651,7 +3001,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1663,7 +3021,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1675,7 +3041,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1687,7 +3061,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1699,7 +3081,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 181
+    .hword 1    @ Value 181 repeats 1 times
+    .hword 197
+    .hword 1    @ Value 197 repeats 1 times
+    .hword 213
+    .hword 1    @ Value 213 repeats 1 times
+    .hword 229
+    .hword 1    @ Value 229 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1711,7 +3101,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 179
+    .hword 1    @ Value 179 repeats 1 times
+    .hword 195
+    .hword 1    @ Value 195 repeats 1 times
+    .hword 211
+    .hword 1    @ Value 211 repeats 1 times
+    .hword 227
+    .hword 1    @ Value 227 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 5
@@ -1723,7 +3121,15 @@ stereomadness_l1_level_data:
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
     .hword 0
-    .hword 17    @ Value 0 repeats 17 times
+    .hword 13    @ Value 0 repeats 13 times
+    .hword 180
+    .hword 1    @ Value 180 repeats 1 times
+    .hword 196
+    .hword 1    @ Value 196 repeats 1 times
+    .hword 212
+    .hword 1    @ Value 212 repeats 1 times
+    .hword 228
+    .hword 1    @ Value 228 repeats 1 times
     .hword 7
     .hword 2    @ Value 7 repeats 2 times
     .hword 11
