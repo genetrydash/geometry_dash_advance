@@ -90,11 +90,9 @@ void collision_ship() {
             coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
             
             if (run_coll(coll_x, coll_y + player_height, layer, BOTTOM)) {
-                player_death = FALSE;
                 continue;
             }
             if (run_coll(coll_x + player_width, coll_y + player_height, layer, BOTTOM)) {
-                player_death = FALSE;
                 continue;
             }
         }
@@ -104,11 +102,9 @@ void collision_ship() {
             coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
 
             if (run_coll(coll_x, coll_y, layer, TOP)) {
-                player_death = FALSE;
                 continue;
             }
             if (run_coll(coll_x + player_width, coll_y, layer, TOP)) {
-                player_death = FALSE;
                 continue;
             }
         }
