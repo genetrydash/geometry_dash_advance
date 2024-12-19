@@ -31,17 +31,6 @@ s32 main() {
 
     load_level(stereomadness_ID);
 
-    player_y = ((GROUND_HEIGHT - 1) << 12);
-    scroll_y = (player_y) - 0x7000;
-
-    // Set seam position 
-    seam_x = scroll_x >> 8;
-    seam_y = scroll_y >> 8;
-    
-    decompress_first_screen();
-
-    decompressed_column = 0;
-
 	while(1) {
         // Wait for VSYNC
         vid_vsync();
@@ -56,8 +45,14 @@ s32 main() {
 		REG_BG0HOFS = REG_BG1HOFS = scroll_x >> 8;
 		REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
 
+        if (player_death) reset_level();
+
         // Run color stuff
         run_col_triggers();
+
+        // Copy palette from buffer
+        memcpy32(pal_bg_mem, palette_buffer, 256);
+
         
         // Run scroll routines
         screen_scroll_load();
@@ -65,7 +60,7 @@ s32 main() {
         // END OF VBLANK STUFF
 
         // Run player routines
-        player_main();
+        if (!player_death) player_main();
 
         // Run object routines
         display_objects();

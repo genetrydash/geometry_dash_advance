@@ -159,21 +159,74 @@ void decompress_column(u32 layer) {
     }
 }
 
+void set_initial_color(COLOR bg_color, COLOR ground_color) {
+    set_bg_color(palette_buffer, bg_color);
+    set_ground_color(palette_buffer, ground_color);
+}
+
+void reset_variables() {
+    player_x = 0;  
+    player_y_speed = 0;
+    coll_x = 0;
+    coll_y = 0;
+    player_death = FALSE;
+    curr_column = 0;
+
+    scroll_x = 0;
+
+    REG_BG0HOFS = REG_BG1HOFS = scroll_x >> 8;
+    REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
+
+    for (u32 index = 0; index < MAX_OBJECTS; index++) {
+        object_buffer[index].occupied = FALSE;
+    }
+}
+
 void load_level(u32 level_ID) {
     level_pointer[0] = (u16*) level_defines[level_ID][0];
     level_pointer[1] = (u16*) level_defines[level_ID][1];
     sprite_pointer   = (u32*) level_defines[level_ID][2];
     
-    // Level height
-
     COLOR bg_color = level_defines[level_ID][3][0];
     COLOR ground_color = level_defines[level_ID][3][1];
     gamemode = level_defines[level_ID][3][2];
     speed_id = level_defines[level_ID][3][3];
     curr_level_height = level_defines[level_ID][3][4];
 
-    set_bg_color(bg_color);
-    set_ground_color(ground_color);
+    player_y = ((GROUND_HEIGHT - 1) << 12);  
+    scroll_y = (player_y) - 0x7000;
 
+	memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
+	memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
+    set_initial_color(bg_color, ground_color);
+
+    reset_variables();
+    // Set seam position 
+    seam_x = scroll_x >> 8;
+    seam_y = scroll_y >> 8;
     
+    decompress_first_screen();
+
+    decompressed_column = 0;
+}
+
+void reset_level() {
+    
+    // Wait a bit before fading
+    for (s32 frame = 0; frame < 30; frame++) {
+        vid_vsync();
+    }
+
+    // Fade
+    for (s32 frame = 0; frame <= 32; frame += 4) {
+        vid_vsync();
+        clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, frame);
+    }
+    oam_init(shadow_oam, 128);
+    load_level(stereomadness_ID);
+
+    for (s32 frame = 0; frame <= 32; frame += 4) {
+        vid_vsync();
+        clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
+    }
 }

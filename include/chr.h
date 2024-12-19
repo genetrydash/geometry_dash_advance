@@ -2,5 +2,6 @@
 #include "../graphics/includes.h"
 #include "portal.png.h"
 
-extern const u16 blockPalette[80];
-extern const u16 spritePalette[48];
+extern const COLOR blockPalette[80];
+extern const COLOR spritePalette[48];
+extern const COLOR black_buffer[512];

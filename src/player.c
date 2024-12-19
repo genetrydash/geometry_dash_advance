@@ -16,9 +16,16 @@ s16 player_y_speed;
 u16 relative_player_x;
 u16 relative_player_y;
 
+// Change of y speed
 s16 gravity;
+
+// Direction of the gravity. 0 : down, 1 : up
 u8 gravity_dir;
 
+// 0 : alive , 1 : death
+u8 player_death;
+
+// 0 : on air, 1 : on floor
 u8 on_floor;
 
 // Current player gamemode
@@ -126,9 +133,8 @@ void cube_gamemode() {
     relative_player_x = (player_x - scroll_x) >> 8;
     relative_player_y = (player_y - scroll_y) >> 8;
 
-    x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
-    y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
-
+    x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 9 : 8);
+    y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 9 : 8);
     oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr);
 }
 

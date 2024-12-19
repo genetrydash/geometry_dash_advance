@@ -22,9 +22,19 @@ void collision_ship();
 enum COL_TYPES {
     COL_NONE,
     COL_ALL,
-    COL_DEATH,
+    COL_SPIKE_TOP,
+    COL_SPIKE_BOTTOM,
+    COL_SPIKE_RIGHT,
+    COL_SPIKE_LEFT,
+    COL_SMALL_SPIKE_TOP,
+    COL_SMALL_SPIKE_BOTTOM,
+    COL_SMALL_SPIKE_RIGHT,
+    COL_SMALL_SPIKE_LEFT,
     COL_SLAB_TOP,
     COL_SLAB_BOTTOM,
 };
 
 extern const u16 ground_pattern[];
+
+extern u32 coll_x;
+extern u32 coll_y;

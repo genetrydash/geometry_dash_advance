@@ -26,22 +26,22 @@ void col_trigger(struct ObjectSlot *objectSlot) {
         if (curr_frame == 0) {
             switch (channel) {
                 case BG:
-                    col_trigger.attrib3 = pal_bg_mem[0x00];        // Temp storage for old BG color
+                    col_trigger.attrib3 = palette_buffer[0x00];        // Temp storage for old BG color
                     break;
                 case GROUND:
-                    col_trigger.attrib3 = pal_bg_mem[0x41];        // Temp storage for old GROUND color
+                    col_trigger.attrib3 = palette_buffer[0x41];        // Temp storage for old GROUND color
                     break;
                 case OBJ:
-                    col_trigger.attrib3 = pal_bg_mem[0x09];        // Temp storage for old OBJ color
+                    col_trigger.attrib3 = palette_buffer[0x09];        // Temp storage for old OBJ color
                     break;
                 case LINE:
-                    col_trigger.attrib3 = pal_bg_mem[0x48];
+                    col_trigger.attrib3 = palette_buffer[0x48];
                     break;
                 case COL1:
                 case COL2:
                 case COL3:
                 case COL4:
-                    col_trigger.attrib3 = pal_bg_mem[0x0D + (channel << 4)];
+                    col_trigger.attrib3 = palette_buffer[0x0D + (channel << 4)];
                     break;
 
             }
@@ -63,22 +63,22 @@ void col_trigger(struct ObjectSlot *objectSlot) {
         // Run code depending on which channel
         switch (channel) {
             case BG:
-                set_bg_color(lerped_color);
+                set_bg_color(palette_buffer, lerped_color);
                 break;
             case GROUND:
-                set_ground_color(lerped_color);
+                set_ground_color(palette_buffer, lerped_color);
                 break;
             case OBJ:
-                set_obj_color(lerped_color);
+                set_obj_color(palette_buffer, lerped_color);
                 break;
             case LINE:
-                set_line_color(lerped_color);
+                set_line_color(palette_buffer, lerped_color);
                 break;
             case COL1:
             case COL2:
             case COL3:
             case COL4:
-                set_color_channel_color(lerped_color, channel);
+                set_color_channel_color(palette_buffer, lerped_color, channel);
                 break;
         }
 

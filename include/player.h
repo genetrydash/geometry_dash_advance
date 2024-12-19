@@ -1,9 +1,9 @@
 #include <tonc.h>
 
-#define CUBE_WIDTH 0x10
-#define CUBE_HEIGHT 0x10
+#define CUBE_WIDTH 0x0E
+#define CUBE_HEIGHT 0x0E
 
-#define SHIP_WIDTH 0x10
+#define SHIP_WIDTH 0x0E
 #define SHIP_HEIGHT 0x0c
 
 // Gamemode IDs
@@ -32,6 +32,8 @@ extern s16 player_y_speed;
 
 extern s16 gravity;
 extern u8 gravity_dir;
+
+extern u8 player_death;
 
 extern u8 speed_id;
 

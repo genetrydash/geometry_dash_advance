@@ -8,6 +8,7 @@ OBJ_AFFINE *obj_aff_buffer = (OBJ_AFFINE*) shadow_oam;
 
 // Level buffer
 EWRAM_DATA u16 level_buffer[LEVEL_LAYERS][MAX_LEVEL_HEIGHT*LEVEL_BUFFER_WIDTH];
+EWRAM_DATA COLOR palette_buffer[512];
 
 // Current block column [0-LEVEL_BUFFER_WIDTH)
 u8 curr_column;
