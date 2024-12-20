@@ -174,7 +174,7 @@ void reset_variables() {
     coll_y = 0;
     player_death = FALSE;
     curr_column = 0;
-    on_floor = 0;
+    on_floor = TRUE;
 
     scroll_x = 0;
 
