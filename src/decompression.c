@@ -242,6 +242,7 @@ void reset_level() {
     // Fade in
     for (s32 frame = 0; frame <= 32; frame += 4) {
         vid_vsync();
+        key_poll();
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
 }
