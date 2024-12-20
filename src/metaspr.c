@@ -58,7 +58,6 @@ const s16 obj_hitbox[][4] = {
     Object_Hitbox("COL_TRIGGER", 0, 0, 0, 0)
 };
 
-// TODO: figure out affine sprites
 void oam_metaspr(u16 x, u8 y, const u16 *data) {
     u32 i = 0;
     // Continue until end of data

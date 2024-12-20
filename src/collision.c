@@ -243,7 +243,6 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     UNUSED u32 x_inside_block = x & 0x0f;
     u32 y_inside_block = y & 0x0f;
 
-    // TODO: death col types
     switch (col_type) {
         case COL_NONE:
             return 0;
