@@ -174,8 +174,11 @@ void reset_variables() {
 
     scroll_x = 0;
 
-    REG_BG0HOFS = REG_BG1HOFS = scroll_x >> 8;
+    REG_BG0HOFS = REG_BG1HOFS = 0;
     REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
+    
+    REG_BG2HOFS = 0;
+    REG_BG2VOFS = 128 + (scroll_y >> 10);
 
     for (u32 index = 0; index < MAX_OBJECTS; index++) {
         object_buffer[index].occupied = FALSE;
