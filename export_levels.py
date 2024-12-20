@@ -80,11 +80,19 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                     out_file.write(f"   .hword {hex(gid)}\n")
                     byte_counter += 8
                     if gid == 3: # COLOR TRIGGER
-                        properties = obj['properties']
-                        channel = str(properties[0]['value'])
-                        frames = int(properties[2]['value']) - 1
+                        try: 
+                            properties = obj['properties']
+                            channel = str(properties[0]['value'])
+                            frames = int(properties[2]['value']) - 1
+                        except Exception:
+                            raise Exception(f"Encountered color trigger without attributes/missing attributes on pos {x/16}, {y/16}. Make sure there are 3 attributes.")
                         
                         channel_id = 0
+
+                        possible_channels = ["BG", "GROUND", "OBJ", "LINE", "1", "2", "3", "4"]
+
+                        if channel not in possible_channels:
+                            raise Exception(f"Encountered invalid color channel: {channel}, on pos {x/16}, {y/16}. Must be one of the following: BG, GROUND, OBJ, LINE, 1, 2, 3, 4.") 
 
                         if channel == "BG":
                             channel_id = 4
@@ -96,6 +104,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                             channel_id = 7
                         else:
                             channel_id = int(channel) - 1
+                            
 
                         color = int(properties[1]['value'][3:], 16)
                         color_bgr555 = rgb888_to_rgb555_24bit(color)
@@ -103,6 +112,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                         out_file.write(f"   .hword {hex((frames << 3) | channel_id)}\n")
                         out_file.write(f"   .hword {hex(color_bgr555)}\n")
                         byte_counter += 4
+                        
                 out_file.write(f"   .byte 0xff\n")
                 byte_counter += 1
                 print(f"Object data size: {byte_counter} B")
@@ -198,27 +208,29 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
     # Load JSON
     with open(json_file_path, 'r') as f:
         json_data = json.load(f)
+    try: 
+        properties = json_data["properties"]
 
-    properties = json_data["properties"]
+        # BG color
+        bg_color = properties[0]['value']
+        if bg_color != "":
+            bg_color = int(bg_color[3:], 16)
+            bg_color_bgr555 = rgb888_to_rgb555_24bit(bg_color)
+        else:
+            bg_color_bgr555 = rgb888_to_rgb555_24bit(0x0000ff)
 
-    # BG color
-    bg_color = properties[0]['value']
-    if bg_color != "":
-        bg_color = int(bg_color[3:], 16)
-        bg_color_bgr555 = rgb888_to_rgb555_24bit(bg_color)
-    else:
-        bg_color_bgr555 = rgb888_to_rgb555_24bit(0x0000ff)
-
-    # Ground color
-    g_color = properties[1]['value']
-    if g_color != "":
-        g_color = int(g_color[3:], 16)
-        g_color_bgr555 = rgb888_to_rgb555_24bit(g_color)
-    else:
-        g_color_bgr555 = rgb888_to_rgb555_24bit(0x0000ff)
-    
-    gamemode = int(properties[2]['value'])
-    speed = int(properties[3]['value'])
+        # Ground color
+        g_color = properties[1]['value']
+        if g_color != "":
+            g_color = int(g_color[3:], 16)
+            g_color_bgr555 = rgb888_to_rgb555_24bit(g_color)
+        else:
+            g_color_bgr555 = rgb888_to_rgb555_24bit(0x0000ff)
+        
+        gamemode = int(properties[2]['value'])
+        speed = int(properties[3]['value'])
+    except Exception:
+        raise Exception(f"Level {level_name} doesn't have / has missing attributes. Make sure those attributes exists: BG, GROUND, Gamemode, Speed. To see the level attributes, go to \"Map\" on tiled and then \"Map attributes\"")
 
     with open(output_path_c, 'w') as file:
         file.write(f"// {level_name} properties\n")
