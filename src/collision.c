@@ -70,7 +70,6 @@ void collision_cube() {
 }
 
 void collision_ship() {
-    on_floor = 0;
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
         coll_x = (player_x >> 8) + ((0x10 - player_width) >> 1);

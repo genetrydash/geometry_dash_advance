@@ -174,6 +174,7 @@ void reset_variables() {
     coll_y = 0;
     player_death = FALSE;
     curr_column = 0;
+    on_floor = 0;
 
     scroll_x = 0;
 
@@ -202,7 +203,7 @@ void load_level(u32 level_ID) {
     curr_level_height = level_defines[level_ID][3][4];
 
     // Put player on the ground
-    player_y = ((GROUND_HEIGHT - 1) << 12);  
+    player_y = ((GROUND_HEIGHT - 1) << 12) + 0x200;  
     scroll_y = (player_y) - 0x7000;
 
     // Copy palettes into the buffer
