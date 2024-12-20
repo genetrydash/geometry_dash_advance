@@ -43,6 +43,9 @@ s32 main() {
         obj_copy(oam_mem, shadow_oam, 128);
         obj_aff_copy(obj_aff_mem, obj_aff_buffer, 1);
 
+        // Clear OAM
+        memset32(shadow_oam, ATTR0_HIDE, 256);
+
         REG_BG0HOFS = REG_BG1HOFS = scroll_x >> 8;
         REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
 
@@ -56,7 +59,6 @@ s32 main() {
 
         // Copy palette from buffer
         memcpy32(pal_bg_mem, palette_buffer, 256);
-
         
         // Run scroll routines
         screen_scroll_load();
