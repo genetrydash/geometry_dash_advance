@@ -6,6 +6,8 @@
 #define SHIP_WIDTH 0x0E
 #define SHIP_HEIGHT 0x0c
 
+#define NUM_STEPS 4
+
 // Gamemode IDs
 enum GAMEMODE_TYPE {
     CUBE,

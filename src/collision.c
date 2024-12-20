@@ -27,7 +27,6 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
 void do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
 
 void collision_cube() {
-    on_floor = 0;
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
         coll_x = (player_x >> 8) + ((0x10 - player_width) >> 1);

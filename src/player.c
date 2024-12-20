@@ -121,19 +121,24 @@ void cube_gamemode() {
         cube_rotation = (cube_rotation + 0x2000) & 0xC000;
     }
 
-    // Apply half of speed
-    // Update player x
-    player_x += player_x_speed >> 1;
-    player_y += player_y_speed >> 1;
+    on_floor = 0;
 
+    for (s32 step = 0; step < NUM_STEPS - 1; step++) {
+        // Apply quarter of speed
+        // Update player x and y
+        player_x += player_x_speed >> 2;
+        player_y += player_y_speed >> 2;
+        
+        // Run collision
+        collision_cube();
+    }
+
+    // Apply last quarter of speed
+    // Update player x and y
+    player_x += player_x_speed - ((player_x_speed >> 2) * 3);
+    player_y += player_y_speed - ((player_y_speed >> 2) * 3);
+    
     // Run collision
-    collision_cube();
-
-    // Apply other half of speed
-    player_x += player_x_speed - (player_x_speed >> 1);
-    player_y += player_y_speed - (player_y_speed >> 1);
-
-    // Run collision again, this effectively makes half steps
     collision_cube();
 
     relative_player_x = (player_x - scroll_x) >> 8;
@@ -169,19 +174,24 @@ void ship_gamemode() {
     
     player_y_speed = CLAMP(player_y_speed, -SHIP_MAX_Y_SPEED, SHIP_MAX_Y_SPEED);
 
-    // Apply half of speed
-    // Update player x
-    player_x += player_x_speed >> 1;
-    player_y += player_y_speed >> 1;
+    on_floor = 0;
+    
+    for (s32 step = 0; step < NUM_STEPS - 1; step++) {
+        // Apply quarter of speed
+        // Update player x and y
+        player_x += player_x_speed >> 2;
+        player_y += player_y_speed >> 2;
+        
+        // Run collision
+        collision_ship();
+    }
 
+    // Apply last quarter of speed
+    // Update player x and y
+    player_x += player_x_speed - ((player_x_speed >> 2) * 3);
+    player_y += player_y_speed - ((player_y_speed >> 2) * 3);
+    
     // Run collision
-    collision_ship();
-
-    // Apply other half of speed
-    player_x += player_x_speed - (player_x_speed >> 1);
-    player_y += player_y_speed - (player_y_speed >> 1);
-
-    // Run collision again, this effectively makes half steps
     collision_ship();
 
     relative_player_x = (player_x - scroll_x) >> 8;
