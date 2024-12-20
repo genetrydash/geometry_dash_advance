@@ -168,6 +168,7 @@ void set_initial_color(COLOR bg_color, COLOR ground_color) {
 
 void reset_variables() {
     player_x = 0;  
+    relative_player_x = 0;
     player_y_speed = 0;
     coll_x = 0;
     coll_y = 0;
