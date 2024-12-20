@@ -18,9 +18,11 @@ void screen_scroll_load();
 void decompress_column(u32 layer);
 void scroll_H(u32 layer);
 void increment_column();
-void put_ground_column();
+void put_ground();
 
 void decompress_first_screen() {
+    // Put ground tiles
+    put_ground();
     // Decompress the first screen
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         curr_column = 0;
@@ -33,7 +35,6 @@ void decompress_first_screen() {
 
         for (s32 i = 0; i < 16; i++) {
             decompress_column(layer);
-            put_ground_column();
             // Draw this column
             for (s32 j = 0; j < 2; j++) {
                 seam_y = scroll_y >> 8;
@@ -45,13 +46,15 @@ void decompress_first_screen() {
     }
 }
 
-void put_ground_column() {
-    // Put ground column in the first layer, no need to put it in both as l1  will hide l2's ground
-    s32 count = 0;
-    for (s32 i = GROUND_HEIGHT; i < MAX_LEVEL_HEIGHT; i++) {
-        // If we are at the first row of blocks, use the top row blocks
-        level_buffer[0][curr_column + (i * LEVEL_BUFFER_WIDTH)] = ground_pattern[(count << 2) + (curr_column & 0x3)];
-        count++;
+void put_ground() {
+    // Put ground column in the first layer, no need to put it in both as l1 will hide l2's ground
+    for (u32 ground_column = 0; ground_column < LEVEL_BUFFER_WIDTH; ground_column++) {    
+        s32 count = 0;
+        for (s32 i = GROUND_HEIGHT; i < MAX_LEVEL_HEIGHT; i++) {
+            // If we are at the first row of blocks, use the top row blocks
+            level_buffer[0][ground_column + (i * LEVEL_BUFFER_WIDTH)] = ground_pattern[(count << 2) + (ground_column & 0x3)];
+            count++;
+        }
     }
 }
 void increment_column() {
@@ -115,7 +118,6 @@ void screen_scroll_load() {
     if (decompressed_column != ((scroll_x >> 12) & 0xff)) {
         decompress_column(0);
         decompress_column(1);
-        put_ground_column();
         decompressed_column += 1;
 
         increment_column();
