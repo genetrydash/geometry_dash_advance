@@ -22,17 +22,17 @@ void col_trigger(struct ObjectSlot *objectSlot) {
         u32 curr_frame = col_trigger.attrib4;
         u32 channel = col_trigger.attrib1 & 0x7;
         
-        // Save color on attrib3 depending on color channel, only if we are on the first frame
+        // Save old color on attrib3 depending on color channel, only if we are on the first frame
         if (curr_frame == 0) {
             switch (channel) {
                 case BG:
-                    col_trigger.attrib3 = palette_buffer[0x00];        // Temp storage for old BG color
+                    col_trigger.attrib3 = palette_buffer[0x00];
                     break;
                 case GROUND:
-                    col_trigger.attrib3 = palette_buffer[0x41];        // Temp storage for old GROUND color
+                    col_trigger.attrib3 = palette_buffer[0x41];
                     break;
                 case OBJ:
-                    col_trigger.attrib3 = palette_buffer[0x09];        // Temp storage for old OBJ color
+                    col_trigger.attrib3 = palette_buffer[0x09];
                     break;
                 case LINE:
                     col_trigger.attrib3 = palette_buffer[0x48];
@@ -43,7 +43,6 @@ void col_trigger(struct ObjectSlot *objectSlot) {
                 case COL4:
                     col_trigger.attrib3 = palette_buffer[0x0D + (channel << 4)];
                     break;
-
             }
         }
 
@@ -60,7 +59,7 @@ void col_trigger(struct ObjectSlot *objectSlot) {
             lerped_color = new_color;
         } 
 
-        // Run code depending on which channel
+        // Run code depending on which channel is the trigger modifying
         switch (channel) {
             case BG:
                 set_bg_color(palette_buffer, lerped_color);

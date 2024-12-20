@@ -25,7 +25,7 @@ void load_next_object() {
                 gObject.type = (*sprite_pointer) >> 16;
                 sprite_pointer++;
 
-                // If the object is a color trigger, then get more attributes
+                // If the object is a color trigger, then get more attributes (attrib3 is set on activation)
                 if (gObject.type == COL_TRIGGER) {
                     gObject.attrib1 = (u16)(*sprite_pointer);  // Frames and channel
                     gObject.attrib2 = (*sprite_pointer) >> 16; // Color
@@ -43,7 +43,7 @@ void load_next_object() {
 }
 
 void do_collision(struct ObjectSlot *objectSlot);
-// This function runs col triggers. It is important it is done in VBLANK because it acceses palette memory
+// This function runs col triggers. It is important that it is done in VBLANK because it acceses palette memory
 void run_col_triggers() {
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied) {
@@ -57,13 +57,14 @@ void display_objects() {
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied) {
             struct Object curr_object = object_buffer[index].object;
-
-            // Calculate the relative positions
-            s32 relative_x = curr_object.x - ((scroll_x >> 8) & 0xffffffff);
-            s32 relative_y = curr_object.y - ((scroll_y >> 8) & 0xffff);
-
-            // Unload object in case that it is 128 pixels left to the screen and not a trigger
+            
+            // Color triggers are handler earlier in the frame
             if (curr_object.type != COL_TRIGGER) {
+                // Calculate the relative positions
+                s32 relative_x = curr_object.x - ((scroll_x >> 8) & 0xffffffff);
+                s32 relative_y = curr_object.y - ((scroll_y >> 8) & 0xffff);
+
+                // Unload object in case that it is 128 pixels left to the screen
                 if (relative_x < -128) {
                     object_buffer[index].occupied = FALSE;
                 }

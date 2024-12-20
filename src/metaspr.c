@@ -61,7 +61,7 @@ const s16 obj_hitbox[][4] = {
 void oam_metaspr(u16 x, u8 y, const u16 *data) {
     u32 i = 0;
     // Continue until end of data
-    while (data[i] != 0xffff && i < 128) {
+    while (data[i] != 0xffff && nextSpr < 128) {
         // Get next sprite slot
         OAM_SPR *newSpr = &shadow_oam[nextSpr];
         // Set attributes
@@ -75,7 +75,7 @@ void oam_metaspr(u16 x, u8 y, const u16 *data) {
         
         // Increment into next sprite
         nextSpr++;
-        // Also increment sprite index by 4 words
+        // Also increment sprite index by 5 words
         i += 5;
     }
 }

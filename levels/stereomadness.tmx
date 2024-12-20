@@ -4,7 +4,7 @@
   <export target="stereomadness.json" format="json"/>
  </editorsettings>
  <properties>
-  <property name="BG" type="color" value=""/>
+  <property name="BG" type="color" value="#ff283eff"/>
   <property name="GROUND" type="color" value="#ff0013c8"/>
   <property name="Gamemode" type="int" value="0"/>
   <property name="Speed" type="int" value="1"/>
