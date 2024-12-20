@@ -203,8 +203,8 @@ void load_level(u32 level_ID) {
     scroll_y = (player_y) - 0x7000;
 
     // Copy palettes into the buffer
-	memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
-	memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
+    memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
+    memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
     // Set BG and ground colors
     set_initial_color(bg_color, ground_color);
