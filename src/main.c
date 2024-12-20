@@ -31,10 +31,13 @@ s32 main() {
     memcpy16(pal_obj_mem, spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
     load_level(stereomadness_ID);
+    
+    irq_init(NULL);
+    irq_add(II_VBLANK, NULL);
 
     while(1) {
         // Wait for VSYNC
-        vid_vsync();
+        VBlankIntrWait();
         key_poll();
 
         nextSpr = 0;

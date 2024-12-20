@@ -228,12 +228,12 @@ void load_level(u32 level_ID) {
 void reset_level() {
     // Wait a bit before fading
     for (s32 frame = 0; frame < 30; frame++) {
-        vid_vsync();
+        VBlankIntrWait();
     }
 
     // Fade out
     for (s32 frame = 0; frame <= 32; frame += 4) {
-        vid_vsync();
+        VBlankIntrWait();
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, frame);
     }
     oam_init(shadow_oam, 128);
@@ -241,7 +241,7 @@ void reset_level() {
 
     // Fade in
     for (s32 frame = 0; frame <= 32; frame += 4) {
-        vid_vsync();
+        VBlankIntrWait();
         key_poll();
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
