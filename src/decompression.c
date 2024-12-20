@@ -50,8 +50,8 @@ void put_ground() {
     // Put ground column in the first layer, no need to put it in both as l1 will hide l2's ground
     for (u32 ground_column = 0; ground_column < LEVEL_BUFFER_WIDTH; ground_column++) {    
         s32 count = 0;
+        // Place a column of blocks
         for (s32 i = GROUND_HEIGHT; i < MAX_LEVEL_HEIGHT; i++) {
-            // If we are at the first row of blocks, use the top row blocks
             level_buffer[0][ground_column + (i * LEVEL_BUFFER_WIDTH)] = ground_pattern[(count << 2) + (ground_column & 0x3)];
             count++;
         }
