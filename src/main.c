@@ -44,7 +44,7 @@ s32 main() {
 
     while(1) {
         // Wait for VSYNC
-        vid_vsync();
+        VBlankIntrWait();
         key_poll();
 
         nextSpr = 0;
