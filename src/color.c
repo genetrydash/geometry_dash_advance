@@ -1,4 +1,6 @@
 #include "color.h"
+#include "sprite_loading.h"
+#include "memory.h"
 
 #define BG_COLOR  0x00
 #define OBJ_COLOR 0x09
@@ -101,4 +103,54 @@ u16 lerp_color(COLOR color1, COLOR color2, FIXED time) {
 
     // Combine into a single BGR555 value
     return (blue_lerp << 10) | (green_lerp << 5) | red_lerp;
+}
+
+void run_col_trigger_changes() {
+    for (s32 channel = 0; channel < CHANNEL_COUNT; channel++) {
+        if (col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE]) {
+            COLOR old_color = col_trigger_buffer[channel][COL_TRIG_BUFF_OLD_COLOR];
+            COLOR new_color = col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR];
+            u16 frames      = col_trigger_buffer[channel][COL_TRIG_BUFF_TOTAL_FRAMES];
+            u16 curr_frame  = col_trigger_buffer[channel][COL_TRIG_BUFF_CURRENT_FRAMES];
+
+            COLOR lerped_color;
+
+            // Calculate lerped color. If the value is less than 2, then it is an instant color change
+            if (frames > 1) {
+                u16 lerp_value = (curr_frame << 8) / (frames - 1); // Division, scary stuff
+                lerped_color = lerp_color(old_color, new_color, lerp_value);
+            } else {
+                lerped_color = new_color;
+            } 
+
+            // Run code depending on which channel is the trigger modifying
+            switch (channel) {
+                case BG:
+                    set_bg_color(palette_buffer, lerped_color);
+                    break;
+                case GROUND:
+                    set_ground_color(palette_buffer, lerped_color);
+                    break;
+                case OBJ:
+                    set_obj_color(palette_buffer, lerped_color);
+                    break;
+                case LINE:
+                    set_line_color(palette_buffer, lerped_color);
+                    break;
+                case COL1:
+                case COL2:
+                case COL3:
+                case COL4:
+                    set_color_channel_color(palette_buffer, lerped_color, channel);
+                    break;
+            }
+
+            col_trigger_buffer[channel][COL_TRIG_BUFF_CURRENT_FRAMES] = ++curr_frame;
+
+            // If we reached total frames, then deactivate color change
+            if (curr_frame >= frames) {
+                col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE] = FALSE;
+            }
+        }
+    }
 }

@@ -19,77 +19,36 @@ void col_trigger(struct ObjectSlot *objectSlot) {
     // If the player is right of the horizontal center of the trigger, activate the color trigger
     if ((player_x >> 8) >= (col_trigger.x + 8)) {
         u32 frames = (col_trigger.attrib1 >> 3) + 1; // +1 because 0 = 1
-        u32 curr_frame = col_trigger.attrib4;
         u32 channel = col_trigger.attrib1 & 0x7;
         
-        // Save old color on attrib3 depending on color channel, only if we are on the first frame
-        if (curr_frame == 0) {
-            switch (channel) {
-                case BG:
-                    col_trigger.attrib3 = palette_buffer[0x00];
-                    break;
-                case GROUND:
-                    col_trigger.attrib3 = palette_buffer[0x41];
-                    break;
-                case OBJ:
-                    col_trigger.attrib3 = palette_buffer[0x09];
-                    break;
-                case LINE:
-                    col_trigger.attrib3 = palette_buffer[0x48];
-                    break;
-                case COL1:
-                case COL2:
-                case COL3:
-                case COL4:
-                    col_trigger.attrib3 = palette_buffer[0x0D + (channel << 4)];
-                    break;
-            }
-        }
-
-        // Get old and new color
-        COLOR new_color = col_trigger.attrib2;
-        COLOR old_color = col_trigger.attrib3;
-        COLOR lerped_color;
-
-        // Calculate lerped color. If the value is less than 2, then it is an instant color change
-        if (frames > 1) {
-            u16 lerp_value = (curr_frame << 8) / (frames - 1); // Division, scary stuff
-            lerped_color = lerp_color(old_color, new_color, lerp_value);
-        } else {
-            lerped_color = new_color;
-        } 
-
-        // Run code depending on which channel is the trigger modifying
+        // Save variables into buffer
         switch (channel) {
             case BG:
-                set_bg_color(palette_buffer, lerped_color);
+                col_trigger_buffer[channel][COL_TRIG_BUFF_OLD_COLOR] = palette_buffer[0x00];
                 break;
             case GROUND:
-                set_ground_color(palette_buffer, lerped_color);
+                col_trigger_buffer[channel][COL_TRIG_BUFF_OLD_COLOR] = palette_buffer[0x41];
                 break;
             case OBJ:
-                set_obj_color(palette_buffer, lerped_color);
+                col_trigger_buffer[channel][COL_TRIG_BUFF_OLD_COLOR] = palette_buffer[0x09];
                 break;
             case LINE:
-                set_line_color(palette_buffer, lerped_color);
+                col_trigger_buffer[channel][COL_TRIG_BUFF_OLD_COLOR] = palette_buffer[0x48];
                 break;
             case COL1:
             case COL2:
             case COL3:
             case COL4:
-                set_color_channel_color(palette_buffer, lerped_color, channel);
+                col_trigger_buffer[channel][COL_TRIG_BUFF_OLD_COLOR] = palette_buffer[0x0D + (channel << 4)];
                 break;
         }
+        col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE] = TRUE;
+        col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = col_trigger.attrib2;
+        col_trigger_buffer[channel][COL_TRIG_BUFF_TOTAL_FRAMES] = frames; // Total frames
+        col_trigger_buffer[channel][COL_TRIG_BUFF_CURRENT_FRAMES] = 0;      // Current frame
 
-        // If there are frames left, increment frame counter. If not, deoccupy the object slot
-        if (frames > curr_frame) {
-            col_trigger.attrib4++;
-        } else {
-            objectSlot->occupied = FALSE;
-        }
-
-        // Update object
-        objectSlot->object = col_trigger;
+        // Deoccupy slot
+        objectSlot->occupied = FALSE;
     }
 }
 

@@ -59,6 +59,7 @@ s32 main() {
 
         // Run color stuff
         run_col_triggers();
+        run_col_trigger_changes();
 
         // Copy palette from buffer
         memcpy32(pal_bg_mem, palette_buffer, 256);
