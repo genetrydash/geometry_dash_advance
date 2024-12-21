@@ -5,6 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/opt/devkitpro/libtonc/include",
+                "/opt/devkitpro/libgba/include",
                 "${workspaceFolder}/build",
                 "${workspaceFolder}/src",
                 "${workspaceFolder}/levels"

@@ -2,6 +2,7 @@
 #include "main.h"
 #include "memory.h"
 #include "metatiles.h"
+#include <maxmod.h>
 
 s32 main() {
     // Enable BG 0, 1 and 2, also enable sprites

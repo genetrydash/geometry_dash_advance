@@ -32,7 +32,7 @@ ROM_VERSION	:=
 BINARY_FILES	:= 
 
 # Audio files to process with mmutil
-AUDIO_FILES	:=
+AUDIO_FILES	:= audio/*.*
 
 # Graphics files to process with grit
 #
@@ -54,7 +54,7 @@ INCLUDES	:= include
 LIBDIRS		:= $(DEVKITPRO)/libgba $(DEVKITPRO)/libtonc
 
 # Libraries to link
-LIBS		:= tonc
+LIBS		:= tonc mm
 
 #
 # Directories
