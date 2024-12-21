@@ -191,10 +191,10 @@ ARM_CODE INLINE s32 overlap_on_axis_fixed(s32 min1, s32 max1, s32 min2, s32 max2
 }
 
 // Same as is_colliding but second hitbox supports rotation
-ARM_CODE s32 is_colliding_rotated_fixed(s32 x1, s32 y1, s32 w1, s32 h1, s32 x2, s32 y2, s32 w2, s32 h2, u16 angle) {
+ARM_CODE s32 is_colliding_rotated_fixed(s32 x1, s32 y1, s32 w1, s32 h1, s32 x2, s32 y2, s32 w2, s32 h2, u16 offset_y, u16 angle) {
     // Center of second rectangle
     s32 cx2 = x2 + (w2 >> 1);
-    s32 cy2 = y2 + (h2 >> 1);
+    s32 cy2 = y2 + (h2 >> 1) + offset_y;
 
     // Get sine and cosine for the angle
     s16 sin_theta = lu_sin(angle) >> 4;
@@ -258,6 +258,17 @@ void check_obj_collision(u32 index) {
     s16 offset_x = obj_hitbox[curr_object.type][2];
     s16 offset_y = obj_hitbox[curr_object.type][3];
 
+    s16 center_x = obj_hitbox[curr_object.type][4];
+    s16 center_y = obj_hitbox[curr_object.type][5];
+
+    if (curr_object.attrib1 & H_FLIP_FLAG) {
+        offset_x = center_x - (offset_x - center_x + obj_width); 
+    }
+
+    if (curr_object.attrib1 & V_FLIP_FLAG) {
+        offset_y = center_y - (offset_y - center_y + obj_height); 
+    }
+
     u32 obj_x = curr_object.x + offset_x;
     u32 obj_y = curr_object.y + offset_y;
 
@@ -268,7 +279,7 @@ void check_obj_collision(u32 index) {
         // Check if a collision has happened
         if (is_colliding_rotated_fixed(
             ply_x, ply_y, player_width, player_height, 
-            obj_x, obj_y, obj_width, obj_height, curr_object.rotation
+            obj_x, obj_y, obj_width, obj_height, (offset_y >> 1), curr_object.rotation
         )) {
             // If yes, then run the collision routine
             do_collision(&object_buffer[index]);

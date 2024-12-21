@@ -28,6 +28,9 @@ u8 player_death;
 // 0 : on air, 1 : on floor
 u8 on_floor;
 
+// 0 : not buffering, 1 : buffering
+u8 player_buffering;
+
 // Current player gamemode
 u8 gamemode = CUBE;
 
@@ -75,6 +78,14 @@ void player_main() {
         scroll_y_dir = 0;
         scroll_y += player_y_speed;
     }
+
+    if (key_held(KEY_A | KEY_UP)) {
+        if (player_buffering == NO_ORB_BUFFER) {
+            player_buffering = ORB_BUFFER_READY;
+        }
+    } else {
+        player_buffering = NO_ORB_BUFFER;
+    }
     
     // Gamemode specific routines
     switch (gamemode) {
@@ -93,7 +104,7 @@ void player_main() {
 // in subpixels
 #define CUBE_GRAVITY 0x6B
 #define CUBE_MAX_Y_SPEED 0x600
-#define CUBE_JUMP_SPEED 0x590
+#define CUBE_JUMP_SPEED 0x525
 
 void cube_gamemode() {
     gravity = CUBE_GRAVITY;
@@ -113,8 +124,10 @@ void cube_gamemode() {
 
     // If on floor and holding A or UP, jump
     if (on_floor && key_held(KEY_A | KEY_UP)) {
-        player_y_speed += (gravity_dir ? CUBE_JUMP_SPEED : -CUBE_JUMP_SPEED);        
+        player_y_speed = (gravity_dir ? CUBE_JUMP_SPEED : -CUBE_JUMP_SPEED);     
+        player_buffering = ORB_BUFFER_END;
     }
+
 
     // If the cube is on the air, rotate, else, snap to nearest 
     if (!on_floor) {

@@ -52,6 +52,21 @@ void col_trigger(struct ObjectSlot *objectSlot) {
     }
 }
 
+void yellow_orb(struct ObjectSlot *objectSlot) {
+    if (player_buffering == ORB_BUFFER_READY) {
+        s32 sign = gravity_dir ? 1 : -1;
+        player_y_speed = YELLOW_ORB_JUMP_VEL * sign;
+        objectSlot->activated = TRUE;
+        player_buffering = ORB_BUFFER_END;
+    }
+}
+
+void yellow_pad(struct ObjectSlot *objectSlot) {
+    s32 sign = gravity_dir ? 1 : -1;
+    player_y_speed = YELLOW_PAD_JUMP_VEL * sign;
+    objectSlot->activated = TRUE;
+}
+
 void do_nothing(UNUSED struct ObjectSlot *objectSlot) {
     // No routine defined
 }
@@ -66,4 +81,6 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     do_nothing,
     do_nothing,
+    yellow_orb,
+    yellow_pad,
 };

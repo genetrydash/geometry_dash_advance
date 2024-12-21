@@ -4,9 +4,12 @@
 #define CUBE_HEIGHT 0x0E
 
 #define SHIP_WIDTH 0x0E
-#define SHIP_HEIGHT 0x0c
+#define SHIP_HEIGHT 0x0C
 
 #define NUM_STEPS 4
+
+#define YELLOW_ORB_JUMP_VEL 0x590
+#define YELLOW_PAD_JUMP_VEL 0x7C0
 
 // Gamemode IDs
 enum GAMEMODE_TYPE {
@@ -45,5 +48,7 @@ extern u8 speed_id;
 extern u8 gamemode;
 
 extern u8 on_floor;
+
+extern u8 player_buffering;
 
 void player_main();

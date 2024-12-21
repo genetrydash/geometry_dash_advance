@@ -35,6 +35,8 @@ enum ObjTypes {
     SMALL_BG_SPIKES,
     TINY_BG_SPIKES,
     BG_CHAINS,
+    YELLOW_ORB,
+    YELLOW_PAD,
     OBJ_COUNT
 };
 
@@ -48,6 +50,12 @@ enum ColorChannels {
     OBJ,
     LINE,
     CHANNEL_COUNT  
+};
+
+enum OrbBufferStates {
+    NO_ORB_BUFFER,
+    ORB_BUFFER_READY,
+    ORB_BUFFER_END
 };
 
 extern struct Object gObject;

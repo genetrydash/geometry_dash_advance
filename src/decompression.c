@@ -37,7 +37,7 @@ void decompress_first_screen() {
             decompress_column(layer);
             // Draw this column
             for (s32 j = 0; j < 2; j++) {
-                seam_y = scroll_y >> 8;
+                seam_y = (scroll_y >> 8) - 0x16;
                 scroll_H(layer);
                 seam_x += 8;
             }
