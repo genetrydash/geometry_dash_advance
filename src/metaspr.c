@@ -124,9 +124,31 @@ void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip) {
         OAM_SPR *newSpr = &shadow_oam[nextSpr];
         // Set attributes
         obj_set_attr(newSpr, 
-        data[i],              // ATTR0
-        data[i + 1] ^ ATTR1_FLIP(hflip | (vflip << 1)),          // ATTR1
-        data[i + 2]);         // ATTR2
+        data[i],                                           // ATTR0
+        data[i + 1] ^ ATTR1_FLIP(hflip | (vflip << 1)),    // ATTR1
+        data[i + 2]);                                      // ATTR2
+
+        // Set position
+        obj_set_pos(newSpr, x + data[i + 3], y + (vflip ? data[i + 5] : data[i + 4]));
+        
+        // Increment into next sprite
+        nextSpr++;
+        // Also increment sprite index by 5 words
+        i += 6;
+    }
+}
+
+void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u8 aff_id) {
+    u32 i = 0;
+    // Continue until end of data
+    while (data[i] != 0xffff && nextSpr < 128) {
+        // Get next sprite slot
+        OAM_SPR *newSpr = &shadow_oam[nextSpr];
+        // Set attributes
+        obj_set_attr(newSpr, 
+        data[i] | ATTR0_AFF | ATTR0_AFF_DBL,                                     // ATTR0
+        (data[i + 1] ^ ATTR1_FLIP(hflip | (vflip << 1))) | ATTR1_AFF_ID(aff_id), // ATTR1
+        data[i + 2]);                                                            // ATTR2
 
         // Set position
         obj_set_pos(newSpr, x + data[i + 3], y + (vflip ? data[i + 5] : data[i + 4]));

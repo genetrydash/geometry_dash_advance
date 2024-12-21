@@ -3,9 +3,11 @@
 #define SPR_LOADING_H
 
 #define MAX_OBJECTS 32
+#define NUM_ROT_SLOTS 28 // 4 are reserved to saws, and both players
 
 #define H_FLIP_FLAG (1 << 1)
 #define V_FLIP_FLAG (1 << 0)
+#define ENABLE_ROTATION_FLAG (1 << 2)
 
 struct Object {
     u32 x;
@@ -14,7 +16,7 @@ struct Object {
     u16 attrib1;
     u16 attrib2;
     u16 attrib3;
-    u16 attrib4;
+    u16 rotation;
 };
 
 struct ObjectSlot {

@@ -33,6 +33,13 @@ void load_next_object() {
                 } else {
                     // Load flip values
                     gObject.attrib1 = (u16)(*sprite_pointer);
+
+                    s32 enable_rotation = gObject.attrib1 & ENABLE_ROTATION_FLAG;
+                    if (enable_rotation) {
+                        gObject.rotation = ((*sprite_pointer) >> 16);
+                    } else {
+                        gObject.rotation = 0;
+                    }
                     sprite_pointer++;
                 }
 
@@ -56,6 +63,50 @@ void run_col_triggers() {
         }
     }
 }
+
+s32 find_affine_slot(u16 rotation) {
+    // Search for already existing values
+    for (s32 slot = 0; slot < NUM_ROT_SLOTS; slot++) {
+        u16 curr_rot = rotation_buffer[slot];
+
+        if (rotation == curr_rot) return slot;
+    }
+
+    // If not found, then allocate one
+    for (s32 slot = 0; slot < NUM_ROT_SLOTS; slot++) {
+        u16 curr_rot = rotation_buffer[slot];
+        
+        if (!curr_rot) {
+            // Set here rotation
+            rotation_buffer[slot] = rotation;
+            
+            return slot;
+        }
+    }
+
+    // Slots are full
+    return -1;
+}
+
+void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hflip, u8 vflip) {
+    if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
+        u16 rotation = curr_object.rotation;
+        s32 slot = find_affine_slot(rotation);
+
+        if (slot >= 0) {
+            // Draw affine sprite
+            oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip, slot + 4);
+            obj_aff_identity(&obj_aff_buffer[slot + 4]);
+            obj_aff_rotate(&obj_aff_buffer[slot + 4], rotation);
+        } else {
+            // Slots are full, so display a normal sprite
+            oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip);
+        }
+    } else {    
+        oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip);
+    }
+}
+
 void display_objects() {
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied) {
@@ -73,6 +124,7 @@ void display_objects() {
                 // Unload object in case that it is 128 pixels left to the screen
                 if (relative_x < -128) {
                     object_buffer[index].occupied = FALSE;
+                    return;
                 }
                 // If object's sprite is null, then do not draw anything
                 if (obj_sprites[curr_object.type] != NULL) {
@@ -85,7 +137,7 @@ void display_objects() {
 
                         // If the object is inside the screen vertically, display it
                         if (relative_y > -128 && relative_y < SCREEN_HEIGHT) {
-                            oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip);
+                            do_display(curr_object, relative_x, relative_y, hflip, vflip);
                         }
                     }
                 }

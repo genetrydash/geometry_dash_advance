@@ -6,6 +6,9 @@
 OAM_SPR shadow_oam[128];
 OBJ_AFFINE *obj_aff_buffer = (OBJ_AFFINE*) shadow_oam;
 
+// Rotation data
+EWRAM_DATA u16 rotation_buffer[NUM_ROT_SLOTS];
+
 // Level buffer
 EWRAM_DATA u16 level_buffer[LEVEL_LAYERS][MAX_LEVEL_HEIGHT*LEVEL_BUFFER_WIDTH];
 EWRAM_DATA COLOR palette_buffer[512];

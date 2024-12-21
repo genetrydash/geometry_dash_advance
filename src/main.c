@@ -51,10 +51,13 @@ s32 main() {
 
         // Copy OAM buffer into OAM
         obj_copy(oam_mem, shadow_oam, 128);
-        obj_aff_copy(obj_aff_mem, obj_aff_buffer, 1);
+        obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
 
         // Clear OAM
         memset32(shadow_oam, ATTR0_HIDE, 256);
+        
+        // Clear rotation buffer
+        memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
 
         REG_BG0HOFS = REG_BG1HOFS = scroll_x >> 8;
         REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
