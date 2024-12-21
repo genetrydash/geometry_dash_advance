@@ -53,7 +53,7 @@ s32 main() {
         REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
 
         REG_BG2HOFS = scroll_x >> 10;
-        REG_BG2VOFS = 136 + (scroll_y >> 10);
+        REG_BG2VOFS = 34 + (scroll_y >> 13);
 
         if (player_death) reset_level();
 

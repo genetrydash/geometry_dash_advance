@@ -99,6 +99,8 @@ void cube_gamemode() {
     gravity = CUBE_GRAVITY;
     player_width = CUBE_WIDTH;
     player_height = CUBE_HEIGHT;
+
+    u8 sign = gravity_dir ? -1 : 1;
     
     // Depending on which direction the gravity points, apply gravity and cap speed in one direction or in the other
     if (gravity_dir) {
@@ -116,7 +118,7 @@ void cube_gamemode() {
 
     // If the cube is on the air, rotate, else, snap to nearest 
     if (!on_floor) {
-        cube_rotation -= 0x500;
+        cube_rotation -= 0x500 * sign;
     } else {
         cube_rotation = (cube_rotation + 0x2000) & 0xC000;
     }
