@@ -148,7 +148,7 @@ void cube_gamemode() {
 
     x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 9 : 8);
     y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 9 : 8);
-    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr);
+    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0);
 }
 
 // in subpixels
@@ -202,5 +202,5 @@ void ship_gamemode() {
     x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
     y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
 
-    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipSpr);
+    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipSpr, 0, gravity_dir);
 }

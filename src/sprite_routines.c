@@ -60,5 +60,10 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     ship_portal,
     cube_portal,
-    col_trigger
+    col_trigger,
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    do_nothing,
 };

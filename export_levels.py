@@ -112,7 +112,22 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                         out_file.write(f"   .hword {hex((frames << 3) | channel_id)}\n")
                         out_file.write(f"   .hword {hex(color_bgr555)}\n")
                         byte_counter += 4
-                        
+                    else:
+                        h_flip = False
+                        v_flip = False
+                        try: 
+                            properties = obj['properties']
+                            for prop in properties:
+                                if prop['name'] == 'hflip':
+                                    h_flip = bool(prop['value'])
+                                elif prop['name'] == 'vflip':
+                                    v_flip = bool(prop['value'])
+                        except Exception:
+                            pass
+                        out_file.write(f"   .hword {hex((h_flip << 1) | v_flip)}\n")
+                        out_file.write(f"   .hword 0x0000\n")
+                        byte_counter += 4
+
                 out_file.write(f"   .byte 0xff\n")
                 byte_counter += 1
                 print(f"Object data size: {byte_counter} B")

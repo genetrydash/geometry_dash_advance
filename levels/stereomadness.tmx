@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="63">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="165">
  <editorsettings>
   <export target="stereomadness.json" format="json"/>
  </editorsettings>
@@ -161,5 +161,132 @@
     <property name="Frames" type="int" value="30"/>
    </properties>
   </object>
+  <object id="65" gid="517" x="896" y="432" width="16" height="16">
+   <properties>
+    <property name="hflip" type="bool" value="false"/>
+    <property name="vflip" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="66" gid="519" x="832" y="432" width="16" height="16"/>
+  <object id="67" gid="519" x="1520" y="432" width="16" height="16"/>
+  <object id="68" gid="520" x="1744" y="432" width="16" height="16"/>
+  <object id="69" gid="517" x="2048" y="432" width="16" height="16"/>
+  <object id="70" gid="520" x="2144" y="432" width="16" height="16"/>
+  <object id="71" gid="518" x="2216" y="432" width="16" height="16"/>
+  <object id="72" gid="517" x="2272" y="432" width="16" height="16"/>
+  <object id="73" gid="519" x="2368" y="432" width="16" height="16"/>
+  <object id="76" gid="520" x="3168" y="432" width="16" height="16"/>
+  <object id="77" gid="518" x="3136" y="432" width="16" height="16"/>
+  <object id="79" gid="518" x="3248" y="432" width="16" height="16"/>
+  <object id="80" gid="517" x="3296" y="432" width="16" height="16"/>
+  <object id="81" gid="520" x="3360" y="432" width="16" height="16"/>
+  <object id="82" gid="519" x="3408" y="432" width="16" height="16"/>
+  <object id="83" gid="517" x="3504" y="432" width="16" height="16"/>
+  <object id="84" gid="519" x="3600" y="432" width="16" height="16"/>
+  <object id="85" gid="517" x="3712" y="432" width="16" height="16"/>
+  <object id="86" gid="520" x="3792" y="432" width="16" height="16"/>
+  <object id="87" gid="519" x="3840" y="432" width="16" height="16"/>
+  <object id="88" gid="519" x="6944" y="432" width="16" height="16"/>
+  <object id="89" gid="519" x="7008" y="432" width="16" height="16"/>
+  <object id="91" gid="518" x="7072" y="432" width="16" height="16"/>
+  <object id="92" gid="519" x="7136" y="432" width="16" height="16"/>
+  <object id="93" gid="518" x="7328" y="432" width="16" height="16"/>
+  <object id="94" gid="520" x="7376" y="432" width="16" height="16"/>
+  <object id="95" gid="519" x="7440" y="432" width="16" height="16"/>
+  <object id="96" gid="518" x="7504" y="432" width="16" height="16"/>
+  <object id="97" gid="518" x="7568" y="432" width="16" height="16"/>
+  <object id="98" gid="519" x="7632" y="432" width="16" height="16"/>
+  <object id="100" gid="519" x="7696" y="432" width="16" height="16"/>
+  <object id="101" gid="517" x="7840" y="432" width="16" height="16"/>
+  <object id="102" gid="519" x="7920" y="432" width="16" height="16"/>
+  <object id="103" gid="520" x="7952" y="432" width="16" height="16"/>
+  <object id="105" gid="517" x="8080" y="432" width="16" height="16"/>
+  <object id="106" gid="518" x="8208" y="432" width="16" height="16"/>
+  <object id="107" gid="518" x="8448" y="432" width="16" height="16"/>
+  <object id="108" gid="520" x="8560" y="432" width="16" height="16"/>
+  <object id="109" gid="517" x="8624" y="432" width="16" height="16"/>
+  <object id="110" gid="519" x="9440" y="432" width="16" height="16"/>
+  <object id="111" gid="520" x="9456" y="432" width="16" height="16"/>
+  <object id="112" gid="520" x="9504" y="432" width="16" height="16"/>
+  <object id="113" gid="519" x="9568" y="432" width="16" height="16"/>
+  <object id="114" gid="517" x="9648" y="432" width="16" height="16"/>
+  <object id="115" gid="519" x="10320" y="432" width="16" height="16"/>
+  <object id="116" gid="520" x="10368" y="432" width="16" height="16"/>
+  <object id="117" gid="519" x="10448" y="432" width="16" height="16"/>
+  <object id="118" gid="518" x="10496" y="432" width="16" height="16"/>
+  <object id="119" gid="517" x="10608" y="432" width="16" height="16"/>
+  <object id="120" gid="518" x="10736" y="432" width="16" height="16"/>
+  <object id="121" gid="517" x="10832" y="432" width="16" height="16"/>
+  <object id="122" gid="519" x="10912" y="432" width="16" height="16"/>
+  <object id="123" gid="519" x="10976" y="432" width="16" height="16"/>
+  <object id="124" gid="520" x="11504" y="432" width="16" height="16"/>
+  <object id="125" gid="519" x="11632" y="432" width="16" height="16"/>
+  <object id="126" gid="520" x="11672" y="432" width="16" height="16"/>
+  <object id="127" gid="519" x="11760" y="432" width="16" height="16"/>
+  <object id="128" gid="519" x="11872" y="433.333" width="16" height="16"/>
+  <object id="129" gid="518" x="11920" y="432" width="16" height="16"/>
+  <object id="130" gid="517" x="11984" y="432" width="16" height="16"/>
+  <object id="131" gid="517" x="12112" y="432" width="16" height="16"/>
+  <object id="132" gid="518" x="12208" y="432" width="16" height="16"/>
+  <object id="133" gid="517" x="12656" y="432" width="16" height="16"/>
+  <object id="134" gid="519" x="12688" y="288" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="135" gid="517" x="12928" y="432" width="16" height="16"/>
+  <object id="136" gid="517" x="12944" y="288" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="137" gid="517" x="13088" y="288" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="138" gid="520" x="13104" y="432" width="16" height="16"/>
+  <object id="139" gid="519" x="13168" y="432" width="16" height="16"/>
+  <object id="140" gid="520" x="13184" y="288" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="141" gid="518" x="13296" y="432" width="16" height="16"/>
+  <object id="142" gid="517" x="13440" y="432" width="16" height="16"/>
+  <object id="143" gid="519" x="13616" y="432" width="16" height="16"/>
+  <object id="144" gid="520" x="13648" y="432" width="16" height="16"/>
+  <object id="145" gid="518" x="13824" y="432" width="16" height="16"/>
+  <object id="146" gid="517" x="13824" y="288" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="147" gid="519" x="13632" y="288" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="148" gid="519" x="13344" y="288" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="149" gid="521" x="7168" y="272" width="16" height="16"/>
+  <object id="150" gid="521" x="7200" y="272" width="16" height="16"/>
+  <object id="151" gid="521" x="8864" y="336" width="16" height="16"/>
+  <object id="152" gid="521" x="8880" y="336" width="16" height="16"/>
+  <object id="153" gid="521" x="8992" y="336" width="16" height="16"/>
+  <object id="154" gid="521" x="9024" y="336" width="16" height="16"/>
+  <object id="155" gid="521" x="9120" y="336" width="16" height="16"/>
+  <object id="156" gid="521" x="9232" y="336" width="16" height="16"/>
+  <object id="157" gid="521" x="9936" y="384" width="16" height="16"/>
+  <object id="158" gid="521" x="9984" y="384" width="16" height="16"/>
+  <object id="159" gid="521" x="11168" y="336" width="16" height="16"/>
+  <object id="160" gid="521" x="11200" y="336" width="16" height="16"/>
+  <object id="161" gid="521" x="11392" y="416" width="16" height="16"/>
+  <object id="162" gid="521" x="11464" y="416" width="16" height="16"/>
+  <object id="163" gid="521" x="11536" y="416" width="16" height="16"/>
+  <object id="164" gid="521" x="11616" y="400" width="16" height="16"/>
  </objectgroup>
 </map>

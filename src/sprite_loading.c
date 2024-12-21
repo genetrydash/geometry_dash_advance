@@ -29,7 +29,10 @@ void load_next_object() {
                 if (gObject.type == COL_TRIGGER) {
                     gObject.attrib1 = (u16)(*sprite_pointer);  // Frames and channel
                     gObject.attrib2 = (*sprite_pointer) >> 16; // Color
-                    gObject.attrib4 = 0;                       // Temp storage for current transition frame
+                    sprite_pointer++;
+                } else {
+                    // Load flip values
+                    gObject.attrib1 = (u16)(*sprite_pointer);
                     sprite_pointer++;
                 }
 
@@ -64,6 +67,9 @@ void display_objects() {
                 s32 relative_x = curr_object.x - ((scroll_x >> 8) & 0xffffffff);
                 s32 relative_y = curr_object.y - ((scroll_y >> 8) & 0xffff);
 
+                u8 hflip = (curr_object.attrib1 & H_FLIP_FLAG) >> 1;
+                u8 vflip = curr_object.attrib1 & V_FLIP_FLAG;
+
                 // Unload object in case that it is 128 pixels left to the screen
                 if (relative_x < -128) {
                     object_buffer[index].occupied = FALSE;
@@ -71,7 +77,7 @@ void display_objects() {
                 // If object's sprite is null, then do not draw anything
                 if (obj_sprites[curr_object.type] != NULL) {
                     // If object is inside the screen horizontally, continue
-                    if (relative_x < SCREEN_WIDTH) { 
+                    if (relative_x < SCREEN_WIDTH + 128) { 
                         // If it hasn't been activated already, check collision
                         if (object_buffer[index].activated == FALSE) {
                             check_obj_collision(index); 
@@ -79,7 +85,7 @@ void display_objects() {
 
                         // If the object is inside the screen vertically, display it
                         if (relative_y > -128 && relative_y < SCREEN_HEIGHT) {
-                            oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type]);
+                            oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip);
                         }
                     }
                 }
@@ -129,6 +135,12 @@ void check_obj_collision(u32 index) {
 
     u16 obj_width = obj_hitbox[curr_object.type][0];
     u16 obj_height = obj_hitbox[curr_object.type][1];
+
+    // If the hitbox is 0x0, then there is no hitbox
+    if ((obj_width | obj_height) == 0) {
+        return;
+    }
+
     s16 offset_x = obj_hitbox[curr_object.type][2];
     s16 offset_y = obj_hitbox[curr_object.type][3];
 

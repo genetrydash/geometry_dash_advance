@@ -3,15 +3,16 @@
 #include "memory.h"
 
 #define BG_COLOR  0x00
-#define OBJ_COLOR 0x09
-#define COLOR_ID_COL 0x0D
+#define OBJ_COLOR 0x0A
+#define COLOR_ID_COL 0x0E
 
-#define BG_OBJ_BLENDING_1 0x07
-#define BG_OBJ_BLENDING_2 0x08
+#define BG_OBJ_BLENDING_1 0x08
+#define BG_OBJ_BLENDING_2 0x09
 
-#define BG_COL_BLENDING_1 0x0A
-#define BG_COL_BLENDING_2 0x0B
-#define BG_COL_BLENDING_3 0x0C
+#define BG_COL_BLENDING_1 0x0B
+#define BG_COL_BLENDING_2 0x0C
+#define BG_COL_BLENDING_3 0x0D
+
 INLINE void blend_bg_and_obj(COLOR *dst, u32 pal) {
     // Blend both BG and OBJ colors and put it on palette slot 0x07 and 0x08
     clr_blend(&dst[pal], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_1 + pal], 1, 0x0a);
@@ -29,10 +30,11 @@ INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
 void set_bg_color(COLOR *dst, COLOR color) {
     for (u32 pal = 0; pal < 0x40; pal += 0x10) {
         // Set BG color
-        dst[pal] = color;
+        dst[0x00 + pal] = color;
+        dst[0x01 + pal] = color;
 
         // Adjust brightness for each color
-        for (u32 index = 1; index < 6; index++) {
+        for (u32 index = 2; index < 7; index++) {
             clr_adj_brightness(&dst[index + pal], &dst[index - 1 + pal], 1, float2fx(-0.15));
         }
         
