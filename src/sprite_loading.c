@@ -10,7 +10,7 @@ u32 *sprite_pointer;
 
 struct ObjectSlot object_buffer[MAX_OBJECTS];
 
-void load_next_object() {
+ARM_CODE void load_next_object() {
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied == FALSE) {
             if ((*sprite_pointer & 0xff000000) != 0xff000000) {
@@ -54,15 +54,6 @@ void load_next_object() {
 
 void do_collision(struct ObjectSlot *objectSlot);
 // This function runs col triggers. It is important that it is done in VBLANK because it acceses palette memory
-void run_col_triggers() {
-    for (s32 index = 0; index < MAX_OBJECTS; index++) {
-        if (object_buffer[index].occupied) {
-            if (object_buffer[index].object.type == COL_TRIGGER) {    
-                do_collision(&object_buffer[index]);
-            }
-        }
-    }
-}
 
 s32 find_affine_slot(u16 rotation) {
     // Search for already existing values
@@ -70,16 +61,11 @@ s32 find_affine_slot(u16 rotation) {
         u16 curr_rot = rotation_buffer[slot];
 
         if (rotation == curr_rot) return slot;
-    }
-
-    // If not found, then allocate one
-    for (s32 slot = 0; slot < NUM_ROT_SLOTS; slot++) {
-        u16 curr_rot = rotation_buffer[slot];
-        
+        // If curr_rot is 0, then we are on empty slots
         if (!curr_rot) {
             // Set here rotation
             rotation_buffer[slot] = rotation;
-            
+
             return slot;
         }
     }
@@ -107,7 +93,7 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
     }
 }
 
-void display_objects() {
+ARM_CODE void display_objects() {
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied) {
             struct Object curr_object = object_buffer[index].object;
@@ -124,7 +110,7 @@ void display_objects() {
                 // Unload object in case that it is 128 pixels left to the screen
                 if (relative_x < -128) {
                     object_buffer[index].occupied = FALSE;
-                    return;
+                    continue;
                 }
                 // If object's sprite is null, then do not draw anything
                 if (obj_sprites[curr_object.type] != NULL) {
@@ -141,6 +127,9 @@ void display_objects() {
                         }
                     }
                 }
+            } else {
+                // If a color trigger, then just run collision
+                do_collision(&object_buffer[index]);
             }
         }
     }
@@ -169,6 +158,79 @@ u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2, u32 h2)
 
     // If all above is FALSE, then collision has happen
     return TRUE;
+}
+
+// Rotated hitbox stuff, all in IWRAM for extra speed
+
+#define SCALE_FACTOR 8
+#define FIXED_ONE (1 << SCALE_FACTOR) // 1.0 in fixed-point
+
+// Rotate a point (px, py) around a center (cx, cy) using fixed-point math
+ARM_CODE INLINE void rotate_point_fixed(s32 cx, s32 cy, s32 px, s32 py, s16 sin_theta, s16 cos_theta, s32* rx, s32* ry) {
+    s32 dx = px - cx;
+    s32 dy = py - cy;
+
+    *rx = cx + ((dx * cos_theta - dy * sin_theta) >> SCALE_FACTOR);
+    *ry = cy + ((dx * sin_theta + dy * cos_theta) >> SCALE_FACTOR);
+}
+
+// Project a rectangle's corners onto an axis and calculate min/max projections
+ARM_CODE void project_onto_axis_fixed(s32* corners, s32 ax, s32 ay, s32* min, s32* max) {
+    *min = *max = (corners[0] * ax + corners[1] * ay) >> SCALE_FACTOR;
+
+    for (s32 i = 1; i < 4; i++) {
+        s32 projection = (corners[i << 1] * ax + corners[(i << 1) + 1] * ay) >> SCALE_FACTOR;
+        if (projection < *min) *min = projection;
+        if (projection > *max) *max = projection;
+    }
+}
+
+// Check if projections overlap
+ARM_CODE INLINE s32 overlap_on_axis_fixed(s32 min1, s32 max1, s32 min2, s32 max2) {
+    return !(max1 < min2 || max2 < min1);
+}
+
+// Same as is_colliding but second hitbox supports rotation
+ARM_CODE s32 is_colliding_rotated_fixed(s32 x1, s32 y1, s32 w1, s32 h1, s32 x2, s32 y2, s32 w2, s32 h2, u16 angle) {
+    // Center of second rectangle
+    s32 cx2 = x2 + (w2 >> 1);
+    s32 cy2 = y2 + (h2 >> 1);
+
+    // Get sine and cosine for the angle
+    s16 sin_theta = lu_sin(angle) >> 4;
+    s16 cos_theta = lu_cos(angle) >> 4;
+
+    // Calculate the four corners of the rotated rectangle
+    s32 corners[8];
+    rotate_point_fixed(cx2, cy2, x2, y2, sin_theta, cos_theta, &corners[0], &corners[1]);           // Top-left
+    rotate_point_fixed(cx2, cy2, x2 + w2, y2, sin_theta, cos_theta, &corners[2], &corners[3]);      // Top-right
+    rotate_point_fixed(cx2, cy2, x2 + w2, y2 + h2, sin_theta, cos_theta, &corners[4], &corners[5]); // Bottom-right
+    rotate_point_fixed(cx2, cy2, x2, y2 + h2, sin_theta, cos_theta, &corners[6], &corners[7]);      // Bottom-left
+
+    // Define axes to test
+    s32 axes[4][2] = {
+        {FIXED_ONE, 0}, {0, FIXED_ONE},                     // Non-rotated rectangle axes
+        {corners[2] - corners[0], corners[3] - corners[1]}, // Rotated rectangle edge 1
+        {corners[6] - corners[0], corners[7] - corners[1]}  // Rotated rectangle edge 2
+    };
+
+    // Project both rectangles onto each axis and check for overlap
+    for (s32 i = 0; i < 4; i++) {
+        s32 min1, max1, min2, max2;
+        s32 rect1_corners[8] = {
+            x1, y1, x1 + w1, y1,
+            x1 + w1, y1 + h1, x1, y1 + h1
+        };
+
+        project_onto_axis_fixed(rect1_corners, axes[i][0], axes[i][1], &min1, &max1);
+        project_onto_axis_fixed(corners, axes[i][0], axes[i][1], &min2, &max2);
+
+        if (!overlap_on_axis_fixed(min1, max1, min2, max2)) {
+            return FALSE; // Separating axis found, no collision
+        }
+    }
+
+    return TRUE; // No separating axis, collision detected
 }
 
 void do_collision(struct ObjectSlot *objectSlot) {
@@ -202,12 +264,23 @@ void check_obj_collision(u32 index) {
     u32 ply_x = player_x >> 8;
     u32 ply_y = player_y >> 8;
 
-    // Check if a collision has happened
-    if (is_colliding(
-        ply_x, ply_y, player_width, player_height, 
-        obj_x, obj_y, obj_width, obj_height
-    )) {
-        // If yes, then run the collision routine
-        do_collision(&object_buffer[index]);
+    if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
+        // Check if a collision has happened
+        if (is_colliding_rotated_fixed(
+            ply_x, ply_y, player_width, player_height, 
+            obj_x, obj_y, obj_width, obj_height, curr_object.rotation
+        )) {
+            // If yes, then run the collision routine
+            do_collision(&object_buffer[index]);
+        }   
+    } else {
+        // Check if a collision has happened
+        if (is_colliding(
+            ply_x, ply_y, player_width, player_height, 
+            obj_x, obj_y, obj_width, obj_height
+        )) {
+            // If yes, then run the collision routine
+            do_collision(&object_buffer[index]);
+        }   
     }
 }

@@ -138,6 +138,23 @@ void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip) {
     }
 }
 
+const u8 spr_w_h_table[] = {
+    0x08, 0x08, // 8x8
+    0x10, 0x10, // 16x16
+    0x20, 0x20, // 32x32
+    0x40, 0x40, // 64x64
+
+    0x10, 0x08, // 16x8
+    0x20, 0x08, // 32x8
+    0x20, 0x10, // 32x16
+    0x40, 0x20, // 64x32
+
+    0x08, 0x10, // 8x16
+    0x08, 0x20, // 8x32
+    0x10, 0x20, // 16x32
+    0x20, 0x40, // 32x64
+};
+
 void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u8 aff_id) {
     u32 i = 0;
     // Continue until end of data
@@ -150,8 +167,13 @@ void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u8 aff
         (data[i + 1] ^ ATTR1_FLIP(hflip | (vflip << 1))) | ATTR1_AFF_ID(aff_id), // ATTR1
         data[i + 2]);                                                            // ATTR2
 
+        u8 wh_index = ((data[i] & ATTR0_SHAPE_MASK) >> 12) | ((data[i + 1] & ATTR1_SIZE_MASK) >> 14) ;
+
+        u8 width = spr_w_h_table[wh_index << 1] >> 1;
+        u8 height = spr_w_h_table[(wh_index << 1) + 1] >> 1;
+
         // Set position
-        obj_set_pos(newSpr, x + data[i + 3], y + (vflip ? data[i + 5] : data[i + 4]));
+        obj_set_pos(newSpr, x + data[i + 3] - width, y + (vflip ? data[i + 5] : data[i + 4]) - height);
         
         // Increment into next sprite
         nextSpr++;

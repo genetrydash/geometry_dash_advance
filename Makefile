@@ -74,7 +74,7 @@ ALLFLAGS	:= -Wall -Wextra -g3 -gdwarf-4 -O2 \
 		-D_DEFAULT_SOURCE
 
 # C compiler flags
-CFLAGS		:= -std=c99
+CFLAGS		:= -std=c99 -mthumb-interwork
 
 # C++ compiler flags
 CXXFLAGS	:= -std=c++20 -fno-rtti -fno-exceptions
@@ -83,7 +83,7 @@ CXXFLAGS	:= -std=c++20 -fno-rtti -fno-exceptions
 ASFLAGS		:=
 
 # Linker flags (as passed to GCC)
-LDFLAGS		:= -mthumb \
+LDFLAGS		:= -mthumb-interwork \
 		$(if $(filter %_mb,$(PROJECT)),-specs=gba_mb.specs,-specs=gba.specs)
 
 # Uncomment this if you want to use Link Time Optimization

@@ -44,7 +44,7 @@ s32 main() {
 
     while(1) {
         // Wait for VSYNC
-        VBlankIntrWait();
+        vid_vsync();
         key_poll();
 
         nextSpr = 0;
@@ -68,7 +68,6 @@ s32 main() {
         if (player_death) reset_level();
 
         // Run color stuff
-        run_col_triggers();
         run_col_trigger_changes();
 
         // Copy palette from buffer

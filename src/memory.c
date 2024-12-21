@@ -10,8 +10,8 @@ OBJ_AFFINE *obj_aff_buffer = (OBJ_AFFINE*) shadow_oam;
 EWRAM_DATA u16 rotation_buffer[NUM_ROT_SLOTS];
 
 // Level buffer
-EWRAM_DATA u16 level_buffer[LEVEL_LAYERS][MAX_LEVEL_HEIGHT*LEVEL_BUFFER_WIDTH];
-EWRAM_DATA COLOR palette_buffer[512];
+IWRAM_DATA u16 level_buffer[LEVEL_LAYERS][MAX_LEVEL_HEIGHT*LEVEL_BUFFER_WIDTH];
+IWRAM_DATA COLOR palette_buffer[512];
 
 EWRAM_DATA u16 col_trigger_buffer[CHANNEL_COUNT][5];
 
