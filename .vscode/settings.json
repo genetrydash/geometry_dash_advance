@@ -30,6 +30,9 @@
         "typeinfo": "c",
         "compare": "c",
         "cstdint": "c",
-        "l2.h": "c"
-    }
+        "l2.h": "c",
+        "soundbank.h": "c",
+        "maxmod.h": "c",
+        "soundbank.bin.h": "c"
+    },
 }

@@ -2,6 +2,8 @@
 #include "memory.h"
 #include "main.h"
 #include "metatiles.h"
+#include <maxmod.h>
+#include "soundbank.h"
 
 // RLE variables
 s32 value[LEVEL_LAYERS];
@@ -230,6 +232,7 @@ void load_level(u32 level_ID) {
 }
 
 void reset_level() {
+    mmStop();
     // Wait a bit before fading
     for (s32 frame = 0; frame < 30; frame++) {
         VBlankIntrWait();
@@ -249,4 +252,6 @@ void reset_level() {
         key_poll();
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
+    
+    mmStart(MOD_STEREOMA, MM_PLAY_ONCE);
 }

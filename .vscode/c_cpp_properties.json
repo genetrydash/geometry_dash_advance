@@ -8,7 +8,10 @@
                 "/opt/devkitpro/libgba/include",
                 "${workspaceFolder}/build",
                 "${workspaceFolder}/src",
-                "${workspaceFolder}/levels"
+                "${workspaceFolder}/levels",
+                "${workspaceFolder}/audio",
+                "${workspaceFolder}/build/gen_inc",
+                "${workspaceFolder}/build/gen_inc/build/gen_bin"
             ],
             "defines": [],
             "cStandard": "c17",

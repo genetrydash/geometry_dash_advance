@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-venv/bin/python export_levels.py stereomadness
+python3 export_levels.py stereomadness

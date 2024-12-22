@@ -3,8 +3,62 @@
 #include "memory.h"
 #include "metatiles.h"
 #include <maxmod.h>
+#include "soundbank.bin.h"
+#include "soundbank.h"
+
+#define NUM_CHANNELS 8
+ALIGN4 u8 myMixingBuffer[MM_MIXLEN_31KHZ];
+EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
+                               +MM_SIZEOF_ACTCH
+                               +MM_SIZEOF_MIXCH)
+                               +MM_MIXLEN_31KHZ];
+
+void vblank_handler() {
+    mmVBlank();
+    // Run sound
+    mmFrame();
+}
+
+void init_maxmod() {
+    u8* myData;
+    mm_gba_system mySystem;
+ 
+    // allocate data for channel buffers & wave buffer (malloc'd data goes to EWRAM)
+    // Use the SIZEOF definitions to calculate how many bytes to reserve
+    myData = music_data;
+    
+    // setup system info
+    // 31KHz software mixing rate, select from mm_mixmode
+    mySystem.mixing_mode       = MM_MIX_31KHZ;
+
+
+    // number of module/mixing channels
+    // higher numbers offer better polyphony at the expense
+    // of more memory and/or CPU usage.
+    mySystem.mod_channel_count = NUM_CHANNELS;
+    mySystem.mix_channel_count = NUM_CHANNELS;
+    
+    // Assign memory blocks to pointers
+    mySystem.module_channels   = (mm_addr)(myData+0);
+    mySystem.active_channels   = (mm_addr)(myData+(NUM_CHANNELS*MM_SIZEOF_MODCH));
+    mySystem.mixing_channels   = (mm_addr)(myData+(NUM_CHANNELS*(MM_SIZEOF_MODCH
+	                                             +MM_SIZEOF_ACTCH)));
+    mySystem.mixing_memory     = (mm_addr)myMixingBuffer;
+    mySystem.wave_memory       = (mm_addr)(myData+(NUM_CHANNELS*(MM_SIZEOF_MODCH
+                                                     +MM_SIZEOF_ACTCH
+                                                     +MM_SIZEOF_MIXCH)));
+    // Pass soundbank address
+    mySystem.soundbank         = (mm_addr)soundbank_bin;
+
+    mmInit( &mySystem );
+    irq_init(NULL);
+    irq_set(II_VBLANK, vblank_handler, 0);
+    irq_enable(II_VBLANK);
+}
 
 s32 main() {
+    init_maxmod();
+    
     // Enable BG 0, 1 and 2, also enable sprites
     REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_2D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2;
 
@@ -37,15 +91,13 @@ s32 main() {
     memcpy32(&tile_mem_obj[0][0], player0_icon, sizeof(player0_icon) / 4);
     memcpy32(&tile_mem_obj[0][64], sprites_chr, sizeof(sprites_chr) / 4);
     memcpy16(pal_obj_mem, spritePalette, sizeof(spritePalette) / sizeof(COLOR));
+    
+    mmStart(MOD_STEREOMA, MM_PLAY_ONCE);
 
     load_level(stereomadness_ID);
-    
-    irq_init(NULL);
-    irq_add(II_VBLANK, NULL);
 
     while(1) {
         // Wait for VSYNC
-        VBlankIntrWait();
         key_poll();
 
         nextSpr = 0;
@@ -85,6 +137,8 @@ s32 main() {
         // Run object routines
         display_objects();
         load_next_object();
+
+        VBlankIntrWait();
     }
 
     return 0;

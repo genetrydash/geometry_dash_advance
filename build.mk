@@ -134,7 +134,7 @@ $(OBJECTS): | dirs $(GEN_I)
 define bin2s =
 $(call gen_s,$(1),.S) $(call gen_i,$(1),.h) &: $(1)
 	@echo "bin2s   $$<"
-	$$(SILENT)$$(BIN2S) -a 2 -H $(call gen_i,$(1),.h) $$< > $(call gen_s,$(1),.S)
+	$$(SILENT)$$(BIN2S) -a 4 -H $(call gen_i,$(1),.h) $$< > $(call gen_s,$(1),.S)
 endef
 
 define grit =
@@ -163,7 +163,7 @@ $(foreach source,$(SOURCES),$(eval $(call compile,$(source))))
 
 $(BUILDDIR)/gen_bin/soundbank.bin $(BUILDDIR)/gen_inc/soundbank.h &: $(AUDIO)
 	@echo "mmutil  $@"
-	$(SILENT)$(MMUTIL) $^ -o $(BUILDDIR)/gen_bin/soundbank.bin -h $(BUILDDIR)/gen_inc/soundbank.h
+	$(SILENT)$(MMUTIL) $^ -o$(BUILDDIR)/gen_bin/soundbank.bin -h$(BUILDDIR)/gen_inc/soundbank.h
 
 %.o:
 	@echo "compile $<"

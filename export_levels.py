@@ -279,12 +279,16 @@ def main():
         print(f"---{level_name}---")
         if not os.path.exists(f"levels/{level_name}"):
             os.makedirs(f"levels/{level_name}")
+        print({level_name})
 
         layer = "l1"
         file_path = f"levels/{level_name}.json" # JSON file
+        print(file_path)
         output_s_path = f"levels/{level_name}/{layer}.s"  # Output .s file
+        print(output_s_path)
         output_h_path = f"levels/{level_name}/{layer}.h"  # Output .h file
-        
+        print(output_h_path)
+        print(file_path, layer)
         level_array = load_json_to_array(file_path, layer)
         compressed = rle_compress_level(level_array)
         total_size += len(compressed)
