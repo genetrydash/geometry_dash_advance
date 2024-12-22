@@ -97,7 +97,6 @@ s32 main() {
     load_level(stereomadness_ID);
 
     while(1) {
-        // Wait for VSYNC
         key_poll();
 
         nextSpr = 0;
@@ -138,6 +137,7 @@ s32 main() {
         display_objects();
         load_next_object();
 
+        // Wait for VSYNC
         VBlankIntrWait();
     }
 
