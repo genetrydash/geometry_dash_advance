@@ -218,7 +218,7 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
             case COL_SMALL_SPIKE_LEFT:
                 if (is_colliding(
                     x, y, width, height,
-                    spk_x + 0x02, spk_y + 0x06, 0x04, 0x03
+                    spk_x + 0x0b, spk_y + 0x06, 0x04, 0x03
                 )) {
                     player_death = TRUE;  
                 }
@@ -227,7 +227,45 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
             case COL_SMALL_SPIKE_RIGHT:
                 if (is_colliding(
                     x, y, width, height,
-                    spk_x + 0x0b, spk_y + 0x06, 0x04, 0x03
+                    spk_x + 0x02, spk_y + 0x06, 0x04, 0x03
+                )) {
+                    player_death = TRUE;  
+                }
+                break;
+
+            // Medium spikes
+
+            case COL_MEDIUM_SPIKE_TOP:
+                if (is_colliding(
+                    x, y, width, height,
+                    spk_x + 0x07, spk_y + 0x02, 0x02, 0x04
+                )) {
+                    player_death = TRUE;  
+                }
+                break;
+
+            case COL_MEDIUM_SPIKE_BOTTOM:
+                if (is_colliding(
+                    x, y, width, height,
+                    spk_x + 0x07, spk_y + 0x09, 0x02, 0x04
+                )) {
+                    player_death = TRUE;  
+                }
+                break;
+
+            case COL_MEDIUM_SPIKE_LEFT:
+                if (is_colliding(
+                    x, y, width, height,
+                    spk_x + 0x09, spk_y + 0x07, 0x04, 0x02
+                )) {
+                    player_death = TRUE;  
+                }
+                break;
+            
+            case COL_MEDIUM_SPIKE_RIGHT:
+                if (is_colliding(
+                    x, y, width, height,
+                    spk_x + 0x02, spk_y + 0x07, 0x04, 0x02
                 )) {
                     player_death = TRUE;  
                 }
