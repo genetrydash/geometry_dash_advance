@@ -15,6 +15,7 @@ EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
 
 void vblank_handler() {
     mmVBlank();
+    
     // Run sound
     mmFrame();
 }
@@ -23,18 +24,18 @@ void init_maxmod() {
     u8* myData;
     mm_gba_system mySystem;
  
-    // allocate data for channel buffers & wave buffer (malloc'd data goes to EWRAM)
+    // Allocate data for channel buffers & wave buffer (malloc'd data goes to EWRAM)
     // Use the SIZEOF definitions to calculate how many bytes to reserve
     myData = music_data;
     
-    // setup system info
+    // Setup system info
     // 31KHz software mixing rate, select from mm_mixmode
     mySystem.mixing_mode       = MM_MIX_31KHZ;
 
 
-    // number of module/mixing channels
-    // higher numbers offer better polyphony at the expense
-    // of more memory and/or CPU usage.
+    // Number of module/mixing channels
+    // Higher numbers offer better polyphony at the expense
+    // of more memory and/or CPU usage
     mySystem.mod_channel_count = NUM_CHANNELS;
     mySystem.mix_channel_count = NUM_CHANNELS;
     
@@ -55,7 +56,6 @@ void init_maxmod() {
     irq_set(II_VBLANK, vblank_handler, 0);
     irq_enable(II_VBLANK);
 }
-
 s32 main() {
     init_maxmod();
     
@@ -98,7 +98,6 @@ s32 main() {
 
     while(1) {
         key_poll();
-
         nextSpr = 0;
 
         // Copy OAM buffer into OAM

@@ -4,7 +4,6 @@
 #include "player.h"
 #include "sprite_routines.h"
 
-struct Object gObject;
 
 u32 *sprite_pointer;
 
@@ -14,31 +13,32 @@ ARM_CODE void load_next_object() {
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied == FALSE) {
             if ((*sprite_pointer & 0xff000000) != 0xff000000) {
+                struct Object new_object;
                 // Get x position
-                gObject.x = *sprite_pointer;
+                new_object.x = *sprite_pointer;
                 sprite_pointer++;
                 // The next word has both the Y position and type, first 16 bits is type and last 16 bits is Y
                 // Y position is relative to the level height, so calculate the position from the top left of the entire level buffer,
                 // that is, adding ground height minus level height (that calculates the empty space above the level) minus 1. That is in blocks
                 // so multiply it by 16 to get a block-pixel value
-                gObject.y = (u16)(*sprite_pointer) + ((GROUND_HEIGHT - curr_level_height - 1) << 4);
-                gObject.type = (*sprite_pointer) >> 16;
+                new_object.y = (u16)(*sprite_pointer) + ((GROUND_HEIGHT - curr_level_height - 1) << 4);
+                new_object.type = (*sprite_pointer) >> 16;
                 sprite_pointer++;
 
                 // If the object is a color trigger, then get more attributes (attrib3 is set on activation)
-                if (gObject.type == COL_TRIGGER) {
-                    gObject.attrib1 = (u16)(*sprite_pointer);  // Frames and channel
-                    gObject.attrib2 = (*sprite_pointer) >> 16; // Color
+                if (new_object.type == COL_TRIGGER) {
+                    new_object.attrib1 = (u16)(*sprite_pointer);  // Frames and channel
+                    new_object.attrib2 = (*sprite_pointer) >> 16; // Color
                     sprite_pointer++;
                 } else {
                     // Load flip values
-                    gObject.attrib1 = (u16)(*sprite_pointer);
+                    new_object.attrib1 = (u16)(*sprite_pointer);
 
-                    s32 enable_rotation = gObject.attrib1 & ENABLE_ROTATION_FLAG;
+                    s32 enable_rotation = new_object.attrib1 & ENABLE_ROTATION_FLAG;
                     if (enable_rotation) {
-                        gObject.rotation = ((*sprite_pointer) >> 16);
+                        new_object.rotation = ((*sprite_pointer) >> 16);
                     } else {
-                        gObject.rotation = 0;
+                        new_object.rotation = 0;
                     }
                     sprite_pointer++;
                 }
@@ -46,7 +46,7 @@ ARM_CODE void load_next_object() {
                 // Occupy object slot and init some variables
                 object_buffer[index].occupied = TRUE;
                 object_buffer[index].activated = FALSE;
-                object_buffer[index].object = gObject;
+                object_buffer[index].object = new_object;
             }
         }
     }

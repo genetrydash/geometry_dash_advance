@@ -39,11 +39,11 @@ u16 cube_rotation = 0;
 
 // in subpixels
 const u16 speed_constants[] = {
-    0x23B, // x0.5
-    0x2C4, // x1
-    0x371, // x2
-    0x429, // x3
-    0x51E  // x4
+    0x23D, // x0.5
+    0x2C7, // x1
+    0x374, // x2
+    0x42E, // x3
+    0x524  // x4
 };
 
 // Current speed ID

@@ -58,7 +58,6 @@ enum OrbBufferStates {
     ORB_BUFFER_END
 };
 
-extern struct Object gObject;
 extern u32 *sprite_pointer;
 extern struct ObjectSlot object_buffer[MAX_OBJECTS];
 
