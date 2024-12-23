@@ -163,6 +163,9 @@ def rle_compress_level(level_array):
     prev_value = flat_level[0]
     for i in range(1, len(flat_level)):
         current_value = flat_level[i] - 1
+        
+        if current_value < 0: current_value = 0
+
         if current_value == prev_value:
             count += 1
         else:
@@ -170,7 +173,7 @@ def rle_compress_level(level_array):
             prev_value = current_value
             count = 1
         
-        if prev_value == -1: prev_value = 0
+        
     compressed.append((prev_value, count))  # Add the last run
 
     return compressed

@@ -81,9 +81,9 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
 
         if (slot >= 0) {
             // Draw affine sprite
-            oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip, slot + 4);
-            obj_aff_identity(&obj_aff_buffer[slot + 4]);
-            obj_aff_rotate(&obj_aff_buffer[slot + 4], rotation);
+            oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], curr_object.rotation, slot + NUM_RESERVED_ROT_SLOTS);
+            obj_aff_identity(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS]);
+            obj_aff_rotate(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS], rotation);
         } else {
             // Slots are full, so display a normal sprite
             oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip);
@@ -92,8 +92,13 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
         oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip);
     }
 }
-
 ARM_CODE void display_objects() {
+    // Pulsing objects size changes
+    obj_aff_identity(&obj_aff_buffer[4]);
+    u32 value = CLAMP(0x100 + (music_data[550]), 0x120, 0x200);
+    obj_aff_scale(&obj_aff_buffer[4], value, value);
+
+
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied) {
             struct Object curr_object = object_buffer[index].object;
@@ -197,8 +202,8 @@ ARM_CODE s32 is_colliding_rotated_fixed(s32 x1, s32 y1, s32 w1, s32 h1, s32 x2, 
     s32 cy2 = y2 + (h2 >> 1) + offset_y;
 
     // Get sine and cosine for the angle
-    s16 sin_theta = lu_sin(angle) >> 4;
-    s16 cos_theta = lu_cos(angle) >> 4;
+    s16 sin_theta = lu_sin(angle) / 16;
+    s16 cos_theta = lu_cos(angle) / 16;
 
     // Calculate the four corners of the rotated rectangle
     s32 corners[8];

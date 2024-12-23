@@ -6,12 +6,7 @@
 #include "soundbank.bin.h"
 #include "soundbank.h"
 
-#define NUM_CHANNELS 8
 ALIGN4 u8 myMixingBuffer[MM_MIXLEN_31KHZ];
-EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
-                               +MM_SIZEOF_ACTCH
-                               +MM_SIZEOF_MIXCH)
-                               +MM_MIXLEN_31KHZ];
 
 void vblank_handler() {
     mmVBlank();

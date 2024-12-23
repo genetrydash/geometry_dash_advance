@@ -1,4 +1,5 @@
 #include <tonc.h>
+#include <maxmod.h>
 #include "sprite_loading.h"
 
 #define MAX_LEVEL_HEIGHT 128
@@ -33,3 +34,10 @@ extern u64 scroll_x;
 extern u32 scroll_y;
 
 extern s8 scroll_y_dir;
+
+#define NUM_CHANNELS 8
+
+extern EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
+                               +MM_SIZEOF_ACTCH
+                               +MM_SIZEOF_MIXCH)
+                               +MM_MIXLEN_31KHZ];

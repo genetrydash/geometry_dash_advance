@@ -83,4 +83,7 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     yellow_orb,
     yellow_pad,
+    do_nothing,
+    do_nothing,
+    do_nothing,
 };

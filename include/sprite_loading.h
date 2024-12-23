@@ -3,7 +3,8 @@
 #define SPR_LOADING_H
 
 #define MAX_OBJECTS 32
-#define NUM_ROT_SLOTS 28 // 4 are reserved to saws, and both players
+#define NUM_ROT_SLOTS 27 // 5 are reserved to saws, music pulsing circles, and both players
+#define NUM_RESERVED_ROT_SLOTS 32 - NUM_ROT_SLOTS 
 
 #define H_FLIP_FLAG (1 << 1)
 #define V_FLIP_FLAG (1 << 0)
@@ -23,21 +24,6 @@ struct ObjectSlot {
     u8 occupied;
     u8 activated;
     struct Object object;
-};
-
-enum ObjTypes {
-    NONE,
-    SHIP_PORTAL,
-    CUBE_PORTAL,
-    COL_TRIGGER,
-    BIG_BG_SPIKES,
-    MEDIUM_BG_SPIKES,
-    SMALL_BG_SPIKES,
-    TINY_BG_SPIKES,
-    BG_CHAINS,
-    YELLOW_ORB,
-    YELLOW_PAD,
-    OBJ_COUNT
 };
 
 enum ColorChannels {

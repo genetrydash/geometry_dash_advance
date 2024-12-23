@@ -8,3 +8,5 @@
 #include "decompression.h"
 #include "sprite_loading.h"
 #include "color.h"
+#include <maxmod.h>
+
