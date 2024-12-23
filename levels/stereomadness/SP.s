@@ -9,14 +9,18 @@ stereomadness_spr_data:
    .word 0x40
    .hword 0x180
    .hword 0x3
-   .hword 0x12bc
+   .hword 0x12c4
    .hword 0x7c13
+   .hword 0x0
+   .hword 0x0000
 @ Object 2
    .word 0x40
    .hword 0x190
    .hword 0x3
-   .hword 0x12bd
+   .hword 0x12c5
    .hword 0x5c0c
+   .hword 0x0
+   .hword 0x0000
 @ Object 3
    .word 0x320
    .hword 0x1a0
@@ -225,26 +229,34 @@ stereomadness_spr_data:
    .word 0xf50
    .hword 0x110
    .hword 0x3
-   .hword 0x3bc
+   .hword 0x3c4
    .hword 0x0
+   .hword 0x0
+   .hword 0x0000
 @ Object 38
    .word 0xf50
    .hword 0x120
    .hword 0x3
-   .hword 0x3bd
+   .hword 0x3c5
    .hword 0xc60
+   .hword 0x0
+   .hword 0x0000
 @ Object 39
    .word 0x1090
    .hword 0x110
    .hword 0x3
-   .hword 0xec
+   .hword 0xf4
    .hword 0x383f
+   .hword 0x0
+   .hword 0x0000
 @ Object 40
    .word 0x1090
    .hword 0x120
    .hword 0x3
-   .hword 0xed
+   .hword 0xf5
    .hword 0x100a
+   .hword 0x0
+   .hword 0x0000
 @ Object 41
    .word 0x10a0
    .hword 0x150
@@ -387,14 +399,18 @@ stereomadness_spr_data:
    .word 0x1a20
    .hword 0x100
    .hword 0x3
-   .hword 0xec
+   .hword 0xf4
    .hword 0x7c17
+   .hword 0x0
+   .hword 0x0000
 @ Object 65
    .word 0x1a20
    .hword 0x110
    .hword 0x3
-   .hword 0xed
+   .hword 0xf5
    .hword 0x6411
+   .hword 0x0
+   .hword 0x0000
 @ Object 66
    .word 0x1a20
    .hword 0x158
@@ -603,14 +619,18 @@ stereomadness_spr_data:
    .word 0x1ff0
    .hword 0x120
    .hword 0x3
-   .hword 0xec
+   .hword 0xf4
    .hword 0x101e
+   .hword 0x0
+   .hword 0x0000
 @ Object 101
    .word 0x1ff0
    .hword 0x130
    .hword 0x3
-   .hword 0xed
+   .hword 0xf5
    .hword 0xc11
+   .hword 0x0
+   .hword 0x0000
 @ Object 102
    .word 0x1ff0
    .hword 0x190
@@ -1029,14 +1049,18 @@ stereomadness_spr_data:
    .word 0x2fd0
    .hword 0x120
    .hword 0x3
-   .hword 0xec
+   .hword 0xf4
    .hword 0x641f
+   .hword 0x0
+   .hword 0x0000
 @ Object 172
    .word 0x2fd0
    .hword 0x130
    .hword 0x3
-   .hword 0xed
+   .hword 0xf5
    .hword 0x1005
+   .hword 0x0
+   .hword 0x0000
 @ Object 173
    .word 0x2fd0
    .hword 0x140

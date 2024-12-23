@@ -20,6 +20,8 @@ void col_trigger(struct ObjectSlot *objectSlot) {
     if ((player_x >> 8) >= (col_trigger.x + 8)) {
         u32 frames = (col_trigger.attrib1 >> 3) + 1; // +1 because 0 = 1
         u32 channel = col_trigger.attrib1 & 0x7;
+
+        u8 copy = col_trigger.attrib3 & 1;
         
         // Save variables into buffer
         switch (channel) {
@@ -43,7 +45,38 @@ void col_trigger(struct ObjectSlot *objectSlot) {
                 break;
         }
         col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE] = TRUE;
-        col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = col_trigger.attrib2;
+        if (copy) {
+            u8 copied_channel = col_trigger.attrib3 >> 1;
+
+            switch (copied_channel) {
+                case BG:
+                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x00];
+                break;
+            case GROUND:
+                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x41];
+                break;
+            case OBJ:
+                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x09];
+                break;
+            case LINE:
+                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x48];
+                break;
+            case P1:
+                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x105];
+                break;
+            case P2:
+                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x108];
+                break;
+            case COL1:
+            case COL2:
+            case COL3:
+            case COL4:
+                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x0D + (channel << 4)];
+                break;
+            }
+        } else {
+            col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = col_trigger.attrib2;
+        }
         col_trigger_buffer[channel][COL_TRIG_BUFF_TOTAL_FRAMES] = frames; // Total frames
         col_trigger_buffer[channel][COL_TRIG_BUFF_CURRENT_FRAMES] = 0;      // Current frame
 

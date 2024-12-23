@@ -1,6 +1,7 @@
 #include <tonc.h>
 #include <maxmod.h>
 #include "sprite_loading.h"
+#include "sprite_routines.h"
 
 #define MAX_LEVEL_HEIGHT 128
 #define GROUND_HEIGHT MAX_LEVEL_HEIGHT - 4

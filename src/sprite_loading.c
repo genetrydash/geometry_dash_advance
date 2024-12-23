@@ -30,6 +30,8 @@ ARM_CODE void load_next_object() {
                     new_object.attrib1 = (u16)(*sprite_pointer);  // Frames and channel
                     new_object.attrib2 = (*sprite_pointer) >> 16; // Color
                     sprite_pointer++;
+                    new_object.attrib3 = (u16)(*sprite_pointer);  // Copy channel
+                    sprite_pointer++;
                 } else {
                     // Load flip values
                     new_object.attrib1 = (u16)(*sprite_pointer);

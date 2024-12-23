@@ -33,6 +33,8 @@
         "l2.h": "c",
         "soundbank.h": "c",
         "maxmod.h": "c",
-        "soundbank.bin.h": "c"
+        "soundbank.bin.h": "c",
+        "sprite_routines.h": "c",
+        "metatiles.h": "c"
     },
 }

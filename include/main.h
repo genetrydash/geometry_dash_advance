@@ -7,6 +7,7 @@
 #include "collision.h"
 #include "decompression.h"
 #include "sprite_loading.h"
+#include "sprite_routines.h"
 #include "color.h"
 #include <maxmod.h>
 

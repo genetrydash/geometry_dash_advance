@@ -1,6 +1,7 @@
 #include <tonc.h>
 #include "main.h"
 #include "memory.h"
+#include "sprite_routines.h"
 
 // OAM buffer
 OAM_SPR shadow_oam[128];

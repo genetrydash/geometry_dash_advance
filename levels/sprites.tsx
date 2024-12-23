@@ -27,6 +27,8 @@
   <properties>
    <property name="Channel" value=""/>
    <property name="Color" type="color" value=""/>
+   <property name="Copy color" type="bool" value="false"/>
+   <property name="Copy from channel" value=""/>
    <property name="Frames" type="int" value="0"/>
   </properties>
  </tile>

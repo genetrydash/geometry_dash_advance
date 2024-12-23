@@ -1,5 +1,7 @@
 #include <tonc.h>
 
+#pragma once
+
 typedef void (*jmp_table)();
 extern const jmp_table routines_jump_table[];
 
@@ -19,4 +21,20 @@ enum ObjTypes {
     SMALL_PULSING_CIRCLE,
     LARGE_PULSING_CIRCLE,
     OBJ_COUNT
+};
+
+
+enum ColorChannels {
+    COL1,
+    COL2,
+    COL3,
+    COL4,
+    BG,
+    GROUND,
+    OBJ,
+    LINE,
+    CHANNEL_COUNT,
+    P1 = CHANNEL_COUNT,
+    P2,
+    TOTAL_CHANNEL_COUNT  
 };

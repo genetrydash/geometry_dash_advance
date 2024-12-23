@@ -26,18 +26,6 @@ struct ObjectSlot {
     struct Object object;
 };
 
-enum ColorChannels {
-    COL1,
-    COL2,
-    COL3,
-    COL4,
-    BG,
-    GROUND,
-    OBJ,
-    LINE,
-    CHANNEL_COUNT  
-};
-
 enum OrbBufferStates {
     NO_ORB_BUFFER,
     ORB_BUFFER_READY,

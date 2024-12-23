@@ -4,6 +4,7 @@
 #include "metatiles.h"
 #include <maxmod.h>
 #include "soundbank.h"
+#include "../levels/includes.h"
 
 // RLE variables
 s32 value[LEVEL_LAYERS];

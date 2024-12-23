@@ -80,16 +80,34 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                     out_file.write(f"   .hword {hex(gid)}\n")
                     byte_counter += 8
                     if gid == 3: # COLOR TRIGGER
+                        channel = 'BG'
+                        color = 0
+                        frames = 0
+                        copy = False
+                        copy_channel = 'BG'
+
                         try: 
                             properties = obj['properties']
-                            channel = str(properties[0]['value'])
-                            frames = int(properties[2]['value']) - 1
+                            for prop in properties:
+                                if prop['name'] == 'Channel':
+                                    channel = prop['value']
+                                elif prop['name'] == 'Color':
+                                    color = int(prop['value'][3:], 16)
+                                elif prop['name'] == 'Frames':
+                                    frames = int(prop['value'])
+                                elif prop['name'] == 'Copy color':
+                                    copy = bool(prop['value'])
+                                elif prop['name'] == 'Copy from channel':
+                                    copy_channel = prop['value']
+
                         except Exception:
-                            raise Exception(f"Encountered color trigger without attributes/missing attributes on pos {x/16}, {y/16}. Make sure there are 3 attributes.")
+                            raise Exception(f"Encountered color trigger without attributes on pos {x/16}, {y/16}.")
                         
                         channel_id = 0
 
                         possible_channels = ["BG", "GROUND", "OBJ", "LINE", "1", "2", "3", "4"]
+
+                        possible_copy_channels = ["BG", "GROUND", "OBJ", "LINE", "P1", "P2", "1", "2", "3", "4"]
 
                         if channel not in possible_channels:
                             raise Exception(f"Encountered invalid color channel: {channel}, on pos {x/16}, {y/16}. Must be one of the following: BG, GROUND, OBJ, LINE, 1, 2, 3, 4.") 
@@ -105,13 +123,34 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                         else:
                             channel_id = int(channel) - 1
                             
+                        copy_channel_id = 0
+                        if copy:
+                            if copy_channel not in possible_copy_channels:
+                                raise Exception(f"Encountered invalid copy color channel: {copy_channel}, on pos {x/16}, {y/16}. Must be one of the following: BG, GROUND, OBJ, LINE, P1, P2, 1, 2, 3, 4.") 
+                            
+                            if copy_channel == "BG":
+                                copy_channel_id = 4
+                            elif copy_channel == "GROUND":
+                                copy_channel_id = 5
+                            elif copy_channel == "OBJ":
+                                copy_channel_id = 6
+                            elif copy_channel == "LINE":
+                                copy_channel_id = 7
+                            elif copy_channel == "P1":
+                                copy_channel_id = 8
+                            elif copy_channel == "P2":
+                                copy_channel_id = 9
+                            else:
+                                copy_channel_id = int(channel) - 1
+                            
 
-                        color = int(properties[1]['value'][3:], 16)
                         color_bgr555 = rgb888_to_rgb555_24bit(color)
                     
                         out_file.write(f"   .hword {hex((frames << 3) | channel_id)}\n")
                         out_file.write(f"   .hword {hex(color_bgr555)}\n")
-                        byte_counter += 4
+                        out_file.write(f"   .hword {hex((copy_channel_id << 1) | copy)}\n")
+                        out_file.write(f"   .hword 0x0000\n")
+                        byte_counter += 8
                     else:
                         h_flip = False
                         v_flip = False
@@ -163,7 +202,7 @@ def rle_compress_level(level_array):
     prev_value = flat_level[0]
     for i in range(1, len(flat_level)):
         current_value = flat_level[i] - 1
-        
+
         if current_value < 0: current_value = 0
 
         if current_value == prev_value:
