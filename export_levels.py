@@ -315,7 +315,7 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         file.write(f"}};\n\n")
 
         file.write(f"const unsigned char {level_name}_name[] = {{\n")
-        file.write(f"   \"{menu_name}\"\n")
+        file.write(f"   \"{menu_name.upper()}\"\n")
         file.write(f"}};\n")
 
     with open(output_path_h, 'w') as file:
