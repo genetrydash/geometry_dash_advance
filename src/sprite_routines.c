@@ -90,6 +90,7 @@ void yellow_orb(struct ObjectSlot *objectSlot) {
         s32 sign = gravity_dir ? 1 : -1;
         player_y_speed = YELLOW_ORB_JUMP_VEL * sign;
         objectSlot->activated = TRUE;
+        on_floor = FALSE;
         player_buffering = ORB_BUFFER_END;
     }
 }
@@ -97,6 +98,7 @@ void yellow_orb(struct ObjectSlot *objectSlot) {
 void yellow_pad(struct ObjectSlot *objectSlot) {
     s32 sign = gravity_dir ? 1 : -1;
     player_y_speed = YELLOW_PAD_JUMP_VEL * sign;
+    on_floor = FALSE;
     objectSlot->activated = TRUE;
 }
 
