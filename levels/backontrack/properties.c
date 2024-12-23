@@ -8,5 +8,5 @@ const unsigned short backontrack_properties[] = {
 };
 
 const unsigned char backontrack_name[] = {
-   "BACK ON  TRACK"
+   "BACK ON TRACK"
 };

@@ -7,7 +7,7 @@
   <property name="BG" type="color" value="#ffff04b9"/>
   <property name="GROUND" type="color" value="#ffe2008a"/>
   <property name="Gamemode" type="int" value="0"/>
-  <property name="Level name" value="BACK ON  TRACK"/>
+  <property name="Level name" value="BACK ON TRACK"/>
   <property name="Speed" type="int" value="1"/>
  </properties>
  <tileset firstgid="1" source="famidash.tsx"/>
