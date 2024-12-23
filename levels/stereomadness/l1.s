@@ -48,8 +48,8 @@ stereomadness_l1_level_data:
     .hword 25    @ Value 0 repeats 25 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3243,7 +3243,9 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
-    .hword 2    @ Value 20 repeats 2 times
+    .hword 1    @ Value 20 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3261,7 +3263,9 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
-    .hword 3    @ Value 20 repeats 3 times
+    .hword 2    @ Value 20 repeats 2 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3282,8 +3286,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 17 repeats 1 times
     .hword 22
     .hword 2    @ Value 22 repeats 2 times
-    .hword 16
-    .hword 1    @ Value 16 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3312,8 +3316,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 22 repeats 2 times
     .hword 8
     .hword 1    @ Value 8 repeats 1 times
-    .hword 6
-    .hword 1    @ Value 6 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 17    @ Value 0 repeats 17 times
     .hword 2
@@ -3324,8 +3328,8 @@ stereomadness_l1_level_data:
     .hword 6    @ Value 0 repeats 6 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 22
-    .hword 1    @ Value 22 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 17    @ Value 0 repeats 17 times
     .hword 2
@@ -3336,38 +3340,38 @@ stereomadness_l1_level_data:
     .hword 6    @ Value 0 repeats 6 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 22
-    .hword 1    @ Value 22 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 25    @ Value 0 repeats 25 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 22
-    .hword 1    @ Value 22 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 25    @ Value 0 repeats 25 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 22
-    .hword 1    @ Value 22 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 25    @ Value 0 repeats 25 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 22
-    .hword 1    @ Value 22 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 25    @ Value 0 repeats 25 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 22
-    .hword 1    @ Value 22 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 25    @ Value 0 repeats 25 times
     .hword 9
     .hword 1    @ Value 9 repeats 1 times
-    .hword 7
-    .hword 1    @ Value 7 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3385,7 +3389,9 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
-    .hword 2    @ Value 20 repeats 2 times
+    .hword 1    @ Value 20 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3403,7 +3409,9 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
-    .hword 3    @ Value 20 repeats 3 times
+    .hword 2    @ Value 20 repeats 2 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3421,7 +3429,9 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
-    .hword 4    @ Value 20 repeats 4 times
+    .hword 3    @ Value 20 repeats 3 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3439,7 +3449,9 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
-    .hword 5    @ Value 20 repeats 5 times
+    .hword 4    @ Value 20 repeats 4 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3457,7 +3469,9 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
-    .hword 6    @ Value 20 repeats 6 times
+    .hword 5    @ Value 20 repeats 5 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3475,7 +3489,9 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
-    .hword 7    @ Value 20 repeats 7 times
+    .hword 6    @ Value 20 repeats 6 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3493,7 +3509,9 @@ stereomadness_l1_level_data:
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
-    .hword 8    @ Value 20 repeats 8 times
+    .hword 7    @ Value 20 repeats 7 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 18    @ Value 0 repeats 18 times
     .hword 43
@@ -3607,19 +3625,25 @@ stereomadness_l1_level_data:
     .hword 47
     .hword 1    @ Value 47 repeats 1 times
     .hword 6
-    .hword 4    @ Value 6 repeats 4 times
+    .hword 3    @ Value 6 repeats 3 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 22    @ Value 0 repeats 22 times
     .hword 47
     .hword 1    @ Value 47 repeats 1 times
     .hword 22
-    .hword 4    @ Value 22 repeats 4 times
+    .hword 3    @ Value 22 repeats 3 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 22    @ Value 0 repeats 22 times
     .hword 47
     .hword 1    @ Value 47 repeats 1 times
     .hword 7
-    .hword 4    @ Value 7 repeats 4 times
+    .hword 3    @ Value 7 repeats 3 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3637,25 +3661,33 @@ stereomadness_l1_level_data:
     .hword 47
     .hword 1    @ Value 47 repeats 1 times
     .hword 6
-    .hword 3    @ Value 6 repeats 3 times
+    .hword 2    @ Value 6 repeats 2 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 23    @ Value 0 repeats 23 times
     .hword 47
     .hword 1    @ Value 47 repeats 1 times
     .hword 22
-    .hword 3    @ Value 22 repeats 3 times
+    .hword 2    @ Value 22 repeats 2 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 23    @ Value 0 repeats 23 times
     .hword 47
     .hword 1    @ Value 47 repeats 1 times
     .hword 22
-    .hword 3    @ Value 22 repeats 3 times
+    .hword 2    @ Value 22 repeats 2 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 23    @ Value 0 repeats 23 times
     .hword 47
     .hword 1    @ Value 47 repeats 1 times
     .hword 7
-    .hword 3    @ Value 7 repeats 3 times
+    .hword 2    @ Value 7 repeats 2 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3724,16 +3756,16 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3900,8 +3932,8 @@ stereomadness_l1_level_data:
     .hword 25    @ Value 0 repeats 25 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3919,7 +3951,9 @@ stereomadness_l1_level_data:
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 20
-    .hword 2    @ Value 20 repeats 2 times
+    .hword 1    @ Value 20 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -3937,7 +3971,9 @@ stereomadness_l1_level_data:
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 20
-    .hword 3    @ Value 20 repeats 3 times
+    .hword 2    @ Value 20 repeats 2 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 23    @ Value 0 repeats 23 times
     .hword 43
@@ -4184,12 +4220,12 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 2 repeats 1 times
     .hword 0
     .hword 2    @ Value 0 repeats 2 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 30
@@ -4386,12 +4422,14 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 43 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 25    @ Value 0 repeats 25 times
     .hword 2
-    .hword 2    @ Value 2 repeats 2 times
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 30
+    .hword 1    @ Value 30 repeats 1 times
     .hword 0
     .hword 25    @ Value 0 repeats 25 times
     .hword 43
@@ -4682,8 +4720,8 @@ stereomadness_l1_level_data:
     .hword 10    @ Value 0 repeats 10 times
     .hword 22
     .hword 16    @ Value 22 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 14
+    .hword 1    @ Value 14 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 0
@@ -4691,11 +4729,63 @@ stereomadness_l1_level_data:
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 22
-    .hword 16    @ Value 22 repeats 16 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 18    @ Value 22 repeats 18 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 0
+    .hword 6    @ Value 0 repeats 6 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
     .hword 22
-    .hword 1    @ Value 22 repeats 1 times
+    .hword 20    @ Value 22 repeats 20 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 0
+    .hword 4    @ Value 0 repeats 4 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 22
+    .hword 21    @ Value 22 repeats 21 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 0
+    .hword 4    @ Value 0 repeats 4 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 22
+    .hword 21    @ Value 22 repeats 21 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 0
+    .hword 4    @ Value 0 repeats 4 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 22
+    .hword 21    @ Value 22 repeats 21 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 0
+    .hword 4    @ Value 0 repeats 4 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 22
+    .hword 21    @ Value 22 repeats 21 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 0
+    .hword 4    @ Value 0 repeats 4 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 22
+    .hword 21    @ Value 22 repeats 21 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 0
+    .hword 4    @ Value 0 repeats 4 times
+    .hword 2
+    .hword 1    @ Value 2 repeats 1 times
+    .hword 22
+    .hword 20    @ Value 22 repeats 20 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 0
@@ -4704,92 +4794,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 2 repeats 1 times
     .hword 22
     .hword 17    @ Value 22 repeats 17 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 22
-    .hword 2    @ Value 22 repeats 2 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 0
-    .hword 4    @ Value 0 repeats 4 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 22
-    .hword 18    @ Value 22 repeats 18 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 22
-    .hword 2    @ Value 22 repeats 2 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 0
-    .hword 4    @ Value 0 repeats 4 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 22
-    .hword 18    @ Value 22 repeats 18 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 22
-    .hword 2    @ Value 22 repeats 2 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 0
-    .hword 4    @ Value 0 repeats 4 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 22
-    .hword 18    @ Value 22 repeats 18 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 22
-    .hword 2    @ Value 22 repeats 2 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 0
-    .hword 4    @ Value 0 repeats 4 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 22
-    .hword 18    @ Value 22 repeats 18 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 22
-    .hword 2    @ Value 22 repeats 2 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 0
-    .hword 4    @ Value 0 repeats 4 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 22
-    .hword 18    @ Value 22 repeats 18 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 22
-    .hword 2    @ Value 22 repeats 2 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 0
-    .hword 4    @ Value 0 repeats 4 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 22
-    .hword 18    @ Value 22 repeats 18 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 22
-    .hword 1    @ Value 22 repeats 1 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 0
-    .hword 6    @ Value 0 repeats 6 times
-    .hword 2
-    .hword 1    @ Value 2 repeats 1 times
-    .hword 22
-    .hword 17    @ Value 22 repeats 17 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 15
+    .hword 1    @ Value 15 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 0
@@ -5002,8 +5008,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5016,8 +5022,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5032,8 +5038,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5048,8 +5054,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5062,8 +5068,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5076,8 +5082,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5090,8 +5096,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5108,8 +5114,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 1    @ Value 0 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5126,8 +5132,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 1    @ Value 0 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5142,8 +5148,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 35 repeats 1 times
     .hword 0
     .hword 2    @ Value 0 repeats 2 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5158,8 +5164,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 35 repeats 1 times
     .hword 0
     .hword 2    @ Value 0 repeats 2 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5172,8 +5178,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5188,8 +5194,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5204,8 +5210,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 34
     .hword 1    @ Value 34 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5220,8 +5226,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5236,8 +5242,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 34
     .hword 1    @ Value 34 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5252,8 +5258,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5266,8 +5272,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5280,8 +5286,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5294,8 +5300,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5308,8 +5314,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5322,8 +5328,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5340,8 +5346,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 0 repeats 1 times
     .hword 34
     .hword 1    @ Value 34 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 2
     .hword 4    @ Value 2 repeats 4 times
     .hword 0
@@ -5358,8 +5364,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 0 repeats 1 times
     .hword 34
     .hword 1    @ Value 34 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 22
     .hword 3    @ Value 22 repeats 3 times
     .hword 2
@@ -5378,8 +5384,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 0 repeats 1 times
     .hword 34
     .hword 1    @ Value 34 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 2
     .hword 4    @ Value 2 repeats 4 times
     .hword 0
@@ -5396,8 +5402,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 0 repeats 1 times
     .hword 34
     .hword 1    @ Value 34 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5414,8 +5420,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 0 repeats 1 times
     .hword 34
     .hword 1    @ Value 34 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5430,8 +5436,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 26
     .hword 1    @ Value 26 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5446,8 +5452,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 16
     .hword 1    @ Value 16 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 12
+    .hword 1    @ Value 12 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5462,8 +5468,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 26
     .hword 1    @ Value 26 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5476,8 +5482,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5490,8 +5496,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5504,8 +5510,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 17 repeats 1 times
     .hword 0
     .hword 2    @ Value 0 repeats 2 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5520,8 +5526,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 35 repeats 1 times
     .hword 0
     .hword 2    @ Value 0 repeats 2 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5536,8 +5542,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 35 repeats 1 times
     .hword 0
     .hword 2    @ Value 0 repeats 2 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5550,8 +5556,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5566,8 +5572,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 26
     .hword 1    @ Value 26 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5582,8 +5588,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 8
     .hword 1    @ Value 8 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 12
+    .hword 1    @ Value 12 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5598,8 +5604,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 22
+    .hword 1    @ Value 22 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5616,8 +5622,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 0 repeats 1 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 22
+    .hword 1    @ Value 22 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5638,8 +5644,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 0 repeats 1 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 22
+    .hword 1    @ Value 22 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5658,8 +5664,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 22
+    .hword 1    @ Value 22 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5678,8 +5684,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 22
+    .hword 1    @ Value 22 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5700,8 +5706,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 26 repeats 1 times
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 22
+    .hword 1    @ Value 22 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5722,8 +5728,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 8 repeats 1 times
     .hword 12
     .hword 1    @ Value 12 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 22
+    .hword 1    @ Value 22 repeats 1 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5743,9 +5749,7 @@ stereomadness_l1_level_data:
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
-    .hword 1    @ Value 22 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 2    @ Value 22 repeats 2 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5761,9 +5765,7 @@ stereomadness_l1_level_data:
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
-    .hword 1    @ Value 22 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 2    @ Value 22 repeats 2 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5779,9 +5781,7 @@ stereomadness_l1_level_data:
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
-    .hword 1    @ Value 22 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 2    @ Value 22 repeats 2 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5797,9 +5797,7 @@ stereomadness_l1_level_data:
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
-    .hword 1    @ Value 22 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 2    @ Value 22 repeats 2 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5815,9 +5813,7 @@ stereomadness_l1_level_data:
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
-    .hword 1    @ Value 22 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 2    @ Value 22 repeats 2 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5833,9 +5829,7 @@ stereomadness_l1_level_data:
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
-    .hword 1    @ Value 22 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 2    @ Value 22 repeats 2 times
     .hword 2
     .hword 2    @ Value 2 repeats 2 times
     .hword 23
@@ -5855,11 +5849,7 @@ stereomadness_l1_level_data:
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
-    .hword 1    @ Value 22 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 22
-    .hword 1    @ Value 22 repeats 1 times
+    .hword 3    @ Value 22 repeats 3 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5879,11 +5869,7 @@ stereomadness_l1_level_data:
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
-    .hword 1    @ Value 22 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 22
-    .hword 1    @ Value 22 repeats 1 times
+    .hword 3    @ Value 22 repeats 3 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5903,11 +5889,7 @@ stereomadness_l1_level_data:
     .hword 4
     .hword 1    @ Value 4 repeats 1 times
     .hword 22
-    .hword 1    @ Value 22 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
-    .hword 22
-    .hword 1    @ Value 22 repeats 1 times
+    .hword 3    @ Value 22 repeats 3 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
     .hword 23
@@ -5928,8 +5910,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 9 repeats 1 times
     .hword 7
     .hword 1    @ Value 7 repeats 1 times
-    .hword 5
-    .hword 1    @ Value 5 repeats 1 times
+    .hword 13
+    .hword 1    @ Value 13 repeats 1 times
     .hword 22
     .hword 1    @ Value 22 repeats 1 times
     .hword 2
@@ -5950,8 +5932,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 2
     .hword 2    @ Value 2 repeats 2 times
     .hword 23
@@ -5970,8 +5952,8 @@ stereomadness_l1_level_data:
     .hword 2    @ Value 0 repeats 2 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -5984,8 +5966,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 5 repeats 1 times
     .hword 0
     .hword 3    @ Value 0 repeats 3 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -6000,8 +5982,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 2    @ Value 0 repeats 2 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -6016,8 +5998,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 23 repeats 1 times
     .hword 0
     .hword 2    @ Value 0 repeats 2 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -6034,8 +6016,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 10 repeats 1 times
     .hword 0
     .hword 1    @ Value 0 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
@@ -6052,8 +6034,8 @@ stereomadness_l1_level_data:
     .hword 1    @ Value 11 repeats 1 times
     .hword 0
     .hword 1    @ Value 0 repeats 1 times
-    .hword 21
-    .hword 1    @ Value 21 repeats 1 times
+    .hword 4
+    .hword 1    @ Value 4 repeats 1 times
     .hword 31
     .hword 1    @ Value 31 repeats 1 times
     .hword 0
