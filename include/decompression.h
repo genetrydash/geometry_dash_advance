@@ -9,3 +9,5 @@ void decompress_first_screen();
 void load_level(u32 level_ID);
 void screen_scroll_load();
 void reset_level();
+void fade_out();
+void fade_in();

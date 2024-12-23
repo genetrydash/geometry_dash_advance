@@ -3,6 +3,7 @@
 .global player0_icon
 .global sprites_chr
 .global bg_chr
+.global menu_chr
 .align 2
 blockset:
     .incbin "graphics/tileset.chr"
@@ -15,6 +16,9 @@ sprites_chr:
 
 bg_chr:
     .incbin "graphics/background.chr"
+
+menu_chr:
+    .incbin "graphics/menu.chr"
 
 
     

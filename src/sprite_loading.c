@@ -115,9 +115,6 @@ void scale_pulsing_objects() {
 }
 
 ARM_CODE void display_objects() {
-    // Pulsing objects size changes
-    scale_pulsing_objects();
-
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied) {
             struct Object curr_object = object_buffer[index].object;

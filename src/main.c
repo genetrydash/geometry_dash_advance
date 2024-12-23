@@ -5,6 +5,8 @@
 #include <maxmod.h>
 #include "soundbank.bin.h"
 #include "soundbank.h"
+#include "menu.h"
+void game_loop();
 
 ALIGN4 u8 myMixingBuffer[MM_MIXLEN_31KHZ];
 
@@ -51,6 +53,7 @@ void init_maxmod() {
     irq_set(II_VBLANK, vblank_handler, 0);
     irq_enable(II_VBLANK);
 }
+
 s32 main() {
     init_maxmod();
     
@@ -76,23 +79,66 @@ s32 main() {
     // Update blend weights
     REG_BLDALPHA = BLDA_BUILD(0x80/8, 0x70/8);
 
+    while(1) {
+        switch (game_state) {
+            case STATE_MENU:
+                menu_loop();
+                break;
+            
+            case STATE_PLAYING:
+                game_loop();
+                break;
+        }
+    }
+
+    return 0;
+}
+
+void game_loop() {
+    // Do level reset
+    
+    fade_out();
+    
+
+    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32;
+    REG_BG0HOFS = 0;
+    REG_BG0VOFS = 0;
+
+    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32;
+    REG_BG1HOFS = 0;
+    REG_BG1VOFS = 0;
+
+    REG_BG2CNT  = BG_CBB(2) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(1);
+    REG_BG2HOFS = 0;
+    REG_BG2VOFS = 0;
+
+    REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG2, BLD_STD);
+
+    BFN_SET(REG_BLDCNT, BLD_MODE(1), BLD_MODE);
+
+
     // Init OAM and VRAM
     oam_init(shadow_oam, 128);
     memcpy32(&tile_mem[0][0], blockset, sizeof(blockset) / 4);
     memcpy32(&tile_mem[2][0], bg_chr, sizeof(bg_chr) / 4);
     memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
-    memcpy16(pal_bg_mem, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
+    memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
 
     memcpy32(&tile_mem_obj[0][0], player0_icon, sizeof(player0_icon) / 4);
     memcpy32(&tile_mem_obj[0][64], sprites_chr, sizeof(sprites_chr) / 4);
-    memcpy16(pal_obj_mem, spritePalette, sizeof(spritePalette) / sizeof(COLOR));
+    memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
+
+    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_2D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2;
+
+    load_level(loaded_level_id);
+
+    fade_in();
     
     mmStart(MOD_STEREOMA, MM_PLAY_ONCE);
 
-    load_level(stereomadness_ID);
-
-    while(1) {
+    while (1) {
         key_poll();
+
         nextSpr = 0;
 
         // Copy OAM buffer into OAM
@@ -101,7 +147,6 @@ s32 main() {
 
         // Clear OAM
         memset32(shadow_oam, ATTR0_HIDE, 256);
-        
         // Clear rotation buffer
         memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
 
@@ -112,6 +157,8 @@ s32 main() {
         REG_BG2VOFS = 34 + (scroll_y >> 13);
 
         if (player_death) reset_level();
+
+        scale_pulsing_objects();
 
         // Run color stuff
         run_col_trigger_changes();
@@ -130,10 +177,8 @@ s32 main() {
         // Run object routines
         display_objects();
         load_next_object();
-
+        
         // Wait for VSYNC
         VBlankIntrWait();
     }
-
-    return 0;
 }

@@ -3404,6 +3404,11 @@
          "value":0
         }, 
         {
+         "name":"Level name",
+         "type":"string",
+         "value":"STEREO MADNESS"
+        }, 
+        {
          "name":"Speed",
          "type":"int",
          "value":1

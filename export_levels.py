@@ -255,12 +255,19 @@ def export_includes_h(levels):
             level_counter += 1
 
         file.write(f"extern const u16 *level_defines[][4];\n")
+        file.write(f"extern const u8 *level_names[];\n")
     
     with open("levels/includes.c", 'w') as file:
         file.write(f"#include \"includes.h\"\n")
         file.write(f"const u16 *level_defines[][4] = {{\n")
         for level_name in levels:
             file.write(f"   {{ {level_name}_l1_level_data, {level_name}_l2_level_data, {level_name}_spr_data, {level_name}_properties }},\n")
+        
+        file.write("};\n")
+
+        file.write(f"const u8 *level_names[] = {{\n")
+        for level_name in levels:
+            file.write(f"   {level_name}_name,\n")
         
         file.write("};\n")
 
@@ -291,9 +298,10 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
             g_color_bgr555 = rgb888_to_rgb555_24bit(0x0000ff)
         
         gamemode = int(properties[2]['value'])
-        speed = int(properties[3]['value'])
+        menu_name = properties[3]['value']
+        speed = int(properties[4]['value'])
     except Exception:
-        raise Exception(f"Level {level_name} doesn't have / has missing attributes. Make sure those attributes exists: BG, GROUND, Gamemode, Speed. To see the level attributes, go to \"Map\" on tiled and then \"Map attributes\"")
+        raise Exception(f"Level {level_name} doesn't have / has missing attributes. Make sure those attributes exists: BG, GROUND, Gamemode, Level name, Speed. To see the level attributes, go to \"Map\" on tiled and then \"Map attributes\"")
 
     with open(output_path_c, 'w') as file:
         file.write(f"// {level_name} properties\n")
@@ -304,6 +312,10 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         file.write(f" /*gamemode*/      {gamemode},\n")
         file.write(f" /*speed*/         {speed},\n")
         file.write(f" /*level height*/  {level_height},\n")
+        file.write(f"}};\n\n")
+
+        file.write(f"const unsigned char {level_name}_name[] = {{\n")
+        file.write(f"   \"{menu_name}\"\n")
         file.write(f"}};\n")
 
     with open(output_path_h, 'w') as file:
@@ -311,6 +323,7 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         file.write(f"// {level_name} properties\n")
 
         file.write(f"extern const unsigned short {level_name}_properties[];\n")
+        file.write(f"extern const unsigned char {level_name}_name[];\n")
 
 
 def main():

@@ -4,6 +4,7 @@
 #include "metatiles.h"
 #include <maxmod.h>
 #include "soundbank.h"
+#include "menu.h"
 #include "../levels/includes.h"
 
 // RLE variables
@@ -232,6 +233,23 @@ void load_level(u32 level_ID) {
     decompressed_column = 0;
 }
 
+void fade_out() {
+    // Fdde out
+    for (s32 frame = 0; frame <= 32; frame += 4) {
+        VBlankIntrWait();
+        clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, frame);
+    }
+}
+
+void fade_in() {
+    // Fade in
+    for (s32 frame = 0; frame <= 32; frame += 4) {
+        VBlankIntrWait();
+        key_poll();
+        clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
+    }
+}
+
 void reset_level() {
     mmStop();
     // Wait a bit before fading
@@ -239,20 +257,12 @@ void reset_level() {
         VBlankIntrWait();
     }
 
-    // Fade out
-    for (s32 frame = 0; frame <= 32; frame += 4) {
-        VBlankIntrWait();
-        clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, frame);
-    }
-    oam_init(shadow_oam, 128);
-    load_level(stereomadness_ID);
+    fade_out();
 
-    // Fade in
-    for (s32 frame = 0; frame <= 32; frame += 4) {
-        VBlankIntrWait();
-        key_poll();
-        clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
-    }
+    oam_init(shadow_oam, 128);
+    load_level(loaded_level_id);
+
+    fade_in();
     
     mmStart(MOD_STEREOMA, MM_PLAY_ONCE);
 }

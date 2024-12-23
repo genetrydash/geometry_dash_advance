@@ -6,3 +6,7 @@ const unsigned short stereomadness_properties[] = {
  /*speed*/         1,
  /*level height*/  27,
 };
+
+const unsigned char stereomadness_name[] = {
+   "STEREO MADNESS"
+};

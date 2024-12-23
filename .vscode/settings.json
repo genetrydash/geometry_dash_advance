@@ -35,6 +35,7 @@
         "maxmod.h": "c",
         "soundbank.bin.h": "c",
         "sprite_routines.h": "c",
-        "metatiles.h": "c"
+        "metatiles.h": "c",
+        "pusab.h": "c"
     },
 }

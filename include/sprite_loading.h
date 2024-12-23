@@ -41,6 +41,7 @@ extern struct ObjectSlot object_buffer[MAX_OBJECTS];
 
 void load_next_object();
 void display_objects();
+void scale_pulsing_objects();
 void check_obj_collision(u32 index);
 u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2, u32 h2);
 #endif
