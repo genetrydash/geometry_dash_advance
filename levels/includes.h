@@ -18,14 +18,6 @@
 #include "backontrack/SP.h"
 #include "backontrack/properties.h"
 
-// polargeist
-#define polargeist_ID 2
-
-#include "polargeist/l1.h"
-#include "polargeist/l2.h"
-#include "polargeist/SP.h"
-#include "polargeist/properties.h"
-
-#define LEVEL_COUNT 3
+#define LEVEL_COUNT 2
 extern const u16 *level_defines[][4];
 extern const u8 *level_names[];
