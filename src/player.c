@@ -146,15 +146,20 @@ void cube_gamemode() {
         
         // Run collision
         collision_cube();
-    }
 
-    // Apply last quarter of speed
-    // Update player x and y
-    player_x += player_x_speed - ((player_x_speed >> 2) * 3);
-    player_y += player_y_speed - ((player_y_speed >> 2) * 3);
+        // If player is dead, do not advance more quarter steps
+        if (player_death) break;
+    }
+    // If player is dead, do not advance more quarter steps
+    if (!player_death) {
+        // Apply last quarter of speed
+        // Update player x and y
+        player_x += player_x_speed - ((player_x_speed >> 2) * 3);
+        player_y += player_y_speed - ((player_y_speed >> 2) * 3);
     
-    // Run collision
-    collision_cube();
+        // Run collision
+        collision_cube();
+    }
 
     relative_player_x = (player_x - scroll_x) >> 8;
     relative_player_y = (player_y - scroll_y) >> 8;
@@ -199,15 +204,21 @@ void ship_gamemode() {
         
         // Run collision
         collision_ship();
+
+        // If player is dead, do not advance more quarter steps
+        if (player_death) break;
     }
 
-    // Apply last quarter of speed
-    // Update player x and y
-    player_x += player_x_speed - ((player_x_speed >> 2) * 3);
-    player_y += player_y_speed - ((player_y_speed >> 2) * 3);
-    
-    // Run collision
-    collision_ship();
+    // If player is dead, do not advance more quarter steps
+    if (!player_death) {
+        // Apply last quarter of speed
+        // Update player x and y
+        player_x += player_x_speed - ((player_x_speed >> 2) * 3);
+        player_y += player_y_speed - ((player_y_speed >> 2) * 3);
+        
+        // Run collision
+        collision_ship();
+    }
 
     relative_player_x = (player_x - scroll_x) >> 8;
     relative_player_y = (player_y - scroll_y) >> 8;
