@@ -118,7 +118,6 @@ ARM_CODE void display_objects() {
     // Pulsing objects size changes
     scale_pulsing_objects();
 
-
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied) {
             struct Object curr_object = object_buffer[index].object;
@@ -141,11 +140,6 @@ ARM_CODE void display_objects() {
                 if (obj_sprites[curr_object.type] != NULL) {
                     // If object is inside the screen horizontally, continue
                     if (relative_x < SCREEN_WIDTH + 128) { 
-                        // If it hasn't been activated already, check collision
-                        if (object_buffer[index].activated == FALSE) {
-                            check_obj_collision(index); 
-                        }  
-
                         // If the object is inside the screen vertically, display it
                         if (relative_y > -128 && relative_y < SCREEN_HEIGHT) {
                             do_display(curr_object, relative_x, relative_y, hflip, vflip);

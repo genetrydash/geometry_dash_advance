@@ -25,6 +25,7 @@ enum COL_SIDES {
 u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
 void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
 void do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
+void do_collision_with_objects(u32 check_rotated);
 
 void collision_cube() {
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
@@ -351,4 +352,15 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
 u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
     u16 col_type = obtain_collision_type(x, y, layer);
     return col_type_lookup(col_type, x, y, side);
+}
+
+void do_collision_with_objects(u32 check_rotated) {
+    for (s32 slot = 0; slot < MAX_OBJECTS; slot++) {
+        // Check collision only if the slot is occupied
+        if (object_buffer[slot].occupied && object_buffer[slot].activated == FALSE) {
+            if (check_rotated || !(object_buffer[slot].object.attrib1 & ENABLE_ROTATION_FLAG)) {
+                check_obj_collision(slot); 
+            }
+        }  
+    }
 }

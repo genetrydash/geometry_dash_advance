@@ -1,8 +1,5 @@
 #include <tonc.h>
 
-void collision_cube();
-void collision_ship();
-
 #define GROUND_TILE_1 0xb0
 #define GROUND_TILE_2 0xb1
 #define GROUND_TILE_3 0xb2
@@ -42,3 +39,7 @@ extern const u16 ground_pattern[];
 
 extern u32 coll_x;
 extern u32 coll_y;
+
+void collision_cube();
+void collision_ship();
+void do_collision_with_objects();
