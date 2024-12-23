@@ -102,9 +102,9 @@ void player_main() {
 }
 
 // in subpixels
-#define CUBE_GRAVITY 0x6B
+#define CUBE_GRAVITY 0x6C
 #define CUBE_MAX_Y_SPEED 0x600
-#define CUBE_JUMP_SPEED 0x525
+#define CUBE_JUMP_SPEED 0x52a
 
 void cube_gamemode() {
     gravity = CUBE_GRAVITY;
