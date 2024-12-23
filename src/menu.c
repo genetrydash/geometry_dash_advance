@@ -39,7 +39,7 @@ void menu_loop() {
     while (1) {
         key_poll();
         if (key_hit(KEY_RIGHT)) {
-            if (loaded_level_id == sizeof(loaded_level_id) - 1) {
+            if (loaded_level_id == LEVEL_COUNT - 1) {
                 loaded_level_id = 0;
             } else {   
                 loaded_level_id++;
@@ -54,7 +54,7 @@ void menu_loop() {
         }
         if (key_hit(KEY_LEFT)) {
             if (loaded_level_id == 0) {
-                loaded_level_id = sizeof(loaded_level_id) - 1;
+                loaded_level_id = LEVEL_COUNT - 1;
             } else {   
                 loaded_level_id--;
             }

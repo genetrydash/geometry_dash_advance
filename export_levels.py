@@ -254,6 +254,7 @@ def export_includes_h(levels):
 
             level_counter += 1
 
+        file.write(f"#define LEVEL_COUNT {level_counter}\n")
         file.write(f"extern const u16 *level_defines[][4];\n")
         file.write(f"extern const u8 *level_names[];\n")
     
