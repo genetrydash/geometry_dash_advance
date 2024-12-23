@@ -94,11 +94,29 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
         oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip);
     }
 }
+
+void scale_pulsing_objects() {
+    obj_aff_identity(&obj_aff_buffer[PULSING_OBJECTS_SLOT]);
+    u32 music_volume = 0;
+
+    // Get loudest channel
+    for (s32 channel = 0; channel < (NUM_CHANNELS << 4); channel += 0x10) {
+        u32 volume = music_data[VOLUME_INDEX + channel];
+        if (volume > music_volume) {
+            music_volume = volume;
+        }
+    }
+
+    // Multiply by 2
+    music_volume <<= 1;
+
+    u32 value = CLAMP(0x300 - (music_volume), 0x140, 0x300);
+    obj_aff_scale(&obj_aff_buffer[4], value, value);
+}
+
 ARM_CODE void display_objects() {
     // Pulsing objects size changes
-    obj_aff_identity(&obj_aff_buffer[4]);
-    u32 value = CLAMP(0x100 + (music_data[550]), 0x120, 0x200);
-    obj_aff_scale(&obj_aff_buffer[4], value, value);
+    scale_pulsing_objects();
 
 
     for (s32 index = 0; index < MAX_OBJECTS; index++) {

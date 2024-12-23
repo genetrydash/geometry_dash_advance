@@ -6,6 +6,9 @@
 #define NUM_ROT_SLOTS 27 // 5 are reserved to saws, music pulsing circles, and both players
 #define NUM_RESERVED_ROT_SLOTS 32 - NUM_ROT_SLOTS 
 
+#define PULSING_OBJECTS_SLOT 4
+#define VOLUME_INDEX 550
+
 #define H_FLIP_FLAG (1 << 1)
 #define V_FLIP_FLAG (1 << 0)
 #define ENABLE_ROTATION_FLAG (1 << 2)
