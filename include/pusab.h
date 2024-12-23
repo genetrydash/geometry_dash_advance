@@ -6,8 +6,8 @@
 
 extern const TFont pusabFont;
 
-#define pusabGlyphsLen 1536
-extern const unsigned int pusabGlyphs[384];
+#define pusabGlyphsLen 3072
+extern const unsigned int pusabGlyphs[768];
 
 #endif // __PUSAB__
 

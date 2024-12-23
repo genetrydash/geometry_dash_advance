@@ -313,11 +313,7 @@ backontrack_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
-    .hword 30
-    .hword 1    @ Value 30 repeats 1 times
-    .hword 0
-    .hword 26    @ Value 0 repeats 26 times
+    .hword 53    @ Value 0 repeats 53 times
     .hword 43
     .hword 1    @ Value 43 repeats 1 times
     .hword 0

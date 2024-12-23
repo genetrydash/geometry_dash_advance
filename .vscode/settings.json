@@ -36,6 +36,7 @@
         "soundbank.bin.h": "c",
         "sprite_routines.h": "c",
         "metatiles.h": "c",
-        "pusab.h": "c"
+        "pusab.h": "c",
+        "posprintf.h": "c"
     },
 }

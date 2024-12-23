@@ -3,6 +3,7 @@
 #include "menu.h"
 #include "tonc_tte.h"
 #include "pusab.h"
+#include "posprintf.h"
 
 u16 game_state;
 u16 loaded_level_id;
@@ -25,24 +26,30 @@ void menu_loop() {
 
         
     
+    char char_buffer[3];
+    posprintf(char_buffer, "%d", loaded_level_id + 1);
     tte_set_pos(8,136);
     tte_write("PRESS L R TO CHANGE LEVEL");
     tte_set_pos(8,144);
     tte_write("PRESS A TO START");
-
+    tte_set_pos(224,8);
+    tte_write(char_buffer);  
     tte_set_pos(8,8);
     tte_write((char *) level_names[loaded_level_id]);
     while (1) {
         key_poll();
-        tte_set_pos(8,8);
-
         if (key_hit(KEY_RIGHT)) {
             if (loaded_level_id == sizeof(loaded_level_id) - 1) {
                 loaded_level_id = 0;
             } else {   
                 loaded_level_id++;
             }
-            tte_erase_line();
+            tte_erase_rect(0, 0, 240, 128);
+            posprintf(char_buffer, "%d", loaded_level_id + 1);
+            
+            tte_set_pos(224,8);
+            tte_write(char_buffer);  
+            tte_set_pos(8,8);
             tte_write((char *) level_names[loaded_level_id]);
         }
         if (key_hit(KEY_LEFT)) {
@@ -51,7 +58,12 @@ void menu_loop() {
             } else {   
                 loaded_level_id--;
             }
-            tte_erase_line();
+            tte_erase_rect(0, 0, 240, 128);
+            posprintf(char_buffer, "%d", loaded_level_id + 1);
+            
+            tte_set_pos(224,8);
+            tte_write(char_buffer);  
+            tte_set_pos(8,8);
             tte_write((char *) level_names[loaded_level_id]);
         }
 
