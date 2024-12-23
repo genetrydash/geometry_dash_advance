@@ -33,6 +33,11 @@ void collision_cube() {
         coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
         collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
 
+        // If the player is dead, don't bother checking more
+        if (player_death) {
+            return;
+        }
+
         // Do center hitbox checks
         coll_x = (player_x >> 8) + ((0x10 - player_width) >> 1);
         coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
@@ -75,6 +80,11 @@ void collision_ship() {
         coll_x = (player_x >> 8) + ((0x10 - player_width) >> 1);
         coll_y = (player_y >> 8) + ((0x10 - player_height) >> 1);
         collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
+
+        // If the player is dead, don't bother checking more
+        if (player_death) {
+            return;
+        }
         
         // Do center hitbox checks
         coll_x = (player_x >> 8) + ((0x10 - player_width) >> 1);
