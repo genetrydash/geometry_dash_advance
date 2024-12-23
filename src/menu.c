@@ -25,6 +25,8 @@ void menu_loop() {
 
         
     
+    tte_set_pos(8,136);
+    tte_write("PRESS L R TO CHANGE LEVEL");
     tte_set_pos(8,144);
     tte_write("PRESS A TO START");
 
