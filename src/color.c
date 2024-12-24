@@ -45,6 +45,8 @@ void set_bg_color(COLOR *dst, COLOR color) {
     // Portal colors also have a glow on them
     clr_blend(&dst[0], &dst[0x112], &dst[0x117], 1, 0x0f);
     clr_blend(&dst[0], &dst[0x122], &dst[0x127], 1, 0x0f);
+    clr_blend(&dst[0], &dst[0x132], &dst[0x137], 1, 0x0f);
+    clr_blend(&dst[0], &dst[0x142], &dst[0x147], 1, 0x0f);
 }
 
 void set_obj_color(COLOR *dst, COLOR color) {
