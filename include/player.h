@@ -5,7 +5,8 @@
 // Gamemode IDs
 enum GAMEMODE_TYPE {
     CUBE,
-    SHIP
+    SHIP,
+    GAMEMODE_COUNT
 };
 
 // Portal speed IDs

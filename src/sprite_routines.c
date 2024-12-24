@@ -63,29 +63,29 @@ void col_trigger(struct ObjectSlot *objectSlot) {
 
             switch (copied_channel) {
                 case BG:
-                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x00];
-                break;
-            case GROUND:
-                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x41];
-                break;
-            case OBJ:
-                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x09];
-                break;
-            case LINE:
-                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x48];
-                break;
-            case P1:
-                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x105];
-                break;
-            case P2:
-                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x108];
-                break;
-            case COL1:
-            case COL2:
-            case COL3:
-            case COL4:
-                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x0D + (channel << 4)];
-                break;
+                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x00];
+                    break;
+                case GROUND:
+                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x41];
+                    break;
+                case OBJ:
+                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x09];
+                    break;
+                case LINE:
+                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x48];
+                    break;
+                case P1:
+                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x105];
+                    break;
+                case P2:
+                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x108];
+                    break;
+                case COL1:
+                case COL2:
+                case COL3:
+                case COL4:
+                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x0D + (channel << 4)];
+                    break;
             }
         } else {
             col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = col_trigger.attrib2;
@@ -137,3 +137,27 @@ const jmp_table routines_jump_table[] = {
     blue_gravity_portal,
     yellow_gravity_portal,
 };
+
+// In pixels
+#define Object_Hitbox(name, hw, hh, hxoff, hyoff, center_x, center_y) {hw, hh, hxoff, hyoff, center_x, center_y},
+
+const s16 obj_hitbox[][6] = {
+    Object_Hitbox("NONE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("SHIP_PORTAL", 18, 46, -2, 1, 8, 24)
+    Object_Hitbox("CUBE_PORTAL", 18, 46, -2, 1, 8, 24)
+    Object_Hitbox("COL_TRIGGER", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("BIG_BG_SPIKES", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("MEDIUM_BG_SPIKES", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("SMALL_BG_SPIKES", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("TINY_BG_SPIKES", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("BG_CHAIN", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("YELLOW_ORB", 18, 18, -2, -2, 8, 8)
+    Object_Hitbox("YELLOW_PAD", 14, 2, 1, 14, 8, 8)
+    Object_Hitbox("MEDIUM_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("SMALL_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("LARGE_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("BLUE_GRAVITY_PORTAL", 14, 40, 1, 4, 8, 24)
+    Object_Hitbox("YELLOW_GRAVITY_PORTAL", 14, 40, 1, 4, 8, 24)
+};
+
+#undef Object_Hitbox

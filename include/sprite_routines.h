@@ -4,6 +4,7 @@
 
 typedef void (*jmp_table)();
 extern const jmp_table routines_jump_table[];
+extern const s16 obj_hitbox[][6];
 
 enum ObjTypes {
     NONE,
@@ -20,7 +21,7 @@ enum ObjTypes {
 
     YELLOW_ORB,
     YELLOW_PAD,
-    
+
     MEDIUM_PULSING_CIRCLE,
     SMALL_PULSING_CIRCLE,
     LARGE_PULSING_CIRCLE,

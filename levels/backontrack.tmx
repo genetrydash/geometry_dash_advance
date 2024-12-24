@@ -77,7 +77,6 @@
  </layer>
  <objectgroup id="7" name="SP">
   <object id="208" gid="523" x="208" y="432" width="16" height="16"/>
-  <object id="209" gid="523" x="208" y="432" width="16" height="16"/>
   <object id="211" gid="518" x="592" y="432" width="16" height="16"/>
   <object id="212" gid="523" x="768" y="432" width="16" height="16"/>
   <object id="214" gid="519" x="1088" y="432" width="16" height="16"/>
@@ -354,7 +353,6 @@
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="386" gid="517" x="696.667" y="225.667" width="16" height="16"/>
   <object id="390" gid="524" x="9200" y="416" width="16" height="16"/>
   <object id="391" gid="524" x="9232" y="416" width="16" height="16"/>
   <object id="392" gid="524" x="9360" y="384" width="16" height="16"/>

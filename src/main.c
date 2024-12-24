@@ -176,7 +176,7 @@ void game_loop() {
 
         // Run object routines
         display_objects();
-        load_next_object();
+        load_objects();
         
         // Wait for VSYNC
         VBlankIntrWait();

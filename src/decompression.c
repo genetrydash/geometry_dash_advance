@@ -211,6 +211,11 @@ void load_level(u32 level_ID) {
     curr_level_height = level_defines[level_ID][3][4];
     loaded_song_id = level_defines[level_ID][3][5];
 
+    // Limit values to safe values
+    if (loaded_song_id >= MSL_NSONGS) loaded_song_id = 0;
+    if (curr_level_height >= MAX_LEVEL_HEIGHT) curr_level_height = MAX_LEVEL_HEIGHT - 1;
+    if (gamemode >= GAMEMODE_COUNT) gamemode = CUBE;
+
     // Put player on the ground
     player_y = ((GROUND_HEIGHT - 1) << 12) + 0x200;  
     scroll_y = (player_y) - 0x7000;
@@ -232,10 +237,13 @@ void load_level(u32 level_ID) {
     decompress_first_screen();
 
     decompressed_column = 0;
+    
+    // Load objects
+    load_objects(); 
 }
 
 void fade_out() {
-    // Fdde out
+    // Fade out
     for (s32 frame = 0; frame <= 32; frame += 4) {
         VBlankIntrWait();
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, frame);
@@ -247,6 +255,16 @@ void fade_in() {
     for (s32 frame = 0; frame <= 32; frame += 4) {
         VBlankIntrWait();
         key_poll();
+        
+        nextSpr = 0;
+
+        // Update OAM
+        obj_copy(oam_mem, shadow_oam, 128);
+        obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
+        
+        // Run object routines
+        display_objects();
+        
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
 }

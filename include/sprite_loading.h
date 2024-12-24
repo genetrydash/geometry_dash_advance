@@ -39,7 +39,7 @@ extern u32 *sprite_pointer;
 extern struct ObjectSlot object_buffer[MAX_OBJECTS];
 
 
-void load_next_object();
+void load_objects();
 void display_objects();
 void scale_pulsing_objects();
 #endif

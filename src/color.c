@@ -107,6 +107,7 @@ u16 lerp_color(COLOR color1, COLOR color2, FIXED time) {
     return (blue_lerp << 10) | (green_lerp << 5) | red_lerp;
 }
 
+// This function runs col triggers. It is important that it is done in VBLANK because it acceses palette memory
 void run_col_trigger_changes() {
     for (s32 channel = 0; channel < CHANNEL_COUNT; channel++) {
         if (col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE]) {

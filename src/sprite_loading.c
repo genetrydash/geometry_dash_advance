@@ -10,7 +10,7 @@ u32 *sprite_pointer;
 
 struct ObjectSlot object_buffer[MAX_OBJECTS];
 
-ARM_CODE void load_next_object() {
+ARM_CODE void load_objects() {
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied == FALSE) {
             if ((*sprite_pointer & 0xff000000) != 0xff000000) {
@@ -56,7 +56,6 @@ ARM_CODE void load_next_object() {
 }
 
 void do_collision(struct ObjectSlot *objectSlot);
-// This function runs col triggers. It is important that it is done in VBLANK because it acceses palette memory
 
 s32 find_affine_slot(u16 rotation) {
     // Search for already existing values

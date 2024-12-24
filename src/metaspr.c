@@ -215,30 +215,7 @@ const u16 *obj_sprites[] = {
     gravityPortalYellowSpr,
 };
 
-// In pixels
-#define Object_Hitbox(name, hw, hh, hxoff, hyoff, center_x, center_y) {hw, hh, hxoff, hyoff, center_x, center_y},
-
-const s16 obj_hitbox[][6] = {
-    Object_Hitbox("NONE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("SHIP_PORTAL", 18, 46, -2, 1, 8, 24)
-    Object_Hitbox("CUBE_PORTAL", 18, 46, -2, 1, 8, 24)
-    Object_Hitbox("COL_TRIGGER", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("BIG_BG_SPIKES", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("MEDIUM_BG_SPIKES", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("SMALL_BG_SPIKES", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("TINY_BG_SPIKES", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("BG_CHAIN", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("YELLOW_ORB", 18, 18, -2, -2, 8, 8)
-    Object_Hitbox("YELLOW_PAD", 14, 2, 1, 14, 8, 8)
-    Object_Hitbox("MEDIUM_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("SMALL_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("LARGE_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("BLUE_GRAVITY_PORTAL", 14, 40, 1, 4, 8, 24)
-    Object_Hitbox("YELLOW_GRAVITY_PORTAL", 14, 40, 1, 4, 8, 24)
-};
-
-
-const u8 spr_w_h_table[] = {
+const u8 spr_width_height_table[] = {
     0x08, 0x08, // 8x8
     0x10, 0x10, // 16x16
     0x20, 0x20, // 32x32
@@ -269,8 +246,8 @@ void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip) {
         
         u8 wh_index = ((data[i] & ATTR0_SHAPE_MASK) >> 12) | ((data[i + 1] & ATTR1_SIZE_MASK) >> 14);
         
-        u8 width = spr_w_h_table[wh_index << 1];
-        u8 height = spr_w_h_table[(wh_index << 1) + 1];
+        u8 width = spr_width_height_table[wh_index << 1];
+        u8 height = spr_width_height_table[(wh_index << 1) + 1];
         
         s16 offset_x = data[i + 3];
         s16 offset_y = data[i + 4];
@@ -290,7 +267,7 @@ void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip) {
         
         // Increment into next sprite
         nextSpr++;
-        // Also increment sprite index by 5 words
+        // Also increment sprite index by 6 words
         i += 6;
     }
 }
@@ -308,8 +285,8 @@ void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id) {
 
         u8 wh_index = ((data[i] & ATTR0_SHAPE_MASK) >> 12) | ((data[i + 1] & ATTR1_SIZE_MASK) >> 14);
 
-        u8 width = spr_w_h_table[wh_index << 1];
-        u8 height = spr_w_h_table[(wh_index << 1) + 1];
+        u8 width = spr_width_height_table[wh_index << 1];
+        u8 height = spr_width_height_table[(wh_index << 1) + 1];
         
         s16 offset_x = data[i + 3];
         s16 offset_y = data[i + 4];
@@ -338,7 +315,7 @@ void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id) {
         
         // Increment into next sprite
         nextSpr++;
-        // Also increment sprite index by 5 words
+        // Also increment sprite index by 6 words
         i += 6;
     }
 }
