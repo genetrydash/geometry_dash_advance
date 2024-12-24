@@ -1228,42 +1228,60 @@ polargeist_spr_data:
    .hword 0x0
    .hword 0
 @ Object 200
+   .word 0x3020
+   .hword 0x160
+   .hword 0x8
+   .hword 0x0
+   .hword 0
+@ Object 201
+   .word 0x3050
+   .hword 0x160
+   .hword 0x8
+   .hword 0x0
+   .hword 0
+@ Object 202
    .word 0x3080
    .hword 0x1a0
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 201
+@ Object 203
+   .word 0x30b0
+   .hword 0x150
+   .hword 0x8
+   .hword 0x0
+   .hword 0
+@ Object 204
    .word 0x30d0
    .hword 0x1b0
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 202
+@ Object 205
    .word 0x30f0
    .hword 0x1a0
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 203
+@ Object 206
    .word 0x3110
    .hword 0x1b0
    .hword 0x7
    .hword 0x0
    .hword 0
-@ Object 204
+@ Object 207
    .word 0x3130
    .hword 0x190
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 205
+@ Object 208
    .word 0x3150
    .hword 0x1b0
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 206
+@ Object 209
    .word 0x3170
    .hword 0x130
    .hword 0x3
@@ -1271,7 +1289,7 @@ polargeist_spr_data:
    .hword 0x1ba0
    .hword 0x0
    .hword 0x0000
-@ Object 207
+@ Object 210
    .word 0x3170
    .hword 0x140
    .hword 0x3
@@ -1279,223 +1297,223 @@ polargeist_spr_data:
    .hword 0x6a0
    .hword 0x0
    .hword 0x0000
-@ Object 208
+@ Object 211
    .word 0x3170
    .hword 0x180
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 209
+@ Object 212
    .word 0x3190
    .hword 0x1b0
    .hword 0x7
    .hword 0x0
    .hword 0
-@ Object 210
+@ Object 213
    .word 0x31b0
    .hword 0x170
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 211
+@ Object 214
    .word 0x31d0
    .hword 0x1b0
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 212
+@ Object 215
    .word 0x31f0
    .hword 0x120
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 213
+@ Object 216
    .word 0x3250
    .hword 0x1b0
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 214
+@ Object 217
    .word 0x3290
    .hword 0x120
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 215
+@ Object 218
    .word 0x3290
    .hword 0x1b0
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 216
+@ Object 219
    .word 0x33d0
    .hword 0x1a0
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 217
+@ Object 220
    .word 0x3410
    .hword 0x1a0
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 218
+@ Object 221
    .word 0x3470
    .hword 0x1a0
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 219
+@ Object 222
    .word 0x34c0
    .hword 0x180
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 220
+@ Object 223
    .word 0x35c0
    .hword 0x1b0
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 221
+@ Object 224
    .word 0x35e0
    .hword 0x190
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 222
+@ Object 225
    .word 0x35f0
    .hword 0x1b0
    .hword 0x7
    .hword 0x0
    .hword 0
-@ Object 223
+@ Object 226
    .word 0x3610
    .hword 0x1a0
    .hword 0xa
    .hword 0x0
    .hword 0
-@ Object 224
+@ Object 227
    .word 0x3610
    .hword 0x1a0
    .hword 0xa
    .hword 0x0
    .hword 0
-@ Object 225
+@ Object 228
    .word 0x36c0
    .hword 0x160
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 226
+@ Object 229
    .word 0x36d8
    .hword 0x1b0
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 227
+@ Object 230
    .word 0x36f0
    .hword 0x1a0
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 228
+@ Object 231
    .word 0x3708
    .hword 0x1b0
    .hword 0x7
    .hword 0x0
    .hword 0
-@ Object 229
+@ Object 232
    .word 0x3720
    .hword 0x150
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 230
+@ Object 233
    .word 0x3730
    .hword 0x150
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 231
+@ Object 234
    .word 0x3750
    .hword 0x1a0
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 232
+@ Object 235
    .word 0x3790
    .hword 0x1a0
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 233
+@ Object 236
    .word 0x37c0
    .hword 0x1b0
    .hword 0xd
    .hword 0x0
    .hword 0
-@ Object 234
+@ Object 237
    .word 0x3860
    .hword 0x190
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 235
+@ Object 238
    .word 0x3890
    .hword 0x140
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 236
+@ Object 239
    .word 0x38b0
    .hword 0x1b0
    .hword 0x7
    .hword 0x0
    .hword 0
-@ Object 237
+@ Object 240
    .word 0x38c0
    .hword 0x190
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 238
+@ Object 241
    .word 0x38d0
    .hword 0x1b0
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 239
+@ Object 242
    .word 0x38f0
    .hword 0x140
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 240
+@ Object 243
    .word 0x3900
    .hword 0x1b0
    .hword 0x7
    .hword 0x0
    .hword 0
-@ Object 241
+@ Object 244
    .word 0x3920
    .hword 0x190
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 242
+@ Object 245
    .word 0x3950
    .hword 0x140
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 243
+@ Object 246
    .word 0x3970
    .hword 0x1b0
    .hword 0x7
    .hword 0x0
    .hword 0
-@ Object 244
+@ Object 247
    .word 0x3980
    .hword 0x190
    .hword 0xb

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="950" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="663">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="950" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="666">
  <editorsettings>
   <export target="polargeist.json" format="json"/>
  </editorsettings>
@@ -437,5 +437,8 @@
   <object id="660" gid="523" x="13840" y="416" width="16" height="16"/>
   <object id="661" gid="523" x="3696" y="384" width="16" height="16"/>
   <object id="662" gid="522" x="3796" y="380" width="16" height="16"/>
+  <object id="663" gid="521" x="12320" y="352" width="16" height="16"/>
+  <object id="664" gid="521" x="12368" y="352" width="16" height="16"/>
+  <object id="665" gid="521" x="12464" y="336" width="16" height="16"/>
  </objectgroup>
 </map>
