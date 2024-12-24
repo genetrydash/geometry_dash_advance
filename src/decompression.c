@@ -195,6 +195,8 @@ void reset_variables() {
     for (u32 channel = 0; channel < CHANNEL_COUNT; channel++) {
         col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE] = FALSE;
     }
+
+    memset32(music_data, 0, sizeof(music_data) / sizeof(u32));
 }
 
 void load_level(u32 level_ID) {
