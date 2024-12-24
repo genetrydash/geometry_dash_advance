@@ -1619,4 +1619,4 @@ polargeist_l2_level_data:
     .hword 20
     .hword 1    @ Value 20 repeats 1 times
     .hword 0
-    .hword 2079    @ Value 0 repeats 2079 times
+    .hword 729    @ Value 0 repeats 729 times

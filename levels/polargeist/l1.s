@@ -3831,4 +3831,8 @@ polargeist_l1_level_data:
     .hword 30
     .hword 1    @ Value 30 repeats 1 times
     .hword 0
-    .hword 2106    @ Value 0 repeats 2106 times
+    .hword 135    @ Value 0 repeats 135 times
+    .hword 6
+    .hword 27    @ Value 6 repeats 27 times
+    .hword 22
+    .hword 594    @ Value 22 repeats 594 times
