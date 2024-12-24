@@ -1,0 +1,22 @@
+#define GRAVITY_PORTAL_SPEED_CAP 0x290
+
+#define YELLOW_ORB_JUMP_SPEED 0x590
+#define YELLOW_PAD_JUMP_SPEED 0x7C0
+
+// Cube
+// in subpixels
+#define CUBE_GRAVITY 0x6C
+#define CUBE_MAX_Y_SPEED 0x600
+#define CUBE_JUMP_SPEED 0x52a
+
+#define CUBE_WIDTH 0x0E
+#define CUBE_HEIGHT 0x0E
+
+// Ship
+// in subpixels
+#define SHIP_GRAVITY 0x20
+#define SHIP_GRAVITY_HOLDING 0x28
+#define SHIP_MAX_Y_SPEED 0x2B0
+
+#define SHIP_WIDTH 0x0E
+#define SHIP_HEIGHT 0x0C

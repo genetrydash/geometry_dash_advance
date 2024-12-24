@@ -1,4 +1,5 @@
 #include "main.h"
+#include "physics_defines.h"
 
 // Position variables, in subpixels
 u64 player_x; // gota love giant levels
@@ -101,11 +102,6 @@ void player_main() {
     obj_aff_rotate(&obj_aff_buffer[0], cube_rotation);
 }
 
-// in subpixels
-#define CUBE_GRAVITY 0x6C
-#define CUBE_MAX_Y_SPEED 0x600
-#define CUBE_JUMP_SPEED 0x52a
-
 void cube_gamemode() {
     gravity = CUBE_GRAVITY;
     player_width = CUBE_WIDTH;
@@ -177,11 +173,6 @@ void cube_gamemode() {
     y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 9 : 8);
     oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0);
 }
-
-// in subpixels
-#define SHIP_GRAVITY 0x20
-#define SHIP_GRAVITY_HOLDING 0x28
-#define SHIP_MAX_Y_SPEED 0x2B0
 
 void ship_gamemode() {
     player_width = SHIP_WIDTH;

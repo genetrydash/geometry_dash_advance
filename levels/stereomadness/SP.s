@@ -268,25 +268,25 @@ stereomadness_spr_data:
    .hword 0x130
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 43
    .word 0x10b0
    .hword 0x140
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 44
    .word 0x10b0
    .hword 0x180
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 45
    .word 0x10b0
    .hword 0x190
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 46
    .word 0x1180
    .hword 0x1b0
@@ -376,25 +376,25 @@ stereomadness_spr_data:
    .hword 0x130
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 61
    .word 0x1930
    .hword 0x140
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 62
    .word 0x1930
    .hword 0x190
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 63
    .word 0x1930
    .hword 0x1a0
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 64
    .word 0x1a20
    .hword 0x100
@@ -422,7 +422,7 @@ stereomadness_spr_data:
    .hword 0x140
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 68
    .word 0x1b00
    .hword 0x190
@@ -578,25 +578,25 @@ stereomadness_spr_data:
    .hword 0x180
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 94
    .word 0x1f40
    .hword 0x190
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 95
    .word 0x1f80
    .hword 0x180
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 96
    .word 0x1f80
    .hword 0x190
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 97
    .word 0x1f90
    .hword 0x1b0
@@ -608,13 +608,13 @@ stereomadness_spr_data:
    .hword 0x190
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 99
    .word 0x1fa0
    .hword 0x1a0
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 100
    .word 0x1ff0
    .hword 0x120
@@ -636,13 +636,13 @@ stereomadness_spr_data:
    .hword 0x190
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 103
    .word 0x1ff0
    .hword 0x1a0
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 104
    .word 0x2010
    .hword 0x1b0
@@ -654,7 +654,7 @@ stereomadness_spr_data:
    .hword 0x19c
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 106
    .word 0x2100
    .hword 0x1b0
@@ -666,13 +666,13 @@ stereomadness_spr_data:
    .hword 0x19c
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 108
    .word 0x2170
    .hword 0x19c
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 109
    .word 0x2170
    .hword 0x1b0
@@ -684,13 +684,13 @@ stereomadness_spr_data:
    .hword 0x19c
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 111
    .word 0x21b0
    .hword 0x18c
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 112
    .word 0x21b0
    .hword 0x1b0
@@ -702,7 +702,7 @@ stereomadness_spr_data:
    .hword 0x18c
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 114
    .word 0x22a0
    .hword 0x150
@@ -1066,25 +1066,25 @@ stereomadness_spr_data:
    .hword 0x140
    .hword 0xb
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 174
    .word 0x2fd0
    .hword 0x150
    .hword 0xb
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 175
    .word 0x2fd0
    .hword 0x190
    .hword 0xb
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 176
    .word 0x2fd0
    .hword 0x1a0
    .hword 0xb
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 177
    .word 0x3090
    .hword 0x130
@@ -1234,25 +1234,25 @@ stereomadness_spr_data:
    .hword 0x130
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 202
    .word 0x3620
    .hword 0x140
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 203
    .word 0x3620
    .hword 0x190
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 204
    .word 0x3620
    .hword 0x1a0
    .hword 0xc
    .hword 0x4
-   .hword 16384
+   .hword 49152
 @ Object 205
    .word 0x36a0
    .hword 0x100
@@ -1270,23 +1270,23 @@ stereomadness_spr_data:
    .hword 0x130
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 208
    .word 0x3700
    .hword 0x140
    .hword 0xb
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 209
    .word 0x3700
    .hword 0x190
    .hword 0xb
    .hword 0x4
-   .hword 49152
+   .hword 16384
 @ Object 210
    .word 0x3700
    .hword 0x1a0
    .hword 0xc
    .hword 0x4
-   .hword 49152
+   .hword 16384
    .byte 0xff

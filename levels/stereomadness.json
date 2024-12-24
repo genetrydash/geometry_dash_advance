@@ -2419,7 +2419,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2442,7 +2442,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2465,7 +2465,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2488,7 +2488,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2511,7 +2511,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -2534,7 +2534,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -2557,7 +2557,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -2580,7 +2580,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -2603,7 +2603,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2638,7 +2638,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -2661,7 +2661,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -2684,7 +2684,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2707,7 +2707,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2730,7 +2730,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -2753,7 +2753,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -2776,7 +2776,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2799,7 +2799,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2822,7 +2822,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2845,7 +2845,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2868,7 +2868,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -2891,7 +2891,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -2914,7 +2914,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -2937,7 +2937,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -3032,7 +3032,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -3055,7 +3055,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -3078,7 +3078,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -3101,7 +3101,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -3124,7 +3124,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -3147,7 +3147,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -3170,7 +3170,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -3193,7 +3193,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":270
                         }],
                  "rotation":0,
                  "type":"",
@@ -3216,7 +3216,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -3239,7 +3239,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -3262,7 +3262,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -3285,7 +3285,7 @@
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":270
+                         "value":90
                         }],
                  "rotation":0,
                  "type":"",
@@ -3385,7 +3385,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":383,
+ "nextobjectid":388,
  "orientation":"orthogonal",
  "properties":[
         {

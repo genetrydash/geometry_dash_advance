@@ -3,6 +3,7 @@
 #include "metaspr.h"
 #include "player.h"
 #include "sprite_routines.h"
+#include "collision.h"
 
 
 u32 *sprite_pointer;
@@ -85,7 +86,7 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
             // Draw affine sprite
             oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], curr_object.rotation, slot + NUM_RESERVED_ROT_SLOTS);
             obj_aff_identity(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS]);
-            obj_aff_rotate(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS], rotation);
+            obj_aff_rotate_inv(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS], rotation);
         } else {
             // Slots are full, so display a normal sprite
             oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip);
@@ -151,104 +152,6 @@ ARM_CODE void display_objects() {
     }
 }
 
-u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2, u32 h2) {
-    // Right of object 1 < Left of object 2
-    if (x1 + w1 < x2) {
-        return FALSE;
-    }
-
-    // Left of object 1 > Right of object 2
-    if (x1 > x2 + w2) {
-        return FALSE;
-    }
-
-    // Bottom of object 1 < Top of object 2
-    if (y1 + h1 < y2) {
-        return FALSE;
-    }
-
-    // Top of object 1 > Bottom of object 1
-    if (y1 > y2 + h2) {
-        return FALSE;
-    }
-
-    // If all above is FALSE, then collision has happen
-    return TRUE;
-}
-
-// Rotated hitbox stuff, all in IWRAM for extra speed
-
-#define SCALE_FACTOR 12
-#define FIXED_ONE (1 << SCALE_FACTOR) // 1.0 in fixed-point
-
-// Rotate a point (px, py) around a center (cx, cy) using fixed-point math
-ARM_CODE INLINE void rotate_point_fixed(s32 cx, s32 cy, s32 px, s32 py, s16 sin_theta, s16 cos_theta, s32* rx, s32* ry) {
-    s32 dx = px - cx;
-    s32 dy = py - cy;
-
-    *rx = cx + ((dx * cos_theta - dy * sin_theta) >> SCALE_FACTOR);
-    *ry = cy + ((dx * sin_theta + dy * cos_theta) >> SCALE_FACTOR);
-}
-
-// Project a rectangle's corners onto an axis and calculate min/max projections
-ARM_CODE void project_onto_axis_fixed(s32* corners, s32 ax, s32 ay, s32* min, s32* max) {
-    *min = *max = (corners[0] * ax + corners[1] * ay) >> SCALE_FACTOR;
-
-    for (s32 i = 1; i < 4; i++) {
-        s32 projection = (corners[i << 1] * ax + corners[(i << 1) + 1] * ay) >> SCALE_FACTOR;
-        if (projection < *min) *min = projection;
-        if (projection > *max) *max = projection;
-    }
-}
-
-// Check if projections overlap
-ARM_CODE INLINE s32 overlap_on_axis_fixed(s32 min1, s32 max1, s32 min2, s32 max2) {
-    return !(max1 < min2 || max2 < min1);
-}
-
-// Same as is_colliding but second hitbox supports rotation
-ARM_CODE s32 is_colliding_rotated_fixed(s32 x1, s32 y1, s32 w1, s32 h1, s32 x2, s32 y2, s32 w2, s32 h2, u16 offset_y, u16 angle) {
-    // Center of second rectangle
-    s32 cx2 = x2 + (w2 >> 1);
-    s32 cy2 = y2 + (h2 >> 1) + offset_y;
-
-    // Get sine and cosine for the angle
-    s16 sin_theta = lu_sin(angle);
-    s16 cos_theta = lu_cos(angle);
-
-    // Calculate the four corners of the rotated rectangle
-    s32 corners[8];
-    rotate_point_fixed(cx2, cy2, x2, y2, sin_theta, cos_theta, &corners[0], &corners[1]);           // Top-left
-    rotate_point_fixed(cx2, cy2, x2 + w2, y2, sin_theta, cos_theta, &corners[2], &corners[3]);      // Top-right
-    rotate_point_fixed(cx2, cy2, x2 + w2, y2 + h2, sin_theta, cos_theta, &corners[4], &corners[5]); // Bottom-right
-    rotate_point_fixed(cx2, cy2, x2, y2 + h2, sin_theta, cos_theta, &corners[6], &corners[7]);      // Bottom-left
-
-    // Define axes to test
-    s32 axes[4][2] = {
-        {FIXED_ONE, 0}, {0, FIXED_ONE},                     // Non-rotated rectangle axes
-        {corners[2] - corners[0], corners[3] - corners[1]}, // Rotated rectangle edge 1
-        {corners[6] - corners[0], corners[7] - corners[1]}  // Rotated rectangle edge 2
-    };
-
-    // Project both rectangles onto each axis and check for overlap
-    for (s32 i = 0; i < 4; i++) {
-        s32 min1, max1, min2, max2;
-        s32 rect1_corners[8] = {
-            x1, y1, x1 + w1, y1,
-            x1 + w1, y1 + h1, x1, y1 + h1
-        };
-
-        project_onto_axis_fixed(rect1_corners, axes[i][0], axes[i][1], &min1, &max1);
-        project_onto_axis_fixed(corners, axes[i][0], axes[i][1], &min2, &max2);
-
-        if (!overlap_on_axis_fixed(min1, max1, min2, max2)) {
-            return FALSE; // Separating axis found, no collision
-        }
-    }
-
-    return TRUE; // No separating axis, collision detected
-}
-
 void do_collision(struct ObjectSlot *objectSlot) {
     // Check collision type and run code related to it
     u16 obj_type = objectSlot->object.type;
@@ -295,7 +198,7 @@ void check_obj_collision(u32 index) {
         // Check if a collision has happened
         if (is_colliding_rotated_fixed(
             ply_x, ply_y, player_width, player_height, 
-            obj_x, obj_y, obj_width, obj_height, (offset_y >> 1), curr_object.rotation
+            obj_x, obj_y, obj_width, obj_height, curr_object.x, curr_object.y, center_x, center_y, curr_object.rotation
         )) {
             // If yes, then run the collision routine
             do_collision(&object_buffer[index]);

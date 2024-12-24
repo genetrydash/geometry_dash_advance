@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="383">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="388">
  <editorsettings>
   <export target="stereomadness.json" format="json"/>
  </editorsettings>
@@ -443,140 +443,140 @@
   <object id="309" gid="525" x="4272" y="384" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="310" gid="525" x="4272" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="311" gid="525" x="4272" y="320" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="312" gid="525" x="4272" y="304" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="313" gid="525" x="6448" y="304" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="314" gid="525" x="6448" y="320" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="315" gid="525" x="6448" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="316" gid="525" x="6448" y="416" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="317" gid="525" x="6704" y="320" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="318" gid="525" x="6912" y="400" width="16" height="16"/>
   <object id="321" gid="525" x="8000" y="384" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="322" gid="525" x="8000" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="323" gid="525" x="8064" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="324" gid="525" x="8064" y="384" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="325" gid="525" x="8096" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="326" gid="525" x="8096" y="416" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="327" gid="525" x="8176" y="416" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="328" gid="525" x="8176" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="334" gid="525" x="8480" y="412" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="335" gid="525" x="8608" y="412" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="336" gid="525" x="8672" y="396" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="339" gid="525" x="8432" y="412" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="340" gid="525" x="8560" y="412" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="341" gid="525" x="8624" y="396" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="342" gid="525" x="9648" y="384" width="16" height="16"/>
@@ -588,73 +588,73 @@
   <object id="348" gid="524" x="12240" y="320" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="349" gid="524" x="12240" y="336" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="350" gid="524" x="12240" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="351" gid="524" x="12240" y="416" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="360" gid="525" x="13856" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="361" gid="525" x="13856" y="416" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="362" gid="525" x="13856" y="320" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="364" gid="525" x="13856" y="304" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
+    <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="365" gid="525" x="14080" y="304" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="366" gid="525" x="14080" y="416" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="367" gid="524" x="14080" y="320" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="368" gid="524" x="14080" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
+    <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
   <object id="369" gid="525" x="14000" y="256" width="16" height="16"/>

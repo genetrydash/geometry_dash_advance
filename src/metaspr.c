@@ -7,6 +7,9 @@
 // Next sprite slot in OAM
 u8 nextSpr = 0;
 
+
+// Player
+
 const u16 playerSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
@@ -27,6 +30,8 @@ const u16 shipSpr[] = {
     0xffff
 };
 
+// Portals
+
 const u16 shipPortalSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_32x64,
@@ -46,6 +51,50 @@ const u16 cubePortalSpr[] = {
     CENTER(8, 24),
     0xffff
 };
+
+const u16 gravityPortalBlueSpr[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_32x64,
+    ATTR2_PALBANK(3) | ATTR2_ID(80),
+    -8, // x
+    -8, // y
+    CENTER(8, 24),
+    0xffff
+};
+
+const u16 gravityPortalYellowSpr[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_32x64,
+    ATTR2_PALBANK(4) | ATTR2_ID(80),
+    -8, // x
+    -8, // y
+    CENTER(8, 24),
+    0xffff
+};
+
+// Orbs and pads
+
+const u16 yellowOrbSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(1) | ATTR2_ID(172),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff
+};
+const u16 yellowPadSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(1) | ATTR2_ID(288),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff
+};
+
+// Deco 
+
 const u16 bigBgSpikesSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
@@ -93,25 +142,6 @@ const u16 bgChainsSpr[] = {
     0,   // x
     -16, // y
     CENTER(8, 0),
-    0xffff
-};
-
-const u16 yellowOrbSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(172),
-    0, // x
-    0, // y
-    CENTER(8, 8),
-    0xffff
-};
-const u16 yellowPadSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(288),
-    0, // x
-    0, // y
-    CENTER(8, 8),
     0xffff
 };
 
@@ -181,6 +211,8 @@ const u16 *obj_sprites[] = {
     mediumPulsingCircleSpr,
     smallPulsingCircleSpr,
     largePulsingCircleSpr,
+    gravityPortalBlueSpr,
+    gravityPortalYellowSpr,
 };
 
 // In pixels
@@ -188,8 +220,8 @@ const u16 *obj_sprites[] = {
 
 const s16 obj_hitbox[][6] = {
     Object_Hitbox("NONE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("SHIP_PORTAL", 18, 46, -2, 1, 8, 23)
-    Object_Hitbox("CUBE_PORTAL", 18, 46, -2, 1, 8, 23)
+    Object_Hitbox("SHIP_PORTAL", 18, 46, -2, 1, 8, 24)
+    Object_Hitbox("CUBE_PORTAL", 18, 46, -2, 1, 8, 24)
     Object_Hitbox("COL_TRIGGER", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("BIG_BG_SPIKES", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("MEDIUM_BG_SPIKES", 0, 0, 0, 0, 0, 0)
@@ -201,6 +233,8 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox("MEDIUM_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("SMALL_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("LARGE_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("BLUE_GRAVITY_PORTAL", 14, 40, 1, 4, 8, 24)
+    Object_Hitbox("YELLOW_GRAVITY_PORTAL", 14, 40, 1, 4, 8, 24)
 };
 
 
@@ -296,7 +330,7 @@ void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id) {
         s32 rotated_x = ((s64)(relative_x_centered * cos_theta) - (s64)(relative_y_centered * sin_theta)) / 4096;
         s32 rotated_y = ((s64)(relative_y_centered * cos_theta) + (s64)(relative_x_centered * sin_theta)) / 4096;
         
-        s32 total_x = x + (center_x - (width >> 1)) - rotated_x - (width >> 1);
+        s32 total_x = x + (center_x - (width >> 1)) + rotated_x - (width >> 1);
         s32 total_y = y + (center_y - (height >> 1)) + rotated_y - (height >> 1);
         
         // Set position

@@ -1,6 +1,7 @@
 #include "main.h"
 #include "sprite_loading.h"
 #include "sprite_routines.h"
+#include "physics_defines.h"
 #include "color.h"
 
 void ship_portal(struct ObjectSlot *objectSlot) {
@@ -10,6 +11,18 @@ void ship_portal(struct ObjectSlot *objectSlot) {
 
 void cube_portal(struct ObjectSlot *objectSlot) {
     gamemode = CUBE;
+    objectSlot->activated = TRUE;
+}
+
+void blue_gravity_portal(struct ObjectSlot *objectSlot) {
+    gravity_dir = 0;
+    if (player_y_speed < -GRAVITY_PORTAL_SPEED_CAP) player_y_speed = -GRAVITY_PORTAL_SPEED_CAP; 
+    objectSlot->activated = TRUE;
+}
+
+void yellow_gravity_portal(struct ObjectSlot *objectSlot) {
+    gravity_dir = 1;
+    if (player_y_speed > GRAVITY_PORTAL_SPEED_CAP) player_y_speed = GRAVITY_PORTAL_SPEED_CAP; 
     objectSlot->activated = TRUE;
 }
 
@@ -88,7 +101,7 @@ void col_trigger(struct ObjectSlot *objectSlot) {
 void yellow_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         s32 sign = gravity_dir ? 1 : -1;
-        player_y_speed = YELLOW_ORB_JUMP_VEL * sign;
+        player_y_speed = YELLOW_ORB_JUMP_SPEED * sign;
         objectSlot->activated = TRUE;
         on_floor = FALSE;
         player_buffering = ORB_BUFFER_END;
@@ -97,7 +110,7 @@ void yellow_orb(struct ObjectSlot *objectSlot) {
 
 void yellow_pad(struct ObjectSlot *objectSlot) {
     s32 sign = gravity_dir ? 1 : -1;
-    player_y_speed = YELLOW_PAD_JUMP_VEL * sign;
+    player_y_speed = YELLOW_PAD_JUMP_SPEED * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
 }
@@ -121,4 +134,6 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     do_nothing,
     do_nothing,
+    blue_gravity_portal,
+    yellow_gravity_portal,
 };
