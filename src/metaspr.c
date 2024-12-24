@@ -75,8 +75,8 @@ const u16 gravityPortalYellowSpr[] = {
 // Orbs and pads
 
 const u16 yellowOrbSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_16x16,
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
     ATTR2_PALBANK(1) | ATTR2_ID(172),
     0, // x
     0, // y
