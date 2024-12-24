@@ -33,6 +33,10 @@ u32 scroll_y = 0;
 // 0 : up | 1 : down
 s8 scroll_y_dir = 0;
 
+// Loaded level and song id
+u16 loaded_level_id;
+u16 loaded_song_id;
+
 EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
                                +MM_SIZEOF_ACTCH
                                +MM_SIZEOF_MIXCH)

@@ -209,6 +209,7 @@ void load_level(u32 level_ID) {
     gamemode = level_defines[level_ID][3][2];
     speed_id = level_defines[level_ID][3][3];
     curr_level_height = level_defines[level_ID][3][4];
+    loaded_song_id = level_defines[level_ID][3][5];
 
     // Put player on the ground
     player_y = ((GROUND_HEIGHT - 1) << 12) + 0x200;  
@@ -264,5 +265,5 @@ void reset_level() {
 
     fade_in();
     
-    mmStart(MOD_STEREOMA, MM_PLAY_ONCE);
+    mmStart(loaded_song_id, MM_PLAY_ONCE);
 }

@@ -134,7 +134,7 @@ void game_loop() {
 
     fade_in();
     
-    mmStart(MOD_STEREOMA, MM_PLAY_ONCE);
+    mmStart(loaded_song_id, MM_PLAY_ONCE);
 
     while (1) {
         key_poll();

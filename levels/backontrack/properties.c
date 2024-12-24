@@ -1,3 +1,4 @@
+#include "soundbank.h"
 // backontrack properties
 const unsigned short backontrack_properties[] = {
  /*BG color*/      0x5c1f,
@@ -5,6 +6,7 @@ const unsigned short backontrack_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
+ /*song*/          MOD_STEREOMA,
 };
 
 const unsigned char backontrack_name[] = {

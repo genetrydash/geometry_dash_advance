@@ -3409,6 +3409,11 @@
          "value":"STEREO MADNESS"
         }, 
         {
+         "name":"Song",
+         "type":"string",
+         "value":"STEREOMA"
+        }, 
+        {
          "name":"Speed",
          "type":"int",
          "value":1

@@ -6,7 +6,6 @@
 #include "posprintf.h"
 
 u16 game_state;
-u16 loaded_level_id;
 
 void menu_loop() {
     // Init OAM and VRAM

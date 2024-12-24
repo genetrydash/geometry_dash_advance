@@ -1,3 +1,4 @@
+#include "soundbank.h"
 // stereomadness properties
 const unsigned short stereomadness_properties[] = {
  /*BG color*/      0x7ce5,
@@ -5,6 +6,7 @@ const unsigned short stereomadness_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
+ /*song*/          MOD_STEREOMA,
 };
 
 const unsigned char stereomadness_name[] = {

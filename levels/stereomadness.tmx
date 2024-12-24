@@ -8,6 +8,7 @@
   <property name="GROUND" type="color" value="#ff0013c8"/>
   <property name="Gamemode" type="int" value="0"/>
   <property name="Level name" value="STEREO MADNESS"/>
+  <property name="Song" value="STEREOMA"/>
   <property name="Speed" type="int" value="1"/>
  </properties>
  <tileset firstgid="1" source="famidash.tsx"/>

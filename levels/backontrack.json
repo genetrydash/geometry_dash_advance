@@ -2764,6 +2764,11 @@
          "value":"BACK ON TRACK"
         }, 
         {
+         "name":"Song",
+         "type":"string",
+         "value":"STEREOMA"
+        }, 
+        {
          "name":"Speed",
          "type":"int",
          "value":1

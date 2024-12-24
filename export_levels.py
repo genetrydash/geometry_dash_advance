@@ -281,30 +281,41 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         json_data = json.load(f)
     try: 
         properties = json_data["properties"]
-
+        bg_color = ""
+        g_color = ""
+        gamemode = 0
+        menu_name = level_name
+        speed = 1
+        song = "STEREOMA"
+        for prop in properties:
+            if prop['name'] == 'BG':
+                bg_color = int(prop['value'][3:], 16)
+            elif prop['name'] == 'GROUND':
+                g_color = int(prop['value'][3:], 16)
+            elif prop['name'] == 'Gamemode':
+                gamemode = int(prop['value'])
+            elif prop['name'] == 'Speed':
+                speed = prop['value']
+            elif prop['name'] == 'Level name':
+                menu_name = prop['value']
+            elif prop['name'] == 'Song':
+                song = prop['value']
         # BG color
-        bg_color = properties[0]['value']
         if bg_color != "":
-            bg_color = int(bg_color[3:], 16)
             bg_color_bgr555 = rgb888_to_rgb555_24bit(bg_color)
         else:
             bg_color_bgr555 = rgb888_to_rgb555_24bit(0x0000ff)
 
         # Ground color
-        g_color = properties[1]['value']
         if g_color != "":
-            g_color = int(g_color[3:], 16)
             g_color_bgr555 = rgb888_to_rgb555_24bit(g_color)
         else:
             g_color_bgr555 = rgb888_to_rgb555_24bit(0x0000ff)
-        
-        gamemode = int(properties[2]['value'])
-        menu_name = properties[3]['value']
-        speed = int(properties[4]['value'])
     except Exception:
-        raise Exception(f"Level {level_name} doesn't have / has missing attributes. Make sure those attributes exists: BG, GROUND, Gamemode, Level name, Speed. To see the level attributes, go to \"Map\" on tiled and then \"Map attributes\"")
+        raise Exception(f"Level {level_name} doesn't have attributes. To see the level attributes, go to \"Map\" on tiled and then \"Map attributes\"")
 
     with open(output_path_c, 'w') as file:
+        file.write(f"#include \"soundbank.h\"\n")
         file.write(f"// {level_name} properties\n")
 
         file.write(f"const unsigned short {level_name}_properties[] = {{\n")
@@ -313,6 +324,7 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         file.write(f" /*gamemode*/      {gamemode},\n")
         file.write(f" /*speed*/         {speed},\n")
         file.write(f" /*level height*/  {level_height},\n")
+        file.write(f" /*song*/          MOD_{song},\n")
         file.write(f"}};\n\n")
 
         file.write(f"const unsigned char {level_name}_name[] = {{\n")
