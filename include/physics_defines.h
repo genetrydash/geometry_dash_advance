@@ -15,9 +15,9 @@
 
 // Cube
 // in subpixels
-#define CUBE_GRAVITY 0x6C
+#define CUBE_GRAVITY 0x6A
 #define CUBE_MAX_Y_SPEED 0x600
-#define CUBE_JUMP_SPEED 0x52a
+#define CUBE_JUMP_SPEED 0x520
 
 #define CUBE_WIDTH 0x0e
 #define CUBE_HEIGHT 0x0e

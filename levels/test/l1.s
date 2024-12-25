@@ -113,7 +113,11 @@ test_l1_level_data:
     .hword 227
     .hword 1    @ Value 227 repeats 1 times
     .hword 0
-    .hword 23    @ Value 0 repeats 23 times
+    .hword 7    @ Value 0 repeats 7 times
+    .hword 2
+    .hword 2    @ Value 2 repeats 2 times
+    .hword 0
+    .hword 14    @ Value 0 repeats 14 times
     .hword 180
     .hword 1    @ Value 180 repeats 1 times
     .hword 196
@@ -123,7 +127,11 @@ test_l1_level_data:
     .hword 228
     .hword 1    @ Value 228 repeats 1 times
     .hword 0
-    .hword 23    @ Value 0 repeats 23 times
+    .hword 8    @ Value 0 repeats 8 times
+    .hword 1
+    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 14    @ Value 0 repeats 14 times
     .hword 180
     .hword 1    @ Value 180 repeats 1 times
     .hword 196
@@ -133,7 +141,11 @@ test_l1_level_data:
     .hword 228
     .hword 1    @ Value 228 repeats 1 times
     .hword 0
-    .hword 23    @ Value 0 repeats 23 times
+    .hword 8    @ Value 0 repeats 8 times
+    .hword 1
+    .hword 1    @ Value 1 repeats 1 times
+    .hword 0
+    .hword 14    @ Value 0 repeats 14 times
     .hword 181
     .hword 1    @ Value 181 repeats 1 times
     .hword 197
