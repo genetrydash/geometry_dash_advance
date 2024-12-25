@@ -26,6 +26,22 @@
 #include "polargeist/SP.h"
 #include "polargeist/properties.h"
 
-#define LEVEL_COUNT 3
+// dryout
+#define dryout_ID 3
+
+#include "dryout/l1.h"
+#include "dryout/l2.h"
+#include "dryout/SP.h"
+#include "dryout/properties.h"
+
+// baseafterbase
+#define baseafterbase_ID 4
+
+#include "baseafterbase/l1.h"
+#include "baseafterbase/l2.h"
+#include "baseafterbase/SP.h"
+#include "baseafterbase/properties.h"
+
+#define LEVEL_COUNT 5
 extern const u16 *level_defines[][4];
 extern const u8 *level_names[];
