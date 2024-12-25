@@ -141,7 +141,7 @@ const u16 bgChainsSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_ID(142) | ATTR2_PRIO(1),
     0,   // x
     -16, // y
-    CENTER(8, 0),
+    CENTER(8, 8),
     0xffff
 };
 
