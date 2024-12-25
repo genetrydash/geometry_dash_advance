@@ -176,6 +176,26 @@ const u16 tinyBgSpikesSpr[] = {
     0xffff
 };
 
+const u16 bigBgCloudSpr[] = {
+    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
+    ATTR1_SIZE_64x32,
+    ATTR2_PALBANK(0) | ATTR2_ID(84) | ATTR2_PRIO(1),
+    -24,   // x
+    -10,   // y
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 smallBgCloudSpr[] = {
+    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(0) | ATTR2_ID(326) | ATTR2_PRIO(1),
+    -8, // x
+    0,  // y
+    CENTER(8, 8),
+    0xffff
+};
+
 const u16 bgChainsSpr[] = {
     ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
     ATTR1_SIZE_16x32,
@@ -237,6 +257,46 @@ const u16 smallPulsingCircleSpr[] = {
     0xffff
 };
 
+const u16 circlePulsingSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
+    ATTR2_PALBANK(1) | ATTR2_ID(334),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 circunferencePulsingSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
+    ATTR2_PALBANK(1) | ATTR2_ID(270),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 diamondPulsingSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
+    ATTR2_PALBANK(1) | ATTR2_ID(332),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 starPulsingSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
+    ATTR2_PALBANK(1) | ATTR2_ID(330),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
 const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -258,6 +318,12 @@ const u16 *obj_sprites[] = {
     bluePadSpr,
     pinkOrbSpr,
     pinkPadSpr,
+    circlePulsingSpr,
+    circunferencePulsingSpr,
+    diamondPulsingSpr,
+    starPulsingSpr,
+    bigBgCloudSpr,
+    smallBgCloudSpr,
 };
 
 const u8 spr_width_height_table[] = {
