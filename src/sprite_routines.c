@@ -115,6 +115,44 @@ void yellow_pad(struct ObjectSlot *objectSlot) {
     objectSlot->activated = TRUE;
 }
 
+void blue_orb(struct ObjectSlot *objectSlot) {
+    if (player_buffering == ORB_BUFFER_READY) {
+        gravity_dir ^= 1;
+        s32 sign = gravity_dir ? -1 : 1;
+        player_y_speed = BLUE_ORB_PAD_SPEED * sign;
+        objectSlot->activated = TRUE;
+        on_floor = FALSE;
+        player_buffering = ORB_BUFFER_END;
+    }
+}
+
+void blue_pad(struct ObjectSlot *objectSlot) {
+    gravity_dir ^= 1;
+    s32 sign = gravity_dir ? -1 : 1;
+    player_y_speed = BLUE_ORB_PAD_SPEED * sign;
+    on_floor = FALSE;
+    objectSlot->activated = TRUE;
+}
+
+
+void pink_orb(struct ObjectSlot *objectSlot) {
+    if (player_buffering == ORB_BUFFER_READY) {
+        s32 sign = gravity_dir ? 1 : -1;
+        player_y_speed = PINK_ORB_JUMP_SPEED * sign;
+        objectSlot->activated = TRUE;
+        on_floor = FALSE;
+        player_buffering = ORB_BUFFER_END;
+    }
+}
+
+void pink_pad(struct ObjectSlot *objectSlot) {
+    s32 sign = gravity_dir ? 1 : -1;
+    player_y_speed = PINK_PAD_JUMP_SPEED * sign;
+    on_floor = FALSE;
+    objectSlot->activated = TRUE;
+}
+
+
 void do_nothing(UNUSED struct ObjectSlot *objectSlot) {
     // No routine defined
 }
@@ -136,6 +174,10 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     blue_gravity_portal,
     yellow_gravity_portal,
+    blue_orb,
+    blue_pad,
+    pink_orb,
+    pink_pad,
 };
 
 // In pixels
@@ -158,6 +200,10 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox("LARGE_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("BLUE_GRAVITY_PORTAL", 14, 40, 1, 4, 8, 24)
     Object_Hitbox("YELLOW_GRAVITY_PORTAL", 14, 40, 1, 4, 8, 24)
+    Object_Hitbox("BLUE_ORB", 18, 18, -2, -2, 8, 8)
+    Object_Hitbox("BLUE_PAD", 14, 2, 1, 14, 8, 8)
+    Object_Hitbox("PINK_ORB", 18, 18, -2, -2, 8, 8)
+    Object_Hitbox("PINK_PAD", 14, 2, 1, 14, 8, 8)
 };
 
 #undef Object_Hitbox

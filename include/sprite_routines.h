@@ -28,6 +28,13 @@ enum ObjTypes {
     
     BLUE_GRAVITY_PORTAL,
     YELLOW_GRAVITY_PORTAL,
+
+    BLUE_ORB,
+    BLUE_PAD,
+
+    PINK_ORB,
+    PINK_PAD,
+
     OBJ_COUNT
 };
 

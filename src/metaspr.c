@@ -83,10 +83,51 @@ const u16 yellowOrbSpr[] = {
     CENTER(8, 8),
     0xffff
 };
+
 const u16 yellowPadSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
     ATTR2_PALBANK(1) | ATTR2_ID(288),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 blueOrbSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
+    ATTR2_PALBANK(2) | ATTR2_ID(172),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 bluePadSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(2) | ATTR2_ID(288),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 pinkOrbSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
+    ATTR2_PALBANK(3) | ATTR2_ID(172),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 pinkPadSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(3) | ATTR2_ID(288),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -213,6 +254,10 @@ const u16 *obj_sprites[] = {
     largePulsingCircleSpr,
     gravityPortalBlueSpr,
     gravityPortalYellowSpr,
+    blueOrbSpr,
+    bluePadSpr,
+    pinkOrbSpr,
+    pinkPadSpr,
 };
 
 const u8 spr_width_height_table[] = {
