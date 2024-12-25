@@ -189,7 +189,7 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
                 }
                 break;
 
-            case COL_SPIKE_LEFT:
+            case COL_SPIKE_RIGHT:
                 if (is_colliding(
                     x, y, width, height,
                     spk_x + 0x04, spk_y + 0x06, 0x03, 0x06
@@ -198,7 +198,7 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
                 }
                 break;
             
-            case COL_SPIKE_RIGHT:
+            case COL_SPIKE_LEFT:
                 if (is_colliding(
                     x, y, width, height,
                     spk_x + 0x05, spk_y + 0x06, 0x03, 0x06
@@ -226,7 +226,7 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
                 }
                 break;
 
-            case COL_SMALL_SPIKE_LEFT:
+            case COL_SMALL_SPIKE_RIGHT:
                 if (is_colliding(
                     x, y, width, height,
                     spk_x + 0x0b, spk_y + 0x06, 0x04, 0x03
@@ -235,7 +235,7 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
                 }
                 break;
             
-            case COL_SMALL_SPIKE_RIGHT:
+            case COL_SMALL_SPIKE_LEFT:
                 if (is_colliding(
                     x, y, width, height,
                     spk_x + 0x02, spk_y + 0x06, 0x04, 0x03
@@ -264,7 +264,7 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
                 }
                 break;
 
-            case COL_MEDIUM_SPIKE_LEFT:
+            case COL_MEDIUM_SPIKE_RIGHT:
                 if (is_colliding(
                     x, y, width, height,
                     spk_x + 0x09, spk_y + 0x07, 0x04, 0x02
@@ -273,7 +273,7 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
                 }
                 break;
             
-            case COL_MEDIUM_SPIKE_RIGHT:
+            case COL_MEDIUM_SPIKE_LEFT:
                 if (is_colliding(
                     x, y, width, height,
                     spk_x + 0x02, spk_y + 0x07, 0x04, 0x02
@@ -287,24 +287,41 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
 
 u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     // Positions inside block, top left pixel is [0,0]
-    UNUSED u32 x_inside_block = x & 0x0f;
+    u32 x_inside_block = x & 0x0f;
     u32 y_inside_block = y & 0x0f;
 
     switch (col_type) {
         case COL_NONE:
             return 0;
+            
         case COL_ALL:
             eject = y_inside_block;
             break;
+            
         case COL_SLAB_TOP:
             if (y_inside_block < 0x8) {
                 eject = y_inside_block & 0x07;
                 break;
             }
             return 0;
+
         case COL_SLAB_BOTTOM:
             if (y_inside_block >= 0x8) {
                 eject = y_inside_block - 0x08;
+                break;
+            }
+            return 0;
+
+        case COL_SLAB_LEFT:
+            if (x_inside_block < 0x8) {
+                eject = y_inside_block;
+                break;
+            }
+            return 0;
+
+        case COL_SLAB_RIGHT:
+            if (x_inside_block >= 0x8) {
+                eject = y_inside_block;
                 break;
             }
             return 0;

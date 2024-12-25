@@ -34,6 +34,8 @@ enum COL_TYPES {
     COL_MEDIUM_SPIKE_LEFT,
     COL_SLAB_TOP,
     COL_SLAB_BOTTOM,
+    COL_SLAB_LEFT,
+    COL_SLAB_RIGHT,
 };
 
 extern const u16 ground_pattern[];

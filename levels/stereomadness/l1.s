@@ -9,7 +9,71 @@ stereomadness_l1_level_data:
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
-    .hword 484    @ Value 0 repeats 484 times
+    .hword 184    @ Value 0 repeats 184 times
+    .hword 182
+    .hword 1    @ Value 182 repeats 1 times
+    .hword 198
+    .hword 1    @ Value 198 repeats 1 times
+    .hword 0
+    .hword 25    @ Value 0 repeats 25 times
+    .hword 183
+    .hword 1    @ Value 183 repeats 1 times
+    .hword 199
+    .hword 1    @ Value 199 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 48
+    .hword 1    @ Value 48 repeats 1 times
+    .hword 0
+    .hword 1    @ Value 0 repeats 1 times
+    .hword 184
+    .hword 1    @ Value 184 repeats 1 times
+    .hword 200
+    .hword 1    @ Value 200 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 49
+    .hword 1    @ Value 49 repeats 1 times
+    .hword 0
+    .hword 1    @ Value 0 repeats 1 times
+    .hword 185
+    .hword 1    @ Value 185 repeats 1 times
+    .hword 201
+    .hword 1    @ Value 201 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 50
+    .hword 1    @ Value 50 repeats 1 times
+    .hword 0
+    .hword 1    @ Value 0 repeats 1 times
+    .hword 186
+    .hword 1    @ Value 186 repeats 1 times
+    .hword 202
+    .hword 1    @ Value 202 repeats 1 times
+    .hword 0
+    .hword 23    @ Value 0 repeats 23 times
+    .hword 51
+    .hword 1    @ Value 51 repeats 1 times
+    .hword 0
+    .hword 1    @ Value 0 repeats 1 times
+    .hword 187
+    .hword 1    @ Value 187 repeats 1 times
+    .hword 203
+    .hword 1    @ Value 203 repeats 1 times
+    .hword 0
+    .hword 25    @ Value 0 repeats 25 times
+    .hword 188
+    .hword 1    @ Value 188 repeats 1 times
+    .hword 204
+    .hword 1    @ Value 204 repeats 1 times
+    .hword 0
+    .hword 25    @ Value 0 repeats 25 times
+    .hword 189
+    .hword 1    @ Value 189 repeats 1 times
+    .hword 205
+    .hword 1    @ Value 205 repeats 1 times
+    .hword 0
+    .hword 109    @ Value 0 repeats 109 times
     .hword 1
     .hword 1    @ Value 1 repeats 1 times
     .hword 0
