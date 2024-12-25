@@ -185,12 +185,12 @@ void ship_gamemode() {
     s8 sign = gravity_dir ? -1 : 1;
 
     if (key_held(KEY_A | KEY_UP)) {
-        cube_rotation = (-(player_y_speed * sign) >> 7) * 0x700; 
+        cube_rotation = (-(player_y_speed) >> 7) * 0x700; 
 
         gravity = SHIP_GRAVITY_HOLDING;
         player_y_speed -= gravity * sign;
     } else {
-        cube_rotation = (-(player_y_speed * sign) >> 7) * 0x700; 
+        cube_rotation = (-(player_y_speed) >> 7) * 0x700; 
 
         gravity = SHIP_GRAVITY;
         player_y_speed += gravity * sign;
@@ -238,7 +238,12 @@ void ship_gamemode() {
     x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
     y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
 
-    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipSpr, 0, gravity_dir);
+    // The GBA can't flip rotated sprites, so a separate sprite is needed
+    if (gravity_dir) {
+        oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipFlippedSpr, 0, 0);
+    } else {
+        oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipSpr, 0, 0);
+    }
 }
 
 void ball_gamemode() {

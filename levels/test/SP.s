@@ -23,4 +23,16 @@ test_spr_data:
    .hword 0x9
    .hword 0x0
    .hword 0
+@ Object 4
+   .word 0x140
+   .hword 0x190
+   .hword 0x1
+   .hword 0x0
+   .hword 0
+@ Object 5
+   .word 0x1d0
+   .hword 0x190
+   .hword 0xf
+   .hword 0x0
+   .hword 0
    .byte 0xff
