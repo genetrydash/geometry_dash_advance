@@ -51,10 +51,10 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("MEDIUM_SPIKE_LEFT", TILE(0x67, 0, 0, 0), TILE(0x66, 0, 0, 0), TILE(0x68, 0, 0, 0), TILE(0x66, 0, 0, V), COL_MEDIUM_SPIKE_LEFT)
     Metatile("MEDIUM_SPIKE_RIGHT",  TILE(0x66, 0, H, 0), TILE(0x67, 0, H, 0), TILE(0x66, 0, H, V), TILE(0x68, 0, H, 0), COL_MEDIUM_SPIKE_RIGHT)
     
-    Metatile("CHK_CORNER_TL", TILE(0x0B, 0, 0, 0), TILE(0x05, 0, H, 0), TILE(0x03, 0, 0, V), TILE(0x09, 0, 0, 0), COL_NONE)
-    Metatile("CHK_CORNER_TR", TILE(0x05, 0, 0, 0), TILE(0x0B, 0, H, 0), TILE(0x09, 0, H, 0), TILE(0x03, 0, H, V), COL_NONE)
-    Metatile("CHK_CORNER_BL", TILE(0x03, 0, 0, 0), TILE(0x09, 0, 0, V), TILE(0x0B, 0, 0, V), TILE(0x05, 0, H, V), COL_NONE)
-    Metatile("CHK_CORNER_BR", TILE(0x09, 0, H, V), TILE(0x04, 0, H, 0), TILE(0x05, 0, 0, V), TILE(0x0B, 0, H, V), COL_NONE)
+    Metatile("CHK_CORNER_TL", TILE(0x0B, 0, 0, 0), TILE(0x05, 0, 0, 0), TILE(0x03, 0, 0, 0), TILE(0x09, 0, 0, 0), COL_NONE)
+    Metatile("CHK_CORNER_TR", TILE(0x05, 0, H, 0), TILE(0x0B, 0, H, 0), TILE(0x09, 0, H, 0), TILE(0x03, 0, H, 0), COL_NONE)
+    Metatile("CHK_CORNER_BL", TILE(0x03, 0, 0, V), TILE(0x09, 0, 0, V), TILE(0x0B, 0, 0, V), TILE(0x05, 0, 0, V), COL_NONE)
+    Metatile("CHK_CORNER_BR", TILE(0x09, 0, H, V), TILE(0x03, 0, H, V), TILE(0x05, 0, H, V), TILE(0x0B, 0, H, V), COL_NONE)
     
     Metatile("BASIC_BLOCK_DARK", TILE(0x26, 0, 0, 0), TILE(0x27, 0, 0, 0), TILE(0x28, 0, 0, 0), TILE(0x29, 0, 0, 0), COL_ALL)
     
