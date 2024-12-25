@@ -44,6 +44,8 @@ enum ObjTypes {
 
     BALL_PORTAL,
 
+    PULSING_SQUARE,
+
     OBJ_COUNT
 };
 

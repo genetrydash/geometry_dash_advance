@@ -317,6 +317,16 @@ const u16 starPulsingSpr[] = {
     0xffff,
 };
 
+const u16 squarePulsingSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
+    ATTR2_PALBANK(1) | ATTR2_ID(322),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
 const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -345,6 +355,7 @@ const u16 *obj_sprites[] = {
     bigBgCloudSpr,
     smallBgCloudSpr,
     ballPortalSpr,
+    squarePulsingSpr,
 };
 
 const u8 spr_width_height_table[] = {

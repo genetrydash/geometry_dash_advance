@@ -203,6 +203,7 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     do_nothing,
     ball_portal,
+    do_nothing,
 };
 
 // In pixels
