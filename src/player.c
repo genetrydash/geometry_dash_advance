@@ -61,6 +61,7 @@ u8 y_offset;
 
 void cube_gamemode();
 void ship_gamemode();
+void ball_gamemode();
 
 void player_main() {    
     // Set player speed
@@ -96,6 +97,9 @@ void player_main() {
         case SHIP:
             ship_gamemode();
             break;
+        case BALL:
+            ball_gamemode();
+            break;
     }
     obj_aff_identity(&obj_aff_buffer[0]);
 
@@ -107,7 +111,7 @@ void cube_gamemode() {
     player_width = CUBE_WIDTH;
     player_height = CUBE_HEIGHT;
 
-    u8 sign = gravity_dir ? -1 : 1;
+    s8 sign = gravity_dir ? -1 : 1;
     
     // Depending on which direction the gravity points, apply gravity and cap speed in one direction or in the other
     if (gravity_dir) {
@@ -120,7 +124,7 @@ void cube_gamemode() {
 
     // If on floor and holding A or UP, jump
     if (on_floor && key_held(KEY_A | KEY_UP)) {
-        player_y_speed = (gravity_dir ? CUBE_JUMP_SPEED : -CUBE_JUMP_SPEED);     
+        player_y_speed = -CUBE_JUMP_SPEED * sign;     
         player_buffering = ORB_BUFFER_END;
     }
 
@@ -178,7 +182,7 @@ void ship_gamemode() {
     player_width = SHIP_WIDTH;
     player_height = SHIP_HEIGHT;
 
-    u8 sign = gravity_dir ? -1 : 1;
+    s8 sign = gravity_dir ? -1 : 1;
 
     if (key_held(KEY_A | KEY_UP)) {
         cube_rotation = (-(player_y_speed * sign) >> 7) * 0x700; 
@@ -235,4 +239,63 @@ void ship_gamemode() {
     y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
 
     oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipSpr, 0, gravity_dir);
+}
+
+void ball_gamemode() {
+    player_width = BALL_WIDTH;
+    player_height = BALL_HEIGHT;
+    gravity = BALL_GRAVITY;
+
+    s8 sign = gravity_dir ? -1 : 1;
+
+    cube_rotation -= 0x500 * sign;
+
+    player_y_speed += gravity * sign;
+
+    if (on_floor && player_buffering == ORB_BUFFER_READY) {
+        gravity_dir ^= 1;
+        player_y_speed = BALL_SWITCH_SPEED * -sign; 
+        player_buffering = ORB_BUFFER_END;
+    }
+    
+    player_y_speed = CLAMP(player_y_speed, -BALL_MAX_Y_SPEED, BALL_MAX_Y_SPEED);
+
+    on_floor = 0;
+
+    for (s32 step = 0; step < NUM_STEPS - 1; step++) {
+        // Apply quarter of speed
+        // Update player x and y
+        player_x += player_x_speed >> 2;
+        player_y += player_y_speed >> 2;
+        
+        // Run collision
+        collision_ship();
+
+        // If player is dead, do not advance more quarter steps
+        if (player_death) break;
+
+        // Do collision with objects
+        if (step & 1) do_collision_with_objects(FALSE);
+    }
+
+    // If player is dead, do not advance more quarter steps
+    if (!player_death) {
+        // Apply last quarter of speed
+        // Update player x and y
+        player_x += player_x_speed - ((player_x_speed >> 2) * 3);
+        player_y += player_y_speed - ((player_y_speed >> 2) * 3);
+        
+        // Run collision
+        collision_ship();
+
+        if (!player_death) {
+            // Do collision with objects
+            do_collision_with_objects(TRUE);
+        }
+    }
+
+    relative_player_x = (player_x - scroll_x) >> 8;
+    relative_player_y = (player_y - scroll_y) >> 8;
+
+    oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0);
 }

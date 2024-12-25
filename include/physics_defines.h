@@ -1,3 +1,5 @@
+#pragma once
+
 #define GRAVITY_PORTAL_SPEED_CAP 0x290
 
 #define YELLOW_ORB_JUMP_SPEED 0x524
@@ -17,14 +19,29 @@
 #define CUBE_MAX_Y_SPEED 0x600
 #define CUBE_JUMP_SPEED 0x52a
 
-#define CUBE_WIDTH 0x0E
-#define CUBE_HEIGHT 0x0E
+#define CUBE_WIDTH 0x0e
+#define CUBE_HEIGHT 0x0e
 
 // Ship
 // in subpixels
 #define SHIP_GRAVITY 0x20
 #define SHIP_GRAVITY_HOLDING 0x28
-#define SHIP_MAX_Y_SPEED 0x2B0
+#define SHIP_MAX_Y_SPEED 0x2b0
 
-#define SHIP_WIDTH 0x0E
-#define SHIP_HEIGHT 0x0C
+#define SHIP_WIDTH 0x0e
+#define SHIP_HEIGHT 0x0c
+
+
+// Ball
+// in subpixels
+#define BALL_GRAVITY 0x47
+#define BALL_MAX_Y_SPEED 0x600
+#define BALL_SWITCH_SPEED 0x200
+
+#define BALL_WIDTH  0x0e
+#define BALL_HEIGHT 0x0e
+
+#define BALL_ORB_MULTIPLIER 0.77
+#define BALL_PAD_MULTIPLIER 0.65
+
+

@@ -42,6 +42,14 @@
 #include "baseafterbase/SP.h"
 #include "baseafterbase/properties.h"
 
-#define LEVEL_COUNT 5
+// test
+#define test_ID 5
+
+#include "test/l1.h"
+#include "test/l2.h"
+#include "test/SP.h"
+#include "test/properties.h"
+
+#define LEVEL_COUNT 6
 extern const u16 *level_defines[][4];
 extern const u8 *level_names[];

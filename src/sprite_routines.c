@@ -4,13 +4,31 @@
 #include "physics_defines.h"
 #include "color.h"
 
+// [gamemode][type]
+
+#define YELLOW_ORB_INDEX 0
+#define YELLOW_PAD_INDEX 1
+#define PINK_ORB_INDEX 2
+#define PINK_PAD_INDEX 3
+
+const s16 orb_pad_bounces[][4] = {
+  /* Cube */ {YELLOW_ORB_JUMP_SPEED, YELLOW_PAD_JUMP_SPEED, PINK_ORB_JUMP_SPEED, PINK_PAD_JUMP_SPEED},
+  /* Ship */ {YELLOW_ORB_JUMP_SPEED, YELLOW_PAD_JUMP_SPEED, PINK_ORB_JUMP_SPEED, PINK_PAD_JUMP_SPEED},
+  /* Ball */ {YELLOW_ORB_JUMP_SPEED*BALL_ORB_MULTIPLIER, YELLOW_PAD_JUMP_SPEED*BALL_PAD_MULTIPLIER, PINK_ORB_JUMP_SPEED*BALL_ORB_MULTIPLIER, PINK_PAD_JUMP_SPEED*BALL_PAD_MULTIPLIER},
+};
+
+void cube_portal(struct ObjectSlot *objectSlot) {
+    gamemode = CUBE;
+    objectSlot->activated = TRUE;
+}
+
 void ship_portal(struct ObjectSlot *objectSlot) {
     gamemode = SHIP;
     objectSlot->activated = TRUE;
 }
 
-void cube_portal(struct ObjectSlot *objectSlot) {
-    gamemode = CUBE;
+void ball_portal(struct ObjectSlot *objectSlot) {
+    gamemode = BALL;
     objectSlot->activated = TRUE;
 }
 
@@ -101,7 +119,7 @@ void col_trigger(struct ObjectSlot *objectSlot) {
 void yellow_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         s32 sign = gravity_dir ? 1 : -1;
-        player_y_speed = YELLOW_ORB_JUMP_SPEED * sign;
+        player_y_speed = orb_pad_bounces[gamemode][YELLOW_ORB_INDEX] * sign;
         objectSlot->activated = TRUE;
         on_floor = FALSE;
         player_buffering = ORB_BUFFER_END;
@@ -110,7 +128,7 @@ void yellow_orb(struct ObjectSlot *objectSlot) {
 
 void yellow_pad(struct ObjectSlot *objectSlot) {
     s32 sign = gravity_dir ? 1 : -1;
-    player_y_speed = YELLOW_PAD_JUMP_SPEED * sign;
+    player_y_speed = orb_pad_bounces[gamemode][YELLOW_PAD_INDEX] * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
 }
@@ -138,7 +156,7 @@ void blue_pad(struct ObjectSlot *objectSlot) {
 void pink_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         s32 sign = gravity_dir ? 1 : -1;
-        player_y_speed = PINK_ORB_JUMP_SPEED * sign;
+        player_y_speed = orb_pad_bounces[gamemode][PINK_ORB_INDEX] * sign;
         objectSlot->activated = TRUE;
         on_floor = FALSE;
         player_buffering = ORB_BUFFER_END;
@@ -147,7 +165,7 @@ void pink_orb(struct ObjectSlot *objectSlot) {
 
 void pink_pad(struct ObjectSlot *objectSlot) {
     s32 sign = gravity_dir ? 1 : -1;
-    player_y_speed = PINK_PAD_JUMP_SPEED * sign;
+    player_y_speed = orb_pad_bounces[gamemode][PINK_PAD_INDEX] * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
 }
@@ -178,6 +196,13 @@ const jmp_table routines_jump_table[] = {
     blue_pad,
     pink_orb,
     pink_pad,
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    ball_portal,
 };
 
 // In pixels
@@ -204,6 +229,13 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox("BLUE_PAD", 14, 2, 1, 14, 8, 8)
     Object_Hitbox("PINK_ORB", 18, 18, -2, -2, 8, 8)
     Object_Hitbox("PINK_PAD", 14, 2, 1, 14, 8, 8)
+    Object_Hitbox("PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("PULSING_CIRCUNFERENCE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("PULSING_DIAMOND", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("PULSING_STAR", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("BIG_BG_CLOUDS", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("SMALL_BG_CLOUDS", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox("BALL_PORTAL", 18, 46, -2, 1, 8, 24)
 };
 
 #undef Object_Hitbox

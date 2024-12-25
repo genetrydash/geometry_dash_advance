@@ -30,7 +30,27 @@ const u16 shipSpr[] = {
     0xffff
 };
 
+const u16 ballSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
+    ATTR2_PALBANK(0) | ATTR2_ID(6),
+    0,
+    0,
+    CENTER(8, 8),
+    0xffff
+};
+
 // Portals
+
+const u16 cubePortalSpr[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_32x64,
+    ATTR2_PALBANK(2) | ATTR2_ID(64),
+    -8, // x
+    -8, // y
+    CENTER(8, 24),
+    0xffff
+};
 
 const u16 shipPortalSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
@@ -42,10 +62,10 @@ const u16 shipPortalSpr[] = {
     0xffff
 };
 
-const u16 cubePortalSpr[] = {
+const u16 ballPortalSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_32x64,
-    ATTR2_PALBANK(2) | ATTR2_ID(64),
+    ATTR2_PALBANK(5) | ATTR2_ID(64),
     -8, // x
     -8, // y
     CENTER(8, 24),
@@ -280,7 +300,7 @@ const u16 circunferencePulsingSpr[] = {
 const u16 diamondPulsingSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1) | ATTR2_ID(332),
+    ATTR2_PALBANK(1) | ATTR2_ID(324),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -324,6 +344,7 @@ const u16 *obj_sprites[] = {
     starPulsingSpr,
     bigBgCloudSpr,
     smallBgCloudSpr,
+    ballPortalSpr,
 };
 
 const u8 spr_width_height_table[] = {

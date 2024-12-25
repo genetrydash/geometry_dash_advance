@@ -6,6 +6,7 @@
 enum GAMEMODE_TYPE {
     CUBE,
     SHIP,
+    BALL,
     GAMEMODE_COUNT
 };
 
