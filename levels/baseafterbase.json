@@ -841,8 +841,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":3120,
-                 "y":427.73
+                 "x":3119.90909090909,
+                 "y":426.639090909091
                 }, 
                 {
                  "gid":524,
@@ -3579,6 +3579,118 @@
                  "width":16,
                  "x":12880,
                  "y":432
+                }, 
+                {
+                 "gid":516,
+                 "height":16,
+                 "id":664,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Channel",
+                         "type":"string",
+                         "value":"BG"
+                        }, 
+                        {
+                         "name":"Color",
+                         "type":"color",
+                         "value":"#fff312de"
+                        }, 
+                        {
+                         "name":"Frames",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11808,
+                 "y":208
+                }, 
+                {
+                 "gid":516,
+                 "height":16,
+                 "id":665,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Channel",
+                         "type":"string",
+                         "value":"GROUND"
+                        }, 
+                        {
+                         "name":"Color",
+                         "type":"color",
+                         "value":"#ff6e106e"
+                        }, 
+                        {
+                         "name":"Frames",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11808,
+                 "y":224
+                }, 
+                {
+                 "gid":516,
+                 "height":16,
+                 "id":666,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Channel",
+                         "type":"string",
+                         "value":"GROUND"
+                        }, 
+                        {
+                         "name":"Color",
+                         "type":"color",
+                         "value":"#ff365800"
+                        }, 
+                        {
+                         "name":"Frames",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":9584,
+                 "y":256
+                }, 
+                {
+                 "gid":516,
+                 "height":16,
+                 "id":667,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Channel",
+                         "type":"string",
+                         "value":"BG"
+                        }, 
+                        {
+                         "name":"Color",
+                         "type":"color",
+                         "value":"#ff96e513"
+                        }, 
+                        {
+                         "name":"Frames",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":9584,
+                 "y":272
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3587,7 +3699,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":664,
+ "nextobjectid":668,
  "orientation":"orthogonal",
  "properties":[
         {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="880" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="664">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="880" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="668">
  <editorsettings>
-  <export target="stereomadness.json" format="json"/>
+  <export target="baseafterbase.json" format="json"/>
  </editorsettings>
  <properties>
   <property name="BG" type="color" value="#ff283eff"/>
@@ -160,7 +160,7 @@
   <object id="456" gid="521" x="3360" y="320" width="16" height="16"/>
   <object id="457" gid="521" x="3248" y="416" width="16" height="16"/>
   <object id="458" gid="521" x="3200" y="416" width="16" height="16"/>
-  <object id="459" gid="523" x="3120" y="427.73" width="16" height="16"/>
+  <object id="459" gid="523" x="3119.91" y="426.639" width="16" height="16"/>
   <object id="460" gid="524" x="3792" y="384" width="16" height="16"/>
   <object id="461" gid="521" x="3664" y="336" width="16" height="16"/>
   <object id="462" gid="521" x="3536" y="320" width="16" height="16"/>
@@ -550,5 +550,33 @@
   <object id="661" gid="520" x="12752" y="432" width="16" height="16"/>
   <object id="662" gid="519" x="12800" y="432" width="16" height="16"/>
   <object id="663" gid="518" x="12880" y="432" width="16" height="16"/>
+  <object id="664" gid="516" x="11808" y="208" width="16" height="16">
+   <properties>
+    <property name="Channel" value="BG"/>
+    <property name="Color" type="color" value="#fff312de"/>
+    <property name="Frames" type="int" value="30"/>
+   </properties>
+  </object>
+  <object id="665" gid="516" x="11808" y="224" width="16" height="16">
+   <properties>
+    <property name="Channel" value="GROUND"/>
+    <property name="Color" type="color" value="#ff6e106e"/>
+    <property name="Frames" type="int" value="30"/>
+   </properties>
+  </object>
+  <object id="666" gid="516" x="9584" y="256" width="16" height="16">
+   <properties>
+    <property name="Channel" value="GROUND"/>
+    <property name="Color" type="color" value="#ff365800"/>
+    <property name="Frames" type="int" value="30"/>
+   </properties>
+  </object>
+  <object id="667" gid="516" x="9584" y="272" width="16" height="16">
+   <properties>
+    <property name="Channel" value="BG"/>
+    <property name="Color" type="color" value="#ff96e513"/>
+    <property name="Frames" type="int" value="30"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
