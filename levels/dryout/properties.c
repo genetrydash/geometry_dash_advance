@@ -1,8 +1,8 @@
 #include "soundbank.h"
 // dryout properties
 const unsigned short dryout_properties[] = {
- /*BG color*/      0x5c1f,
- /*GROUND color*/  0x441c,
+ /*BG color*/      0x24bf,
+ /*GROUND color*/  0x181f,
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,

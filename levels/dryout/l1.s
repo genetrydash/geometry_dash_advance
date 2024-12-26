@@ -985,9 +985,7 @@ dryout_l1_level_data:
     .hword 30
     .hword 1    @ Value 30 repeats 1 times
     .hword 0
-    .hword 25    @ Value 0 repeats 25 times
-    .hword 522
-    .hword 1    @ Value 522 repeats 1 times
+    .hword 26    @ Value 0 repeats 26 times
     .hword 30
     .hword 1    @ Value 30 repeats 1 times
     .hword 0
@@ -4797,10 +4795,6 @@ dryout_l1_level_data:
     .hword 30
     .hword 1    @ Value 30 repeats 1 times
     .hword 0
-    .hword 26    @ Value 0 repeats 26 times
-    .hword 30
-    .hword 1    @ Value 30 repeats 1 times
-    .hword 0
     .hword 20    @ Value 0 repeats 20 times
     .hword 2
     .hword 1    @ Value 2 repeats 1 times
@@ -4828,6 +4822,10 @@ dryout_l1_level_data:
     .hword 1    @ Value 16 repeats 1 times
     .hword 20
     .hword 1    @ Value 20 repeats 1 times
+    .hword 0
+    .hword 26    @ Value 0 repeats 26 times
+    .hword 1
+    .hword 1    @ Value 1 repeats 1 times
     .hword 0
     .hword 26    @ Value 0 repeats 26 times
     .hword 1
@@ -5066,5 +5064,5 @@ dryout_l1_level_data:
     .hword 54    @ Value 0 repeats 54 times
     .hword 6
     .hword 27    @ Value 6 repeats 27 times
-    .hword 0
-    .hword 486    @ Value 0 repeats 486 times
+    .hword 22
+    .hword 486    @ Value 22 repeats 486 times
