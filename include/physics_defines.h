@@ -46,7 +46,7 @@
 
 // Ship
 
-#define SHIP_GRAVITY 0x2400
+#define SHIP_GRAVITY 0x2280
 #define SHIP_MAX_Y_SPEED 0x2b000
 
 #define SHIP_WIDTH 0x0e
