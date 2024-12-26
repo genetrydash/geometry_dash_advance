@@ -257,22 +257,22 @@
   </object>
   <object id="516" gid="525" x="6592" y="272" width="16" height="16"/>
   <object id="517" gid="525" x="6704" y="272" width="16" height="16"/>
-  <object id="518" gid="525" x="6816" y="294.4" width="16" height="16">
+  <object id="518" gid="525" x="6816" y="296" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="519" gid="525" x="6848" y="310.4" width="16" height="16">
+  <object id="519" gid="525" x="6848" y="312" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="520" gid="525" x="6896" y="326.4" width="16" height="16">
+  <object id="520" gid="525" x="6896" y="328" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="521" gid="525" x="6944" y="342.4" width="16" height="16">
+  <object id="521" gid="525" x="6944" y="344" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
@@ -284,17 +284,17 @@
   <object id="526" gid="523" x="7072" y="336" width="16" height="16"/>
   <object id="527" gid="523" x="7152" y="336" width="16" height="16"/>
   <object id="528" gid="523" x="7232" y="336" width="16" height="16"/>
-  <object id="529" gid="525" x="7056" y="358.4" width="16" height="16">
+  <object id="529" gid="525" x="7056" y="360" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="530" gid="525" x="7136" y="358.4" width="16" height="16">
+  <object id="530" gid="525" x="7136" y="360" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="531" gid="525" x="7216" y="358.4" width="16" height="16">
+  <object id="531" gid="525" x="7216" y="360" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
@@ -396,11 +396,13 @@
   </object>
   <object id="591" gid="525" x="8400" y="416" width="16" height="16">
    <properties>
+    <property name="enable rotation" type="bool" value="true"/>
     <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
   <object id="592" gid="525" x="8400" y="336" width="16" height="16">
    <properties>
+    <property name="enable rotation" type="bool" value="true"/>
     <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
@@ -450,6 +452,7 @@
   </object>
   <object id="605" gid="525" x="9344" y="320" width="16" height="16">
    <properties>
+    <property name="enable rotation" type="bool" value="true"/>
     <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>

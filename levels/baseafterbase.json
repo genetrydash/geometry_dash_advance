@@ -841,8 +841,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":3119.90909090909,
-                 "y":426.639090909091
+                 "x":3119.91,
+                 "y":426.639
                 }, 
                 {
                  "gid":524,
@@ -1620,7 +1620,7 @@
                  "visible":true,
                  "width":16,
                  "x":6816,
-                 "y":294.4
+                 "y":296
                 }, 
                 {
                  "gid":525,
@@ -1638,7 +1638,7 @@
                  "visible":true,
                  "width":16,
                  "x":6848,
-                 "y":310.4
+                 "y":312
                 }, 
                 {
                  "gid":525,
@@ -1656,7 +1656,7 @@
                  "visible":true,
                  "width":16,
                  "x":6896,
-                 "y":326.4
+                 "y":328
                 }, 
                 {
                  "gid":525,
@@ -1674,7 +1674,7 @@
                  "visible":true,
                  "width":16,
                  "x":6944,
-                 "y":342.4
+                 "y":344
                 }, 
                 {
                  "gid":521,
@@ -1776,7 +1776,7 @@
                  "visible":true,
                  "width":16,
                  "x":7056,
-                 "y":358.4
+                 "y":360
                 }, 
                 {
                  "gid":525,
@@ -1794,7 +1794,7 @@
                  "visible":true,
                  "width":16,
                  "x":7136,
-                 "y":358.4
+                 "y":360
                 }, 
                 {
                  "gid":525,
@@ -1812,7 +1812,7 @@
                  "visible":true,
                  "width":16,
                  "x":7216,
-                 "y":358.4
+                 "y":360
                 }, 
                 {
                  "gid":521,
@@ -2597,6 +2597,11 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"enable rotation",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"rotation angle",
                          "type":"int",
                          "value":270
@@ -2614,6 +2619,11 @@
                  "id":592,
                  "name":"",
                  "properties":[
+                        {
+                         "name":"enable rotation",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"rotation angle",
                          "type":"int",
@@ -2824,6 +2834,11 @@
                  "id":605,
                  "name":"",
                  "properties":[
+                        {
+                         "name":"enable rotation",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"rotation angle",
                          "type":"int",
