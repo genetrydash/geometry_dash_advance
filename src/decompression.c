@@ -9,8 +9,8 @@
 #include "../levels/includes.h"
 
 // RLE variables
-s32 value[LEVEL_LAYERS];
-s32 length[LEVEL_LAYERS];
+s16 value[LEVEL_LAYERS];
+s16 length[LEVEL_LAYERS];
 
 // Scroll seam pos
 s32 seam_x, seam_y;
