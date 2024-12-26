@@ -3,15 +3,15 @@
 
 // Position variables, in subpixels
 u64 player_x; // gota love giant levels
-u32 player_y;
+u64 player_y;
 
 // Player dimensions, in pixels
 u16 player_width;
 u16 player_height;
 
 // Speed variables, in subpixels/frame
-s16 player_x_speed;
-s16 player_y_speed;
+s32 player_x_speed;
+s32 player_y_speed;
 
 // Relative position on screen in pixels
 u16 relative_player_x;
@@ -39,12 +39,12 @@ u8 gamemode = CUBE;
 u16 cube_rotation = 0;
 
 // in subpixels
-const u16 speed_constants[] = {
-    0x23D, // x0.5
-    0x2C7, // x1
-    0x374, // x2
-    0x42E, // x3
-    0x524  // x4
+const u32 speed_constants[] = {
+    SPEED_HALF, // x0.5
+    SPEED_1x,   // x1
+    SPEED_2x,   // x2
+    SPEED_3x,    // x3
+    SPEED_4x     // x4
 };
 
 // Current speed ID
@@ -112,7 +112,7 @@ void cube_gamemode() {
     player_height = CUBE_HEIGHT;
 
     s8 sign = gravity_dir ? -1 : 1;
-    
+
     // Depending on which direction the gravity points, apply gravity and cap speed in one direction or in the other
     if (gravity_dir) {
         player_y_speed -= gravity;
@@ -121,13 +121,12 @@ void cube_gamemode() {
         player_y_speed += gravity;
         if (player_y_speed > CUBE_MAX_Y_SPEED) player_y_speed = CUBE_MAX_Y_SPEED;
     }
-
+   
     // If on floor and holding A or UP, jump
     if (on_floor && key_held(KEY_A | KEY_UP)) {
         player_y_speed = -CUBE_JUMP_SPEED * sign;     
         player_buffering = ORB_BUFFER_END;
     }
-
 
     // If the cube is on the air, rotate, else, snap to nearest 
     if (!on_floor) {
@@ -170,8 +169,8 @@ void cube_gamemode() {
         }
     }
 
-    relative_player_x = (player_x - scroll_x) >> 8;
-    relative_player_y = (player_y - scroll_y) >> 8;
+    relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
+    relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
     x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 9 : 8);
     y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 9 : 8);
@@ -181,18 +180,17 @@ void cube_gamemode() {
 void ship_gamemode() {
     player_width = SHIP_WIDTH;
     player_height = SHIP_HEIGHT;
+    gravity = SHIP_GRAVITY;
 
     s8 sign = gravity_dir ? -1 : 1;
 
     if (key_held(KEY_A | KEY_UP)) {
-        cube_rotation = (-(player_y_speed) >> 7) * 0x700; 
+        cube_rotation = (-(player_y_speed) >> (SUBPIXEL_BITS - 2)) * 0x380; 
 
-        gravity = SHIP_GRAVITY_HOLDING;
         player_y_speed -= gravity * sign;
     } else {
-        cube_rotation = (-(player_y_speed) >> 7) * 0x700; 
+        cube_rotation = (-(player_y_speed) >> (SUBPIXEL_BITS - 2)) * 0x380; 
 
-        gravity = SHIP_GRAVITY;
         player_y_speed += gravity * sign;
     }
     
@@ -232,8 +230,8 @@ void ship_gamemode() {
         }
     }
 
-    relative_player_x = (player_x - scroll_x) >> 8;
-    relative_player_y = (player_y - scroll_y) >> 8;
+    relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
+    relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
     x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
     y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
@@ -299,8 +297,8 @@ void ball_gamemode() {
         }
     }
 
-    relative_player_x = (player_x - scroll_x) >> 8;
-    relative_player_y = (player_y - scroll_y) >> 8;
+    relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
+    relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
     oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0);
 }

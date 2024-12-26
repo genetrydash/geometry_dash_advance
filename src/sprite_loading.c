@@ -3,6 +3,7 @@
 #include "metaspr.h"
 #include "player.h"
 #include "sprite_routines.h"
+#include "physics_defines.h"
 #include "collision.h"
 
 
@@ -122,8 +123,8 @@ ARM_CODE void display_objects() {
             // Color triggers are handler earlier in the frame
             if (curr_object.type != COL_TRIGGER) {
                 // Calculate the relative positions
-                s32 relative_x = curr_object.x - ((scroll_x >> 8) & 0xffffffff);
-                s32 relative_y = curr_object.y - ((scroll_y >> 8) & 0xffff);
+                s32 relative_x = curr_object.x - ((scroll_x >> SUBPIXEL_BITS) & 0xffffffff);
+                s32 relative_y = curr_object.y - ((scroll_y >> SUBPIXEL_BITS) & 0xffff);
 
                 u8 hflip = (curr_object.attrib1 & H_FLIP_FLAG) >> 1;
                 u8 vflip = curr_object.attrib1 & V_FLIP_FLAG;
@@ -190,8 +191,8 @@ void check_obj_collision(u32 index) {
     u32 obj_x = curr_object.x + offset_x;
     u32 obj_y = curr_object.y + offset_y;
 
-    u32 ply_x = player_x >> 8;
-    u32 ply_y = player_y >> 8;
+    u32 ply_x = player_x >> SUBPIXEL_BITS;
+    u32 ply_y = player_y >> SUBPIXEL_BITS;
 
     if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
         // Check if a collision has happened

@@ -2,6 +2,7 @@
 #include "main.h"
 #include "memory.h"
 #include "metatiles.h"
+#include "physics_defines.h"
 #include <maxmod.h>
 #include "soundbank.bin.h"
 #include "soundbank.h"
@@ -150,11 +151,11 @@ void game_loop() {
         // Clear rotation buffer
         memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
 
-        REG_BG0HOFS = REG_BG1HOFS = scroll_x >> 8;
-        REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
+        REG_BG0HOFS = REG_BG1HOFS = scroll_x >> SUBPIXEL_BITS;
+        REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
 
-        REG_BG2HOFS = scroll_x >> 10;
-        REG_BG2VOFS = 34 + (scroll_y >> 13);
+        REG_BG2HOFS = scroll_x >> (2+SUBPIXEL_BITS);
+        REG_BG2VOFS = 34 + (scroll_y >> (5+SUBPIXEL_BITS));
 
         if (player_death) reset_level();
 

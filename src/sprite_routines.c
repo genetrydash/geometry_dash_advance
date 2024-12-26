@@ -11,10 +11,10 @@
 #define PINK_ORB_INDEX 2
 #define PINK_PAD_INDEX 3
 
-const s16 orb_pad_bounces[][4] = {
-  /* Cube */ {YELLOW_ORB_JUMP_SPEED, YELLOW_PAD_JUMP_SPEED, PINK_ORB_JUMP_SPEED, PINK_PAD_JUMP_SPEED},
-  /* Ship */ {YELLOW_ORB_JUMP_SPEED, YELLOW_PAD_JUMP_SPEED, PINK_ORB_JUMP_SPEED, PINK_PAD_JUMP_SPEED},
-  /* Ball */ {YELLOW_ORB_JUMP_SPEED*BALL_ORB_MULTIPLIER, YELLOW_PAD_JUMP_SPEED*BALL_PAD_MULTIPLIER, PINK_ORB_JUMP_SPEED*BALL_ORB_MULTIPLIER, PINK_PAD_JUMP_SPEED*BALL_PAD_MULTIPLIER},
+const s32 orb_pad_bounces[][4] = {
+  /* Cube */ {CUBE_YELLOW_ORB_MAX_HEIGHT, CUBE_YELLOW_PAD_JUMP_SPEED, CUBE_PINK_ORB_JUMP_SPEED, CUBE_PINK_PAD_JUMP_SPEED},
+  /* Ship */ {SHIP_YELLOW_ORB_JUMP_SPEED, SHIP_YELLOW_PAD_JUMP_SPEED, SHIP_PINK_ORB_JUMP_SPEED, SHIP_PINK_PAD_JUMP_SPEED},
+  /* Ball */ {BALL_YELLOW_ORB_JUMP_SPEED, BALL_YELLOW_PAD_JUMP_SPEED, BALL_PINK_ORB_JUMP_SPEED, BALL_PINK_PAD_JUMP_SPEED},
 };
 
 void cube_portal(struct ObjectSlot *objectSlot) {
@@ -48,7 +48,7 @@ void col_trigger(struct ObjectSlot *objectSlot) {
     struct Object col_trigger = objectSlot->object;
     
     // If the player is right of the horizontal center of the trigger, activate the color trigger
-    if ((player_x >> 8) >= (col_trigger.x + 8)) {
+    if ((player_x >> SUBPIXEL_BITS) >= (col_trigger.x + 8)) {
         u32 frames = (col_trigger.attrib1 >> 3) + 1; // +1 because 0 = 1
         u32 channel = col_trigger.attrib1 & 0x7;
 
@@ -137,7 +137,7 @@ void blue_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         gravity_dir ^= 1;
         s32 sign = gravity_dir ? -1 : 1;
-        player_y_speed = BLUE_ORB_PAD_SPEED * sign;
+        player_y_speed = BLUE_ORB_PAD_INITIAL_SPEED * sign;
         objectSlot->activated = TRUE;
         on_floor = FALSE;
         player_buffering = ORB_BUFFER_END;
@@ -147,7 +147,7 @@ void blue_orb(struct ObjectSlot *objectSlot) {
 void blue_pad(struct ObjectSlot *objectSlot) {
     gravity_dir ^= 1;
     s32 sign = gravity_dir ? -1 : 1;
-    player_y_speed = BLUE_ORB_PAD_SPEED * sign;
+    player_y_speed = BLUE_ORB_PAD_INITIAL_SPEED * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
 }

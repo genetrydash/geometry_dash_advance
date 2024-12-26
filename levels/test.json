@@ -82,7 +82,43 @@
          "draworder":"topdown",
          "id":7,
          "name":"SP",
-         "objects":[],
+         "objects":[
+                {
+                 "gid":539,
+                 "height":16,
+                 "id":419,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":240,
+                 "y":416
+                }, 
+                {
+                 "gid":523,
+                 "height":16,
+                 "id":420,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":288,
+                 "y":432
+                }, 
+                {
+                 "gid":522,
+                 "height":16,
+                 "id":421,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":368,
+                 "y":416
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -90,7 +126,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":419,
+ "nextobjectid":422,
  "orientation":"orthogonal",
  "properties":[
         {

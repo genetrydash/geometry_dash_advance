@@ -5,6 +5,7 @@
 #include <maxmod.h>
 #include "soundbank.h"
 #include "menu.h"
+#include "physics_defines.h"
 #include "../levels/includes.h"
 
 // RLE variables
@@ -30,7 +31,7 @@ void decompress_first_screen() {
     // Decompress the first screen
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         curr_column = 0;
-        seam_x = scroll_x >> 8;
+        seam_x = scroll_x >> SUBPIXEL_BITS;
         // Init RLE values for this layer
         value[layer] = *level_pointer[layer];
         level_pointer[layer]++;
@@ -41,7 +42,7 @@ void decompress_first_screen() {
             decompress_column(layer);
             // Draw this column
             for (s32 j = 0; j < 2; j++) {
-                seam_y = (scroll_y >> 8) - 0x16;
+                seam_y = (scroll_y >> SUBPIXEL_BITS) - 0x16;
                 scroll_H(layer);
                 seam_x += 8;
             }
@@ -119,7 +120,7 @@ void scroll_V(u32 layer) {
 
 void screen_scroll_load() {
     // If the scroll x value changed block position, decompress a new column in both layers
-    if (decompressed_column != ((scroll_x >> 12) & 0xff)) {
+    if (decompressed_column != ((scroll_x >> (4+SUBPIXEL_BITS)) & 0xff)) {
         decompress_column(0);
         decompress_column(1);
         decompressed_column += 1;
@@ -129,20 +130,20 @@ void screen_scroll_load() {
     
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Draw horizontal seam
-        seam_x = (scroll_x >> 8) + SCREEN_WIDTH;
-        seam_y = (scroll_y >> 8) - 0x16;
+        seam_x = (scroll_x >> SUBPIXEL_BITS) + SCREEN_WIDTH;
+        seam_y = (scroll_y >> SUBPIXEL_BITS) - 0x16;
         
         scroll_H(layer);
 
         // Draw bottom seam
-        seam_x = scroll_x >> 8;
-        seam_y = (scroll_y >> 8) + SCREEN_HEIGHT + 0x08;
+        seam_x = scroll_x >> SUBPIXEL_BITS;
+        seam_y = (scroll_y >> SUBPIXEL_BITS) + SCREEN_HEIGHT + 0x08;
         
         scroll_V(layer);
         
         // Draw top seam
-        seam_x = scroll_x >> 8;
-        seam_y = (scroll_y >> 8) - 0x16;
+        seam_x = scroll_x >> SUBPIXEL_BITS;
+        seam_y = (scroll_y >> SUBPIXEL_BITS) - 0x16;
             
         scroll_V(layer);
     }
@@ -184,10 +185,10 @@ void reset_variables() {
     scroll_x = 0;
 
     REG_BG0HOFS = REG_BG1HOFS = 0;
-    REG_BG0VOFS = REG_BG1VOFS = scroll_y >> 8;
+    REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
     
     REG_BG2HOFS = 0;
-    REG_BG2VOFS = 34 + (scroll_y >> 13);
+    REG_BG2VOFS = 34 + (scroll_y >> (5 + SUBPIXEL_BITS));
 
     for (u32 index = 0; index < MAX_OBJECTS; index++) {
         object_buffer[index].occupied = FALSE;
@@ -220,8 +221,8 @@ void load_level(u32 level_ID) {
     if (gamemode >= GAMEMODE_COUNT) gamemode = CUBE;
 
     // Put player on the ground
-    player_y = ((GROUND_HEIGHT - 1) << 12) + 0x200;  
-    scroll_y = (player_y) - 0x7000;
+    player_y = ((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS);  
+    scroll_y = (player_y) - (0x70 << (SUBPIXEL_BITS));
 
     // Copy palettes into the buffer
     memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
@@ -234,8 +235,8 @@ void load_level(u32 level_ID) {
     reset_variables();
     
     // Set seam position and decompress the first screen
-    seam_x = scroll_x >> 8;
-    seam_y = scroll_y >> 8;
+    seam_x = scroll_x >> SUBPIXEL_BITS;
+    seam_y = scroll_y >> SUBPIXEL_BITS;
     
     decompress_first_screen();
 

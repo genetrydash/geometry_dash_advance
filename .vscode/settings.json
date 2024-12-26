@@ -40,4 +40,6 @@
         "posprintf.h": "c",
         "tonc_tte.h": "c"
     },
+    "C_Cpp.default.cStandard": "c99",
+    "C_Cpp.errorSquiggles": "disabled",
 }
