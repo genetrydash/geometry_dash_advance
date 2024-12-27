@@ -14,3 +14,5 @@ Module instructions:
 
 To make your music you can use: Fasttracker II, Impulse tracker, OpenMPT, Milky tracker or another music tracker.
 If you have any questions, or want your track added to the game, send a message via discord to: @ElAngel378
+
+On windows you need to install Devkitpro 
