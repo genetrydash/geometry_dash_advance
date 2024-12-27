@@ -152,32 +152,30 @@ void screen_scroll_load() {
 
 void unpack_overflow_check(u32 layer, u32 bits_left_check);
 
-#define VALUE_BITS 16   // 16 bits for value
-#define SIZE_BITS 4   // 4 bits for length size
+#define VALUE_SIZE_BITS 4   // 4 bits for value size
+#define COUNT_SIZE_BITS 4   // 4 bits for length size
 
-void unpack_rle_packet(u32 layer) {
-    u64 temp_bitstream = (bitstream[layer] << 32) | *level_pointer[layer];
-    s32 length_size = (temp_bitstream >> (bits_left[layer] - (VALUE_BITS + SIZE_BITS) + 32)) & 0xf;
-    if (bits_left[layer] < (VALUE_BITS + SIZE_BITS + length_size)) {
-        bitstream[layer] = (bitstream[layer] << 32) | *level_pointer[layer];
-        bits_left[layer] += 32;
+void unpack_rle_packet(u32 layer) {    
 
-        level_pointer[layer]++;
-    }
+    unpack_overflow_check(layer, VALUE_SIZE_BITS);
+
+    s32 value_length_size = (bitstream[layer] >> (bits_left[layer] - VALUE_SIZE_BITS)) & 0xf;
+     bits_left[layer] -= VALUE_SIZE_BITS;
     
-    // If next RLE packet is ready, start with it
-    value[layer] = (bitstream[layer] >> (bits_left[layer] - VALUE_BITS)) & 0xFFFF;
-    bits_left[layer] -= VALUE_BITS;
+    unpack_overflow_check(layer, value_length_size);
+
+    value[layer] = (bitstream[layer] >> (bits_left[layer] - value_length_size)) & ((1 << value_length_size) - 1);
+    bits_left[layer] -= value_length_size;
     
-    unpack_overflow_check(layer, SIZE_BITS);
+    unpack_overflow_check(layer, COUNT_SIZE_BITS);
 
-    length_size = (bitstream[layer] >> (bits_left[layer] - SIZE_BITS)) & 0xf;
-    bits_left[layer] -= SIZE_BITS;
+    s32 count_length_size = (bitstream[layer] >> (bits_left[layer] - COUNT_SIZE_BITS)) & 0xf;
+    bits_left[layer] -= COUNT_SIZE_BITS;
 
-    unpack_overflow_check(layer, length_size);
+    unpack_overflow_check(layer, count_length_size);
 
-    length[layer] = (bitstream[layer] >> (bits_left[layer] - length_size)) & ((1 << length_size) - 1);
-    bits_left[layer] -= length_size;
+    length[layer] = (bitstream[layer] >> (bits_left[layer] - count_length_size)) & ((1 << count_length_size) - 1);
+    bits_left[layer] -= count_length_size;
 }
 
 void unpack_overflow_check(u32 layer, u32 bits_left_check) {

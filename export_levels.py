@@ -223,9 +223,18 @@ def pack_rle_data(compressed):
     bit_count = 0  # Number of bits currently in the buffer
     packed_data = []  # Output list for packed 32-bit words
     for value, count in compressed:
+        if value == 0:
+            value_size = 1
+        else:
+            value_size = value.bit_length()
+            
+        # Pack dynamic sized value
+        bitstream = (bitstream << 4) | value_size
+        bit_count += 4
+
         # Pack 16-bit value
-        bitstream = (bitstream << 16) | value
-        bit_count += 16
+        bitstream = (bitstream << value_size) | value
+        bit_count += value_size
         
         if count == 0:
             count_size = 1
