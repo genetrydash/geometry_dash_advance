@@ -1,6 +1,7 @@
 #include <tonc.h>
 
 extern u8 nextSpr;
+extern const u16 debugModeSpr[];
 extern const u16 playerSpr[];
 extern const u16 shipSpr[];
 extern const u16 shipFlippedSpr[];

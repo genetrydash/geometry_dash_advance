@@ -7,6 +7,15 @@
 // Next sprite slot in OAM
 u8 nextSpr = 0;
 
+const u16 debugModeSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(1) | ATTR2_ID(330),
+    0,
+    0,
+    0,
+    0xffff
+};
 
 // Player
 

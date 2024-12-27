@@ -140,6 +140,10 @@ void game_loop() {
     while (1) {
         key_poll();
 
+        if (key_hit(KEY_SELECT)) {
+            debug_mode ^= 1;
+        }
+
         nextSpr = 0;
 
         // Copy OAM buffer into OAM
@@ -179,6 +183,7 @@ void game_loop() {
         display_objects();
         load_objects();
         
+        if (debug_mode) oam_metaspr(0, 0, debugModeSpr, 0, 0); 
         // Wait for VSYNC
         VBlankIntrWait();
     }

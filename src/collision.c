@@ -33,7 +33,7 @@ void collision_cube() {
         // Check spikes
         coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
-        collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
+        if (!debug_mode) collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
 
         // If the player is dead, don't bother checking more
         if (player_death) {
@@ -44,7 +44,7 @@ void collision_cube() {
         coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
         
-        do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
+        if (!debug_mode) do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
 
         if (!gravity_dir) {
             if (player_y_speed >= 0) {
@@ -81,7 +81,7 @@ void collision_ship() {
         // Check spikes
         coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
-        collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
+        if (!debug_mode) collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
 
         // If the player is dead, don't bother checking more
         if (player_death) {
@@ -92,7 +92,7 @@ void collision_ship() {
         coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
 
-        do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
+        if (!debug_mode) do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
 
         if (player_y_speed >= 0) {
             // Going down
