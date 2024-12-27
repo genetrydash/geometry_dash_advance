@@ -10,7 +10,7 @@
 
 // RLE variables
 u16 value[LEVEL_LAYERS];
-s16 length[LEVEL_LAYERS];
+s32 length[LEVEL_LAYERS];
 
 u64 bitstream[LEVEL_LAYERS]; // Buffer for the next packed bits
 s32 bits_left[LEVEL_LAYERS]; // Track how many bits are left in the current bitstream
