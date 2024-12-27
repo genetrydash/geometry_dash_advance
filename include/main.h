@@ -11,3 +11,6 @@
 #include "color.h"
 #include <maxmod.h>
 
+// Enable DEBUG features
+#define DEBUG
+

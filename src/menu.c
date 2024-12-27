@@ -44,6 +44,11 @@ void menu_loop() {
     s32 level_id = 0;
     while (1) {
         key_poll();
+#ifdef DEBUG
+        if (key_hit(KEY_SELECT)) {
+            debug_mode ^= 1;
+        }
+#endif
 
         if (key_hit(KEY_RIGHT)) {
             // Increment level ID

@@ -137,12 +137,14 @@ void game_loop() {
     
     mmStart(loaded_song_id, MM_PLAY_ONCE);
 
-    while (1) {
+    while (1) { 
         key_poll();
-
+        
+#ifdef DEBUG
         if (key_hit(KEY_SELECT)) {
             debug_mode ^= 1;
         }
+#endif
 
         nextSpr = 0;
 
@@ -182,8 +184,11 @@ void game_loop() {
         // Run object routines
         display_objects();
         load_objects();
-        
+
+#ifdef DEBUG
         if (debug_mode) oam_metaspr(0, 0, debugModeSpr, 0, 0); 
+#endif
+        
         // Wait for VSYNC
         VBlankIntrWait();
     }
