@@ -1,0 +1,42 @@
+If you want to make a level, copy the template.tmx file and open it in Tiled.
+
+-- LAYERS --
+There are a total of 3 layers: L1, L2 and SP. 
+
+L1 and L2 are tiled layers and use metatiles. They are found in the tileset called "famidash".
+SP layer is a object layer, this means that objects can be freely placed. The layer is for objects, those are in the tileset called "sprites".
+
+Each SP object contain some attributes. In the case for every object except some, it contains the following attributes.
+- Enable rotation: enables the sprite to be rotated. Keep in mind that the GBA can only support up to 32 rotation values (5 are already taken by both players, pulsing objects and rotating saws).
+- Rotation: if enable rotation is activated, then you need to specify the angle (in degrees). The rotation direction is clockwise. Make sure you dont rotate via Tiled an sprite.
+- Hflip and Vflip: enables the sprite to be flipped horizontally or/and vertically. This option is not compatible with enable rotation as the GBA doesn't support flipping rotated sprites.
+
+In the case of color triggers, the attribute set is different:
+- Channel: the color channel to be modified. One of the following: BG, GROUND, OBJ, LINE, 1, 2, 3, 4.
+- Color: the color in RGB888. This is converted into BGR555 by the export script.
+- Copy color: this enables copying a color from another channel. 
+- Copy from channel: in the case that copy color is enabled, copy from the channel specified. The channel list is the same as before but with the addition of P1 and P2 (player color).
+- Frames: number of frames that the transition will last. For reference, 1 second is 60 frames. Max value is 8192, or 2 minutes and 16 minutes.
+
+NOTE: when making a gamemode ceiling, make sure the size of each square is 4 blocks wide, not 3. This is a common mistake.
+
+-- MAP ATTRIBUTES --
+The map has its attributes aswell, those define the properties of the level, such as the name, starting gamemode, etc. You can find them in the toolbar above in "Map" > "Map attributes". The attributes are as following:
+- BG: the starting background color in RGB888.
+- GROUND: the starting ground color in RGB888.
+- Gamemode: the starting gamemode, the values are as follows: 0 - Cube, 1 - Ship, 2 - Ball (to be expanded later).
+- Level name: the level name that will be shown in the level menu. This must be all caps.
+- Song: the song that the level will use. This is the name of the song file in the audio folder, in all caps.
+- Speed: the starting speed, the values are as follows: 0 - 0.5x, 1 - 1x, 2 - 2x, 3 - 3x, 4 - 4x.
+
+To change the level size, use Tiled's resize map tool to change the size of the level. The engine supports up to 124 vertical blocks.
+
+-- EXPORTING --
+Once you have finished the level, export the .tmx file into .json. Once you exported the level, open "export_levels.sh" in a text editor (make sure line breaks are set as CRLF) and 
+add the name of the .json file into the arguments. The arguments are separated by spaces after "python3 export_levels.py". Make sure you have installed python3 and make in your system. 
+Then run "make levels" to export all levels. If the export was succesful, the last message should say the final size of all levels. If an error popped, you probably have messed up something.
+
+-- BUILDING -- 
+You will need devkitpro in a Linux environment. You can either use a Linux virtual machine or use Windows's WSL feature. You can find instructions on how to install devkitpro here: https://devkitpro.org/wiki/Getting_Started
+Once you have installed devkitpro, to build the game run "make". If the game compiled, the last line should say "rom build/famidash_adv.gba", if not, an error probably occured.
+

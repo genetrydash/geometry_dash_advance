@@ -1,4 +1,4 @@
 // Level Data Header
 #define POLARGEIST_l2_TOTAL_BLOCKS 25650
-#define POLARGEIST_l2_RLE_DATA_SIZE 3228
+#define POLARGEIST_l2_RLE_DATA_SIZE 2644
 extern const unsigned short polargeist_l2_level_data[POLARGEIST_l2_RLE_DATA_SIZE];

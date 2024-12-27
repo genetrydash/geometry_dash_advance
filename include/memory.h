@@ -29,7 +29,7 @@ extern EWRAM_DATA u16 col_trigger_buffer[CHANNEL_COUNT][5];
 
 extern u8 curr_column;
 extern u8 curr_level_height;
-extern u16 *level_pointer[2];
+extern u32 *level_pointer[2];
 
 extern u64 scroll_x;
 extern u64 scroll_y;

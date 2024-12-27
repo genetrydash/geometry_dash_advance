@@ -23,7 +23,7 @@ u8 curr_column;
 u8 curr_level_height;
 
 // Pointer to level data for decompression
-u16 *level_pointer[LEVEL_LAYERS];
+u32 *level_pointer[LEVEL_LAYERS];
 
 // Scroll variables
 // in subpixels

@@ -6,209 +6,94 @@
 .global dryout_l2_level_data
 .hidden dryout_l2_level_data
 dryout_l2_level_data:
-    .hword 0
-    .hword 998    @ Value 0 repeats 998 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 917    @ Value 0 repeats 917 times
-    .hword 16
-    .hword 1    @ Value 16 repeats 1 times
-    .hword 0
-    .hword 458    @ Value 0 repeats 458 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 701    @ Value 0 repeats 701 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 80    @ Value 0 repeats 80 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 53    @ Value 0 repeats 53 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 53    @ Value 0 repeats 53 times
-    .hword 16
-    .hword 1    @ Value 16 repeats 1 times
-    .hword 0
-    .hword 566    @ Value 0 repeats 566 times
-    .hword 16
-    .hword 1    @ Value 16 repeats 1 times
-    .hword 0
-    .hword 890    @ Value 0 repeats 890 times
-    .hword 8
-    .hword 1    @ Value 8 repeats 1 times
-    .hword 0
-    .hword 26    @ Value 0 repeats 26 times
-    .hword 9
-    .hword 1    @ Value 9 repeats 1 times
-    .hword 0
-    .hword 161    @ Value 0 repeats 161 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 1862    @ Value 0 repeats 1862 times
-    .hword 44
-    .hword 1    @ Value 44 repeats 1 times
-    .hword 0
-    .hword 134    @ Value 0 repeats 134 times
-    .hword 44
-    .hword 1    @ Value 44 repeats 1 times
-    .hword 0
-    .hword 107    @ Value 0 repeats 107 times
-    .hword 44
-    .hword 1    @ Value 44 repeats 1 times
-    .hword 0
-    .hword 26    @ Value 0 repeats 26 times
-    .hword 44
-    .hword 1    @ Value 44 repeats 1 times
-    .hword 0
-    .hword 107    @ Value 0 repeats 107 times
-    .hword 44
-    .hword 1    @ Value 44 repeats 1 times
-    .hword 0
-    .hword 2800    @ Value 0 repeats 2800 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 80    @ Value 0 repeats 80 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 134    @ Value 0 repeats 134 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 80    @ Value 0 repeats 80 times
-    .hword 17
-    .hword 1    @ Value 17 repeats 1 times
-    .hword 0
-    .hword 107    @ Value 0 repeats 107 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 107    @ Value 0 repeats 107 times
-    .hword 20
-    .hword 2    @ Value 20 repeats 2 times
-    .hword 0
-    .hword 430    @ Value 0 repeats 430 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 80    @ Value 0 repeats 80 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 431    @ Value 0 repeats 431 times
-    .hword 17
-    .hword 1    @ Value 17 repeats 1 times
-    .hword 0
-    .hword 789    @ Value 0 repeats 789 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 2348    @ Value 0 repeats 2348 times
-    .hword 8
-    .hword 1    @ Value 8 repeats 1 times
-    .hword 0
-    .hword 26    @ Value 0 repeats 26 times
-    .hword 9
-    .hword 1    @ Value 9 repeats 1 times
-    .hword 0
-    .hword 107    @ Value 0 repeats 107 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 107    @ Value 0 repeats 107 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 80    @ Value 0 repeats 80 times
-    .hword 16
-    .hword 1    @ Value 16 repeats 1 times
-    .hword 0
-    .hword 107    @ Value 0 repeats 107 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 107    @ Value 0 repeats 107 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 134    @ Value 0 repeats 134 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 4049    @ Value 0 repeats 4049 times
-    .hword 8
-    .hword 1    @ Value 8 repeats 1 times
-    .hword 0
-    .hword 26    @ Value 0 repeats 26 times
-    .hword 9
-    .hword 1    @ Value 9 repeats 1 times
-    .hword 0
-    .hword 80    @ Value 0 repeats 80 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 53    @ Value 0 repeats 53 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 404    @ Value 0 repeats 404 times
-    .hword 16
-    .hword 1    @ Value 16 repeats 1 times
-    .hword 0
-    .hword 80    @ Value 0 repeats 80 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 431    @ Value 0 repeats 431 times
-    .hword 16
-    .hword 1    @ Value 16 repeats 1 times
-    .hword 0
-    .hword 404    @ Value 0 repeats 404 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 53    @ Value 0 repeats 53 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 998    @ Value 0 repeats 998 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 53    @ Value 0 repeats 53 times
-    .hword 8
-    .hword 1    @ Value 8 repeats 1 times
-    .hword 0
-    .hword 26    @ Value 0 repeats 26 times
-    .hword 9
-    .hword 1    @ Value 9 repeats 1 times
-    .hword 0
-    .hword 80    @ Value 0 repeats 80 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 80    @ Value 0 repeats 80 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 53    @ Value 0 repeats 53 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 80    @ Value 0 repeats 80 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 53    @ Value 0 repeats 53 times
-    .hword 20
-    .hword 1    @ Value 20 repeats 1 times
-    .hword 0
-    .hword 783    @ Value 0 repeats 783 times
+    .word 0b00000000000000001111100101000000 @ 0x0000f940
+    .word 0b00000101000000000000000000000000 @ 0x05000000
+    .word 0b00001110010100000000000001000000 @ 0x0e500040
+    .word 0b00000000000000000000000001110010 @ 0x00000072
+    .word 0b01000000000001010000000000000000 @ 0x40050000
+    .word 0b00000000000010101111000000000000 @ 0x000af000
+    .word 0b01010000000000000000000000000000 @ 0x50000000
+    .word 0b00010011110000000000010100000000 @ 0x13c00500
+    .word 0b00000000000000000000000011010000 @ 0x000000d0
+    .word 0b00000000010100000000000000000000 @ 0x00500000
+    .word 0b00000000000011010000000000000100 @ 0x000d0004
+    .word 0b00000000000000000000000000001000 @ 0x00000008
+    .word 0b11010100000000000100000000000000 @ 0xd4004000
+    .word 0b00000000000000001101111001000000 @ 0x0000de40
+    .word 0b00000010000000000000000000000000 @ 0x02000000
+    .word 0b00000000011001000000000000100100 @ 0x00640024
+    .word 0b00000000000000000000000000101000 @ 0x00000028
+    .word 0b00000000000001010000000000000000 @ 0x00050000
+    .word 0b00000000000011111111110000000000 @ 0x000ffc00
+    .word 0b00000011010001010000000000101100 @ 0x0345002c
+    .word 0b00000000000000000000000000001000 @ 0x00000008
+    .word 0b01010000000000101100000000000000 @ 0x5002c000
+    .word 0b00000000000000000110101000000000 @ 0x00006a00
+    .word 0b00101100000000000000000000000000 @ 0x2c000000
+    .word 0b00000001100100000000001011000000 @ 0x019002c0
+    .word 0b00000000000000000000000001101010 @ 0x0000006a
+    .word 0b00000000001011000000000000000000 @ 0x002c0000
+    .word 0b00000000001111111111000000000000 @ 0x003ff000
+    .word 0b00001111111111000000000000000010 @ 0x0ffc0002
+    .word 0b11101111000000000001010000000000 @ 0xef001400
+    .word 0b00000000000000000000010011110000 @ 0x000004f0
+    .word 0b00000001010000000000000000000000 @ 0x01400000
+    .word 0b00000000100001010000000000010100 @ 0x00850014
+    .word 0b00000000000000000000000000000100 @ 0x00000004
+    .word 0b11110000000000010001000000000000 @ 0xf0011000
+    .word 0b00000000000000000110101000000000 @ 0x00006a00
+    .word 0b00010100000000000000000000000000 @ 0x14000000
+    .word 0b00000110101000000000000101000000 @ 0x06a00140
+    .word 0b00000100000000000000000110101101 @ 0x040001ad
+    .word 0b00000000000101000000000000000000 @ 0x00140000
+    .word 0b00000000000001001111000000000001 @ 0x0004f001
+    .word 0b01000000000000000000000000000001 @ 0x40000001
+    .word 0b10101110000000000001000100000000 @ 0xae001100
+    .word 0b00000000000000000011000101000000 @ 0x00003140
+    .word 0b00000001010000000000000000000000 @ 0x01400000
+    .word 0b00000011111111110000000000000000 @ 0x03ff0000
+    .word 0b11111111110000000000000000010010 @ 0xffc00012
+    .word 0b10110000000000001000000000000000 @ 0xb0008000
+    .word 0b00000000000000000001100100000000 @ 0x00001900
+    .word 0b00001001000000000000000000000000 @ 0x09000000
+    .word 0b00000110101000000000000101000000 @ 0x06a00140
+    .word 0b00000000000000000000000001101010 @ 0x0000006a
+    .word 0b00000000000101000000000000000000 @ 0x00140000
+    .word 0b00000000000001001111000000000001 @ 0x0004f001
+    .word 0b00000000000000000000000000000000 @ 0x00000000
+    .word 0b01101010000000000001010000000000 @ 0x6a001400
+    .word 0b00000000000000000000011010100000 @ 0x000006a0
+    .word 0b00000001010000000000000000000000 @ 0x01400000
+    .word 0b00000000100001010000000000010100 @ 0x00850014
+    .word 0b00000000000000000000000000111111 @ 0x0000003f
+    .word 0b11110000000000000000111111111100 @ 0xf0000ffc
+    .word 0b00000000000000111111111100000000 @ 0x0003ff00
+    .word 0b00000000111101000000000000000010 @ 0x00f40002
+    .word 0b00000000000000000000000000000000 @ 0x00000000
+    .word 0b01100100000000000010010000000000 @ 0x64002400
+    .word 0b00000000000000000001001111000000 @ 0x000013c0
+    .word 0b00000101000000000000000000000000 @ 0x05000000
+    .word 0b00000000110100000000000001010000 @ 0x00d00050
+    .word 0b00000000000000000000000001100100 @ 0x00000064
+    .word 0b11000000000001000000000000000000 @ 0xc0040000
+    .word 0b00000000000000010011110000000000 @ 0x00013c00
+    .word 0b01010000000000000000000000000000 @ 0x50000000
+    .word 0b01101011100000000000010000000000 @ 0x6b800400
+    .word 0b00000000000000000000011001001100 @ 0x0000064c
+    .word 0b00000000010100000000000000000000 @ 0x00500000
+    .word 0b00000000000011010000000000000101 @ 0x000d0005
+    .word 0b00000000000000000000000000001111 @ 0x0000000f
+    .word 0b10010100000000000101000000000000 @ 0x94005000
+    .word 0b00000000000000000000110100000000 @ 0x00000d00
+    .word 0b00000010000000000000000000000000 @ 0x02000000
+    .word 0b00000000011001000000000000100100 @ 0x00640024
+    .word 0b00000000000000000000000000010011 @ 0x00000013
+    .word 0b11000000000001010000000000000000 @ 0xc0050000
+    .word 0b00000000000000010011110000000000 @ 0x00013c00
+    .word 0b01010000000000000000000000000000 @ 0x50000000
+    .word 0b00001101000000000000010100000000 @ 0x0d000500
+    .word 0b00000000000000000000000100111100 @ 0x0000013c
+    .word 0b00000000010100000000000000000000 @ 0x00500000
+    .word 0b00000000000011010000000000000101 @ 0x000d0005
+    .word 0b00000000000000000000000000001100 @ 0x0000000c
+    .word 0b00111000000000000000000000000000 @ 0x38000000

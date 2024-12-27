@@ -217,6 +217,40 @@ def rle_compress_level(level_array):
 
     return compressed
 
+def pack_rle_data(compressed):
+    """Packs RLE compressed data (value and count pairs) into a tight bitstream."""
+    bitstream = 0  # Buffer to hold packed bits
+    bit_count = 0  # Number of bits currently in the buffer
+    packed_data = []  # Output list for packed 32-bit words
+    capped_count = 0
+    for value, count in compressed:
+        while count > 0:
+            if count > 1024:
+                capped_count = 1024
+                count -= 1024
+            else:
+                capped_count = count
+                count = 0
+            
+            # Pack 16-bit value
+            bitstream = (bitstream << 16) | value
+            bit_count += 16
+
+            # Pack 10-bit count
+            bitstream = (bitstream << 10) | (capped_count - 1)
+            bit_count += 10
+
+            # Flush full 32-bit words to the output
+            while bit_count >= 32:
+                packed_data.append((bitstream >> (bit_count - 32)) & 0xFFFFFFFF)
+                bit_count -= 32
+
+    # Handle remaining bits
+    if bit_count > 0:
+        packed_data.append((bitstream << (32 - bit_count)) & 0xFFFFFFFF)
+
+    return packed_data  # Return packed data
+
 def export_compressed_to_s_file(level_name, layer, compressed, output_path):
     """Exports the compressed level data into a .s file."""
     with open(output_path, 'w') as file:
@@ -227,8 +261,8 @@ def export_compressed_to_s_file(level_name, layer, compressed, output_path):
         file.write(f".global {level_name}_{layer}_level_data\n")
         file.write(f".hidden {level_name}_{layer}_level_data\n")
         file.write(f"{level_name}_{layer}_level_data:\n")
-        for value, count in compressed:
-            file.write(f"    .hword {value}\n    .hword {count}    @ Value {value} repeats {count} times\n")
+        for value in compressed:
+            file.write(f"    .word {"0b{:032b}".format(value)} @ {"0x{:08x}".format(value)}\n")
             
 def export_header_file(level_name, layer, level_array, compressed, output_path):
     """Exports a header file with references to the first chunk and the level width."""
@@ -340,6 +374,8 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
 
 
 def main():
+    original_size_list = []
+    size_list = []
     total_total_size = 0
     for level_name in sys.argv[1:]:
         total_size = 0
@@ -347,21 +383,19 @@ def main():
         print(f"---{level_name}---")
         if not os.path.exists(f"levels/{level_name}"):
             os.makedirs(f"levels/{level_name}")
-        print({level_name})
 
         layer = "l1"
         file_path = f"levels/{level_name}.json" # JSON file
-        print(file_path)
         output_s_path = f"levels/{level_name}/{layer}.s"  # Output .s file
-        print(output_s_path)
         output_h_path = f"levels/{level_name}/{layer}.h"  # Output .h file
-        print(output_h_path)
-        print(file_path, layer)
         level_array = load_json_to_array(file_path, layer)
-        compressed = rle_compress_level(level_array)
-        total_size += len(compressed)
+        unpacked = rle_compress_level(level_array)
+        original_size_list.append(len(unpacked) * 4)
+        compressed = pack_rle_data(unpacked)
+        size_list.append(len(compressed) * 4)
+        total_size += len(compressed) * 4
 
-        print(f"Layer {layer} size: {len(compressed)} B")
+        print(f"Layer {layer} size: {len(compressed) * 4} B")
         export_compressed_to_s_file(level_name, layer, compressed, output_s_path)
         export_header_file(level_name, layer, level_array, compressed, output_h_path)
         print(f"Exported compressed data to {output_s_path} and header to {output_h_path}")
@@ -371,10 +405,13 @@ def main():
         output_h_path = f"levels/{level_name}/{layer}.h"  # Output .h file
                
         level_array = load_json_to_array(file_path, layer)
-        compressed = rle_compress_level(level_array)
-        total_size += len(compressed)
+        unpacked = rle_compress_level(level_array)
+        original_size_list.append(len(unpacked) * 4)
+        compressed = pack_rle_data(unpacked)
+        size_list.append(len(compressed) * 4)
+        total_size += len(compressed) * 4
 
-        print(f"Layer {layer} size: {len(compressed)} B")
+        print(f"Layer {layer} size: {len(compressed) * 4} B")
         export_compressed_to_s_file(level_name, layer, compressed, output_s_path)
         export_header_file(level_name, layer, level_array, compressed, output_h_path)
         print(f"Exported compressed data to {output_s_path} and header to {output_h_path}")
@@ -391,11 +428,27 @@ def main():
         export_properties_to_h(level_name, output_h_path, output_c_path, file_path, level_array)
 
         
-        print(f"{level_name} TOTAL size: {total_size} B")
+        print(f"{level_name} TOTAL size: {total_size} B\n")
         total_total_size += total_size
 
     export_includes_h(sys.argv[1:])
 
-    print(f"All levels TOTAL size: {total_total_size} B")
+    print("\nCOMPRESSION RESULTS")
+    index = 0
+    for level_name in sys.argv[1:]:
+        print(f"---{level_name}---")
+        orig = original_size_list[index]
+        new = size_list[index]
+        ratio = (1 - (new/orig)) * 100
+        print(f"L1 - Original {orig} B | Compressed {new} B -> Compression ratio: {ratio}%")
+        index += 1
+
+        orig = original_size_list[index]
+        new = size_list[index]
+        ratio = (1 - (new/orig)) * 100
+        print(f"L2 - Original {orig} B | Compressed {new} B -> Compression ratio: {ratio}%")
+        index += 1
+
+    print(f"\nAll levels TOTAL size: {total_total_size} B")
 if __name__ == "__main__":
     main()

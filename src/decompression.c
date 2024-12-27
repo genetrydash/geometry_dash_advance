@@ -9,8 +9,11 @@
 #include "../levels/includes.h"
 
 // RLE variables
-s16 value[LEVEL_LAYERS];
+u16 value[LEVEL_LAYERS];
 s16 length[LEVEL_LAYERS];
+
+u64 bitstream[LEVEL_LAYERS]; // Buffer for the next packed bits
+s32 bits_left[LEVEL_LAYERS]; // Track how many bits are left in the current bitstream
 
 // Scroll seam pos
 s32 seam_x, seam_y;
@@ -24,6 +27,7 @@ void decompress_column(u32 layer);
 void scroll_H(u32 layer);
 void increment_column();
 void put_ground();
+void unpack_rle_packet(u32 layer);
 
 void decompress_first_screen() {
     // Put ground tiles
@@ -33,10 +37,7 @@ void decompress_first_screen() {
         curr_column = 0;
         seam_x = scroll_x >> SUBPIXEL_BITS;
         // Init RLE values for this layer
-        value[layer] = *level_pointer[layer];
-        level_pointer[layer]++;
-        length[layer] = *level_pointer[layer];
-        level_pointer[layer]++;
+        unpack_rle_packet(layer);
 
         for (s32 i = 0; i < 16; i++) {
             decompress_column(layer);
@@ -149,15 +150,32 @@ void screen_scroll_load() {
     }
 }
 
+
+
+#define VALUE_BITS 16   // 16 bits for value
+#define LENGTH_BITS 10   // 10 bits for count
+
+void unpack_rle_packet(u32 layer) {
+    if (bits_left[layer] < (VALUE_BITS + LENGTH_BITS)) {
+        bitstream[layer] = (bitstream[layer] << 32) | *level_pointer[layer];
+        bits_left[layer] += 32;
+
+        level_pointer[layer]++;
+    }
+    
+    // If next RLE packet is ready, start with it
+    value[layer] = (bitstream[layer] >> (bits_left[layer] - VALUE_BITS)) & 0xFFFF;
+    bits_left[layer] -= VALUE_BITS;
+
+    length[layer] = (bitstream[layer] >> (bits_left[layer] - LENGTH_BITS))  & 0x3FF;
+    bits_left[layer] -= LENGTH_BITS;
+}
+
 void decompress_column(u32 layer) {
     // RLE decompress an entire column of curr_level_height blocks
     for (s32 i = 0; i < curr_level_height; i++) {
-        if (length[layer] == 0) {
-            // If next RLE packet is ready, start with it
-            value[layer] = *level_pointer[layer];
-            level_pointer[layer]++;
-            length[layer] = *level_pointer[layer];
-            level_pointer[layer]++;
+        if (length[layer] < 0) {
+            unpack_rle_packet(layer);
         }
 
         // Put the block on the buffer, exactly curr_level_height blocks above the ground and then i blocks down
@@ -181,6 +199,8 @@ void reset_variables() {
     player_death = FALSE;
     curr_column = 0;
     on_floor = TRUE;
+    bitstream[0] = bitstream[1] = 0;
+    bits_left[0] = bits_left[1] = 0;
 
     scroll_x = 0;
 
@@ -203,8 +223,8 @@ void reset_variables() {
 
 void load_level(u32 level_ID) {
     // Set level pointers
-    level_pointer[0] = (u16*) level_defines[level_ID][0];
-    level_pointer[1] = (u16*) level_defines[level_ID][1];
+    level_pointer[0] = (u32*) level_defines[level_ID][0];
+    level_pointer[1] = (u32*) level_defines[level_ID][1];
     sprite_pointer   = (u32*) level_defines[level_ID][2];
     
     // Get level variables
