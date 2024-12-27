@@ -208,12 +208,12 @@ def rle_compress_level(level_array):
         if current_value == prev_value:
             count += 1
         else:
-            compressed.append((prev_value, count))
+            compressed.append((prev_value, count - 1))
             prev_value = current_value
             count = 1
         
         
-    compressed.append((prev_value, count))  # Add the last run
+    compressed.append((prev_value, count - 1))  # Add the last run
 
     return compressed
 
@@ -222,28 +222,28 @@ def pack_rle_data(compressed):
     bitstream = 0  # Buffer to hold packed bits
     bit_count = 0  # Number of bits currently in the buffer
     packed_data = []  # Output list for packed 32-bit words
-    capped_count = 0
     for value, count in compressed:
-        while count > 0:
-            if count > 1024:
-                capped_count = 1024
-                count -= 1024
-            else:
-                capped_count = count
-                count = 0
-            
-            # Pack 16-bit value
-            bitstream = (bitstream << 16) | value
-            bit_count += 16
+        # Pack 16-bit value
+        bitstream = (bitstream << 16) | value
+        bit_count += 16
+        
+        if count == 0:
+            count_size = 1
+        else:
+            count_size = count.bit_length()
 
-            # Pack 10-bit count
-            bitstream = (bitstream << 10) | (capped_count - 1)
-            bit_count += 10
+        # Pack count size in bits
+        bitstream = (bitstream << 4) | count_size
+        bit_count += 4
 
-            # Flush full 32-bit words to the output
-            while bit_count >= 32:
-                packed_data.append((bitstream >> (bit_count - 32)) & 0xFFFFFFFF)
-                bit_count -= 32
+        # Pack dynamic sized count
+        bitstream = (bitstream << count_size) | count
+        bit_count += count_size
+
+        # Flush full 32-bit words to the output
+        while bit_count >= 32:
+            packed_data.append((bitstream >> (bit_count - 32)) & 0xFFFFFFFF)
+            bit_count -= 32
 
     # Handle remaining bits
     if bit_count > 0:
@@ -439,13 +439,20 @@ def main():
         print(f"---{level_name}---")
         orig = original_size_list[index]
         new = size_list[index]
-        ratio = (1 - (new/orig)) * 100
+        if orig > new:
+            ratio = (1 - (new/orig)) * 100
+        else:
+            ratio = -((1 - (orig/new)) * 100)
         print(f"L1 - Original {orig} B | Compressed {new} B -> Compression ratio: {ratio}%")
         index += 1
 
         orig = original_size_list[index]
         new = size_list[index]
-        ratio = (1 - (new/orig)) * 100
+        if orig > new:
+            ratio = (1 - (new/orig)) * 100
+        else:
+            ratio = -((1 - (orig/new)) * 100)
+
         print(f"L2 - Original {orig} B | Compressed {new} B -> Compression ratio: {ratio}%")
         index += 1
 

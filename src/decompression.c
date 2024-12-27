@@ -150,13 +150,15 @@ void screen_scroll_load() {
     }
 }
 
-
+void unpack_overflow_check(u32 layer, u32 bits_left_check);
 
 #define VALUE_BITS 16   // 16 bits for value
-#define LENGTH_BITS 10   // 10 bits for count
+#define SIZE_BITS 4   // 4 bits for length size
 
 void unpack_rle_packet(u32 layer) {
-    if (bits_left[layer] < (VALUE_BITS + LENGTH_BITS)) {
+    u64 temp_bitstream = (bitstream[layer] << 32) | *level_pointer[layer];
+    s32 length_size = (temp_bitstream >> (bits_left[layer] - (VALUE_BITS + SIZE_BITS) + 32)) & 0xf;
+    if (bits_left[layer] < (VALUE_BITS + SIZE_BITS + length_size)) {
         bitstream[layer] = (bitstream[layer] << 32) | *level_pointer[layer];
         bits_left[layer] += 32;
 
@@ -166,9 +168,25 @@ void unpack_rle_packet(u32 layer) {
     // If next RLE packet is ready, start with it
     value[layer] = (bitstream[layer] >> (bits_left[layer] - VALUE_BITS)) & 0xFFFF;
     bits_left[layer] -= VALUE_BITS;
+    
+    unpack_overflow_check(layer, SIZE_BITS);
 
-    length[layer] = (bitstream[layer] >> (bits_left[layer] - LENGTH_BITS))  & 0x3FF;
-    bits_left[layer] -= LENGTH_BITS;
+    length_size = (bitstream[layer] >> (bits_left[layer] - SIZE_BITS)) & 0xf;
+    bits_left[layer] -= SIZE_BITS;
+
+    unpack_overflow_check(layer, length_size);
+
+    length[layer] = (bitstream[layer] >> (bits_left[layer] - length_size)) & ((1 << length_size) - 1);
+    bits_left[layer] -= length_size;
+}
+
+void unpack_overflow_check(u32 layer, u32 bits_left_check) {
+    if (bits_left[layer] < (s32) bits_left_check) {
+        bitstream[layer] = (bitstream[layer] << 32) | *level_pointer[layer];
+        bits_left[layer] += 32;
+
+        level_pointer[layer]++;
+    }
 }
 
 void decompress_column(u32 layer) {
