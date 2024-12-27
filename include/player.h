@@ -17,6 +17,7 @@ enum SPEEDS {
     SPEED_X2,
     SPEED_X3,
     SPEED_X4,
+    NUM_SPEEDS
 };
 
 extern u64 player_x;

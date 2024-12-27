@@ -257,6 +257,7 @@ void load_level(u32 level_ID) {
     if (loaded_song_id >= MSL_NSONGS) loaded_song_id = 0;
     if (curr_level_height >= MAX_LEVEL_HEIGHT) curr_level_height = MAX_LEVEL_HEIGHT - 1;
     if (gamemode >= GAMEMODE_COUNT) gamemode = CUBE;
+    if (speed_id >= NUM_SPEEDS) speed_id = SPEED_X1;
 
     // Put player on the ground
     player_y = ((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS);  
