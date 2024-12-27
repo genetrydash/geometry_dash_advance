@@ -372,6 +372,12 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         file.write(f"extern const unsigned short {level_name}_properties[];\n")
         file.write(f"extern const unsigned char {level_name}_name[];\n")
 
+def get_size(level_array):
+    flat_level = []
+    for col in range(len(level_array[0])):
+        for row in range(len(level_array)):
+            flat_level.append(level_array[row][col])
+    return len(flat_level) * 2
 
 def main():
     original_size_list = []
@@ -389,8 +395,9 @@ def main():
         output_s_path = f"levels/{level_name}/{layer}.s"  # Output .s file
         output_h_path = f"levels/{level_name}/{layer}.h"  # Output .h file
         level_array = load_json_to_array(file_path, layer)
+        
+        original_size_list.append(get_size(level_array))
         unpacked = rle_compress_level(level_array)
-        original_size_list.append(len(unpacked) * 4)
         compressed = pack_rle_data(unpacked)
         size_list.append(len(compressed) * 4)
         total_size += len(compressed) * 4
@@ -406,7 +413,7 @@ def main():
                
         level_array = load_json_to_array(file_path, layer)
         unpacked = rle_compress_level(level_array)
-        original_size_list.append(len(unpacked) * 4)
+        original_size_list.append(get_size(level_array))
         compressed = pack_rle_data(unpacked)
         size_list.append(len(compressed) * 4)
         total_size += len(compressed) * 4
