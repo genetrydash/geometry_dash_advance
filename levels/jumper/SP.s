@@ -917,7 +917,7 @@ jumper_spr_data:
    .word 0x1be0
    .hword 0x140
    .hword 0x3
-   .hword 0x4
+   .hword 0x5
    .hword 0x0
    .hword 0x0
    .hword 0x0000
@@ -1057,7 +1057,7 @@ jumper_spr_data:
    .word 0x22f0
    .hword 0x120
    .hword 0x3
-   .hword 0x4
+   .hword 0x5
    .hword 0x0
    .hword 0x0
    .hword 0x0000

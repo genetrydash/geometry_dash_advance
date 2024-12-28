@@ -2226,7 +2226,7 @@
                         {
                          "name":"Channel",
                          "type":"string",
-                         "value":"BG"
+                         "value":"GROUND"
                         }, 
                         {
                          "name":"Color",
@@ -3292,7 +3292,7 @@
                         {
                          "name":"Channel",
                          "type":"string",
-                         "value":"BG"
+                         "value":"GROUND"
                         }, 
                         {
                          "name":"Color",

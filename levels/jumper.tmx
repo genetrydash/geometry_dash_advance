@@ -382,7 +382,7 @@
   </object>
   <object id="837" gid="516" x="7136" y="320" width="16" height="16">
    <properties>
-    <property name="Channel" value="BG"/>
+    <property name="Channel" value="GROUND"/>
     <property name="Color" type="color" value="#ff000000"/>
     <property name="Frames" type="int" value="0"/>
    </properties>
@@ -521,7 +521,7 @@
   </object>
   <object id="924" gid="516" x="8944" y="288" width="16" height="16">
    <properties>
-    <property name="Channel" value="BG"/>
+    <property name="Channel" value="GROUND"/>
     <property name="Color" type="color" value="#ff000000"/>
     <property name="Frames" type="int" value="0"/>
    </properties>
