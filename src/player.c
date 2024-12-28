@@ -184,6 +184,12 @@ void ship_gamemode() {
 
     s8 sign = gravity_dir ? -1 : 1;
 
+    if (key_hit(KEY_A | KEY_UP)) {
+        player_buffering = ORB_BUFFER_READY;
+    } else {
+        player_buffering = NO_ORB_BUFFER;
+    }
+
     if (key_held(KEY_A | KEY_UP)) {
         cube_rotation = (-(player_y_speed) >> (SUBPIXEL_BITS - 2)) * 0x380; 
 

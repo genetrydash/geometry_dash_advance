@@ -19,29 +19,32 @@ const s32 orb_pad_bounces[][5] = {
 };
 
 void cube_portal(struct ObjectSlot *objectSlot) {
+    if (gamemode != CUBE) player_y_speed /= 2;
     gamemode = CUBE;
     objectSlot->activated = TRUE;
 }
 
 void ship_portal(struct ObjectSlot *objectSlot) {
+    if (gamemode != SHIP) player_y_speed /= 2;
     gamemode = SHIP;
     objectSlot->activated = TRUE;
 }
 
 void ball_portal(struct ObjectSlot *objectSlot) {
+    if (gamemode != BALL) player_y_speed /= 2;
     gamemode = BALL;
     objectSlot->activated = TRUE;
 }
 
 void blue_gravity_portal(struct ObjectSlot *objectSlot) {
     gravity_dir = 0;
-    if (player_y_speed < -GRAVITY_PORTAL_SPEED_CAP) player_y_speed = -GRAVITY_PORTAL_SPEED_CAP; 
+    player_y_speed /= 2;
     objectSlot->activated = TRUE;
 }
 
 void yellow_gravity_portal(struct ObjectSlot *objectSlot) {
     gravity_dir = 1;
-    if (player_y_speed > GRAVITY_PORTAL_SPEED_CAP) player_y_speed = GRAVITY_PORTAL_SPEED_CAP; 
+    player_y_speed /= 2;
     objectSlot->activated = TRUE;
 }
 
