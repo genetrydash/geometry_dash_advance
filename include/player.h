@@ -50,4 +50,6 @@ extern u8 on_floor;
 
 extern u8 player_buffering;
 
+extern s8 ball_rotation_direction;
+
 void player_main();

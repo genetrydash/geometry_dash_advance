@@ -38,6 +38,9 @@ u8 gamemode = CUBE;
 // Cube rotation angle
 u16 cube_rotation = 0;
 
+// - : left | + : right
+s8 ball_rotation_direction;
+
 // in subpixels
 const u32 speed_constants[] = {
     SPEED_HALF, // x0.5
@@ -255,18 +258,25 @@ void ball_gamemode() {
     player_height = BALL_HEIGHT;
     gravity = BALL_GRAVITY;
 
-    s8 sign = gravity_dir ? -1 : 1;
+    s8 sign = (gravity_dir == GRAVITY_UP) ? -1 : 1;
 
-    cube_rotation -= 0x500 * sign;
+    if (on_floor) {
+        ball_rotation_direction = (gravity_dir == GRAVITY_DOWN) ? 2 : -2;
+    }
 
     player_y_speed += gravity * sign;
 
     if (on_floor && player_buffering == ORB_BUFFER_READY) {
         gravity_dir ^= 1;
         player_y_speed = BALL_SWITCH_SPEED * -sign; 
+        
+        ball_rotation_direction = (gravity_dir == GRAVITY_DOWN) ? -1 : 1;
+
         player_buffering = ORB_BUFFER_END;
     }
-    
+
+    cube_rotation -= 0x250 * ball_rotation_direction;
+
     player_y_speed = CLAMP(player_y_speed, -BALL_MAX_Y_SPEED, BALL_MAX_Y_SPEED);
 
     on_floor = 0;

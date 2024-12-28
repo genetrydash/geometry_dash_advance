@@ -39,11 +39,17 @@ void ball_portal(struct ObjectSlot *objectSlot) {
 void blue_gravity_portal(struct ObjectSlot *objectSlot) {
     if (gravity_dir == GRAVITY_UP) player_y_speed /= 2;
     gravity_dir = GRAVITY_DOWN;
+    
+    ball_rotation_direction = (gravity_dir == GRAVITY_DOWN) ? 1 : -1;
+
     objectSlot->activated = TRUE;
 }
 
 void yellow_gravity_portal(struct ObjectSlot *objectSlot) {
     if (gravity_dir == GRAVITY_DOWN) player_y_speed /= 2;
+    
+    ball_rotation_direction = (gravity_dir == GRAVITY_DOWN) ? 1 : -1;
+
     gravity_dir = GRAVITY_UP;
     objectSlot->activated = TRUE;
 }
@@ -124,6 +130,9 @@ void yellow_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         s32 sign = (gravity_dir == GRAVITY_UP) ? 1 : -1;
         player_y_speed = orb_pad_bounces[gamemode][YELLOW_ORB_INDEX] * sign;
+ 
+        ball_rotation_direction = sign;
+
         objectSlot->activated = TRUE;
         on_floor = FALSE;
         player_buffering = ORB_BUFFER_END;
@@ -141,6 +150,9 @@ void blue_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         gravity_dir ^= 1;
         s32 sign = (gravity_dir == GRAVITY_UP) ? -1 : 1;
+
+        ball_rotation_direction = sign;
+        
         player_y_speed = orb_pad_bounces[gamemode][BLUE_ORB_PAD_INDEX] * sign;
         objectSlot->activated = TRUE;
         on_floor = FALSE;
@@ -151,6 +163,9 @@ void blue_orb(struct ObjectSlot *objectSlot) {
 void blue_pad(struct ObjectSlot *objectSlot) {
     gravity_dir ^= 1;
     s32 sign = (gravity_dir == GRAVITY_UP) ? -1 : 1;
+
+    ball_rotation_direction = sign;
+
     player_y_speed = orb_pad_bounces[gamemode][BLUE_ORB_PAD_INDEX] * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
@@ -161,6 +176,9 @@ void pink_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         s32 sign = (gravity_dir == GRAVITY_UP) ? 1 : -1;
         player_y_speed = orb_pad_bounces[gamemode][PINK_ORB_INDEX] * sign;
+        
+        ball_rotation_direction = sign;
+        
         objectSlot->activated = TRUE;
         on_floor = FALSE;
         player_buffering = ORB_BUFFER_END;
