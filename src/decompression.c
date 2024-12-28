@@ -291,7 +291,7 @@ void fade_out() {
     }
 }
 
-void fade_in() {
+void fade_in_level() {
     // Fade in
     for (s32 frame = 0; frame <= 32; frame += 4) {
         VBlankIntrWait();
@@ -305,6 +305,16 @@ void fade_in() {
         
         // Run object routines
         display_objects();
+        
+        clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
+    }
+}
+
+void fade_in() {
+    // Fade in
+    for (s32 frame = 0; frame <= 32; frame += 4) {
+        VBlankIntrWait();
+        key_poll();
         
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }

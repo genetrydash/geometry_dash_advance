@@ -7,7 +7,9 @@
 #include "soundbank.bin.h"
 #include "soundbank.h"
 #include "menu.h"
+
 void game_loop();
+u32 paused_routines();
 
 ALIGN4 u8 myMixingBuffer[MM_MIXLEN_31KHZ];
 
@@ -96,10 +98,8 @@ s32 main() {
 }
 
 void game_loop() {
-    // Do level reset
-    
+    // Fade out
     fade_out();
-    
 
     REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32;
     REG_BG0HOFS = 0;
@@ -133,12 +133,21 @@ void game_loop() {
 
     load_level(loaded_level_id);
 
-    fade_in();
+    fade_in_level();
     
     mmStart(loaded_song_id, MM_PLAY_ONCE);
 
     while (1) { 
         key_poll();
+        
+        // If pressed start, pause the game
+        if (key_hit(KEY_START)) {
+            if (paused_routines()) {
+                game_state = STATE_MENU;
+                fade_out();
+                return;
+            }
+        }
         
 #ifdef DEBUG
         if (key_hit(KEY_SELECT)) {
@@ -192,4 +201,32 @@ void game_loop() {
         // Wait for VSYNC
         VBlankIntrWait();
     }
+}
+
+u32 paused_routines() {
+    // Dim screen
+    clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 16);
+    mmPause();
+
+    while (1) {
+        key_poll();
+        
+        // Unpause
+        if (key_hit(KEY_START)) {
+            break;
+        }
+
+        if (key_hit(KEY_B)) {
+            return 1;
+        }
+
+        // Wait for VSYNC
+        VBlankIntrWait();
+    }
+
+    clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 0);
+
+    mmResume();
+
+    return 0;
 }

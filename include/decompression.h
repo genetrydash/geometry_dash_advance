@@ -11,3 +11,4 @@ void screen_scroll_load();
 void reset_level();
 void fade_out();
 void fade_in();
+void fade_in_level();

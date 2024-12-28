@@ -8,18 +8,22 @@
 u16 game_state;
 
 void menu_loop() {
-    // Init OAM and VRAM
-    oam_init(shadow_oam, 128);
+    // Enable BG 0, 1, also enable sprites
+    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_2D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1;
+    REG_BG0HOFS = 0;
+    REG_BG0VOFS = 0;
+    REG_BG1HOFS = 0;
+    REG_BG1VOFS = 0;
+
+    memset32(palette_buffer, 0, 256);
     memcpy16(palette_buffer, menu_palette, sizeof(menu_palette) / sizeof(COLOR));
-    
-    memcpy32(pal_bg_mem, palette_buffer, 256);
 
     // Init PUSAB font
     tte_init_se(
         0,                      // Background number (BG 0)
         BG_CBB(0) | BG_SBB(31), // BG control (for REG_BGxCNT)
         0,                      // Tile offset (special cattr)
-        CLR_WHITE,              // Ink color
+        0,                      // Ink color
         0,                      // BitUnpack offset (on-pixel = 15)
         &pusabFont,             // Default font (sys8)
         NULL);                  // Default renderer (se_drawg_s)
@@ -42,6 +46,12 @@ void menu_loop() {
     tte_write((char *) level_names[loaded_level_id]);
 
     s32 level_id = 0;
+    
+    // Init OAM
+    memset32(shadow_oam, ATTR0_HIDE, 256);
+    obj_copy(oam_mem, shadow_oam, 128);
+
+    fade_in();
     while (1) {
         key_poll();
 #ifdef DEBUG

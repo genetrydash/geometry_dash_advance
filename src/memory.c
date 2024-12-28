@@ -42,4 +42,5 @@ EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
                                +MM_SIZEOF_MIXCH)
                                +MM_MIXLEN_31KHZ];
 
+// 0 : off | 1 : on
 u8 debug_mode = 0;
