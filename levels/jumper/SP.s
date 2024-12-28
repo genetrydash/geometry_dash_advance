@@ -333,32 +333,32 @@ jumper_spr_data:
    .hword 0
 @ Object 54
    .word 0xa40
-   .hword 0x160
-   .hword 0xe
-   .hword 0x0
-   .hword 0
-@ Object 55
-   .word 0xa40
-   .hword 0x1b0
-   .hword 0x5
-   .hword 0x0
-   .hword 0
-@ Object 56
-   .word 0xa50
    .hword 0x100
    .hword 0x3
    .hword 0x4
    .hword 0x681f
    .hword 0x0
    .hword 0x0000
-@ Object 57
-   .word 0xa50
+@ Object 55
+   .word 0xa40
    .hword 0x110
    .hword 0x3
    .hword 0x5
    .hword 0x4013
    .hword 0x0
    .hword 0x0000
+@ Object 56
+   .word 0xa40
+   .hword 0x160
+   .hword 0xe
+   .hword 0x0
+   .hword 0
+@ Object 57
+   .word 0xa40
+   .hword 0x1b0
+   .hword 0x5
+   .hword 0x0
+   .hword 0
 @ Object 58
    .word 0xa70
    .hword 0x1a0

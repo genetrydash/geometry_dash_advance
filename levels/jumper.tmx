@@ -161,14 +161,14 @@
   <object id="706" gid="524" x="2784" y="368" width="16" height="16"/>
   <object id="708" gid="524" x="2736" y="400" width="16" height="16"/>
   <object id="709" gid="524" x="2672" y="416" width="16" height="16"/>
-  <object id="710" gid="516" x="2640" y="256" width="16" height="16">
+  <object id="710" gid="516" x="2624" y="256" width="16" height="16">
    <properties>
     <property name="Channel" value="BG"/>
     <property name="Color" type="color" value="#ffff07d0"/>
     <property name="Frames" type="int" value="0"/>
    </properties>
   </object>
-  <object id="711" gid="516" x="2640" y="272" width="16" height="16">
+  <object id="711" gid="516" x="2624" y="272" width="16" height="16">
    <properties>
     <property name="Channel" value="GROUND"/>
     <property name="Color" type="color" value="#ff990080"/>
