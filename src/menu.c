@@ -45,7 +45,7 @@ void menu_loop() {
     tte_set_pos(8,8);
     tte_write((char *) level_names[loaded_level_id]);
 
-    s32 level_id = 0;
+    s32 level_id = loaded_level_id;
     
     // Init OAM
     memset32(shadow_oam, ATTR0_HIDE, 256);
