@@ -143,7 +143,8 @@ void game_loop() {
         // If pressed start, pause the game
         if (key_hit(KEY_START)) {
             if (paused_routines()) {
-                game_state = STATE_MENU;
+                game_state = STATE_MENU;      
+                memcpy32(palette_buffer, pal_bg_mem, 256);
                 fade_out();
                 return;
             }
