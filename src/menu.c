@@ -9,11 +9,9 @@ u16 game_state;
 
 void menu_loop() {
     // Enable BG 0, 1, also enable sprites
-    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_2D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1;
+    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_2D | DCNT_MODE0 | DCNT_BG0;
     REG_BG0HOFS = 0;
     REG_BG0VOFS = 0;
-    REG_BG1HOFS = 0;
-    REG_BG1VOFS = 0;
 
     memset32(palette_buffer, 0, 256);
     memcpy16(palette_buffer, menu_palette, sizeof(menu_palette) / sizeof(COLOR));
