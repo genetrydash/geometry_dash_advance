@@ -235,6 +235,8 @@ void reset_variables() {
     }
 
     memset32(music_data, 0, sizeof(music_data) / sizeof(u32));
+
+    scale_pulsing_objects();
 }
 
 void load_level(u32 level_ID) {
@@ -332,7 +334,7 @@ void reset_level() {
     oam_init(shadow_oam, 128);
     load_level(loaded_level_id);
 
-    fade_in();
+    fade_in_level();
     
     mmStart(loaded_song_id, MM_PLAY_ONCE);
 }

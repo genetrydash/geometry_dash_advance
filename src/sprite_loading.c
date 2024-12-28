@@ -112,7 +112,7 @@ void scale_pulsing_objects() {
     music_volume <<= 1;
 
     u32 value = CLAMP(0x300 - (music_volume), 0x140, 0x300);
-    obj_aff_scale(&obj_aff_buffer[4], value, value);
+    obj_aff_scale(&obj_aff_buffer[PULSING_OBJECTS_SLOT], value, value);
 }
 
 ARM_CODE void display_objects() {
