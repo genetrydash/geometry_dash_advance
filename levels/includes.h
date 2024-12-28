@@ -42,14 +42,22 @@
 #include "baseafterbase/SP.h"
 #include "baseafterbase/properties.h"
 
+// jumper
+#define jumper_ID 5
+
+#include "jumper/l1.h"
+#include "jumper/l2.h"
+#include "jumper/SP.h"
+#include "jumper/properties.h"
+
 // test
-#define test_ID 5
+#define test_ID 6
 
 #include "test/l1.h"
 #include "test/l2.h"
 #include "test/SP.h"
 #include "test/properties.h"
 
-#define LEVEL_COUNT 6
+#define LEVEL_COUNT 7
 extern const u16 *level_defines[][4];
 extern const u8 *level_names[];
