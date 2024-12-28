@@ -607,7 +607,7 @@ backontrack_spr_data:
    .hword 0x0000
 @ Object 99
    .word 0x1a40
-   .hword 0x150
+   .hword 0x160
    .hword 0x1
    .hword 0x0
    .hword 0
@@ -737,7 +737,7 @@ backontrack_spr_data:
    .hword 0x0000
 @ Object 120
    .word 0x2310
-   .hword 0x158
+   .hword 0x168
    .hword 0x2
    .hword 0x0
    .hword 0

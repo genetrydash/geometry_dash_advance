@@ -66,8 +66,8 @@ const u16 cubePortalSpr[] = {
     ATTR1_SIZE_32x64,
     ATTR2_PALBANK(2) | ATTR2_ID(64),
     -8, // x
-    -8, // y
-    CENTER(8, 24),
+    -24, // y
+    CENTER(8, 8),
     0xffff
 };
 
@@ -76,8 +76,8 @@ const u16 shipPortalSpr[] = {
     ATTR1_SIZE_32x64,
     ATTR2_PALBANK(1) | ATTR2_ID(64),
     -8, // x
-    -8, // y
-    CENTER(8, 24),
+    -24, // y
+    CENTER(8, 8),
     0xffff
 };
 
@@ -86,8 +86,8 @@ const u16 ballPortalSpr[] = {
     ATTR1_SIZE_32x64,
     ATTR2_PALBANK(5) | ATTR2_ID(64),
     -8, // x
-    -8, // y
-    CENTER(8, 24),
+    -24, // y
+    CENTER(8, 8),
     0xffff
 };
 
@@ -96,8 +96,8 @@ const u16 gravityPortalBlueSpr[] = {
     ATTR1_SIZE_32x64,
     ATTR2_PALBANK(3) | ATTR2_ID(80),
     -8, // x
-    -8, // y
-    CENTER(8, 24),
+    -24, // y
+    CENTER(8, 8),
     0xffff
 };
 
@@ -106,8 +106,8 @@ const u16 gravityPortalYellowSpr[] = {
     ATTR1_SIZE_32x64,
     ATTR2_PALBANK(4) | ATTR2_ID(80),
     -8, // x
-    -8, // y
-    CENTER(8, 24),
+    -24, // y
+    CENTER(8, 8),
     0xffff
 };
 

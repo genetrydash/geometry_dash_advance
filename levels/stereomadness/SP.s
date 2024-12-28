@@ -259,7 +259,7 @@ stereomadness_spr_data:
    .hword 0x0000
 @ Object 41
    .word 0x10a0
-   .hword 0x150
+   .hword 0x160
    .hword 0x1
    .hword 0x0
    .hword 0
@@ -413,7 +413,7 @@ stereomadness_spr_data:
    .hword 0x0000
 @ Object 66
    .word 0x1a20
-   .hword 0x158
+   .hword 0x168
    .hword 0x2
    .hword 0x0
    .hword 0
@@ -1041,7 +1041,7 @@ stereomadness_spr_data:
    .hword 0
 @ Object 170
    .word 0x2fc0
-   .hword 0x160
+   .hword 0x170
    .hword 0x1
    .hword 0x0
    .hword 0

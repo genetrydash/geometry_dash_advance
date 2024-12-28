@@ -1049,7 +1049,7 @@ baseafterbase_spr_data:
    .hword 0x0000
 @ Object 172
    .word 0x1cb4
-   .hword 0x152
+   .hword 0x162
    .hword 0x1
    .hword 0x0
    .hword 0
@@ -1269,7 +1269,7 @@ baseafterbase_spr_data:
    .hword 0x0000
 @ Object 208
    .word 0x2570
-   .hword 0x140
+   .hword 0x150
    .hword 0x2
    .hword 0x0
    .hword 0
@@ -1311,7 +1311,7 @@ baseafterbase_spr_data:
    .hword 0
 @ Object 215
    .word 0x2678
-   .hword 0x157
+   .hword 0x168
    .hword 0xf
    .hword 0x0
    .hword 0
@@ -1411,7 +1411,7 @@ baseafterbase_spr_data:
    .hword 0x0000
 @ Object 231
    .word 0x2e20
-   .hword 0x180
+   .hword 0x190
    .hword 0xe
    .hword 0x0
    .hword 0

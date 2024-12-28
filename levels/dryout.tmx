@@ -124,7 +124,7 @@
   <object id="511" gid="520" x="4320" y="432" width="16" height="16"/>
   <object id="512" gid="517" x="4160" y="432" width="16" height="16"/>
   <object id="513" gid="518" x="4224" y="432" width="16" height="16"/>
-  <object id="514" gid="528" x="4672" y="392.53" width="16" height="16"/>
+  <object id="514" gid="528" x="4672" y="408.53" width="16" height="16"/>
   <object id="515" gid="518" x="5312" y="320" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
@@ -235,7 +235,7 @@
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="537" gid="527" x="6855.47" y="363.73" width="16" height="16"/>
+  <object id="537" gid="527" x="6855.47" y="379.73" width="16" height="16"/>
   <object id="538" gid="519" x="7200" y="432" width="16" height="16"/>
   <object id="539" gid="520" x="7232" y="432" width="16" height="16"/>
   <object id="540" gid="524" x="7168" y="416" width="16" height="16"/>
@@ -252,7 +252,7 @@
   <object id="552" gid="521" x="8448" y="352" width="16" height="16"/>
   <object id="553" gid="524" x="8688" y="400" width="16" height="16"/>
   <object id="554" gid="524" x="8928" y="384" width="16" height="16"/>
-  <object id="555" gid="514" x="9069.87" y="347.73" width="16" height="16"/>
+  <object id="555" gid="514" x="9069.87" y="363.73" width="16" height="16"/>
   <object id="556" gid="518" x="9024" y="432" width="16" height="16"/>
   <object id="557" gid="519" x="8896" y="432" width="16" height="16"/>
   <object id="558" gid="520" x="8832" y="432" width="16" height="16"/>
@@ -374,7 +374,7 @@
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="610" gid="515" x="11328" y="344.53" width="16" height="16"/>
+  <object id="610" gid="515" x="11328" y="360" width="16" height="16"/>
   <object id="611" gid="525" x="11744" y="416" width="16" height="16"/>
   <object id="612" gid="521" x="11696" y="336" width="16" height="16"/>
   <object id="613" gid="521" x="11792" y="320" width="16" height="16"/>

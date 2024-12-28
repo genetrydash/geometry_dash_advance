@@ -149,7 +149,7 @@
   <object id="276" gid="521" x="6288" y="336" width="16" height="16"/>
   <object id="277" gid="521" x="6272" y="320" width="16" height="16"/>
   <object id="278" gid="521" x="6224" y="320" width="16" height="16"/>
-  <object id="279" gid="514" x="6720" y="336" width="16" height="16"/>
+  <object id="279" gid="514" x="6720" y="352" width="16" height="16"/>
   <object id="280" gid="517" x="6224" y="432" width="16" height="16"/>
   <object id="281" gid="518" x="6288" y="432" width="16" height="16"/>
   <object id="282" gid="517" x="6336" y="432" width="16" height="16"/>
@@ -175,7 +175,7 @@
   </object>
   <object id="293" gid="523" x="6175" y="368" width="16" height="16"/>
   <object id="296" gid="523" x="6560" y="384" width="16" height="16"/>
-  <object id="299" gid="515" x="8976" y="344" width="16" height="16"/>
+  <object id="299" gid="515" x="8976" y="360" width="16" height="16"/>
   <object id="300" gid="516" x="6720" y="304" width="16" height="16">
    <properties>
     <property name="Channel" value="BG"/>

@@ -219,7 +219,7 @@ jumper_spr_data:
    .hword 0x0000
 @ Object 35
    .word 0x6f0
-   .hword 0x158
+   .hword 0x168
    .hword 0xf
    .hword 0x0
    .hword 0
@@ -333,7 +333,7 @@ jumper_spr_data:
    .hword 0
 @ Object 54
    .word 0xa20
-   .hword 0x150
+   .hword 0x160
    .hword 0xe
    .hword 0x0
    .hword 0
@@ -499,7 +499,7 @@ jumper_spr_data:
    .hword 0
 @ Object 81
    .word 0xde0
-   .hword 0x160
+   .hword 0x170
    .hword 0x1
    .hword 0x0
    .hword 0
@@ -527,7 +527,7 @@ jumper_spr_data:
    .hword 0
 @ Object 85
    .word 0xf98
-   .hword 0x158
+   .hword 0x168
    .hword 0xf
    .hword 0x0
    .hword 0
@@ -553,7 +553,7 @@ jumper_spr_data:
    .hword 0
 @ Object 89
    .word 0x1158
-   .hword 0x158
+   .hword 0x168
    .hword 0xe
    .hword 0x0
    .hword 0
@@ -579,7 +579,7 @@ jumper_spr_data:
    .hword 0
 @ Object 93
    .word 0x12e8
-   .hword 0x158
+   .hword 0x168
    .hword 0xf
    .hword 0x0
    .hword 0
@@ -605,7 +605,7 @@ jumper_spr_data:
    .hword 0
 @ Object 97
    .word 0x14e0
-   .hword 0x158
+   .hword 0x168
    .hword 0x2
    .hword 0x0
    .hword 0
@@ -627,7 +627,7 @@ jumper_spr_data:
    .hword 0x0000
 @ Object 100
    .word 0x14f0
-   .hword 0x158
+   .hword 0x168
    .hword 0xe
    .hword 0x0
    .hword 0
@@ -901,7 +901,7 @@ jumper_spr_data:
    .hword 0
 @ Object 145
    .word 0x1bd0
-   .hword 0x158
+   .hword 0x168
    .hword 0xf
    .hword 0x0
    .hword 0
@@ -923,19 +923,19 @@ jumper_spr_data:
    .hword 0x0000
 @ Object 148
    .word 0x1d50
-   .hword 0x158
+   .hword 0x168
    .hword 0xe
    .hword 0x0
    .hword 0
 @ Object 149
    .word 0x1e88
-   .hword 0x158
+   .hword 0x168
    .hword 0xf
    .hword 0x0
    .hword 0
 @ Object 150
    .word 0x1f60
-   .hword 0x158
+   .hword 0x168
    .hword 0xe
    .hword 0x0
    .hword 0
@@ -1063,7 +1063,7 @@ jumper_spr_data:
    .hword 0x0000
 @ Object 170
    .word 0x22f0
-   .hword 0x158
+   .hword 0x168
    .hword 0x1
    .hword 0x0
    .hword 0
@@ -1109,7 +1109,7 @@ jumper_spr_data:
    .hword 0x0000
 @ Object 176
    .word 0x29f0
-   .hword 0x158
+   .hword 0x168
    .hword 0x2
    .hword 0x0
    .hword 0
@@ -1345,7 +1345,7 @@ jumper_spr_data:
    .hword 0
 @ Object 214
    .word 0x30e0
-   .hword 0x170
+   .hword 0x180
    .hword 0xf
    .hword 0x0
    .hword 0
@@ -1417,7 +1417,7 @@ jumper_spr_data:
    .hword 0x0000
 @ Object 225
    .word 0x3450
-   .hword 0x178
+   .hword 0x188
    .hword 0xe
    .hword 0x0
    .hword 0

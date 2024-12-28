@@ -76,9 +76,9 @@
 </data>
  </layer>
  <objectgroup id="7" name="SP">
-  <object id="7" gid="514" x="4256" y="336" width="16" height="16"/>
-  <object id="8" gid="515" x="6688" y="344" width="16" height="16"/>
-  <object id="9" gid="514" x="12224" y="352" width="16" height="16"/>
+  <object id="7" gid="514" x="4256" y="352" width="16" height="16"/>
+  <object id="8" gid="515" x="6688" y="360" width="16" height="16"/>
+  <object id="9" gid="514" x="12224" y="368" width="16" height="16"/>
   <object id="49" gid="516" x="64" y="384" width="16" height="16">
    <properties>
     <property name="Channel" value="BG"/>

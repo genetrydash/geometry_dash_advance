@@ -10,11 +10,12 @@
 #define YELLOW_PAD_INDEX 1
 #define PINK_ORB_INDEX 2
 #define PINK_PAD_INDEX 3
+#define BLUE_ORB_PAD_INDEX 4
 
-const s32 orb_pad_bounces[][4] = {
-  /* Cube */ {CUBE_YELLOW_ORB_JUMP_SPEED, CUBE_YELLOW_PAD_JUMP_SPEED, CUBE_PINK_ORB_JUMP_SPEED, CUBE_PINK_PAD_JUMP_SPEED},
-  /* Ship */ {SHIP_YELLOW_ORB_JUMP_SPEED, SHIP_YELLOW_PAD_JUMP_SPEED, SHIP_PINK_ORB_JUMP_SPEED, SHIP_PINK_PAD_JUMP_SPEED},
-  /* Ball */ {BALL_YELLOW_ORB_JUMP_SPEED, BALL_YELLOW_PAD_JUMP_SPEED, BALL_PINK_ORB_JUMP_SPEED, BALL_PINK_PAD_JUMP_SPEED},
+const s32 orb_pad_bounces[][5] = {
+  /* Cube */ {CUBE_YELLOW_ORB_JUMP_SPEED, CUBE_YELLOW_PAD_JUMP_SPEED, CUBE_PINK_ORB_JUMP_SPEED, CUBE_PINK_PAD_JUMP_SPEED, CUBE_BLUE_ORB_PAD_INITIAL_SPEED},
+  /* Ship */ {SHIP_YELLOW_ORB_JUMP_SPEED, SHIP_YELLOW_PAD_JUMP_SPEED, SHIP_PINK_ORB_JUMP_SPEED, SHIP_PINK_PAD_JUMP_SPEED, SHIP_BLUE_ORB_PAD_INITIAL_SPEED},
+  /* Ball */ {BALL_YELLOW_ORB_JUMP_SPEED, BALL_YELLOW_PAD_JUMP_SPEED, BALL_PINK_ORB_JUMP_SPEED, BALL_PINK_PAD_JUMP_SPEED, BALL_BLUE_ORB_PAD_INITIAL_SPEED},
 };
 
 void cube_portal(struct ObjectSlot *objectSlot) {
@@ -137,7 +138,7 @@ void blue_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         gravity_dir ^= 1;
         s32 sign = gravity_dir ? -1 : 1;
-        player_y_speed = BLUE_ORB_PAD_INITIAL_SPEED * sign;
+        player_y_speed = orb_pad_bounces[gamemode][BLUE_ORB_PAD_INDEX] * sign;
         objectSlot->activated = TRUE;
         on_floor = FALSE;
         player_buffering = ORB_BUFFER_END;
@@ -147,7 +148,7 @@ void blue_orb(struct ObjectSlot *objectSlot) {
 void blue_pad(struct ObjectSlot *objectSlot) {
     gravity_dir ^= 1;
     s32 sign = gravity_dir ? -1 : 1;
-    player_y_speed = BLUE_ORB_PAD_INITIAL_SPEED * sign;
+    player_y_speed = orb_pad_bounces[gamemode][BLUE_ORB_PAD_INDEX] * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
 }
@@ -211,8 +212,8 @@ const jmp_table routines_jump_table[] = {
 
 const s16 obj_hitbox[][6] = {
     Object_Hitbox("NONE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("SHIP_PORTAL", 18, 46, -2, 1, 8, 24)
-    Object_Hitbox("CUBE_PORTAL", 18, 46, -2, 1, 8, 24)
+    Object_Hitbox("SHIP_PORTAL", 18, 46, -2, -15, 8, 8)
+    Object_Hitbox("CUBE_PORTAL", 18, 46, -2, -15, 8, 8)
     Object_Hitbox("COL_TRIGGER", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("BIG_BG_SPIKES", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("MEDIUM_BG_SPIKES", 0, 0, 0, 0, 0, 0)
@@ -224,8 +225,8 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox("MEDIUM_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("SMALL_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("LARGE_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("BLUE_GRAVITY_PORTAL", 14, 40, 1, 4, 8, 24)
-    Object_Hitbox("YELLOW_GRAVITY_PORTAL", 14, 40, 1, 4, 8, 24)
+    Object_Hitbox("BLUE_GRAVITY_PORTAL", 14, 40, 1, -12, 8, 8)
+    Object_Hitbox("YELLOW_GRAVITY_PORTAL", 14, 40, 1, -12, 8, 8)
     Object_Hitbox("BLUE_ORB", 18, 18, -2, -2, 8, 8)
     Object_Hitbox("BLUE_PAD", 14, 2, 1, 14, 8, 8)
     Object_Hitbox("PINK_ORB", 18, 18, -2, -2, 8, 8)
@@ -236,7 +237,7 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox("PULSING_STAR", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("BIG_BG_CLOUDS", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("SMALL_BG_CLOUDS", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("BALL_PORTAL", 18, 46, -2, 1, 8, 24)
+    Object_Hitbox("BALL_PORTAL", 18, 46, -2, -15, 8, 8)
 };
 
 #undef Object_Hitbox

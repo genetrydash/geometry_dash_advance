@@ -511,7 +511,7 @@ dryout_spr_data:
    .hword 0x0000
 @ Object 82
    .word 0x1240
-   .hword 0x188
+   .hword 0x198
    .hword 0xf
    .hword 0x0
    .hword 0
@@ -761,7 +761,7 @@ dryout_spr_data:
    .hword 0
 @ Object 119
    .word 0x1ac7
-   .hword 0x16b
+   .hword 0x17b
    .hword 0xe
    .hword 0x0
    .hword 0
@@ -909,7 +909,7 @@ dryout_spr_data:
    .hword 0
 @ Object 143
    .word 0x236d
-   .hword 0x15b
+   .hword 0x16b
    .hword 0x1
    .hword 0x0
    .hword 0
@@ -1237,7 +1237,7 @@ dryout_spr_data:
    .hword 0x0000
 @ Object 194
    .word 0x2c40
-   .hword 0x158
+   .hword 0x168
    .hword 0x2
    .hword 0x0
    .hword 0

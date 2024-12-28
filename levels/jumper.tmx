@@ -78,10 +78,10 @@
   <object id="666" gid="523" x="784" y="432" width="16" height="16"/>
   <object id="667" gid="522" x="1664" y="400" width="16" height="16"/>
   <object id="668" gid="522" x="1728" y="376" width="16" height="16"/>
-  <object id="669" gid="528" x="1776" y="344" width="16" height="16"/>
-  <object id="670" gid="527" x="2592" y="336" width="16" height="16"/>
+  <object id="669" gid="528" x="1776" y="360" width="16" height="16"/>
+  <object id="670" gid="527" x="2592" y="352" width="16" height="16"/>
   <object id="672" gid="522" x="2872" y="400" width="16" height="16"/>
-  <object id="673" gid="514" x="3552" y="352" width="16" height="16"/>
+  <object id="673" gid="514" x="3552" y="368" width="16" height="16"/>
   <object id="674" gid="524" x="592" y="336" width="16" height="16"/>
   <object id="675" gid="524" x="448" y="384" width="16" height="16"/>
   <object id="676" gid="524" x="672" y="416" width="16" height="16"/>
@@ -224,7 +224,7 @@
   <object id="758" gid="519" x="3152" y="432" width="16" height="16"/>
   <object id="760" gid="517" x="3216" y="432" width="16" height="16"/>
   <object id="761" gid="518" x="3520" y="432" width="16" height="16"/>
-  <object id="762" gid="528" x="3992" y="344" width="16" height="16"/>
+  <object id="762" gid="528" x="3992" y="360" width="16" height="16"/>
   <object id="764" gid="516" x="3552" y="384" width="16" height="16">
    <properties>
     <property name="Channel" value="BG"/>
@@ -260,10 +260,10 @@
     <property name="Frames" type="int" value="0"/>
    </properties>
   </object>
-  <object id="769" gid="527" x="4440" y="344" width="16" height="16"/>
-  <object id="770" gid="528" x="4840" y="344" width="16" height="16"/>
-  <object id="771" gid="527" x="5360" y="344" width="16" height="16"/>
-  <object id="772" gid="515" x="5344" y="344" width="16" height="16"/>
+  <object id="769" gid="527" x="4440" y="360" width="16" height="16"/>
+  <object id="770" gid="528" x="4840" y="360" width="16" height="16"/>
+  <object id="771" gid="527" x="5360" y="360" width="16" height="16"/>
+  <object id="772" gid="515" x="5344" y="360" width="16" height="16"/>
   <object id="773" gid="524" x="5392" y="400" width="16" height="16"/>
   <object id="774" gid="524" x="5312" y="400" width="16" height="16"/>
   <object id="775" gid="524" x="4400" y="400" width="16" height="16"/>
@@ -368,10 +368,10 @@
     <property name="Frames" type="int" value="600"/>
    </properties>
   </object>
-  <object id="830" gid="528" x="7120" y="344" width="16" height="16"/>
-  <object id="831" gid="527" x="7504" y="344" width="16" height="16"/>
-  <object id="832" gid="528" x="7816" y="344" width="16" height="16"/>
-  <object id="833" gid="527" x="8032" y="344" width="16" height="16"/>
+  <object id="830" gid="528" x="7120" y="360" width="16" height="16"/>
+  <object id="831" gid="527" x="7504" y="360" width="16" height="16"/>
+  <object id="832" gid="528" x="7816" y="360" width="16" height="16"/>
+  <object id="833" gid="527" x="8032" y="360" width="16" height="16"/>
   <object id="834" gid="521" x="7072" y="304" width="16" height="16"/>
   <object id="836" gid="516" x="7136" y="304" width="16" height="16">
    <properties>
@@ -451,8 +451,8 @@
   <object id="887" gid="521" x="11824" y="352" width="16" height="16"/>
   <object id="888" gid="521" x="11808" y="352" width="16" height="16"/>
   <object id="889" gid="523" x="11968" y="384" width="16" height="16"/>
-  <object id="890" gid="528" x="12512" y="368" width="16" height="16"/>
-  <object id="891" gid="527" x="13392" y="376" width="16" height="16"/>
+  <object id="890" gid="528" x="12512" y="384" width="16" height="16"/>
+  <object id="891" gid="527" x="13392" y="392" width="16" height="16"/>
   <object id="892" gid="524" x="12640" y="352" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
@@ -617,8 +617,8 @@
     <property name="Frames" type="int" value="126"/>
    </properties>
   </object>
-  <object id="938" gid="514" x="8944" y="344" width="16" height="16"/>
-  <object id="939" gid="515" x="10736" y="344" width="16" height="16"/>
+  <object id="938" gid="514" x="8944" y="360" width="16" height="16"/>
+  <object id="939" gid="515" x="10736" y="360" width="16" height="16"/>
   <object id="940" gid="521" x="12128" y="352" width="16" height="16"/>
   <object id="941" gid="521" x="12144" y="352" width="16" height="16"/>
  </objectgroup>
