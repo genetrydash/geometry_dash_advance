@@ -17,7 +17,7 @@
 #define GROUND_TILE_B 0xe1
 #define GROUND_TILE_C 0xe2
 
-enum COL_TYPES {
+enum CollisionTypes {
     COL_NONE,
     COL_ALL,
     COL_SPIKE_TOP,

@@ -17,7 +17,7 @@ u32 coll_y;
 // Collision eject
 u32 eject = 0;
 
-enum COL_SIDES {
+enum CollisionSides {
     TOP,
     BOTTOM,
     CENTER
@@ -55,7 +55,7 @@ void collision_cube() {
         do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
 #endif
 
-        if (!gravity_dir) {
+        if (gravity_dir == GRAVITY_DOWN) {
             if (player_y_speed >= 0) {
                 // Going down
                 coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
@@ -355,7 +355,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     if (side == TOP) {
         s32 eject_value = (eject | 0xfffffff8) << SUBPIXEL_BITS;
         if (eject_value >= -(0x06 << SUBPIXEL_BITS)) {
-            if (gravity_dir) {
+            if (gravity_dir == GRAVITY_UP) {
                 // We are resting on the ceiling so allow jumping and stuff
                 on_floor = 1;
             }
@@ -369,7 +369,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     } else if (side == BOTTOM) {   
         s32 eject_value = eject << SUBPIXEL_BITS;
         if (eject_value < (0x06 << SUBPIXEL_BITS)) {
-            if (!gravity_dir) {
+            if (gravity_dir == GRAVITY_DOWN) {
                 // We are resting on the floor so allow jumping and stuff
                 on_floor = 1;
             }

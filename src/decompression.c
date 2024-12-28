@@ -209,7 +209,7 @@ void reset_variables() {
     player_x = 0;  
     relative_player_x = 0;
     player_y_speed = 0;
-    gravity_dir = 0;
+    gravity_dir = GRAVITY_DOWN;
     coll_x = 0;
     coll_y = 0;
     player_death = FALSE;

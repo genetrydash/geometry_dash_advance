@@ -37,14 +37,14 @@ void ball_portal(struct ObjectSlot *objectSlot) {
 }
 
 void blue_gravity_portal(struct ObjectSlot *objectSlot) {
-    gravity_dir = 0;
-    player_y_speed /= 2;
+    if (gravity_dir == GRAVITY_UP) player_y_speed /= 2;
+    gravity_dir = GRAVITY_DOWN;
     objectSlot->activated = TRUE;
 }
 
 void yellow_gravity_portal(struct ObjectSlot *objectSlot) {
-    gravity_dir = 1;
-    player_y_speed /= 2;
+    if (gravity_dir == GRAVITY_DOWN) player_y_speed /= 2;
+    gravity_dir = GRAVITY_UP;
     objectSlot->activated = TRUE;
 }
 
@@ -122,7 +122,7 @@ void col_trigger(struct ObjectSlot *objectSlot) {
 
 void yellow_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
-        s32 sign = gravity_dir ? 1 : -1;
+        s32 sign = (gravity_dir == GRAVITY_UP) ? 1 : -1;
         player_y_speed = orb_pad_bounces[gamemode][YELLOW_ORB_INDEX] * sign;
         objectSlot->activated = TRUE;
         on_floor = FALSE;
@@ -131,7 +131,7 @@ void yellow_orb(struct ObjectSlot *objectSlot) {
 }
 
 void yellow_pad(struct ObjectSlot *objectSlot) {
-    s32 sign = gravity_dir ? 1 : -1;
+    s32 sign = (gravity_dir == GRAVITY_UP) ? 1 : -1;
     player_y_speed = orb_pad_bounces[gamemode][YELLOW_PAD_INDEX] * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
@@ -140,7 +140,7 @@ void yellow_pad(struct ObjectSlot *objectSlot) {
 void blue_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         gravity_dir ^= 1;
-        s32 sign = gravity_dir ? -1 : 1;
+        s32 sign = (gravity_dir == GRAVITY_UP) ? -1 : 1;
         player_y_speed = orb_pad_bounces[gamemode][BLUE_ORB_PAD_INDEX] * sign;
         objectSlot->activated = TRUE;
         on_floor = FALSE;
@@ -150,7 +150,7 @@ void blue_orb(struct ObjectSlot *objectSlot) {
 
 void blue_pad(struct ObjectSlot *objectSlot) {
     gravity_dir ^= 1;
-    s32 sign = gravity_dir ? -1 : 1;
+    s32 sign = (gravity_dir == GRAVITY_UP) ? -1 : 1;
     player_y_speed = orb_pad_bounces[gamemode][BLUE_ORB_PAD_INDEX] * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
@@ -159,7 +159,7 @@ void blue_pad(struct ObjectSlot *objectSlot) {
 
 void pink_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
-        s32 sign = gravity_dir ? 1 : -1;
+        s32 sign = (gravity_dir == GRAVITY_UP) ? 1 : -1;
         player_y_speed = orb_pad_bounces[gamemode][PINK_ORB_INDEX] * sign;
         objectSlot->activated = TRUE;
         on_floor = FALSE;
@@ -168,7 +168,7 @@ void pink_orb(struct ObjectSlot *objectSlot) {
 }
 
 void pink_pad(struct ObjectSlot *objectSlot) {
-    s32 sign = gravity_dir ? 1 : -1;
+    s32 sign = (gravity_dir == GRAVITY_UP) ? 1 : -1;
     player_y_speed = orb_pad_bounces[gamemode][PINK_PAD_INDEX] * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;

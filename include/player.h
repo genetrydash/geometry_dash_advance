@@ -3,7 +3,7 @@
 #define NUM_STEPS 4
 
 // Gamemode IDs
-enum GAMEMODE_TYPE {
+enum GamemodeType {
     CUBE,
     SHIP,
     BALL,
@@ -11,13 +11,18 @@ enum GAMEMODE_TYPE {
 };
 
 // Portal speed IDs
-enum SPEEDS {
+enum SpeedID {
     SPEED_X05,
     SPEED_X1,
     SPEED_X2,
     SPEED_X3,
     SPEED_X4,
     NUM_SPEEDS
+};
+
+enum GravityDir {
+    GRAVITY_DOWN,
+    GRAVITY_UP
 };
 
 extern u64 player_x;
