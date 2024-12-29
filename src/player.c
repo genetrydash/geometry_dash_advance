@@ -23,7 +23,10 @@ s16 gravity;
 // Direction of the gravity. 0 : down, 1 : up
 u8 gravity_dir;
 
-// 0 : alive , 1 : death
+// 0 : big, 1 : mini
+u8 player_size = 0;
+
+// 0 : alive, 1 : death
 u8 player_death;
 
 // 0 : on air, 1 : on floor
@@ -33,7 +36,7 @@ u8 on_floor;
 u8 player_buffering;
 
 // Current player gamemode
-u8 gamemode = CUBE;
+u8 gamemode = GAMEMODE_CUBE;
 
 // Cube rotation angle
 u16 cube_rotation = 0;
@@ -57,6 +60,7 @@ u8 speed_id = SPEED_X1;
 // Draw player
 u8 x_offset;
 u8 y_offset;
+
 
 
 #define TOP_SCROLL_Y 0x2c
@@ -94,25 +98,40 @@ void player_main() {
     
     // Gamemode specific routines
     switch (gamemode) {
-        case CUBE:
+        case GAMEMODE_CUBE:
             cube_gamemode();
             break;
-        case SHIP:
+        case GAMEMODE_SHIP:
             ship_gamemode();
             break;
-        case BALL:
+        case GAMEMODE_BALL:
             ball_gamemode();
             break;
     }
     obj_aff_identity(&obj_aff_buffer[0]);
 
-    obj_aff_rotate(&obj_aff_buffer[0], cube_rotation);
+    #define scale_inv(s) ((1<<24)/s)>>8
+    
+    // Change sprite size depending on player size
+    if (player_size == SIZE_BIG) {
+        obj_aff_rotate(&obj_aff_buffer[0], cube_rotation);
+    } else {
+        obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
+    }
+
+    #undef scale_inv
 }
 
 void cube_gamemode() {
+    if (player_size == SIZE_BIG) {
+        player_width = CUBE_WIDTH;
+        player_height = CUBE_HEIGHT;
+    } else {
+        player_width = MINI_CUBE_WIDTH;
+        player_height = MINI_CUBE_HEIGHT;
+    }
+
     gravity = CUBE_GRAVITY;
-    player_width = CUBE_WIDTH;
-    player_height = CUBE_HEIGHT;
 
     s8 sign = gravity_dir ? -1 : 1;
 
@@ -127,7 +146,11 @@ void cube_gamemode() {
    
     // If on floor and holding A or UP, jump
     if (on_floor && key_held(KEY_A | KEY_UP)) {
-        player_y_speed = -CUBE_JUMP_SPEED * sign;     
+        if (player_size == SIZE_BIG) {
+            player_y_speed = -CUBE_JUMP_SPEED * sign;     
+        } else {
+            player_y_speed = -CUBE_MINI_JUMP_SPEED * sign;     
+        }
         player_buffering = ORB_BUFFER_END;
     }
 
@@ -181,9 +204,15 @@ void cube_gamemode() {
 }
 
 void ship_gamemode() {
-    player_width = SHIP_WIDTH;
-    player_height = SHIP_HEIGHT;
-    gravity = SHIP_GRAVITY;
+    if (player_size == SIZE_BIG) {
+        player_width = SHIP_WIDTH;
+        player_height = SHIP_HEIGHT;
+    } else {
+        player_width = MINI_SHIP_WIDTH;
+        player_height = MINI_SHIP_HEIGHT;
+    }
+
+    gravity = (player_size == SIZE_BIG) ? SHIP_GRAVITY : SHIP_MINI_GRAVITY;
 
     s8 sign = gravity_dir ? -1 : 1;
 
@@ -254,8 +283,14 @@ void ship_gamemode() {
 }
 
 void ball_gamemode() {
-    player_width = BALL_WIDTH;
-    player_height = BALL_HEIGHT;
+    if (player_size == SIZE_BIG) {
+        player_width = BALL_WIDTH;
+        player_height = BALL_HEIGHT;
+    } else {
+        player_width = MINI_BALL_WIDTH;
+        player_height = MINI_BALL_HEIGHT;
+    }
+
     gravity = BALL_GRAVITY;
 
     s8 sign = (gravity_dir == GRAVITY_UP) ? -1 : 1;

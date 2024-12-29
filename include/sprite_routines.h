@@ -46,6 +46,9 @@ enum ObjTypes {
 
     PULSING_SQUARE,
 
+    MINI_PORTAL,
+    BIG_PORTAL,
+
     OBJ_COUNT
 };
 

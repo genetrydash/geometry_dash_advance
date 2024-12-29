@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="436">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="439">
  <editorsettings>
   <export target="test.json" format="json"/>
  </editorsettings>
@@ -100,5 +100,6 @@
   <object id="433" gid="522" x="336" y="400" width="16" height="16"/>
   <object id="434" gid="532" x="656" y="432" width="16" height="16"/>
   <object id="435" gid="531" x="704" y="432" width="16" height="16"/>
+  <object id="437" gid="541" x="160" y="368" width="16" height="16"/>
  </objectgroup>
 </map>

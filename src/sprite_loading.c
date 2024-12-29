@@ -191,8 +191,8 @@ void check_obj_collision(u32 index) {
     u32 obj_x = curr_object.x + offset_x;
     u32 obj_y = curr_object.y + offset_y;
 
-    u32 ply_x = player_x >> SUBPIXEL_BITS;
-    u32 ply_y = player_y >> SUBPIXEL_BITS;
+    u32 ply_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
+    u32 ply_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
 
     if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
         // Check if a collision has happened

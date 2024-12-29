@@ -111,6 +111,27 @@ const u16 gravityPortalYellowSpr[] = {
     0xffff
 };
 
+const u16 sizePortalPinkSpr[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_32x64,
+    ATTR2_PALBANK(1) | ATTR2_ID(84),
+    -8, // x
+    -24, // y
+    CENTER(8, 8),
+    0xffff
+};
+
+
+const u16 sizePortalGreenSpr[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_32x64,
+    ATTR2_PALBANK(1) | ATTR2_ID(84),
+    -8, // x
+    -24, // y
+    CENTER(8, 8),
+    0xffff
+};
+
 // Orbs and pads
 
 const u16 yellowOrbSpr[] = {
@@ -218,7 +239,7 @@ const u16 tinyBgSpikesSpr[] = {
 const u16 bigBgCloudSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_ID(84) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(0) | ATTR2_ID(304) | ATTR2_PRIO(1),
     -24,   // x
     -10,   // y
     CENTER(8, 8),
@@ -375,6 +396,8 @@ const u16 *obj_sprites[] = {
     smallBgCloudSpr,
     ballPortalSpr,
     squarePulsingSpr,
+    sizePortalPinkSpr,
+    sizePortalGreenSpr,
 };
 
 const u8 spr_width_height_table[] = {

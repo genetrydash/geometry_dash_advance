@@ -12,27 +12,33 @@
 #define PINK_PAD_INDEX 3
 #define BLUE_ORB_PAD_INDEX 4
 
-const s32 orb_pad_bounces[][5] = {
-  /* Cube */ {CUBE_YELLOW_ORB_JUMP_SPEED, CUBE_YELLOW_PAD_JUMP_SPEED, CUBE_PINK_ORB_JUMP_SPEED, CUBE_PINK_PAD_JUMP_SPEED, CUBE_BLUE_ORB_PAD_INITIAL_SPEED},
-  /* Ship */ {SHIP_YELLOW_ORB_JUMP_SPEED, SHIP_YELLOW_PAD_JUMP_SPEED, SHIP_PINK_ORB_JUMP_SPEED, SHIP_PINK_PAD_JUMP_SPEED, SHIP_BLUE_ORB_PAD_INITIAL_SPEED},
-  /* Ball */ {BALL_YELLOW_ORB_JUMP_SPEED, BALL_YELLOW_PAD_JUMP_SPEED, BALL_PINK_ORB_JUMP_SPEED, BALL_PINK_PAD_JUMP_SPEED, BALL_BLUE_ORB_PAD_INITIAL_SPEED},
+const s32 orb_pad_bounces[][GAMEMODE_COUNT][5] = {
+    { // Big
+        /* Cube */ {CUBE_YELLOW_ORB_JUMP_SPEED, CUBE_YELLOW_PAD_JUMP_SPEED, CUBE_PINK_ORB_JUMP_SPEED, CUBE_PINK_PAD_JUMP_SPEED, CUBE_BLUE_ORB_PAD_INITIAL_SPEED},
+        /* Ship */ {SHIP_YELLOW_ORB_JUMP_SPEED, SHIP_YELLOW_PAD_JUMP_SPEED, SHIP_PINK_ORB_JUMP_SPEED, SHIP_PINK_PAD_JUMP_SPEED, SHIP_BLUE_ORB_PAD_INITIAL_SPEED},
+        /* Ball */ {BALL_YELLOW_ORB_JUMP_SPEED, BALL_YELLOW_PAD_JUMP_SPEED, BALL_PINK_ORB_JUMP_SPEED, BALL_PINK_PAD_JUMP_SPEED, BALL_BLUE_ORB_PAD_INITIAL_SPEED},
+    }, { // Mini
+        /* Cube */ {CUBE_MINI_YELLOW_ORB_JUMP_SPEED, CUBE_MINI_YELLOW_PAD_JUMP_SPEED, CUBE_MINI_PINK_ORB_JUMP_SPEED, CUBE_MINI_PINK_PAD_JUMP_SPEED, CUBE_BLUE_ORB_PAD_INITIAL_SPEED},
+        /* Ship */ {SHIP_MINI_YELLOW_ORB_JUMP_SPEED, SHIP_MINI_YELLOW_PAD_JUMP_SPEED, SHIP_MINI_PINK_ORB_JUMP_SPEED, SHIP_MINI_PINK_PAD_JUMP_SPEED, SHIP_BLUE_ORB_PAD_INITIAL_SPEED},
+        /* Ball */ {BALL_MINI_YELLOW_ORB_JUMP_SPEED, BALL_MINI_YELLOW_PAD_JUMP_SPEED, BALL_MINI_PINK_ORB_JUMP_SPEED, BALL_MINI_PINK_PAD_JUMP_SPEED, BALL_BLUE_ORB_PAD_INITIAL_SPEED},
+    }
 };
 
 void cube_portal(struct ObjectSlot *objectSlot) {
-    if (gamemode != CUBE) player_y_speed /= 2;
-    gamemode = CUBE;
+    if (gamemode != GAMEMODE_CUBE) player_y_speed /= 2;
+    gamemode = GAMEMODE_CUBE;
     objectSlot->activated = TRUE;
 }
 
 void ship_portal(struct ObjectSlot *objectSlot) {
-    if (gamemode != SHIP) player_y_speed /= 2;
-    gamemode = SHIP;
+    if (gamemode != GAMEMODE_SHIP) player_y_speed /= 2;
+    gamemode = GAMEMODE_SHIP;
     objectSlot->activated = TRUE;
 }
 
 void ball_portal(struct ObjectSlot *objectSlot) {
-    if (gamemode != BALL) player_y_speed /= 2;
-    gamemode = BALL;
+    if (gamemode != GAMEMODE_BALL) player_y_speed /= 2;
+    gamemode = GAMEMODE_BALL;
     objectSlot->activated = TRUE;
 }
 
@@ -51,6 +57,16 @@ void yellow_gravity_portal(struct ObjectSlot *objectSlot) {
     ball_rotation_direction = (gravity_dir == GRAVITY_DOWN) ? 1 : -1;
 
     gravity_dir = GRAVITY_UP;
+    objectSlot->activated = TRUE;
+}
+
+void mini_portal(struct ObjectSlot *objectSlot) {
+    player_size = SIZE_MINI;
+    objectSlot->activated = TRUE;
+}
+
+void big_portal(struct ObjectSlot *objectSlot) {
+    player_size = SIZE_BIG;
     objectSlot->activated = TRUE;
 }
 
@@ -129,7 +145,7 @@ void col_trigger(struct ObjectSlot *objectSlot) {
 void yellow_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         s32 sign = (gravity_dir == GRAVITY_UP) ? 1 : -1;
-        player_y_speed = orb_pad_bounces[gamemode][YELLOW_ORB_INDEX] * sign;
+        player_y_speed = orb_pad_bounces[player_size][gamemode][YELLOW_ORB_INDEX] * sign;
  
         ball_rotation_direction = sign;
 
@@ -141,7 +157,7 @@ void yellow_orb(struct ObjectSlot *objectSlot) {
 
 void yellow_pad(struct ObjectSlot *objectSlot) {
     s32 sign = (gravity_dir == GRAVITY_UP) ? 1 : -1;
-    player_y_speed = orb_pad_bounces[gamemode][YELLOW_PAD_INDEX] * sign;
+    player_y_speed = orb_pad_bounces[player_size][gamemode][YELLOW_PAD_INDEX] * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
 }
@@ -153,7 +169,7 @@ void blue_orb(struct ObjectSlot *objectSlot) {
 
         ball_rotation_direction = sign;
         
-        player_y_speed = orb_pad_bounces[gamemode][BLUE_ORB_PAD_INDEX] * sign;
+        player_y_speed = orb_pad_bounces[player_size][gamemode][BLUE_ORB_PAD_INDEX] * sign;
         objectSlot->activated = TRUE;
         on_floor = FALSE;
         player_buffering = ORB_BUFFER_END;
@@ -166,7 +182,7 @@ void blue_pad(struct ObjectSlot *objectSlot) {
 
     ball_rotation_direction = sign;
 
-    player_y_speed = orb_pad_bounces[gamemode][BLUE_ORB_PAD_INDEX] * sign;
+    player_y_speed = orb_pad_bounces[player_size][gamemode][BLUE_ORB_PAD_INDEX] * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
 }
@@ -175,7 +191,7 @@ void blue_pad(struct ObjectSlot *objectSlot) {
 void pink_orb(struct ObjectSlot *objectSlot) {
     if (player_buffering == ORB_BUFFER_READY) {
         s32 sign = (gravity_dir == GRAVITY_UP) ? 1 : -1;
-        player_y_speed = orb_pad_bounces[gamemode][PINK_ORB_INDEX] * sign;
+        player_y_speed = orb_pad_bounces[player_size][gamemode][PINK_ORB_INDEX] * sign;
         
         ball_rotation_direction = sign;
         
@@ -187,7 +203,7 @@ void pink_orb(struct ObjectSlot *objectSlot) {
 
 void pink_pad(struct ObjectSlot *objectSlot) {
     s32 sign = (gravity_dir == GRAVITY_UP) ? 1 : -1;
-    player_y_speed = orb_pad_bounces[gamemode][PINK_PAD_INDEX] * sign;
+    player_y_speed = orb_pad_bounces[player_size][gamemode][PINK_PAD_INDEX] * sign;
     on_floor = FALSE;
     objectSlot->activated = TRUE;
 }
@@ -226,6 +242,8 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     ball_portal,
     do_nothing,
+    mini_portal,
+    big_portal,
 };
 
 // In pixels
@@ -259,6 +277,8 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox("BIG_BG_CLOUDS", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("SMALL_BG_CLOUDS", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("BALL_PORTAL", 18, 46, -2, -15, 8, 8)
+    Object_Hitbox("MINI_PORTAL", 16, 48, 0, -16, 8, 8)
+    Object_Hitbox("BIG_PORTAL",  16, 48, 0, -16, 8, 8)
 };
 
 #undef Object_Hitbox

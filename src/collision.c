@@ -23,6 +23,9 @@ enum CollisionSides {
     CENTER
 };
 
+#define INTERNAL_HITBOX_WIDTH 4
+#define INTERNAL_HITBOX_HEIGHT 4
+
 u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
 void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
 void do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
@@ -49,10 +52,13 @@ void collision_cube() {
         coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
 
+        u32 calculated_hitbox_x = coll_x + ((player_width - INTERNAL_HITBOX_WIDTH) >> 1);
+        u32 calculated_hitbox_y = coll_y + ((player_height - INTERNAL_HITBOX_HEIGHT) >> 1);
+
 #ifdef DEBUG
-        if (!debug_mode) do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
+        if (!debug_mode) do_center_checks(calculated_hitbox_x, calculated_hitbox_y, INTERNAL_HITBOX_WIDTH, INTERNAL_HITBOX_HEIGHT, layer);
 #else
-        do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
+        do_center_checks(calculated_hitbox_x, calculated_hitbox_y, INTERNAL_HITBOX_WIDTH, INTERNAL_HITBOX_HEIGHT, layer);
 #endif
 
         if (gravity_dir == GRAVITY_DOWN) {
@@ -105,11 +111,14 @@ void collision_ship() {
         // Do center hitbox checks
         coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
+        
+        u32 calculated_hitbox_x = coll_x + ((player_width - INTERNAL_HITBOX_WIDTH) >> 1);
+        u32 calculated_hitbox_y = coll_y + ((player_height - INTERNAL_HITBOX_HEIGHT) >> 1);
 
 #ifdef DEBUG
-        if (!debug_mode) do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
+        if (!debug_mode) do_center_checks(calculated_hitbox_x, calculated_hitbox_y, INTERNAL_HITBOX_WIDTH, INTERNAL_HITBOX_HEIGHT, layer);
 #else
-        do_center_checks(coll_x + 5, coll_y + 5, 4, 4, layer);
+        do_center_checks(calculated_hitbox_x, calculated_hitbox_y, INTERNAL_HITBOX_WIDTH, INTERNAL_HITBOX_HEIGHT, layer);
 #endif
 
         if (player_y_speed >= 0) {

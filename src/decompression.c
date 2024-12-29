@@ -209,6 +209,7 @@ void reset_variables() {
     player_x = 0;  
     relative_player_x = 0;
     player_y_speed = 0;
+    player_size = SIZE_BIG;
     gravity_dir = GRAVITY_DOWN;
     coll_x = 0;
     coll_y = 0;
@@ -256,7 +257,7 @@ void load_level(u32 level_ID) {
     // Limit values to safe values
     if (loaded_song_id >= MSL_NSONGS) loaded_song_id = 0;
     if (curr_level_height >= MAX_LEVEL_HEIGHT) curr_level_height = MAX_LEVEL_HEIGHT - 1;
-    if (gamemode >= GAMEMODE_COUNT) gamemode = CUBE;
+    if (gamemode >= GAMEMODE_COUNT) gamemode = GAMEMODE_CUBE;
     if (speed_id >= NUM_SPEEDS) speed_id = SPEED_X1;
 
     // Put player on the ground

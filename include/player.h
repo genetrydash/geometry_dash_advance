@@ -4,9 +4,9 @@
 
 // Gamemode IDs
 enum GamemodeType {
-    CUBE,
-    SHIP,
-    BALL,
+    GAMEMODE_CUBE,
+    GAMEMODE_SHIP,
+    GAMEMODE_BALL,
     GAMEMODE_COUNT
 };
 
@@ -25,6 +25,11 @@ enum GravityDir {
     GRAVITY_UP
 };
 
+enum PlayerSize {
+    SIZE_BIG,
+    SIZE_MINI
+};
+
 extern u64 player_x;
 extern u64 player_y;
 
@@ -39,6 +44,8 @@ extern s32 player_y_speed;
 
 extern s16 gravity;
 extern u8 gravity_dir;
+
+extern u8 player_size;
 
 extern u8 player_death;
 
