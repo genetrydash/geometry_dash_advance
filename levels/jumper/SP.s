@@ -604,7 +604,7 @@ jumper_spr_data:
    .hword 0x0
    .hword 0
 @ Object 97
-   .word 0x1500
+   .word 0x1504
    .hword 0x168
    .hword 0x2
    .hword 0x0
