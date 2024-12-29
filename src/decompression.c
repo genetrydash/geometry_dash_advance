@@ -334,7 +334,8 @@ void reset_level() {
 
     // Display objects so they are saved into the buffer
     display_objects();
-    
+    scale_pulsing_objects();
+
     update_flags &= ~CLEAR_OAM_BUFFER;
 
     // Wait a bit before fading
