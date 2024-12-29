@@ -44,6 +44,9 @@ void set_bg_color(COLOR *dst, COLOR color) {
         blend_bg_and_obj(dst, pal);
         blend_bg_and_col(dst, pal);
     }
+
+    // Copy first palette to last palette of sprites
+    memcpy16(&dst[0x1f0], &dst[0x00], 0x0a);
     
     // Portal colors also have a glow on them
     clr_blend(&dst[0], &dst[0x112], &dst[0x117], 1, 0x0f);
