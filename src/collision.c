@@ -200,36 +200,20 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
         switch (col_type) {
             // Normal spikes
             case COL_SPIKE_TOP:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x06, spk_y + 0x04, 0x03, 0x06
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-
             case COL_SPIKE_BOTTOM:
                 if (is_colliding(
                     x, y, width, height,
-                    spk_x + 0x06, spk_y + 0x05, 0x03, 0x06
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-
-            case COL_SPIKE_RIGHT:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x04, spk_y + 0x06, 0x03, 0x06
+                    spk_x + 0x07, spk_y + 0x05, 0x02, 0x06
                 )) {
                     player_death = TRUE;  
                 }
                 break;
             
+            case COL_SPIKE_RIGHT:
             case COL_SPIKE_LEFT:
                 if (is_colliding(
                     x, y, width, height,
-                    spk_x + 0x05, spk_y + 0x06, 0x03, 0x06
+                    spk_x + 0x05, spk_y + 0x07, 0x06, 0x02
                 )) {
                     player_death = TRUE;  
                 }

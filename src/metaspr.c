@@ -125,7 +125,7 @@ const u16 sizePortalPinkSpr[] = {
 const u16 sizePortalGreenSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_32x64,
-    ATTR2_PALBANK(1) | ATTR2_ID(84),
+    ATTR2_PALBANK(2) | ATTR2_ID(84),
     -8, // x
     -24, // y
     CENTER(8, 8),

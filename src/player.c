@@ -197,9 +197,13 @@ void cube_gamemode() {
 
     relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
     relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
-
-    x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 9 : 8);
-    y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 9 : 8);
+    if (player_size == SIZE_BIG) {
+        x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 9 : 8);
+        y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 9 : 8);
+    } else {
+        x_offset = 9;
+        y_offset = 9;
+    }
     oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0);
 }
 
