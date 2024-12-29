@@ -47,6 +47,7 @@ void set_bg_color(COLOR *dst, COLOR color) {
     clr_blend(&dst[0], &dst[0x122], &dst[0x127], 1, 0x0f);
     clr_blend(&dst[0], &dst[0x132], &dst[0x137], 1, 0x0f);
     clr_blend(&dst[0], &dst[0x142], &dst[0x147], 1, 0x0f);
+    clr_blend(&dst[0], &dst[0x152], &dst[0x157], 1, 0x0f);
 }
 
 void set_obj_color(COLOR *dst, COLOR color) {
