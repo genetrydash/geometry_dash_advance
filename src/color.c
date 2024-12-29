@@ -1,10 +1,13 @@
 #include "color.h"
 #include "sprite_loading.h"
 #include "memory.h"
+#include "chr.h"
 
 #define BG_COLOR  0x00
 #define OBJ_COLOR 0x0A
 #define COLOR_ID_COL 0x0E
+
+#define BG_OBJ_GLOW 0x117
 
 #define BG_OBJ_BLENDING_1 0x08
 #define BG_OBJ_BLENDING_2 0x09
@@ -44,10 +47,11 @@ void set_bg_color(COLOR *dst, COLOR color) {
     
     // Portal colors also have a glow on them
     clr_blend(&dst[0], &dst[0x112], &dst[0x117], 1, 0x0f);
-    clr_blend(&dst[0], &dst[0x122], &dst[0x127], 1, 0x0f);
-    clr_blend(&dst[0], &dst[0x132], &dst[0x137], 1, 0x0f);
-    clr_blend(&dst[0], &dst[0x142], &dst[0x147], 1, 0x0f);
-    clr_blend(&dst[0], &dst[0x152], &dst[0x157], 1, 0x0f);
+
+    u32 loops = (BG_OBJ_GLOW + 0x10) + ((NUM_PORTAL_PALETTES - 1) << 4);
+    for (u32 pal = (BG_OBJ_GLOW + 0x10) ; pal < loops; pal += 0x10) {
+        dst[pal] = dst[BG_OBJ_GLOW]; 
+    }
 }
 
 void set_obj_color(COLOR *dst, COLOR color) {
