@@ -367,6 +367,107 @@ const u16 squarePulsingSpr[] = {
     0xffff,
 };
 
+// Spikes
+const u16 spike_V[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(15) | ATTR2_ID(384),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 spike_H[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(15) | ATTR2_ID(386),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 halfSpike_V[] = {
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_8x16,
+    ATTR2_PALBANK(15) | ATTR2_ID(388),
+    0, // x
+    8, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 halfSpike_H[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x8,
+    ATTR2_PALBANK(15) | ATTR2_ID(390),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 mediumSpike_V[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(15) | ATTR2_ID(392),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 mediumSpike_H[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(15) | ATTR2_ID(394),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 groundSpike_V[] = {
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_8x16,
+    ATTR2_PALBANK(15) | ATTR2_ID(420),
+    0, // x
+    8, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 groundSpike_H[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x8,
+    ATTR2_PALBANK(15) | ATTR2_ID(391),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 groundWavySpike_V[] = {
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_8x16,
+    ATTR2_PALBANK(15) | ATTR2_ID(352),
+    0, // x
+    8, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 groundWavySpike_H[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x8,
+    ATTR2_PALBANK(15) | ATTR2_ID(396),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+    0xffff,
+};
+
 const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -398,6 +499,18 @@ const u16 *obj_sprites[] = {
     squarePulsingSpr,
     sizePortalPinkSpr,
     sizePortalGreenSpr,
+
+    // Spikes
+    spike_V,
+    spike_H,
+    halfSpike_V,
+    halfSpike_H,
+    mediumSpike_V,
+    mediumSpike_H,
+    groundSpike_V,
+    groundSpike_H,
+    groundWavySpike_V,
+    groundWavySpike_H,
 };
 
 const u8 spr_width_height_table[] = {

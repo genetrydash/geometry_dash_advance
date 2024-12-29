@@ -213,6 +213,11 @@ void do_nothing(UNUSED struct ObjectSlot *objectSlot) {
     // No routine defined
 }
 
+void kill_player(struct ObjectSlot *objectSlot) {
+    player_death = TRUE;
+    objectSlot->activated = TRUE;
+}
+
 const jmp_table routines_jump_table[] = {
     do_nothing,
     ship_portal,
@@ -244,6 +249,20 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     mini_portal,
     big_portal,
+
+    // Spikes
+    
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+
 };
 
 // In pixels
@@ -280,6 +299,17 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox("PULSING_SQUARE", 0, 0, 0, 0, 0, 0)
     Object_Hitbox("MINI_PORTAL", 16, 48, 0, -16, 8, 8)
     Object_Hitbox("BIG_PORTAL",  16, 48, 0, -16, 8, 8)
+
+    Object_Hitbox("SPIKE_V", 2, 6, 7, 5, 8, 8)
+    Object_Hitbox("SPIKE_H", 6, 2, 5, 7, 8, 8)
+    Object_Hitbox("HALF_SPIKE_V", 4, 3, 6, 12, 8, 8)
+    Object_Hitbox("HALF_SPIKE_H", 3, 4, 2, 6, 8, 8)
+    Object_Hitbox("MEDIUM_SPIKE_V", 2, 4, 7, 9, 8, 8)
+    Object_Hitbox("MEDIUM_SPIKE_H", 4, 2, 2, 7, 8, 8)
+    Object_Hitbox("GROUND_SPIKE_V", 4, 3, 6, 12, 8, 8)
+    Object_Hitbox("GROUND_SPIKE_H", 3, 4, 2, 6, 8, 8)
+    Object_Hitbox("GROUND_WAVY_SPIKE_V", 4, 3, 6, 12, 8, 8)
+    Object_Hitbox("GROUND_WAVY_SPIKE_H", 3, 4, 2, 6, 8, 8)
 };
 
 #undef Object_Hitbox

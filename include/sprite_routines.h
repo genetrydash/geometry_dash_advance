@@ -49,6 +49,18 @@ enum ObjTypes {
     MINI_PORTAL,
     BIG_PORTAL,
 
+    SPIKE_V,
+    SPIKE_H,
+    HALF_SPIKE_V,
+    HALF_SPIKE_H,
+    MEDIUM_SPIKE_V,
+    MEDIUM_SPIKE_H,
+    GROUND_SPIKE_V,
+    GROUND_SPIKE_H,
+    GROUND_WAVY_SPIKE_V,
+    GROUND_WAVY_SPIKE_H,
+
+
     OBJ_COUNT
 };
 
