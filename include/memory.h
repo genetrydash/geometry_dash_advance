@@ -1,3 +1,5 @@
+#pragma once
+
 #include <tonc.h>
 #include <maxmod.h>
 #include "sprite_loading.h"
@@ -49,3 +51,15 @@ extern EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
 extern u8 debug_mode;
 
 extern u8 paused;
+
+enum UpdateFlags {
+    UPDATE_NONE,
+    UPDATE_OAM          = (1 << 0),
+    CLEAR_OAM_BUFFER    = (1 << 1),
+    UPDATE_VRAM         = (1 << 2),
+    UPDATE_SCROLL       = (1 << 3),
+};
+
+#define UPDATE_ALL UPDATE_OAM | UPDATE_VRAM | UPDATE_SCROLL | CLEAR_OAM_BUFFER
+
+extern u8 update_flags;

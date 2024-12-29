@@ -287,6 +287,7 @@ void load_level(u32 level_ID) {
 }
 
 void fade_out() {
+    update_flags = UPDATE_NONE;
     // Fade out
     for (s32 frame = 0; frame <= 32; frame += 4) {
         VBlankIntrWait();
@@ -295,6 +296,7 @@ void fade_out() {
 }
 
 void fade_in_level() {
+    update_flags = UPDATE_OAM;
     // Fade in
     for (s32 frame = 0; frame <= 32; frame += 4) {
         VBlankIntrWait();
@@ -311,9 +313,12 @@ void fade_in_level() {
         
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
+    
+    update_flags = UPDATE_ALL;
 }
 
 void fade_in() {
+    update_flags = UPDATE_NONE;
     // Fade in
     for (s32 frame = 0; frame <= 32; frame += 4) {
         VBlankIntrWait();
@@ -321,10 +326,17 @@ void fade_in() {
         
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
+    update_flags = UPDATE_ALL;
 }
 
 void reset_level() {
     mmStop();
+
+    // Display objects so they are saved into the buffer
+    display_objects();
+    
+    update_flags &= ~CLEAR_OAM_BUFFER;
+
     // Wait a bit before fading
     for (s32 frame = 0; frame < 30; frame++) {
         VBlankIntrWait();

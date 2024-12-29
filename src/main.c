@@ -15,7 +15,41 @@ ALIGN4 u8 myMixingBuffer[MM_MIXLEN_31KHZ];
 
 void vblank_handler() {
     mmVBlank();
-    
+
+    // Only use the update handler on playing
+    if (game_state == STATE_PLAYING) {
+        if (update_flags & UPDATE_OAM) {
+            // Copy OAM buffer into OAM
+            obj_copy(oam_mem, shadow_oam, 128);
+            obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
+        }
+
+        if (update_flags & UPDATE_SCROLL) {
+            REG_BG0HOFS = REG_BG1HOFS = scroll_x >> SUBPIXEL_BITS;
+            REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
+
+            REG_BG2HOFS = scroll_x >> (2+SUBPIXEL_BITS);
+            REG_BG2VOFS = 34 + (scroll_y >> (5+SUBPIXEL_BITS));
+
+            // Run scroll routines
+            screen_scroll_load();
+        }
+
+        if (update_flags & UPDATE_VRAM) {
+            // Run color stuff
+            run_col_trigger_changes();
+
+            // Copy palette from buffer
+            memcpy32(pal_bg_mem, palette_buffer, 256);
+        }
+
+        if (update_flags & CLEAR_OAM_BUFFER) {
+            // Clear OAM
+            memset32(shadow_oam, ATTR0_HIDE, 256);
+            // Clear rotation buffer
+            memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
+        }
+    }
     // Run sound
     mmFrame();
 }
@@ -158,42 +192,16 @@ void game_loop() {
 
         nextSpr = 0;
 
-        // Copy OAM buffer into OAM
-        obj_copy(oam_mem, shadow_oam, 128);
-        obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
-
-        // Clear OAM
-        memset32(shadow_oam, ATTR0_HIDE, 256);
-        // Clear rotation buffer
-        memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
-
-        REG_BG0HOFS = REG_BG1HOFS = scroll_x >> SUBPIXEL_BITS;
-        REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
-
-        REG_BG2HOFS = scroll_x >> (2+SUBPIXEL_BITS);
-        REG_BG2VOFS = 34 + (scroll_y >> (5+SUBPIXEL_BITS));
-
-        if (player_death) reset_level();
-
-        scale_pulsing_objects();
-
-        // Run color stuff
-        run_col_trigger_changes();
-
-        // Copy palette from buffer
-        memcpy32(pal_bg_mem, palette_buffer, 256);
-        
-        // Run scroll routines
-        screen_scroll_load();
-
-        // END OF VBLANK STUFF
-
         // Run player routines
         if (!player_death) player_main();
+        
+        if (player_death) reset_level();
 
         // Run object routines
         display_objects();
         load_objects();
+        
+        scale_pulsing_objects();
 
 #ifdef DEBUG
         if (debug_mode) oam_metaspr(0, 0, debugModeSpr, 0, 0); 
@@ -205,6 +213,7 @@ void game_loop() {
 }
 
 u32 paused_routines() {
+    update_flags = UPDATE_NONE;
     // Dim screen
     clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 16);
     mmPause();
@@ -214,6 +223,7 @@ u32 paused_routines() {
         
         // Unpause
         if (key_hit(KEY_START)) {
+            update_flags = UPDATE_ALL;
             break;
         }
 
