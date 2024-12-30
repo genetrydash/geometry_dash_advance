@@ -1783,7 +1783,7 @@ timemachine_spr_data:
    .word 0x2090
    .hword 0x188
    .hword 0x8
-   .hword 0x0
+   .hword 0x1
    .hword 0
 @ Object 295
    .word 0x20a0
@@ -1795,7 +1795,7 @@ timemachine_spr_data:
    .word 0x20a0
    .hword 0x188
    .hword 0x8
-   .hword 0x0
+   .hword 0x1
    .hword 0
 @ Object 297
    .word 0x20a0
@@ -1813,7 +1813,7 @@ timemachine_spr_data:
    .word 0x20d0
    .hword 0x180
    .hword 0x8
-   .hword 0x0
+   .hword 0x1
    .hword 0
 @ Object 300
    .word 0x20d0
@@ -1837,7 +1837,7 @@ timemachine_spr_data:
    .word 0x2100
    .hword 0x198
    .hword 0x8
-   .hword 0x0
+   .hword 0x1
    .hword 0
 @ Object 304
    .word 0x2100
@@ -1855,7 +1855,7 @@ timemachine_spr_data:
    .word 0x2130
    .hword 0x190
    .hword 0x8
-   .hword 0x0
+   .hword 0x1
    .hword 0
 @ Object 307
    .word 0x2130
@@ -1885,7 +1885,7 @@ timemachine_spr_data:
    .word 0x2190
    .hword 0x190
    .hword 0x8
-   .hword 0x0
+   .hword 0x1
    .hword 0
 @ Object 312
    .word 0x2190

@@ -544,14 +544,38 @@
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="684" gid="521" x="8336" y="392" width="16" height="16"/>
-  <object id="685" gid="521" x="8352" y="392" width="16" height="16"/>
+  <object id="684" gid="521" x="8336" y="392" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="685" gid="521" x="8352" y="392" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
   <object id="686" gid="521" x="8400" y="224" width="16" height="16"/>
   <object id="687" gid="521" x="8496" y="240" width="16" height="16"/>
-  <object id="688" gid="521" x="8400" y="384" width="16" height="16"/>
-  <object id="689" gid="521" x="8496" y="400" width="16" height="16"/>
-  <object id="690" gid="521" x="8448" y="408" width="16" height="16"/>
-  <object id="691" gid="521" x="8592" y="400" width="16" height="16"/>
+  <object id="688" gid="521" x="8400" y="384" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="689" gid="521" x="8496" y="400" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="690" gid="521" x="8448" y="408" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="691" gid="521" x="8592" y="400" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
   <object id="692" gid="521" x="8736" y="320" width="16" height="16"/>
   <object id="693" gid="521" x="8768" y="320" width="16" height="16"/>
   <object id="694" gid="524" x="8624" y="368" width="16" height="16"/>
