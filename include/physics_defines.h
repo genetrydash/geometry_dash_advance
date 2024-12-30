@@ -109,7 +109,7 @@
 
 // -- Ball --
 
-#define BALL_GRAVITY 0x4000
+#define BALL_GRAVITY 0x3d00
 #define BALL_MAX_Y_SPEED 0x60000
 #define BALL_SWITCH_SPEED 0x1d000
 
