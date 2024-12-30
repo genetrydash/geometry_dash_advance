@@ -865,7 +865,7 @@ baseafterbase_spr_data:
    .hword 0
 @ Object 142
    .word 0x1a50
-   .hword 0xa0
+   .hword 0xb0
    .hword 0xe
    .hword 0x4
    .hword 16384
