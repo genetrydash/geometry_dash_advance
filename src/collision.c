@@ -91,7 +91,7 @@ void collision_cube() {
     }
 }
 
-void collision_ship() {
+void collision_ship_ball() {
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
         coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
@@ -374,7 +374,6 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         }
     }
    
-
     return 1;
 }
 

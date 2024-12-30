@@ -206,7 +206,7 @@ void set_initial_color(COLOR bg_color, COLOR ground_color) {
 }
 
 void reset_variables() {
-    player_x = 0;  
+    player_x = -0x100000;  
     relative_player_x = 0;
     player_y_speed = 0;
     player_size = SIZE_BIG;
@@ -220,6 +220,8 @@ void reset_variables() {
     bits_left[0] = bits_left[1] = 0;
 
     scroll_x = 0;
+
+    memset32(level_buffer, 0x0000, sizeof(level_buffer) / sizeof(u32));
 
     REG_BG0HOFS = REG_BG1HOFS = 0;
     REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;

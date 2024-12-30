@@ -30,7 +30,7 @@ enum PlayerSize {
     SIZE_MINI
 };
 
-extern u64 player_x;
+extern s64 player_x;
 extern u64 player_y;
 
 extern u16 relative_player_x;

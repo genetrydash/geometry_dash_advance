@@ -6,6 +6,7 @@ const u16 *level_defines[][4] = {
    { dryout_l1_level_data, dryout_l2_level_data, dryout_spr_data, dryout_properties },
    { baseafterbase_l1_level_data, baseafterbase_l2_level_data, baseafterbase_spr_data, baseafterbase_properties },
    { jumper_l1_level_data, jumper_l2_level_data, jumper_spr_data, jumper_properties },
+   { timemachine_l1_level_data, timemachine_l2_level_data, timemachine_spr_data, timemachine_properties },
    { test_l1_level_data, test_l2_level_data, test_spr_data, test_properties },
 };
 const u8 *level_names[] = {
@@ -15,5 +16,6 @@ const u8 *level_names[] = {
    dryout_name,
    baseafterbase_name,
    jumper_name,
+   timemachine_name,
    test_name,
 };

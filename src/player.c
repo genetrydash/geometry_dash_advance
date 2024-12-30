@@ -2,7 +2,7 @@
 #include "physics_defines.h"
 
 // Position variables, in subpixels
-u64 player_x; // gota love giant levels
+s64 player_x; // gota love giant levels
 u64 player_y;
 
 // Player dimensions, in pixels
@@ -75,7 +75,7 @@ void player_main() {
     player_x_speed = speed_constants[speed_id];
     
     // This scrolls the screen on the x axis
-    if (relative_player_x >= 0x50) {
+    if (player_x >= 0x500000) {
         scroll_x += player_x_speed;
     }
 
@@ -247,7 +247,7 @@ void ship_gamemode() {
         player_y += player_y_speed >> 2;
         
         // Run collision
-        collision_ship();
+        collision_ship_ball();
 
         // If player is dead, do not advance more quarter steps
         if (player_death) break;
@@ -264,7 +264,7 @@ void ship_gamemode() {
         player_y += player_y_speed - ((player_y_speed >> 2) * 3);
         
         // Run collision
-        collision_ship();
+        collision_ship_ball();
 
         if (!player_death) {
             // Do collision with objects
@@ -327,7 +327,7 @@ void ball_gamemode() {
         player_y += player_y_speed >> 2;
         
         // Run collision
-        collision_ship();
+        collision_ship_ball();
 
         // If player is dead, do not advance more quarter steps
         if (player_death) break;
@@ -344,7 +344,7 @@ void ball_gamemode() {
         player_y += player_y_speed - ((player_y_speed >> 2) * 3);
         
         // Run collision
-        collision_ship();
+        collision_ship_ball();
 
         if (!player_death) {
             // Do collision with objects

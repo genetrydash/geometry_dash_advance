@@ -50,14 +50,22 @@
 #include "jumper/SP.h"
 #include "jumper/properties.h"
 
+// timemachine
+#define timemachine_ID 6
+
+#include "timemachine/l1.h"
+#include "timemachine/l2.h"
+#include "timemachine/SP.h"
+#include "timemachine/properties.h"
+
 // test
-#define test_ID 6
+#define test_ID 7
 
 #include "test/l1.h"
 #include "test/l2.h"
 #include "test/SP.h"
 #include "test/properties.h"
 
-#define LEVEL_COUNT 7
+#define LEVEL_COUNT 8
 extern const u16 *level_defines[][4];
 extern const u8 *level_names[];
