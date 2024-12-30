@@ -17,8 +17,6 @@
 
 #define MINI_SIZE 0.65
 
-#define GRAVITY_PORTAL_SPEED_CAP 0x19000
-
 // --Cube--
 
 #define CUBE_GRAVITY 0x6600
