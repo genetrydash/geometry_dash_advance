@@ -97,15 +97,15 @@ s32 main() {
     // Enable BG 0, 1 and 2, also enable sprites
     REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_2D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2;
 
-    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32;
+    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(1);
     REG_BG0HOFS = 0;
     REG_BG0VOFS = 0;
 
-    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32;
+    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32 | BG_PRIO(1);
     REG_BG1HOFS = 0;
     REG_BG1VOFS = 0;
 
-    REG_BG2CNT  = BG_CBB(2) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(1);
+    REG_BG2CNT  = BG_CBB(2) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(2);
     REG_BG2HOFS = 0;
     REG_BG2VOFS = 0;
 
@@ -135,15 +135,15 @@ void game_loop() {
     // Fade out
     fade_out();
 
-    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32;
+    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(1);
     REG_BG0HOFS = 0;
     REG_BG0VOFS = 0;
 
-    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32;
+    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32 | BG_PRIO(1);
     REG_BG1HOFS = 0;
     REG_BG1VOFS = 0;
 
-    REG_BG2CNT  = BG_CBB(2) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(1);
+    REG_BG2CNT  = BG_CBB(2) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(2);
     REG_BG2HOFS = 0;
     REG_BG2VOFS = 0;
 

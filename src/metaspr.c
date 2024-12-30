@@ -22,7 +22,7 @@ const u16 debugModeSpr[] = {
 const u16 playerSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
-    ATTR2_PALBANK(0) | 0,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(1),
     0,
     0,
     CENTER(8, 8),
@@ -32,7 +32,7 @@ const u16 playerSpr[] = {
 const u16 shipSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
-    ATTR2_PALBANK(0) | ATTR2_ID(2),
+    ATTR2_PALBANK(0) | ATTR2_ID(2) | ATTR2_PRIO(1),
     0,
     0,
     CENTER(8, 8),
@@ -42,7 +42,7 @@ const u16 shipSpr[] = {
 const u16 shipFlippedSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
-    ATTR2_PALBANK(0) | ATTR2_ID(4),
+    ATTR2_PALBANK(0) | ATTR2_ID(4) | ATTR2_PRIO(1),
     0,
     0,
     CENTER(8, 8),
@@ -52,7 +52,7 @@ const u16 shipFlippedSpr[] = {
 const u16 ballSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
-    ATTR2_PALBANK(0) | ATTR2_ID(6),
+    ATTR2_PALBANK(0) | ATTR2_ID(6) | ATTR2_PRIO(1),
     0,
     0,
     CENTER(8, 8),
@@ -68,6 +68,21 @@ const u16 cubePortalSpr[] = {
     -8, // x
     -24, // y
     CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(2) | ATTR2_ID(120) | ATTR2_PRIO(1),
+    -5, // x
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(2) | ATTR2_ID(248) | ATTR2_PRIO(1),
+    -5, // x
+    16,  // y
+    CENTER(8, 8),
+
     0xffff
 };
 
@@ -78,6 +93,21 @@ const u16 shipPortalSpr[] = {
     -8, // x
     -24, // y
     CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(1) | ATTR2_ID(120) | ATTR2_PRIO(1),
+    -5, // x
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(1) | ATTR2_ID(248) | ATTR2_PRIO(1),
+    -5, // x
+    16,  // y
+    CENTER(8, 8),
+
     0xffff
 };
 
@@ -88,35 +118,114 @@ const u16 ballPortalSpr[] = {
     -8, // x
     -24, // y
     CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(5) | ATTR2_ID(120) | ATTR2_PRIO(1),
+    -5, // x
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(5) | ATTR2_ID(248) | ATTR2_PRIO(1),
+    -5, // x
+    16,  // y
+    CENTER(8, 8),
+
     0xffff
 };
 
 const u16 gravityPortalBlueSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
-    ATTR1_SIZE_32x64,
-    ATTR2_PALBANK(3) | ATTR2_ID(80),
-    -8, // x
-    -24, // y
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(3) | ATTR2_ID(112) | ATTR2_PRIO(1),
+    -5, // x
+    -16, // y
     CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(3) | ATTR2_ID(240) | ATTR2_PRIO(1),
+    -5, // x
+    16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(3) | ATTR2_ID(114),
+    11, // x
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(3) | ATTR2_ID(242),
+    11, // x
+    16, // y
+    CENTER(8, 8),
+
     0xffff
 };
 
 const u16 gravityPortalYellowSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
-    ATTR1_SIZE_32x64,
-    ATTR2_PALBANK(4) | ATTR2_ID(80),
-    -8, // x
-    -24, // y
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(4) | ATTR2_ID(112) | ATTR2_PRIO(1),
+    -5, // x
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(4) | ATTR2_ID(240) | ATTR2_PRIO(1),
+    -5, // x
+    16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(4) | ATTR2_ID(114),
+    11, // x
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(4) | ATTR2_ID(242),
+    11, // x
+    16, // y
     CENTER(8, 8),
     0xffff
 };
 
 const u16 sizePortalPinkSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
-    ATTR1_SIZE_32x64,
-    ATTR2_PALBANK(1) | ATTR2_ID(84),
-    -8, // x
-    -24, // y
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(1) | ATTR2_ID(116) | ATTR2_PRIO(1),
+    -5, // x
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(1) | ATTR2_ID(244) | ATTR2_PRIO(1),
+    -5, // x
+    16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(1) | ATTR2_ID(118),
+    11, // x
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(1) | ATTR2_ID(246),
+    11, // x
+    16, // y
     CENTER(8, 8),
     0xffff
 };
@@ -124,10 +233,31 @@ const u16 sizePortalPinkSpr[] = {
 
 const u16 sizePortalGreenSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
-    ATTR1_SIZE_32x64,
-    ATTR2_PALBANK(2) | ATTR2_ID(84),
-    -8, // x
-    -24, // y
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(2) | ATTR2_ID(116) | ATTR2_PRIO(1),
+    -5, // x
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(2) | ATTR2_ID(244) | ATTR2_PRIO(1),
+    -5, // x
+    16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(2) | ATTR2_ID(118),
+    11, // x
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(2) | ATTR2_ID(246),
+    11, // x
+    16, // y
     CENTER(8, 8),
     0xffff
 };
@@ -137,7 +267,7 @@ const u16 sizePortalGreenSpr[] = {
 const u16 yellowOrbSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1) | ATTR2_ID(172),
+    ATTR2_PALBANK(1) | ATTR2_ID(172) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -147,7 +277,7 @@ const u16 yellowOrbSpr[] = {
 const u16 yellowPadSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(288),
+    ATTR2_PALBANK(1) | ATTR2_ID(288) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -157,7 +287,7 @@ const u16 yellowPadSpr[] = {
 const u16 blueOrbSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(2) | ATTR2_ID(172),
+    ATTR2_PALBANK(2) | ATTR2_ID(172) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -167,7 +297,7 @@ const u16 blueOrbSpr[] = {
 const u16 bluePadSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(2) | ATTR2_ID(288),
+    ATTR2_PALBANK(2) | ATTR2_ID(288) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -177,7 +307,7 @@ const u16 bluePadSpr[] = {
 const u16 pinkOrbSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(3) | ATTR2_ID(172),
+    ATTR2_PALBANK(3) | ATTR2_ID(172) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -187,7 +317,7 @@ const u16 pinkOrbSpr[] = {
 const u16 pinkPadSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(3) | ATTR2_ID(288),
+    ATTR2_PALBANK(3) | ATTR2_ID(288) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -199,7 +329,7 @@ const u16 pinkPadSpr[] = {
 const u16 bigBgSpikesSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_ID(68) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(0) | ATTR2_ID(68) | ATTR2_PRIO(2),
     -24,   // x
     -10,   // y
     CENTER(8, 8),
@@ -209,7 +339,7 @@ const u16 bigBgSpikesSpr[] = {
 const u16 mediumBgSpikesSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_ID(196) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(0) | ATTR2_ID(196) | ATTR2_PRIO(2),
     -24, // x
     -10, // y
     CENTER(8, 8),
@@ -219,7 +349,7 @@ const u16 mediumBgSpikesSpr[] = {
 const u16 smallBgSpikesSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_32x16,
-    ATTR2_PALBANK(0) | ATTR2_ID(76) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(0) | ATTR2_ID(76) | ATTR2_PRIO(2),
     -8, // x
     0,  // y
     CENTER(8, 8),
@@ -229,7 +359,7 @@ const u16 smallBgSpikesSpr[] = {
 const u16 tinyBgSpikesSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_16x8,
-    ATTR2_PALBANK(0) | ATTR2_ID(140) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(0) | ATTR2_ID(140) | ATTR2_PRIO(2),
     0, // x
     6, // y
     CENTER(8, 8),
@@ -239,7 +369,7 @@ const u16 tinyBgSpikesSpr[] = {
 const u16 bigBgCloudSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_ID(304) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(0) | ATTR2_ID(304) | ATTR2_PRIO(2),
     -24,   // x
     -10,   // y
     CENTER(8, 8),
@@ -249,7 +379,7 @@ const u16 bigBgCloudSpr[] = {
 const u16 smallBgCloudSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_32x16,
-    ATTR2_PALBANK(0) | ATTR2_ID(326) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(0) | ATTR2_ID(326) | ATTR2_PRIO(2),
     -8, // x
     0,  // y
     CENTER(8, 8),
@@ -259,7 +389,7 @@ const u16 smallBgCloudSpr[] = {
 const u16 bgChainsSpr[] = {
     ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(0) | ATTR2_ID(142) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(0) | ATTR2_ID(142) | ATTR2_PRIO(2),
     0,   // x
     -16, // y
     CENTER(8, 8),
@@ -269,14 +399,14 @@ const u16 bgChainsSpr[] = {
 const u16 largePulsingCircleSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1) | ATTR2_ID(270),
+    ATTR2_PALBANK(1) | ATTR2_ID(270) | ATTR2_PRIO(1),
     0, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(1) | ATTR2_ID(236),
+    ATTR2_PALBANK(1) | ATTR2_ID(236) | ATTR2_PRIO(1),
     0, // x
     -8, // y
     CENTER(8, 8),
@@ -286,14 +416,14 @@ const u16 largePulsingCircleSpr[] = {
 const u16 mediumPulsingCircleSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1) | ATTR2_ID(270),
+    ATTR2_PALBANK(1) | ATTR2_ID(270) | ATTR2_PRIO(1),
     0,  // x
     -8, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(268),
+    ATTR2_PALBANK(1) | ATTR2_ID(268) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -303,14 +433,14 @@ const u16 mediumPulsingCircleSpr[] = {
 const u16 smallPulsingCircleSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1) | ATTR2_ID(270),
+    ATTR2_PALBANK(1) | ATTR2_ID(270) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_WIDE,
     ATTR1_SIZE_8x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(300),
+    ATTR2_PALBANK(1) | ATTR2_ID(300) | ATTR2_PRIO(1),
     0, // x
     8, // y
     CENTER(8, 8),
@@ -320,7 +450,7 @@ const u16 smallPulsingCircleSpr[] = {
 const u16 circlePulsingSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1) | ATTR2_ID(334),
+    ATTR2_PALBANK(1) | ATTR2_ID(334) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -330,7 +460,7 @@ const u16 circlePulsingSpr[] = {
 const u16 circunferencePulsingSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1) | ATTR2_ID(270),
+    ATTR2_PALBANK(1) | ATTR2_ID(270) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -340,7 +470,7 @@ const u16 circunferencePulsingSpr[] = {
 const u16 diamondPulsingSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1) | ATTR2_ID(324),
+    ATTR2_PALBANK(1) | ATTR2_ID(324) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -350,7 +480,7 @@ const u16 diamondPulsingSpr[] = {
 const u16 starPulsingSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1) | ATTR2_ID(330),
+    ATTR2_PALBANK(1) | ATTR2_ID(330) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -360,7 +490,7 @@ const u16 starPulsingSpr[] = {
 const u16 squarePulsingSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1) | ATTR2_ID(322),
+    ATTR2_PALBANK(1) | ATTR2_ID(322) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -371,7 +501,7 @@ const u16 squarePulsingSpr[] = {
 const u16 spike_V[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(15) | ATTR2_ID(384),
+    ATTR2_PALBANK(15) | ATTR2_ID(384) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -381,7 +511,7 @@ const u16 spike_V[] = {
 const u16 spike_H[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(15) | ATTR2_ID(386),
+    ATTR2_PALBANK(15) | ATTR2_ID(386) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -391,7 +521,7 @@ const u16 spike_H[] = {
 const u16 halfSpike_V[] = {
     ATTR0_4BPP | ATTR0_WIDE,
     ATTR1_SIZE_8x16,
-    ATTR2_PALBANK(15) | ATTR2_ID(388),
+    ATTR2_PALBANK(15) | ATTR2_ID(388) | ATTR2_PRIO(1),
     0, // x
     8, // y
     CENTER(8, 8),
@@ -401,7 +531,7 @@ const u16 halfSpike_V[] = {
 const u16 halfSpike_H[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x8,
-    ATTR2_PALBANK(15) | ATTR2_ID(390),
+    ATTR2_PALBANK(15) | ATTR2_ID(390) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -411,7 +541,7 @@ const u16 halfSpike_H[] = {
 const u16 mediumSpike_V[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(15) | ATTR2_ID(392),
+    ATTR2_PALBANK(15) | ATTR2_ID(392) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -421,7 +551,7 @@ const u16 mediumSpike_V[] = {
 const u16 mediumSpike_H[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(15) | ATTR2_ID(394),
+    ATTR2_PALBANK(15) | ATTR2_ID(394) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -431,7 +561,7 @@ const u16 mediumSpike_H[] = {
 const u16 groundSpike_V[] = {
     ATTR0_4BPP | ATTR0_WIDE,
     ATTR1_SIZE_8x16,
-    ATTR2_PALBANK(15) | ATTR2_ID(420),
+    ATTR2_PALBANK(15) | ATTR2_ID(420) | ATTR2_PRIO(1),
     0, // x
     8, // y
     CENTER(8, 8),
@@ -441,7 +571,7 @@ const u16 groundSpike_V[] = {
 const u16 groundSpike_H[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x8,
-    ATTR2_PALBANK(15) | ATTR2_ID(391),
+    ATTR2_PALBANK(15) | ATTR2_ID(391) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),
@@ -451,7 +581,7 @@ const u16 groundSpike_H[] = {
 const u16 groundWavySpike_V[] = {
     ATTR0_4BPP | ATTR0_WIDE,
     ATTR1_SIZE_8x16,
-    ATTR2_PALBANK(15) | ATTR2_ID(352),
+    ATTR2_PALBANK(15) | ATTR2_ID(352) | ATTR2_PRIO(1),
     0, // x
     8, // y
     CENTER(8, 8),
@@ -461,7 +591,7 @@ const u16 groundWavySpike_V[] = {
 const u16 groundWavySpike_H[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x8,
-    ATTR2_PALBANK(15) | ATTR2_ID(396),
+    ATTR2_PALBANK(15) | ATTR2_ID(396) | ATTR2_PRIO(1),
     0, // x
     0, // y
     CENTER(8, 8),

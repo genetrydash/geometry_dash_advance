@@ -422,7 +422,7 @@ u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2, u32 h2)
 
 // Rotated hitbox stuff, all in IWRAM for extra speed
 
-#define SCALE_FACTOR 12
+#define SCALE_FACTOR 8
 #define FIXED_ONE (1 << SCALE_FACTOR) // 1.0 in fixed-point
 
 // Rotate a point (px, py) around a center (cx, cy) using fixed-point math
@@ -457,8 +457,8 @@ ARM_CODE s32 is_colliding_rotated_fixed(s32 x1, s32 y1, s32 w1, s32 h1, s32 x2, 
     s32 cy2 = orig_y + cy2offset;
 
     // Get sine and cosine for the angle
-    s16 sin_theta = lu_sin(angle);
-    s16 cos_theta = lu_cos(angle);
+    s16 sin_theta = lu_sin(angle) / 16;
+    s16 cos_theta = lu_cos(angle) / 16;
 
     // Calculate the four corners of the rotated rectangle
     s32 corners[8];
