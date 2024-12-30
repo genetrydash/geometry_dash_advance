@@ -172,11 +172,11 @@ void cube_gamemode() {
         // Run collision
         collision_cube();
 
-        // If player is dead, do not advance more quarter steps
-        if (player_death) break;
-
         // Do collision with objects
-       if (step & 1) do_collision_with_objects(FALSE);
+        if (step & 1) do_collision_with_objects(FALSE);
+
+       // If player is dead, do not advance more quarter steps
+        if (player_death) break;
     }
     
     // If player is dead, do not advance more quarter steps
@@ -249,11 +249,11 @@ void ship_gamemode() {
         // Run collision
         collision_ship_ball();
 
-        // If player is dead, do not advance more quarter steps
-        if (player_death) break;
-
         // Do collision with objects
         if (step & 1) do_collision_with_objects(FALSE);
+
+        // If player is dead, do not advance more quarter steps
+        if (player_death) break;
     }
 
     // If player is dead, do not advance more quarter steps
@@ -329,11 +329,11 @@ void ball_gamemode() {
         // Run collision
         collision_ship_ball();
 
-        // If player is dead, do not advance more quarter steps
-        if (player_death) break;
-
         // Do collision with objects
         if (step & 1) do_collision_with_objects(FALSE);
+        
+        // If player is dead, do not advance more quarter steps
+        if (player_death) break;
     }
 
     // If player is dead, do not advance more quarter steps
