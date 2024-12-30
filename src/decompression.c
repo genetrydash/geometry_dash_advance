@@ -160,7 +160,7 @@ void unpack_rle_packet(u32 layer) {
     unpack_overflow_check(layer, VALUE_SIZE_BITS);
 
     s32 value_length_size = (bitstream[layer] >> (bits_left[layer] - VALUE_SIZE_BITS)) & 0xf;
-     bits_left[layer] -= VALUE_SIZE_BITS;
+    bits_left[layer] -= VALUE_SIZE_BITS;
     
     unpack_overflow_check(layer, value_length_size);
 
@@ -351,6 +351,4 @@ void reset_level() {
     load_level(loaded_level_id);
 
     fade_in_level();
-    
-    mmStart(loaded_song_id, MM_PLAY_ONCE);
 }

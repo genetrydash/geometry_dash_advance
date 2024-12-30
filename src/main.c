@@ -153,8 +153,6 @@ void game_loop() {
     load_level(loaded_level_id);
 
     fade_in_level();
-    
-    mmStart(loaded_song_id, MM_PLAY_ONCE);
 
     while (1) { 
         key_poll();
@@ -177,8 +175,13 @@ void game_loop() {
 
         nextSpr = 0;
 
+        s64 last_player_x = player_x;
+
         // Run player routines
         if (!player_death) player_main();
+
+        // Start the song once the player goes from negative to positive x position
+        if ((last_player_x < 0) != (player_x < 0)) mmStart(loaded_song_id, MM_PLAY_ONCE);
         
         if (player_death) reset_level();
 
