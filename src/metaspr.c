@@ -71,14 +71,14 @@ const u16 cubePortalSpr[] = {
 
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(2) | ATTR2_ID(120) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(2) | ATTR2_ID(88) | ATTR2_PRIO(1),
     -5, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(2) | ATTR2_ID(248) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(2) | ATTR2_ID(216) | ATTR2_PRIO(1),
     -5, // x
     16,  // y
     CENTER(8, 8),
@@ -96,14 +96,14 @@ const u16 shipPortalSpr[] = {
 
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(1) | ATTR2_ID(120) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(1) | ATTR2_ID(88) | ATTR2_PRIO(1),
     -5, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(248) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(1) | ATTR2_ID(216) | ATTR2_PRIO(1),
     -5, // x
     16,  // y
     CENTER(8, 8),
@@ -121,14 +121,14 @@ const u16 ballPortalSpr[] = {
 
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(5) | ATTR2_ID(120) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(5) | ATTR2_ID(88) | ATTR2_PRIO(1),
     -5, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(5) | ATTR2_ID(248) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(5) | ATTR2_ID(216) | ATTR2_PRIO(1),
     -5, // x
     16,  // y
     CENTER(8, 8),
@@ -139,28 +139,28 @@ const u16 ballPortalSpr[] = {
 const u16 gravityPortalBlueSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(3) | ATTR2_ID(112) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(3) | ATTR2_ID(80) | ATTR2_PRIO(1),
     -5, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(3) | ATTR2_ID(240) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(3) | ATTR2_ID(208) | ATTR2_PRIO(1),
     -5, // x
     16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(3) | ATTR2_ID(114),
+    ATTR2_PALBANK(3) | ATTR2_ID(82),
     11, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(3) | ATTR2_ID(242),
+    ATTR2_PALBANK(3) | ATTR2_ID(210),
     11, // x
     16, // y
     CENTER(8, 8),
@@ -171,28 +171,28 @@ const u16 gravityPortalBlueSpr[] = {
 const u16 gravityPortalYellowSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(4) | ATTR2_ID(112) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(4) | ATTR2_ID(80) | ATTR2_PRIO(1),
     -5, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(4) | ATTR2_ID(240) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(4) | ATTR2_ID(208) | ATTR2_PRIO(1),
     -5, // x
     16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(4) | ATTR2_ID(114),
+    ATTR2_PALBANK(4) | ATTR2_ID(82),
     11, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(4) | ATTR2_ID(242),
+    ATTR2_PALBANK(4) | ATTR2_ID(210),
     11, // x
     16, // y
     CENTER(8, 8),
@@ -202,28 +202,28 @@ const u16 gravityPortalYellowSpr[] = {
 const u16 sizePortalPinkSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(1) | ATTR2_ID(116) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(1) | ATTR2_ID(84) | ATTR2_PRIO(1),
     -5, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(244) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(1) | ATTR2_ID(212) | ATTR2_PRIO(1),
     -5, // x
     16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(1) | ATTR2_ID(118),
+    ATTR2_PALBANK(1) | ATTR2_ID(86),
     11, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(246),
+    ATTR2_PALBANK(1) | ATTR2_ID(214),
     11, // x
     16, // y
     CENTER(8, 8),
@@ -234,28 +234,28 @@ const u16 sizePortalPinkSpr[] = {
 const u16 sizePortalGreenSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(2) | ATTR2_ID(116) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(2) | ATTR2_ID(84) | ATTR2_PRIO(1),
     -5, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(2) | ATTR2_ID(244) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(2) | ATTR2_ID(212) | ATTR2_PRIO(1),
     -5, // x
     16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(2) | ATTR2_ID(118),
+    ATTR2_PALBANK(2) | ATTR2_ID(86),
     11, // x
     -16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(2) | ATTR2_ID(246),
+    ATTR2_PALBANK(2) | ATTR2_ID(214),
     11, // x
     16, // y
     CENTER(8, 8),
@@ -369,7 +369,7 @@ const u16 tinyBgSpikesSpr[] = {
 const u16 bigBgCloudSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_ID(304) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_ID(272) | ATTR2_PRIO(2),
     -24,   // x
     -10,   // y
     CENTER(8, 8),
