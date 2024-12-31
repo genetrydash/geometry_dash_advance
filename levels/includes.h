@@ -58,14 +58,22 @@
 #include "timemachine/SP.h"
 #include "timemachine/properties.h"
 
+// cycles
+#define cycles_ID 7
+
+#include "cycles/l1.h"
+#include "cycles/l2.h"
+#include "cycles/SP.h"
+#include "cycles/properties.h"
+
 // test
-#define test_ID 7
+#define test_ID 8
 
 #include "test/l1.h"
 #include "test/l2.h"
 #include "test/SP.h"
 #include "test/properties.h"
 
-#define LEVEL_COUNT 8
+#define LEVEL_COUNT 9
 extern const u16 *level_defines[][4];
 extern const u8 *level_names[];
