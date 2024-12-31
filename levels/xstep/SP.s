@@ -5909,7 +5909,7 @@ xstep_spr_data:
    .word 0x2bb0
    .hword 0x150
    .hword 0x8
-   .hword 0x0
+   .hword 0x1
    .hword 0
 @ Object 938
    .word 0x2bbb
@@ -5929,7 +5929,7 @@ xstep_spr_data:
    .word 0x2c10
    .hword 0x150
    .hword 0x8
-   .hword 0x0
+   .hword 0x1
    .hword 0
 @ Object 941
    .word 0x2c10
@@ -6039,11 +6039,23 @@ xstep_spr_data:
    .hword 0
 @ Object 958
    .word 0x2cdd
+   .hword 0x124
+   .hword 0x8
+   .hword 0x0
+   .hword 0
+@ Object 959
+   .word 0x2cdd
    .hword 0x134
    .hword 0x10
    .hword 0x0
    .hword 0
-@ Object 959
+@ Object 960
+   .word 0x2cdd
+   .hword 0x144
+   .hword 0x8
+   .hword 0x1
+   .hword 0
+@ Object 961
    .word 0x2cf0
    .hword 0xf0
    .hword 0x3
@@ -6051,7 +6063,7 @@ xstep_spr_data:
    .hword 0x245b
    .hword 0x0
    .hword 0x0000
-@ Object 960
+@ Object 962
    .word 0x2d00
    .hword 0xf0
    .hword 0x3
@@ -6059,31 +6071,31 @@ xstep_spr_data:
    .hword 0x100f
    .hword 0x0
    .hword 0x0000
-@ Object 961
+@ Object 963
    .word 0x2d00
    .hword 0x180
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 962
+@ Object 964
    .word 0x2d10
    .hword 0x110
    .hword 0x4
    .hword 0x1
    .hword 0
-@ Object 963
+@ Object 965
    .word 0x2d10
    .hword 0x180
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 964
+@ Object 966
    .word 0x2d20
    .hword 0x180
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 965
+@ Object 967
    .word 0x2d30
    .hword 0xf0
    .hword 0x3
@@ -6091,13 +6103,13 @@ xstep_spr_data:
    .hword 0x245b
    .hword 0x0
    .hword 0x0000
-@ Object 966
+@ Object 968
    .word 0x2d30
    .hword 0x110
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 967
+@ Object 969
    .word 0x2d40
    .hword 0xf0
    .hword 0x3
@@ -6105,31 +6117,31 @@ xstep_spr_data:
    .hword 0x100f
    .hword 0x0
    .hword 0x0000
-@ Object 968
+@ Object 970
    .word 0x2d50
    .hword 0x110
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 969
+@ Object 971
    .word 0x2d50
    .hword 0x110
    .hword 0x4
    .hword 0x1
    .hword 0
-@ Object 970
+@ Object 972
    .word 0x2d50
    .hword 0x180
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 971
+@ Object 973
    .word 0x2d70
    .hword 0x14e
    .hword 0xf
    .hword 0x4
    .hword 16384
-@ Object 972
+@ Object 974
    .word 0x2d80
    .hword 0xf0
    .hword 0x3
@@ -6137,13 +6149,13 @@ xstep_spr_data:
    .hword 0x245b
    .hword 0x0
    .hword 0x0000
-@ Object 973
+@ Object 975
    .word 0x2d80
    .hword 0x110
    .hword 0x5
    .hword 0x1
    .hword 0
-@ Object 974
+@ Object 976
    .word 0x2d90
    .hword 0xf0
    .hword 0x3
@@ -6151,31 +6163,31 @@ xstep_spr_data:
    .hword 0x100f
    .hword 0x0
    .hword 0x0000
-@ Object 975
-   .word 0x2d90
-   .hword 0x110
-   .hword 0x8
-   .hword 0x0
-   .hword 0
-@ Object 976
-   .word 0x2d90
-   .hword 0x180
-   .hword 0x4
-   .hword 0x0
-   .hword 0
 @ Object 977
-   .word 0x2db0
+   .word 0x2d90
    .hword 0x110
    .hword 0x8
    .hword 0x0
    .hword 0
 @ Object 978
+   .word 0x2d90
+   .hword 0x180
+   .hword 0x4
+   .hword 0x0
+   .hword 0
+@ Object 979
+   .word 0x2db0
+   .hword 0x110
+   .hword 0x8
+   .hword 0x0
+   .hword 0
+@ Object 980
    .word 0x2db0
    .hword 0x110
    .hword 0x5
    .hword 0x1
    .hword 0
-@ Object 979
+@ Object 981
    .word 0x2dd0
    .hword 0xf0
    .hword 0x3
@@ -6183,19 +6195,31 @@ xstep_spr_data:
    .hword 0x245b
    .hword 0x0
    .hword 0x0000
-@ Object 980
+@ Object 982
+   .word 0x2dd0
+   .hword 0x150
+   .hword 0x8
+   .hword 0x0
+   .hword 0
+@ Object 983
    .word 0x2dd0
    .hword 0x160
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 981
+@ Object 984
+   .word 0x2dd0
+   .hword 0x170
+   .hword 0x8
+   .hword 0x1
+   .hword 0
+@ Object 985
    .word 0x2dd0
    .hword 0x180
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 982
+@ Object 986
    .word 0x2de0
    .hword 0xf0
    .hword 0x3
@@ -6203,19 +6227,19 @@ xstep_spr_data:
    .hword 0x100f
    .hword 0x0
    .hword 0x0000
-@ Object 983
+@ Object 987
    .word 0x2df0
    .hword 0x110
    .hword 0x4
    .hword 0x1
    .hword 0
-@ Object 984
+@ Object 988
    .word 0x2e00
    .hword 0x180
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 985
+@ Object 989
    .word 0x2e20
    .hword 0xf0
    .hword 0x3
@@ -6223,13 +6247,25 @@ xstep_spr_data:
    .hword 0x245b
    .hword 0x0
    .hword 0x0000
-@ Object 986
+@ Object 990
+   .word 0x2e20
+   .hword 0x150
+   .hword 0x8
+   .hword 0x0
+   .hword 0
+@ Object 991
    .word 0x2e20
    .hword 0x160
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 987
+@ Object 992
+   .word 0x2e20
+   .hword 0x170
+   .hword 0x8
+   .hword 0x1
+   .hword 0
+@ Object 993
    .word 0x2e30
    .hword 0xf0
    .hword 0x3
@@ -6237,55 +6273,67 @@ xstep_spr_data:
    .hword 0x100f
    .hword 0x0
    .hword 0x0000
-@ Object 988
+@ Object 994
    .word 0x2e30
    .hword 0x110
    .hword 0x4
    .hword 0x1
    .hword 0
-@ Object 989
+@ Object 995
    .word 0x2e30
    .hword 0x180
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 990
+@ Object 996
    .word 0x2e50
    .hword 0x180
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 991
+@ Object 997
    .word 0x2e70
    .hword 0x110
    .hword 0x5
    .hword 0x1
    .hword 0
-@ Object 992
+@ Object 998
+   .word 0x2e70
+   .hword 0x150
+   .hword 0x8
+   .hword 0x0
+   .hword 0
+@ Object 999
    .word 0x2e70
    .hword 0x160
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 993
+@ Object 1000
+   .word 0x2e70
+   .hword 0x170
+   .hword 0x8
+   .hword 0x1
+   .hword 0
+@ Object 1001
    .word 0x2e80
    .hword 0x180
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 994
+@ Object 1002
    .word 0x2ea0
    .hword 0x110
    .hword 0x5
    .hword 0x1
    .hword 0
-@ Object 995
+@ Object 1003
    .word 0x2eb0
    .hword 0x180
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 996
+@ Object 1004
    .word 0x2eb5
    .hword 0xef
    .hword 0x3
@@ -6293,13 +6341,13 @@ xstep_spr_data:
    .hword 0x245b
    .hword 0x0
    .hword 0x0000
-@ Object 997
+@ Object 1005
    .word 0x2ec0
    .hword 0x180
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 998
+@ Object 1006
    .word 0x2ec5
    .hword 0xef
    .hword 0x3
@@ -6307,61 +6355,61 @@ xstep_spr_data:
    .hword 0x100f
    .hword 0x0
    .hword 0x0000
-@ Object 999
+@ Object 1007
    .word 0x2ed0
    .hword 0x180
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 1000
+@ Object 1008
    .word 0x2ee0
    .hword 0x110
    .hword 0x4
    .hword 0x1
    .hword 0
-@ Object 1001
+@ Object 1009
    .word 0x2ee0
    .hword 0x130
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 1002
+@ Object 1010
    .word 0x2f00
    .hword 0x130
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 1003
+@ Object 1011
    .word 0x2f00
    .hword 0x180
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 1004
+@ Object 1012
    .word 0x2f18
    .hword 0x180
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 1005
+@ Object 1013
    .word 0x2f20
    .hword 0x110
    .hword 0x4
    .hword 0x1
    .hword 0
-@ Object 1006
+@ Object 1014
    .word 0x2f30
    .hword 0x110
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 1007
+@ Object 1015
    .word 0x2f40
    .hword 0x180
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 1008
+@ Object 1016
    .word 0x2f50
    .hword 0xe0
    .hword 0x3
@@ -6369,79 +6417,79 @@ xstep_spr_data:
    .hword 0x0
    .hword 0x0
    .hword 0x0000
-@ Object 1009
+@ Object 1017
    .word 0x2f50
    .hword 0x110
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1010
+@ Object 1018
    .word 0x2f70
    .hword 0x110
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 1011
+@ Object 1019
    .word 0x2f70
    .hword 0x110
    .hword 0x5
    .hword 0x1
    .hword 0
-@ Object 1012
+@ Object 1020
    .word 0x2f70
    .hword 0x170
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 1013
+@ Object 1021
    .word 0x2f80
    .hword 0x180
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 1014
+@ Object 1022
    .word 0x2fa0
    .hword 0x110
    .hword 0x4
    .hword 0x1
    .hword 0
-@ Object 1015
+@ Object 1023
    .word 0x2fa0
    .hword 0x180
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 1016
+@ Object 1024
    .word 0x2fb0
    .hword 0x120
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 1017
+@ Object 1025
    .word 0x2fb0
    .hword 0x170
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 1018
+@ Object 1026
    .word 0x2fd0
    .hword 0x110
    .hword 0x5
    .hword 0x1
    .hword 0
-@ Object 1019
+@ Object 1027
    .word 0x2fd0
    .hword 0x180
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 1020
+@ Object 1028
    .word 0x2fe0
    .hword 0x120
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 1021
+@ Object 1029
    .word 0x2fe8
    .hword 0xf0
    .hword 0x3
@@ -6449,19 +6497,19 @@ xstep_spr_data:
    .hword 0x7f40
    .hword 0x0
    .hword 0x0000
-@ Object 1022
+@ Object 1030
    .word 0x2ff0
    .hword 0x148
    .hword 0x1
    .hword 0x0
    .hword 0
-@ Object 1023
+@ Object 1031
    .word 0x2ff4
    .hword 0x148
    .hword 0xe
    .hword 0x0
    .hword 0
-@ Object 1024
+@ Object 1032
    .word 0x2ff8
    .hword 0xf0
    .hword 0x3
@@ -6469,31 +6517,31 @@ xstep_spr_data:
    .hword 0x6e82
    .hword 0x0
    .hword 0x0000
-@ Object 1025
+@ Object 1033
    .word 0x3010
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1026
+@ Object 1034
    .word 0x3020
    .hword 0x150
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1027
+@ Object 1035
    .word 0x3020
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1028
+@ Object 1036
    .word 0x3040
    .hword 0x100
    .hword 0x18
    .hword 0x1
    .hword 0
-@ Object 1029
+@ Object 1037
    .word 0x3049
    .hword 0xe0
    .hword 0x3
@@ -6501,19 +6549,19 @@ xstep_spr_data:
    .hword 0x7f40
    .hword 0x0
    .hword 0x0000
-@ Object 1030
+@ Object 1038
    .word 0x3050
    .hword 0x150
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1031
+@ Object 1039
    .word 0x3050
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1032
+@ Object 1040
    .word 0x3059
    .hword 0xe0
    .hword 0x3
@@ -6521,31 +6569,31 @@ xstep_spr_data:
    .hword 0x6e82
    .hword 0x0
    .hword 0x0000
-@ Object 1033
+@ Object 1041
    .word 0x3060
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1034
+@ Object 1042
    .word 0x3070
    .hword 0x130
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1035
+@ Object 1043
    .word 0x3070
    .hword 0x170
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1036
+@ Object 1044
    .word 0x3070
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1037
+@ Object 1045
    .word 0x3080
    .hword 0xe0
    .hword 0x3
@@ -6553,19 +6601,19 @@ xstep_spr_data:
    .hword 0x7f40
    .hword 0x0
    .hword 0x0000
-@ Object 1038
+@ Object 1046
    .word 0x3080
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1039
+@ Object 1047
    .word 0x3080
    .hword 0x148
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1040
+@ Object 1048
    .word 0x3090
    .hword 0xe0
    .hword 0x3
@@ -6573,133 +6621,133 @@ xstep_spr_data:
    .hword 0x6e82
    .hword 0x0
    .hword 0x0000
-@ Object 1041
+@ Object 1049
    .word 0x3098
    .hword 0x130
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 1042
+@ Object 1050
    .word 0x3098
    .hword 0x160
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1043
+@ Object 1051
    .word 0x30a0
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1044
+@ Object 1052
    .word 0x30a0
    .hword 0x110
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1045
+@ Object 1053
    .word 0x30a0
    .hword 0x180
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1046
+@ Object 1054
    .word 0x30a0
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1047
+@ Object 1055
    .word 0x30a8
    .hword 0x130
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 1048
+@ Object 1056
    .word 0x30a8
    .hword 0x160
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1049
+@ Object 1057
    .word 0x30c0
    .hword 0x148
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1050
+@ Object 1058
    .word 0x30d0
    .hword 0x100
    .hword 0x18
    .hword 0x1
    .hword 0
-@ Object 1051
+@ Object 1059
    .word 0x30d0
    .hword 0x120
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1052
+@ Object 1060
    .word 0x30d0
    .hword 0x170
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1053
+@ Object 1061
    .word 0x30d0
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1054
+@ Object 1062
    .word 0x30f0
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1055
+@ Object 1063
    .word 0x30f0
    .hword 0x150
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1056
+@ Object 1064
    .word 0x30f0
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1057
+@ Object 1065
    .word 0x3100
    .hword 0x118
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1058
+@ Object 1066
    .word 0x3100
    .hword 0x180
    .hword 0x7
    .hword 0x4
    .hword 49152
-@ Object 1059
+@ Object 1067
    .word 0x3110
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1060
+@ Object 1068
    .word 0x3110
    .hword 0x100
    .hword 0x7
    .hword 0x0
    .hword 0
-@ Object 1061
+@ Object 1069
    .word 0x3110
    .hword 0x130
    .hword 0x7
    .hword 0x1
    .hword 0
-@ Object 1062
+@ Object 1070
    .word 0x3119
    .hword 0xe2
    .hword 0x3
@@ -6707,19 +6755,19 @@ xstep_spr_data:
    .hword 0x7f40
    .hword 0x0
    .hword 0x0000
-@ Object 1063
+@ Object 1071
    .word 0x3120
    .hword 0x118
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1064
+@ Object 1072
    .word 0x3120
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1065
+@ Object 1073
    .word 0x3129
    .hword 0xe2
    .hword 0x3
@@ -6727,133 +6775,133 @@ xstep_spr_data:
    .hword 0x6e82
    .hword 0x0
    .hword 0x0000
-@ Object 1066
+@ Object 1074
    .word 0x3130
    .hword 0x140
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1067
+@ Object 1075
    .word 0x3130
    .hword 0x180
    .hword 0x7
    .hword 0x4
    .hword 16384
-@ Object 1068
+@ Object 1076
    .word 0x3140
    .hword 0x100
    .hword 0x18
    .hword 0x1
    .hword 0
-@ Object 1069
+@ Object 1077
    .word 0x3140
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1070
+@ Object 1078
    .word 0x315c
    .hword 0x120
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1071
+@ Object 1079
    .word 0x315c
    .hword 0x170
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1072
+@ Object 1080
    .word 0x3170
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1073
+@ Object 1081
    .word 0x3170
    .hword 0x148
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1074
+@ Object 1082
    .word 0x3170
    .hword 0x158
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1075
+@ Object 1083
    .word 0x3170
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1076
+@ Object 1084
    .word 0x3188
    .hword 0x130
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 1077
+@ Object 1085
    .word 0x3188
    .hword 0x170
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1078
+@ Object 1086
    .word 0x318c
    .hword 0x17c
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1079
+@ Object 1087
    .word 0x3190
    .hword 0x100
    .hword 0x18
    .hword 0x1
    .hword 0
-@ Object 1080
+@ Object 1088
    .word 0x3190
    .hword 0x110
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1081
+@ Object 1089
    .word 0x3190
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1082
+@ Object 1090
    .word 0x3198
    .hword 0x130
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 1083
+@ Object 1091
    .word 0x3198
    .hword 0x170
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1084
+@ Object 1092
    .word 0x31b0
    .hword 0x148
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1085
+@ Object 1093
    .word 0x31b0
    .hword 0x158
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1086
+@ Object 1094
    .word 0x31b0
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1087
+@ Object 1095
    .word 0x31b5
    .hword 0xe0
    .hword 0x3
@@ -6861,25 +6909,25 @@ xstep_spr_data:
    .hword 0x7f40
    .hword 0x0
    .hword 0x0000
-@ Object 1088
+@ Object 1096
    .word 0x31c0
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1089
+@ Object 1097
    .word 0x31c0
    .hword 0x120
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1090
+@ Object 1098
    .word 0x31c0
    .hword 0x170
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1091
+@ Object 1099
    .word 0x31c5
    .hword 0xe0
    .hword 0x3
@@ -6887,115 +6935,115 @@ xstep_spr_data:
    .hword 0x6e82
    .hword 0x0
    .hword 0x0000
-@ Object 1092
+@ Object 1100
    .word 0x31d0
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1093
+@ Object 1101
    .word 0x31dc
    .hword 0x150
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1094
+@ Object 1102
    .word 0x31e0
    .hword 0x100
    .hword 0x18
    .hword 0x1
    .hword 0
-@ Object 1095
+@ Object 1103
    .word 0x31f0
    .hword 0x130
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1096
+@ Object 1104
    .word 0x31f0
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1097
-   .word 0x3200
-   .hword 0x100
-   .hword 0x19
-   .hword 0x1
-   .hword 0
-@ Object 1098
-   .word 0x3200
-   .hword 0x158
-   .hword 0x6
-   .hword 0x4
-   .hword 49152
-@ Object 1099
-   .word 0x3200
-   .hword 0x170
-   .hword 0x6
-   .hword 0x4
-   .hword 49152
-@ Object 1100
-   .word 0x3200
-   .hword 0x188
-   .hword 0x6
-   .hword 0x4
-   .hword 49152
-@ Object 1101
-   .word 0x3218
-   .hword 0x140
-   .hword 0x6
-   .hword 0x0
-   .hword 0
-@ Object 1102
-   .word 0x3220
-   .hword 0x100
-   .hword 0x19
-   .hword 0x1
-   .hword 0
-@ Object 1103
-   .word 0x3220
-   .hword 0x120
-   .hword 0x17
-   .hword 0x0
-   .hword 0
-@ Object 1104
-   .word 0x3228
-   .hword 0x140
-   .hword 0x6
-   .hword 0x0
-   .hword 0
 @ Object 1105
-   .word 0x3240
+   .word 0x3200
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
 @ Object 1106
+   .word 0x3200
+   .hword 0x158
+   .hword 0x6
+   .hword 0x4
+   .hword 49152
+@ Object 1107
+   .word 0x3200
+   .hword 0x170
+   .hword 0x6
+   .hword 0x4
+   .hword 49152
+@ Object 1108
+   .word 0x3200
+   .hword 0x188
+   .hword 0x6
+   .hword 0x4
+   .hword 49152
+@ Object 1109
+   .word 0x3218
+   .hword 0x140
+   .hword 0x6
+   .hword 0x0
+   .hword 0
+@ Object 1110
+   .word 0x3220
+   .hword 0x100
+   .hword 0x19
+   .hword 0x1
+   .hword 0
+@ Object 1111
+   .word 0x3220
+   .hword 0x120
+   .hword 0x17
+   .hword 0x0
+   .hword 0
+@ Object 1112
+   .word 0x3228
+   .hword 0x140
+   .hword 0x6
+   .hword 0x0
+   .hword 0
+@ Object 1113
+   .word 0x3240
+   .hword 0x100
+   .hword 0x19
+   .hword 0x1
+   .hword 0
+@ Object 1114
    .word 0x3240
    .hword 0x158
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1107
+@ Object 1115
    .word 0x3240
    .hword 0x170
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1108
+@ Object 1116
    .word 0x3240
    .hword 0x188
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1109
+@ Object 1117
    .word 0x3240
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1110
+@ Object 1118
    .word 0x3250
    .hword 0xe0
    .hword 0x3
@@ -7003,13 +7051,13 @@ xstep_spr_data:
    .hword 0x7f40
    .hword 0x0
    .hword 0x0000
-@ Object 1111
+@ Object 1119
    .word 0x3250
    .hword 0x130
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1112
+@ Object 1120
    .word 0x3260
    .hword 0xe0
    .hword 0x3
@@ -7017,43 +7065,43 @@ xstep_spr_data:
    .hword 0x6e82
    .hword 0x0
    .hword 0x0000
-@ Object 1113
+@ Object 1121
    .word 0x3260
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1114
+@ Object 1122
    .word 0x3268
    .hword 0x100
    .hword 0x18
    .hword 0x1
    .hword 0
-@ Object 1115
+@ Object 1123
    .word 0x3270
    .hword 0x150
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1116
+@ Object 1124
    .word 0x3280
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1117
+@ Object 1125
    .word 0x3290
    .hword 0x170
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1118
+@ Object 1126
    .word 0x3298
    .hword 0x100
    .hword 0x18
    .hword 0x1
    .hword 0
-@ Object 1119
+@ Object 1127
    .word 0x32b0
    .hword 0xe0
    .hword 0x3
@@ -7061,31 +7109,31 @@ xstep_spr_data:
    .hword 0x7f40
    .hword 0x0
    .hword 0x0000
-@ Object 1120
+@ Object 1128
    .word 0x32b0
    .hword 0x118
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1121
+@ Object 1129
    .word 0x32b0
    .hword 0x130
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1122
+@ Object 1130
    .word 0x32b0
    .hword 0x148
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1123
+@ Object 1131
    .word 0x32b0
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1124
+@ Object 1132
    .word 0x32c0
    .hword 0xe0
    .hword 0x3
@@ -7093,31 +7141,31 @@ xstep_spr_data:
    .hword 0x6e82
    .hword 0x0
    .hword 0x0000
-@ Object 1125
+@ Object 1133
    .word 0x32c0
    .hword 0x180
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1126
+@ Object 1134
    .word 0x32c8
    .hword 0x160
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1127
+@ Object 1135
    .word 0x32d8
    .hword 0x160
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1128
+@ Object 1136
    .word 0x32e0
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1129
+@ Object 1137
    .word 0x32e8
    .hword 0xe0
    .hword 0x3
@@ -7125,37 +7173,37 @@ xstep_spr_data:
    .hword 0x7f40
    .hword 0x0
    .hword 0x0000
-@ Object 1130
+@ Object 1138
    .word 0x32f0
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1131
+@ Object 1139
    .word 0x32f0
    .hword 0x118
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1132
+@ Object 1140
    .word 0x32f0
    .hword 0x130
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1133
+@ Object 1141
    .word 0x32f0
    .hword 0x148
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1134
+@ Object 1142
    .word 0x32f0
    .hword 0x170
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1135
+@ Object 1143
    .word 0x32f8
    .hword 0xe0
    .hword 0x3
@@ -7163,97 +7211,97 @@ xstep_spr_data:
    .hword 0x6e82
    .hword 0x0
    .hword 0x0000
-@ Object 1136
+@ Object 1144
    .word 0x3310
    .hword 0x150
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1137
+@ Object 1145
    .word 0x3318
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1138
+@ Object 1146
    .word 0x3320
    .hword 0x100
    .hword 0x18
    .hword 0x1
    .hword 0
-@ Object 1139
+@ Object 1147
    .word 0x3338
    .hword 0x138
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1140
+@ Object 1148
    .word 0x3340
    .hword 0x178
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1141
+@ Object 1149
    .word 0x3340
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1142
+@ Object 1150
    .word 0x3350
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1143
+@ Object 1151
    .word 0x3358
    .hword 0x160
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 1144
+@ Object 1152
    .word 0x3358
    .hword 0x190
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1145
+@ Object 1153
    .word 0x3360
    .hword 0x140
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1146
+@ Object 1154
    .word 0x3360
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1147
+@ Object 1155
    .word 0x3370
    .hword 0x100
    .hword 0x18
    .hword 0x1
    .hword 0
-@ Object 1148
+@ Object 1156
    .word 0x3370
    .hword 0x118
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1149
+@ Object 1157
    .word 0x3378
    .hword 0x160
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 1150
+@ Object 1158
    .word 0x3378
    .hword 0x190
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1151
+@ Object 1159
    .word 0x3380
    .hword 0xe0
    .hword 0x3
@@ -7261,19 +7309,19 @@ xstep_spr_data:
    .hword 0x7f40
    .hword 0x0
    .hword 0x0000
-@ Object 1152
+@ Object 1160
    .word 0x3388
    .hword 0x100
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 1153
+@ Object 1161
    .word 0x3388
    .hword 0x130
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1154
+@ Object 1162
    .word 0x3390
    .hword 0xe0
    .hword 0x3
@@ -7281,115 +7329,115 @@ xstep_spr_data:
    .hword 0x3c5b
    .hword 0x0
    .hword 0x0000
-@ Object 1155
+@ Object 1163
    .word 0x3390
    .hword 0x178
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1156
+@ Object 1164
    .word 0x3390
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1157
+@ Object 1165
    .word 0x3394
    .hword 0x14c
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1158
+@ Object 1166
    .word 0x3398
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1159
+@ Object 1167
    .word 0x33a8
    .hword 0x100
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 1160
+@ Object 1168
    .word 0x33a8
    .hword 0x130
    .hword 0x6
    .hword 0x1
    .hword 0
-@ Object 1161
+@ Object 1169
    .word 0x33b0
    .hword 0x190
    .hword 0x19
    .hword 0x0
    .hword 0
-@ Object 1162
+@ Object 1170
    .word 0x33c0
    .hword 0x100
    .hword 0x18
    .hword 0x1
    .hword 0
-@ Object 1163
+@ Object 1171
    .word 0x33c0
    .hword 0x118
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1164
+@ Object 1172
    .word 0x33c0
    .hword 0x14c
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1165
+@ Object 1173
    .word 0x33d0
    .hword 0x190
    .hword 0x18
    .hword 0x0
    .hword 0
-@ Object 1166
+@ Object 1174
    .word 0x33e0
    .hword 0x100
    .hword 0x19
    .hword 0x1
    .hword 0
-@ Object 1167
+@ Object 1175
    .word 0x33e0
    .hword 0x110
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1168
+@ Object 1176
    .word 0x33e0
    .hword 0x180
    .hword 0x6
    .hword 0x4
    .hword 49152
-@ Object 1169
+@ Object 1177
    .word 0x33f0
    .hword 0x130
    .hword 0x7
    .hword 0x1
    .hword 0
-@ Object 1170
+@ Object 1178
    .word 0x33f0
    .hword 0x14c
    .hword 0x17
    .hword 0x0
    .hword 0
-@ Object 1171
+@ Object 1179
    .word 0x33f0
    .hword 0x160
    .hword 0x7
    .hword 0x0
    .hword 0
-@ Object 1172
+@ Object 1180
    .word 0x3400
    .hword 0x110
    .hword 0x6
    .hword 0x4
    .hword 16384
-@ Object 1173
+@ Object 1181
    .word 0x3400
    .hword 0x180
    .hword 0x6

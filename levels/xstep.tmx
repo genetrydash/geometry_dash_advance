@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="848" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1672">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="848" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1680">
  <editorsettings>
   <export target="xstep.json" format="json"/>
  </editorsettings>
@@ -1710,8 +1710,16 @@
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="1214" gid="521" x="11184" y="336" width="16" height="16"/>
-  <object id="1215" gid="521" x="11280" y="336" width="16" height="16"/>
+  <object id="1214" gid="521" x="11184" y="336" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="1215" gid="521" x="11280" y="336" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
   <object id="1216" gid="521" x="11328" y="384" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
@@ -3653,6 +3661,30 @@
     <property name="Channel" value="BG"/>
     <property name="Color" type="color" value="#ffda177d"/>
     <property name="Frames" type="int" value="180"/>
+   </properties>
+  </object>
+  <object id="1672" gid="521" x="11485" y="292" width="16" height="16"/>
+  <object id="1673" gid="521" x="11485" y="324" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="1674" gid="521" x="11728" y="336" width="16" height="16"/>
+  <object id="1675" gid="521" x="11728" y="368" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="1676" gid="521" x="11808" y="336" width="16" height="16"/>
+  <object id="1677" gid="521" x="11808" y="368" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="1678" gid="521" x="11888" y="336" width="16" height="16"/>
+  <object id="1679" gid="521" x="11888" y="368" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>

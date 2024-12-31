@@ -10484,6 +10484,12 @@
                  "height":16,
                  "id":1214,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"vflip",
+                         "type":"bool",
+                         "value":true
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -10496,6 +10502,12 @@
                  "height":16,
                  "id":1215,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"vflip",
+                         "type":"bool",
+                         "value":true
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -19021,6 +19033,126 @@
                  "width":16,
                  "x":13200,
                  "y":224
+                }, 
+                {
+                 "gid":521,
+                 "height":16,
+                 "id":1672,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11485,
+                 "y":292
+                }, 
+                {
+                 "gid":521,
+                 "height":16,
+                 "id":1673,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"vflip",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11485,
+                 "y":324
+                }, 
+                {
+                 "gid":521,
+                 "height":16,
+                 "id":1674,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11728,
+                 "y":336
+                }, 
+                {
+                 "gid":521,
+                 "height":16,
+                 "id":1675,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"vflip",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11728,
+                 "y":368
+                }, 
+                {
+                 "gid":521,
+                 "height":16,
+                 "id":1676,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11808,
+                 "y":336
+                }, 
+                {
+                 "gid":521,
+                 "height":16,
+                 "id":1677,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"vflip",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11808,
+                 "y":368
+                }, 
+                {
+                 "gid":521,
+                 "height":16,
+                 "id":1678,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11888,
+                 "y":336
+                }, 
+                {
+                 "gid":521,
+                 "height":16,
+                 "id":1679,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"vflip",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11888,
+                 "y":368
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -19029,7 +19161,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":1672,
+ "nextobjectid":1680,
  "orientation":"orthogonal",
  "properties":[
         {
