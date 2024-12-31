@@ -660,7 +660,7 @@ const u8 spr_width_height_table[] = {
     0x20, 0x40, // 32x64
 };
 
-void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip) {
+ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip) {
     u32 i = 0;
     // Continue until end of data
     while (data[i] != 0xffff && nextSpr < 128) {
@@ -699,7 +699,7 @@ void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip) {
         i += 6;
     }
 }
-void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id) {
+ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id) {
     u32 i = 0;
     // Continue until end of data
     while (data[i] != 0xffff && nextSpr < 128) {

@@ -386,7 +386,7 @@ void do_collision_with_objects(u32 check_rotated) {
     for (s32 slot = 0; slot < MAX_OBJECTS; slot++) {
         // Check collision only if the slot is occupied
         if (object_buffer[slot].occupied && object_buffer[slot].activated == FALSE) {
-            if (check_rotated || !(object_buffer[slot].object.attrib1 & ENABLE_ROTATION_FLAG)) {
+            if (object_buffer[slot].has_collision && (check_rotated || !(object_buffer[slot].object.attrib1 & ENABLE_ROTATION_FLAG))) {
                 check_obj_collision(slot); 
             }
         }  

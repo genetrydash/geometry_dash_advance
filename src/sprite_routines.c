@@ -177,6 +177,31 @@ void blue_orb(struct ObjectSlot *objectSlot) {
 }
 
 void blue_pad(struct ObjectSlot *objectSlot) {
+    u32 enabled_rotation = (objectSlot->object.attrib1 & ENABLE_ROTATION_FLAG);
+    if (!enabled_rotation) {
+        // Object is not rotated
+        if (gravity_dir != (objectSlot->object.attrib1 & V_FLIP_FLAG)) {
+            return;
+        }
+    } else {
+        // Object is rotated
+        u16 rotation = (objectSlot->object.rotation);
+        if (!gravity_dir) {
+            // Gravity goes down
+            if (rotation >= 0x4000 && rotation < 0xc000) {
+                // Object rotation is between 90 and 270 degrees
+                return;
+            }
+        } else {
+            // Gravity goes up
+            if (rotation < 0x4000 || rotation >= 0xc000) {
+                // Object rotation is less than 90 or greater than 270 degrees
+                return;
+            }
+        }
+    }
+
+    // Gravity should change 
     gravity_dir ^= 1;
     s32 sign = (gravity_dir == GRAVITY_UP) ? -1 : 1;
 

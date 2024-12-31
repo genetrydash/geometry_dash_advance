@@ -8,6 +8,7 @@ const u16 *level_defines[][4] = {
    { jumper_l1_level_data, jumper_l2_level_data, jumper_spr_data, jumper_properties },
    { timemachine_l1_level_data, timemachine_l2_level_data, timemachine_spr_data, timemachine_properties },
    { cycles_l1_level_data, cycles_l2_level_data, cycles_spr_data, cycles_properties },
+   { xstep_l1_level_data, xstep_l2_level_data, xstep_spr_data, xstep_properties },
    { test_l1_level_data, test_l2_level_data, test_spr_data, test_properties },
 };
 const u8 *level_names[] = {
@@ -19,5 +20,6 @@ const u8 *level_names[] = {
    jumper_name,
    timemachine_name,
    cycles_name,
+   xstep_name,
    test_name,
 };

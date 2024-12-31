@@ -66,14 +66,22 @@
 #include "cycles/SP.h"
 #include "cycles/properties.h"
 
+// xstep
+#define xstep_ID 8
+
+#include "xstep/l1.h"
+#include "xstep/l2.h"
+#include "xstep/SP.h"
+#include "xstep/properties.h"
+
 // test
-#define test_ID 8
+#define test_ID 9
 
 #include "test/l1.h"
 #include "test/l2.h"
 #include "test/SP.h"
 #include "test/properties.h"
 
-#define LEVEL_COUNT 9
+#define LEVEL_COUNT 10
 extern const u16 *level_defines[][4];
 extern const u8 *level_names[];

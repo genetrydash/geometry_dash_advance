@@ -47,6 +47,11 @@ ARM_CODE void load_objects() {
                     sprite_pointer++;
                 }
 
+                u16 obj_width = obj_hitbox[new_object.type][0];
+                u16 obj_height = obj_hitbox[new_object.type][1];
+                
+                object_buffer[index].has_collision = obj_width | obj_height;
+
                 // Occupy object slot and init some variables
                 object_buffer[index].occupied = TRUE;
                 object_buffer[index].activated = FALSE;
@@ -129,8 +134,8 @@ ARM_CODE void display_objects() {
                 u8 hflip = (curr_object.attrib1 & H_FLIP_FLAG) >> 1;
                 u8 vflip = curr_object.attrib1 & V_FLIP_FLAG;
 
-                // Unload object in case that it is 128 pixels left to the screen
-                if (relative_x < -128) {
+                // Unload object in case that it is 64 pixels left to the screen
+                if (relative_x < -64) {
                     object_buffer[index].occupied = FALSE;
                     continue;
                 }
@@ -168,11 +173,6 @@ void check_obj_collision(u32 index) {
 
     u16 obj_width = obj_hitbox[curr_object.type][0];
     u16 obj_height = obj_hitbox[curr_object.type][1];
-
-    // If the hitbox is 0x0, then there is no hitbox
-    if ((obj_width | obj_height) == 0) {
-        return;
-    }
 
     s16 offset_x = obj_hitbox[curr_object.type][2];
     s16 offset_y = obj_hitbox[curr_object.type][3];
