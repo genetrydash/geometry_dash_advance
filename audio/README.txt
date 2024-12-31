@@ -8,7 +8,7 @@ Sample instructions:
 Attention: sample reuse is very important due to storage reasons. If you add samples, you must share them via discord to: ElAngel378.
 
 Module instructions:
-•Format:         .mod/m3a/XM
+•Format:         .mod/m3a/XM/IT
 •Sample mixing:  16000kHz
 •Chanels:        4-8 sample chanels
 
