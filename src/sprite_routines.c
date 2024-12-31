@@ -25,7 +25,7 @@ const s32 orb_pad_bounces[][GAMEMODE_COUNT][5] = {
 };
 
 void cube_portal(struct ObjectSlot *objectSlot) {
-    if (gamemode != GAMEMODE_CUBE) player_y_speed /= 2;
+    if (gamemode == GAMEMODE_SHIP) player_y_speed /= 2;
     gamemode = GAMEMODE_CUBE;
     objectSlot->activated = TRUE;
 }
@@ -37,7 +37,7 @@ void ship_portal(struct ObjectSlot *objectSlot) {
 }
 
 void ball_portal(struct ObjectSlot *objectSlot) {
-    if (gamemode != GAMEMODE_BALL) player_y_speed /= 2;
+    if (gamemode == GAMEMODE_SHIP) player_y_speed /= 2;
     gamemode = GAMEMODE_BALL;
     objectSlot->activated = TRUE;
 }
