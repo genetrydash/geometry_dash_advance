@@ -298,7 +298,7 @@ cycles_spr_data:
    .hword 0x0
    .hword 0
 @ Object 49
-   .word 0x5ac
+   .word 0x5a8
    .hword 0x180
    .hword 0xe
    .hword 0x0
