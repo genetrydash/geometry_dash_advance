@@ -65,3 +65,5 @@ enum UpdateFlags {
 #define UPDATE_ALL UPDATE_OAM | UPDATE_VRAM | UPDATE_SCROLL | CLEAR_OAM_BUFFER
 
 extern u8 update_flags;
+
+extern u32 global_timer;

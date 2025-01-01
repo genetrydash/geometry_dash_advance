@@ -49,3 +49,6 @@ u8 debug_mode = 0;
 
 // Flags that indicates if VBLANK sensitive stuff should happen
 u8 update_flags;
+
+// Timer that increments by 1 every frame
+u32 global_timer;

@@ -281,6 +281,14 @@ const u16 yellowPadSpr[] = {
     0, // x
     0, // y
     CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(1) | ATTR2_ID(990) | ATTR2_PRIO(1),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+
     0xffff
 };
 
@@ -301,6 +309,14 @@ const u16 bluePadSpr[] = {
     0, // x
     0, // y
     CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(2) | ATTR2_ID(990) | ATTR2_PRIO(1),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+
     0xffff
 };
 
@@ -321,6 +337,14 @@ const u16 pinkPadSpr[] = {
     0, // x
     0, // y
     CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(3) | ATTR2_ID(990) | ATTR2_PRIO(1),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+
     0xffff
 };
 

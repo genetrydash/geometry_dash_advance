@@ -50,6 +50,10 @@ void vblank_handler() {
             memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
         }
     }
+
+    // Increment global timer
+    global_timer++;
+
     // Run sound
     mmFrame();
 }
@@ -175,11 +179,12 @@ void game_loop() {
 
         nextSpr = 0;
 
-        s64 last_player_x = player_x;
+        run_particles();
 
         // Run vertical scroll code
         scroll_screen_vertically();
 
+        s64 last_player_x = player_x;
         // Run player routines
         if (!player_death) player_main();
 

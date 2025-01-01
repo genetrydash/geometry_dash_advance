@@ -1,4 +1,5 @@
 #include "main.h"
+#include "../graphics/includes.h"
 
 const COLOR blockPalette[] = {
     0x7C00, 0x7C00, 0x6800, 0x5400, 0x3C00, 0x2800, 0x1400, 0x0000, 0x7D4A, 0x7EB5, 0x7FFF, 0x540A, 0x3C10, 0x2815, 0x141A, 0x0000,
@@ -206,3 +207,14 @@ const COLOR black_buffer[] = {
     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
     
 };
+
+u16 particle_timer = 0;
+
+void run_particles() {
+    memcpy32(&tile_mem_obj[1][478], &orb_pad_particles[particle_timer], (sizeof(TILE) / sizeof(u32)) * 2);
+    memcpy32(&tile_mem_obj[1][510], &orb_pad_particles[particle_timer+32], (sizeof(TILE) / sizeof(u32)) * 2);
+
+    particle_timer += 2;
+
+    if (particle_timer > 31) particle_timer = 0;
+}
