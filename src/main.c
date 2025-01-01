@@ -177,6 +177,9 @@ void game_loop() {
 
         s64 last_player_x = player_x;
 
+        // Run vertical scroll code
+        scroll_screen_vertically();
+
         // Run player routines
         if (!player_death) player_main();
 

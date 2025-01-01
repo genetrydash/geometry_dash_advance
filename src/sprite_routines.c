@@ -33,12 +33,18 @@ void cube_portal(struct ObjectSlot *objectSlot) {
 void ship_portal(struct ObjectSlot *objectSlot) {
     if (gamemode != GAMEMODE_SHIP) player_y_speed /= 2;
     gamemode = GAMEMODE_SHIP;
+    
+    set_target_y_scroll(objectSlot->object.y);
+
     objectSlot->activated = TRUE;
 }
 
 void ball_portal(struct ObjectSlot *objectSlot) {
     if (gamemode == GAMEMODE_SHIP) player_y_speed /= 2;
     gamemode = GAMEMODE_BALL;
+    
+    set_target_y_scroll(objectSlot->object.y);
+
     objectSlot->activated = TRUE;
 }
 

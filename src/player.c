@@ -61,11 +61,6 @@ u8 speed_id = SPEED_X1;
 u8 x_offset;
 u8 y_offset;
 
-
-
-#define TOP_SCROLL_Y 0x2c
-#define BOTTOM_SCROLL_Y SCREEN_HEIGHT-0x2c
-
 void cube_gamemode();
 void ship_gamemode();
 void ball_gamemode();
@@ -77,15 +72,6 @@ void player_main() {
     // This scrolls the screen on the x axis
     if (player_x >= 0x500000) {
         scroll_x += player_x_speed;
-    }
-
-    // This scrolls the screen on the y axis
-    if (relative_player_y >= BOTTOM_SCROLL_Y && player_y_speed > 0) {
-        scroll_y_dir = 1;
-        scroll_y += player_y_speed;
-    } else if (relative_player_y <= TOP_SCROLL_Y && player_y_speed < 0) { 
-        scroll_y_dir = 0;
-        scroll_y += player_y_speed;
     }
 
     if (key_held(KEY_A | KEY_UP)) {

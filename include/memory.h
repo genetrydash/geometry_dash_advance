@@ -36,6 +36,8 @@ extern u32 *level_pointer[2];
 extern u64 scroll_x;
 extern u64 scroll_y;
 
+extern u32 target_scroll_y;
+
 extern s8 scroll_y_dir;
 
 extern u16 loaded_level_id;

@@ -5,7 +5,7 @@
 #include "levels.h"
 #include "player.h"
 #include "collision.h"
-#include "decompression.h"
+#include "level_routines.h"
 #include "sprite_loading.h"
 #include "sprite_routines.h"
 #include "color.h"

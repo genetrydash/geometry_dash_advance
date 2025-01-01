@@ -30,6 +30,8 @@ u32 *level_pointer[LEVEL_LAYERS];
 u64 scroll_x = 0;
 u64 scroll_y = 0;
 
+u32 target_scroll_y = 0;
+
 // 0 : up | 1 : down
 s8 scroll_y_dir = 0;
 

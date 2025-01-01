@@ -1,4 +1,4 @@
-#include "decompression.h"
+#include "level_routines.h"
 #include "memory.h"
 #include "main.h"
 #include "metatiles.h"
@@ -7,6 +7,9 @@
 #include "menu.h"
 #include "physics_defines.h"
 #include "../levels/includes.h"
+
+#define TOP_SCROLL_Y 0x2c
+#define BOTTOM_SCROLL_Y SCREEN_HEIGHT-0x2c
 
 // RLE variables
 u16 value[LEVEL_LAYERS];
@@ -266,6 +269,10 @@ void load_level(u32 level_ID) {
     player_y = ((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS);  
     scroll_y = (player_y) - (0x70 << (SUBPIXEL_BITS));
 
+    // In case the gamemode has the camera restricted, set it there
+    // Parameter given is -1 so it is set to the ground instantly
+    set_target_y_scroll(-1);
+
     // Copy palettes into the buffer
     memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
@@ -351,4 +358,39 @@ void reset_level() {
     load_level(loaded_level_id);
 
     fade_in_level();
+}
+
+void scroll_screen_vertically() {
+    if (gamemode == GAMEMODE_CUBE) {
+        // This scrolls the screen on the y axis
+        if (relative_player_y >= BOTTOM_SCROLL_Y && player_y_speed > 0) {
+            scroll_y_dir = 1;
+            scroll_y += player_y_speed;
+        } else if (relative_player_y <= TOP_SCROLL_Y && player_y_speed < 0) { 
+            scroll_y_dir = 0;
+            scroll_y += player_y_speed;
+        }
+    } else {
+        if ((u32) (scroll_y) > target_scroll_y) {
+            scroll_y -= 0x10000;
+        }
+
+        if ((u32) (scroll_y) < target_scroll_y) {
+            scroll_y += 0x10000;
+        }
+    }
+}
+
+const u8 gamemode_screen_y_offset[] = {
+    /* Ship */ 0xa0,
+    /* Ball */ 0x90,
+};
+
+void set_target_y_scroll(u32 object_y) {
+    u32 intended_pos_y = object_y - 0x40;
+    u32 offset = gamemode_screen_y_offset[gamemode - 1];
+    
+    if (intended_pos_y > ((GROUND_HEIGHT) << 4) - offset) intended_pos_y = ((GROUND_HEIGHT) << 4) - offset;
+
+    target_scroll_y = (intended_pos_y & ~0xf) << SUBPIXEL_BITS;
 }

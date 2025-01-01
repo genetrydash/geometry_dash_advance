@@ -32,7 +32,7 @@ ROM_VERSION	:=
 BINARY_FILES	:= 
 
 # Audio files to process with mmutil
-AUDIO_FILES	:= audio/*.xm
+AUDIO_FILES	:= audio/*.xm audio/*.s3m
 
 # Graphics files to process with grit
 #
