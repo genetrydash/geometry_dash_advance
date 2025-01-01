@@ -98,6 +98,9 @@ void init_maxmod() {
 s32 main() {
     init_maxmod();
 
+    // Enable waitstate 3,1
+    REG_WAITCNT = 0x4317;
+
     REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG2, BLD_STD);
 
     BFN_SET(REG_BLDCNT, BLD_MODE(1), BLD_MODE);
