@@ -19,7 +19,7 @@
 
 enum CollisionTypes {
     COL_NONE,
-    COL_ALL,
+    COL_FULL,
     COL_SPIKE_TOP,
     COL_SPIKE_BOTTOM,
     COL_SPIKE_RIGHT,

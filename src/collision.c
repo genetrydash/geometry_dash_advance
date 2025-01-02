@@ -306,7 +306,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         case COL_NONE:
             return 0;
             
-        case COL_ALL:
+        case COL_FULL:
             eject = y_inside_block;
             break;
             
