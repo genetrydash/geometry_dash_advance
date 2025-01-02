@@ -49,20 +49,24 @@ void ball_portal(struct ObjectSlot *objectSlot) {
 }
 
 void blue_gravity_portal(struct ObjectSlot *objectSlot) {
-    if (gravity_dir == GRAVITY_UP) player_y_speed /= 2;
-    gravity_dir = GRAVITY_DOWN;
-    
-    ball_rotation_direction = (gravity_dir == GRAVITY_DOWN) ? 1 : -1;
+    if (gravity_dir == GRAVITY_UP) {
+        player_y_speed /= 2;
+        gravity_dir = GRAVITY_DOWN;
+        
+        ball_rotation_direction = -1;
+    }
 
     objectSlot->activated = TRUE;
 }
 
 void yellow_gravity_portal(struct ObjectSlot *objectSlot) {
-    if (gravity_dir == GRAVITY_DOWN) player_y_speed /= 2;
-    
-    ball_rotation_direction = (gravity_dir == GRAVITY_DOWN) ? 1 : -1;
+    if (gravity_dir == GRAVITY_DOWN) {
+        player_y_speed /= 2;
+        gravity_dir = GRAVITY_UP;
 
-    gravity_dir = GRAVITY_UP;
+        ball_rotation_direction = 1;
+    }
+
     objectSlot->activated = TRUE;
 }
 
