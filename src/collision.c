@@ -113,7 +113,7 @@ void collision_ship_ball() {
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
         
         u32 calculated_hitbox_x = coll_x + ((player_width - INTERNAL_HITBOX_WIDTH) >> 1);
-        u32 calculated_hitbox_y = coll_y + ((player_height - INTERNAL_HITBOX_HEIGHT) >> 1);
+        u32 calculated_hitbox_y = coll_y + ((player_height - INTERNAL_HITBOX_HEIGHT) >> 1) + 1;
 
 #ifdef DEBUG
         if (!debug_mode) do_center_checks(calculated_hitbox_x, calculated_hitbox_y, INTERNAL_HITBOX_WIDTH, INTERNAL_HITBOX_HEIGHT, layer);
