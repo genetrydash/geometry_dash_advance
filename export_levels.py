@@ -195,15 +195,21 @@ def rle_compress_level(level_array):
     # Flatten the level array column by column
     for col in range(len(level_array[0])):
         for row in range(len(level_array)):
-            flat_level.append(level_array[row][col])
+            value = level_array[row][col] - 1
+
+            # Convert negative values into air
+            if value < 0: value = 0
+
+            # Mask highest 4 bits as those aren't part of the ID
+            value = value & 0x0fffffff
+            flat_level.append(value)
 
     # Perform RLE compression on the flattened array
     count = 1
+
     prev_value = flat_level[0]
     for i in range(1, len(flat_level)):
-        current_value = flat_level[i] - 1
-
-        if current_value < 0: current_value = 0
+        current_value = flat_level[i]
 
         if current_value == prev_value:
             count += 1
