@@ -266,7 +266,7 @@ void ship_gamemode() {
 
     // The GBA can't flip rotated sprites, so a separate sprite is needed
     if (gravity_dir) {
-        oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipFlippedSpr, 0, 0);
+        oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset - 1, shipFlippedSpr, 0, 0);
     } else {
         oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipSpr, 0, 0);
     }

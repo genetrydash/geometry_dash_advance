@@ -136,7 +136,7 @@ void collision_ship_ball() {
         if (player_y_speed <= 0) {
             // Going up
             coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
-            coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
+            coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1) + 1;
 
             if (run_coll(coll_x, coll_y, layer, TOP)) {
                 continue;
