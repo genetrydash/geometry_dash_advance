@@ -6,8 +6,11 @@ s64 player_x; // gota love giant levels
 u64 player_y;
 
 // Player dimensions, in pixels
-u16 player_width;
-u16 player_height;
+u8 player_width;
+u8 player_height;
+
+u8 player_internal_hitbox_width;
+u8 player_internal_hitbox_height;
 
 // Speed variables, in subpixels/frame
 s32 player_x_speed;
@@ -66,6 +69,15 @@ void ship_gamemode();
 void ball_gamemode();
 
 void player_main() {    
+    // Set internal square hitbox size
+    if (player_size == SIZE_BIG) {
+        player_internal_hitbox_width = INTERNAL_HITBOX_WIDTH;
+        player_internal_hitbox_height = INTERNAL_HITBOX_HEIGHT;
+    } else {
+        player_internal_hitbox_width = MINI_INTERNAL_HITBOX_WIDTH;
+        player_internal_hitbox_height = MINI_INTERNAL_HITBOX_HEIGHT;
+    }
+
     // Set player speed
     player_x_speed = speed_constants[speed_id];
     

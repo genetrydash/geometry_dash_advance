@@ -36,8 +36,11 @@ extern u64 player_y;
 extern u16 relative_player_x;
 extern u16 relative_player_y;
 
-extern u16 player_width;
-extern u16 player_height;
+extern u8 player_width;
+extern u8 player_height;
+
+extern u8 player_internal_hitbox_width;
+extern u8 player_internal_hitbox_height;
 
 extern s32 player_x_speed;
 extern s32 player_y_speed;
