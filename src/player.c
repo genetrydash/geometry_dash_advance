@@ -94,19 +94,9 @@ void player_main() {
             ball_gamemode();
             break;
     }
-    obj_aff_identity(&obj_aff_buffer[0]);
-
-    #define scale_inv(s) ((1<<24)/s)>>8
-    
-    // Change sprite size depending on player size
-    if (player_size == SIZE_BIG) {
-        obj_aff_rotate(&obj_aff_buffer[0], cube_rotation);
-    } else {
-        obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
-    }
-
-    #undef scale_inv
 }
+
+#define scale_inv(s) ((1<<24)/s)>>8
 
 void cube_gamemode() {
     if (player_size == SIZE_BIG) {
@@ -190,7 +180,16 @@ void cube_gamemode() {
         x_offset = 9;
         y_offset = 9;
     }
+
     oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0);
+    obj_aff_identity(&obj_aff_buffer[0]);
+
+    // Change sprite size depending on player size
+    if (player_size == SIZE_BIG) {
+        obj_aff_rotscale(&obj_aff_buffer[0], float2fx(1.0), float2fx(1.0), cube_rotation);
+    } else {
+        obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
+    }
 }
 
 void ship_gamemode() {
@@ -261,14 +260,16 @@ void ship_gamemode() {
     relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
     relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
-    x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 8 : 7);
-    y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 8 : 7);
+    y_offset = gravity_dir ? 9 : 7;
 
-    // The GBA can't flip rotated sprites, so a separate sprite is needed
-    if (gravity_dir) {
-        oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset - 1, shipFlippedSpr, 0, 0);
+    oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, shipSpr, 0, 0);
+    obj_aff_identity(&obj_aff_buffer[0]);
+
+    // Change sprite size depending on player size
+    if (player_size == SIZE_BIG) {
+        obj_aff_rotscale(&obj_aff_buffer[0], float2fx(1.0), float2fx(1.0) * sign, cube_rotation);
     } else {
-        oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, shipSpr, 0, 0);
+        obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)) * sign, cube_rotation); 
     }
 }
 
@@ -341,5 +342,15 @@ void ball_gamemode() {
     relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
     relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
-    oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0);
+    oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0);  
+    obj_aff_identity(&obj_aff_buffer[0]);
+
+    // Change sprite size depending on player size
+    if (player_size == SIZE_BIG) {
+        obj_aff_rotscale(&obj_aff_buffer[0], float2fx(1.0), float2fx(1.0), cube_rotation);
+    } else {
+        obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
+    }
 }
+
+#undef scale_inv

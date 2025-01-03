@@ -39,20 +39,10 @@ const u16 shipSpr[] = {
     0xffff
 };
 
-const u16 shipFlippedSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
-    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
-    ATTR2_PALBANK(0) | ATTR2_ID(4) | ATTR2_PRIO(1),
-    0,
-    0,
-    CENTER(8, 8),
-    0xffff
-};
-
 const u16 ballSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
-    ATTR2_PALBANK(0) | ATTR2_ID(6) | ATTR2_PRIO(1),
+    ATTR2_PALBANK(0) | ATTR2_ID(4) | ATTR2_PRIO(1),
     0,
     0,
     CENTER(8, 8),
