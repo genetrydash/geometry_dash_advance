@@ -144,7 +144,7 @@ ARM_CODE void display_objects() {
                     // If object is inside the screen horizontally, continue
                     if (relative_x < SCREEN_WIDTH + 128) { 
                         // If the object is inside the screen vertically, display it
-                        if (relative_y > -64 && relative_y < SCREEN_HEIGHT) {
+                        if (relative_y > -48 && relative_y < SCREEN_HEIGHT + 48) {
                             do_display(curr_object, relative_x, relative_y, hflip, vflip);
                         }
                     }
