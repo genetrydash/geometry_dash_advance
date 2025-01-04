@@ -26,7 +26,7 @@ void menu_loop() {
         &pusabFont,             // Default font (sys8)
         NULL);                  // Default renderer (se_drawg_s)
 
-    char char_buffer[3];
+    char char_buffer[6];
 
     // Write initial text
     posprintf(char_buffer, "%d", loaded_level_id + 1);
