@@ -77,7 +77,7 @@
 
 // Big
 
-#define SHIP_GRAVITY 0x2600
+#define SHIP_GRAVITY 0x2A00
 
 #define SHIP_WIDTH 0x0e
 #define SHIP_HEIGHT 0x0e
