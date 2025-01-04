@@ -36,7 +36,9 @@ void menu_loop() {
     tte_write("PRESS A TO START");
 
     // Write level number
-    tte_set_pos(224,8);
+    // Compares 8 instead of 9 because the displayed number is always n + 1
+    u8 offset = (loaded_level_id > 8) ? 8 : 0;
+    tte_set_pos(224 - offset,8);
     tte_write(char_buffer);  
 
     // Write level name
@@ -69,7 +71,9 @@ void menu_loop() {
             posprintf(char_buffer, "%d", level_id + 1);
             
             // Write level number
-            tte_set_pos(224,8);
+            // Compares 8 instead of 9 because the displayed number is always n + 1
+            offset = (level_id > 8) ? 8 : 0;
+            tte_set_pos(224 - offset,8);
             tte_write(char_buffer);  
 
             // Write level name
@@ -86,7 +90,9 @@ void menu_loop() {
             posprintf(char_buffer, "%d", level_id + 1);
             
             // Write level number
-            tte_set_pos(224,8);
+            // Compares 8 instead of 9 because the displayed number is always n + 1
+            offset = (level_id > 8) ? 8 : 0;
+            tte_set_pos(224 - offset,8);
             tte_write(char_buffer);  
 
             // Write level name
