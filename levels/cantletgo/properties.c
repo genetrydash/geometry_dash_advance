@@ -6,7 +6,7 @@ const unsigned short cantletgo_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*song*/          MOD_STEREOMA,
+ /*song*/          MOD_CANTLG,
 };
 
 const unsigned char cantletgo_name[] = {
