@@ -52,11 +52,18 @@ const u16 ballSpr[] = {
 // Portals
 
 const u16 cubePortalSpr[] = {
-    ATTR0_4BPP | ATTR0_TALL,
-    ATTR1_SIZE_32x64,
-    ATTR2_PALBANK(2) | ATTR2_ID(64),
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(2) | ATTR2_ID(90),
     -8, // x
-    -24, // y
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(2) | ATTR2_ID(218),
+    -8, // x
+    16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -77,11 +84,18 @@ const u16 cubePortalSpr[] = {
 };
 
 const u16 shipPortalSpr[] = {
-    ATTR0_4BPP | ATTR0_TALL,
-    ATTR1_SIZE_32x64,
-    ATTR2_PALBANK(1) | ATTR2_ID(64),
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(1) | ATTR2_ID(90),
     -8, // x
-    -24, // y
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(1) | ATTR2_ID(218),
+    -8, // x
+    16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -102,11 +116,18 @@ const u16 shipPortalSpr[] = {
 };
 
 const u16 ballPortalSpr[] = {
-    ATTR0_4BPP | ATTR0_TALL,
-    ATTR1_SIZE_32x64,
-    ATTR2_PALBANK(5) | ATTR2_ID(64),
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(5) | ATTR2_ID(90),
     -8, // x
-    -24, // y
+    -16, // y
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(5) | ATTR2_ID(218),
+    -8, // x
+    16, // y
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
