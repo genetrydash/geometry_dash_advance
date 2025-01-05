@@ -633,6 +633,39 @@ const u16 groundWavySpike_H[] = {
     0xffff,
 };
 
+const u16 sawBig[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_64x64,
+    ATTR2_PALBANK(15) | ATTR2_ID(448) | ATTR2_PRIO(2),
+    -24, // x
+    -24, // y
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 sawMedium[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(15) | ATTR2_ID(456) | ATTR2_PRIO(2),
+    -8, // x
+    -8, // y
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 sawSmall[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(15) | ATTR2_ID(397) | ATTR2_PRIO(2),
+    0, // x
+    0, // y
+    CENTER(8, 8),
+
+    0xffff
+};
+
 const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -676,6 +709,11 @@ const u16 *obj_sprites[] = {
     groundSpike_H,
     groundWavySpike_V,
     groundWavySpike_H,
+
+    // Saws 
+    sawBig,
+    sawMedium,
+    sawSmall
 };
 
 const u8 spr_width_height_table[] = {
@@ -734,7 +772,7 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip) {
         i += 6;
     }
 }
-ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id) {
+ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id, u8 dbl) {
     u32 i = 0;
     // Continue until end of data
     while (data[i] != 0xffff && nextSpr < 128) {
@@ -742,7 +780,7 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         OAM_SPR *newSpr = &shadow_oam[nextSpr];
         // Set attributes
         obj_set_attr(newSpr, 
-            data[i] | ATTR0_AFF | ATTR0_AFF_DBL,                                     // ATTR0
+            data[i] | ATTR0_AFF | (dbl ? ATTR0_AFF_DBL : 0),                                     // ATTR0
             (data[i + 1] | ((data[i+1] & ATTR1_AFF_ID_MASK) ? 0 : ATTR1_AFF_ID(aff_id))), // ATTR1
             data[i + 2]);                                                            // ATTR2
 
@@ -750,7 +788,7 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
 
         u8 width = spr_width_height_table[wh_index << 1];
         u8 height = spr_width_height_table[(wh_index << 1) + 1];
-        
+       
         s16 offset_x = data[i + 3];
         s16 offset_y = data[i + 4];
         s8 center_x = data[i + 5] >> 8;
@@ -769,9 +807,9 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         // Divide by 4096 to get back to pixels
         s32 rotated_x = ((s64)(relative_x_centered * cos_theta) - (s64)(relative_y_centered * sin_theta)) / 4096;
         s32 rotated_y = ((s64)(relative_y_centered * cos_theta) + (s64)(relative_x_centered * sin_theta)) / 4096;
-        
-        s32 total_x = x + (center_x - (width >> 1)) + rotated_x - (width >> 1);
-        s32 total_y = y + (center_y - (height >> 1)) + rotated_y - (height >> 1);
+
+        s32 total_x = x + (center_x - (width >> 1)) + rotated_x - (dbl ? (width >> 1) : 0);
+        s32 total_y = y + (center_y - (height >> 1)) + rotated_y - (dbl ? (height >> 1) : 0);
         
         // Set position
         obj_set_pos(newSpr, total_x, total_y);

@@ -242,6 +242,7 @@ void reset_variables() {
 
     memset32(music_data, 0, sizeof(music_data) / sizeof(u32));
 
+    rotate_saws();
     scale_pulsing_objects();
 }
 
@@ -343,6 +344,7 @@ void reset_level() {
 
     // Display objects so they are saved into the buffer
     display_objects();
+    rotate_saws();
     scale_pulsing_objects();
 
     update_flags &= ~CLEAR_OAM_BUFFER;

@@ -9,6 +9,9 @@
 
 u32 *sprite_pointer;
 
+// Rotation values for each saw
+u16 saw_rotation[2];
+
 struct ObjectSlot object_buffer[MAX_OBJECTS];
 
 ARM_CODE void load_objects() {
@@ -37,6 +40,8 @@ ARM_CODE void load_objects() {
                 } else {
                     // Load flip values
                     new_object.attrib1 = (u16)(*sprite_pointer);
+                    new_object.attrib2 = 0;
+                    new_object.attrib3 = 0;
 
                     s32 enable_rotation = new_object.attrib1 & ENABLE_ROTATION_FLAG;
                     if (enable_rotation) {
@@ -47,8 +52,22 @@ ARM_CODE void load_objects() {
                     sprite_pointer++;
                 }
 
-                u16 obj_width = obj_hitbox[new_object.type][0];
+                s16 obj_width = obj_hitbox[new_object.type][0];
                 u16 obj_height = obj_hitbox[new_object.type][1];
+
+                // Circular hitboxes are flagged with a negative width
+                if (obj_width < 0) {
+                    new_object.attrib2 |= CIRCLE_HITBOX_FLAG;
+
+                    u32 type = new_object.type;
+
+                    if (type == BIG_SAW || type == MEDIUM_SAW || type == SMALL_SAW) {
+                        // Get evenness of block for rot id
+                        u32 rot_id = ((new_object.x & 0x10) ? SAW_CLOCKWISE : SAW_COUNTERCLOCKWISE);
+                        new_object.attrib2 |= IS_SAW_FLAG;
+                        new_object.attrib2 |= rot_id;
+                    }
+                }
                 
                 object_buffer[index].has_collision = obj_width | obj_height;
 
@@ -83,13 +102,19 @@ s32 find_affine_slot(u16 rotation) {
 }
 
 void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hflip, u8 vflip) {
-    if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
+    // Handle saws separately
+    if (curr_object.attrib2 & IS_SAW_FLAG) {
+        u32 saw_rot_id = (curr_object.attrib2 & SAW_ROT_FLAG) ? 2 : 3;
+        oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], saw_rotation[saw_rot_id - 2], saw_rot_id, 0);
+        obj_aff_identity(&obj_aff_buffer[saw_rot_id]);
+        obj_aff_rotate_inv(&obj_aff_buffer[saw_rot_id], saw_rotation[saw_rot_id - 2]);
+    } else if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
         u16 rotation = curr_object.rotation;
         s32 slot = find_affine_slot(rotation);
 
         if (slot >= 0) {
             // Draw affine sprite
-            oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], curr_object.rotation, slot + NUM_RESERVED_ROT_SLOTS);
+            oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], curr_object.rotation, slot + NUM_RESERVED_ROT_SLOTS, 1);
             obj_aff_identity(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS]);
             obj_aff_rotate_inv(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS], rotation);
         } else {
@@ -118,6 +143,11 @@ void scale_pulsing_objects() {
 
     u32 value = CLAMP(0x300 - (music_volume), 0x140, 0x300);
     obj_aff_scale(&obj_aff_buffer[PULSING_OBJECTS_SLOT], value, value);
+}
+
+void rotate_saws() {
+    saw_rotation[0] += 0x600;
+    saw_rotation[1] -= 0x600;
 }
 
 ARM_CODE void display_objects() {
@@ -204,13 +234,32 @@ void check_obj_collision(u32 index) {
             do_collision(&object_buffer[index]);
         }   
     } else {
-        // Check if a collision has happened
-        if (is_colliding(
-            ply_x, ply_y, player_width, player_height, 
-            obj_x, obj_y, obj_width, obj_height
-        )) {
-            // If yes, then run the collision routine
-            do_collision(&object_buffer[index]);
-        }   
+        if (curr_object.attrib2 & CIRCLE_HITBOX_FLAG) {
+            u32 ply_cx = ply_x + (player_width >> 1);
+            u32 ply_cy = ply_y + (player_height >> 1);
+
+            u32 obj_cx = obj_x;
+            u32 obj_cy = obj_y;
+
+            // Obj height contains the hitbox radius
+            u32 obj_radius = obj_height;
+
+            if (is_colliding_circle(
+                ply_cx, ply_cy, player_height >> 1,
+                obj_cx, obj_cy, obj_radius
+            )) {
+                // If yes, then run the collision routine
+                do_collision(&object_buffer[index]);
+            } 
+        } else {
+            // Check if a collision has happened
+            if (is_colliding(
+                ply_x, ply_y, player_width, player_height, 
+                obj_x, obj_y, obj_width, obj_height
+            )) {
+                // If yes, then run the collision routine
+                do_collision(&object_buffer[index]);
+            } 
+        }  
     }
 }

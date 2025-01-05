@@ -13,6 +13,15 @@
 #define V_FLIP_FLAG (1 << 0)
 #define ENABLE_ROTATION_FLAG (1 << 2)
 
+#define CIRCLE_HITBOX_FLAG (1 << 0)
+
+// Saw flags
+#define IS_SAW_FLAG          (1 << 1)
+#define SAW_ROT_BIT 2
+#define SAW_CLOCKWISE        (0 << SAW_ROT_BIT)
+#define SAW_COUNTERCLOCKWISE (1 << SAW_ROT_BIT)
+#define SAW_ROT_FLAG         (1 << SAW_ROT_BIT)
+
 struct Object {
     u32 x;
     u16 y;
@@ -43,4 +52,5 @@ extern struct ObjectSlot object_buffer[MAX_OBJECTS];
 void load_objects();
 void display_objects();
 void scale_pulsing_objects();
+void rotate_saws();
 #endif

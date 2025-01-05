@@ -200,6 +200,7 @@ void game_loop() {
         display_objects();
         load_objects();
         
+        rotate_saws();
         scale_pulsing_objects();
 
 #ifdef DEBUG

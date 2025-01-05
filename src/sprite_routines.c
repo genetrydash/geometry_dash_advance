@@ -302,53 +302,63 @@ const jmp_table routines_jump_table[] = {
     kill_player,
     kill_player,
 
+    // Saws
+
+    kill_player,
+    kill_player,
+    kill_player,
 };
 
 // In pixels
-#define Object_Hitbox(name, hw, hh, hxoff, hyoff, center_x, center_y) {hw, hh, hxoff, hyoff, center_x, center_y},
+#define Object_Hitbox_Rectangle(name, hw, hh, hxoff, hyoff, center_x, center_y) {hw, hh, hxoff, hyoff, center_x, center_y},
+#define Object_Hitbox_Circle(name, radius, hxoff, hyoff, center_x, center_y) {0x8000, radius, hxoff, hyoff, center_x, center_y},
 
 const s16 obj_hitbox[][6] = {
-    Object_Hitbox("NONE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("SHIP_PORTAL", 20, 46, -2, -15, 8, 8)
-    Object_Hitbox("CUBE_PORTAL", 20, 46, -2, -15, 8, 8)
-    Object_Hitbox("COL_TRIGGER", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("BIG_BG_SPIKES", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("MEDIUM_BG_SPIKES", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("SMALL_BG_SPIKES", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("TINY_BG_SPIKES", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("BG_CHAIN", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("YELLOW_ORB", 20, 20, -2, -2, 8, 8)
-    Object_Hitbox("YELLOW_PAD", 14, 2, 1, 14, 8, 8)
-    Object_Hitbox("MEDIUM_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("SMALL_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("LARGE_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("BLUE_GRAVITY_PORTAL", 14, 40, 1, -12, 8, 8)
-    Object_Hitbox("YELLOW_GRAVITY_PORTAL", 14, 40, 1, -12, 8, 8)
-    Object_Hitbox("BLUE_ORB", 20, 20, -2, -2, 8, 8)
-    Object_Hitbox("BLUE_PAD", 14, 2, 1, 14, 8, 8)
-    Object_Hitbox("PINK_ORB", 20, 20, -2, -2, 8, 8)
-    Object_Hitbox("PINK_PAD", 14, 2, 1, 14, 8, 8)
-    Object_Hitbox("PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("PULSING_CIRCUNFERENCE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("PULSING_DIAMOND", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("PULSING_STAR", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("BIG_BG_CLOUDS", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("SMALL_BG_CLOUDS", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("BALL_PORTAL", 20, 46, -2, -15, 8, 8)
-    Object_Hitbox("PULSING_SQUARE", 0, 0, 0, 0, 0, 0)
-    Object_Hitbox("MINI_PORTAL", 16, 48, 0, -16, 8, 8)
-    Object_Hitbox("BIG_PORTAL",  16, 48, 0, -16, 8, 8)
+    Object_Hitbox_Rectangle("NONE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("SHIP_PORTAL", 20, 46, -2, -15, 8, 8)
+    Object_Hitbox_Rectangle("CUBE_PORTAL", 20, 46, -2, -15, 8, 8)
+    Object_Hitbox_Rectangle("COL_TRIGGER", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BIG_BG_SPIKES", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("MEDIUM_BG_SPIKES", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("SMALL_BG_SPIKES", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("TINY_BG_SPIKES", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BG_CHAIN", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("YELLOW_ORB", 20, 20, -2, -2, 8, 8)
+    Object_Hitbox_Rectangle("YELLOW_PAD", 14, 2, 1, 14, 8, 8)
+    Object_Hitbox_Rectangle("MEDIUM_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("SMALL_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("LARGE_PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BLUE_GRAVITY_PORTAL", 14, 40, 1, -12, 8, 8)
+    Object_Hitbox_Rectangle("YELLOW_GRAVITY_PORTAL", 14, 40, 1, -12, 8, 8)
+    Object_Hitbox_Rectangle("BLUE_ORB", 20, 20, -2, -2, 8, 8)
+    Object_Hitbox_Rectangle("BLUE_PAD", 14, 2, 1, 14, 8, 8)
+    Object_Hitbox_Rectangle("PINK_ORB", 20, 20, -2, -2, 8, 8)
+    Object_Hitbox_Rectangle("PINK_PAD", 14, 2, 1, 14, 8, 8)
+    Object_Hitbox_Rectangle("PULSING_CIRCLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("PULSING_CIRCUNFERENCE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("PULSING_DIAMOND", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("PULSING_STAR", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BIG_BG_CLOUDS", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("SMALL_BG_CLOUDS", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BALL_PORTAL", 20, 46, -2, -15, 8, 8)
+    Object_Hitbox_Rectangle("PULSING_SQUARE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("MINI_PORTAL", 16, 48, 0, -16, 8, 8)
+    Object_Hitbox_Rectangle("BIG_PORTAL",  16, 48, 0, -16, 8, 8)
 
-    Object_Hitbox("SPIKE_V", 2, 6, 7, 5, 8, 8)
-    Object_Hitbox("SPIKE_H", 6, 2, 5, 7, 8, 8)
-    Object_Hitbox("HALF_SPIKE_V", 4, 3, 6, 12, 8, 8)
-    Object_Hitbox("HALF_SPIKE_H", 3, 4, 2, 6, 8, 8)
-    Object_Hitbox("MEDIUM_SPIKE_V", 2, 4, 7, 9, 8, 8)
-    Object_Hitbox("MEDIUM_SPIKE_H", 4, 2, 2, 7, 8, 8)
-    Object_Hitbox("GROUND_SPIKE_V", 4, 3, 6, 12, 8, 8)
-    Object_Hitbox("GROUND_SPIKE_H", 3, 4, 2, 6, 8, 8)
-    Object_Hitbox("GROUND_WAVY_SPIKE_V", 4, 3, 6, 12, 8, 8)
-    Object_Hitbox("GROUND_WAVY_SPIKE_H", 3, 4, 2, 6, 8, 8)
+    Object_Hitbox_Rectangle("SPIKE_V", 2, 6, 7, 5, 8, 8)
+    Object_Hitbox_Rectangle("SPIKE_H", 6, 2, 5, 7, 8, 8)
+    Object_Hitbox_Rectangle("HALF_SPIKE_V", 4, 3, 6, 12, 8, 8)
+    Object_Hitbox_Rectangle("HALF_SPIKE_H", 3, 4, 2, 6, 8, 8)
+    Object_Hitbox_Rectangle("MEDIUM_SPIKE_V", 2, 4, 7, 9, 8, 8)
+    Object_Hitbox_Rectangle("MEDIUM_SPIKE_H", 4, 2, 2, 7, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_SPIKE_V", 4, 3, 6, 12, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_SPIKE_H", 3, 4, 2, 6, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_V", 4, 3, 6, 12, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_H", 3, 4, 2, 6, 8, 8)
+
+    Object_Hitbox_Circle("SAW_BIG", 16, 8, 8, 8, 8)
+    Object_Hitbox_Circle("SAW_MEDIUM", 12, 8, 8, 8, 8)
+    Object_Hitbox_Circle("SAW_SMALL", 7, 8, 8, 8, 8)
 };
 
 #undef Object_Hitbox

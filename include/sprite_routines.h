@@ -60,6 +60,9 @@ enum ObjTypes {
     GROUND_WAVY_SPIKE_V,
     GROUND_WAVY_SPIKE_H,
 
+    BIG_SAW,
+    MEDIUM_SAW,
+    SMALL_SAW,
 
     OBJ_COUNT
 };
