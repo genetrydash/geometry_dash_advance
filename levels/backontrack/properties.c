@@ -6,7 +6,7 @@ const unsigned short backontrack_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*song*/          MOD_STEREOMA,
+ /*song*/          MOD_BACKOT,
 };
 
 const unsigned char backontrack_name[] = {
