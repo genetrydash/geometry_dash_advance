@@ -326,10 +326,10 @@ void fade_in_level() {
         // Update OAM
         obj_copy(oam_mem, shadow_oam, 128);
         obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
+
         // Rotate saws and display objects while on transition
         rotate_saws();
         display_objects();
-        
 
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
