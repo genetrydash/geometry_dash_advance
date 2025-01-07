@@ -211,10 +211,81 @@ const COLOR black_buffer[] = {
 u16 particle_timer = 0;
 
 void run_particles() {
-    memcpy32(&tile_mem_obj[1][478], &orb_pad_particles[particle_timer], (sizeof(TILE) / sizeof(u32)) * 2);
-    memcpy32(&tile_mem_obj[1][510], &orb_pad_particles[particle_timer+32], (sizeof(TILE) / sizeof(u32)) * 2);
+    // Last 4 sprite tiles are for PAD particles
+    // TODO: orbs also need particles
+    memcpy32(&tile_mem_obj[0][PARTICLE_OFFSET], &orb_pad_particles[particle_timer], (sizeof(TILE) / sizeof(u32)) * 2);
+    memcpy32(&tile_mem_obj[0][PARTICLE_OFFSET + 2], &orb_pad_particles[particle_timer+32], (sizeof(TILE) / sizeof(u32)) * 2);
 
     particle_timer += 2;
 
     if (particle_timer > 31) particle_timer = 0;
+}
+
+void deoccupy_chr_slots() {
+    for (s32 i = 0; i < MAX_OBJECTS; i++) {
+        u8 was_occupied = chr_slots[i].occupied;
+        u32 rom_offset = chr_slots[i].rom_offset;
+        u32 vram_offset = chr_slots[i].vram_offset;
+        u8 tile_num = chr_slots[i].tile_num;
+
+        // If the slot is already deocuppied (that is, by no existing object updating the occupation), then proceed to setup unloading.
+        // Also check if the slot has already been unloaded
+        if (!was_occupied && rom_offset != 0xffffffff) {
+            unloaded_object_buffer[unloaded_object_buffer_offset] = i;     
+            unloaded_object_buffer_offset++;
+
+            // Mark has unloaded here
+            chr_slots[i].rom_offset = 0xffffffff;
+            next_free_tile_id -= tile_num;
+
+            // Start moving the VRAM offset of objects with an offset greater than this object's offset. Note this is only for OAM objects,
+            // actual CHR needs to be updated on the next frame to avoid a single frame of garbage
+            for (s32 j = 0; j < MAX_OBJECTS; j++) {
+                u32 curr_vram_offset = chr_slots[j].vram_offset;
+                // If this object's VRAM offset is greater than the unloaded object's, then it needs to be moved
+                if (curr_vram_offset > vram_offset) {
+                    chr_slots[j].vram_offset -= tile_num;
+                }
+            }
+        }
+
+        // Deoccupy, objects that are still loaded and use this slot will occupy it back later on this frame
+        chr_slots[i].occupied = FALSE;
+    }
+}
+
+void load_chr_in_buffer() {
+    // Iterate through the buffer
+    for (s32 i = loaded_object_buffer_offset; i > 0; i--) {
+        s16 slot_id = loaded_object_buffer[i - 1];
+        u32 rom_offset = chr_slots[slot_id].rom_offset;
+        u32 vram_offset = chr_slots[slot_id].vram_offset;
+        u8 tile_num = chr_slots[slot_id].tile_num;
+        
+        // Upload into VRAM chr data
+        memcpy32(&tile_mem_obj[0][vram_offset], &sprites_chr[rom_offset], tile_num * (sizeof(TILE) / sizeof(u32)));
+    }
+
+    loaded_object_buffer_offset = 0;
+}
+
+void unload_chr_in_buffer() {
+    // Iterate through the buffer
+    for (s32 i = unloaded_object_buffer_offset; i > 0; i--) {
+        s16 slot_id = unloaded_object_buffer[i - 1];
+        u32 vram_offset = chr_slots[slot_id].vram_offset;
+        u8 tile_num = chr_slots[slot_id].tile_num;
+
+        u16 old_vram_offset = vram_offset + tile_num;
+
+        s16 tiles_to_copy = old_next_free_tile_id - vram_offset;
+
+        // Failsafe in case this becomes negative and moves the entire VRAM a bunch of times
+        if (tiles_to_copy < 0) tiles_to_copy = 0;
+
+        // Move left the tiles after this object 
+        memcpy32(&tile_mem_obj[0][vram_offset], &tile_mem_obj[0][old_vram_offset], tiles_to_copy * (sizeof(TILE) / sizeof(u32)));
+    }
+
+    unloaded_object_buffer_offset = 0;
 }

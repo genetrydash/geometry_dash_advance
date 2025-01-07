@@ -52,3 +52,16 @@ u8 update_flags;
 
 // Timer that increments by 1 every frame
 u32 global_timer;
+
+// Pointer to the first empty sprite tile in VRAM
+u16 next_free_tile_id = START_OF_OBJECT_CHR;
+u16 old_next_free_tile_id;
+
+struct ObjectCHRSlot chr_slots[MAX_OBJECTS];
+
+// Buffers for loading and unloading VRAM tiles for objects
+u16 loaded_object_buffer_offset;
+s16 loaded_object_buffer[MAX_OBJECTS];
+
+u16 unloaded_object_buffer_offset;
+s16 unloaded_object_buffer[MAX_OBJECTS];

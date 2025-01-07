@@ -9,7 +9,7 @@ u16 game_state;
 
 void menu_loop() {
     // Enable BG 0, 1, also enable sprites
-    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_2D | DCNT_MODE0 | DCNT_BG0;
+    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0;
     REG_BG0HOFS = 0;
     REG_BG0VOFS = 0;
 

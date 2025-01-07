@@ -18,6 +18,9 @@ void vblank_handler() {
 
     // Only use the update handler on playing
     if (game_state == STATE_PLAYING) {
+        load_chr_in_buffer();
+        unload_chr_in_buffer();
+
         if (update_flags & UPDATE_OAM) {
             // Copy OAM buffer into OAM
             obj_copy(oam_mem, shadow_oam, 128);
@@ -38,6 +41,9 @@ void vblank_handler() {
         if (update_flags & UPDATE_VRAM) {
             // Run color stuff
             run_col_trigger_changes();
+            
+            // Update particles
+            run_particles();
 
             // Copy palette from buffer
             memcpy32(pal_bg_mem, palette_buffer, 256);
@@ -152,10 +158,9 @@ void game_loop() {
     memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
 
     memcpy32(&tile_mem_obj[0][0], player0_icon, sizeof(player0_icon) / 4);
-    memcpy32(&tile_mem_obj[0][64], sprites_chr, sizeof(sprites_chr) / 4);
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
-    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_2D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2;
+    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2;
 
     load_level(loaded_level_id);
 
@@ -163,7 +168,7 @@ void game_loop() {
 
     while (1) { 
         key_poll();
-        
+
         // If pressed start, pause the game
         if (key_hit(KEY_START)) {
             if (paused_routines()) {
@@ -182,8 +187,6 @@ void game_loop() {
 
         nextSpr = 0;
 
-        run_particles();
-
         // Run vertical scroll code
         scroll_screen_vertically();
 
@@ -197,14 +200,16 @@ void game_loop() {
         if (player_death) reset_level();
 
         // Run object routines
-        display_objects();
         load_objects();
+        deoccupy_chr_slots();
+        display_objects();
+        
         
         rotate_saws();
         scale_pulsing_objects();
 
 #ifdef DEBUG
-        if (debug_mode) oam_metaspr(0, 0, debugModeSpr, 0, 0); 
+        if (debug_mode) oam_metaspr(0, 0, debugModeSpr, 0, 0, 0); 
 #endif
         
         // Wait for VSYNC

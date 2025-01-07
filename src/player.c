@@ -193,7 +193,7 @@ void cube_gamemode() {
         y_offset = 9;
     }
 
-    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0);
+    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0, 0);
     obj_aff_identity(&obj_aff_buffer[0]);
 
     // Change sprite size depending on player size
@@ -274,7 +274,7 @@ void ship_gamemode() {
 
     y_offset = gravity_dir ? 9 : 7;
 
-    oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, shipSpr, 0, 0);
+    oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, shipSpr, 0, 0, 4);
     obj_aff_identity(&obj_aff_buffer[0]);
 
     // Change sprite size depending on player size
@@ -354,7 +354,7 @@ void ball_gamemode() {
     relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
     relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
-    oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0);  
+    oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0, 8);  
     obj_aff_identity(&obj_aff_buffer[0]);
 
     // Change sprite size depending on player size

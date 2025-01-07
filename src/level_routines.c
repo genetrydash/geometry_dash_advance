@@ -224,7 +224,16 @@ void reset_variables() {
 
     scroll_x = 0;
 
+    next_free_tile_id = START_OF_OBJECT_CHR;
+
     memset32(level_buffer, 0x0000, sizeof(level_buffer) / sizeof(u32));
+    memset32(chr_slots, 0x0000, (sizeof(struct ObjectCHRSlot) * MAX_OBJECTS) / sizeof(u32));
+    memset16(loaded_object_buffer, 0xffff, sizeof(loaded_object_buffer) / sizeof(s16));
+    memset16(unloaded_object_buffer, 0xffff, sizeof(unloaded_object_buffer) / sizeof(s16));
+    for (u32 index = 0; index < MAX_OBJECTS; index++) {
+        chr_slots[index].rom_offset = 0xffffffff;
+    }
+    memset32(object_buffer, 0x0000, (sizeof(struct ObjectSlot) * MAX_OBJECTS) / sizeof(u32));
 
     REG_BG0HOFS = REG_BG1HOFS = 0;
     REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;

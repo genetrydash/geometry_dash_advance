@@ -39,6 +39,13 @@ struct ObjectSlot {
     struct Object object;
 };
 
+struct ObjectCHRSlot {
+    u8 occupied;
+    u8 tile_num;
+    u32 rom_offset;
+    u16 vram_offset;
+};
+
 enum OrbBufferStates {
     NO_ORB_BUFFER,
     ORB_BUFFER_READY,
@@ -53,4 +60,5 @@ void load_objects();
 void display_objects();
 void scale_pulsing_objects();
 void rotate_saws();
+void object_tile_data_load(u16 object_type);
 #endif

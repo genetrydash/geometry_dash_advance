@@ -5,6 +5,7 @@
 #include "sprite_routines.h"
 #include "physics_defines.h"
 #include "collision.h"
+#include "../graphics/includes.h"
 
 
 u32 *sprite_pointer;
@@ -14,7 +15,58 @@ u16 saw_rotation[2];
 
 struct ObjectSlot object_buffer[MAX_OBJECTS];
 
+s32 get_tile_id(u32 chr_offset, u8 tile_num) {
+    s32 i;
+    for (i = 0; i < MAX_OBJECTS; i++) {
+        struct ObjectCHRSlot curr_slot = chr_slots[i];
+
+        if (curr_slot.rom_offset == chr_offset && curr_slot.tile_num == tile_num) {
+            return curr_slot.vram_offset;
+        }
+    }
+    return -1;
+}
+
+s32 get_chr_slot_id(u32 rom_offset, u8 tile_num) {
+    s32 id;
+    for (id = 0; id < MAX_OBJECTS; id++) {
+        struct ObjectCHRSlot curr_slot = chr_slots[id];
+        
+        if (curr_slot.rom_offset == rom_offset && curr_slot.tile_num == tile_num) {
+            // This object is already loaded, exit
+            return id;
+        }
+    }
+
+    return -1;
+}
+
+s32 get_free_chr_slot_id(u32 rom_offset, u8 tile_num) {
+    s32 id;
+    // Check for already existant slots
+    for (id = 0; id < MAX_OBJECTS; id++) {
+        struct ObjectCHRSlot curr_slot = chr_slots[id];
+    
+        if (curr_slot.rom_offset == rom_offset && curr_slot.tile_num == tile_num) {
+            // This object is already loaded, exit
+            return id;
+        }
+    }
+
+    // If nothing was found, get an available slot
+    for (id = 0; id < MAX_OBJECTS; id++) {
+        struct ObjectCHRSlot curr_slot = chr_slots[id];
+        if (!curr_slot.occupied) {
+            return id;
+        }
+    }
+
+    return -1;
+}
+
 ARM_CODE void load_objects() {
+    // Save there
+    old_next_free_tile_id = next_free_tile_id;
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied == FALSE) {
             if ((*sprite_pointer & 0xff000000) != 0xff000000) {
@@ -50,6 +102,25 @@ ARM_CODE void load_objects() {
                         new_object.rotation = 0;
                     }
                     sprite_pointer++;
+
+                    u32 rom_offset = obj_chr_offset[new_object.type][0];
+                    u32 tile_num = obj_chr_offset[new_object.type][1];
+                    
+                    // Get next free slot ID, or in case there is already an slot with the same data, use it
+                    s32 id = get_free_chr_slot_id(rom_offset, tile_num);
+
+                    // If we got a new slot, then setup and upload it into the buffer, so the chr data can be copied to VRAM in the next frame
+                    if (id >= 0 && !chr_slots[id].occupied) {
+                        u16 vram_offset = next_free_tile_id;
+                        chr_slots[id].occupied = TRUE;
+                        chr_slots[id].rom_offset = rom_offset;
+                        chr_slots[id].vram_offset = vram_offset;
+                        chr_slots[id].tile_num = tile_num;
+                        next_free_tile_id += tile_num;
+                        
+                        loaded_object_buffer[loaded_object_buffer_offset] = id;
+                        loaded_object_buffer_offset += 1;
+                    }
                 }
 
                 s16 obj_width = obj_hitbox[new_object.type][0];
@@ -102,10 +173,11 @@ s32 find_affine_slot(u16 rotation) {
 }
 
 void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hflip, u8 vflip) {
+    s16 tile_id = get_tile_id(obj_chr_offset[curr_object.type][0], obj_chr_offset[curr_object.type][1]);
     // Handle saws separately
     if (curr_object.attrib2 & IS_SAW_FLAG) {
         u32 saw_rot_id = (curr_object.attrib2 & SAW_ROT_FLAG) ? 2 : 3;
-        oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], saw_rotation[saw_rot_id - 2], saw_rot_id, 0);
+        oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], saw_rotation[saw_rot_id - 2], saw_rot_id, 0, tile_id);
         obj_aff_identity(&obj_aff_buffer[saw_rot_id]);
         obj_aff_rotate_inv(&obj_aff_buffer[saw_rot_id], saw_rotation[saw_rot_id - 2]);
     } else if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
@@ -114,15 +186,15 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
 
         if (slot >= 0) {
             // Draw affine sprite
-            oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], curr_object.rotation, slot + NUM_RESERVED_ROT_SLOTS, 1);
+            oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], curr_object.rotation, slot + NUM_RESERVED_ROT_SLOTS, 1, tile_id);
             obj_aff_identity(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS]);
             obj_aff_rotate_inv(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS], rotation);
         } else {
             // Slots are full, so display a normal sprite
-            oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip);
+            oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip, tile_id);
         }
     } else {    
-        oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip);
+        oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip, tile_id);
     }
 }
 
@@ -163,6 +235,15 @@ ARM_CODE void display_objects() {
 
                 u8 hflip = (curr_object.attrib1 & H_FLIP_FLAG) >> 1;
                 u8 vflip = curr_object.attrib1 & V_FLIP_FLAG;
+
+                u32 chr_rom_offset = obj_chr_offset[curr_object.type][0];
+                u32 chr_rom_tile_num = obj_chr_offset[curr_object.type][1];
+                s32 chr_id = get_chr_slot_id(chr_rom_offset, chr_rom_tile_num);
+                
+                if (chr_id >= 0) {
+                    // Keep chr on VRAM
+                    chr_slots[chr_id].occupied = TRUE;
+                }   
 
                 // Unload object in case that it is 64 pixels left to the screen
                 if (relative_x < -64) {

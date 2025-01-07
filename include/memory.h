@@ -67,3 +67,12 @@ enum UpdateFlags {
 extern u8 update_flags;
 
 extern u32 global_timer;
+
+extern u16 next_free_tile_id;
+extern u16 old_next_free_tile_id;
+
+extern struct ObjectCHRSlot chr_slots[MAX_OBJECTS];
+extern u16 loaded_object_buffer_offset;
+extern s16 loaded_object_buffer[MAX_OBJECTS];
+extern u16 unloaded_object_buffer_offset;
+extern s16 unloaded_object_buffer[MAX_OBJECTS];
