@@ -102,7 +102,12 @@ ARM_CODE void load_objects() {
                         new_object.rotation = 0;
                     }
                     sprite_pointer++;
-
+                    
+                    // If an invalid object was found, skip it
+                    if (new_object.type >= OBJ_COUNT) {
+                        continue;
+                    }
+                    
                     u32 rom_offset = obj_chr_offset[new_object.type][0];
                     u32 tile_num = obj_chr_offset[new_object.type][1];
                     

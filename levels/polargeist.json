@@ -35,7 +35,7 @@
          "name":"l2",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":950,
          "x":0,
          "y":0
@@ -73,7 +73,7 @@
          "name":"l1",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":950,
          "x":0,
          "y":0
@@ -3438,42 +3438,6 @@
                  "width":16,
                  "x":292,
                  "y":432
-                }, 
-                {
-                 "gid":1,
-                 "height":16,
-                 "id":677,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1495.33333333333,
-                 "y":317.666666666667
-                }, 
-                {
-                 "gid":1,
-                 "height":16,
-                 "id":678,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1444.33333333333,
-                 "y":357.666666666667
-                }, 
-                {
-                 "gid":1,
-                 "height":16,
-                 "id":679,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":1424.33333333333,
-                 "y":354
                 }, 
                 {
                  "gid":543,
