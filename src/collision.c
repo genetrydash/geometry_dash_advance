@@ -295,6 +295,14 @@ void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
     }
 }
 
+const u8 gamemode_max_eject[] = {
+    /* Cube */ 0x06,
+    /* Ship */ 0x03,
+    /* Ball */ 0x06,
+    /* Ufo */  0x03,
+    /* Wave */ 0x06,
+};
+
 u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     // Positions inside block, top left pixel is [0,0]
     u32 x_inside_block = x & 0x0f;
@@ -345,7 +353,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     
     if (side == TOP) {
         s32 eject_value = (eject | 0xfffffff8) << SUBPIXEL_BITS;
-        if (eject_value >= -(0x06 << SUBPIXEL_BITS)) {
+        if (eject_value >= -(gamemode_max_eject[gamemode] << SUBPIXEL_BITS)) {
             if (gravity_dir == GRAVITY_UP) {
                 // We are resting on the ceiling so allow jumping and stuff
                 on_floor = 1;
@@ -359,7 +367,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         }
     } else if (side == BOTTOM) {   
         s32 eject_value = eject << SUBPIXEL_BITS;
-        if (eject_value < (0x06 << SUBPIXEL_BITS)) {
+        if (eject_value < (gamemode_max_eject[gamemode] << SUBPIXEL_BITS)) {
             if (gravity_dir == GRAVITY_DOWN) {
                 // We are resting on the floor so allow jumping and stuff
                 on_floor = 1;
