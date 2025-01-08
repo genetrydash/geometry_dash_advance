@@ -247,6 +247,11 @@ void deoccupy_chr_slots() {
                     chr_slots[j].vram_offset -= tile_num;
                 }
             }
+            
+            chr_slots[i].occupied = FALSE;
+
+            // Only one can be unloaded in a single frame to avoid issues
+            return;
         }
 
         // Deoccupy, objects that are still loaded and use this slot will occupy it back later on this frame
