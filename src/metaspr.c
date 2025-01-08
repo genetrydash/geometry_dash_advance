@@ -738,7 +738,7 @@ const u16 sawSmall[] = {
     0xffff
 };
 
-const u16 *obj_sprites[] = {
+ROM_DATA const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
     cubePortalSpr,

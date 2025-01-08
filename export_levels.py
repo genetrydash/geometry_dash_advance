@@ -293,6 +293,7 @@ def export_includes_h(levels):
         level_counter = 0
         file.write("#pragma once\n\n")
         file.write("#include <tonc.h>\n\n")
+        file.write("#include \"memory.h\"\n\n")
         for level_name in levels:
             file.write(f"// {level_name}\n")
             file.write(f"#define {level_name}_ID {level_counter}\n\n")
@@ -304,18 +305,18 @@ def export_includes_h(levels):
             level_counter += 1
 
         file.write(f"#define LEVEL_COUNT {level_counter}\n")
-        file.write(f"extern const u16 *level_defines[][4];\n")
-        file.write(f"extern const u8 *level_names[];\n")
+        file.write(f"extern ROM_DATA const u16 *level_defines[][4];\n")
+        file.write(f"extern ROM_DATA const u8 *level_names[];\n")
     
     with open("levels/includes.c", 'w') as file:
-        file.write(f"#include \"includes.h\"\n")
-        file.write(f"const u16 *level_defines[][4] = {{\n")
+        file.write(f"#include \"includes.h\"\n\n")
+        file.write(f"ROM_DATA const u16 *level_defines[][4] = {{\n")
         for level_name in levels:
             file.write(f"   {{ {level_name}_l1_level_data, {level_name}_l2_level_data, {level_name}_spr_data, {level_name}_properties }},\n")
         
-        file.write("};\n")
+        file.write("};\n\n")
 
-        file.write(f"const u8 *level_names[] = {{\n")
+        file.write(f"ROM_DATA const u8 *level_names[] = {{\n")
         for level_name in levels:
             file.write(f"   {level_name}_name,\n")
         

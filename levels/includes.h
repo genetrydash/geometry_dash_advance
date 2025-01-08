@@ -2,6 +2,8 @@
 
 #include <tonc.h>
 
+#include "memory.h"
+
 // stereomadness
 #define stereomadness_ID 0
 
@@ -91,5 +93,5 @@
 #include "test/properties.h"
 
 #define LEVEL_COUNT 11
-extern const u16 *level_defines[][4];
-extern const u8 *level_names[];
+extern ROM_DATA const u16 *level_defines[][4];
+extern ROM_DATA const u8 *level_names[];
