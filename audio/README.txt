@@ -1,3 +1,16 @@
+~~ Music ~~
+Stere Madness: Finished (ElAngel378)
+Back on track: Finished (Crafty Jumper)
+Polargeist: Available
+Dry out: Unfinished
+Base after base: Unfinished
+Cant let go: Finished (ElAngel378)
+Jumper: Unfinished 
+Time machine: Available
+Cycles: Available
+Xstep: Unfinished
+-- More coming soon... --
+
 Below I will present you the instructions for creating music for Adv-famidash
 
 Sample instructions:
