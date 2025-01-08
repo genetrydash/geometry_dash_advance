@@ -17,15 +17,9 @@ u32 coll_y;
 // Collision eject
 u32 eject = 0;
 
-enum CollisionSides {
-    TOP,
-    BOTTOM,
-    CENTER
-};
-
 u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
 void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
-void do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
+s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
 void do_collision_with_objects(u32 check_rotated);
 
 void collision_cube() {
@@ -46,16 +40,19 @@ void collision_cube() {
         }
 
         // Do center hitbox checks
-        coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
-        coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
-
-        u32 calculated_hitbox_x = coll_x + ((player_width - player_internal_hitbox_width) >> 1);
-        u32 calculated_hitbox_y = coll_y + ((player_height - player_internal_hitbox_height) >> 1);
+        coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_internal_hitbox_width) >> 1);
+        coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_internal_hitbox_height) >> 1);      
 
 #ifdef DEBUG
-        if (!debug_mode) do_center_checks(calculated_hitbox_x, calculated_hitbox_y, player_internal_hitbox_width, player_internal_hitbox_height, layer);
+        if (!debug_mode) {
+            if (do_center_checks(coll_x, coll_y, player_internal_hitbox_width, player_internal_hitbox_height, layer)) {
+                return;
+            }
+        }
 #else
-        do_center_checks(calculated_hitbox_x, calculated_hitbox_y, player_internal_hitbox_width, player_internal_hitbox_height, layer);
+        if (do_center_checks(coll_x, coll_y, player_internal_hitbox_width, player_internal_hitbox_height, layer)) {
+            return;
+        }
 #endif
 
         if (gravity_dir == GRAVITY_DOWN) {
@@ -106,16 +103,19 @@ void collision_ship_ball() {
         }
         
         // Do center hitbox checks
-        coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
-        coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);      
-
-        u32 calculated_hitbox_x = coll_x + ((player_width - player_internal_hitbox_width) >> 1);
-        u32 calculated_hitbox_y = coll_y + ((player_height - player_internal_hitbox_height) >> 1);
+        coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_internal_hitbox_width) >> 1);
+        coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_internal_hitbox_height) >> 1);      
 
 #ifdef DEBUG
-        if (!debug_mode) do_center_checks(calculated_hitbox_x, calculated_hitbox_y, player_internal_hitbox_width, player_internal_hitbox_height, layer);
+        if (!debug_mode) {
+            if (do_center_checks(coll_x, coll_y, player_internal_hitbox_width, player_internal_hitbox_height, layer)) {
+                return;
+            }
+        }
 #else
-        do_center_checks(calculated_hitbox_x, calculated_hitbox_y, player_internal_hitbox_width, player_internal_hitbox_height, layer);
+        if (do_center_checks(coll_x, coll_y, player_internal_hitbox_width, player_internal_hitbox_height, layer)) {
+            return;
+        }
 #endif
 
 
@@ -159,26 +159,28 @@ u16 obtain_collision_type(u32 x, u32 y, u32 layer) {
 }
 
 // GD cube has a small square hitbox where if a block collides with, then the player dies
-void do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer) {
+s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer) {
     if (run_coll(x, y, layer, CENTER)) {
         player_death = TRUE;
-        return;
+        return TRUE;
     }
 
     if (run_coll(x + width, y, layer, CENTER)) {
         player_death = TRUE;
-        return;
+        return TRUE;
     }
 
     if (run_coll(x, y + height, layer, CENTER)) {
         player_death = TRUE;
-        return;
+        return TRUE;
     }
 
     if (run_coll(x + width, y + height, layer, CENTER)) {
         player_death = TRUE;
-        return;
+        return TRUE;
     }
+
+    return FALSE;
 }
 // This function iterates through spikes that the player is touching and applies collision to it
 void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
@@ -309,9 +311,6 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     u32 y_inside_block = y & 0x0f;
 
     switch (col_type) {
-        case COL_NONE:
-            return 0;
-            
         case COL_FULL:
             eject = y_inside_block;
             break;
@@ -349,7 +348,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
             return 0;
     }
 
-    // Set related vars and set new player y position
+    // Set related vars and set new player y position, only if this is not a center check
     
     if (side == TOP) {
         s32 eject_value = (eject | 0xfffffff8) << SUBPIXEL_BITS;
@@ -361,6 +360,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
             
             player_y -= eject_value;
             player_y_speed = 0;
+
             // Remove subpixels
             player_y &= ~0xffff;
             scroll_y &= ~0xffff;
@@ -374,6 +374,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
             }
             player_y -= eject_value;
             player_y_speed = 0;
+
             // Remove subpixels
             player_y &= ~0xffff;
             scroll_y &= ~0xffff;
@@ -383,7 +384,43 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     return 1;
 }
 
+s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
+    for (s32 i = block_object_buffer_offset; i > 0; i--) {
+        struct ObjectSlot slot = *((struct ObjectSlot *) block_object_buffer[i - 1]);
+        
+        u32 obj_x = slot.object.x;
+        u32 obj_y = slot.object.y;
+        u32 obj_width = obj_hitbox[slot.object.type][0];
+        u32 obj_height = obj_hitbox[slot.object.type][1];
+
+        // Check if this pixel is inside the object hitbox
+        if (is_colliding(x, y, 1, 1, obj_x, obj_y, obj_width, obj_height)) {
+            // Relative positions
+            x = x - obj_x;
+            y = y - obj_y;
+
+            // Set old player y pos to get the displacement later
+            u64 old_player_y = player_y;
+
+            // This always returns TRUE
+            col_type_lookup(block_object_buffer_flags[i - 1], x, y, side);
+            
+            // Update coll_y with the displacement that has occured
+            coll_y += old_player_y - player_y;
+
+            return TRUE;
+        }
+        
+    }
+    return FALSE;
+}
+
 u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
+    if(collision_with_block_obj(x, y, side)) {
+        // Return TRUE only if this is a center hitbox check, as this is needed for death to ocurr
+        return side == CENTER;
+    }
+    
     u16 col_type = obtain_collision_type(x, y, layer);
     return col_type_lookup(col_type, x, y, side);
 }

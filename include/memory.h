@@ -77,3 +77,6 @@ extern u16 loaded_object_buffer_offset;
 extern s16 loaded_object_buffer[MAX_OBJECTS];
 extern u16 unloaded_object_buffer_offset;
 extern s16 unloaded_object_buffer[MAX_OBJECTS];
+extern u16 block_object_buffer_offset;
+extern s32 *block_object_buffer[MAX_OBJECTS];
+extern u16 block_object_buffer_flags[MAX_OBJECTS];

@@ -490,114 +490,120 @@ cantletgo_spr_data:
    .hword 0x0
    .hword 0
 @ Object 81
+   .word 0xc38
+   .hword 0x150
+   .hword 0x2c
+   .hword 0x0
+   .hword 0
+@ Object 82
    .word 0xc80
    .hword 0xd0
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 82
+@ Object 83
    .word 0xc80
    .hword 0x1b0
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 83
+@ Object 84
    .word 0xca0
    .hword 0xe0
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 84
+@ Object 85
    .word 0xcc0
    .hword 0xf0
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 85
+@ Object 86
    .word 0xcc0
    .hword 0x1b0
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 86
+@ Object 87
    .word 0xd10
    .hword 0x1b0
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 87
+@ Object 88
    .word 0xd70
    .hword 0x1b0
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 88
+@ Object 89
    .word 0xda0
    .hword 0xc0
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 89
+@ Object 90
    .word 0xda0
    .hword 0x1a0
    .hword 0xa
    .hword 0x0
    .hword 0
-@ Object 90
+@ Object 91
    .word 0xdc0
    .hword 0xd0
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 91
+@ Object 92
    .word 0xe00
    .hword 0x190
    .hword 0xa
    .hword 0x0
    .hword 0
-@ Object 92
+@ Object 93
    .word 0xe00
    .hword 0x1b0
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 93
+@ Object 94
    .word 0xe30
    .hword 0x90
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 94
+@ Object 95
    .word 0xe50
    .hword 0xa0
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 95
+@ Object 96
    .word 0xe60
    .hword 0x1b0
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 96
+@ Object 97
    .word 0xe70
    .hword 0xb0
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 97
+@ Object 98
    .word 0xe70
    .hword 0x180
    .hword 0xa
    .hword 0x0
    .hword 0
-@ Object 98
+@ Object 99
    .word 0xe90
    .hword 0xc0
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 99
+@ Object 100
    .word 0xea0
    .hword 0xa0
    .hword 0x3
@@ -605,7 +611,7 @@ cantletgo_spr_data:
    .hword 0x0
    .hword 0x0
    .hword 0x0000
-@ Object 100
+@ Object 101
    .word 0xea0
    .hword 0xb0
    .hword 0x3
@@ -613,238 +619,232 @@ cantletgo_spr_data:
    .hword 0x0
    .hword 0x0
    .hword 0x0000
-@ Object 101
+@ Object 102
    .word 0xec0
    .hword 0x1b0
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 102
+@ Object 103
    .word 0xf10
    .hword 0x1b0
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 103
+@ Object 104
    .word 0x1000
    .hword 0x120
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 104
+@ Object 105
    .word 0x10a0
    .hword 0x120
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 105
+@ Object 106
    .word 0x10f0
    .hword 0x140
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 106
+@ Object 107
    .word 0x1250
    .hword 0x100
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 107
+@ Object 108
    .word 0x12b0
    .hword 0x100
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 108
+@ Object 109
    .word 0x1370
    .hword 0x120
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 109
+@ Object 110
    .word 0x13d0
    .hword 0x120
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 110
+@ Object 111
    .word 0x1670
    .hword 0x140
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 111
+@ Object 112
    .word 0x17a0
    .hword 0x140
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 112
+@ Object 113
    .word 0x17e0
    .hword 0x150
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 113
+@ Object 114
    .word 0x1840
    .hword 0x150
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 114
+@ Object 115
    .word 0x18c0
    .hword 0x1a0
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 115
+@ Object 116
    .word 0x18f0
    .hword 0x180
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 116
+@ Object 117
    .word 0x1930
    .hword 0x170
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 117
+@ Object 118
    .word 0x1970
    .hword 0x160
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 118
+@ Object 119
    .word 0x1a80
    .hword 0x130
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 119
+@ Object 120
    .word 0x1b40
    .hword 0x160
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 120
+@ Object 121
    .word 0x1b80
    .hword 0x150
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 121
+@ Object 122
    .word 0x1be0
    .hword 0x180
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 122
+@ Object 123
    .word 0x1c28
    .hword 0x180
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 123
+@ Object 124
    .word 0x1ca0
    .hword 0x140
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 124
+@ Object 125
    .word 0x1dc0
    .hword 0x190
    .hword 0xa
    .hword 0x0
    .hword 0
-@ Object 125
+@ Object 126
    .word 0x1e00
    .hword 0x160
    .hword 0x1
    .hword 0x0
    .hword 0
-@ Object 126
+@ Object 127
    .word 0x2210
    .hword 0x140
    .hword 0xb
    .hword 0x4
    .hword 49152
-@ Object 127
+@ Object 128
    .word 0x2210
    .hword 0x1a0
    .hword 0xb
    .hword 0x4
    .hword 49152
-@ Object 128
+@ Object 129
    .word 0x24e4
    .hword 0x168
    .hword 0x2
    .hword 0x0
    .hword 0
-@ Object 129
+@ Object 130
    .word 0x24ed
    .hword 0x168
    .hword 0xf
    .hword 0x0
    .hword 0
-@ Object 130
+@ Object 131
    .word 0x25c4
    .hword 0x10c
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 131
+@ Object 132
    .word 0x2600
    .hword 0x160
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 132
+@ Object 133
    .word 0x2610
    .hword 0x160
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 133
+@ Object 134
    .word 0x2640
    .hword 0x100
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 134
+@ Object 135
    .word 0x2670
    .hword 0x120
    .hword 0xa
    .hword 0x1
    .hword 0
-@ Object 135
+@ Object 136
    .word 0x26c0
    .hword 0x150
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 136
+@ Object 137
    .word 0x2768
    .hword 0x130
    .hword 0x1e
    .hword 0x1
    .hword 0
-@ Object 137
+@ Object 138
    .word 0x27d0
    .hword 0x80
    .hword 0xa
    .hword 0x1
    .hword 0
-@ Object 138
+@ Object 139
    .word 0x27d0
    .hword 0x180
    .hword 0x8
-   .hword 0x1
-   .hword 0
-@ Object 139
-   .word 0x2810
-   .hword 0xc0
-   .hword 0xa
    .hword 0x1
    .hword 0
 @ Object 140
@@ -854,90 +854,96 @@ cantletgo_spr_data:
    .hword 0x1
    .hword 0
 @ Object 141
+   .word 0x2810
+   .hword 0xc0
+   .hword 0xa
+   .hword 0x1
+   .hword 0
+@ Object 142
    .word 0x2840
    .hword 0x1a0
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 142
+@ Object 143
    .word 0x2850
    .hword 0x100
    .hword 0xa
    .hword 0x1
    .hword 0
-@ Object 143
+@ Object 144
    .word 0x2878
    .hword 0x1a0
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 144
+@ Object 145
    .word 0x2890
    .hword 0x140
    .hword 0x13
    .hword 0x1
    .hword 0
-@ Object 145
+@ Object 146
    .word 0x2900
    .hword 0x1a0
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 146
+@ Object 147
    .word 0x2910
    .hword 0x1a0
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 147
+@ Object 148
    .word 0x2970
    .hword 0x170
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 148
+@ Object 149
    .word 0x29e0
    .hword 0x1b0
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 149
+@ Object 150
    .word 0x29e8
    .hword 0x150
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 150
+@ Object 151
    .word 0x2b40
    .hword 0x170
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 151
+@ Object 152
    .word 0x2be0
    .hword 0x1a0
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 152
+@ Object 153
    .word 0x2c10
    .hword 0x140
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 153
+@ Object 154
    .word 0x2c40
    .hword 0x1a0
    .hword 0x8
    .hword 0x1
    .hword 0
-@ Object 154
+@ Object 155
    .word 0x2ce0
    .hword 0x150
    .hword 0xe
    .hword 0x0
    .hword 0
-@ Object 155
+@ Object 156
    .word 0x2ce0
    .hword 0x180
    .hword 0x3
@@ -945,7 +951,7 @@ cantletgo_spr_data:
    .hword 0x281d
    .hword 0x0
    .hword 0x0000
-@ Object 156
+@ Object 157
    .word 0x2ce0
    .hword 0x190
    .hword 0x3
@@ -953,37 +959,37 @@ cantletgo_spr_data:
    .hword 0x2419
    .hword 0x0
    .hword 0x0000
-@ Object 157
+@ Object 158
    .word 0x2d18
    .hword 0x1b0
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 158
+@ Object 159
    .word 0x2d50
    .hword 0x1b0
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 159
+@ Object 160
    .word 0x2d70
    .hword 0x120
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 160
+@ Object 161
    .word 0x2d80
    .hword 0x1b0
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 161
+@ Object 162
    .word 0x2d90
    .hword 0x130
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 162
+@ Object 163
    .word 0x2db0
    .hword 0x170
    .hword 0x3
@@ -991,145 +997,145 @@ cantletgo_spr_data:
    .hword 0x281e
    .hword 0x0
    .hword 0x0000
-@ Object 163
+@ Object 164
    .word 0x2dc8
    .hword 0x1b0
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 164
+@ Object 165
    .word 0x2de0
    .hword 0x190
    .hword 0xa
    .hword 0x0
    .hword 0
-@ Object 165
+@ Object 166
    .word 0x2e30
    .hword 0x1b0
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 166
+@ Object 167
    .word 0x2e70
    .hword 0x1b0
    .hword 0x5
    .hword 0x0
    .hword 0
-@ Object 167
+@ Object 168
    .word 0x2ea0
    .hword 0x1b0
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 168
+@ Object 169
    .word 0x2eb0
    .hword 0x150
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 169
+@ Object 170
    .word 0x2ee8
    .hword 0x1b0
    .hword 0x1e
    .hword 0x0
    .hword 0
-@ Object 170
+@ Object 171
    .word 0x2ef8
    .hword 0x1b0
    .hword 0x1e
    .hword 0x0
    .hword 0
-@ Object 171
+@ Object 172
    .word 0x2ff8
    .hword 0x1b0
    .hword 0x1e
    .hword 0x0
    .hword 0
-@ Object 172
+@ Object 173
    .word 0x3070
    .hword 0x1a0
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 173
+@ Object 174
    .word 0x30ac
    .hword 0x190
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 174
+@ Object 175
    .word 0x3100
    .hword 0x1b0
    .hword 0x4
    .hword 0x0
    .hword 0
-@ Object 175
+@ Object 176
    .word 0x3130
    .hword 0x140
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 176
+@ Object 177
    .word 0x3130
    .hword 0x1b0
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 177
+@ Object 178
    .word 0x3170
    .hword 0x1b0
    .hword 0x6
    .hword 0x0
    .hword 0
-@ Object 178
+@ Object 179
    .word 0x31a0
    .hword 0x128
    .hword 0x8
    .hword 0x0
    .hword 0
-@ Object 179
+@ Object 180
    .word 0x31a0
    .hword 0x148
    .hword 0x1e
    .hword 0x1
    .hword 0
-@ Object 180
+@ Object 181
    .word 0x31c3
    .hword 0x160
    .hword 0x1e
    .hword 0x0
    .hword 0
-@ Object 181
+@ Object 182
    .word 0x31f4
    .hword 0x178
    .hword 0x9
    .hword 0x0
    .hword 0
-@ Object 182
+@ Object 183
    .word 0x32db
    .hword 0x1b0
    .hword 0x1e
    .hword 0x0
    .hword 0
-@ Object 183
+@ Object 184
    .word 0x32e8
    .hword 0x1b0
    .hword 0x1e
    .hword 0x0
    .hword 0
-@ Object 184
+@ Object 185
    .word 0x32f5
    .hword 0x1b0
    .hword 0x1e
    .hword 0x0
    .hword 0
-@ Object 185
+@ Object 186
    .word 0x3350
    .hword 0x1a0
    .hword 0xb
    .hword 0x0
    .hword 0
-@ Object 186
+@ Object 187
    .word 0x3370
    .hword 0x150
    .hword 0x8

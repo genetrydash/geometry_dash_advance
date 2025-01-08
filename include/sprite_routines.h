@@ -64,6 +64,9 @@ enum ObjTypes {
     MEDIUM_SAW,
     SMALL_SAW,
 
+    BASIC_BLOCK_OBJ,
+    BASIC_SLAB_OBJ,
+
     OBJ_COUNT
 };
 

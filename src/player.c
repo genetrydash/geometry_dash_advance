@@ -106,6 +106,8 @@ void player_main() {
             ball_gamemode();
             break;
     }
+
+    block_object_buffer_offset = 0;
 }
 
 #define scale_inv(s) ((1<<24)/s)>>8
@@ -156,14 +158,14 @@ void cube_gamemode() {
         // Update player x and y
         player_x += player_x_speed >> 2;
         player_y += player_y_speed >> 2;
-        
+
+        // Do collision with objects
+        do_collision_with_objects(FALSE);
+
         // Run collision
         collision_cube();
 
-        // Do collision with objects
-        if (step & 1) do_collision_with_objects(FALSE);
-
-       // If player is dead, do not advance more quarter steps
+        // If player is dead, do not advance more quarter steps
         if (player_death) break;
     }
     
@@ -174,13 +176,11 @@ void cube_gamemode() {
         player_x += player_x_speed - ((player_x_speed >> 2) * 3);
         player_y += player_y_speed - ((player_y_speed >> 2) * 3);
     
+        // Do collision with objects (and rotated ones as well)
+        do_collision_with_objects(TRUE);
+
         // Run collision
         collision_cube();
-
-        if (!player_death) {
-            // Do collision with objects
-            do_collision_with_objects(TRUE);
-        }
     }
 
     relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
@@ -242,12 +242,12 @@ void ship_gamemode() {
         // Update player x and y
         player_x += player_x_speed >> 2;
         player_y += player_y_speed >> 2;
-        
-        // Run collision
-        collision_ship_ball();
 
         // Do collision with objects
-        if (step & 1) do_collision_with_objects(FALSE);
+        do_collision_with_objects(FALSE);
+
+        // Run collision
+        collision_ship_ball();
 
         // If player is dead, do not advance more quarter steps
         if (player_death) break;
@@ -260,13 +260,11 @@ void ship_gamemode() {
         player_x += player_x_speed - ((player_x_speed >> 2) * 3);
         player_y += player_y_speed - ((player_y_speed >> 2) * 3);
         
+        // Do collision with objects (and rotated ones as well)
+        do_collision_with_objects(TRUE);
+
         // Run collision
         collision_ship_ball();
-
-        if (!player_death) {
-            // Do collision with objects
-            do_collision_with_objects(TRUE);
-        }
     }
 
     relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
@@ -324,12 +322,12 @@ void ball_gamemode() {
         // Update player x and y
         player_x += player_x_speed >> 2;
         player_y += player_y_speed >> 2;
+
+        // Do collision with objects (and rotated ones as well)
+        do_collision_with_objects(FALSE);
         
         // Run collision
         collision_ship_ball();
-
-        // Do collision with objects
-        if (step & 1) do_collision_with_objects(FALSE);
         
         // If player is dead, do not advance more quarter steps
         if (player_death) break;
@@ -342,13 +340,11 @@ void ball_gamemode() {
         player_x += player_x_speed - ((player_x_speed >> 2) * 3);
         player_y += player_y_speed - ((player_y_speed >> 2) * 3);
         
+        // Do collision with objects
+        do_collision_with_objects(TRUE);
+        
         // Run collision
         collision_ship_ball();
-
-        if (!player_death) {
-            // Do collision with objects
-            do_collision_with_objects(TRUE);
-        }
     }
 
     relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;

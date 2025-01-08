@@ -10,7 +10,7 @@ u8 nextSpr = 0;
 const u16 debugModeSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(330),
+    ATTR2_PALBANK(1) | ATTR2_ID(1020),
     0,
     0,
     0, // id offset
@@ -738,6 +738,29 @@ const u16 sawSmall[] = {
     0xffff
 };
 
+const u16 basicBlock[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(15) | ATTR2_PRIO(2),
+    0, // x
+    0, // y
+    0, // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+const u16 basicSlab[] = {
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_16x8,
+    ATTR2_PALBANK(15) | ATTR2_PRIO(2),
+    0, // x
+    0, // y
+    0, // id offset
+    CENTER(8, 4),
+
+    0xffff
+};
+
 ROM_DATA const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -785,7 +808,11 @@ ROM_DATA const u16 *obj_sprites[] = {
     // Saws 
     sawBig,
     sawMedium,
-    sawSmall
+    sawSmall,
+
+    // Test
+    basicBlock,
+    basicSlab,
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -851,6 +878,9 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("SAW_BIG", 0x190, 0x40)
     CHR_SLOT("SAW_MEDIUM", 0x180, 0x10)
     CHR_SLOT("SAW_SMALL", 0x170, 0x4)
+    
+    CHR_SLOT("BASIC_BLOCK", 0x16c, 0x4)
+    CHR_SLOT("BASIC_SLAB", 0x174, 0x2)
 };
 #undef CHR_SLOT
 

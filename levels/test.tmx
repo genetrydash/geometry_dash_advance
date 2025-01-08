@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="510">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="521">
  <editorsettings>
   <export target="test.json" format="json"/>
  </editorsettings>
@@ -105,7 +105,6 @@
   <object id="433" gid="522" x="1792" y="400" width="16" height="16"/>
   <object id="434" gid="532" x="2112" y="432" width="16" height="16"/>
   <object id="435" gid="531" x="2160" y="432" width="16" height="16"/>
-  <object id="440" gid="541" x="0" y="416" width="16" height="16"/>
   <object id="442" gid="523" x="112" y="432" width="16" height="16"/>
   <object id="443" gid="522" x="176" y="416" width="16" height="16"/>
   <object id="444" gid="542" x="1536" y="416" width="16" height="16"/>
@@ -149,8 +148,12 @@
   <object id="504" gid="551" x="1415" y="409.5" width="16" height="16"/>
   <object id="505" gid="552" x="1443.5" y="409" width="16" height="16"/>
   <object id="506" gid="544" x="1180" y="407.5" width="16" height="16"/>
-  <object id="507" gid="553" x="48" y="400" width="16" height="16"/>
-  <object id="508" gid="554" x="128" y="368" width="16" height="16"/>
-  <object id="509" gid="555" x="80" y="368" width="16" height="16"/>
+  <object id="508" gid="554" x="32" y="368" width="16" height="16"/>
+  <object id="511" gid="556" x="72" y="424" width="16" height="16"/>
+  <object id="512" gid="554" x="80" y="336" width="16" height="16"/>
+  <object id="513" gid="555" x="64" y="384" width="16" height="16"/>
+  <object id="514" gid="556" x="88" y="420" width="16" height="16"/>
+  <object id="516" gid="541" x="240" y="416" width="16" height="16"/>
+  <object id="520" gid="557" x="680" y="380" width="16" height="16"/>
  </objectgroup>
 </map>

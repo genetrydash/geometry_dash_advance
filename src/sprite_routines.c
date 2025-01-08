@@ -243,6 +243,31 @@ void pink_pad(struct ObjectSlot *objectSlot) {
     objectSlot->activated = TRUE;
 }
 
+void block(UNUSED struct ObjectSlot *objectSlot) {
+    // Check if this object is already in the buffer
+    for (s32 i = block_object_buffer_offset; i > 0; i--) {
+        if (block_object_buffer[i - 1] == (s32 *) objectSlot) {
+            return;
+        }
+    }
+    
+    // If not, add it
+    block_object_buffer[block_object_buffer_offset] = (s32 *) objectSlot;
+    block_object_buffer_flags[block_object_buffer_offset++] = COL_FULL;
+}
+
+void slab(UNUSED struct ObjectSlot *objectSlot) {
+    // Check if this object is already in the buffer
+    for (s32 i = block_object_buffer_offset; i > 0; i--) {
+        if (block_object_buffer[i - 1] == (s32 *) objectSlot) {
+            return;
+        }
+    }
+
+    // If not, add it
+    block_object_buffer[block_object_buffer_offset] = (s32 *) objectSlot;
+    block_object_buffer_flags[block_object_buffer_offset++] = COL_SLAB_TOP;
+}
 
 void do_nothing(UNUSED struct ObjectSlot *objectSlot) {
     // No routine defined
@@ -307,6 +332,10 @@ const jmp_table routines_jump_table[] = {
     kill_player,
     kill_player,
     kill_player,
+
+    // Block and slab
+    block,
+    slab,
 };
 
 // In pixels
@@ -359,6 +388,10 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Circle("SAW_BIG", 16, 8, 8, 8, 8)
     Object_Hitbox_Circle("SAW_MEDIUM", 12, 8, 8, 8, 8)
     Object_Hitbox_Circle("SAW_SMALL", 7, 8, 8, 8, 8)
+
+    
+    Object_Hitbox_Rectangle("BASIC_BLOCK", 16, 16, 0, 0, 8, 8)
+    Object_Hitbox_Rectangle("BASIC_SLAB", 16, 8, 0, 0, 8, 8)
 };
 
 #undef Object_Hitbox

@@ -65,3 +65,8 @@ s16 loaded_object_buffer[MAX_OBJECTS];
 
 u16 unloaded_object_buffer_offset;
 s16 unloaded_object_buffer[MAX_OBJECTS];
+
+// Buffer for sprite block collision
+u16 block_object_buffer_offset;
+s32 *block_object_buffer[MAX_OBJECTS];
+u16 block_object_buffer_flags[MAX_OBJECTS];
