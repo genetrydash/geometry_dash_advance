@@ -10,6 +10,9 @@
 #define LEVEL_BUFFER_WIDTH 32
 #define LEVEL_LAYERS 2
 
+#define SCREENBLOCK_W 32
+#define SCREENBLOCK_H 32
+
 typedef OBJ_ATTR OAM_SPR;
 #define UNUSED __unused
 
@@ -40,6 +43,9 @@ extern u64 scroll_y;
 extern u32 target_scroll_y;
 
 extern s8 scroll_y_dir;
+
+extern u8 screen_mirrored;
+extern u8 swap_queue;
 
 extern u16 loaded_level_id;
 extern u16 loaded_song_id;
@@ -80,3 +86,5 @@ extern s16 unloaded_object_buffer[MAX_OBJECTS];
 extern u16 block_object_buffer_offset;
 extern s32 *block_object_buffer[MAX_OBJECTS];
 extern u16 block_object_buffer_flags[MAX_OBJECTS];
+
+extern SCR_ENTRY mirror_screen_buffer[SCREENBLOCK_W * SCREENBLOCK_H];

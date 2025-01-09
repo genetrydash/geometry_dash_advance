@@ -911,11 +911,25 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 
 
         // Get next sprite slot
         OAM_SPR *newSpr = &shadow_oam[nextSpr];
+
+        u16 attribute1 = data[i + 1];
+        u16 attribute2 = data[i + 2];
+
+        // Flip in case of it not being affine, as affine sprites cant be mirrored
+        if (!(data[i] & ATTR0_AFF)) {
+            attribute1 ^= ATTR1_FLIP((hflip ^ screen_mirrored) | (vflip << 1));
+        }
+
+        // Set tile id if not set already by sprite data
+        if (!(attribute2 & ATTR2_ID_MASK)) {
+            attribute2 |= (offset & 0x3ff);
+        }
+
         // Set attributes
         obj_set_attr(newSpr, 
-            data[i],                                           // ATTR0
-            data[i + 1] ^ ((data[i] & ATTR0_AFF) ? 0 : ATTR1_FLIP(hflip | (vflip << 1))),    // ATTR1
-            data[i + 2] | (data[i+2] & ATTR2_ID_MASK ? 0 : offset & 0x3ff));                                      // ATTR2
+            data[i],      // ATTR0
+            attribute1,   // ATTR1
+            attribute2);  // ATTR2
         
         u8 wh_index = ((data[i] & ATTR0_SHAPE_MASK) >> 12) | ((data[i + 1] & ATTR1_SIZE_MASK) >> 14);
         
@@ -935,8 +949,23 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 
             offset_y = center_y - (offset_y - center_y + height); 
         }
 
+        s32 x_rel;
+
+        // Flip pos on screen if screen is mirrored
+        if (screen_mirrored) {
+            u8 calculated_width = width;
+
+            if (data[i] & ATTR0_AFF_DBL_BIT) {
+                calculated_width <<= 1;
+            }
+
+            x_rel = SCREEN_WIDTH - (x + offset_x + calculated_width);
+        } else {
+            x_rel = x + offset_x;
+        }
+
         // Set position
-        obj_set_pos(newSpr, x + offset_x, y + offset_y);
+        obj_set_pos(newSpr, x_rel, y + offset_y);
 
         // Increment into next sprite
         nextSpr++;
@@ -953,11 +982,31 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         offset = tile_id + data[i + 5];
         // Get next sprite slot
         OAM_SPR *newSpr = &shadow_oam[nextSpr];
+
+        u16 attribute0 = data[i] | ATTR0_AFF;
+        u16 attribute1 = data[i + 1];
+        u16 attribute2 = data[i + 2];
+
+        // Set double size flag if especified
+        if (dbl) {
+            attribute0 |= ATTR0_AFF_DBL;
+        }
+
+        // Set affine ID slot if not set in sprite data
+        if (!(attribute1 & ATTR1_AFF_ID_MASK)) {
+            attribute1 |= ATTR1_AFF_ID(aff_id);
+        }
+
+        // Set tile id if not set already by sprite data
+        if (!(attribute2 & ATTR2_ID_MASK)) {
+            attribute2 |= (offset & 0x3ff);
+        }
+
         // Set attributes
         obj_set_attr(newSpr, 
-            data[i] | ATTR0_AFF | (dbl ? ATTR0_AFF_DBL : 0),                                     // ATTR0
-            (data[i + 1] | ((data[i+1] & ATTR1_AFF_ID_MASK) ? 0 : ATTR1_AFF_ID(aff_id))), // ATTR1
-            data[i + 2] | (data[i+1] & ATTR2_ID_MASK ? 0 : offset & 0x3ff));                                                            // ATTR2
+            attribute0,  // ATTR0
+            attribute1,  // ATTR1
+            attribute2); // ATTR2
 
         u8 wh_index = ((data[i] & ATTR0_SHAPE_MASK) >> 12) | ((data[i + 1] & ATTR1_SIZE_MASK) >> 14);
 
@@ -986,8 +1035,17 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         s32 total_x = x + (center_x - (width >> 1)) + rotated_x - (dbl ? (width >> 1) : 0);
         s32 total_y = y + (center_y - (height >> 1)) + rotated_y - (dbl ? (height >> 1) : 0);
         
+        s32 x_rel;
+
+        // Flip pos on screen if screen is mirrored
+        if (screen_mirrored) {
+            x_rel = SCREEN_WIDTH - (total_x + (width << 1));
+        } else {
+            x_rel = total_x;
+        }
+
         // Set position
-        obj_set_pos(newSpr, total_x, total_y);
+        obj_set_pos(newSpr, x_rel, total_y);
         
         // Add offset
         offset = tile_id + data[i + 5];

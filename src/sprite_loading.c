@@ -184,16 +184,22 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
         u32 saw_rot_id = (curr_object.attrib2 & SAW_ROT_FLAG) ? 2 : 3;
         oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], saw_rotation[saw_rot_id - 2], saw_rot_id, 0, tile_id);
         obj_aff_identity(&obj_aff_buffer[saw_rot_id]);
-        obj_aff_rotate_inv(&obj_aff_buffer[saw_rot_id], saw_rotation[saw_rot_id - 2]);
+        obj_aff_rotscale(&obj_aff_buffer[saw_rot_id], mirror_scaling, float2fx(1.0), saw_rotation[saw_rot_id - 2]);
     } else if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
         u16 rotation = curr_object.rotation;
+        
+        // Flip rotation if screen is mirrored
+        if (screen_mirrored) {
+            rotation = -rotation;
+        }
+
         s32 slot = find_affine_slot(rotation);
 
         if (slot >= 0) {
             // Draw affine sprite
             oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], curr_object.rotation, slot + NUM_RESERVED_ROT_SLOTS, 1, tile_id);
             obj_aff_identity(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS]);
-            obj_aff_rotate_inv(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS], rotation);
+            obj_aff_rotscale(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS], mirror_scaling, float2fx(1.0), -rotation);
         } else {
             // Slots are full, so display a normal sprite
             oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip, tile_id);

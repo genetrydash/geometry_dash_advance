@@ -18,6 +18,8 @@ void vblank_handler() {
 
     // Only use the update handler on playing
     if (game_state == STATE_PLAYING) {
+        if (swap_queue) swap_screen_dir();
+
         load_chr_in_buffer();
         unload_chr_in_buffer();
 
@@ -28,10 +30,16 @@ void vblank_handler() {
         }
 
         if (update_flags & UPDATE_SCROLL) {
-            REG_BG0HOFS = REG_BG1HOFS = scroll_x >> SUBPIXEL_BITS;
-            REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
+            // If screen is mirrored, flip screen position so it goes left instead of right
+            if (screen_mirrored) {
+                REG_BG0HOFS = REG_BG1HOFS = 256 - (((scroll_x >> SUBPIXEL_BITS) - 16) & 0xff);
+                REG_BG2HOFS = 256 - ((scroll_x >> (2+SUBPIXEL_BITS)) & 0xff);
+            } else {
+                REG_BG0HOFS = REG_BG1HOFS = scroll_x >> SUBPIXEL_BITS;
+                REG_BG2HOFS = scroll_x >> (2+SUBPIXEL_BITS);
+            }
 
-            REG_BG2HOFS = scroll_x >> (2+SUBPIXEL_BITS);
+            REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
             REG_BG2VOFS = 34 + (scroll_y >> (5+SUBPIXEL_BITS));
 
             // Run scroll routines
@@ -132,6 +140,8 @@ s32 main() {
 void game_loop() {
     // Fade out
     fade_out();
+
+    mirror_scaling = float2fx(1.0);
 
     REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(1);
     REG_BG0HOFS = 0;

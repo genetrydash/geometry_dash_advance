@@ -16,3 +16,7 @@ void fade_in_level();
 
 void scroll_screen_vertically();
 void set_target_y_scroll(u32 object_y);
+
+void mirror_screen();
+void unmirror_screen();
+void swap_screen_dir();

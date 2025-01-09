@@ -62,4 +62,6 @@ extern u8 player_buffering;
 
 extern s8 ball_rotation_direction;
 
+extern FIXED mirror_scaling;
+
 void player_main();

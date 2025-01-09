@@ -35,6 +35,12 @@ u32 target_scroll_y = 0;
 // 0 : up | 1 : down
 s8 scroll_y_dir = 0;
 
+// Screen mirror state, activated by mirror portals
+u8 screen_mirrored = 0;
+
+// 0 : no swap queued | 1 : swap queued
+u8 swap_queue = FALSE;
+
 // Loaded level and song id
 u16 loaded_level_id;
 u16 loaded_song_id;
@@ -70,3 +76,6 @@ s16 unloaded_object_buffer[MAX_OBJECTS];
 u16 block_object_buffer_offset;
 s32 *block_object_buffer[MAX_OBJECTS];
 u16 block_object_buffer_flags[MAX_OBJECTS];
+
+// Buffer for on screen data (needed for mirroring)
+SCR_ENTRY mirror_screen_buffer[SCREENBLOCK_W * SCREENBLOCK_H];

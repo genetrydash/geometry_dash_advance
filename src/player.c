@@ -68,6 +68,8 @@ void cube_gamemode();
 void ship_gamemode();
 void ball_gamemode();
 
+FIXED mirror_scaling;
+
 void player_main() {    
     // Set internal square hitbox size
     if (player_size == SIZE_BIG) {
@@ -124,6 +126,7 @@ void cube_gamemode() {
     gravity = CUBE_GRAVITY;
 
     s8 sign = gravity_dir ? -1 : 1;
+    s8 mirror_sign = screen_mirrored ? -1 : 1;
 
     // Depending on which direction the gravity points, apply gravity and cap speed in one direction or in the other
     if (gravity_dir) {
@@ -146,7 +149,7 @@ void cube_gamemode() {
 
     // If the cube is on the air, rotate, else, snap to nearest 
     if (!on_floor) {
-        cube_rotation -= 0x500 * sign;
+        cube_rotation -= 0x500 * sign * mirror_sign;
     } else {
         cube_rotation = (cube_rotation + 0x2000) & 0xC000;
     }
@@ -185,20 +188,28 @@ void cube_gamemode() {
 
     relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
     relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
+
     if (player_size == SIZE_BIG) {
-        x_offset = (cube_rotation >= 0x6000 && cube_rotation < 0xe000 ? 9 : 8);
-        y_offset = (cube_rotation >= 0x2000 && cube_rotation < 0xa000 ? 9 : 8);
+        // Offset depending on screen mirror status
+        if (screen_mirrored) {
+            x_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
+            y_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
+        } else {
+            x_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
+            y_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
+        }
     } else {
         x_offset = 9;
         y_offset = 9;
     }
+    
 
     oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0, 0);
     obj_aff_identity(&obj_aff_buffer[0]);
 
-    // Change sprite size depending on player size
+    // Change sprite size depending on player size and screen mirror status
     if (player_size == SIZE_BIG) {
-        obj_aff_rotscale(&obj_aff_buffer[0], float2fx(1.0), float2fx(1.0), cube_rotation);
+        obj_aff_rotscale(&obj_aff_buffer[0], mirror_scaling, float2fx(1.0), cube_rotation);
     } else {
         obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
     }
@@ -216,6 +227,7 @@ void ship_gamemode() {
     gravity = (player_size == SIZE_BIG) ? SHIP_GRAVITY : SHIP_MINI_GRAVITY;
 
     s8 sign = gravity_dir ? -1 : 1;
+    s8 mirror_sign = screen_mirrored ? -1 : 1;
 
     if (key_hit(KEY_A | KEY_UP)) {
         player_buffering = ORB_BUFFER_READY;
@@ -224,11 +236,11 @@ void ship_gamemode() {
     }
 
     if (key_held(KEY_A | KEY_UP)) {
-        cube_rotation = (-(player_y_speed) >> (SUBPIXEL_BITS - 2)) * 0x380; 
+        cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * 0x380; 
 
         player_y_speed -= gravity * sign;
     } else {
-        cube_rotation = (-(player_y_speed) >> (SUBPIXEL_BITS - 2)) * 0x380; 
+        cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * 0x380; 
 
         player_y_speed += gravity * sign;
     }
@@ -275,9 +287,9 @@ void ship_gamemode() {
     oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, shipSpr, 0, 0, 4);
     obj_aff_identity(&obj_aff_buffer[0]);
 
-    // Change sprite size depending on player size
+    // Change sprite size depending on player size and screen mirror status
     if (player_size == SIZE_BIG) {
-        obj_aff_rotscale(&obj_aff_buffer[0], float2fx(1.0), float2fx(1.0) * sign, cube_rotation);
+        obj_aff_rotscale(&obj_aff_buffer[0], mirror_scaling, float2fx(1.0) * sign, cube_rotation);
     } else {
         obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)) * sign, cube_rotation); 
     }
@@ -295,6 +307,7 @@ void ball_gamemode() {
     gravity = BALL_GRAVITY;
 
     s8 sign = (gravity_dir == GRAVITY_UP) ? -1 : 1;
+    s8 mirror_sign = screen_mirrored ? -1 : 1;
 
     if (on_floor) {
         ball_rotation_direction = (gravity_dir == GRAVITY_DOWN) ? 2 : -2;
@@ -311,7 +324,7 @@ void ball_gamemode() {
         player_buffering = ORB_BUFFER_END;
     }
 
-    cube_rotation -= 0x250 * ball_rotation_direction;
+    cube_rotation -= 0x250 * ball_rotation_direction * mirror_sign;
 
     player_y_speed = CLAMP(player_y_speed, -BALL_MAX_Y_SPEED, BALL_MAX_Y_SPEED);
 
@@ -353,9 +366,9 @@ void ball_gamemode() {
     oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0, 8);  
     obj_aff_identity(&obj_aff_buffer[0]);
 
-    // Change sprite size depending on player size
+    // Change sprite size depending on player size and screen mirror status
     if (player_size == SIZE_BIG) {
-        obj_aff_rotscale(&obj_aff_buffer[0], float2fx(1.0), float2fx(1.0), cube_rotation);
+        obj_aff_rotscale(&obj_aff_buffer[0], mirror_scaling, float2fx(1.0), cube_rotation);
     } else {
         obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
     }

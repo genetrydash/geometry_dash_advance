@@ -91,6 +91,12 @@ void scroll_H(u32 layer) {
             // Obtain tile from the metatile table
             s32 tile = metatiles[metatile][(x & 1) | ((y & 1) << 1)];
 
+            // Swap direction if screen is mirrored
+            if (screen_mirrored) {
+                x = (SCREENBLOCK_W - 1) - x;
+                tile ^= SE_HFLIP;
+            }
+
             // Put tile and advance to next tile
             se_plot(&se_mem[24 + layer][0], x, y, tile);
             seam_y += 8;
@@ -115,6 +121,12 @@ void scroll_V(u32 layer) {
             // Obtain tile from the metatile table
             s32 tile = metatiles[metatile][(x & 1) | ((y & 1) << 1)];
 
+            // Swap direction if screen is mirrored
+            if (screen_mirrored) {
+                x = (SCREENBLOCK_W - 1) - x;
+                tile ^= SE_HFLIP;
+            }
+
             // Put tile and advance to next tile
             se_plot(&se_mem[24 + layer][0], x, y, tile);
             seam_x += 8;
@@ -134,7 +146,7 @@ void screen_scroll_load() {
     
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Draw horizontal seam
-        seam_x = (scroll_x >> SUBPIXEL_BITS) + SCREEN_WIDTH;
+        seam_x = (scroll_x >> SUBPIXEL_BITS) + SCREEN_WIDTH;  
         seam_y = (scroll_y >> SUBPIXEL_BITS) - 0x16;
         
         scroll_H(layer);
@@ -217,6 +229,7 @@ void reset_variables() {
     coll_x = 0;
     coll_y = 0;
     player_death = FALSE;
+    screen_mirrored = FALSE;
     curr_column = 0;
     on_floor = TRUE;
     bitstream[0] = bitstream[1] = 0;
@@ -405,4 +418,38 @@ void set_target_y_scroll(u32 object_y) {
     if (intended_pos_y > ((GROUND_HEIGHT) << 4) - offset) intended_pos_y = ((GROUND_HEIGHT) << 4) - offset;
 
     target_scroll_y = (intended_pos_y & ~0xf) << SUBPIXEL_BITS;
+}
+
+// Screen mirror stuff
+
+void mirror_screen() {
+    if (!screen_mirrored) {
+        screen_mirrored = TRUE;
+        mirror_scaling = float2fx(-1.0);
+        swap_queue = TRUE;
+    }
+}
+void unmirror_screen() {
+    if (screen_mirrored) {
+        screen_mirrored = FALSE;
+        mirror_scaling = float2fx(1.0);
+        swap_queue = TRUE;
+    }
+}
+
+void swap_screen_dir() {
+    // LEVEL_LAYERS + 1 because the background also has to be mirrored
+    for (s32 layer = 0; layer < LEVEL_LAYERS + 1; layer++) {
+        // Copy tilemap into buffer
+        memcpy32(mirror_screen_buffer, &se_mem[24 + layer], (SCREENBLOCK_W * SCREENBLOCK_H) / 2);
+
+        for (s32 x = 0; x < SCREENBLOCK_W; x++) {
+            for (s32 y = 0; y < SCREENBLOCK_H; y++) {
+                // Mirror tilemap columns
+                se_mem[24 + layer][((SCREENBLOCK_W - 1) - x) + y * SCREENBLOCK_W] = mirror_screen_buffer[x + y * SCREENBLOCK_W] ^ SE_HFLIP;
+            }
+        }
+    }
+    
+    swap_queue = FALSE;
 }
