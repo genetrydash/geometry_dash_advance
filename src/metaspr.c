@@ -234,6 +234,78 @@ const u16 gravityPortalYellowSpr[] = {
     0xffff
 };
 
+const u16 mirrorPortalOrangeSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(6),
+    0, // x
+    -16, // y
+    16, // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(6),
+    0, // x
+    16, // y
+    32, // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(6) | ATTR2_PRIO(1),
+    -16, // x
+    -16, // y
+    0, // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(6) | ATTR2_PRIO(1),
+    -16, // x
+    16,  // y
+    8, // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 mirrorPortalBlueSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(3),
+    0, // x
+    -16, // y
+    16, // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(3),
+    0, // x
+    16, // y
+    32, // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(3) | ATTR2_PRIO(1),
+    -16, // x
+    -16, // y
+    0, // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(3) | ATTR2_PRIO(1),
+    -16, // x
+    16,  // y
+    8, // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
 const u16 sizePortalPinkSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
@@ -813,6 +885,9 @@ ROM_DATA const u16 *obj_sprites[] = {
     // Test
     basicBlock,
     basicSlab,
+
+    mirrorPortalOrangeSpr,
+    mirrorPortalBlueSpr,
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -881,6 +956,9 @@ const u32 obj_chr_offset[][2] = {
     
     CHR_SLOT("BASIC_BLOCK", 0x16c, 0x4)
     CHR_SLOT("BASIC_SLAB", 0x174, 0x2)
+    
+    CHR_SLOT("ORANGE_MIRROR_PORTAL", 0x1d0, 0x28)
+    CHR_SLOT("BLUE_MIRROR_PORTAL",   0x1d0, 0x28)
 };
 #undef CHR_SLOT
 

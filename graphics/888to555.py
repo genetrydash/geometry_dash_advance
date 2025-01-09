@@ -39,10 +39,10 @@ def convert_list_rgb888_to_rgb555_24bit(rgb888_list):
 if __name__ == "__main__":
     # List of RGB888 colors as 24-bit integers
     rgb888_list = [
-        0xF88870,
-        0xF86030,
-        0xF80000,
-        0x582010,
+        0xF8D038,
+        0xF8A800,
+        0xF86000,
+        0x583800,
 
     ]
     

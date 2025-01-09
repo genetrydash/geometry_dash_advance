@@ -70,6 +70,16 @@ void yellow_gravity_portal(struct ObjectSlot *objectSlot) {
     objectSlot->activated = TRUE;
 }
 
+void mirror_portal(struct ObjectSlot *objectSlot) {
+    mirror_screen();
+    objectSlot->activated = TRUE;
+}
+
+void unmirror_portal(struct ObjectSlot *objectSlot) {
+    unmirror_screen();
+    objectSlot->activated = TRUE;
+}
+
 void mini_portal(struct ObjectSlot *objectSlot) {
     player_size = SIZE_MINI;
     objectSlot->activated = TRUE;
@@ -336,6 +346,9 @@ const jmp_table routines_jump_table[] = {
     // Block and slab
     block,
     slab,
+
+    mirror_portal,
+    unmirror_portal,
 };
 
 // In pixels
@@ -389,9 +402,11 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Circle("SAW_MEDIUM", 12, 8, 8, 8, 8)
     Object_Hitbox_Circle("SAW_SMALL", 7, 8, 8, 8, 8)
 
-    
     Object_Hitbox_Rectangle("BASIC_BLOCK", 16, 16, 0, 0, 8, 8)
     Object_Hitbox_Rectangle("BASIC_SLAB", 16, 8, 0, 0, 8, 8)
+    
+    Object_Hitbox_Rectangle("ORANGE_MIRROR_PORTAL", 26, 48, -3, -16, 8, 8)
+    Object_Hitbox_Rectangle("BLUE_MIRROR_PORTAL"  , 26, 48, -3, -16, 8, 8)
 };
 
 #undef Object_Hitbox

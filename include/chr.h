@@ -1,7 +1,7 @@
 #include <tonc.h>
 #include "../graphics/includes.h"
 
-#define NUM_PORTAL_PALETTES 5
+#define NUM_PORTAL_PALETTES 6
 #define START_OF_OBJECT_CHR 0x20
 #define PARTICLE_OFFSET 1020
 

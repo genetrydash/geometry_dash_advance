@@ -67,6 +67,9 @@ enum ObjTypes {
     BASIC_BLOCK_OBJ,
     BASIC_SLAB_OBJ,
 
+    ORANGE_MIRROR_PORTAL,
+    BLUE_MIRROR_PORTAL,
+
     OBJ_COUNT
 };
 
