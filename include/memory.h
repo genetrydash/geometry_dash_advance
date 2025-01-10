@@ -45,6 +45,7 @@ extern u32 target_scroll_y;
 extern s8 scroll_y_dir;
 
 extern u8 screen_mirrored;
+extern u8 screen_mirrored_transition;
 extern u8 swap_queue;
 
 extern u16 loaded_level_id;
@@ -88,3 +89,5 @@ extern s32 *block_object_buffer[MAX_OBJECTS];
 extern u16 block_object_buffer_flags[MAX_OBJECTS];
 
 extern SCR_ENTRY mirror_screen_buffer[SCREENBLOCK_W * SCREENBLOCK_H];
+
+extern s8 transition_frame;

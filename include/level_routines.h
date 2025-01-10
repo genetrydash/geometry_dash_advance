@@ -1,5 +1,9 @@
 #include <tonc.h>
 
+#define SCREEN_TRANSITION_FRAMES 31 // 15 + 1 middle + 15
+#define SCREEN_TRANSITION_SWITCH_FRAME (SCREEN_TRANSITION_FRAMES >> 1)
+#define SCREEN_TRANSITION_HALF SCREEN_TRANSITION_SWITCH_FRAME
+
 extern s32 seam_x;
 extern s32 seam_y;
 
@@ -20,3 +24,5 @@ void set_target_y_scroll(u32 object_y);
 void mirror_screen();
 void unmirror_screen();
 void swap_screen_dir();
+
+void mirror_transition();

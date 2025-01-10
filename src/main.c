@@ -18,6 +18,9 @@ void vblank_handler() {
 
     // Only use the update handler on playing
     if (game_state == STATE_PLAYING) {
+        
+        mirror_transition();
+
         if (swap_queue) swap_screen_dir();
 
         load_chr_in_buffer();
@@ -159,6 +162,12 @@ void game_loop() {
 
     BFN_SET(REG_BLDCNT, BLD_MODE(1), BLD_MODE);
 
+    REG_WININ = WIN_BG0 | WIN_BG1 | WIN_BG2 | WIN_BLD | WIN_OBJ;
+    REG_WINOUT = WIN_BG2;
+
+    REG_WIN0H = SCREEN_WIDTH;
+    REG_WIN0V = SCREEN_HEIGHT;
+
 
     // Init OAM and VRAM
     oam_init(shadow_oam, 128);
@@ -170,7 +179,7 @@ void game_loop() {
     memcpy32(&tile_mem_obj[0][0], player0_icon, sizeof(player0_icon) / 4);
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
-    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2;
+    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2 | DCNT_WIN0;
 
     load_level(loaded_level_id);
 

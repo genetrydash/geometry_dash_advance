@@ -229,8 +229,12 @@ void reset_variables() {
     coll_x = 0;
     coll_y = 0;
     player_death = FALSE;
+
     screen_mirrored = FALSE;
     mirror_scaling = float2fx(1.0);
+    transition_frame = 0;
+    screen_mirrored_transition = FALSE;
+
     curr_column = 0;
     on_floor = TRUE;
     bitstream[0] = bitstream[1] = 0;
@@ -424,17 +428,13 @@ void set_target_y_scroll(u32 object_y) {
 // Screen mirror stuff
 
 void mirror_screen() {
-    if (!screen_mirrored) {
-        screen_mirrored = TRUE;
-        mirror_scaling = float2fx(-1.0);
-        swap_queue = TRUE;
+    if (!screen_mirrored_transition) {
+        screen_mirrored_transition = TRUE;
     }
 }
 void unmirror_screen() {
-    if (screen_mirrored) {
-        screen_mirrored = FALSE;
-        mirror_scaling = float2fx(1.0);
-        swap_queue = TRUE;
+    if (screen_mirrored_transition) {
+        screen_mirrored_transition = FALSE;
     }
 }
 
@@ -453,4 +453,56 @@ void swap_screen_dir() {
     }
     
     swap_queue = FALSE;
+}
+
+void calculate_trans_window_pos();
+
+void mirror_transition() {
+    if (screen_mirrored_transition) {
+        if (transition_frame < SCREEN_TRANSITION_FRAMES - 1) {
+            transition_frame += 1;
+
+            // If halfway through the transition, flip screen
+            if (transition_frame == SCREEN_TRANSITION_SWITCH_FRAME) {
+                mirror_scaling = float2fx(-1.0);
+                screen_mirrored = TRUE;
+                swap_queue = TRUE;
+            }
+            
+            calculate_trans_window_pos();
+        }
+    } else {
+        if (transition_frame > 0) {
+            transition_frame -= 1;
+
+            // If halfway through the transition, flip screen
+            if (transition_frame == SCREEN_TRANSITION_SWITCH_FRAME) {
+                mirror_scaling = float2fx(1.0);
+                screen_mirrored = FALSE;
+                swap_queue = TRUE;
+            }
+
+            calculate_trans_window_pos();
+        }
+    }
+}
+
+void calculate_trans_window_pos() {
+    u8 right;
+    u8 left;
+
+    // Set window sides depending on current frame
+    if (transition_frame < SCREEN_TRANSITION_SWITCH_FRAME) {
+        right = SCREEN_WIDTH - (transition_frame * 8);
+        left = (transition_frame * 8);
+    } else if (transition_frame == SCREEN_TRANSITION_SWITCH_FRAME) {
+        right = SCREEN_WIDTH / 2;
+        left = SCREEN_WIDTH / 2;
+    } else {
+        right = ((transition_frame - SCREEN_TRANSITION_HALF) * 8) + (SCREEN_WIDTH / 2);
+        left = (SCREEN_WIDTH / 2) - ((transition_frame - SCREEN_TRANSITION_HALF) * 8);
+    }
+
+    // Set window side position
+    REG_WIN0H = (left << 8) | right;
 }

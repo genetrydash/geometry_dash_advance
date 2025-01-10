@@ -35,8 +35,11 @@ u32 target_scroll_y = 0;
 // 0 : up | 1 : down
 s8 scroll_y_dir = 0;
 
-// Screen mirror state, activated by mirror portals
+// Screen mirror state, changed on the middle of the transition
 u8 screen_mirrored = 0;
+
+// Screen mirror flag, changed by mirror portals. This doesn't mirror the screen, but instead, is used for the transition direction
+u8 screen_mirrored_transition = 0;
 
 // 0 : no swap queued | 1 : swap queued
 u8 swap_queue = FALSE;
@@ -79,3 +82,7 @@ u16 block_object_buffer_flags[MAX_OBJECTS];
 
 // Buffer for on screen data (needed for mirroring)
 SCR_ENTRY mirror_screen_buffer[SCREENBLOCK_W * SCREENBLOCK_H];
+
+// Controls the transition state
+// 0 : full | 30 : empty | 60 : full
+s8 transition_frame;
