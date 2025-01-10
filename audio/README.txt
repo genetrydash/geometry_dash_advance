@@ -8,7 +8,7 @@ Cant let go: Finished (ElAngel378)
 Jumper: Unfinished 
 Time machine: Available
 Cycles: Available
-Xstep: Unfinished
+Xstep: Finished (Nicole)
 -- More coming soon... --
 
 Below I will present you the instructions for creating music for Adv-famidash
