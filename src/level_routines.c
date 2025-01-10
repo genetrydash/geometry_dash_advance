@@ -230,6 +230,7 @@ void reset_variables() {
     coll_y = 0;
     player_death = FALSE;
     screen_mirrored = FALSE;
+    mirror_scaling = float2fx(1.0);
     curr_column = 0;
     on_floor = TRUE;
     bitstream[0] = bitstream[1] = 0;
