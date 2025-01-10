@@ -6,7 +6,7 @@ const unsigned short xstep_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*song*/          MOD_XSTEP,
+ /*song*/          MOD_CANTLG,
 };
 
 const unsigned char xstep_name[] = {
