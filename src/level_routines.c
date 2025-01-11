@@ -496,7 +496,7 @@ void mirror_transition() {
 
             // If halfway through the transition, flip screen
             if (transition_frame == SCREEN_TRANSITION_SWITCH_FRAME) {
-                mirror_scaling = float2fx(-1.0);
+                mirror_scaling = (player_size == SIZE_BIG) ? float2fx(-1.0) : float2fx(-MINI_SIZE);
                 screen_mirrored = TRUE;
                 swap_queue = TRUE;
             }
@@ -509,7 +509,7 @@ void mirror_transition() {
 
             // If halfway through the transition, flip screen
             if (transition_frame == SCREEN_TRANSITION_SWITCH_FRAME) {
-                mirror_scaling = float2fx(1.0);
+                mirror_scaling = (player_size == SIZE_BIG) ? float2fx(1.0) : float2fx(MINI_SIZE);
                 screen_mirrored = FALSE;
                 swap_queue = TRUE;
             }
