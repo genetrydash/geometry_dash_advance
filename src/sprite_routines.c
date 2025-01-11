@@ -349,6 +349,14 @@ const jmp_table routines_jump_table[] = {
 
     mirror_portal,
     unmirror_portal,
+
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    do_nothing,
+
+    
+    do_nothing,
 };
 
 // In pixels
@@ -407,6 +415,13 @@ const s16 obj_hitbox[][6] = {
     
     Object_Hitbox_Rectangle("ORANGE_MIRROR_PORTAL", 26, 48, -3, -16, 8, 8)
     Object_Hitbox_Rectangle("BLUE_MIRROR_PORTAL"  , 26, 48, -3, -16, 8, 8)
+    
+    Object_Hitbox_Circle("SAW_DECO_BIG", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("SAW_DECO_MEDIUM", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("SAW_DECO_SMALL", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("SAW_DECO_TINY", TRUE, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Rectangle("PULSING_NOTE", 0, 0, 0, 0, 0, 0)
 };
 
 #undef Object_Hitbox

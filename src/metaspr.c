@@ -553,9 +553,9 @@ const u16 bgChainsSpr[] = {
 };
 
 const u16 largePulsingCircleSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1),
+    ATTR2_PALBANK(0),
     0, // x
     -16, // y
     PRIO_IDOFF(4, 0), // id offset
@@ -572,9 +572,9 @@ const u16 largePulsingCircleSpr[] = {
     0xffff
 };
 const u16 mediumPulsingCircleSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1),
+    ATTR2_PALBANK(0),
     0,  // x
     -8, // y
     PRIO_IDOFF(4, 0), // id offset
@@ -591,9 +591,9 @@ const u16 mediumPulsingCircleSpr[] = {
     0xffff
 };
 const u16 smallPulsingCircleSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1),
+    ATTR2_PALBANK(0),
     0, // x
     0, // y
     PRIO_IDOFF(4, 0), // id offset
@@ -608,55 +608,10 @@ const u16 smallPulsingCircleSpr[] = {
     CENTER(8, 8),
     0xffff
 };
-
-const u16 circlePulsingSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
+const u16 pulsingObjectSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1),
-    0, // x
-    0, // y
-    PRIO_IDOFF(4, 0), // id offset
-    CENTER(8, 8),
-    0xffff,
-};
-
-const u16 circunferencePulsingSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
-    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1),
-    0, // x
-    0, // y
-    PRIO_IDOFF(4, 0), // id offset
-    CENTER(8, 8),
-    0xffff,
-};
-
-const u16 diamondPulsingSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
-    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1),
-    0, // x
-    0, // y
-    PRIO_IDOFF(4, 0), // id offset
-    CENTER(8, 8),
-    0xffff,
-};
-
-const u16 starPulsingSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
-    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1),
-    0, // x
-    0, // y
-    PRIO_IDOFF(4, 0), // id offset
-    CENTER(8, 8),
-    0xffff,
-};
-
-const u16 squarePulsingSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF,
-    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(1),
+    ATTR2_PALBANK(0),
     0, // x
     0, // y
     PRIO_IDOFF(4, 0), // id offset
@@ -834,6 +789,42 @@ const u16 basicSlab[] = {
     0xffff
 };
 
+const u16 sawDecoBig[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_64x64,
+    ATTR2_PALBANK(0),
+    -24, // x
+    -24, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 sawDecoMediumSmall[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(0),
+    -8, // x
+    -8, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 sawDecoTiny[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(0),
+    0, // x
+    0, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
 ROM_DATA const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -855,14 +846,14 @@ ROM_DATA const u16 *obj_sprites[] = {
     bluePadSpr,
     pinkOrbSpr,
     pinkPadSpr,
-    circlePulsingSpr,
-    circunferencePulsingSpr,
-    diamondPulsingSpr,
-    starPulsingSpr,
+    pulsingObjectSpr,
+    pulsingObjectSpr,
+    pulsingObjectSpr,
+    pulsingObjectSpr,
     bigBgCloudSpr,
     smallBgCloudSpr,
     ballPortalSpr,
-    squarePulsingSpr,
+    pulsingObjectSpr,
     sizePortalPinkSpr,
     sizePortalGreenSpr,
 
@@ -889,6 +880,15 @@ ROM_DATA const u16 *obj_sprites[] = {
 
     mirrorPortalOrangeSpr,
     mirrorPortalBlueSpr,
+
+    // Moar deco
+
+    sawDecoBig,
+    sawDecoMediumSmall,
+    sawDecoMediumSmall,
+    sawDecoTiny,
+
+    pulsingObjectSpr,
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -960,6 +960,15 @@ const u32 obj_chr_offset[][2] = {
     
     CHR_SLOT("ORANGE_MIRROR_PORTAL", 0x1d0, 0x28)
     CHR_SLOT("BLUE_MIRROR_PORTAL",   0x1d0, 0x28)
+
+    // More deco
+    
+    CHR_SLOT("BIG_SAW_DECO", 0x200, 0x40)
+    CHR_SLOT("MEDIUM_SAW_DECO", 0x240, 0x10)
+    CHR_SLOT("SMALL_SAW_DECO", 0x250, 0x10)
+    CHR_SLOT("TINY_SAW_DECO", 0x260, 0x4)
+
+    CHR_SLOT("PULSING_NOTE", 0x124, 0x4)
 };
 #undef CHR_SLOT
 

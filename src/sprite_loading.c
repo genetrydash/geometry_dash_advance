@@ -141,9 +141,11 @@ ARM_CODE void load_objects() {
                         new_object.attrib2 |= IS_ROTATING_FLAG;
                         new_object.attrib2 |= rot_id;
                     }
+                    object_buffer[index].has_collision = obj_height;
+                } else {  
+                    object_buffer[index].has_collision = obj_width | obj_height;
                 }
                 
-                object_buffer[index].has_collision = obj_width | obj_height;
 
                 // Occupy object slot and init some variables
                 object_buffer[index].occupied = TRUE;
