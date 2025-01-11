@@ -252,6 +252,7 @@ void reset_variables() {
         chr_slots[index].rom_offset = 0xffffffff;
     }
     memset32(object_buffer, 0x0000, (sizeof(struct ObjectSlot) * MAX_OBJECTS) / sizeof(u32));
+    memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
 
     REG_BG0HOFS = REG_BG1HOFS = 0;
     REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
