@@ -327,11 +327,40 @@ void load_level(u32 level_ID) {
     load_objects(); 
 }
 
+void transition_update_spr() {
+    nextSpr = 0;
+    
+    run_particles();
+    // Update OAM
+    obj_copy(oam_mem, shadow_oam, 128);
+    obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
+    
+    draw_player();
+    display_objects();
+    rotate_saws();
+    scale_pulsing_objects();
+    
+    // Sort OAM
+    sort_oam_by_prio();
+}
+
 void fade_out() {
     update_flags = UPDATE_NONE;
     // Fade out
     for (s32 frame = 0; frame <= 32; frame += 4) {
         VBlankIntrWait();
+        clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, frame);
+    }
+}
+
+void fade_out_level() {
+    update_flags = UPDATE_NONE;
+    // Fade out
+    for (s32 frame = 0; frame <= 32; frame += 4) {
+        VBlankIntrWait();
+        key_poll();
+        
+        transition_update_spr();
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, frame);
     }
 }
@@ -343,17 +372,7 @@ void fade_in_level() {
         VBlankIntrWait();
         key_poll();
         
-        nextSpr = 0;
-
-        // Update OAM
-        obj_copy(oam_mem, shadow_oam, 128);
-        obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
-
-        // Rotate saws and display objects while on transition
-        rotate_saws();
-        display_objects();
-        
-        sort_oam_by_prio();
+        transition_update_spr();
 
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
@@ -375,22 +394,25 @@ void fade_in() {
 
 void reset_level() {
     mmStop();
-
-    // Display objects so they are saved into the buffer
+    update_flags = UPDATE_OAM;
+    
+    nextSpr = 0;
+    draw_player();
     display_objects();
     rotate_saws();
     scale_pulsing_objects();
     // Sort OAM
     sort_oam_by_prio();
 
-    update_flags &= ~CLEAR_OAM_BUFFER;
-
     // Wait a bit before fading
     for (s32 frame = 0; frame < 30; frame++) {
         VBlankIntrWait();
+        key_poll();
+        
+        transition_update_spr();
     }
 
-    fade_out();
+    fade_out_level();
 
     oam_init(shadow_oam, 128);
     load_level(loaded_level_id);

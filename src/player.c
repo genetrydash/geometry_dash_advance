@@ -109,6 +109,8 @@ void player_main() {
             break;
     }
 
+    draw_player();
+
     block_object_buffer_offset = 0;
 }
 
@@ -185,34 +187,6 @@ void cube_gamemode() {
         // Run collision
         collision_cube();
     }
-
-    relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
-    relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
-
-    if (player_size == SIZE_BIG) {
-        // Offset depending on screen mirror status
-        if (screen_mirrored) {
-            x_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
-            y_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
-        } else {
-            x_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
-            y_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
-        }
-    } else {
-        x_offset = 9;
-        y_offset = 9;
-    }
-    
-
-    oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0, 0, 0);
-    obj_aff_identity(&obj_aff_buffer[AFF_SLOT_P1]);
-
-    // Change sprite size depending on player size and screen mirror status
-    if (player_size == SIZE_BIG) {
-        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], mirror_scaling, float2fx(1.0), cube_rotation);
-    } else {
-        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
-    }
 }
 
 void ship_gamemode() {
@@ -277,21 +251,6 @@ void ship_gamemode() {
 
         // Run collision
         collision_ship_ball();
-    }
-
-    relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
-    relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
-
-    y_offset = gravity_dir ? 9 : 7;
-
-    oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, shipSpr, 0, 0, 4, 0);
-    obj_aff_identity(&obj_aff_buffer[AFF_SLOT_P1]);
-
-    // Change sprite size depending on player size and screen mirror status
-    if (player_size == SIZE_BIG) {
-        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], mirror_scaling, float2fx(1.0) * sign, cube_rotation);
-    } else {
-        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)) * sign, cube_rotation); 
     }
 }
 
@@ -359,11 +318,47 @@ void ball_gamemode() {
         // Run collision
         collision_ship_ball();
     }
+}
 
-    relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
-    relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
+void draw_player() {
+    switch (gamemode) {
+        case GAMEMODE_CUBE:
+            relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
+            relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
-    oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0, 8, 0);  
+            if (player_size == SIZE_BIG) {
+                // Offset depending on screen mirror status
+                if (screen_mirrored) {
+                    x_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
+                    y_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
+                } else {
+                    x_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
+                    y_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
+                }
+            } else {
+                x_offset = 9;
+                y_offset = 9;
+            }
+            
+
+            oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0, 0, 0);
+            break;
+        case GAMEMODE_SHIP:
+            relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
+            relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
+
+            y_offset = gravity_dir ? 9 : 7;
+
+            oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, shipSpr, 0, 0, 4, 0);
+            break;
+        case GAMEMODE_BALL:
+            relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
+            relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
+
+            oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0, 8, 0);  
+            break;
+    }
+
     obj_aff_identity(&obj_aff_buffer[AFF_SLOT_P1]);
 
     // Change sprite size depending on player size and screen mirror status

@@ -65,3 +65,4 @@ extern s8 ball_rotation_direction;
 extern FIXED mirror_scaling;
 
 void player_main();
+void draw_player();
