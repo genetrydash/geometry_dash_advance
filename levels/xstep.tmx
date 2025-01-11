@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="848" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1687">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="848" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1759">
  <editorsettings>
   <export target="xstep.json" format="json"/>
  </editorsettings>
@@ -3703,6 +3703,356 @@
   <object id="1686" gid="543" x="8022" y="400" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="1687" gid="533" x="9856" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1688" gid="533" x="9872" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1689" gid="533" x="9888" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1690" gid="533" x="9984" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1691" gid="533" x="10000" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1692" gid="533" x="10016" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1693" gid="533" x="10032" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1694" gid="533" x="10048" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1695" gid="533" x="10096" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1697" gid="533" x="9928" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1698" gid="533" x="10136" y="352" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1699" gid="533" x="10256" y="352" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1700" gid="533" x="10320" y="384" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1701" gid="533" x="10336" y="384" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1702" gid="533" x="10352" y="384" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1703" gid="533" x="10368" y="384" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1704" gid="533" x="10384" y="384" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1705" gid="533" x="10400" y="384" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1706" gid="533" x="10416" y="384" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1707" gid="533" x="10432" y="384" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1708" gid="533" x="10448" y="384" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1709" gid="533" x="10464" y="384" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1710" gid="533" x="10368" y="336" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1711" gid="533" x="10384" y="336" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1712" gid="533" x="10400" y="336" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1713" gid="533" x="10416" y="336" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1714" gid="533" x="10464" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1715" gid="533" x="10480" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1716" gid="533" x="10496" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1717" gid="533" x="10512" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1718" gid="533" x="10528" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1719" gid="533" x="10544" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1720" gid="533" x="10544" y="352" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1721" gid="533" x="10560" y="352" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1722" gid="533" x="10848" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1723" gid="533" x="10640" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1724" gid="533" x="11040" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1725" gid="533" x="11056" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1726" gid="533" x="11072" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1727" gid="533" x="11104" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1728" gid="533" x="11168" y="272" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1729" gid="533" x="11184" y="272" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1730" gid="533" x="11200" y="272" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1731" gid="533" x="11216" y="272" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1732" gid="533" x="11264" y="272" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1733" gid="533" x="11280" y="272" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1734" gid="533" x="11232" y="272" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1735" gid="533" x="11248" y="272" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1736" gid="533" x="11200" y="320" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1737" gid="533" x="11216" y="320" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1738" gid="533" x="11248" y="320" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1739" gid="533" x="11264" y="320" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1740" gid="533" x="11232" y="320" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1741" gid="533" x="11344" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1742" gid="533" x="11392" y="304" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1743" gid="533" x="11440" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1744" gid="533" x="11536" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1745" gid="533" x="11584" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1746" gid="533" x="11680" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1747" gid="533" x="11968" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1748" gid="533" x="12016" y="320" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1749" gid="533" x="12056" y="368" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1750" gid="533" x="12096" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1751" gid="533" x="12112" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1752" gid="533" x="12128" y="288" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1753" gid="533" x="12160" y="352" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1754" gid="533" x="12176" y="352" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1755" gid="533" x="12192" y="352" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1756" gid="533" x="12224" y="304" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
+   </properties>
+  </object>
+  <object id="1757" gid="533" x="12240" y="304" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="2"/>
    </properties>
   </object>
  </objectgroup>
