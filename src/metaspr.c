@@ -1005,7 +1005,7 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 
         }
 
         // Set priority if modified
-        if (priority) {
+        if (!(priority & 0b100)) {
             attribute2 = (attribute2 & ~ATTR2_PRIO_MASK) | ((priority << ATTR2_PRIO_SHIFT) & ATTR2_PRIO_MASK);
         }
 
@@ -1093,8 +1093,8 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         }
 
         // Set priority if modified
-        if (priority) {
-            attribute2 = (attribute2 & ~ATTR2_PRIO_MASK) | ((priority << ATTR2_PRIO_SHIFT) & ATTR2_PRIO_MASK);
+        if (!(priority & 0b100)) {
+            attribute2 = (attribute2 & ~ATTR2_PRIO_MASK) | (((priority & 7) << ATTR2_PRIO_SHIFT) & ATTR2_PRIO_MASK);
         }
 
         u8 bg_layer = (attribute2 & ATTR2_PRIO_MASK) >> ATTR2_PRIO_SHIFT;

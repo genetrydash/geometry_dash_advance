@@ -278,7 +278,7 @@ ARM_CODE void display_objects() {
                 u8 hflip = (curr_object.attrib1 & H_FLIP_FLAG) >> 1;
                 u8 vflip = curr_object.attrib1 & V_FLIP_FLAG;
 
-                u8 priority = (curr_object.attrib2 & PRIORITY_FLAG) >> PRIORITY_FLAG_SHIFT;
+                u8 priority = (curr_object.attrib1 & PRIORITY_FLAG) >> PRIORITY_FLAG_SHIFT;
 
                 u32 chr_rom_offset = obj_chr_offset[curr_object.type][0];
                 if (chr_rom_offset == SPRITE_CHR_COPY_FROM_METATILE) {
