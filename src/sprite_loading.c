@@ -135,12 +135,11 @@ ARM_CODE void load_objects() {
                 if (obj_width < 0) {
                     new_object.attrib2 |= CIRCLE_HITBOX_FLAG;
 
-                    u32 type = new_object.type;
-
-                    if (type == BIG_SAW || type == MEDIUM_SAW || type == SMALL_SAW) {
-                        // Get evenness of block for rot id
-                        u32 rot_id = ((new_object.x & 0x10) ? SAW_CLOCKWISE : SAW_COUNTERCLOCKWISE);
-                        new_object.attrib2 |= IS_SAW_FLAG;
+                    // Rotate flag is LSB of obj_width
+                    if (obj_width & 1) {
+                        // Get block position evenness for rotate direction
+                        u32 rot_id = ((new_object.x & 0x10) ? ROTATING_CLOCKWISE : ROTATING_COUNTERCLOCKWISE);
+                        new_object.attrib2 |= IS_ROTATING_FLAG;
                         new_object.attrib2 |= rot_id;
                     }
                 }
@@ -178,11 +177,13 @@ s32 find_affine_slot(u16 rotation) {
 }
 
 void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hflip, u8 vflip) {
+    // Get VRAM tile ID
     s16 tile_id = get_tile_id(obj_chr_offset[curr_object.type][0], obj_chr_offset[curr_object.type][1]);
-    // Handle saws separately
-    if (curr_object.attrib2 & IS_SAW_FLAG) {
-        u32 saw_rot_id = (curr_object.attrib2 & SAW_ROT_FLAG) ? 2 : 3;
-        oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], saw_rotation[saw_rot_id - 2], saw_rot_id, 0, tile_id);
+
+    // Handle continuous rotating objects separately
+    if (curr_object.attrib2 & IS_ROTATING_FLAG) {
+        u32 saw_rot_id = (curr_object.attrib2 & ROTATING_DIRECTION_BIT) ? AFF_SLOT_CLOCKWISE : AFF_SLOT_COUNTERCLOCKWISE;
+        oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], saw_rotation[saw_rot_id - AFF_SLOT_CLOCKWISE], saw_rot_id, 0, tile_id);
         obj_aff_identity(&obj_aff_buffer[saw_rot_id]);
         obj_aff_rotscale(&obj_aff_buffer[saw_rot_id], mirror_scaling, float2fx(1.0), saw_rotation[saw_rot_id - 2]);
     } else if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
@@ -210,7 +211,7 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
 }
 
 void scale_pulsing_objects() {
-    obj_aff_identity(&obj_aff_buffer[PULSING_OBJECTS_SLOT]);
+    obj_aff_identity(&obj_aff_buffer[AFF_SLOT_PULSING]);
     u32 music_volume = 0;
 
     // Get loudest channel
@@ -225,7 +226,7 @@ void scale_pulsing_objects() {
     music_volume <<= 1;
 
     u32 value = CLAMP(0x300 - (music_volume), 0x140, 0x300);
-    obj_aff_scale(&obj_aff_buffer[PULSING_OBJECTS_SLOT], value, value);
+    obj_aff_scale(&obj_aff_buffer[AFF_SLOT_PULSING], value, value);
 }
 
 void rotate_saws() {

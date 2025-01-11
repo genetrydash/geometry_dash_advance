@@ -353,7 +353,7 @@ const jmp_table routines_jump_table[] = {
 
 // In pixels
 #define Object_Hitbox_Rectangle(name, hw, hh, hxoff, hyoff, center_x, center_y) {hw, hh, hxoff, hyoff, center_x, center_y},
-#define Object_Hitbox_Circle(name, radius, hxoff, hyoff, center_x, center_y) {0x8000, radius, hxoff, hyoff, center_x, center_y},
+#define Object_Hitbox_Circle(name, is_saw, radius, hxoff, hyoff, center_x, center_y) {0x8000 | is_saw, radius, hxoff, hyoff, center_x, center_y},
 
 const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("NONE", 0, 0, 0, 0, 0, 0)
@@ -398,9 +398,9 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_V", 4, 3, 6, 12, 8, 8)
     Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_H", 3, 4, 2, 6, 8, 8)
 
-    Object_Hitbox_Circle("SAW_BIG", 16, 8, 8, 8, 8)
-    Object_Hitbox_Circle("SAW_MEDIUM", 12, 8, 8, 8, 8)
-    Object_Hitbox_Circle("SAW_SMALL", 7, 8, 8, 8, 8)
+    Object_Hitbox_Circle("SAW_BIG", TRUE, 16, 8, 8, 8, 8)
+    Object_Hitbox_Circle("SAW_MEDIUM", TRUE, 12, 8, 8, 8, 8)
+    Object_Hitbox_Circle("SAW_SMALL", TRUE, 7, 8, 8, 8, 8)
 
     Object_Hitbox_Rectangle("BASIC_BLOCK", 16, 16, 0, 0, 8, 8)
     Object_Hitbox_Rectangle("BASIC_SLAB", 16, 8, 0, 0, 8, 8)

@@ -6,7 +6,12 @@
 #define NUM_ROT_SLOTS 27 // 5 are reserved to saws, music pulsing circles, and both players
 #define NUM_RESERVED_ROT_SLOTS 32 - NUM_ROT_SLOTS 
 
-#define PULSING_OBJECTS_SLOT 4
+#define AFF_SLOT_P1 0
+#define AFF_SLOT_P2 1
+#define AFF_SLOT_CLOCKWISE 2
+#define AFF_SLOT_COUNTERCLOCKWISE 3
+#define AFF_SLOT_PULSING 4
+
 #define VOLUME_INDEX 550
 
 #define H_FLIP_FLAG (1 << 1)
@@ -15,12 +20,12 @@
 
 #define CIRCLE_HITBOX_FLAG (1 << 0)
 
-// Saw flags
-#define IS_SAW_FLAG          (1 << 1)
-#define SAW_ROT_BIT 2
-#define SAW_CLOCKWISE        (0 << SAW_ROT_BIT)
-#define SAW_COUNTERCLOCKWISE (1 << SAW_ROT_BIT)
-#define SAW_ROT_FLAG         (1 << SAW_ROT_BIT)
+// Rotating flags (used by saws and objects that rotate continously)
+#define IS_ROTATING_FLAG          (1 << 1)
+#define ROTATING_OBJ_BIT 2
+#define ROTATING_CLOCKWISE        (0 << ROTATING_OBJ_BIT)
+#define ROTATING_COUNTERCLOCKWISE (1 << ROTATING_OBJ_BIT)
+#define ROTATING_DIRECTION_BIT    (1 << ROTATING_OBJ_BIT)
 
 struct Object {
     u32 x;

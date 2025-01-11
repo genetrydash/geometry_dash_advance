@@ -205,13 +205,13 @@ void cube_gamemode() {
     
 
     oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0, 0);
-    obj_aff_identity(&obj_aff_buffer[0]);
+    obj_aff_identity(&obj_aff_buffer[AFF_SLOT_P1]);
 
     // Change sprite size depending on player size and screen mirror status
     if (player_size == SIZE_BIG) {
-        obj_aff_rotscale(&obj_aff_buffer[0], mirror_scaling, float2fx(1.0), cube_rotation);
+        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], mirror_scaling, float2fx(1.0), cube_rotation);
     } else {
-        obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
+        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
     }
 }
 
@@ -285,13 +285,13 @@ void ship_gamemode() {
     y_offset = gravity_dir ? 9 : 7;
 
     oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, shipSpr, 0, 0, 4);
-    obj_aff_identity(&obj_aff_buffer[0]);
+    obj_aff_identity(&obj_aff_buffer[AFF_SLOT_P1]);
 
     // Change sprite size depending on player size and screen mirror status
     if (player_size == SIZE_BIG) {
-        obj_aff_rotscale(&obj_aff_buffer[0], mirror_scaling, float2fx(1.0) * sign, cube_rotation);
+        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], mirror_scaling, float2fx(1.0) * sign, cube_rotation);
     } else {
-        obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)) * sign, cube_rotation); 
+        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)) * sign, cube_rotation); 
     }
 }
 
@@ -364,13 +364,13 @@ void ball_gamemode() {
     relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
     oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0, 8);  
-    obj_aff_identity(&obj_aff_buffer[0]);
+    obj_aff_identity(&obj_aff_buffer[AFF_SLOT_P1]);
 
     // Change sprite size depending on player size and screen mirror status
     if (player_size == SIZE_BIG) {
-        obj_aff_rotscale(&obj_aff_buffer[0], mirror_scaling, float2fx(1.0), cube_rotation);
+        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], mirror_scaling, float2fx(1.0), cube_rotation);
     } else {
-        obj_aff_rotscale(&obj_aff_buffer[0], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
+        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], scale_inv(float2fx(MINI_SIZE)), scale_inv(float2fx(MINI_SIZE)), cube_rotation); 
     }
 }
 
