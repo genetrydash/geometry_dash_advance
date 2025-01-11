@@ -175,7 +175,7 @@ s32 find_affine_slot(u16 rotation) {
     return -1;
 }
 
-void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hflip, u8 vflip) {
+void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hflip, u8 vflip, u8 priority) {
     // Get VRAM tile ID
     u32 chr_rom_offset = obj_chr_offset[curr_object.type][0];
     if (chr_rom_offset == SPRITE_CHR_COPY_FROM_METATILE) {
@@ -188,7 +188,7 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
     // Handle continuous rotating objects separately
     if (curr_object.attrib2 & IS_ROTATING_FLAG) {
         u32 saw_rot_id = (curr_object.attrib2 & ROTATING_DIRECTION_BIT) ? AFF_SLOT_CLOCKWISE : AFF_SLOT_COUNTERCLOCKWISE;
-        oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], saw_rotation[saw_rot_id - AFF_SLOT_CLOCKWISE], saw_rot_id, 0, tile_id);
+        oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], saw_rotation[saw_rot_id - AFF_SLOT_CLOCKWISE], saw_rot_id, 0, tile_id, priority);
         obj_aff_identity(&obj_aff_buffer[saw_rot_id]);
         obj_aff_rotscale(&obj_aff_buffer[saw_rot_id], mirror_scaling, float2fx(1.0), saw_rotation[saw_rot_id - 2]);
     } else if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
@@ -203,15 +203,15 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
 
         if (slot >= 0) {
             // Draw affine sprite
-            oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], curr_object.rotation, slot + NUM_RESERVED_ROT_SLOTS, 1, tile_id);
+            oam_affine_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], curr_object.rotation, slot + NUM_RESERVED_ROT_SLOTS, 1, tile_id, priority);
             obj_aff_identity(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS]);
             obj_aff_rotscale(&obj_aff_buffer[slot + NUM_RESERVED_ROT_SLOTS], mirror_scaling, float2fx(1.0), -rotation);
         } else {
             // Slots are full, so display a normal sprite
-            oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip, tile_id);
+            oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip, tile_id, priority);
         }
     } else {    
-        oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip, tile_id);
+        oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip, tile_id, priority);
     }
 }
 
@@ -278,6 +278,8 @@ ARM_CODE void display_objects() {
                 u8 hflip = (curr_object.attrib1 & H_FLIP_FLAG) >> 1;
                 u8 vflip = curr_object.attrib1 & V_FLIP_FLAG;
 
+                u8 priority = (curr_object.attrib2 & PRIORITY_FLAG) >> PRIORITY_FLAG_SHIFT;
+
                 u32 chr_rom_offset = obj_chr_offset[curr_object.type][0];
                 if (chr_rom_offset == SPRITE_CHR_COPY_FROM_METATILE) {
                     chr_rom_offset = 0x80000000 | curr_object.attrib3;
@@ -301,7 +303,7 @@ ARM_CODE void display_objects() {
                     if (relative_x < SCREEN_WIDTH + 128) { 
                         // If the object is inside the screen vertically, display it
                         if (relative_y > -48 && relative_y < SCREEN_HEIGHT + 48) {
-                            do_display(curr_object, relative_x, relative_y, hflip, vflip);
+                            do_display(curr_object, relative_x, relative_y, hflip, vflip, priority);
                         }
                     }
                 }
@@ -390,33 +392,40 @@ void check_obj_collision(u32 index) {
     }
 }
 
-IWRAM_CODE INLINE u32 get_key(OAM_SPR spr) {
-    return (spr.attr2 & ATTR2_PRIO_MASK) >> ATTR2_PRIO_SHIFT;
+
+#define NUMBER_OF_SORT_VALUES 32
+
+IWRAM_CODE INLINE u32 get_key(u32 i) {
+    return i & 0x1f;
 }
 
 // Uses counting sort
 IWRAM_CODE void sort_oam_by_prio() {
-    u32 count[4] = { 0 };
+    u32 count[NUMBER_OF_SORT_VALUES] = { 0 };
     OAM_SPR *oam_buffer = (OAM_SPR *) &vram_copy_buffer;
+    u8 *priority_buffer = (u8 *) (&vram_copy_buffer) + 1024;
     memcpy32(oam_buffer, shadow_oam, sizeof(shadow_oam) / 4);
+    memcpy32(priority_buffer, obj_priorities, sizeof(obj_priorities) / 4);
     
     // Count occurrences of each key
     for (s32 i = 0; i < nextSpr; i++) {
-        u32 key = get_key(oam_buffer[i]);
+        u32 key = get_key(priority_buffer[i]);
         count[key]++;
     }
 
     // Compute cumulative count
-    for (s32 i = 1; i < 4; i++) {
+    for (s32 i = 1; i < NUMBER_OF_SORT_VALUES; i++) {
         count[i] += count[i - 1];
     }
 
     // Place elements in sorted order
     for (s32 i = nextSpr - 1; i >= 0; i--) {
-        u32 key = get_key(oam_buffer[i]);
-        shadow_oam[count[key] - 1].attr0 = oam_buffer[i].attr0;
-        shadow_oam[count[key] - 1].attr1 = oam_buffer[i].attr1;
-        shadow_oam[count[key] - 1].attr2 = oam_buffer[i].attr2;
+        u32 key = get_key(priority_buffer[i]);
+        u32 pos = count[key] - 1;
+        shadow_oam[pos].attr0 = oam_buffer[i].attr0;
+        shadow_oam[pos].attr1 = oam_buffer[i].attr1;
+        shadow_oam[pos].attr2 = oam_buffer[i].attr2;
+        obj_priorities[pos] = priority_buffer[i];
         count[key]--;
     }
 }

@@ -21,6 +21,7 @@ typedef OBJ_ATTR OAM_SPR;
 
 extern OAM_SPR shadow_oam[128];
 extern OBJ_AFFINE *obj_aff_buffer;
+extern u8 obj_priorities[128];
 extern EWRAM_DATA u16 level_buffer[LEVEL_LAYERS][MAX_LEVEL_HEIGHT*LEVEL_BUFFER_WIDTH];
 extern IWRAM_DATA COLOR palette_buffer[512];
 extern EWRAM_DATA u16 rotation_buffer[NUM_ROT_SLOTS];

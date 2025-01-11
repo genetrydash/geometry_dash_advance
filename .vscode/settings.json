@@ -42,7 +42,8 @@
         "level_routines.h": "c",
         "cmath": "c",
         "random": "c",
-        "*.tcc": "c"
+        "*.tcc": "c",
+        "string": "c"
     },
     "C_Cpp.default.cStandard": "c99",
     "C_Cpp.errorSquiggles": "disabled",

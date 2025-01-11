@@ -156,6 +156,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                         v_flip = False
                         enable_rotation = False
                         rotation = 0
+                        priority = 0
 
                         if gid == 43: # sprite block
                             graphics = 2 # block
@@ -175,16 +176,18 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                                 elif prop['name'] == 'metatile ID appearance':
                                     if gid == 43 or gid == 44:
                                         graphics = int(prop['value'])
+                                elif prop['name'] == 'bg layer':
+                                    priority = int(prop['value'])
 
                         except Exception:
                             pass
                        
                         if gid == 43 or gid == 44:
-                            out_file.write(f"   .hword {hex((h_flip << 1) | v_flip)} @ {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
+                            out_file.write(f"   .hword {hex(((priority & 7) << 3) | (h_flip << 1) | v_flip)} @ bg layer {priority} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
                             out_file.write(f"   .hword {graphics} @ metatile ID appareance\n")
                             byte_counter += 4
                         else:
-                            out_file.write(f"   .hword {hex((enable_rotation << 2) | (h_flip << 1) | v_flip)} @ {"rotated" if enable_rotation else "non rotated"} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
+                            out_file.write(f"   .hword {hex(((priority & 7) << 3) | (enable_rotation << 2) | (h_flip << 1) | v_flip)} @ bg layer {priority} {"rotated" if enable_rotation else "non rotated"} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
                             out_file.write(f"   .hword {int(rotation / 360.0 * 65536)} @ rotation\n")
                             byte_counter += 4
 

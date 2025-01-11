@@ -7,6 +7,8 @@
 OAM_SPR shadow_oam[128];
 OBJ_AFFINE *obj_aff_buffer = (OBJ_AFFINE*) shadow_oam;
 
+u8 obj_priorities[128];
+
 // Rotation data
 EWRAM_DATA u16 rotation_buffer[NUM_ROT_SLOTS];
 

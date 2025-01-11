@@ -146,7 +146,7 @@ void game_loop() {
 
     mirror_scaling = float2fx(1.0);
 
-    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(1);
+    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(0);
     REG_BG0HOFS = 0;
     REG_BG0VOFS = 0;
 
@@ -228,7 +228,7 @@ void game_loop() {
         scale_pulsing_objects();
 
 #ifdef DEBUG
-        if (debug_mode) oam_metaspr(0, 0, debugModeSpr, 0, 0, 0); 
+        if (debug_mode) oam_metaspr(0, 0, debugModeSpr, 0, 0, 0, 0); 
 #endif
         sort_oam_by_prio();
         

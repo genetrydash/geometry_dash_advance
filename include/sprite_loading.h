@@ -18,6 +18,10 @@
 #define V_FLIP_FLAG (1 << 0)
 #define ENABLE_ROTATION_FLAG (1 << 2)
 
+#define PRIORITY_FLAG_SHIFT 3
+#define PRIORITY_FLAG (0b111 << PRIORITY_FLAG_SHIFT)
+
+
 #define CIRCLE_HITBOX_FLAG (1 << 0)
 
 // Rotating flags (used by saws and objects that rotate continously)
