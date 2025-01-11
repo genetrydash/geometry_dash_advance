@@ -367,7 +367,7 @@ void draw_player() {
     if (player_size == SIZE_BIG) {
         obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], mirror_scaling, float2fx(1.0) * sign, cube_rotation);
     } else {
-        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], scale_inv(mirror_scaling), scale_inv(float2fx(MINI_SIZE)) * sign, cube_rotation); 
+        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], scale_inv(fxmul(mirror_scaling, float2fx(MINI_SIZE))), scale_inv(float2fx(MINI_SIZE) * sign), cube_rotation); 
     }
 }
 
