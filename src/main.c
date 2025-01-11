@@ -19,7 +19,7 @@ void vblank_handler() {
     // Only use the update handler on playing
     if (game_state == STATE_PLAYING) {
         
-        mirror_transition();
+        if (!player_death) mirror_transition();
 
         if (swap_queue) swap_screen_dir();
 

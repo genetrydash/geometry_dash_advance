@@ -260,6 +260,9 @@ void reset_variables() {
     REG_BG2HOFS = 0;
     REG_BG2VOFS = 34 + (scroll_y >> (5 + SUBPIXEL_BITS));
 
+    REG_WIN0H = SCREEN_WIDTH;
+    REG_WIN0V = SCREEN_HEIGHT;
+
     for (u32 index = 0; index < MAX_OBJECTS; index++) {
         object_buffer[index].occupied = FALSE;
     }
@@ -349,6 +352,8 @@ void fade_in_level() {
         // Rotate saws and display objects while on transition
         rotate_saws();
         display_objects();
+        
+        sort_oam_by_prio();
 
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
@@ -375,6 +380,8 @@ void reset_level() {
     display_objects();
     rotate_saws();
     scale_pulsing_objects();
+    // Sort OAM
+    sort_oam_by_prio();
 
     update_flags &= ~CLEAR_OAM_BUFFER;
 
