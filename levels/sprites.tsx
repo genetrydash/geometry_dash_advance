@@ -346,17 +346,15 @@
  </tile>
  <tile id="43">
   <properties>
-   <property name="enable rotation" type="bool" value="false"/>
    <property name="hflip" type="bool" value="false"/>
-   <property name="rotation angle" type="int" value="0"/>
+   <property name="metatile ID appearance" type="int" value="2"/>
    <property name="vflip" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="44">
   <properties>
-   <property name="enable rotation" type="bool" value="false"/>
    <property name="hflip" type="bool" value="false"/>
-   <property name="rotation angle" type="int" value="0"/>
+   <property name="metatile ID appearance" type="int" value="43"/>
    <property name="vflip" type="bool" value="false"/>
   </properties>
  </tile>

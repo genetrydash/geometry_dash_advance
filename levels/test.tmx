@@ -152,7 +152,11 @@
   <object id="511" gid="556" x="72" y="424" width="16" height="16"/>
   <object id="512" gid="554" x="80" y="336" width="16" height="16"/>
   <object id="513" gid="555" x="64" y="384" width="16" height="16"/>
-  <object id="514" gid="556" x="88" y="420" width="16" height="16"/>
+  <object id="514" gid="556" x="88" y="420" width="16" height="16">
+   <properties>
+    <property name="metatile ID appearance" type="int" value="20"/>
+   </properties>
+  </object>
   <object id="516" gid="541" x="240" y="416" width="16" height="16"/>
   <object id="520" gid="557" x="680" y="380" width="16" height="16"/>
   <object id="521" gid="558" x="1200" y="432" width="16" height="16"/>

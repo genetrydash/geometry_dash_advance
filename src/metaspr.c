@@ -893,10 +893,10 @@ ROM_DATA const u16 *obj_sprites[] = {
 #define CHR_SLOT(name, rom, vram) {rom, vram},
 
 const u32 obj_chr_offset[][2] = {
-    CHR_SLOT("NONE", 0xffffffff,0)
+    CHR_SLOT("NONE", SPRITE_NO_CHR,0)
     CHR_SLOT("SHIP_PORTAL", 0x00, 0x28)
     CHR_SLOT("CUBE_PORTAL", 0x00, 0x28)
-    CHR_SLOT("COL_TRIGGER", 0xffffffff,0)
+    CHR_SLOT("COL_TRIGGER", SPRITE_NO_CHR,0)
 
     CHR_SLOT("BIG_BG_SPIKES", 0x80, 0x20)
     CHR_SLOT("MEDIUM_BG_SPIKES", 0xa0, 0x20)
@@ -954,8 +954,8 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("SAW_MEDIUM", 0x180, 0x10)
     CHR_SLOT("SAW_SMALL", 0x170, 0x4)
     
-    CHR_SLOT("BASIC_BLOCK", 0x16c, 0x4)
-    CHR_SLOT("BASIC_SLAB", 0x174, 0x2)
+    CHR_SLOT("BASIC_BLOCK", SPRITE_CHR_COPY_FROM_METATILE, 0x4)
+    CHR_SLOT("BASIC_SLAB", SPRITE_CHR_COPY_FROM_METATILE, 0x2)
     
     CHR_SLOT("ORANGE_MIRROR_PORTAL", 0x1d0, 0x28)
     CHR_SLOT("BLUE_MIRROR_PORTAL",   0x1d0, 0x28)

@@ -39,7 +39,10 @@
         "pusab.h": "c",
         "posprintf.h": "c",
         "tonc_tte.h": "c",
-        "level_routines.h": "c"
+        "level_routines.h": "c",
+        "cmath": "c",
+        "random": "c",
+        "*.tcc": "c"
     },
     "C_Cpp.default.cStandard": "c99",
     "C_Cpp.errorSquiggles": "disabled",

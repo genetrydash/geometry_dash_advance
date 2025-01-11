@@ -678,6 +678,12 @@
                  "height":16,
                  "id":514,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"metatile ID appearance",
+                         "type":"int",
+                         "value":20
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,

@@ -15,6 +15,8 @@ u16 saw_rotation[2];
 
 struct ObjectSlot object_buffer[MAX_OBJECTS];
 
+void setup_graphics_upload(u16 type, u8 object_slot, u16 attrib3);
+
 s32 get_tile_id(u32 chr_offset, u8 tile_num) {
     s32 i;
     for (i = 0; i < MAX_OBJECTS; i++) {
@@ -83,50 +85,47 @@ ARM_CODE void load_objects() {
                 sprite_pointer++;
 
                 // If the object is a color trigger, then get more attributes (attrib3 is set on activation)
-                if (new_object.type == COL_TRIGGER) {
-                    new_object.attrib1 = (u16)(*sprite_pointer);  // Frames and channel
-                    new_object.attrib2 = (*sprite_pointer) >> 16; // Color
-                    sprite_pointer++;
-                    new_object.attrib3 = (u16)(*sprite_pointer);  // Copy channel
-                    sprite_pointer++;
-                } else {
-                    // Load flip values
-                    new_object.attrib1 = (u16)(*sprite_pointer);
-                    new_object.attrib2 = 0;
-                    new_object.attrib3 = 0;
-
-                    s32 enable_rotation = new_object.attrib1 & ENABLE_ROTATION_FLAG;
-                    if (enable_rotation) {
-                        new_object.rotation = ((*sprite_pointer) >> 16);
-                    } else {
+                switch (new_object.type) {
+                    case COL_TRIGGER:
+                        new_object.attrib1 = (u16)(*sprite_pointer);  // Frames and channel
+                        new_object.attrib2 = (*sprite_pointer) >> 16; // Color
+                        sprite_pointer++;
+                        new_object.attrib3 = (u16)(*sprite_pointer);  // Copy channel
+                        sprite_pointer++;
+                        break;
+                    case BASIC_BLOCK_OBJ:
+                    case BASIC_SLAB_OBJ:
+                        new_object.attrib1 = (u16)(*sprite_pointer); // Flags
+                        new_object.attrib2 = 0;
+                        new_object.attrib3 = ((*sprite_pointer) >> 16); // Metatile ID graphics
                         new_object.rotation = 0;
-                    }
-                    sprite_pointer++;
-                    
-                    // If an invalid object was found, skip it
-                    if (new_object.type >= OBJ_COUNT) {
-                        continue;
-                    }
-                    
-                    u32 rom_offset = obj_chr_offset[new_object.type][0];
-                    u32 tile_num = obj_chr_offset[new_object.type][1];
-                    
-                    // Get next free slot ID, or in case there is already an slot with the same data, use it
-                    s32 id = get_free_chr_slot_id(rom_offset, tile_num);
 
-                    // If we got a new slot, then setup and upload it into the buffer, so the chr data can be copied to VRAM in the next frame
-                    if (id >= 0 && !chr_slots[id].occupied) {
-                        u16 vram_offset = next_free_tile_id;
-                        chr_slots[id].occupied = TRUE;
-                        chr_slots[id].rom_offset = rom_offset;
-                        chr_slots[id].vram_offset = vram_offset;
-                        chr_slots[id].tile_num = tile_num;
-                        next_free_tile_id += tile_num;
+                        sprite_pointer++;
+
+                        setup_graphics_upload(new_object.type, index, new_object.attrib3);
+                        break;
+                    default:
+                        // Load flip values
+                        new_object.attrib1 = (u16)(*sprite_pointer);
+                        new_object.attrib2 = 0;
+                        new_object.attrib3 = 0;
+
+                        s32 enable_rotation = new_object.attrib1 & ENABLE_ROTATION_FLAG;
+                        if (enable_rotation) {
+                            new_object.rotation = ((*sprite_pointer) >> 16);
+                        } else {
+                            new_object.rotation = 0;
+                        }
+                        sprite_pointer++;
                         
-                        loaded_object_buffer[loaded_object_buffer_offset] = id;
-                        loaded_object_buffer_offset += 1;
-                    }
+                        // If an invalid object was found, skip it
+                        if (new_object.type >= OBJ_COUNT) {
+                            continue;
+                        }
+                        
+                        setup_graphics_upload(new_object.type, index, 0);
                 }
+                
 
                 s16 obj_width = obj_hitbox[new_object.type][0];
                 u16 obj_height = obj_hitbox[new_object.type][1];
@@ -178,7 +177,13 @@ s32 find_affine_slot(u16 rotation) {
 
 void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hflip, u8 vflip) {
     // Get VRAM tile ID
-    s16 tile_id = get_tile_id(obj_chr_offset[curr_object.type][0], obj_chr_offset[curr_object.type][1]);
+    u32 chr_rom_offset = obj_chr_offset[curr_object.type][0];
+    if (chr_rom_offset == SPRITE_CHR_COPY_FROM_METATILE) {
+        chr_rom_offset = 0x80000000 | curr_object.attrib3;
+    }
+    
+    u32 chr_rom_tile_num = obj_chr_offset[curr_object.type][1];
+    s16 tile_id = get_tile_id(chr_rom_offset, chr_rom_tile_num);
 
     // Handle continuous rotating objects separately
     if (curr_object.attrib2 & IS_ROTATING_FLAG) {
@@ -207,6 +212,31 @@ void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hf
         }
     } else {    
         oam_metaspr(relative_x, relative_y, obj_sprites[curr_object.type], hflip, vflip, tile_id);
+    }
+}
+
+void setup_graphics_upload(u16 type, u8 object_slot, u16 attrib3) {
+    u32 rom_offset = obj_chr_offset[type][0];
+    if (rom_offset == SPRITE_CHR_COPY_FROM_METATILE) {
+        rom_offset = 0x80000000 | attrib3;
+    }
+    u32 tile_num = obj_chr_offset[type][1];
+    
+    // Get next free slot ID, or in case there is already an slot with the same data, use it
+    s32 id = get_free_chr_slot_id(rom_offset, tile_num);
+
+    // If we got a new slot, then setup and upload it into the buffer, so the chr data can be copied to VRAM in the next frame
+    if (id >= 0 && !chr_slots[id].occupied) {
+        u16 vram_offset = next_free_tile_id;
+        chr_slots[id].occupied = TRUE;
+        chr_slots[id].object_slot = object_slot;
+        chr_slots[id].rom_offset = rom_offset;
+        chr_slots[id].vram_offset = vram_offset;
+        chr_slots[id].tile_num = tile_num;
+        next_free_tile_id += tile_num;
+        
+        loaded_object_buffer[loaded_object_buffer_offset] = id;
+        loaded_object_buffer_offset += 1;
     }
 }
 
@@ -249,6 +279,9 @@ ARM_CODE void display_objects() {
                 u8 vflip = curr_object.attrib1 & V_FLIP_FLAG;
 
                 u32 chr_rom_offset = obj_chr_offset[curr_object.type][0];
+                if (chr_rom_offset == SPRITE_CHR_COPY_FROM_METATILE) {
+                    chr_rom_offset = 0x80000000 | curr_object.attrib3;
+                }
                 u32 chr_rom_tile_num = obj_chr_offset[curr_object.type][1];
                 s32 chr_id = get_chr_slot_id(chr_rom_offset, chr_rom_tile_num);
                 

@@ -88,6 +88,6 @@ extern u16 block_object_buffer_offset;
 extern s32 *block_object_buffer[MAX_OBJECTS];
 extern u16 block_object_buffer_flags[MAX_OBJECTS];
 
-extern SCR_ENTRY mirror_screen_buffer[SCREENBLOCK_W * SCREENBLOCK_H];
+extern u8 vram_copy_buffer[2048];
 
 extern s8 transition_frame;

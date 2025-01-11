@@ -1,5 +1,8 @@
 #include <tonc.h>
 
+#define SPRITE_CHR_COPY_FROM_METATILE (u32)(-2)
+#define SPRITE_NO_CHR (u32)(-1)
+
 extern u8 nextSpr;
 extern const u16 debugModeSpr[];
 extern const u16 playerSpr[];

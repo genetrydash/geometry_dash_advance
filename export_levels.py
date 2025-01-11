@@ -75,9 +75,9 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                     
                     # Write the assembly instructions
                     out_file.write(f"@ Object {counter}\n")
-                    out_file.write(f"   .word {hex(x)}\n")
-                    out_file.write(f"   .hword {hex(y)}\n")
-                    out_file.write(f"   .hword {hex(gid)}\n")
+                    out_file.write(f"   .word {hex(x)} @ x\n")
+                    out_file.write(f"   .hword {hex(y)} @ y\n")
+                    out_file.write(f"   .hword {hex(gid)} @ type\n")
                     byte_counter += 8
                     if gid == 3: # COLOR TRIGGER
                         channel = 'BG'
@@ -146,16 +146,21 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
 
                         color_bgr555 = rgb888_to_rgb555_24bit(color)
                     
-                        out_file.write(f"   .hword {hex((frames << 3) | channel_id)}\n")
-                        out_file.write(f"   .hword {hex(color_bgr555)}\n")
-                        out_file.write(f"   .hword {hex((copy_channel_id << 1) | copy)}\n")
-                        out_file.write(f"   .hword 0x0000\n")
+                        out_file.write(f"   .hword {hex((frames << 3) | channel_id)} @ changes {channel} for {frames} frames\n")
+                        out_file.write(f"   .hword {hex(color_bgr555)} @ color\n")
+                        out_file.write(f"   .hword {hex((copy_channel_id << 1) | copy)} @ {"copies {copy_channel}" if copy else "doesn't copy any channel"}\n")
+                        out_file.write(f"   .hword 0x0000 @ Empty, needed for word alignment\n")
                         byte_counter += 8
                     else:
                         h_flip = False
                         v_flip = False
                         enable_rotation = False
                         rotation = 0
+
+                        if gid == 43: # sprite block
+                            graphics = 2 # block
+                        elif gid == 44: # sprite slab
+                            graphics = 43 # slab
                         try: 
                             properties = obj['properties']
                             for prop in properties:
@@ -167,11 +172,21 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                                     enable_rotation = bool(prop['value'])
                                 elif prop['name'] == 'rotation angle':
                                     rotation = int(prop['value'])
+                                elif prop['name'] == 'metatile ID appearance':
+                                    if gid == 43 or gid == 44:
+                                        graphics = int(prop['value'])
+
                         except Exception:
                             pass
-                        out_file.write(f"   .hword {hex((enable_rotation << 2) | (h_flip << 1) | v_flip)}\n")
-                        out_file.write(f"   .hword {int(rotation / 360.0 * 65536)}\n")
-                        byte_counter += 4
+                       
+                        if gid == 43 or gid == 44:
+                            out_file.write(f"   .hword {hex((h_flip << 1) | v_flip)} @ {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
+                            out_file.write(f"   .hword {graphics} @ metatile ID appareance\n")
+                            byte_counter += 4
+                        else:
+                            out_file.write(f"   .hword {hex((enable_rotation << 2) | (h_flip << 1) | v_flip)} @ {"rotated" if enable_rotation else "non rotated"} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
+                            out_file.write(f"   .hword {int(rotation / 360.0 * 65536)} @ rotation\n")
+                            byte_counter += 4
 
                 out_file.write(f"   .byte 0xff\n")
                 byte_counter += 1

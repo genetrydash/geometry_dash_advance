@@ -80,8 +80,8 @@ u16 block_object_buffer_offset;
 s32 *block_object_buffer[MAX_OBJECTS];
 u16 block_object_buffer_flags[MAX_OBJECTS];
 
-// Buffer for on screen data (needed for mirroring)
-SCR_ENTRY mirror_screen_buffer[SCREENBLOCK_W * SCREENBLOCK_H];
+// Buffer for copying purposes
+u8 vram_copy_buffer[2048];
 
 // Controls the transition state
 // 0 : full | 30 : empty | 60 : full

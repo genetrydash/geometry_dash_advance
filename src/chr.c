@@ -1,5 +1,6 @@
 #include "main.h"
 #include "../graphics/includes.h"
+#include "metatiles.h"
 
 const COLOR blockPalette[] = {
     0x7C00, 0x7C00, 0x6800, 0x5400, 0x3C00, 0x2800, 0x1400, 0x0000, 0x7D4A, 0x7EB5, 0x7FFF, 0x540A, 0x3C10, 0x2815, 0x141A, 0x0000,
@@ -221,6 +222,36 @@ void run_particles() {
     if (particle_timer > 31) particle_timer = 0;
 }
 
+void tile_h_flip(u8 *pointer) {
+    u8 *tile_ptr = pointer;
+    u8 *dst_ptr = tile_ptr + sizeof(TILE);
+
+    // Each byte holds 2 pixels
+    for (s32 x = 0; x < 4; x++) {
+        u8 dst_x = 3 - x;
+        for (s32 y = 0; y < 8; y++) {
+            // Get byte and swap nybbles, then put it in the mirrored x pos
+            u8 orig_value = tile_ptr[x + (y << 2)];
+            u8 final_value = (orig_value << 4) | (orig_value >> 4);
+            dst_ptr[dst_x + (y << 2)] = final_value;
+        }
+    }
+}
+
+void tile_v_flip(u8 *pointer) {
+    u8 *tile_ptr = pointer;
+    u8 *dst_ptr = tile_ptr + sizeof(TILE);
+
+    // Each byte holds 2 pixels
+    for (s32 x = 0; x < 4; x++) {
+        for (s32 y = 0; y < 8; y++) {
+            u8 dst_y = 7 - y;
+            // Copy a 4 byte row into the mirrored y pos
+            memcpy32(&dst_ptr[dst_y << 2], &tile_ptr[y << 2], 1);
+        }
+    }
+}
+
 void deoccupy_chr_slots() {
     for (s32 i = 0; i < MAX_OBJECTS; i++) {
         u8 was_occupied = chr_slots[i].occupied;
@@ -263,12 +294,50 @@ void load_chr_in_buffer() {
     // Iterate through the buffer
     for (s32 i = loaded_object_buffer_offset; i > 0; i--) {
         s16 slot_id = loaded_object_buffer[i - 1];
+        u8 object_slot = chr_slots[slot_id].object_slot;
+
+        struct Object object = object_buffer[object_slot].object;
+
         u32 rom_offset = chr_slots[slot_id].rom_offset;
         u32 vram_offset = chr_slots[slot_id].vram_offset;
         u8 tile_num = chr_slots[slot_id].tile_num;
         
-        // Upload into VRAM chr data
-        memcpy32(&tile_mem_obj[0][vram_offset], &sprites_chr[rom_offset], tile_num * (sizeof(TILE) / sizeof(u32)));
+        // If the object that uses this slot is a block or an slab, then allow changing the chr from a metatile ID
+        if (object.type == BASIC_BLOCK_OBJ || object.type == BASIC_SLAB_OBJ) {
+            u16 metatile_ID = object.attrib3;
+            TILE *tile_ptr = (TILE *) &blockset;
+
+            // An slab is only two tiles big
+            s32 num_tiles = object.type == BASIC_SLAB_OBJ ? 2 : 4;
+            for (s32 tile = 0; tile < num_tiles; tile++) {
+                SCR_ENTRY tile_id = metatiles[metatile_ID][tile];
+
+                // Copy tile into buffer
+                memcpy32(vram_copy_buffer, &tile_ptr[tile_id & SE_ID_MASK], (sizeof(TILE) / sizeof(u32)));
+
+                // Flip horizontally if it should be flipped
+                if (tile_id & SE_HFLIP) {
+                    tile_h_flip(vram_copy_buffer);
+
+                    // Copy back to the start of the buffer
+                    memcpy32(vram_copy_buffer, &vram_copy_buffer[sizeof(TILE)], (sizeof(TILE) / sizeof(u32)));
+                }
+
+                // Flip vertically if it should be flipped
+                if (tile_id & SE_VFLIP) {
+                    tile_v_flip(vram_copy_buffer);
+
+                    // Copy back to the start of the buffer
+                    memcpy32(vram_copy_buffer, &vram_copy_buffer[sizeof(TILE)], (sizeof(TILE) / sizeof(u32)));
+                }
+
+                // Copy to VRAM this tile
+                memcpy32(&tile_mem_obj[0][vram_offset + tile], vram_copy_buffer, (sizeof(TILE) / sizeof(u32)));
+            }
+        } else {
+            // Copy to VRAM from ROM
+            memcpy32(&tile_mem_obj[0][vram_offset], &sprites_chr[rom_offset], tile_num * (sizeof(TILE) / sizeof(u32)));
+        }
     }
 
     loaded_object_buffer_offset = 0;

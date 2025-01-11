@@ -46,6 +46,7 @@ struct ObjectSlot {
 
 struct ObjectCHRSlot {
     u8 occupied;
+    u8 object_slot;
     u8 tile_num;
     u32 rom_offset;
     u16 vram_offset;

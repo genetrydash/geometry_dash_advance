@@ -442,6 +442,7 @@ void swap_screen_dir() {
     // LEVEL_LAYERS + 1 because the background also has to be mirrored
     for (s32 layer = 0; layer < LEVEL_LAYERS + 1; layer++) {
         // Copy tilemap into buffer
+        SCR_ENTRY *mirror_screen_buffer = (SCR_ENTRY *) &vram_copy_buffer;
         memcpy32(mirror_screen_buffer, &se_mem[24 + layer], (SCREENBLOCK_W * SCREENBLOCK_H) / 2);
 
         for (s32 x = 0; x < SCREENBLOCK_W; x++) {
