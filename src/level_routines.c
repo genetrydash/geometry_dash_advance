@@ -394,7 +394,7 @@ void fade_in() {
 
 void reset_level() {
     mmStop();
-    update_flags = UPDATE_OAM;
+    update_flags = UPDATE_OAM | UPDATE_SCROLL;
     
     nextSpr = 0;
     draw_player();
