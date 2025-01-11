@@ -56,6 +56,8 @@ extern u8 speed_id;
 
 extern u8 gamemode;
 
+extern u16 cube_rotation;
+
 extern u8 on_floor;
 
 extern u8 player_buffering;
