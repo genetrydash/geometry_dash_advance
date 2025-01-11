@@ -67,4 +67,6 @@ void display_objects();
 void scale_pulsing_objects();
 void rotate_saws();
 void object_tile_data_load(u16 object_type);
+
+IWRAM_CODE void sort_oam_by_prio();
 #endif

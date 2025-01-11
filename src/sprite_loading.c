@@ -389,3 +389,34 @@ void check_obj_collision(u32 index) {
         }  
     }
 }
+
+IWRAM_CODE INLINE u32 get_key(OAM_SPR spr) {
+    return (spr.attr2 & ATTR2_PRIO_MASK) >> ATTR2_PRIO_SHIFT;
+}
+
+// Uses counting sort
+IWRAM_CODE void sort_oam_by_prio() {
+    u32 count[4] = { 0 };
+    OAM_SPR *oam_buffer = (OAM_SPR *) &vram_copy_buffer;
+    memcpy32(oam_buffer, shadow_oam, sizeof(shadow_oam) / 4);
+    
+    // Count occurrences of each key
+    for (s32 i = 0; i < nextSpr; i++) {
+        u32 key = get_key(oam_buffer[i]);
+        count[key]++;
+    }
+
+    // Compute cumulative count
+    for (s32 i = 1; i < 4; i++) {
+        count[i] += count[i - 1];
+    }
+
+    // Place elements in sorted order
+    for (s32 i = nextSpr - 1; i >= 0; i--) {
+        u32 key = get_key(oam_buffer[i]);
+        shadow_oam[count[key] - 1].attr0 = oam_buffer[i].attr0;
+        shadow_oam[count[key] - 1].attr1 = oam_buffer[i].attr1;
+        shadow_oam[count[key] - 1].attr2 = oam_buffer[i].attr2;
+        count[key]--;
+    }
+}

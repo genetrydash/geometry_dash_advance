@@ -230,6 +230,7 @@ void game_loop() {
 #ifdef DEBUG
         if (debug_mode) oam_metaspr(0, 0, debugModeSpr, 0, 0, 0); 
 #endif
+        sort_oam_by_prio();
         
         // Wait for VSYNC
         VBlankIntrWait();
