@@ -90,6 +90,32 @@ void big_portal(struct ObjectSlot *objectSlot) {
     objectSlot->activated = TRUE;
 }
 
+void speed_portal_half(struct ObjectSlot *objectSlot) {
+    speed_id = SPEED_X05;
+    objectSlot->activated = TRUE;
+}
+
+void speed_portal_1x(struct ObjectSlot *objectSlot) {
+    speed_id = SPEED_X1;
+    objectSlot->activated = TRUE;
+}
+
+void speed_portal_2x(struct ObjectSlot *objectSlot) {
+    speed_id = SPEED_X2;
+    objectSlot->activated = TRUE;
+}
+
+void speed_portal_3x(struct ObjectSlot *objectSlot) {
+    speed_id = SPEED_X3;
+    objectSlot->activated = TRUE;
+}
+
+void speed_portal_4x(struct ObjectSlot *objectSlot) {
+    speed_id = SPEED_X4;
+    objectSlot->activated = TRUE;
+}
+
+
 void col_trigger(struct ObjectSlot *objectSlot) {
     struct Object col_trigger = objectSlot->object;
     
@@ -355,8 +381,15 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     do_nothing,
 
-    
     do_nothing,
+
+    // Speeeeed
+
+    speed_portal_half,
+    speed_portal_1x,
+    speed_portal_2x,
+    speed_portal_3x,
+    speed_portal_4x,
 };
 
 // In pixels
@@ -422,6 +455,12 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Circle("SAW_DECO_TINY", TRUE, 0, 0, 0, 0, 0)
 
     Object_Hitbox_Rectangle("PULSING_NOTE", 0, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Rectangle("SPEED_PORTAL_HALF", 18, 24, -1, -4,  8, 8)
+    Object_Hitbox_Rectangle("SPEED_PORTAL_1x", 16, 30, 0, -7, 8, 8)
+    Object_Hitbox_Rectangle("SPEED_PORTAL_2x",  28, 30, -6, -7, 8, 8)
+    Object_Hitbox_Rectangle("SPEED_PORTAL_3x",  34, 30, -9, -7, 8, 8)
+    Object_Hitbox_Rectangle("SPEED_PORTAL_4x",  36, 30, -10, -7, 8, 8)
 };
 
 #undef Object_Hitbox

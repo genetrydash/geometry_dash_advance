@@ -825,6 +825,82 @@ const u16 sawDecoTiny[] = {
     0xffff
 };
 
+const u16 speedPortalHalf[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(6),
+    -8, // x
+    -8, // y
+    PRIO_IDOFF(3, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 speedPortal1x[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(3),
+    -8, // x
+    -8, // y
+    PRIO_IDOFF(3, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 speedPortal2x[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(2),
+    -8, // x
+    -8, // y
+    PRIO_IDOFF(3, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 speedPortal3x[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(1),
+    -10, // x
+    -8, // y
+    PRIO_IDOFF(3, 0), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_8x8,
+    ATTR2_PALBANK(1),
+    22, // x
+    4, // y
+    PRIO_IDOFF(3, 16), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 speedPortal4x[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(5),
+    -11, // x
+    -8, // y
+    PRIO_IDOFF(3, 0), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_8x16,
+    ATTR2_PALBANK(5),
+    21, // x
+    0, // y
+    PRIO_IDOFF(3, 16), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
 ROM_DATA const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -889,6 +965,12 @@ ROM_DATA const u16 *obj_sprites[] = {
     sawDecoTiny,
 
     pulsingObjectSpr,
+
+    speedPortalHalf,
+    speedPortal1x,
+    speedPortal2x,
+    speedPortal3x,
+    speedPortal4x,
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -968,7 +1050,13 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("SMALL_SAW_DECO", 0x250, 0x10)
     CHR_SLOT("TINY_SAW_DECO", 0x260, 0x4)
 
-    CHR_SLOT("PULSING_NOTE", 0x124, 0x4)
+    CHR_SLOT("PULSING_NOTE", 0x124, 0x4)    
+    
+    CHR_SLOT("SPEED_PORTAL_HALF", 0x270, 0x10)
+    CHR_SLOT("SPEED_PORTAL_1x",   0x280, 0x10)
+    CHR_SLOT("SPEED_PORTAL_2x",   0x290, 0x10)
+    CHR_SLOT("SPEED_PORTAL_3x",   0x2a0, 0x11)
+    CHR_SLOT("SPEED_PORTAL_4x",   0x2c0, 0x12)
 };
 #undef CHR_SLOT
 

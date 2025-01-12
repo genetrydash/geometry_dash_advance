@@ -77,6 +77,12 @@ enum ObjTypes {
 
     PULSING_NOTE,
 
+    SPEED_PORTAL_HALF,
+    SPEED_PORTAL_1x,
+    SPEED_PORTAL_2x,
+    SPEED_PORTAL_3x,
+    SPEED_PORTAL_4x,
+
     OBJ_COUNT
 };
 
