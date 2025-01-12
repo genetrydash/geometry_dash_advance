@@ -52,13 +52,28 @@ const u32 speed_constants[] = {
     SPEED_HALF, // x0.5
     SPEED_1x,   // x1
     SPEED_2x,   // x2
-    SPEED_3x,    // x3
-    SPEED_4x     // x4
+    SPEED_3x,   // x3
+    SPEED_4x    // x4
 };
 
 // Current speed ID
 u8 speed_id = SPEED_X1;
 
+const u16 ship_rot_multiplier[] = {
+    0x400,  // x0.5
+    0x380,  // x1
+    0x300,  // x2
+    0x280,  // x3
+    0x200,  // x4
+};
+
+const u16 ball_rot_multiplier[] = {
+    0x100,  // x0.5
+    0x250,  // x1
+    0x380,  // x2
+    0x430,  // x3
+    0x5a0,  // x4
+};
 
 // Draw player
 u8 x_offset;
@@ -210,11 +225,11 @@ void ship_gamemode() {
     }
 
     if (key_held(KEY_A | KEY_UP)) {
-        cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * 0x380; 
+        cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * ship_rot_multiplier[speed_id]; 
 
         player_y_speed -= gravity * sign;
     } else {
-        cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * 0x380; 
+        cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * ship_rot_multiplier[speed_id]; 
 
         player_y_speed += gravity * sign;
     }
