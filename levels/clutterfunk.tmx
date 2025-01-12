@@ -1858,7 +1858,7 @@
     <property name="bg layer" value="2"/>
    </properties>
   </object>
-  <object id="1112" gid="554" x="9484" y="300" width="16" height="16">
+  <object id="1112" gid="554" x="9484" y="296" width="16" height="16">
    <properties>
     <property name="bg layer" value="2"/>
    </properties>
@@ -1868,7 +1868,7 @@
     <property name="bg layer" value="2"/>
    </properties>
   </object>
-  <object id="1114" gid="554" x="9588" y="300" width="16" height="16">
+  <object id="1114" gid="554" x="9588" y="296" width="16" height="16">
    <properties>
     <property name="bg layer" value="2"/>
    </properties>

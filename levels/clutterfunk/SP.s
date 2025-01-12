@@ -3977,7 +3977,7 @@ clutterfunk_spr_data:
    .hword 0 @ rotation
 @ Object 643
    .word 0x250c @ x
-   .hword 0x12c @ y
+   .hword 0x128 @ y
    .hword 0x29 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
@@ -3989,7 +3989,7 @@ clutterfunk_spr_data:
    .hword 0 @ rotation
 @ Object 645
    .word 0x2574 @ x
-   .hword 0x12c @ y
+   .hword 0x128 @ y
    .hword 0x29 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
