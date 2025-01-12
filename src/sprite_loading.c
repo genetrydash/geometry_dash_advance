@@ -368,8 +368,8 @@ void check_obj_collision(u32 index) {
             u32 ply_cx = ply_x + (player_width >> 1);
             u32 ply_cy = ply_y + (player_height >> 1);
 
-            u32 obj_cx = obj_x;
-            u32 obj_cy = obj_y;
+            u32 obj_cx = curr_object.x + center_x;
+            u32 obj_cy = curr_object.y + center_y;
 
             // Obj height contains the hitbox radius
             u32 obj_radius = obj_height;

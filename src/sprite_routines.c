@@ -406,9 +406,9 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_V", 4, 3, 6, 12, 8, 8)
     Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_H", 3, 4, 2, 6, 8, 8)
 
-    Object_Hitbox_Circle("SAW_BIG", TRUE, 16, 8, 8, 8, 8)
-    Object_Hitbox_Circle("SAW_MEDIUM", TRUE, 12, 8, 8, 8, 8)
-    Object_Hitbox_Circle("SAW_SMALL", TRUE, 7, 8, 8, 8, 8)
+    Object_Hitbox_Circle("SAW_BIG", TRUE, 16, 0, 0, 8, 8)
+    Object_Hitbox_Circle("SAW_MEDIUM", TRUE, 12, 0, 0, 8, 8)
+    Object_Hitbox_Circle("SAW_SMALL", TRUE, 7, 0, 0, 8, 8)
 
     Object_Hitbox_Rectangle("BASIC_BLOCK", 16, 16, 0, 0, 8, 8)
     Object_Hitbox_Rectangle("BASIC_SLAB", 16, 8, 0, 0, 8, 8)
