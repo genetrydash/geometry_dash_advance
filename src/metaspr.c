@@ -481,7 +481,7 @@ const u16 bigBgSpikesSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(2),
     -24,   // x
     -10,   // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(5, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -492,7 +492,7 @@ const u16 mediumBgSpikesSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(2),
     -24, // x
     -10, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(5, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -503,7 +503,7 @@ const u16 smallBgSpikesSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(2),
     -8, // x
     0,  // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(5, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -514,7 +514,7 @@ const u16 tinyBgSpikesSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(2),
     0, // x
     6, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(5, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -525,7 +525,7 @@ const u16 bigBgCloudSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(2),
     -24,   // x
     -10,   // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(5, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -536,7 +536,7 @@ const u16 smallBgCloudSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(2),
     -8, // x
     0,  // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(5, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -772,7 +772,7 @@ const u16 basicBlock[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(3, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -783,7 +783,7 @@ const u16 basicSlab[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(3, 0), // id offset
     CENTER(8, 4),
 
     0xffff
@@ -792,7 +792,7 @@ const u16 basicSlab[] = {
 const u16 sawDecoBig[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_64x64,
-    ATTR2_PALBANK(0),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
     -24, // x
     -24, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -804,7 +804,7 @@ const u16 sawDecoBig[] = {
 const u16 sawDecoMediumSmall[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(0),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
     -8, // x
     -8, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -816,7 +816,7 @@ const u16 sawDecoMediumSmall[] = {
 const u16 sawDecoTiny[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(0),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
     0, // x
     0, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -1145,10 +1145,11 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         s32 total_y = y + (center_y - (height >> 1)) + rotated_y - (dbl ? (height >> 1) : 0);
         
         s32 x_rel;
+        u8 aff_dbl = (attribute0 & ATTR0_AFF_DBL_BIT) >> 9;
 
         // Flip pos on screen if screen is mirrored
         if (screen_mirrored) {
-            x_rel = SCREEN_WIDTH - (total_x + (width << 1));
+            x_rel = SCREEN_WIDTH - (total_x + (width << aff_dbl));
         } else {
             x_rel = total_x;
         }

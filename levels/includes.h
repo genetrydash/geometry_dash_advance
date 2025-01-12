@@ -84,14 +84,22 @@
 #include "xstep/SP.h"
 #include "xstep/properties.h"
 
+// clutterfunk
+#define clutterfunk_ID 10
+
+#include "clutterfunk/l1.h"
+#include "clutterfunk/l2.h"
+#include "clutterfunk/SP.h"
+#include "clutterfunk/properties.h"
+
 // test
-#define test_ID 10
+#define test_ID 11
 
 #include "test/l1.h"
 #include "test/l2.h"
 #include "test/SP.h"
 #include "test/properties.h"
 
-#define LEVEL_COUNT 11
+#define LEVEL_COUNT 12
 extern ROM_DATA const u16 *level_defines[][4];
 extern ROM_DATA const u8 *level_names[];

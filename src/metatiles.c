@@ -130,8 +130,8 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("+_FILLER",     TILE(0x35, 0, 0, 0), TILE(0x33, 0, 0, 0), TILE(0x30, 0, 0, 0), TILE(0x31, 0, 0, 0), COL_NONE)
     Metatile("+_DB_CRN_TOP", TILE(0x2a, 0, 0, 0), TILE(0x2b, 0, 0, 0), TILE(0x34, 0, 0, 0), TILE(0x36, 0, 0, 0), COL_FULL)
     Metatile("+_DB_CRN_BOT", TILE(0x34, 0, 0, V), TILE(0x36, 0, 0, V), TILE(0x2a, 0, 0, V), TILE(0x2b, 0, 0, V), COL_FULL)
-    Metatile("+_DB_CRN_LFT", TILE(0x2a, 0, 0, 0), TILE(0x2f, 0, 0, 0), TILE(0x34, 0, 0, 0), TILE(0x31, 0, 0, 0), COL_FULL)
-    Metatile("+_DB_CRN_RGT", TILE(0x2f, 0, H, 0), TILE(0x2a, 0, H, 0), TILE(0x31, 0, H, 0), TILE(0x34, 0, H, 0), COL_FULL)
+    Metatile("+_DB_CRN_LFT", TILE(0x2a, 0, 0, 0), TILE(0x2f, 0, 0, 0), TILE(0x2c, 0, 0, 0), TILE(0x37, 0, 0, 0), COL_FULL)
+    Metatile("+_DB_CRN_RGT", TILE(0x2f, 0, H, 0), TILE(0x2a, 0, H, 0), TILE(0x39, 0, 0, 0), TILE(0x2d, 0, 0, 0), COL_FULL)
     Metatile("+_DB_SIDE_V",  TILE(0x32, 0, 0, 0), TILE(0x38, 0, 0, 0), TILE(0x34, 0, 0, 0), TILE(0x36, 0, 0, 0), COL_FULL)
     Metatile("+_DB_SIDE_H",  TILE(0x2e, 0, 0, 0), TILE(0x2f, 0, 0, 0), TILE(0x39, 0, 0, 0), TILE(0x37, 0, 0, 0), COL_FULL)
     
@@ -157,7 +157,8 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("BLK_DB_SIDE_H",   TILE(0x3d, 0, 0, 0), TILE(0x3d, 0, H, 0), TILE(0x3d, 0, 0, 0), TILE(0x3d, 0, H, 0), COL_FULL)
     Metatile("BLK_DB_SIDE_V",   TILE(0x3c, 0, 0, 0), TILE(0x3c, 0, 0, 0), TILE(0x3c, 0, 0, V), TILE(0x3c, 0, 0, V), COL_FULL)
 
-    Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
+    Metatile("BLK_FILLER_NO_COLL", TILE(0x3a, 0, 0, 0), TILE(0x3a, 0, 0, 0), TILE(0x3a, 0, 0, 0), TILE(0x3a, 0, 0, 0), COL_NONE)
+    
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)

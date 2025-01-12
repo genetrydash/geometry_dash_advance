@@ -262,8 +262,8 @@ void scale_pulsing_objects() {
 }
 
 void rotate_saws() {
-    saw_rotation[0] += 0x600;
-    saw_rotation[1] -= 0x600;
+    saw_rotation[0] += 0x500;
+    saw_rotation[1] -= 0x500;
 }
 
 ARM_CODE void display_objects() {

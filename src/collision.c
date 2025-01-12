@@ -463,12 +463,12 @@ u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2, u32 h2)
 }
 
 u32 is_colliding_circle(u32 cx1, u32 cy1, u32 r1, u32 cx2, u32 cy2, u32 r2) {
-    u32 distance_x = (cx2 - cx1);
-    u32 distance_y = (cy2 - cy1);
+    s32 distance_x = (cx2 - cx1);
+    s32 distance_y = (cy2 - cy1);
 
     // Squared to avoid square roots
     s32 obj_distance = distance_x*distance_x + distance_y*distance_y;
-    s32 radius_sum = r1*r1 + r2*r2;
+    s32 radius_sum = (r1 + r2)*(r1 + r2);
 
     return obj_distance < radius_sum;
 }
