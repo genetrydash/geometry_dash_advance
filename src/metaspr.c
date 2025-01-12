@@ -566,7 +566,7 @@ const u16 largePulsingCircleSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     -8, // y
-    PRIO_IDOFF(4, 4), // id offset
+    PRIO_IDOFF(5, 4), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -585,7 +585,7 @@ const u16 mediumPulsingCircleSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 6), // id offset
+    PRIO_IDOFF(5, 6), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -604,7 +604,7 @@ const u16 smallPulsingCircleSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     8, // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(5, 8), // id offset
     CENTER(8, 8),
     0xffff
 };
