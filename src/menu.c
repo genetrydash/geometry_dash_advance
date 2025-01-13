@@ -26,6 +26,10 @@ void menu_loop() {
         &pusabFont,             // Default font (sys8)
         NULL);                  // Default renderer (se_drawg_s)
 
+    tte_set_special(0x2000);
+
+    memcpy32(&tile_mem[0][0], menu_chr, sizeof(menu_chr) / 4);
+
     char char_buffer[6];
 
     // Write initial text

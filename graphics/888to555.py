@@ -1,3 +1,5 @@
+import sys
+
 def rgb888_to_rgb555_24bit(rgb888):
     """
     Converts a 24-bit integer (RGB888) to a 16-bit integer (RGB555).
@@ -37,20 +39,18 @@ def convert_list_rgb888_to_rgb555_24bit(rgb888_list):
 
 # Example usage
 if __name__ == "__main__":
-    # List of RGB888 colors as 24-bit integers
-    rgb888_list = [
-        0x00E000,
-        0x00FFFF,
-        0x00B0B0,
-        0x006060,
-        0x002020,
+    args = sys.argv[1:]
 
-    ]
-    
-    # Convert the list
-    converted_colors = convert_list_rgb888_to_rgb555_24bit(rgb888_list)
-    
-    # Display results
-    for original, converted in zip(rgb888_list, converted_colors):
-        print(f"0x{converted:04X}, ", end="")
-    print()
+    if len(args) == 0:
+        print("You should supply the hex values in args, separated by spaces.")
+    else:
+        # List of RGB888 colors as 24-bit integers
+        rgb888_list = [int(n, 16) for n in args]
+        
+        # Convert the list
+        converted_colors = convert_list_rgb888_to_rgb555_24bit(rgb888_list)
+        
+        # Display results
+        for original, converted in zip(rgb888_list, converted_colors):
+            print(f"0x{converted:04X}, ", end="")
+        print()
