@@ -10,26 +10,36 @@ Each SP object contain some attributes. In the case for every object except some
 - Enable rotation: enables the sprite to be rotated. Keep in mind that the GBA can only support up to 32 rotation values (5 are already taken by both players, pulsing objects and rotating saws).
 - Rotation: if enable rotation is activated, then you need to specify the angle (in degrees). The rotation direction is clockwise. Make sure you dont rotate via Tiled an sprite.
 - Hflip and Vflip: enables the sprite to be flipped horizontally or/and vertically. This option is not compatible with enable rotation as the GBA doesn't support flipping rotated sprites.
+- BG layer: chooses in which BG layer (0-3) the sprite will be placed. Layer 0 is L1, layer 1 is L2, layer 2 is the background and layer 3 is currently unused. If you for example
+            put a saw in bg layer 2, it will be shown above the background, but below both metatile layers.
 
-In the case of color triggers, the attribute set is different:
+In the case of sprite #43 (block) and sprite #44 (slab), the attribute set is as follows:
+- Hflip and Vflip: same as above.
+- BG layer: same as above.
+- Metatile ID appearance: chooses what metatile will it mimick. This essentially makes the sprite use the choosen metatile's graphics. By default it mimicks metatile #2 (1.0 block) for the sprite #43 and metatile #43 (1.0 slab) 
+                          for sprite #44. Note that this will not mimick collision, so if you choose for example metatile #1 (spike), it will still behave as a block or slab.
+
+NOTE: Sprite blocks/slabs do not support rotation.
+
+In the case of color triggers (sprite #3), the attribute set is different:
 - Channel: the color channel to be modified. One of the following: BG, GROUND, OBJ, LINE, 1, 2, 3, 4.
 - Color: the color in RGB888. This is converted into BGR555 by the export script.
 - Copy color: this enables copying a color from another channel. 
 - Copy from channel: in the case that copy color is enabled, copy from the channel specified. The channel list is the same as before but with the addition of P1 and P2 (player color).
 - Frames: number of frames that the transition will last. For reference, 1 second is 60 frames. Max value is 8192, or 2 minutes and 16 minutes.
 
-NOTE: when making a gamemode ceiling, make sure the size of each square is 4 blocks wide, not 3. This is a common mistake.
+NOTE: when making a ceiling for gamemodes other than cube, make sure the size of each square is 4x4 blocks wide, not 3x4. This is a common mistake. Usually, space above the ceiling is filled with the black metatile (metatile #125).
 
 -- MAP ATTRIBUTES --
 The map has its attributes aswell, those define the properties of the level, such as the name, starting gamemode, etc. You can find them in the toolbar above in "Map" > "Map attributes". The attributes are as following:
 - BG: the starting background color in RGB888.
 - GROUND: the starting ground color in RGB888.
 - Gamemode: the starting gamemode, the values are as follows: 0 - Cube, 1 - Ship, 2 - Ball (to be expanded later).
-- Level name: the level name that will be shown in the level menu. This must be all caps.
-- Song: the song that the level will use. This is the name of the song file in the audio folder, in all caps.
+- Level name: the level name that will be shown in the level menu. Keep in mind lowercase characters will be converted to uppercase.
+- Song: the song that the level will use. This is the name of the song file in the audio folderm, without extension and in uppercase.
 - Speed: the starting speed, the values are as follows: 0 - 0.5x, 1 - 1x, 2 - 2x, 3 - 3x, 4 - 4x.
 
-To change the level size, use Tiled's resize map tool to change the size of the level. The engine supports up to 124 vertical blocks.
+To change the level size, use Tiled's resize map tool to change the size of the level. The engine supports up to 124 vertical blocks. Make sure to fill the new area with metatile #0 (air).
 
 -- EXPORTING --
 Once you have finished the level, export the .tmx file into .json. Once you exported the level, open "export_levels.sh" in a text editor (make sure line breaks are set as CRLF) and 
