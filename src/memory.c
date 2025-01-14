@@ -31,6 +31,7 @@ u32 *level_pointer[LEVEL_LAYERS];
 // in subpixels
 u64 scroll_x = 0;
 u64 scroll_y = 0;
+u64 intended_scroll_y = 0;
 
 u32 target_scroll_y = 0;
 

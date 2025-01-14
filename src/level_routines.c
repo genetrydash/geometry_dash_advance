@@ -8,8 +8,8 @@
 #include "physics_defines.h"
 #include "../levels/includes.h"
 
-#define TOP_SCROLL_Y 0x2c
-#define BOTTOM_SCROLL_Y SCREEN_HEIGHT-0x2c
+#define TOP_SCROLL_Y 0x1c
+#define BOTTOM_SCROLL_Y SCREEN_HEIGHT-0x1c
 
 // RLE variables
 u16 value[LEVEL_LAYERS];
@@ -301,6 +301,7 @@ void load_level(u32 level_ID) {
     // Put player on the ground
     player_y = ((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS);  
     scroll_y = (player_y) - (0x70 << (SUBPIXEL_BITS));
+    intended_scroll_y = scroll_y;
 
     // In case the gamemode has the camera restricted, set it there
     // Parameter given is -1 so it is set to the ground instantly
@@ -420,25 +421,28 @@ void reset_level() {
 
     fade_in_level();
 }
+u64 approach_value_asympthotic(u64 current, u64 target, u32 multiplier);
+u64 approach_value(u64 current, u64 target, s32 inc, s32 dec);
 
 void scroll_screen_vertically() {
     if (gamemode == GAMEMODE_CUBE) {
         // This scrolls the screen on the y axis
-        if (relative_player_y >= BOTTOM_SCROLL_Y && player_y_speed > 0) {
+        if (relative_player_y + 16 >= BOTTOM_SCROLL_Y) {
             scroll_y_dir = 1;
-            scroll_y += player_y_speed;
-        } else if (relative_player_y <= TOP_SCROLL_Y && player_y_speed < 0) { 
+            
+            if (player_y_speed > 0) {
+                intended_scroll_y += player_y_speed;
+            }
+        } else if (relative_player_y <= TOP_SCROLL_Y) { 
             scroll_y_dir = 0;
-            scroll_y += player_y_speed;
-        }
-    } else {
-        if ((u32) (scroll_y) > target_scroll_y) {
-            scroll_y -= 0x10000;
-        }
 
-        if ((u32) (scroll_y) < target_scroll_y) {
-            scroll_y += 0x10000;
+            if (player_y_speed < 0) {
+                intended_scroll_y += player_y_speed;
+            }
         }
+        scroll_y = approach_value_asympthotic(scroll_y, intended_scroll_y, 0x6000);
+    } else {
+        scroll_y = approach_value(scroll_y, target_scroll_y, 0x10000, 0x10000);
     }
 }
 
@@ -538,4 +542,19 @@ void calculate_trans_window_pos() {
 
     // Set window side position
     REG_WIN0H = (left << 8) | right;
+}
+
+u64 approach_value_asympthotic(u64 current, u64 target, u32 multiplier) {
+    s64 diff = (target - current);
+    return (current + ((diff * multiplier) / SUBPIXEL_MULTIPLIER));
+}
+
+u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
+    s64 dist = (target - current);
+    if (dist > 0) { // current < target
+        current = ((dist >  inc) ? (current + inc) : target);
+    } else if (dist < 0) { // current > target
+        current = ((dist < -dec) ? (current - dec) : target);
+    }
+    return current;
 }
