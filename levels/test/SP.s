@@ -24,33 +24,33 @@ test_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 4
-   .word 0x48 @ x
-   .hword 0x1a8 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 2 @ metatile ID appareance
-@ Object 5
    .word 0x50 @ x
    .hword 0x150 @ y
    .hword 0x29 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
+@ Object 5
+   .word 0x50 @ x
+   .hword 0x1a0 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 2 @ metatile ID appareance
 @ Object 6
-   .word 0x58 @ x
-   .hword 0x1a4 @ y
+   .word 0x60 @ x
+   .hword 0x19c @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 20 @ metatile ID appareance
 @ Object 7
-   .word 0x70 @ x
-   .hword 0x1b0 @ y
-   .hword 0xa @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
-@ Object 8
    .word 0x80 @ x
    .hword 0x160 @ y
    .hword 0x2f @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 8
+   .word 0x90 @ x
+   .hword 0x1b0 @ y
+   .hword 0x11 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 9
@@ -60,10 +60,10 @@ test_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 10
-   .word 0xb0 @ x
-   .hword 0x1a0 @ y
-   .hword 0x9 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
+   .word 0xc0 @ x
+   .hword 0x130 @ y
+   .hword 0x11 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 11
    .word 0xd0 @ x
