@@ -8,8 +8,8 @@
 #include "physics_defines.h"
 #include "../levels/includes.h"
 
-#define TOP_SCROLL_Y 0x1c
-#define BOTTOM_SCROLL_Y SCREEN_HEIGHT-0x1c
+#define TOP_SCROLL_Y 0x24
+#define BOTTOM_SCROLL_Y SCREEN_HEIGHT-0x24
 
 // RLE variables
 u16 value[LEVEL_LAYERS];
