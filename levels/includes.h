@@ -100,6 +100,14 @@
 #include "test/SP.h"
 #include "test/properties.h"
 
-#define LEVEL_COUNT 12
+// test2
+#define test2_ID 12
+
+#include "test2/l1.h"
+#include "test2/l2.h"
+#include "test2/SP.h"
+#include "test2/properties.h"
+
+#define LEVEL_COUNT 13
 extern ROM_DATA const u16 *level_defines[][4];
 extern ROM_DATA const u8 *level_names[];

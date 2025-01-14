@@ -217,7 +217,11 @@ void ship_gamemode() {
         player_height = MINI_SHIP_HEIGHT;
     }
 
-    gravity = (player_size == SIZE_BIG) ? SHIP_GRAVITY : SHIP_MINI_GRAVITY;
+    if (player_size == SIZE_BIG) {
+        gravity = SHIP_GRAVITY;
+    } else {
+        gravity = SHIP_MINI_GRAVITY;
+    }
 
     s8 sign = gravity_dir ? -1 : 1;
     s8 mirror_sign = screen_mirrored ? -1 : 1;
@@ -231,14 +235,21 @@ void ship_gamemode() {
     if (key_held(KEY_A | KEY_UP)) {
         cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * ship_rot_multiplier[speed_id]; 
 
+        if (player_size == SIZE_BIG) {
+            gravity = SHIP_GRAVITY_HOLDING;
+        } else {
+            gravity = SHIP_MINI_GRAVITY_HOLDING;
+        }
+
         player_y_speed -= gravity * sign;
+        player_y_speed = CLAMP(player_y_speed, -SHIP_MAX_Y_SPEED_HOLDING, SHIP_MAX_Y_SPEED_HOLDING);
     } else {
         cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * ship_rot_multiplier[speed_id]; 
 
         player_y_speed += gravity * sign;
+        player_y_speed = CLAMP(player_y_speed, -SHIP_MAX_Y_SPEED, SHIP_MAX_Y_SPEED);
     }
     
-    player_y_speed = CLAMP(player_y_speed, -SHIP_MAX_Y_SPEED, SHIP_MAX_Y_SPEED);
 
     on_floor = 0;
     

@@ -13,6 +13,7 @@ ROM_DATA const u16 *level_defines[][4] = {
    { xstep_l1_level_data, xstep_l2_level_data, xstep_spr_data, xstep_properties },
    { clutterfunk_l1_level_data, clutterfunk_l2_level_data, clutterfunk_spr_data, clutterfunk_properties },
    { test_l1_level_data, test_l2_level_data, test_spr_data, test_properties },
+   { test2_l1_level_data, test2_l2_level_data, test2_spr_data, test2_properties },
 };
 
 ROM_DATA const u8 *level_names[] = {
@@ -28,4 +29,5 @@ ROM_DATA const u8 *level_names[] = {
    xstep_name,
    clutterfunk_name,
    test_name,
+   test2_name,
 };
