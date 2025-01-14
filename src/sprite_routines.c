@@ -17,10 +17,12 @@ const s32 orb_pad_bounces[][GAMEMODE_COUNT][5] = {
         /* Cube */ {CUBE_YELLOW_ORB_JUMP_SPEED, CUBE_YELLOW_PAD_JUMP_SPEED, CUBE_PINK_ORB_JUMP_SPEED, CUBE_PINK_PAD_JUMP_SPEED, CUBE_BLUE_ORB_PAD_INITIAL_SPEED},
         /* Ship */ {SHIP_YELLOW_ORB_JUMP_SPEED, SHIP_YELLOW_PAD_JUMP_SPEED, SHIP_PINK_ORB_JUMP_SPEED, SHIP_PINK_PAD_JUMP_SPEED, SHIP_BLUE_ORB_PAD_INITIAL_SPEED},
         /* Ball */ {BALL_YELLOW_ORB_JUMP_SPEED, BALL_YELLOW_PAD_JUMP_SPEED, BALL_PINK_ORB_JUMP_SPEED, BALL_PINK_PAD_JUMP_SPEED, BALL_BLUE_ORB_PAD_INITIAL_SPEED},
+        /* Ufo */  {UFO_YELLOW_ORB_JUMP_SPEED,  UFO_YELLOW_PAD_JUMP_SPEED,  UFO_PINK_ORB_JUMP_SPEED,  UFO_PINK_PAD_JUMP_SPEED,  UFO_BLUE_ORB_PAD_INITIAL_SPEED},
     }, { // Mini
         /* Cube */ {CUBE_MINI_YELLOW_ORB_JUMP_SPEED, CUBE_MINI_YELLOW_PAD_JUMP_SPEED, CUBE_MINI_PINK_ORB_JUMP_SPEED, CUBE_MINI_PINK_PAD_JUMP_SPEED, CUBE_BLUE_ORB_PAD_INITIAL_SPEED},
         /* Ship */ {SHIP_MINI_YELLOW_ORB_JUMP_SPEED, SHIP_MINI_YELLOW_PAD_JUMP_SPEED, SHIP_MINI_PINK_ORB_JUMP_SPEED, SHIP_MINI_PINK_PAD_JUMP_SPEED, SHIP_BLUE_ORB_PAD_INITIAL_SPEED},
         /* Ball */ {BALL_MINI_YELLOW_ORB_JUMP_SPEED, BALL_MINI_YELLOW_PAD_JUMP_SPEED, BALL_MINI_PINK_ORB_JUMP_SPEED, BALL_MINI_PINK_PAD_JUMP_SPEED, BALL_BLUE_ORB_PAD_INITIAL_SPEED},
+        /* Ufo */  {UFO_MINI_YELLOW_ORB_JUMP_SPEED,  UFO_MINI_YELLOW_PAD_JUMP_SPEED,  UFO_MINI_PINK_ORB_JUMP_SPEED,  UFO_MINI_PINK_PAD_JUMP_SPEED,  UFO_BLUE_ORB_PAD_INITIAL_SPEED},
     }
 };
 
@@ -42,6 +44,15 @@ void ship_portal(struct ObjectSlot *objectSlot) {
 void ball_portal(struct ObjectSlot *objectSlot) {
     if (gamemode == GAMEMODE_SHIP) player_y_speed /= 2;
     gamemode = GAMEMODE_BALL;
+    
+    set_target_y_scroll(objectSlot->object.y);
+
+    objectSlot->activated = TRUE;
+}
+
+void ufo_portal(struct ObjectSlot *objectSlot) {
+    if (gamemode == GAMEMODE_SHIP) player_y_speed /= 2;
+    gamemode = GAMEMODE_UFO;
     
     set_target_y_scroll(objectSlot->object.y);
 
@@ -390,6 +401,8 @@ const jmp_table routines_jump_table[] = {
     speed_portal_2x,
     speed_portal_3x,
     speed_portal_4x,
+
+    ufo_portal,
 };
 
 // In pixels
@@ -461,6 +474,8 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("SPEED_PORTAL_2x",  28, 30, -6, -7, 8, 8)
     Object_Hitbox_Rectangle("SPEED_PORTAL_3x",  34, 30, -9, -7, 8, 8)
     Object_Hitbox_Rectangle("SPEED_PORTAL_4x",  36, 30, -10, -7, 8, 8)
+
+    Object_Hitbox_Rectangle("UFO_PORTAL", 20, 46, -2, -15, 8, 8)
 };
 
 #undef Object_Hitbox

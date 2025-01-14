@@ -85,7 +85,7 @@ void collision_cube() {
     }
 }
 
-void collision_ship_ball() {
+void collision_ship_ball_ufo() {
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
         coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);

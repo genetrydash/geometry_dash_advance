@@ -445,6 +445,7 @@ void scroll_screen_vertically() {
 const u8 gamemode_screen_y_offset[] = {
     /* Ship */ 0xa0,
     /* Ball */ 0x90,
+    /* Ufo */  0xa0,
 };
 
 void set_target_y_scroll(u32 object_y) {

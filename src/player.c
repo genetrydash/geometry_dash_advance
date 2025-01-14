@@ -82,6 +82,7 @@ u8 y_offset;
 void cube_gamemode();
 void ship_gamemode();
 void ball_gamemode();
+void ufo_gamemode();
 
 FIXED mirror_scaling;
 
@@ -121,6 +122,9 @@ void player_main() {
             break;
         case GAMEMODE_BALL:
             ball_gamemode();
+            break;
+        case GAMEMODE_UFO:
+            ufo_gamemode();
             break;
     }
 
@@ -248,7 +252,7 @@ void ship_gamemode() {
         do_collision_with_objects(FALSE);
 
         // Run collision
-        collision_ship_ball();
+        collision_ship_ball_ufo();
 
         // If player is dead, do not advance more quarter steps
         if (player_death) break;
@@ -265,7 +269,7 @@ void ship_gamemode() {
         do_collision_with_objects(TRUE);
 
         // Run collision
-        collision_ship_ball();
+        collision_ship_ball_ufo();
     }
 }
 
@@ -314,7 +318,7 @@ void ball_gamemode() {
         do_collision_with_objects(FALSE);
         
         // Run collision
-        collision_ship_ball();
+        collision_ship_ball_ufo();
         
         // If player is dead, do not advance more quarter steps
         if (player_death) break;
@@ -331,7 +335,74 @@ void ball_gamemode() {
         do_collision_with_objects(TRUE);
         
         // Run collision
-        collision_ship_ball();
+        collision_ship_ball_ufo();
+    }
+}
+
+void ufo_gamemode() {
+    if (player_size == SIZE_BIG) {
+        player_width = UFO_WIDTH;
+        player_height = UFO_HEIGHT;
+    } else {
+        player_width = MINI_UFO_WIDTH;
+        player_height = MINI_UFO_HEIGHT;
+    }
+
+    gravity = UFO_GRAVITY;
+
+    s8 sign = gravity_dir ? -1 : 1;
+    UNUSED s8 mirror_sign = screen_mirrored ? -1 : 1;
+
+    // Depending on which direction the gravity points, apply gravity and cap speed in one direction or in the other
+    if (gravity_dir) {
+        player_y_speed -= gravity;
+        if (player_y_speed < -UFO_MAX_Y_SPEED) player_y_speed = -UFO_MAX_Y_SPEED;
+    } else {
+        player_y_speed += gravity;
+        if (player_y_speed > UFO_MAX_Y_SPEED) player_y_speed = UFO_MAX_Y_SPEED;
+    }
+
+    cube_rotation = (((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x200; 
+    
+    // If on floor and holding A or UP, jump
+    if (key_hit(KEY_A | KEY_UP)) {
+        if (player_size == SIZE_BIG) {
+            player_y_speed = -UFO_JUMP_SPEED * sign;     
+        } else {
+            player_y_speed = -UFO_MINI_JUMP_SPEED * sign;     
+        }
+    }
+
+    on_floor = 0;
+
+    for (s32 step = 0; step < NUM_STEPS - 1; step++) {
+        // Apply quarter of speed
+        // Update player x and y
+        player_x += player_x_speed >> 2;
+        player_y += player_y_speed >> 2;
+
+        // Do collision with objects
+        do_collision_with_objects(FALSE);
+
+        // Run collision
+        collision_ship_ball_ufo();
+
+        // If player is dead, do not advance more quarter steps
+        if (player_death) break;
+    }
+    
+    // If player is dead, do not advance more quarter steps
+    if (!player_death) {
+        // Apply last quarter of speed
+        // Update player x and y
+        player_x += player_x_speed - ((player_x_speed >> 2) * 3);
+        player_y += player_y_speed - ((player_y_speed >> 2) * 3);
+    
+        // Do collision with objects (and rotated ones as well)
+        do_collision_with_objects(TRUE);
+
+        // Run collision
+        collision_ship_ball_ufo();
     }
 }
 
@@ -366,13 +437,21 @@ void draw_player() {
 
             y_offset = gravity_dir ? 9 : 7;
 
-            oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, shipSpr, 0, 0, 4, 0);
+            oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, playerSpr, 0, 0, 4, 0);
             break;
         case GAMEMODE_BALL:
             relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
             relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
-            oam_metaspr(relative_player_x - 8, relative_player_y - 8, ballSpr, 0, 0, 8, 0);  
+            oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, 0, 0, 8, 0);  
+            break;
+        case GAMEMODE_UFO:
+            sign = gravity_dir ? -1 : 1;
+            
+            relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
+            relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
+
+            oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, 0, 0, 12, 0);  
             break;
     }
 

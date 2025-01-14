@@ -83,6 +83,8 @@ enum ObjTypes {
     SPEED_PORTAL_3x,
     SPEED_PORTAL_4x,
 
+    UFO_PORTAL,
+
     OBJ_COUNT
 };
 

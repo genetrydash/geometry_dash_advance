@@ -15,6 +15,7 @@
 
 typedef OBJ_ATTR OAM_SPR;
 #define UNUSED __unused
+#define FALLTHROUGH __attribute__ ((fallthrough));
 
 #define ARM_CODE __attribute__((target("arm"), section(".iwram"), long_call))
 #define ROM_DATA __attribute__((section(".rodata,\"a\",%progbits @")))

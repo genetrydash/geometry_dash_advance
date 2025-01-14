@@ -32,28 +32,6 @@ const u16 playerSpr[] = {
     0xffff
 };
 
-const u16 shipSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
-    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
-    ATTR2_PALBANK(0),
-    0,
-    0,
-    PRIO_IDOFF(2, 0), // id offset
-    CENTER(8, 8),
-    0xffff
-};
-
-const u16 ballSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
-    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
-    ATTR2_PALBANK(0),
-    0,
-    0,
-    PRIO_IDOFF(2, 0), // id offset
-    CENTER(8, 8),
-    0xffff
-};
-
 // Portals
 
 const u16 cubePortalSpr[] = {
@@ -156,6 +134,42 @@ const u16 ballPortalSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
     ATTR2_PALBANK(5),
+    -5, // x
+    16,  // y
+    PRIO_IDOFF(4, 8), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 ufoPortalSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(6),
+    -8, // x
+    -16, // y
+    PRIO_IDOFF(0, 16), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(6),
+    -8, // x
+    16, // y
+    PRIO_IDOFF(0, 32), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(6),
+    -5, // x
+    -16, // y
+    PRIO_IDOFF(4, 0), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(6),
     -5, // x
     16,  // y
     PRIO_IDOFF(4, 8), // id offset
@@ -971,6 +985,8 @@ ROM_DATA const u16 *obj_sprites[] = {
     speedPortal2x,
     speedPortal3x,
     speedPortal4x,
+
+    ufoPortalSpr,
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -1057,6 +1073,8 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("SPEED_PORTAL_2x",   0x290, 0x10)
     CHR_SLOT("SPEED_PORTAL_3x",   0x2a0, 0x11)
     CHR_SLOT("SPEED_PORTAL_4x",   0x2c0, 0x12)
+
+    CHR_SLOT("UFO_PORTAL", 0x00, 0x28)
 };
 #undef CHR_SLOT
 

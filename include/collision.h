@@ -50,7 +50,7 @@ extern u32 coll_x;
 extern u32 coll_y;
 
 void collision_cube();
-void collision_ship_ball();
+void collision_ship_ball_ufo();
 void do_collision_with_objects();
 void check_obj_collision(u32 index);
 u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2, u32 h2);

@@ -7,6 +7,7 @@ enum GamemodeType {
     GAMEMODE_CUBE,
     GAMEMODE_SHIP,
     GAMEMODE_BALL,
+    GAMEMODE_UFO,
     GAMEMODE_COUNT
 };
 
