@@ -4,6 +4,9 @@
 #include "tonc_tte.h"
 #include "pusab.h"
 #include "posprintf.h"
+#include <maxmod.h>
+#include "soundbank.bin.h"
+#include "soundbank.h"
 
 u16 game_state;
 
@@ -54,6 +57,8 @@ void menu_loop() {
     // Init OAM
     memset32(shadow_oam, ATTR0_HIDE, 256);
     obj_copy(oam_mem, shadow_oam, 128);
+    
+    mmStart(MOD_MENU, MM_PLAY_LOOP);
 
     fade_in();
     while (1) {
@@ -108,6 +113,7 @@ void menu_loop() {
             // Start the game
             loaded_level_id = level_id;
             game_state = STATE_PLAYING;
+            mmStop();
             break;
         }
 
