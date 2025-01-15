@@ -32,7 +32,7 @@ enum PlayerSize {
 };
 
 extern s64 player_x;
-extern u64 player_y;
+extern s64 player_y;
 
 extern u16 relative_player_x;
 extern u16 relative_player_y;

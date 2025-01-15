@@ -23,6 +23,9 @@ s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
 void do_collision_with_objects(u32 check_rotated);
 
 void collision_cube() {
+    // Exit if above screen
+    if (player_y < 0) return;
+
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
         coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
@@ -86,6 +89,9 @@ void collision_cube() {
 }
 
 void collision_ship_ball_ufo() {
+    // Exit if above screen
+    if (player_y < 0) return;
+
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
         coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);

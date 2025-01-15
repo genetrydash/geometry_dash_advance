@@ -3,7 +3,7 @@
 
 // Position variables, in subpixels
 s64 player_x; // gota love giant levels
-u64 player_y;
+s64 player_y;
 
 // Player dimensions, in pixels
 u8 player_width;
@@ -103,6 +103,8 @@ void player_main() {
     if (player_x >= 0x500000) {
         scroll_x += player_x_speed;
     }
+
+    if (player_y < -0x200000) player_death = TRUE;
 
     if (key_held(KEY_A | KEY_UP)) {
         if (player_buffering == NO_ORB_BUFFER) {

@@ -440,7 +440,8 @@ void scroll_screen_vertically() {
                 intended_scroll_y += player_y_speed;
             }
         }
-
+        
+        if (intended_scroll_y < 0) intended_scroll_y = 0;
         if (intended_scroll_y > BOTTOM_SCROLL_LIMIT) intended_scroll_y = BOTTOM_SCROLL_LIMIT;
 
         scroll_y = approach_value_asympthotic(scroll_y, intended_scroll_y, 0x6000);
