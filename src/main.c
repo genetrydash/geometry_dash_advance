@@ -83,9 +83,8 @@ void init_maxmod() {
     myData = music_data;
     
     // Setup system info
-    // 31KHz software mixing rate, select from mm_mixmode
-    mySystem.mixing_mode       = MM_MIX_31KHZ;
-
+    // 16KHz software mixing rate, select from mm_mixmode
+    mySystem.mixing_mode       = MM_MIX_16KHZ;
 
     // Number of module/mixing channels
     // Higher numbers offer better polyphony at the expense
