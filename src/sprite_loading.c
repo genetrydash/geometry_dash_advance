@@ -177,7 +177,7 @@ s32 find_affine_slot(u16 rotation) {
     return -1;
 }
 
-void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hflip, u8 vflip, u8 priority) {
+ARM_CODE void do_display(struct Object curr_object, s32 relative_x, s32 relative_y, u8 hflip, u8 vflip, u8 priority) {
     // Get VRAM tile ID
     u32 chr_rom_offset = obj_chr_offset[curr_object.type][0];
     if (chr_rom_offset == SPRITE_CHR_COPY_FROM_METATILE) {
@@ -328,7 +328,7 @@ void do_collision(struct ObjectSlot *objectSlot) {
     routines_jump_table[obj_type](objectSlot);
 }
 
-void check_obj_collision(u32 index) {
+ARM_CODE void check_obj_collision(u32 index) {
     struct Object curr_object = object_buffer[index].object;
 
     u16 obj_width = obj_hitbox[curr_object.type][0];
@@ -397,12 +397,8 @@ void check_obj_collision(u32 index) {
 
 #define NUMBER_OF_SORT_VALUES 32
 
-IWRAM_CODE INLINE u32 get_key(u32 i) {
-    return i & 0x1f;
-}
-
 // Uses counting sort
-IWRAM_CODE void sort_oam_by_prio() {
+ARM_CODE void sort_oam_by_prio() {
     u32 count[NUMBER_OF_SORT_VALUES] = { 0 };
     OAM_SPR *oam_buffer = (OAM_SPR *) &vram_copy_buffer;
     u8 *priority_buffer = (u8 *) (&vram_copy_buffer) + 1024;
@@ -411,7 +407,7 @@ IWRAM_CODE void sort_oam_by_prio() {
     
     // Count occurrences of each key
     for (s32 i = 0; i < nextSpr; i++) {
-        u32 key = get_key(priority_buffer[i]);
+        u32 key = priority_buffer[i] & 0x1f;
         count[key]++;
     }
 
@@ -422,7 +418,7 @@ IWRAM_CODE void sort_oam_by_prio() {
 
     // Place elements in sorted order
     for (s32 i = nextSpr - 1; i >= 0; i--) {
-        u32 key = get_key(priority_buffer[i]);
+        u32 key = priority_buffer[i] & 0x1f;
         u32 pos = count[key] - 1;
         shadow_oam[pos].attr0 = oam_buffer[i].attr0;
         shadow_oam[pos].attr1 = oam_buffer[i].attr1;

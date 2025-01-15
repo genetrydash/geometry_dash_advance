@@ -1,4 +1,6 @@
 #include <tonc.h>
+#include "memory.h"
+
 #ifndef SPR_LOADING_H
 #define SPR_LOADING_H
 
@@ -66,8 +68,8 @@ extern u32 *sprite_pointer;
 extern struct ObjectSlot object_buffer[MAX_OBJECTS];
 
 
-void load_objects();
-void display_objects();
+IWRAM_CODE void load_objects();
+IWRAM_CODE void display_objects();
 void scale_pulsing_objects();
 void rotate_saws();
 void object_tile_data_load(u16 object_type);

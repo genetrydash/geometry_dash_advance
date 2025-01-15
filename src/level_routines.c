@@ -419,6 +419,8 @@ void reset_level() {
     oam_init(shadow_oam, 128);
     load_level(loaded_level_id);
 
+    frame_finished = TRUE;
+
     fade_in_level();
 }
 u64 approach_value_asympthotic(u64 current, u64 target, u32 multiplier);

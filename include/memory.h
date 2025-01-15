@@ -83,13 +83,13 @@ extern u16 next_free_tile_id;
 extern u16 old_next_free_tile_id;
 
 extern struct ObjectCHRSlot chr_slots[MAX_OBJECTS];
-extern u16 loaded_object_buffer_offset;
-extern s16 loaded_object_buffer[MAX_OBJECTS];
-extern u16 unloaded_object_buffer_offset;
-extern s16 unloaded_object_buffer[MAX_OBJECTS];
-extern u16 block_object_buffer_offset;
-extern s32 *block_object_buffer[MAX_OBJECTS];
-extern u16 block_object_buffer_flags[MAX_OBJECTS];
+extern EWRAM_DATA u16 loaded_object_buffer_offset;
+extern EWRAM_DATA s16 loaded_object_buffer[MAX_OBJECTS];
+extern EWRAM_DATA u16 unloaded_object_buffer_offset;
+extern EWRAM_DATA s16 unloaded_object_buffer[MAX_OBJECTS];
+extern EWRAM_DATA u16 block_object_buffer_offset;
+extern EWRAM_DATA s32 *block_object_buffer[MAX_OBJECTS];
+extern EWRAM_DATA u16 block_object_buffer_flags[MAX_OBJECTS];
 
 extern u8 vram_copy_buffer[2048];
 

@@ -17,12 +17,12 @@ u32 coll_y;
 // Collision eject
 u32 eject = 0;
 
-u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
-void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
+ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
+ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
 s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
-void do_collision_with_objects(u32 check_rotated);
+ARM_CODE void do_collision_with_objects(u32 check_rotated);
 
-void collision_cube() {
+ARM_CODE void collision_cube() {
     // Exit if above screen
     if (player_y < 0) return;
 
@@ -88,7 +88,7 @@ void collision_cube() {
     }
 }
 
-void collision_ship_ball_ufo() {
+ARM_CODE void collision_ship_ball_ufo() {
     // Exit if above screen
     if (player_y < 0) return;
 
@@ -189,7 +189,7 @@ s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer) {
     return FALSE;
 }
 // This function iterates through spikes that the player is touching and applies collision to it
-void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
+ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
     // Iterate through 4 metatiles, forming a 2x2 metatile square
     // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
     for (u32 side = 0; side < 4; side++) {
@@ -311,7 +311,7 @@ const u8 gamemode_max_eject[] = {
     /* Wave */ 0x06,
 };
 
-u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
+ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     // Positions inside block, top left pixel is [0,0]
     u32 x_inside_block = x & 0x0f;
     u32 y_inside_block = y & 0x0f;
@@ -390,7 +390,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     return 1;
 }
 
-s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
+ARM_CODE s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
     for (s32 i = block_object_buffer_offset; i > 0; i--) {
         struct ObjectSlot slot = *((struct ObjectSlot *) block_object_buffer[i - 1]);
         
@@ -421,7 +421,7 @@ s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
     return FALSE;
 }
 
-u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
+ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
     if(collision_with_block_obj(x, y, side)) {
         // Return TRUE only if this is a center hitbox check, as this is needed for death to ocurr
         return side == CENTER;
@@ -431,7 +431,7 @@ u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
     return col_type_lookup(col_type, x, y, side);
 }
 
-void do_collision_with_objects(u32 check_rotated) {
+ARM_CODE void do_collision_with_objects(u32 check_rotated) {
     for (s32 slot = 0; slot < MAX_OBJECTS; slot++) {
         // Check collision only if the slot is occupied
         if (object_buffer[slot].occupied && object_buffer[slot].activated == FALSE) {
@@ -443,7 +443,7 @@ void do_collision_with_objects(u32 check_rotated) {
 }
 
 
-u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2, u32 h2) {
+ARM_CODE u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2, u32 h2) {
     // Right of object 1 < Left of object 2
     if (x1 + w1 < x2) {
         return FALSE;
@@ -468,7 +468,7 @@ u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2, u32 h2)
     return TRUE;
 }
 
-u32 is_colliding_circle(u32 cx1, u32 cy1, u32 r1, u32 cx2, u32 cy2, u32 r2) {
+ARM_CODE u32 is_colliding_circle(u32 cx1, u32 cy1, u32 r1, u32 cx2, u32 cy2, u32 r2) {
     s32 distance_x = (cx2 - cx1);
     s32 distance_y = (cy2 - cy1);
 
