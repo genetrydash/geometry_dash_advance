@@ -237,7 +237,9 @@ void game_loop() {
         frame_finished = TRUE;
 #ifdef DEBUG
         if (debug_mode) {
-            clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 16);
+            // I know this copies more bytes than it should, but some time has to be wasted for the line to cover an entire scanline
+            memset32(pal_bg_mem, 0x7fff7fff, 512);
+            memcpy32(pal_bg_mem, palette_buffer, 256);
         }
 #endif
 
