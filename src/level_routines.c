@@ -481,18 +481,20 @@ void unmirror_screen() {
     }
 }
 
-void swap_screen_dir() {
+ARM_CODE void swap_screen_dir() {
     // LEVEL_LAYERS + 1 because the background also has to be mirrored
     for (s32 layer = 0; layer < LEVEL_LAYERS + 1; layer++) {
         // Copy tilemap into buffer
         SCR_ENTRY *mirror_screen_buffer = (SCR_ENTRY *) &vram_copy_buffer;
         memcpy32(mirror_screen_buffer, &se_mem[24 + layer], (SCREENBLOCK_W * SCREENBLOCK_H) / 2);
 
-        for (s32 x = 0; x < SCREENBLOCK_W; x++) {
-            for (s32 y = 0; y < SCREENBLOCK_H; y++) {
+        s32 y_pos = 0;
+        for (s32 y = 0; y < SCREENBLOCK_H; y++) {
+            for (s32 x = 0; x < SCREENBLOCK_W; x++) {
                 // Mirror tilemap columns
-                se_mem[24 + layer][((SCREENBLOCK_W - 1) - x) + y * SCREENBLOCK_W] = mirror_screen_buffer[x + y * SCREENBLOCK_W] ^ SE_HFLIP;
+                se_mem[24 + layer][((SCREENBLOCK_W - 1) - x) + y_pos] = mirror_screen_buffer[x + y_pos] ^ SE_HFLIP;
             }
+            y_pos += SCREENBLOCK_W;
         }
     }
     
