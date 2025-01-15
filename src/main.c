@@ -16,9 +16,8 @@ ALIGN4 u8 myMixingBuffer[MM_MIXLEN_31KHZ];
 void vblank_handler() {
     mmVBlank();
 
-    // Only use the update handler on playing
-    if (game_state == STATE_PLAYING) {
-        
+    // Only use the update handler on a level
+    if (game_state == STATE_PLAYING && frame_finished) {
         if (!player_death) mirror_transition();
 
         if (swap_queue) swap_screen_dir();
@@ -183,9 +182,11 @@ void game_loop() {
 
     load_level(loaded_level_id);
 
+    frame_finished = TRUE;
     fade_in_level();
 
     while (1) { 
+        frame_finished = FALSE;
         key_poll();
 
         // If pressed start, pause the game
@@ -231,7 +232,15 @@ void game_loop() {
         if (debug_mode) oam_metaspr(0, 0, debugModeSpr, 0, 0, 0, 0); 
 #endif
         sort_oam_by_prio();
-        
+
+        // Mark the frame as finished
+        frame_finished = TRUE;
+#ifdef DEBUG
+        if (debug_mode) {
+            clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 16);
+        }
+#endif
+
         // Wait for VSYNC
         VBlankIntrWait();
     }

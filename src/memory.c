@@ -89,3 +89,6 @@ u8 vram_copy_buffer[2048];
 // Controls the transition state
 // 0 : full | 30 : empty | 60 : full
 s8 transition_frame;
+
+// This is used as a fail safe in case that execution takes longer than 1 frame
+u8 frame_finished = 0;

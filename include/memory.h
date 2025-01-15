@@ -94,3 +94,5 @@ extern u16 block_object_buffer_flags[MAX_OBJECTS];
 extern u8 vram_copy_buffer[2048];
 
 extern s8 transition_frame;
+
+extern u8 frame_finished;
