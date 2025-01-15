@@ -300,8 +300,8 @@ void load_level(u32 level_ID) {
 
     // Put player on the ground
     player_y = ((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS);  
-    scroll_y = (player_y) - (0x70 << (SUBPIXEL_BITS));
-    intended_scroll_y = scroll_y;
+    scroll_y = BOTTOM_LIMIT;
+    intended_scroll_y = BOTTOM_LIMIT;
 
     // In case the gamemode has the camera restricted, set it there
     // Parameter given is -1 so it is set to the ground instantly
@@ -440,6 +440,9 @@ void scroll_screen_vertically() {
                 intended_scroll_y += player_y_speed;
             }
         }
+
+        if (intended_scroll_y > BOTTOM_LIMIT) intended_scroll_y = BOTTOM_LIMIT;
+
         scroll_y = approach_value_asympthotic(scroll_y, intended_scroll_y, 0x6000);
     } else {
         intended_scroll_y = scroll_y;
