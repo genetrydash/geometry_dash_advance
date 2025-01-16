@@ -102,6 +102,11 @@ void player_main() {
     // This scrolls the screen on the x axis
     if (player_x >= 0x500000) {
         scroll_x += player_x_speed;
+        
+        u64 screen_scroll_limit = (curr_level_width - (SCREEN_WIDTH_T/2)) << (SUBPIXEL_BITS + 4);
+        if (scroll_x > screen_scroll_limit) {
+            scroll_x = screen_scroll_limit;
+        }
     }
 
     if (player_y < -0x200000) player_death = TRUE;
@@ -443,22 +448,22 @@ void draw_player() {
                     y_offset = 9;
                 }
                 
-                oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0, 0, 0);
+                oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, FALSE, FALSE, 0, 0, FALSE);
                 break;
             case GAMEMODE_SHIP:
                 sign = gravity_dir ? -1 : 1;
 
                 y_offset = gravity_dir ? 9 : 7;
 
-                oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, playerSpr, 0, 0, 4, 0);
+                oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, playerSpr, FALSE, FALSE, 4, 0, FALSE);
                 break;
             case GAMEMODE_BALL:
-                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, 0, 0, 8, 0);  
+                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 8, 0, FALSE);  
                 break;
             case GAMEMODE_UFO:
                 sign = gravity_dir ? -1 : 1;
 
-                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, 0, 0, 12, 0);  
+                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 12, 0, FALSE);  
                 break;
         }
 

@@ -312,6 +312,19 @@ def export_includes_h(levels):
         file.write("#pragma once\n\n")
         file.write("#include <tonc.h>\n\n")
         file.write("#include \"memory.h\"\n\n")
+        file.write("// Defines indexes\n")
+        file.write("#define L1_DATA_INDEX 0\n")
+        file.write("#define L2_DATA_INDEX 1\n")
+        file.write("#define SPRITE_DATA_INDEX 2\n")
+        file.write("#define LEVEL_PROPERTIES_INDEX 3\n\n")
+        file.write("// Properties indexes\n")
+        file.write("#define BG_COLOR_INDEX 0\n")
+        file.write("#define GROUND_COLOR_INDEX 1\n")
+        file.write("#define GAMEMODE_INDEX 2\n")
+        file.write("#define SPEED_INDEX 3\n")
+        file.write("#define LEVEL_HEIGHT_INDEX 4\n")
+        file.write("#define LEVEL_WIDTH_INDEX 5\n")
+        file.write("#define LEVEL_SONG_INDEX 6\n\n")
         for level_name in levels:
             file.write(f"// {level_name}\n")
             file.write(f"#define {level_name}_ID {level_counter}\n\n")
@@ -330,7 +343,7 @@ def export_includes_h(levels):
         file.write(f"#include \"includes.h\"\n\n")
         file.write(f"ROM_DATA const u16 *level_defines[][4] = {{\n")
         for level_name in levels:
-            file.write(f"   {{ {level_name}_l1_level_data, {level_name}_l2_level_data, {level_name}_spr_data, {level_name}_properties }},\n")
+            file.write(f"   {{ {level_name}_l1_level_data, {level_name}_l2_level_data, {level_name}_spr_data, (u16 *) {level_name}_properties }},\n")
         
         file.write("};\n\n")
 
@@ -344,6 +357,7 @@ def export_includes_h(levels):
 
 def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_path, level_array):
     level_height = len(level_array)
+    level_width = len(level_array[0])
     # Load JSON
     with open(json_file_path, 'r') as f:
         json_data = json.load(f)
@@ -386,12 +400,13 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         file.write(f"#include \"soundbank.h\"\n")
         file.write(f"// {level_name} properties\n")
 
-        file.write(f"const unsigned short {level_name}_properties[] = {{\n")
+        file.write(f"const unsigned int {level_name}_properties[] = {{\n")
         file.write(f" /*BG color*/      {hex(bg_color_bgr555)},\n")
         file.write(f" /*GROUND color*/  {hex(g_color_bgr555)},\n")
         file.write(f" /*gamemode*/      {gamemode},\n")
         file.write(f" /*speed*/         {speed},\n")
         file.write(f" /*level height*/  {level_height},\n")
+        file.write(f" /*level width*/   {level_width},\n")
         file.write(f" /*song*/          MOD_{song},\n")
         file.write(f"}};\n\n")
 
@@ -403,7 +418,7 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         file.write("#pragma once\n\n")
         file.write(f"// {level_name} properties\n")
 
-        file.write(f"extern const unsigned short {level_name}_properties[];\n")
+        file.write(f"extern const unsigned int {level_name}_properties[];\n")
         file.write(f"extern const unsigned char {level_name}_name[];\n")
 
 def get_size(level_array):

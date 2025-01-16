@@ -4,6 +4,21 @@
 
 #include "memory.h"
 
+// Defines indexes
+#define L1_DATA_INDEX 0
+#define L2_DATA_INDEX 1
+#define SPRITE_DATA_INDEX 2
+#define LEVEL_PROPERTIES_INDEX 3
+
+// Properties indexes
+#define BG_COLOR_INDEX 0
+#define GROUND_COLOR_INDEX 1
+#define GAMEMODE_INDEX 2
+#define SPEED_INDEX 3
+#define LEVEL_HEIGHT_INDEX 4
+#define LEVEL_WIDTH_INDEX 5
+#define LEVEL_SONG_INDEX 6
+
 // stereomadness
 #define stereomadness_ID 0
 

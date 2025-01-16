@@ -5,6 +5,7 @@
 .global bg_chr
 .global menu_chr
 .global orb_pad_particles
+.global level_text_chr
 .align 2
 blockset:
     .incbin "graphics/tileset.chr"
@@ -23,6 +24,9 @@ menu_chr:
 
 orb_pad_particles:
     .incbin "graphics/orb_particles.chr"
+
+level_text_chr:
+    .incbin "graphics/level_text.chr"
 
 
     

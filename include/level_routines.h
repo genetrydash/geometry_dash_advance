@@ -26,4 +26,5 @@ void mirror_screen();
 void unmirror_screen();
 void swap_screen_dir();
 
+void draw_percentage();
 void mirror_transition();

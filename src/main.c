@@ -175,6 +175,7 @@ void game_loop() {
     memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
 
     memcpy32(&tile_mem_obj[0][0], player0_icon, sizeof(player0_icon) / 4);
+    memcpy32(&tile_mem_obj[0][992], level_text_chr, sizeof(level_text_chr) / 4);
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
     REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2 | DCNT_WIN0;
@@ -211,6 +212,12 @@ void game_loop() {
 
         nextSpr = 0;
 
+#ifdef DEBUG
+        if (noclip) oam_metaspr(0, 0, noclipSpr, 0, 0, 0, 0, TRUE); 
+#endif
+
+        draw_percentage();
+
         if (player_death) reset_level();
 
         // Run vertical scroll code
@@ -231,10 +238,6 @@ void game_loop() {
         
         rotate_saws();
         scale_pulsing_objects();
-
-#ifdef DEBUG
-        if (noclip) oam_metaspr(0, 0, debugModeSpr, 0, 0, 0, 0); 
-#endif
         sort_oam_by_prio();
 
         // Mark the frame as finished

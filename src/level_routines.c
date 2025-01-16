@@ -280,17 +280,20 @@ void reset_variables() {
 
 void load_level(u32 level_ID) {
     // Set level pointers
-    level_pointer[0] = (u32*) level_defines[level_ID][0];
-    level_pointer[1] = (u32*) level_defines[level_ID][1];
-    sprite_pointer   = (u32*) level_defines[level_ID][2];
+    level_pointer[0] = (u32*) level_defines[level_ID][L1_DATA_INDEX];
+    level_pointer[1] = (u32*) level_defines[level_ID][L2_DATA_INDEX];
+    sprite_pointer   = (u32*) level_defines[level_ID][SPRITE_DATA_INDEX];
     
+    u32 *properties_pointer = (u32*) level_defines[level_ID][LEVEL_PROPERTIES_INDEX];
+
     // Get level variables
-    COLOR bg_color = level_defines[level_ID][3][0];
-    COLOR ground_color = level_defines[level_ID][3][1];
-    gamemode = level_defines[level_ID][3][2];
-    speed_id = level_defines[level_ID][3][3];
-    curr_level_height = level_defines[level_ID][3][4];
-    loaded_song_id = level_defines[level_ID][3][5];
+    COLOR bg_color = properties_pointer[BG_COLOR_INDEX];
+    COLOR ground_color = properties_pointer[GROUND_COLOR_INDEX];
+    gamemode = properties_pointer[GAMEMODE_INDEX];
+    speed_id = properties_pointer[SPEED_INDEX];
+    curr_level_height = properties_pointer[LEVEL_HEIGHT_INDEX];
+    curr_level_width = properties_pointer[LEVEL_WIDTH_INDEX];
+    loaded_song_id = properties_pointer[LEVEL_SONG_INDEX];
 
     // Limit values to safe values
     if (loaded_song_id >= MSL_NSONGS) loaded_song_id = 0;
@@ -336,7 +339,7 @@ void transition_update_spr() {
     // Update OAM
     obj_copy(oam_mem, shadow_oam, 128);
     obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
-    
+    draw_percentage();
     draw_player();
     display_objects();
     rotate_saws();
@@ -399,6 +402,7 @@ void reset_level() {
     update_flags = UPDATE_OAM | UPDATE_SCROLL;
     
     nextSpr = 0;
+    draw_percentage();
     draw_player();
     display_objects();
     rotate_saws();
@@ -566,4 +570,33 @@ u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
         current = ((dist < -dec) ? (current - dec) : target);
     }
     return current;
+}
+
+#define FIRST_NUMBER_ID 998
+#define PERCENTAGE_SYMBOL_ID 1008
+
+void draw_percentage() {
+    // Progress number in level
+    u32 percentage;
+    if (player_x < 0) {
+        percentage = 0;
+    } else if (curr_level_width == 0) {
+        percentage = 100;
+    } else {
+        percentage = ((((u32) player_x) / curr_level_width) * 100) >> 20;
+    }
+    
+    if (percentage >= 100) {
+        oam_metaspr(108, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + 1, 0, TRUE);
+        oam_metaspr(116, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + 0, 0, TRUE);
+        oam_metaspr(124, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + 0, 0, TRUE);
+        oam_metaspr(132, 8, numberSpr, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+    } else if (percentage >= 10) {
+        oam_metaspr(112, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (percentage / 10), 0, TRUE);
+        oam_metaspr(120, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (percentage % 10), 0, TRUE);
+        oam_metaspr(128, 8, numberSpr, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+    } else {
+        oam_metaspr(116, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + percentage, 0, TRUE);
+        oam_metaspr(124, 8, numberSpr, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+    }
 }

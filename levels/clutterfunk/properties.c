@@ -1,11 +1,12 @@
 #include "soundbank.h"
 // clutterfunk properties
-const unsigned short clutterfunk_properties[] = {
+const unsigned int clutterfunk_properties[] = {
  /*BG color*/      0x1f,
  /*GROUND color*/  0x17,
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
+ /*level width*/   988,
  /*song*/          MOD_STEREOMA,
 };
 

@@ -8,14 +8,43 @@
 // Next sprite slot in OAM
 u8 nextSpr = 0;
 
-const u16 debugModeSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(1020),
+const u16 noclipSpr[] = {
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_16x8,
+    ATTR2_PALBANK(5) | ATTR2_ID(992),
     0,
     0,
     PRIO_IDOFF(0, 0), // id offset
     0,
+
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_16x8,
+    ATTR2_PALBANK(5) | ATTR2_ID(994),
+    16,
+    0,
+    PRIO_IDOFF(0, 0), // id offset
+    0,
+
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_16x8,
+    ATTR2_PALBANK(5) | ATTR2_ID(996),
+    32,
+    0,
+    PRIO_IDOFF(0, 0), // id offset
+    0,
+
+    0xffff
+};
+
+// Number
+const u16 numberSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_8x8,
+    ATTR2_PALBANK(5),
+    0,
+    0,
+    PRIO_IDOFF(0, 0), // id offset
+    CENTER(8, 8),
     0xffff
 };
 
@@ -1095,9 +1124,15 @@ const u8 spr_width_height_table[] = {
     0x20, 0x40, // 32x64
 };
 
-ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 tile_id, u8 priority) {
+ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 tile_id, u8 priority, u8 disable_mirror) {
     u32 i = 0;
     u16 offset;
+    u8 should_flip = screen_mirrored;
+
+    if (disable_mirror) {
+        should_flip = FALSE;
+    }
+
     // Continue until end of data
     while (data[i] != 0xffff && nextSpr < 128) {
         // Add offset
@@ -1111,7 +1146,7 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 
 
         // Flip in case of it not being affine, as affine sprites cant be mirrored
         if (!(data[i] & ATTR0_AFF)) {
-            attribute1 ^= ATTR1_FLIP((hflip ^ screen_mirrored) | (vflip << 1));
+            attribute1 ^= ATTR1_FLIP((hflip ^ should_flip) | (vflip << 1));
         }
 
         // Set tile id if not set already by sprite data
@@ -1156,7 +1191,7 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 
         s32 x_rel;
 
         // Flip pos on screen if screen is mirrored
-        if (screen_mirrored) {
+        if (should_flip) {
             u8 calculated_width = width;
 
             if (data[i] & ATTR0_AFF_DBL_BIT) {
@@ -1177,9 +1212,16 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 
         i += 7;
     }
 }
-ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id, u8 dbl, u16 tile_id, u8 priority) {
+ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id, u8 dbl, u16 tile_id, u8 priority, u8 disable_mirror) {
     u32 i = 0;
     u16 offset;
+
+    u8 should_flip = screen_mirrored;
+
+    if (disable_mirror) {
+        should_flip = FALSE;
+    }
+
     // Continue until end of data
     while (data[i] != 0xffff && nextSpr < 128) {
         // Add offset
@@ -1254,7 +1296,7 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         u8 aff_dbl = (attribute0 & ATTR0_AFF_DBL_BIT) >> 9;
 
         // Flip pos on screen if screen is mirrored
-        if (screen_mirrored) {
+        if (should_flip) {
             x_rel = SCREEN_WIDTH - (total_x + (width << aff_dbl));
         } else {
             x_rel = total_x;

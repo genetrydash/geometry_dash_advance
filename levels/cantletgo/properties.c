@@ -1,11 +1,12 @@
 #include "soundbank.h"
 // cantletgo properties
-const unsigned short cantletgo_properties[] = {
+const unsigned int cantletgo_properties[] = {
  /*BG color*/      0x741a,
  /*GROUND color*/  0x5013,
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
+ /*level width*/   832,
  /*song*/          MOD_CANTLG,
 };
 

@@ -1,11 +1,12 @@
 #include "soundbank.h"
 // cycles properties
-const unsigned short cycles_properties[] = {
+const unsigned int cycles_properties[] = {
  /*BG color*/      0x300c,
  /*GROUND color*/  0x7c17,
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
+ /*level width*/   818,
  /*song*/          MOD_STEREOMA,
 };
 

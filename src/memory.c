@@ -21,8 +21,9 @@ EWRAM_DATA u16 col_trigger_buffer[CHANNEL_COUNT][5];
 // Current block column [0-LEVEL_BUFFER_WIDTH)
 u8 curr_column;
 
-// Current level height, in blocks
+// Current level height and width, in blocks
 u8 curr_level_height;
+u32 curr_level_width;
 
 // Pointer to level data for decompression
 u32 *level_pointer[LEVEL_LAYERS];
