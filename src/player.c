@@ -17,8 +17,8 @@ s32 player_x_speed;
 s32 player_y_speed;
 
 // Relative position on screen in pixels
-u16 relative_player_x;
-u16 relative_player_y;
+s16 relative_player_x;
+s16 relative_player_y;
 
 // Change of y speed
 s16 gravity;
@@ -421,60 +421,55 @@ void ufo_gamemode() {
 
 void draw_player() {
     s8 sign = 1;
-    switch (gamemode) {
-        case GAMEMODE_CUBE:
-            relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
-            relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
+    
+    relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
+    relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
-            if (player_size == SIZE_BIG) {
-                // Offset depending on screen mirror status
-                if (screen_mirrored) {
-                    x_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
-                    y_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
+    // Draw only if on screen vertically
+    if (relative_player_y > -48 && relative_player_y < SCREEN_HEIGHT + 48) {
+        switch (gamemode) {
+            case GAMEMODE_CUBE:
+                if (player_size == SIZE_BIG) {
+                    // Offset depending on screen mirror status
+                    if (screen_mirrored) {
+                        x_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
+                        y_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
+                    } else {
+                        x_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
+                        y_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
+                    }
                 } else {
-                    x_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
-                    y_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
+                    x_offset = 9;
+                    y_offset = 9;
                 }
-            } else {
-                x_offset = 9;
-                y_offset = 9;
-            }
-            
-            oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0, 0, 0);
-            break;
-        case GAMEMODE_SHIP:
-            sign = gravity_dir ? -1 : 1;
-            
-            relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
-            relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
+                
+                oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, 0, 0, 0, 0);
+                break;
+            case GAMEMODE_SHIP:
+                sign = gravity_dir ? -1 : 1;
 
-            y_offset = gravity_dir ? 9 : 7;
+                y_offset = gravity_dir ? 9 : 7;
 
-            oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, playerSpr, 0, 0, 4, 0);
-            break;
-        case GAMEMODE_BALL:
-            relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
-            relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
+                oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, playerSpr, 0, 0, 4, 0);
+                break;
+            case GAMEMODE_BALL:
+                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, 0, 0, 8, 0);  
+                break;
+            case GAMEMODE_UFO:
+                sign = gravity_dir ? -1 : 1;
 
-            oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, 0, 0, 8, 0);  
-            break;
-        case GAMEMODE_UFO:
-            sign = gravity_dir ? -1 : 1;
-            
-            relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
-            relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
+                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, 0, 0, 12, 0);  
+                break;
+        }
 
-            oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, 0, 0, 12, 0);  
-            break;
-    }
+        obj_aff_identity(&obj_aff_buffer[AFF_SLOT_P1]);
 
-    obj_aff_identity(&obj_aff_buffer[AFF_SLOT_P1]);
-
-    /// Change sprite size depending on player size and screen mirror status
-    if (player_size == SIZE_BIG) {
-        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], mirror_scaling, float2fx(1.0) * sign, cube_rotation);
-    } else {
-        obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], scale_inv(fxmul(mirror_scaling, float2fx(MINI_SIZE))), scale_inv(float2fx(MINI_SIZE) * sign), cube_rotation); 
+        /// Change sprite size depending on player size and screen mirror status
+        if (player_size == SIZE_BIG) {
+            obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], mirror_scaling, float2fx(1.0) * sign, cube_rotation);
+        } else {
+            obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], scale_inv(fxmul(mirror_scaling, float2fx(MINI_SIZE))), scale_inv(float2fx(MINI_SIZE) * sign), cube_rotation); 
+        }
     }
 }
 
