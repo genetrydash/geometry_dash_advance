@@ -211,6 +211,8 @@ void game_loop() {
 
         nextSpr = 0;
 
+        if (player_death) reset_level();
+
         // Run vertical scroll code
         scroll_screen_vertically();
 
@@ -220,8 +222,6 @@ void game_loop() {
 
         // Start the song once the player goes from negative to positive x position
         if ((last_player_x < 0) != (player_x < 0)) mmStart(loaded_song_id, MM_PLAY_ONCE);
-        
-        if (player_death) reset_level();
 
         // Run object routines
         load_objects();
