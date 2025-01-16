@@ -322,7 +322,7 @@ void do_nothing(UNUSED struct ObjectSlot *objectSlot) {
 
 void kill_player(struct ObjectSlot *objectSlot) {
 #ifdef DEBUG
-    if (!debug_mode) player_death = TRUE;
+    if (!noclip) player_death = TRUE;
 #else
     player_death = TRUE;
 #endif

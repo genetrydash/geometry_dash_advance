@@ -58,6 +58,7 @@ EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
 
 // 0 : off | 1 : on
 u8 debug_mode = 0;
+u8 noclip = 0;
 
 // Flags that indicates if VBLANK sensitive stuff should happen
 u8 update_flags;

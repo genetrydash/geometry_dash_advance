@@ -201,6 +201,11 @@ void game_loop() {
 #ifdef DEBUG
         if (key_hit(KEY_SELECT)) {
             debug_mode ^= 1;
+            noclip = 0;
+        }
+
+        if (debug_mode && key_hit(KEY_L)) {
+            noclip ^= 1;
         }
 #endif
 
@@ -228,7 +233,7 @@ void game_loop() {
         scale_pulsing_objects();
 
 #ifdef DEBUG
-        if (debug_mode) oam_metaspr(0, 0, debugModeSpr, 0, 0, 0, 0); 
+        if (noclip) oam_metaspr(0, 0, debugModeSpr, 0, 0, 0, 0); 
 #endif
         sort_oam_by_prio();
 

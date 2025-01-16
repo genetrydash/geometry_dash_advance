@@ -62,6 +62,7 @@ extern EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
                                +MM_MIXLEN_31KHZ];
 
 extern u8 debug_mode;
+extern u8 noclip;
 
 extern u8 paused;
 

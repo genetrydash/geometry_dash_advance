@@ -32,7 +32,7 @@ ARM_CODE void collision_cube() {
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
 
 #ifdef DEBUG
-        if (!debug_mode) collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
+        if (!noclip) collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
 #else
         collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
 #endif
@@ -47,7 +47,7 @@ ARM_CODE void collision_cube() {
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_internal_hitbox_height) >> 1);      
 
 #ifdef DEBUG
-        if (!debug_mode) {
+        if (!noclip) {
             if (do_center_checks(coll_x, coll_y, player_internal_hitbox_width, player_internal_hitbox_height, layer)) {
                 return;
             }
@@ -98,7 +98,7 @@ ARM_CODE void collision_ship_ball_ufo() {
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
 
 #ifdef DEBUG
-        if (!debug_mode) collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
+        if (!noclip) collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
 #else
         collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
 #endif
@@ -113,7 +113,7 @@ ARM_CODE void collision_ship_ball_ufo() {
         coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_internal_hitbox_height) >> 1);      
 
 #ifdef DEBUG
-        if (!debug_mode) {
+        if (!noclip) {
             if (do_center_checks(coll_x, coll_y, player_internal_hitbox_width, player_internal_hitbox_height, layer)) {
                 return;
             }
