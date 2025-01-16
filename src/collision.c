@@ -434,9 +434,13 @@ ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
 ARM_CODE void do_collision_with_objects(u32 check_rotated) {
     for (s32 slot = 0; slot < MAX_OBJECTS; slot++) {
         // Check collision only if the slot is occupied
-        if (object_buffer[slot].occupied && object_buffer[slot].activated == FALSE) {
-            if (object_buffer[slot].has_collision && (check_rotated || !(object_buffer[slot].object.attrib1 & ENABLE_ROTATION_FLAG))) {
-                check_obj_collision(slot); 
+        struct ObjectSlot curr_object = object_buffer[slot];
+        if (curr_object.occupied && curr_object.activated == FALSE) {
+            s32 relative_x = curr_object.object.x - ((scroll_x >> SUBPIXEL_BITS) & 0xffffffff);
+            if (relative_x < SCREEN_WIDTH + 128) {
+                if (curr_object.has_collision && (check_rotated || !(curr_object.object.attrib1 & ENABLE_ROTATION_FLAG))) {
+                    check_obj_collision(slot); 
+                }
             }
         }  
     }
