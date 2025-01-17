@@ -38,7 +38,7 @@ void menu_loop() {
     // Write initial text
     posprintf(char_buffer, "%d", loaded_level_id + 1);
     tte_set_pos(8,136);
-    tte_write("PRESS L R TO CHANGE LEVEL");
+    tte_write("USE DPAD TO CHANGE LEVEL");
     tte_set_pos(8,144);
     tte_write("PRESS A TO START");
 
