@@ -113,13 +113,6 @@ void player_main() {
             if (scroll_x > screen_scroll_limit) {
                 scroll_x = screen_scroll_limit;
             }
-            
-            s64 player_x_limit = ((curr_level_width << 4) - 0x98) << (SUBPIXEL_BITS);
-            if (player_x > player_x_limit) {
-                complete_cutscene = TRUE;
-                cutscene_initial_player_x = player_x >> SUBPIXEL_BITS;
-                cutscene_initial_player_y = player_y >> SUBPIXEL_BITS;
-            }
         }
 
         if (player_y < -0x200000) player_death = TRUE;
@@ -145,6 +138,13 @@ void player_main() {
             case GAMEMODE_UFO:
                 ufo_gamemode();
                 break;
+        }
+
+        s64 player_x_limit = ((curr_level_width << 4) - 0x98) << (SUBPIXEL_BITS);
+        if (player_x > player_x_limit) {
+            complete_cutscene = TRUE;
+            cutscene_initial_player_x = player_x >> SUBPIXEL_BITS;
+            cutscene_initial_player_y = player_y >> SUBPIXEL_BITS;
         }
 
         block_object_buffer_offset = 0;
