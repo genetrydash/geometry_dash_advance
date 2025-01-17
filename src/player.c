@@ -111,10 +111,14 @@ void player_main() {
             
             u64 screen_scroll_limit = (curr_level_width - (SCREEN_WIDTH_T/2)) << (SUBPIXEL_BITS + 4);
             if (scroll_x > screen_scroll_limit) {
+                scroll_x = screen_scroll_limit;
+            }
+            
+            s64 player_x_limit = ((curr_level_width << 4) - 0x98) << (SUBPIXEL_BITS);
+            if (player_x > player_x_limit) {
                 complete_cutscene = TRUE;
                 cutscene_initial_player_x = player_x >> SUBPIXEL_BITS;
                 cutscene_initial_player_y = player_y >> SUBPIXEL_BITS;
-                scroll_x = screen_scroll_limit;
             }
         }
 

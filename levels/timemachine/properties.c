@@ -6,7 +6,7 @@ const unsigned int timemachine_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*level width*/   993,
+ /*level width*/   995,
  /*song*/          MOD_STEREOMA,
 };
 

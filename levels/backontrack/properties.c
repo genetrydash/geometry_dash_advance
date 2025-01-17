@@ -6,7 +6,7 @@ const unsigned int backontrack_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*level width*/   844,
+ /*level width*/   846,
  /*song*/          MOD_BACKOT,
 };
 

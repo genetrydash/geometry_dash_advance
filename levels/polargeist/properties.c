@@ -6,7 +6,7 @@ const unsigned int polargeist_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*level width*/   931,
+ /*level width*/   933,
  /*song*/          MOD_STEREOMA,
 };
 

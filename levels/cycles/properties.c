@@ -6,7 +6,7 @@ const unsigned int cycles_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*level width*/   818,
+ /*level width*/   820,
  /*song*/          MOD_STEREOMA,
 };
 

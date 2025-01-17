@@ -6,7 +6,7 @@ const unsigned int stereomadness_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*level width*/   889,
+ /*level width*/   891,
  /*song*/          MOD_STEREOMA,
 };
 

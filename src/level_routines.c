@@ -458,7 +458,7 @@ void scroll_screen_vertically() {
         scroll_y = approach_value_asympthotic(scroll_y, intended_scroll_y, 0x6000);
     } else {
         intended_scroll_y = scroll_y;
-        scroll_y = approach_value(scroll_y, target_scroll_y, 0x10000, 0x10000);
+        scroll_y = approach_value_asympthotic(scroll_y, target_scroll_y, 0x1000);
     }
 }
 

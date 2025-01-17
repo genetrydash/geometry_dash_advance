@@ -75,7 +75,8 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("BASIC_BLOCK_LEFT_RIGHT", TILE(0x0f, 0, 0, 0), TILE(0x0e, 0, 0, 0), TILE(0x11, 0, 0, 0), TILE(0x10, 0, 0, 0), COL_FULL)
     Metatile("BASIC_BLOCK_LEFT",       TILE(0x0f, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x11, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_SLAB_LEFT) // 0x38
 
-    Metatile("EMPTY",    TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_NONE)
+    Metatile("ENDING_WALL",  TILE(0x00, 0, 0, 0), TILE(0x04, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x04, 0, 0, V), COL_SLAB_RIGHT)
+
     Metatile("EMPTY",    TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_NONE)

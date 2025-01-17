@@ -6,7 +6,7 @@ const unsigned int cantletgo_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*level width*/   832,
+ /*level width*/   834,
  /*song*/          MOD_CANTLG,
 };
 

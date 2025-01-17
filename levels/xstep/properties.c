@@ -6,7 +6,7 @@ const unsigned int xstep_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*level width*/   841,
+ /*level width*/   843,
  /*song*/          MOD_XSTEP,
 };
 

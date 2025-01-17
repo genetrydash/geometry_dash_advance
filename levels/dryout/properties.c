@@ -6,7 +6,7 @@ const unsigned int dryout_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*level width*/   840,
+ /*level width*/   842,
  /*song*/          MOD_STEREOMA,
 };
 
