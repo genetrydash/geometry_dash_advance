@@ -94,3 +94,14 @@ s8 transition_frame;
 
 // This is used as a fail safe in case that execution takes longer than 1 frame
 u8 frame_finished = 0;
+
+// LEVEL COMPLETE CUTSCENE VARIABLES
+// 0 : no cutscene | 1 : cutscene playing
+u8 complete_cutscene = 0;
+
+// Current frame in the cutscene
+u16 cutscene_frame = 0;
+
+// Initial position of player for the curve. In pixels
+u32 cutscene_initial_player_x;
+u32 cutscene_initial_player_y;

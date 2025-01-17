@@ -198,6 +198,13 @@ void game_loop() {
                 return;
             }
         }
+
+        if (cutscene_frame == EXIT_CUTSCENE_FRAME) {
+            game_state = STATE_MENU;      
+            memcpy32(palette_buffer, pal_bg_mem, 256);
+            fade_out();
+            return;
+        }
         
 #ifdef DEBUG
         if (key_hit(KEY_SELECT)) {

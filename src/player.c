@@ -79,6 +79,9 @@ const u16 ball_rot_multiplier[] = {
 u8 x_offset;
 u8 y_offset;
 
+void anim_player_to_wall();
+void level_complete_cutscene();
+
 void cube_gamemode();
 void ship_gamemode();
 void ball_gamemode();
@@ -87,57 +90,63 @@ void ufo_gamemode();
 FIXED mirror_scaling;
 
 void player_main() {    
-    // Set internal square hitbox size
-    if (player_size == SIZE_BIG) {
-        player_internal_hitbox_width = INTERNAL_HITBOX_WIDTH;
-        player_internal_hitbox_height = INTERNAL_HITBOX_HEIGHT;
+    if (complete_cutscene) {
+        level_complete_cutscene();
     } else {
-        player_internal_hitbox_width = MINI_INTERNAL_HITBOX_WIDTH;
-        player_internal_hitbox_height = MINI_INTERNAL_HITBOX_HEIGHT;
-    }
+        // Set internal square hitbox size
+        if (player_size == SIZE_BIG) {
+            player_internal_hitbox_width = INTERNAL_HITBOX_WIDTH;
+            player_internal_hitbox_height = INTERNAL_HITBOX_HEIGHT;
+        } else {
+            player_internal_hitbox_width = MINI_INTERNAL_HITBOX_WIDTH;
+            player_internal_hitbox_height = MINI_INTERNAL_HITBOX_HEIGHT;
+        }
 
-    // Set player speed
-    player_x_speed = speed_constants[speed_id];
-    
-    // This scrolls the screen on the x axis
-    if (player_x >= 0x500000) {
-        scroll_x += player_x_speed;
+        // Set player speed
+        player_x_speed = speed_constants[speed_id];
         
-        u64 screen_scroll_limit = (curr_level_width - (SCREEN_WIDTH_T/2)) << (SUBPIXEL_BITS + 4);
-        if (scroll_x > screen_scroll_limit) {
-            scroll_x = screen_scroll_limit;
+        // This scrolls the screen on the x axis
+        if (player_x >= 0x500000) {
+            scroll_x += player_x_speed;
+            
+            u64 screen_scroll_limit = (curr_level_width - (SCREEN_WIDTH_T/2)) << (SUBPIXEL_BITS + 4);
+            if (scroll_x > screen_scroll_limit) {
+                complete_cutscene = TRUE;
+                cutscene_initial_player_x = player_x >> SUBPIXEL_BITS;
+                cutscene_initial_player_y = player_y >> SUBPIXEL_BITS;
+                scroll_x = screen_scroll_limit;
+            }
         }
-    }
 
-    if (player_y < -0x200000) player_death = TRUE;
+        if (player_y < -0x200000) player_death = TRUE;
 
-    if (key_held(KEY_A | KEY_UP)) {
-        if (player_buffering == NO_ORB_BUFFER) {
-            player_buffering = ORB_BUFFER_READY;
+        if (key_held(KEY_A | KEY_UP)) {
+            if (player_buffering == NO_ORB_BUFFER) {
+                player_buffering = ORB_BUFFER_READY;
+            }
+        } else {
+            player_buffering = NO_ORB_BUFFER;
         }
-    } else {
-        player_buffering = NO_ORB_BUFFER;
-    }
-    
-    // Gamemode specific routines
-    switch (gamemode) {
-        case GAMEMODE_CUBE:
-            cube_gamemode();
-            break;
-        case GAMEMODE_SHIP:
-            ship_gamemode();
-            break;
-        case GAMEMODE_BALL:
-            ball_gamemode();
-            break;
-        case GAMEMODE_UFO:
-            ufo_gamemode();
-            break;
+        // Gamemode specific routines
+        switch (gamemode) {
+            case GAMEMODE_CUBE:
+                cube_gamemode();
+                break;
+            case GAMEMODE_SHIP:
+                ship_gamemode();
+                break;
+            case GAMEMODE_BALL:
+                ball_gamemode();
+                break;
+            case GAMEMODE_UFO:
+                ufo_gamemode();
+                break;
+        }
+
+        block_object_buffer_offset = 0;
     }
 
     draw_player();
-
-    block_object_buffer_offset = 0;
 }
 
 #define scale_inv(s) ((1<<24)/s)>>8
@@ -430,6 +439,8 @@ void draw_player() {
     relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
     relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
 
+    u8 priority = (cutscene_frame > TOTAL_CUTSCENE_FRAMES - 20) ? 2 : 0;
+
     // Draw only if on screen vertically
     if (relative_player_y > -48 && relative_player_y < SCREEN_HEIGHT + 48) {
         switch (gamemode) {
@@ -448,22 +459,22 @@ void draw_player() {
                     y_offset = 9;
                 }
                 
-                oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, FALSE, FALSE, 0, 0, FALSE);
+                oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, FALSE, FALSE, 0, priority, FALSE);
                 break;
             case GAMEMODE_SHIP:
                 sign = gravity_dir ? -1 : 1;
 
                 y_offset = gravity_dir ? 9 : 7;
 
-                oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, playerSpr, FALSE, FALSE, 4, 0, FALSE);
+                oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, playerSpr, FALSE, FALSE, 4, priority, FALSE);
                 break;
             case GAMEMODE_BALL:
-                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 8, 0, FALSE);  
+                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 8, priority, FALSE);  
                 break;
             case GAMEMODE_UFO:
                 sign = gravity_dir ? -1 : 1;
 
-                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 12, 0, FALSE);  
+                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 12, priority, FALSE);  
                 break;
         }
 
@@ -479,3 +490,52 @@ void draw_player() {
 }
 
 #undef scale_inv
+
+void level_complete_cutscene() {
+    cube_rotation -= 0x500;
+    if (cutscene_frame <= TOTAL_CUTSCENE_FRAMES) {
+        anim_player_to_wall();
+        
+    }
+
+    if (cutscene_frame < EXIT_CUTSCENE_FRAME) {
+        cutscene_frame++;
+    }
+}
+
+#define FIXED_MUL(a, b) (((u64)(a) * (b)) / SUBPIXEL_MULTIPLIER)
+#define FIXED_DIV(a, b) (((u64)(a) * SUBPIXEL_MULTIPLIER) / (b))
+
+void anim_player_to_wall() {
+    // This uses a Bézier Cuadratic formula:  P = ((1−t)^2)*P1 + 2*(1−t)*t*P2 + (t^2)*P3
+    // Calculate t
+    u32 t_fixed = FIXED_DIV(FIXED_MUL(cutscene_frame * SUBPIXEL_MULTIPLIER, cutscene_frame * SUBPIXEL_MULTIPLIER), FIXED_MUL(TOTAL_CUTSCENE_FRAMES * SUBPIXEL_MULTIPLIER, TOTAL_CUTSCENE_FRAMES * SUBPIXEL_MULTIPLIER));
+
+    // Calculate (1 - t) and powers
+    u32 one_minus_t = SUBPIXEL_MULTIPLIER - t_fixed;
+    u32 one_minus_t_squared = FIXED_MUL(one_minus_t, one_minus_t);
+    u32 t_squared = FIXED_MUL(t_fixed, t_fixed);
+
+    u32 final_x = (scroll_x >> SUBPIXEL_BITS) + SCREEN_WIDTH + 0x10;
+    u32 final_y = (scroll_y >> SUBPIXEL_BITS) + (SCREEN_HEIGHT/2) - 8;
+
+    // Calculate points
+    u16 height_diff = cutscene_initial_player_y - (scroll_y >> SUBPIXEL_BITS);
+    u32 offset = height_diff >> 1;
+
+    u32 top_x = cutscene_initial_player_x + offset; 
+    u32 top_y = cutscene_initial_player_y - offset; 
+    
+    // Update player position
+    player_x = (
+                FIXED_MUL(one_minus_t_squared, cutscene_initial_player_x * SUBPIXEL_MULTIPLIER) +
+                FIXED_MUL(FIXED_MUL(2 * SUBPIXEL_MULTIPLIER, one_minus_t), t_fixed) * top_x +
+                FIXED_MUL(t_squared, final_x * SUBPIXEL_MULTIPLIER)
+    );
+
+    player_y = (
+                FIXED_MUL(one_minus_t_squared, cutscene_initial_player_y * SUBPIXEL_MULTIPLIER) +
+                FIXED_MUL(FIXED_MUL(2 * SUBPIXEL_MULTIPLIER, one_minus_t), t_fixed) * top_y +
+                FIXED_MUL(t_squared, final_y * SUBPIXEL_MULTIPLIER)
+    );
+}

@@ -98,3 +98,8 @@ extern u8 vram_copy_buffer[2048];
 extern s8 transition_frame;
 
 extern u8 frame_finished;
+
+extern u8 complete_cutscene;
+extern u16 cutscene_frame;
+extern u32 cutscene_initial_player_x;
+extern u32 cutscene_initial_player_y;

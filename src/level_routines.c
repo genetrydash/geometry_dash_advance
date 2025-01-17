@@ -241,6 +241,11 @@ void reset_variables() {
     bitstream[0] = bitstream[1] = 0;
     bits_left[0] = bits_left[1] = 0;
 
+    cutscene_frame = 0;
+    cutscene_initial_player_x = 0;
+    cutscene_initial_player_y = 0;
+    complete_cutscene = FALSE;
+
     scroll_x = 0;
 
     next_free_tile_id = START_OF_OBJECT_CHR;
