@@ -657,11 +657,11 @@
   <object id="692" gid="530" x="7816" y="384" width="16" height="16"/>
   <object id="693" gid="543" x="8070" y="416" width="16" height="16"/>
   <object id="694" gid="543" x="8083" y="416" width="16" height="16"/>
-  <object id="695" gid="523" x="8054" y="416" width="16" height="16"/>
+  <object id="695" gid="523" x="8052" y="416" width="16" height="16"/>
   <object id="696" gid="529" x="8032" y="208" width="16" height="16"/>
   <object id="697" gid="522" x="8120" y="384" width="16" height="16"/>
   <object id="698" gid="522" x="8192" y="352" width="16" height="16"/>
-  <object id="699" gid="528" x="8208" y="406" width="16" height="16">
+  <object id="699" gid="528" x="8208" y="404" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
     <property name="rotation angle" type="int" value="90"/>
