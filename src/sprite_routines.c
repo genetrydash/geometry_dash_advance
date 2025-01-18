@@ -398,7 +398,6 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
 
     // Speeeeed
-
     speed_portal_half,
     speed_portal_1x,
     speed_portal_2x,
@@ -406,6 +405,11 @@ const jmp_table routines_jump_table[] = {
     speed_portal_4x,
 
     ufo_portal,
+
+    // Square deco   
+    do_nothing,
+    do_nothing,
+    do_nothing,
 };
 
 // In pixels
@@ -479,6 +483,11 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("SPEED_PORTAL_4x",  36, 30, -10, -7, 8, 8)
 
     Object_Hitbox_Rectangle("UFO_PORTAL", 20, 46, -2, -15, 8, 8)
+
+    
+    Object_Hitbox_Rectangle("BIG_BG_SQUARES", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("MEDIUM_BG_SQUARES", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("SMALL_BG_SQUARES", 0, 0, 0, 0, 0, 0)
 };
 
 #undef Object_Hitbox

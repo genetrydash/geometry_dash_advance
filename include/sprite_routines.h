@@ -91,6 +91,10 @@ enum ObjTypes {
 
     UFO_PORTAL,
 
+    BIG_BG_SQUARES,
+    MEDIUM_BG_SQUARES,
+    SMALL_BG_SQUARES,
+
     OBJ_COUNT
 };
 

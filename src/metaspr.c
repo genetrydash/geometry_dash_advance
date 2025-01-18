@@ -518,7 +518,7 @@ const u16 pinkPadSpr[] = {
 
 // Deco 
 
-const u16 bigBgSpikesSpr[] = {
+const u16 bigBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
     ATTR2_PALBANK(0) | ATTR2_PRIO(2),
@@ -529,7 +529,7 @@ const u16 bigBgSpikesSpr[] = {
     0xffff
 };
 
-const u16 mediumBgSpikesSpr[] = {
+const u16 mediumBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
     ATTR2_PALBANK(0) | ATTR2_PRIO(2),
@@ -540,7 +540,7 @@ const u16 mediumBgSpikesSpr[] = {
     0xffff
 };
 
-const u16 smallBgSpikesSpr[] = {
+const u16 smallBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_32x16,
     ATTR2_PALBANK(0) | ATTR2_PRIO(2),
@@ -557,28 +557,6 @@ const u16 tinyBgSpikesSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(2),
     0, // x
     6, // y
-    PRIO_IDOFF(5, 0), // id offset
-    CENTER(8, 8),
-    0xffff
-};
-
-const u16 bigBgCloudSpr[] = {
-    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
-    ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
-    -24,   // x
-    -10,   // y
-    PRIO_IDOFF(5, 0), // id offset
-    CENTER(8, 8),
-    0xffff
-};
-
-const u16 smallBgCloudSpr[] = {
-    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
-    ATTR1_SIZE_32x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
-    -8, // x
-    0,  // y
     PRIO_IDOFF(5, 0), // id offset
     CENTER(8, 8),
     0xffff
@@ -949,9 +927,9 @@ ROM_DATA const u16 *obj_sprites[] = {
     shipPortalSpr,
     cubePortalSpr,
     NULL, // COL TRIGGER
-    bigBgSpikesSpr,
-    mediumBgSpikesSpr,
-    smallBgSpikesSpr,
+    bigBgDecoSpr,
+    mediumBgDecoSpr,
+    smallBgDecoSpr,
     tinyBgSpikesSpr,
     bgChainsSpr,
     yellowOrbSpr,
@@ -969,8 +947,8 @@ ROM_DATA const u16 *obj_sprites[] = {
     pulsingObjectSpr,
     pulsingObjectSpr,
     pulsingObjectSpr,
-    bigBgCloudSpr,
-    smallBgCloudSpr,
+    bigBgDecoSpr,
+    smallBgDecoSpr,
     ballPortalSpr,
     pulsingObjectSpr,
     sizePortalPinkSpr,
@@ -1016,6 +994,11 @@ ROM_DATA const u16 *obj_sprites[] = {
     speedPortal4x,
 
     ufoPortalSpr,
+
+    // Square bg deco
+    bigBgDecoSpr,
+    mediumBgDecoSpr,
+    smallBgDecoSpr,
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -1104,6 +1087,10 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("SPEED_PORTAL_4x",   0x2c0, 0x12)
 
     CHR_SLOT("UFO_PORTAL", 0x00, 0x28)
+
+    CHR_SLOT("BIG_BG_SQUARES", 0x2e0, 0x20)
+    CHR_SLOT("MEDIUM_BG_SQUARES", 0x300, 0x20)
+    CHR_SLOT("SMALL_BG_SQUARES", 0x320, 0x8)
 };
 #undef CHR_SLOT
 
