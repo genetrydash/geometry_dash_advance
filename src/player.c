@@ -507,9 +507,6 @@ void level_complete_cutscene() {
     }
 }
 
-#define FIXED_MUL(a, b) (((u64)(a) * (b)) / SUBPIXEL_MULTIPLIER)
-#define FIXED_DIV(a, b) (((u64)(a) * SUBPIXEL_MULTIPLIER) / (b))
-
 void anim_player_to_wall() {
     // This uses a Bézier Cuadratic formula:  P = ((1−t)^2)*P1 + 2*(1−t)*t*P2 + (t^2)*P3
     // Calculate t

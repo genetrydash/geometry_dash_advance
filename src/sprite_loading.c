@@ -243,23 +243,36 @@ void setup_graphics_upload(u16 type, u8 object_slot, u16 attrib3) {
     }
 }
 
+#define IN_MAX 0xa00
+#define IN_MIN 0x200
+#define OUT_MAX 0x100
+#define OUT_MIN 0x60
+
+#define MIXING_BUFFER_SHORT_SIZE (s32)(sizeof(myMixingBuffer) / 2)
+#define MIXING_BUFFER_SHORT_SIZE (s32)(sizeof(myMixingBuffer) / 2)
 void scale_pulsing_objects() {
     obj_aff_identity(&obj_aff_buffer[AFF_SLOT_PULSING]);
-    u32 music_volume = 0;
+    u16 *mix_buffer_ptr = (u16 *) myMixingBuffer;
 
-    // Get loudest channel
-    for (s32 channel = 0; channel < (NUM_CHANNELS << 4); channel += 0x10) {
-        u32 volume = music_data[VOLUME_INDEX + channel];
-        if (volume > music_volume) {
-            music_volume = volume;
-        }
+    // Get sum
+    s32 counter = 0;
+    for (s32 value = 0; value < MIXING_BUFFER_SHORT_SIZE; value++) {
+        counter += mix_buffer_ptr[value];
     }
 
-    // Multiply by 2
-    music_volume <<= 1;
+    // Subtract min
+    counter -= IN_MIN * MIXING_BUFFER_SHORT_SIZE;
+    if (counter < 0) counter = 0;
 
-    u32 value = CLAMP(0x300 - (music_volume), 0x140, 0x300);
-    obj_aff_scale(&obj_aff_buffer[AFF_SLOT_PULSING], value, value);
+    // Get value from 0 to 1
+    s32 multiplier = FIXED_DIV(TO_FIXED(counter), TO_FIXED((IN_MAX - IN_MIN) * MIXING_BUFFER_SHORT_SIZE));
+
+    // Multiply by range
+    u32 calculated_range = FROM_FIXED(FIXED_MUL(multiplier, TO_FIXED(OUT_MAX - OUT_MIN)));
+
+    u32 final_value = OUT_MIN + calculated_range;
+    if (final_value > OUT_MAX) final_value = OUT_MAX;
+    obj_aff_scale_inv(&obj_aff_buffer[AFF_SLOT_PULSING], final_value, final_value);
 }
 
 void rotate_saws() {

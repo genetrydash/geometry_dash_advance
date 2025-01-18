@@ -13,6 +13,11 @@
 #define SCREENBLOCK_W 32
 #define SCREENBLOCK_H 32
 
+#define TO_FIXED(a)     (((s64)(a) * SUBPIXEL_MULTIPLIER))
+#define FROM_FIXED(a)   (((s64)(a) / SUBPIXEL_MULTIPLIER))
+#define FIXED_MUL(a, b) (((s64)(a) * (b)) / SUBPIXEL_MULTIPLIER)
+#define FIXED_DIV(a, b) (((s64)(a) * SUBPIXEL_MULTIPLIER) / (b))
+
 typedef OBJ_ATTR OAM_SPR;
 #define UNUSED __unused
 #define FALLTHROUGH __attribute__ ((fallthrough));
@@ -61,6 +66,8 @@ extern EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
                                +MM_SIZEOF_ACTCH
                                +MM_SIZEOF_MIXCH)
                                +MM_MIXLEN_31KHZ];
+
+extern ALIGN4 u8 myMixingBuffer[MM_MIXLEN_16KHZ];
 
 extern u8 debug_mode;
 extern u8 noclip;

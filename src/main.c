@@ -11,8 +11,6 @@
 void game_loop();
 u32 paused_routines();
 
-ALIGN4 u8 myMixingBuffer[MM_MIXLEN_31KHZ];
-
 void vblank_handler() {
     mmVBlank();
 
