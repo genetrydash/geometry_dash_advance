@@ -85,6 +85,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                         frames = 0
                         copy = False
                         copy_channel = 'BG'
+                        touch = False
 
                         try: 
                             properties = obj['properties']
@@ -99,6 +100,8 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                                     copy = bool(prop['value'])
                                 elif prop['name'] == 'Copy from channel':
                                     copy_channel = prop['value']
+                                elif prop['name'] == 'Touch trigger':
+                                    touch = bool(prop['value'])
 
                         except Exception:
                             raise Exception(f"Encountered color trigger without attributes on pos {x/16}, {y/16}.")
@@ -149,7 +152,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                         out_file.write(f"   .hword {hex((frames << 3) | channel_id)} @ changes {channel} for {frames} frames\n")
                         out_file.write(f"   .hword {hex(color_bgr555)} @ color\n")
                         out_file.write(f"   .hword {hex((copy_channel_id << 1) | copy)} @ {"copies {copy_channel}" if copy else "doesn't copy any channel"}\n")
-                        out_file.write(f"   .hword 0x0000 @ Empty, needed for word alignment\n")
+                        out_file.write(f"   .hword {hex(touch)} @ {"touch trigger" if touch else "normal trigger"}\n")
                         byte_counter += 8
                     else:
                         h_flip = False

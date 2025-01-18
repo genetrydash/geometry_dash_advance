@@ -12,7 +12,7 @@ stereomadness_spr_data:
    .hword 0x12c4 @ changes BG for 600 frames
    .hword 0x7c13 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 2
    .word 0x40 @ x
    .hword 0x190 @ y
@@ -20,7 +20,7 @@ stereomadness_spr_data:
    .hword 0x12c5 @ changes GROUND for 600 frames
    .hword 0x5c0c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 3
    .word 0x320 @ x
    .hword 0x1a0 @ y
@@ -232,7 +232,7 @@ stereomadness_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 38
    .word 0xf50 @ x
    .hword 0x120 @ y
@@ -240,7 +240,7 @@ stereomadness_spr_data:
    .hword 0x3c5 @ changes GROUND for 120 frames
    .hword 0xc60 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 39
    .word 0x1090 @ x
    .hword 0x110 @ y
@@ -248,7 +248,7 @@ stereomadness_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x383f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 40
    .word 0x1090 @ x
    .hword 0x120 @ y
@@ -256,7 +256,7 @@ stereomadness_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x100a @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 41
    .word 0x10a0 @ x
    .hword 0x160 @ y
@@ -402,7 +402,7 @@ stereomadness_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x7c17 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 65
    .word 0x1a20 @ x
    .hword 0x110 @ y
@@ -410,7 +410,7 @@ stereomadness_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x6411 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 66
    .word 0x1a20 @ x
    .hword 0x168 @ y
@@ -622,7 +622,7 @@ stereomadness_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x101e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 101
    .word 0x1ff0 @ x
    .hword 0x130 @ y
@@ -630,7 +630,7 @@ stereomadness_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0xc11 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 102
    .word 0x1ff0 @ x
    .hword 0x190 @ y
@@ -1076,7 +1076,7 @@ stereomadness_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x641f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 176
    .word 0x2fd0 @ x
    .hword 0x130 @ y
@@ -1084,7 +1084,7 @@ stereomadness_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x1005 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 177
    .word 0x2fd0 @ x
    .hword 0x140 @ y

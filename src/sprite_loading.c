@@ -91,6 +91,7 @@ ARM_CODE void load_objects() {
                         new_object.attrib2 = (*sprite_pointer) >> 16; // Color
                         sprite_pointer++;
                         new_object.attrib3 = (u16)(*sprite_pointer);  // Copy channel
+                        new_object.rotation = (*sprite_pointer) >> 16; // Extra flags
                         sprite_pointer++;
                         break;
                     case BASIC_BLOCK_OBJ:
@@ -309,8 +310,8 @@ ARM_CODE void display_objects() {
                         }
                     }
                 }
-            } else {
-                // If a color trigger, then just run collision
+            } else if (!(curr_object.rotation & COL_TRIGGER_ROT_VAR_TOUCH_MASK)) {
+                // If a color trigger and not touch trigger, then just run collision
                 do_collision(&object_buffer[index]);
             }
         }

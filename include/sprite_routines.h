@@ -2,6 +2,12 @@
 
 #pragma once
 
+#define COL_TRIGGER_ATTRIB1_CHANNEL_MASK 0b111
+#define COL_TRIGGER_ATTRIB1_FRAMES_MASK 0b1111111111111000
+#define COL_TRIGGER_ATTRIB1_FRAMES_SHIFT 3
+
+#define COL_TRIGGER_ROT_VAR_TOUCH_MASK 0b1
+
 typedef void (*jmp_table)();
 extern const jmp_table routines_jump_table[];
 extern const s16 obj_hitbox[][6];

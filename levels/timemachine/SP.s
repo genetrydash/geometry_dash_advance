@@ -12,7 +12,7 @@ timemachine_spr_data:
    .hword 0x2d4 @ changes BG for 90 frames
    .hword 0x5bc0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 2
    .word 0x10 @ x
    .hword 0x180 @ y
@@ -20,7 +20,7 @@ timemachine_spr_data:
    .hword 0x2d5 @ changes GROUND for 90 frames
    .hword 0x3620 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 3
    .word 0x150 @ x
    .hword 0x190 @ y
@@ -424,7 +424,7 @@ timemachine_spr_data:
    .hword 0x125 @ changes GROUND for 36 frames
    .hword 0x5020 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 70
    .word 0x970 @ x
    .hword 0x140 @ y
@@ -432,7 +432,7 @@ timemachine_spr_data:
    .hword 0x124 @ changes BG for 36 frames
    .hword 0x7d80 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 71
    .word 0x9ed @ x
    .hword 0x170 @ y
@@ -806,7 +806,7 @@ timemachine_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x5c1f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 133
    .word 0x1230 @ x
    .hword 0x140 @ y
@@ -814,7 +814,7 @@ timemachine_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x3c13 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 134
    .word 0x1240 @ x
    .hword 0x160 @ y
@@ -1626,7 +1626,7 @@ timemachine_spr_data:
    .hword 0x12c5 @ changes GROUND for 600 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 269
    .word 0x1d30 @ x
    .hword 0x120 @ y
@@ -1634,7 +1634,7 @@ timemachine_spr_data:
    .hword 0x12c4 @ changes BG for 600 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 270
    .word 0x1d30 @ x
    .hword 0x160 @ y
@@ -2356,7 +2356,7 @@ timemachine_spr_data:
    .hword 0x12c4 @ changes BG for 600 frames
    .hword 0x4013 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 390
    .word 0x2800 @ x
    .hword 0x170 @ y
@@ -2364,7 +2364,7 @@ timemachine_spr_data:
    .hword 0x12c5 @ changes GROUND for 600 frames
    .hword 0x4013 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 391
    .word 0x2800 @ x
    .hword 0x1b0 @ y
@@ -2726,7 +2726,7 @@ timemachine_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x681f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 451
    .word 0x2c70 @ x
    .hword 0x160 @ y
@@ -2734,7 +2734,7 @@ timemachine_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x3c12 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 452
    .word 0x2c70 @ x
    .hword 0x16c @ y
@@ -2904,7 +2904,7 @@ timemachine_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x3e1 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 480
    .word 0x30d0 @ x
    .hword 0x160 @ y
@@ -2912,7 +2912,7 @@ timemachine_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x200 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 481
    .word 0x30d0 @ x
    .hword 0x168 @ y
@@ -2992,7 +2992,7 @@ timemachine_spr_data:
    .hword 0x784 @ changes BG for 240 frames
    .hword 0x7fe0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 494
    .word 0x3260 @ x
    .hword 0x160 @ y
@@ -3000,7 +3000,7 @@ timemachine_spr_data:
    .hword 0x785 @ changes GROUND for 240 frames
    .hword 0x5aa0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 495
    .word 0x3288 @ x
    .hword 0x1a0 @ y
@@ -3140,7 +3140,7 @@ timemachine_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x681f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 518
    .word 0x3510 @ x
    .hword 0x100 @ y
@@ -3148,7 +3148,7 @@ timemachine_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x280c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 519
    .word 0x3520 @ x
    .hword 0x110 @ y
@@ -3324,7 +3324,7 @@ timemachine_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x3e6 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 548
    .word 0x3780 @ x
    .hword 0x120 @ y
@@ -3332,7 +3332,7 @@ timemachine_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x224 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 549
    .word 0x3780 @ x
    .hword 0x190 @ y
@@ -3610,7 +3610,7 @@ timemachine_spr_data:
    .hword 0x964 @ changes BG for 300 frames
    .hword 0x7dc0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 595
    .word 0x3970 @ x
    .hword 0x130 @ y
@@ -3618,7 +3618,7 @@ timemachine_spr_data:
    .hword 0x965 @ changes GROUND for 300 frames
    .hword 0x3ce0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 596
    .word 0x3970 @ x
    .hword 0x160 @ y

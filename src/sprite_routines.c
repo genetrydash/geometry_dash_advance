@@ -130,10 +130,13 @@ void speed_portal_4x(struct ObjectSlot *objectSlot) {
 void col_trigger(struct ObjectSlot *objectSlot) {
     struct Object col_trigger = objectSlot->object;
     
-    // If the player is right of the horizontal center of the trigger, activate the color trigger
-    if ((player_x >> SUBPIXEL_BITS) >= (col_trigger.x + 8)) {
-        u32 frames = (col_trigger.attrib1 >> 3) + 1; // +1 because 0 = 1
-        u32 channel = col_trigger.attrib1 & 0x7;
+    u32 is_touch_trigger = col_trigger.rotation & COL_TRIGGER_ROT_VAR_TOUCH_MASK;
+
+    // If the trigger is a touch trigger, then behave like a normal object,
+    // else if the player is right of the horizontal center of the trigger, activate the color trigger
+    if (is_touch_trigger || (player_x >> SUBPIXEL_BITS) >= (col_trigger.x + 8)) {
+        u32 frames = (col_trigger.attrib1 >> COL_TRIGGER_ATTRIB1_FRAMES_SHIFT) + 1; // +1 because 0 = 1
+        u32 channel = col_trigger.attrib1 & COL_TRIGGER_ATTRIB1_CHANNEL_MASK;
 
         u8 copy = col_trigger.attrib3 & 1;
         
@@ -413,7 +416,7 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("NONE", 0, 0, 0, 0, 0, 0)
     Object_Hitbox_Rectangle("SHIP_PORTAL", 20, 46, -2, -15, 8, 8)
     Object_Hitbox_Rectangle("CUBE_PORTAL", 20, 46, -2, -15, 8, 8)
-    Object_Hitbox_Rectangle("COL_TRIGGER", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("COL_TRIGGER", 16, 16, 0, 0, 8, 8)
     Object_Hitbox_Rectangle("BIG_BG_SPIKES", 0, 0, 0, 0, 0, 0)
     Object_Hitbox_Rectangle("MEDIUM_BG_SPIKES", 0, 0, 0, 0, 0, 0)
     Object_Hitbox_Rectangle("SMALL_BG_SPIKES", 0, 0, 0, 0, 0, 0)

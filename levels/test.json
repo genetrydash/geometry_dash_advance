@@ -1128,6 +1128,34 @@
                  "width":16,
                  "x":192,
                  "y":304
+                }, 
+                {
+                 "gid":516,
+                 "height":16,
+                 "id":576,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Channel",
+                         "type":"string",
+                         "value":"BG"
+                        }, 
+                        {
+                         "name":"Color",
+                         "type":"color",
+                         "value":"#ffff0000"
+                        }, 
+                        {
+                         "name":"Touch trigger",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":752,
+                 "y":432
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1136,7 +1164,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":576,
+ "nextobjectid":577,
  "orientation":"orthogonal",
  "properties":[
         {

@@ -132,7 +132,7 @@ polargeist_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x3f5 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 22
    .word 0x4c0 @ x
    .hword 0x170 @ y
@@ -140,7 +140,7 @@ polargeist_spr_data:
    .hword 0x5 @ changes GROUND for 0 frames
    .hword 0x28d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 23
    .word 0x530 @ x
    .hword 0x160 @ y
@@ -280,7 +280,7 @@ polargeist_spr_data:
    .hword 0xb44 @ changes BG for 360 frames
    .hword 0x4fe0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 46
    .word 0x8a0 @ x
    .hword 0x170 @ y
@@ -288,7 +288,7 @@ polargeist_spr_data:
    .hword 0xb45 @ changes GROUND for 360 frames
    .hword 0x3a20 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 47
    .word 0x8d0 @ x
    .hword 0x1a0 @ y
@@ -404,7 +404,7 @@ polargeist_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x541f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 66
    .word 0xc60 @ x
    .hword 0x160 @ y
@@ -412,7 +412,7 @@ polargeist_spr_data:
    .hword 0x5 @ changes GROUND for 0 frames
    .hword 0x3c13 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 67
    .word 0xc6c @ x
    .hword 0x1b0 @ y
@@ -672,7 +672,7 @@ polargeist_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 110
    .word 0x1420 @ x
    .hword 0x150 @ y
@@ -680,7 +680,7 @@ polargeist_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 111
    .word 0x19a0 @ x
    .hword 0x130 @ y
@@ -688,7 +688,7 @@ polargeist_spr_data:
    .hword 0x784 @ changes BG for 240 frames
    .hword 0x41c0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 112
    .word 0x19a0 @ x
    .hword 0x140 @ y
@@ -696,7 +696,7 @@ polargeist_spr_data:
    .hword 0x785 @ changes GROUND for 240 frames
    .hword 0x1ce0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 113
    .word 0x1bc0 @ x
    .hword 0x168 @ y
@@ -710,7 +710,7 @@ polargeist_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x7f00 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 115
    .word 0x1bc0 @ x
    .hword 0x180 @ y
@@ -718,7 +718,7 @@ polargeist_spr_data:
    .hword 0x5 @ changes GROUND for 0 frames
    .hword 0x59e0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 116
    .word 0x1c30 @ x
    .hword 0x1b0 @ y
@@ -1092,7 +1092,7 @@ polargeist_spr_data:
    .hword 0x964 @ changes BG for 300 frames
    .hword 0x59a1 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 178
    .word 0x26e0 @ x
    .hword 0x160 @ y
@@ -1100,7 +1100,7 @@ polargeist_spr_data:
    .hword 0x965 @ changes GROUND for 300 frames
    .hword 0x3ce1 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 179
    .word 0x26e0 @ x
    .hword 0x1b0 @ y
@@ -1438,7 +1438,7 @@ polargeist_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x1ba0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 235
    .word 0x3170 @ x
    .hword 0x140 @ y
@@ -1446,7 +1446,7 @@ polargeist_spr_data:
    .hword 0x3c5 @ changes GROUND for 120 frames
    .hword 0x6a0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 236
    .word 0x3170 @ x
    .hword 0x180 @ y

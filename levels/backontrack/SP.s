@@ -114,7 +114,7 @@ backontrack_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x401f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 19
    .word 0x8c0 @ x
    .hword 0x160 @ y
@@ -122,7 +122,7 @@ backontrack_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x2c14 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 20
    .word 0x8c0 @ x
    .hword 0x1b0 @ y
@@ -478,7 +478,7 @@ backontrack_spr_data:
    .hword 0x12c4 @ changes BG for 600 frames
    .hword 0x101f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 79
    .word 0x1620 @ x
    .hword 0x160 @ y
@@ -486,7 +486,7 @@ backontrack_spr_data:
    .hword 0x12c5 @ changes GROUND for 600 frames
    .hword 0x411 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 80
    .word 0x1704 @ x
    .hword 0x1b0 @ y
@@ -644,7 +644,7 @@ backontrack_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x7c10 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 106
    .word 0x1a40 @ x
    .hword 0x140 @ y
@@ -652,7 +652,7 @@ backontrack_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x4809 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 107
    .word 0x1a40 @ x
    .hword 0x160 @ y
@@ -774,7 +774,7 @@ backontrack_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x541f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 127
    .word 0x2310 @ x
    .hword 0x140 @ y
@@ -782,7 +782,7 @@ backontrack_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x3416 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 128
    .word 0x2310 @ x
    .hword 0x168 @ y
@@ -994,7 +994,7 @@ backontrack_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x7e20 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 163
    .word 0x2bf0 @ x
    .hword 0x140 @ y
@@ -1002,7 +1002,7 @@ backontrack_spr_data:
    .hword 0x95 @ changes GROUND for 18 frames
    .hword 0x6160 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 164
    .word 0x2bf0 @ x
    .hword 0x170 @ y

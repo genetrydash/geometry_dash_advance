@@ -276,7 +276,7 @@ cantletgo_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x381c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 46
    .word 0x760 @ x
    .hword 0x120 @ y
@@ -284,7 +284,7 @@ cantletgo_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x2413 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 47
    .word 0x790 @ x
    .hword 0x1b0 @ y
@@ -610,7 +610,7 @@ cantletgo_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 101
    .word 0xea0 @ x
    .hword 0xb0 @ y
@@ -618,7 +618,7 @@ cantletgo_spr_data:
    .hword 0x65 @ changes GROUND for 12 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 102
    .word 0xec0 @ x
    .hword 0x1b0 @ y
@@ -950,7 +950,7 @@ cantletgo_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x281d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 157
    .word 0x2ce0 @ x
    .hword 0x190 @ y
@@ -958,7 +958,7 @@ cantletgo_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x2419 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 158
    .word 0x2d18 @ x
    .hword 0x1b0 @ y
@@ -996,7 +996,7 @@ cantletgo_spr_data:
    .hword 0x12c4 @ changes BG for 600 frames
    .hword 0x281e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 164
    .word 0x2dc8 @ x
    .hword 0x1b0 @ y

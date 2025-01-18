@@ -435,10 +435,18 @@ ARM_CODE void do_collision_with_objects(u32 check_rotated) {
     for (s32 slot = 0; slot < MAX_OBJECTS; slot++) {
         // Check collision only if the slot is occupied
         struct ObjectSlot curr_object = object_buffer[slot];
+        // If is occupied and it hasn't been activated yet, continue
         if (curr_object.occupied && curr_object.activated == FALSE) {
+            // If it is at most 128 pixels offscreen of the right side, continue
             s32 relative_x = curr_object.object.x - ((scroll_x >> SUBPIXEL_BITS) & 0xffffffff);
             if (relative_x < SCREEN_WIDTH + 128) {
-                if (curr_object.has_collision && (check_rotated || !(curr_object.object.attrib1 & ENABLE_ROTATION_FLAG))) {
+                // Check if this object is a touch col trigger, if so, check collision
+                if (curr_object.object.type == COL_TRIGGER && curr_object.object.rotation & COL_TRIGGER_ROT_VAR_TOUCH_MASK) {
+                    check_obj_collision(slot); 
+                } 
+                // If it has collision and it is marked to collide with rotated objects, continue
+                // If it is not marked, check if the object is rotated, if not, continue
+                else if (curr_object.has_collision && (check_rotated || !(curr_object.object.attrib1 & ENABLE_ROTATION_FLAG))) {
                     check_obj_collision(slot); 
                 }
             }

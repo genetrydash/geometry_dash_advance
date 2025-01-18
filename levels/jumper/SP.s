@@ -84,7 +84,7 @@ jumper_spr_data:
    .hword 0x934 @ changes BG for 294 frames
    .hword 0x681f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 14
    .word 0x300 @ x
    .hword 0x130 @ y
@@ -92,7 +92,7 @@ jumper_spr_data:
    .hword 0x935 @ changes GROUND for 294 frames
    .hword 0x601a @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 15
    .word 0x310 @ x
    .hword 0x1b0 @ y
@@ -226,7 +226,7 @@ jumper_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2be0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 37
    .word 0x6f0 @ x
    .hword 0x120 @ y
@@ -234,7 +234,7 @@ jumper_spr_data:
    .hword 0x5 @ changes GROUND for 0 frames
    .hword 0x26c0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 38
    .word 0x6f0 @ x
    .hword 0x1b0 @ y
@@ -356,7 +356,7 @@ jumper_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x681f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 58
    .word 0xa40 @ x
    .hword 0x110 @ y
@@ -364,7 +364,7 @@ jumper_spr_data:
    .hword 0x5 @ changes GROUND for 0 frames
    .hword 0x4013 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 59
    .word 0xa40 @ x
    .hword 0x160 @ y
@@ -528,7 +528,7 @@ jumper_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x7d20 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 86
    .word 0xe00 @ x
    .hword 0x190 @ y
@@ -536,7 +536,7 @@ jumper_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 87
    .word 0xf90 @ x
    .hword 0x140 @ y
@@ -556,7 +556,7 @@ jumper_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x3e0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 90
    .word 0xfe0 @ x
    .hword 0x140 @ y
@@ -582,7 +582,7 @@ jumper_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x7d80 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 94
    .word 0x11a0 @ x
    .hword 0x190 @ y
@@ -608,7 +608,7 @@ jumper_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0xfe0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 98
    .word 0x1330 @ x
    .hword 0x140 @ y
@@ -634,7 +634,7 @@ jumper_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x7d0a @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 102
    .word 0x1510 @ x
    .hword 0x140 @ y
@@ -642,7 +642,7 @@ jumper_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x7406 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 103
    .word 0x1510 @ x
    .hword 0x168 @ y
@@ -770,7 +770,7 @@ jumper_spr_data:
    .hword 0x12c4 @ changes BG for 600 frames
    .hword 0x581f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 124
    .word 0x17b0 @ x
    .hword 0x160 @ y
@@ -778,7 +778,7 @@ jumper_spr_data:
    .hword 0x12c4 @ changes BG for 600 frames
    .hword 0x583b @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 125
    .word 0x17d0 @ x
    .hword 0x130 @ y
@@ -936,7 +936,7 @@ jumper_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x141f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 151
    .word 0x1c00 @ x
    .hword 0x140 @ y
@@ -944,7 +944,7 @@ jumper_spr_data:
    .hword 0x5 @ changes GROUND for 0 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 152
    .word 0x1d70 @ x
    .hword 0x168 @ y
@@ -982,7 +982,7 @@ jumper_spr_data:
    .hword 0x784 @ changes BG for 240 frames
    .hword 0x7c19 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 158
    .word 0x2000 @ x
    .hword 0x140 @ y
@@ -990,7 +990,7 @@ jumper_spr_data:
    .hword 0x784 @ changes BG for 240 frames
    .hword 0x4c11 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 159
    .word 0x2020 @ x
    .hword 0x1b0 @ y
@@ -1088,7 +1088,7 @@ jumper_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x7d40 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 175
    .word 0x2300 @ x
    .hword 0x120 @ y
@@ -1096,7 +1096,7 @@ jumper_spr_data:
    .hword 0x5 @ changes GROUND for 0 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 176
    .word 0x2300 @ x
    .hword 0x168 @ y
@@ -1110,7 +1110,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 178
    .word 0x24b0 @ x
    .hword 0x110 @ y
@@ -1118,7 +1118,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x441f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 179
    .word 0x2650 @ x
    .hword 0x110 @ y
@@ -1126,7 +1126,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x3f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 180
    .word 0x27e0 @ x
    .hword 0x110 @ y
@@ -1134,7 +1134,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x2fc @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 181
    .word 0x2980 @ x
    .hword 0x110 @ y
@@ -1142,7 +1142,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x3e7 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 182
    .word 0x2a00 @ x
    .hword 0x168 @ y
@@ -1186,7 +1186,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x6be0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 189
    .word 0x2b00 @ x
    .hword 0x1b0 @ y
@@ -1254,7 +1254,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x7de0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 200
    .word 0x2cb8 @ x
    .hword 0x1b0 @ y
@@ -1304,7 +1304,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x7c10 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 208
    .word 0x2e10 @ x
    .hword 0x150 @ y
@@ -1348,7 +1348,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x543f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 215
    .word 0x3010 @ x
    .hword 0x1b0 @ y
@@ -1404,7 +1404,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x13f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 224
    .word 0x3170 @ x
    .hword 0x160 @ y
@@ -1430,7 +1430,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x3ee @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 228
    .word 0x32c0 @ x
    .hword 0x160 @ y
@@ -1462,7 +1462,7 @@ jumper_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x5ba0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 233
    .word 0x3460 @ x
    .hword 0x188 @ y
@@ -1524,7 +1524,7 @@ jumper_spr_data:
    .hword 0x3f4 @ changes BG for 126 frames
    .hword 0x48c1 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 243
    .word 0x35b0 @ x
    .hword 0x1b0 @ y

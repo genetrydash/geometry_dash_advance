@@ -12,7 +12,7 @@ dryout_spr_data:
    .hword 0x12c4 @ changes BG for 600 frames
    .hword 0x8e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 2
    .word 0x118 @ x
    .hword 0x1b0 @ y
@@ -122,7 +122,7 @@ dryout_spr_data:
    .hword 0x12c4 @ changes BG for 600 frames
    .hword 0x3840 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 20
    .word 0x5d0 @ x
    .hword 0x150 @ y
@@ -130,7 +130,7 @@ dryout_spr_data:
    .hword 0x12c5 @ changes GROUND for 600 frames
    .hword 0x48a0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 21
    .word 0x6c0 @ x
    .hword 0x1b0 @ y
@@ -528,7 +528,7 @@ dryout_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 87
    .word 0x1120 @ x
    .hword 0x140 @ y
@@ -536,7 +536,7 @@ dryout_spr_data:
    .hword 0x1e5 @ changes GROUND for 60 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 88
    .word 0x1130 @ x
    .hword 0x170 @ y
@@ -550,7 +550,7 @@ dryout_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x102 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 90
    .word 0x11d0 @ x
    .hword 0x180 @ y
@@ -558,7 +558,7 @@ dryout_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x60 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 91
    .word 0x1240 @ x
    .hword 0xe0 @ y
@@ -566,7 +566,7 @@ dryout_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x13ed @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 92
    .word 0x1240 @ x
    .hword 0xf0 @ y
@@ -574,7 +574,7 @@ dryout_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x285 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 93
    .word 0x1240 @ x
    .hword 0x198 @ y
@@ -588,7 +588,7 @@ dryout_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x5bc0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 95
    .word 0x1340 @ x
    .hword 0xf0 @ y
@@ -596,7 +596,7 @@ dryout_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x3a60 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 96
    .word 0x1370 @ x
    .hword 0x190 @ y
@@ -616,7 +616,7 @@ dryout_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x3ed @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 99
    .word 0x1460 @ x
    .hword 0xf0 @ y
@@ -624,7 +624,7 @@ dryout_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x268 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 100
    .word 0x14c0 @ x
    .hword 0x140 @ y
@@ -644,7 +644,7 @@ dryout_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x4be0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 103
    .word 0x1540 @ x
    .hword 0xf0 @ y
@@ -652,7 +652,7 @@ dryout_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x2e40 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 104
    .word 0x15c4 @ x
    .hword 0x140 @ y
@@ -678,7 +678,7 @@ dryout_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x7e0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 108
    .word 0x1690 @ x
    .hword 0xf0 @ y
@@ -686,7 +686,7 @@ dryout_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x221 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 109
    .word 0x16e0 @ x
    .hword 0x140 @ y
@@ -718,7 +718,7 @@ dryout_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x3f0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 114
    .word 0x1790 @ x
    .hword 0xf0 @ y
@@ -726,7 +726,7 @@ dryout_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x229 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 115
    .word 0x17d0 @ x
    .hword 0x140 @ y
@@ -758,7 +758,7 @@ dryout_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x53e0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 120
    .word 0x18a0 @ x
    .hword 0xf0 @ y
@@ -766,7 +766,7 @@ dryout_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x3220 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 121
    .word 0x18a0 @ x
    .hword 0x168 @ y
@@ -816,7 +816,7 @@ dryout_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x13e0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 129
    .word 0x19c0 @ x
    .hword 0xf0 @ y
@@ -824,7 +824,7 @@ dryout_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0xa60 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 130
    .word 0x1a20 @ x
    .hword 0x160 @ y
@@ -862,7 +862,7 @@ dryout_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x141f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 136
    .word 0x1af0 @ x
    .hword 0xf0 @ y
@@ -870,7 +870,7 @@ dryout_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x1016 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 137
    .word 0x1b38 @ x
    .hword 0x1b0 @ y
@@ -1040,7 +1040,7 @@ dryout_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x3e3 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 165
    .word 0x2370 @ x
    .hword 0x110 @ y
@@ -1048,7 +1048,7 @@ dryout_spr_data:
    .hword 0x1e5 @ changes GROUND for 60 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 166
    .word 0x2490 @ x
    .hword 0x100 @ y
@@ -1056,7 +1056,7 @@ dryout_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x4fe0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 167
    .word 0x25a0 @ x
    .hword 0x100 @ y
@@ -1064,7 +1064,7 @@ dryout_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x3e1 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 168
    .word 0x26b0 @ x
    .hword 0x100 @ y
@@ -1072,7 +1072,7 @@ dryout_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x3fe0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 169
    .word 0x27b0 @ x
    .hword 0x120 @ y
@@ -1086,7 +1086,7 @@ dryout_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x3f4 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 171
    .word 0x27c0 @ x
    .hword 0x1b0 @ y
@@ -1160,7 +1160,7 @@ dryout_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x37e0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 183
    .word 0x28f0 @ x
    .hword 0x120 @ y
@@ -1234,7 +1234,7 @@ dryout_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0xbe1 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 195
    .word 0x2a00 @ x
    .hword 0x120 @ y
@@ -1302,7 +1302,7 @@ dryout_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x3f1 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 206
    .word 0x2b00 @ x
    .hword 0x1b0 @ y
@@ -1346,7 +1346,7 @@ dryout_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x501f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 213
    .word 0x2c40 @ x
    .hword 0x100 @ y
@@ -1354,7 +1354,7 @@ dryout_spr_data:
    .hword 0x95 @ changes GROUND for 18 frames
    .hword 0x3816 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 214
    .word 0x2c40 @ x
    .hword 0x168 @ y
@@ -1506,7 +1506,7 @@ dryout_spr_data:
    .hword 0x964 @ changes BG for 300 frames
    .hword 0x7c13 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 239
    .word 0x31b0 @ x
    .hword 0x160 @ y
@@ -1514,7 +1514,7 @@ dryout_spr_data:
    .hword 0x965 @ changes GROUND for 300 frames
    .hword 0x480b @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 240
    .word 0x3230 @ x
    .hword 0x1a0 @ y

@@ -120,7 +120,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x441f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 20
    .word 0x280 @ x
    .hword 0x140 @ y
@@ -128,7 +128,7 @@ clutterfunk_spr_data:
    .hword 0x95 @ changes GROUND for 18 frames
    .hword 0x3417 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 21
    .word 0x284 @ x
    .hword 0x190 @ y
@@ -280,7 +280,7 @@ clutterfunk_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0x1f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 46
    .word 0x460 @ x
    .hword 0x140 @ y
@@ -288,7 +288,7 @@ clutterfunk_spr_data:
    .hword 0x65 @ changes GROUND for 12 frames
    .hword 0x17 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 47
    .word 0x460 @ x
    .hword 0x180 @ y
@@ -476,7 +476,7 @@ clutterfunk_spr_data:
    .hword 0x5a4 @ changes BG for 180 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 78
    .word 0x6d0 @ x
    .hword 0x150 @ y
@@ -484,7 +484,7 @@ clutterfunk_spr_data:
    .hword 0x5a5 @ changes GROUND for 180 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 79
    .word 0x6e0 @ x
    .hword 0x1b0 @ y
@@ -678,7 +678,7 @@ clutterfunk_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x581f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 111
    .word 0x8b0 @ x
    .hword 0x140 @ y
@@ -686,7 +686,7 @@ clutterfunk_spr_data:
    .hword 0xf5 @ changes GROUND for 30 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 112
    .word 0x8b0 @ x
    .hword 0x150 @ y
@@ -694,7 +694,7 @@ clutterfunk_spr_data:
    .hword 0xf7 @ changes LINE for 30 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 113
    .word 0x8c8 @ x
    .hword 0x178 @ y
@@ -1110,7 +1110,7 @@ clutterfunk_spr_data:
    .hword 0x34 @ changes BG for 6 frames
    .hword 0x7c09 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 182
    .word 0xd50 @ x
    .hword 0x160 @ y
@@ -1574,7 +1574,7 @@ clutterfunk_spr_data:
    .hword 0x97 @ changes LINE for 18 frames
    .hword 0x7fff @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 259
    .word 0x1190 @ x
    .hword 0x190 @ y
@@ -1654,7 +1654,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x2002 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 272
    .word 0x1220 @ x
    .hword 0x120 @ y
@@ -1938,7 +1938,7 @@ clutterfunk_spr_data:
    .hword 0xd24 @ changes BG for 420 frames
    .hword 0x817 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 319
    .word 0x13e0 @ x
    .hword 0x1b0 @ y
@@ -2426,7 +2426,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 400
    .word 0x1680 @ x
    .hword 0x178 @ y
@@ -2440,7 +2440,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 402
    .word 0x16a0 @ x
    .hword 0x1b4 @ y
@@ -2496,7 +2496,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 411
    .word 0x1718 @ x
    .hword 0x150 @ y
@@ -2510,7 +2510,7 @@ clutterfunk_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 413
    .word 0x1748 @ x
    .hword 0x138 @ y
@@ -2536,7 +2536,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 417
    .word 0x175a @ x
    .hword 0x120 @ y
@@ -2544,7 +2544,7 @@ clutterfunk_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 418
    .word 0x1778 @ x
    .hword 0x138 @ y
@@ -2570,7 +2570,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 422
    .word 0x178a @ x
    .hword 0x120 @ y
@@ -2578,7 +2578,7 @@ clutterfunk_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 423
    .word 0x17a8 @ x
    .hword 0x140 @ y
@@ -2598,7 +2598,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 426
    .word 0x17e0 @ x
    .hword 0x120 @ y
@@ -2606,7 +2606,7 @@ clutterfunk_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 427
    .word 0x17e0 @ x
    .hword 0x1b0 @ y
@@ -2650,7 +2650,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 434
    .word 0x1840 @ x
    .hword 0x150 @ y
@@ -2664,7 +2664,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 436
    .word 0x1850 @ x
    .hword 0x15c @ y
@@ -2678,7 +2678,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 438
    .word 0x1860 @ x
    .hword 0x150 @ y
@@ -2704,7 +2704,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 442
    .word 0x1870 @ x
    .hword 0x15c @ y
@@ -2730,7 +2730,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 446
    .word 0x18c0 @ x
    .hword 0x120 @ y
@@ -2738,7 +2738,7 @@ clutterfunk_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 447
    .word 0x18c0 @ x
    .hword 0x17b @ y
@@ -2788,7 +2788,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 455
    .word 0x1940 @ x
    .hword 0x198 @ y
@@ -2808,7 +2808,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 458
    .word 0x1950 @ x
    .hword 0x13c @ y
@@ -2822,7 +2822,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 460
    .word 0x1970 @ x
    .hword 0x13c @ y
@@ -2848,7 +2848,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 464
    .word 0x1990 @ x
    .hword 0x1b0 @ y
@@ -2868,7 +2868,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 467
    .word 0x19a0 @ x
    .hword 0x198 @ y
@@ -2882,7 +2882,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 469
    .word 0x19c0 @ x
    .hword 0x1b0 @ y
@@ -2896,7 +2896,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x2819 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 471
    .word 0x19f0 @ x
    .hword 0x120 @ y
@@ -2904,7 +2904,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 472
    .word 0x19f0 @ x
    .hword 0x16d @ y
@@ -2924,7 +2924,7 @@ clutterfunk_spr_data:
    .hword 0x34 @ changes BG for 6 frames
    .hword 0x385f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 475
    .word 0x1a40 @ x
    .hword 0x150 @ y
@@ -2980,7 +2980,7 @@ clutterfunk_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x180e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 484
    .word 0x1aa0 @ x
    .hword 0x150 @ y
@@ -3060,7 +3060,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x640d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 497
    .word 0x1b10 @ x
    .hword 0x110 @ y
@@ -3068,7 +3068,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3806 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 498
    .word 0x1b10 @ x
    .hword 0x188 @ y
@@ -3154,7 +3154,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x640d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 512
    .word 0x1bb0 @ x
    .hword 0x1a0 @ y
@@ -3168,7 +3168,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3806 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 514
    .word 0x1bc0 @ x
    .hword 0x1b0 @ y
@@ -3230,7 +3230,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x640d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 524
    .word 0x1c40 @ x
    .hword 0x138 @ y
@@ -3250,7 +3250,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3806 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 527
    .word 0x1c50 @ x
    .hword 0x140 @ y
@@ -3288,7 +3288,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x640d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 533
    .word 0x1c80 @ x
    .hword 0x1a0 @ y
@@ -3302,7 +3302,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3806 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 535
    .word 0x1c90 @ x
    .hword 0x140 @ y
@@ -3376,7 +3376,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x640d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 547
    .word 0x1d30 @ x
    .hword 0x140 @ y
@@ -3390,7 +3390,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3806 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 549
    .word 0x1d60 @ x
    .hword 0x120 @ y
@@ -3398,7 +3398,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x640d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 550
    .word 0x1d6c @ x
    .hword 0x1a0 @ y
@@ -3418,7 +3418,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3806 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 553
    .word 0x1d70 @ x
    .hword 0x140 @ y
@@ -3456,7 +3456,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x640d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 559
    .word 0x1de0 @ x
    .hword 0x120 @ y
@@ -3464,7 +3464,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3806 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 560
    .word 0x1de0 @ x
    .hword 0x160 @ y
@@ -3562,7 +3562,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x640d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 576
    .word 0x1ea0 @ x
    .hword 0x120 @ y
@@ -3570,7 +3570,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3806 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 577
    .word 0x1ea0 @ x
    .hword 0x170 @ y
@@ -3596,7 +3596,7 @@ clutterfunk_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x7c8d @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 581
    .word 0x1ec0 @ x
    .hword 0x1b0 @ y
@@ -3652,7 +3652,7 @@ clutterfunk_spr_data:
    .hword 0x3f4 @ changes BG for 126 frames
    .hword 0x1c03 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 590
    .word 0x1f50 @ x
    .hword 0x140 @ y
@@ -3798,7 +3798,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0xfe1 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 614
    .word 0x2120 @ x
    .hword 0x120 @ y
@@ -3806,7 +3806,7 @@ clutterfunk_spr_data:
    .hword 0x97 @ changes LINE for 18 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 615
    .word 0x2120 @ x
    .hword 0x180 @ y
@@ -4006,7 +4006,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x7f20 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 648
    .word 0x25a0 @ x
    .hword 0x178 @ y
@@ -4104,7 +4104,7 @@ clutterfunk_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0x3df @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 664
    .word 0x27e8 @ x
    .hword 0x160 @ y
@@ -4130,7 +4130,7 @@ clutterfunk_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0x7f20 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 668
    .word 0x2858 @ x
    .hword 0x190 @ y
@@ -4156,7 +4156,7 @@ clutterfunk_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0x3df @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 672
    .word 0x28d8 @ x
    .hword 0x150 @ y
@@ -4182,7 +4182,7 @@ clutterfunk_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0x7f20 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 676
    .word 0x2958 @ x
    .hword 0x190 @ y
@@ -4214,7 +4214,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x280c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 681
    .word 0x2a10 @ x
    .hword 0x100 @ y
@@ -4222,7 +4222,7 @@ clutterfunk_spr_data:
    .hword 0x95 @ changes GROUND for 18 frames
    .hword 0x681c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 682
    .word 0x2a10 @ x
    .hword 0x110 @ y
@@ -4230,7 +4230,7 @@ clutterfunk_spr_data:
    .hword 0x67 @ changes LINE for 12 frames
    .hword 0x7fff @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 683
    .word 0x2a10 @ x
    .hword 0x170 @ y
@@ -4310,7 +4310,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x4c15 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 696
    .word 0x2b2c @ x
    .hword 0x168 @ y
@@ -4336,7 +4336,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x280c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 700
    .word 0x2b50 @ x
    .hword 0x1a0 @ y
@@ -4368,7 +4368,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x4c15 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 705
    .word 0x2bb0 @ x
    .hword 0x140 @ y
@@ -4376,7 +4376,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x280c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 706
    .word 0x2bb0 @ x
    .hword 0x160 @ y
@@ -4414,7 +4414,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x4c15 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 712
    .word 0x2bf0 @ x
    .hword 0x160 @ y
@@ -4446,7 +4446,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x280c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 717
    .word 0x2c0c @ x
    .hword 0x1b0 @ y
@@ -4484,7 +4484,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 723
    .word 0x2c30 @ x
    .hword 0x150 @ y
@@ -4492,7 +4492,7 @@ clutterfunk_spr_data:
    .hword 0x95 @ changes GROUND for 18 frames
    .hword 0x7060 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 724
    .word 0x2c30 @ x
    .hword 0x190 @ y
@@ -4512,7 +4512,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x5400 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 727
    .word 0x2c65 @ x
    .hword 0x160 @ y
@@ -4520,7 +4520,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 728
    .word 0x2c7c @ x
    .hword 0x170 @ y
@@ -4558,7 +4558,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x5400 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 734
    .word 0x2cc8 @ x
    .hword 0x150 @ y
@@ -4584,7 +4584,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 738
    .word 0x2cdc @ x
    .hword 0x1b0 @ y
@@ -4688,7 +4688,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x5400 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 755
    .word 0x2d70 @ x
    .hword 0x190 @ y
@@ -4702,7 +4702,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 757
    .word 0x2d90 @ x
    .hword 0x1b0 @ y
@@ -4830,7 +4830,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x5400 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 778
    .word 0x2df0 @ x
    .hword 0x1b0 @ y
@@ -4844,7 +4844,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 780
    .word 0x2e00 @ x
    .hword 0x100 @ y
@@ -4894,7 +4894,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x5400 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 788
    .word 0x2e50 @ x
    .hword 0xe0 @ y
@@ -4902,7 +4902,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 789
    .word 0x2e50 @ x
    .hword 0x120 @ y
@@ -4922,7 +4922,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x280c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 792
    .word 0x2e70 @ x
    .hword 0x110 @ y
@@ -4930,7 +4930,7 @@ clutterfunk_spr_data:
    .hword 0x95 @ changes GROUND for 18 frames
    .hword 0x681c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 793
    .word 0x2e70 @ x
    .hword 0x160 @ y
@@ -4980,7 +4980,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x4c15 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 801
    .word 0x2ed0 @ x
    .hword 0x1a0 @ y
@@ -5000,7 +5000,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x280c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 804
    .word 0x2ee0 @ x
    .hword 0x1b0 @ y
@@ -5080,7 +5080,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x4c15 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 817
    .word 0x2f80 @ x
    .hword 0x1a0 @ y
@@ -5094,7 +5094,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x280c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 819
    .word 0x2fa0 @ x
    .hword 0x1b0 @ y
@@ -5138,7 +5138,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x4c15 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 826
    .word 0x2fe0 @ x
    .hword 0x160 @ y
@@ -5152,7 +5152,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x280c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 828
    .word 0x2ff8 @ x
    .hword 0x128 @ y
@@ -5184,7 +5184,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x4c15 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 833
    .word 0x3030 @ x
    .hword 0x120 @ y
@@ -5198,7 +5198,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x280c @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 835
    .word 0x3040 @ x
    .hword 0xec @ y
@@ -5236,7 +5236,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 841
    .word 0x3070 @ x
    .hword 0x120 @ y
@@ -5244,7 +5244,7 @@ clutterfunk_spr_data:
    .hword 0x95 @ changes GROUND for 18 frames
    .hword 0x7060 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 842
    .word 0x3070 @ x
    .hword 0x160 @ y
@@ -5258,7 +5258,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x5400 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 844
    .word 0x30b0 @ x
    .hword 0x100 @ y
@@ -5266,7 +5266,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 845
    .word 0x30b0 @ x
    .hword 0x160 @ y
@@ -5310,7 +5310,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x5400 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 852
    .word 0x30f0 @ x
    .hword 0x100 @ y
@@ -5318,7 +5318,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 853
    .word 0x30f8 @ x
    .hword 0x1b0 @ y
@@ -5344,7 +5344,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x5400 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 857
    .word 0x3120 @ x
    .hword 0x1b0 @ y
@@ -5358,7 +5358,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 859
    .word 0x3140 @ x
    .hword 0x140 @ y
@@ -5414,7 +5414,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x5400 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 868
    .word 0x3190 @ x
    .hword 0x100 @ y
@@ -5422,7 +5422,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 869
    .word 0x3190 @ x
    .hword 0x130 @ y
@@ -5466,7 +5466,7 @@ clutterfunk_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x5400 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 876
    .word 0x31f0 @ x
    .hword 0x100 @ y
@@ -5474,7 +5474,7 @@ clutterfunk_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x3000 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 877
    .word 0x3200 @ x
    .hword 0x1b0 @ y
@@ -5488,7 +5488,7 @@ clutterfunk_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 879
    .word 0x3220 @ x
    .hword 0xf0 @ y
@@ -5496,7 +5496,7 @@ clutterfunk_spr_data:
    .hword 0x1e5 @ changes GROUND for 60 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 880
    .word 0x3220 @ x
    .hword 0x130 @ y
@@ -5624,7 +5624,7 @@ clutterfunk_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0x1f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 901
    .word 0x3300 @ x
    .hword 0x158 @ y
@@ -5662,7 +5662,7 @@ clutterfunk_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x6c3f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 907
    .word 0x3350 @ x
    .hword 0x1a0 @ y
@@ -5898,7 +5898,7 @@ clutterfunk_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x7440 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 946
    .word 0x3518 @ x
    .hword 0x118 @ y
@@ -6170,7 +6170,7 @@ clutterfunk_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x7e2 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 991
    .word 0x3670 @ x
    .hword 0xf0 @ y
@@ -6358,7 +6358,7 @@ clutterfunk_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x7bf @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 1022
    .word 0x37d0 @ x
    .hword 0x170 @ y
@@ -6660,7 +6660,7 @@ clutterfunk_spr_data:
    .hword 0x3c4 @ changes BG for 120 frames
    .hword 0x41e @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 1072
    .word 0x3964 @ x
    .hword 0x110 @ y
@@ -7058,7 +7058,7 @@ clutterfunk_spr_data:
    .hword 0x5a4 @ changes BG for 180 frames
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x0000 @ Empty, needed for word alignment
+   .hword 0x0 @ normal trigger
 @ Object 1138
    .word 0x3bf8 @ x
    .hword 0xf0 @ y
