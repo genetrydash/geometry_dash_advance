@@ -27,6 +27,7 @@ In the case of color triggers (sprite #3), the attribute set is different:
 - Copy color: this enables copying a color from another channel. 
 - Copy from channel: in the case that copy color is enabled, copy from the channel specified. The channel list is the same as before but with the addition of P1 and P2 (player color).
 - Frames: number of frames that the transition will last. For reference, 1 second is 60 frames. Max value is 8192, or 2 minutes and 16 minutes.
+- Touch trigger: mark if this trigger should activate by touching its hitbox (16x16 of size) instead of by crossing its center horizontally (added in 1.5)
 
 NOTE: when making a ceiling for gamemodes other than cube, make sure the size of each square is 4x4 blocks wide, not 3x4. This is a common mistake. Usually, space above the ceiling is filled with the black metatile (metatile #125).
 
