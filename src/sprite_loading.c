@@ -138,7 +138,7 @@ ARM_CODE void load_objects() {
                     // Rotate flag is LSB of obj_width
                     if (obj_width & 1) {
                         // Get block position evenness for rotate direction
-                        u32 rot_id = ((new_object.x & 0x10) ? ROTATING_CLOCKWISE : ROTATING_COUNTERCLOCKWISE);
+                        u32 rot_id = ((qran() & 1) ? ROTATING_CLOCKWISE : ROTATING_COUNTERCLOCKWISE);
                         new_object.attrib2 |= IS_ROTATING_FLAG;
                         new_object.attrib2 |= rot_id;
                     }

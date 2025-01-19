@@ -43,7 +43,8 @@
         "cmath": "c",
         "random": "c",
         "*.tcc": "c",
-        "string": "c"
+        "string": "c",
+        "initializer_list": "c"
     },
     "C_Cpp.default.cStandard": "c99",
     "C_Cpp.errorSquiggles": "disabled",

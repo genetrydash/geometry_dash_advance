@@ -1,6 +1,6 @@
 .section .rodata
 .global blockset
-.global player0_icon
+.global icon_0
 .global sprites_chr
 .global bg_chr
 .global menu_chr
@@ -10,7 +10,7 @@
 blockset:
     .incbin "graphics/tileset.chr"
 
-player0_icon:
+icon_0:
     .incbin "graphics/player.chr"
 
 sprites_chr:

@@ -250,15 +250,12 @@ void reset_variables() {
 
     next_free_tile_id = START_OF_OBJECT_CHR;
 
-    memset32(level_buffer, 0x0000, sizeof(level_buffer) / sizeof(u32));
-    memset32(chr_slots, 0x0000, (sizeof(struct ObjectCHRSlot) * MAX_OBJECTS) / sizeof(u32));
-    memset16(loaded_object_buffer, 0xffff, sizeof(loaded_object_buffer) / sizeof(s16));
-    memset16(unloaded_object_buffer, 0xffff, sizeof(unloaded_object_buffer) / sizeof(s16));
-    for (u32 index = 0; index < MAX_OBJECTS; index++) {
-        chr_slots[index].rom_offset = 0xffffffff;
-    }
-    memset32(object_buffer, 0x0000, (sizeof(struct ObjectSlot) * MAX_OBJECTS) / sizeof(u32));
-    memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
+    dma3_fill(level_buffer, 0x0000, sizeof(level_buffer));
+    dma3_fill(chr_slots, 0x0000, sizeof(chr_slots));
+    dma3_fill(loaded_object_buffer, 0xffff, sizeof(loaded_object_buffer));
+    dma3_fill(unloaded_object_buffer, 0xffff, sizeof(unloaded_object_buffer));
+    dma3_fill(object_buffer, 0x0000, sizeof(object_buffer));
+    dma3_cpy(&se_mem[26][0], bg_tiles, sizeof(bg_tiles));
 
     REG_BG0HOFS = REG_BG1HOFS = 0;
     REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
@@ -271,13 +268,12 @@ void reset_variables() {
 
     for (u32 index = 0; index < MAX_OBJECTS; index++) {
         object_buffer[index].occupied = FALSE;
+        chr_slots[index].rom_offset = 0xffffffff;
     }
 
     for (u32 channel = 0; channel < CHANNEL_COUNT; channel++) {
         col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE] = FALSE;
     }
-
-    memset32(music_data, 0, sizeof(music_data) / sizeof(u32));
 
     rotate_saws();
     scale_pulsing_objects();
@@ -316,8 +312,8 @@ void load_level(u32 level_ID) {
     set_target_y_scroll(-1);
 
     // Copy palettes into the buffer
-    memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
-    memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
+    dma3_cpy(palette_buffer, blockPalette, sizeof(blockPalette));
+    dma3_cpy(&palette_buffer[256], spritePalette, sizeof(spritePalette));
 
     // Set BG and ground colors
     set_initial_color(bg_color, ground_color);
@@ -495,7 +491,8 @@ ARM_CODE void swap_screen_dir() {
     for (s32 layer = 0; layer < LEVEL_LAYERS + 1; layer++) {
         // Copy tilemap into buffer
         SCR_ENTRY *mirror_screen_buffer = (SCR_ENTRY *) &vram_copy_buffer;
-        memcpy32(mirror_screen_buffer, &se_mem[24 + layer], (SCREENBLOCK_W * SCREENBLOCK_H) / 2);
+        
+        dma3_cpy(mirror_screen_buffer, &se_mem[24 + layer], (SCREENBLOCK_W * SCREENBLOCK_H) * 2);
 
         s32 y_pos = 0;
         for (s32 y = 0; y < SCREENBLOCK_H; y++) {

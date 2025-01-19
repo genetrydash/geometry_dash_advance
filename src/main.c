@@ -54,19 +54,22 @@ void vblank_handler() {
             run_particles();
 
             // Copy palette from buffer
-            memcpy32(pal_bg_mem, palette_buffer, 256);
+            dma3_cpy(pal_bg_mem, palette_buffer, 512*2);
         }
 
         if (update_flags & CLEAR_OAM_BUFFER) {
             // Clear OAM
-            memset32(shadow_oam, ATTR0_HIDE, 256);
+            dma3_fill(shadow_oam, ATTR0_HIDE, 256*4); 
             // Clear rotation buffer
-            memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
+            dma3_fill(rotation_buffer, 0x0000, NUM_ROT_SLOTS*2); 
         }
     }
 
     // Increment global timer
     global_timer++;
+
+    // Advance rng seed
+    qran();
 
     // Run sound
     mmFrame();
@@ -167,14 +170,15 @@ void game_loop() {
 
     // Init OAM and VRAM
     oam_init(shadow_oam, 128);
-    memcpy32(&tile_mem[0][0], blockset, sizeof(blockset) / 4);
-    memcpy32(&tile_mem[2][0], bg_chr, sizeof(bg_chr) / 4);
-    memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
-    memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
+    
+    dma3_cpy(&tile_mem[0][0], blockset, sizeof(blockset));
+    dma3_cpy(&tile_mem[2][0], bg_chr, sizeof(bg_chr));
+    dma3_cpy(&se_mem[26][0], bg_tiles, sizeof(bg_tiles));
 
-    memcpy32(&tile_mem_obj[0][0], player0_icon, sizeof(player0_icon) / 4);
-    memcpy32(&tile_mem_obj[0][992], level_text_chr, sizeof(level_text_chr) / 4);
-    memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
+    dma3_cpy(&tile_mem_obj[0][0], icon_0, sizeof(icon_0));
+    dma3_cpy(&tile_mem_obj[0][992], level_text_chr, sizeof(level_text_chr));
+    dma3_cpy(palette_buffer, blockPalette, sizeof(blockPalette));
+    dma3_cpy(&palette_buffer[256], spritePalette, sizeof(spritePalette));
 
     REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2 | DCNT_WIN0;
 
@@ -245,8 +249,6 @@ void game_loop() {
         scale_pulsing_objects();
         sort_oam_by_prio();
 
-        // Mark the frame as finished
-        frame_finished = TRUE;
 #ifdef DEBUG
         if (debug_mode) {
             // I know this copies more bytes than it should, but some time has to be wasted for the line to cover an entire scanline
@@ -254,6 +256,8 @@ void game_loop() {
             memcpy32(pal_bg_mem, palette_buffer, 256);
         }
 #endif
+        // Mark the frame as finished
+        frame_finished = TRUE;
 
         // Wait for VSYNC
         VBlankIntrWait();
