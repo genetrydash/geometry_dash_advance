@@ -432,7 +432,7 @@ void reset_level() {
 
     fade_in_level();
 }
-u64 approach_value_asympthotic(u64 current, u64 target, u32 multiplier);
+u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_adjustment);
 u64 approach_value(u64 current, u64 target, s32 inc, s32 dec);
 
 void scroll_screen_vertically() {
@@ -455,10 +455,10 @@ void scroll_screen_vertically() {
         if (intended_scroll_y < 0) intended_scroll_y = 0;
         if (intended_scroll_y > BOTTOM_SCROLL_LIMIT) intended_scroll_y = BOTTOM_SCROLL_LIMIT;
 
-        scroll_y = approach_value_asympthotic(scroll_y, intended_scroll_y, 0x6000);
+        scroll_y = approach_value_asymptotic(scroll_y, intended_scroll_y, 0x6000, CUBE_MAX_Y_SPEED);
     } else {
         intended_scroll_y = scroll_y;
-        scroll_y = approach_value_asympthotic(scroll_y, target_scroll_y, 0x2800);
+        scroll_y = approach_value_asymptotic(scroll_y, target_scroll_y, 0x2800, 0x30000);
     }
 }
 
@@ -562,9 +562,17 @@ void calculate_trans_window_pos() {
     REG_WIN0H = (left << 8) | right;
 }
 
-u64 approach_value_asympthotic(u64 current, u64 target, u32 multiplier) {
+u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_adjustment) {
     s64 diff = (target - current);
-    return (current + ((diff * multiplier) / SUBPIXEL_MULTIPLIER));
+    s64 adjustement = FIXED_MUL(diff, multiplier);
+
+    // Cap adjustment
+    if (adjustement > (s64)max_adjustment) {
+        adjustement = (s64)max_adjustment;
+    } else if (adjustement < -(s64)(max_adjustment)) {
+        adjustement = -(s64)max_adjustment;
+    }
+    return (current + adjustement);
 }
 
 u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
