@@ -111,11 +111,95 @@ void init_maxmod() {
     irq_enable(II_VBLANK);
 }
 
+#define MEM_CHECK_MAGIC 14021968
+#define MEM_CHECK_SIZE  16
+
+const u32 ROM_MAGIC[MEM_CHECK_SIZE] = {
+    MEM_CHECK_MAGIC + 0,
+    MEM_CHECK_MAGIC + 1,
+    MEM_CHECK_MAGIC + 2,
+    MEM_CHECK_MAGIC + 3,
+    MEM_CHECK_MAGIC + 4,
+    MEM_CHECK_MAGIC + 5,
+    MEM_CHECK_MAGIC + 6,
+    MEM_CHECK_MAGIC + 7,
+    MEM_CHECK_MAGIC + 8,
+    MEM_CHECK_MAGIC + 9,
+    MEM_CHECK_MAGIC + 10,
+    MEM_CHECK_MAGIC + 11,
+    MEM_CHECK_MAGIC + 12,
+    MEM_CHECK_MAGIC + 13,
+    MEM_CHECK_MAGIC + 14,
+    MEM_CHECK_MAGIC + 15,
+};
+
+void check_ewram_overclock() {
+    // Set overclocked EWRAM
+    REG_MEMCTRL = 0x0E000020;
+
+    for(s32 index = 8; index >= 0; --index) {
+        vu32 *volatile_ewram_data = &ewram_data;
+
+        u32 test_value = qran();
+        *volatile_ewram_data = test_value;
+
+        // If different value (read failed), then disable overclock
+        if(*volatile_ewram_data != test_value) {
+            REG_MEMCTRL = 0x0D000020;
+            return;
+        }
+    }
+}
+
+EWRAM_CODE u32 check_rom_waitstate(u32 mask) {
+    REG_WSCNT = mask;
+
+    // check sequential read (S)
+    for (s32 i = 0; i < MEM_CHECK_SIZE; i++) {
+        if (*(vs32*)&ROM_MAGIC[i] != (MEM_CHECK_MAGIC + i)) {
+            // Read failed, reset to default values
+            REG_WSCNT = WS_ROM0_N4 | WS_ROM0_S2 | WS_PREFETCH;
+            return FALSE;
+        }
+    }
+
+    // check non-sequential read (N)
+    for (s32 i = 0, j = MEM_CHECK_SIZE - 1; i < MEM_CHECK_SIZE; i++, j--) {
+        u8 L = *(vs32*)&ROM_MAGIC[i] == (MEM_CHECK_MAGIC + i);
+        u8 R = *(vs32*)&ROM_MAGIC[j] == (MEM_CHECK_MAGIC + j);
+
+        // If the values are the same, then continue checking
+        if (L && R) continue;
+
+        // Read failed, reset to default values
+        REG_WSCNT = WS_ROM0_N4 | WS_ROM0_S2 | WS_PREFETCH;
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+const u32 WSCNT_MASK[] = {
+    WS_ROM0_N2 | WS_ROM0_S1 | WS_PREFETCH,
+    WS_ROM0_N3 | WS_ROM0_S1 | WS_PREFETCH,
+    WS_ROM0_N3 | WS_ROM0_S2 | WS_PREFETCH,
+};
+
+void rom_waitstates() {
+    for (u32 i = 0; i < (sizeof(WSCNT_MASK) / sizeof(u32)); i++)
+    {
+        if (check_rom_waitstate(WSCNT_MASK[i])) {
+            break;
+        }
+    }
+}
+
 s32 main() {
     init_maxmod();
 
-    // Enable waitstate 3,1
-    REG_WAITCNT = 0x4317;
+    check_ewram_overclock();
+
+    rom_waitstates();
 
     REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG2, BLD_STD);
 

@@ -18,6 +18,9 @@
 #define FIXED_MUL(a, b) (((s64)(a) * (b)) / SUBPIXEL_MULTIPLIER)
 #define FIXED_DIV(a, b) (((s64)(a) * SUBPIXEL_MULTIPLIER) / (b))
 
+#define REG_MEMCTRL *(vu32*)(REG_BASE + 0x800)
+
+
 typedef OBJ_ATTR OAM_SPR;
 #define UNUSED __unused
 #define FALLTHROUGH __attribute__ ((fallthrough));
@@ -110,3 +113,5 @@ extern u8 complete_cutscene;
 extern u16 cutscene_frame;
 extern u32 cutscene_initial_player_x;
 extern u32 cutscene_initial_player_y;
+
+extern EWRAM_DATA u32 ewram_data;

@@ -108,3 +108,5 @@ u16 cutscene_frame = 0;
 // Initial position of player for the curve. In pixels
 u32 cutscene_initial_player_x;
 u32 cutscene_initial_player_y;
+
+EWRAM_DATA u32 ewram_data;

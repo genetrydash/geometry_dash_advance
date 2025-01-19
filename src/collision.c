@@ -152,14 +152,14 @@ ARM_CODE void collision_ship_ball_ufo() {
     }
 }
 
-u16 obtain_block(u32 x, u32 y, u32 layer) {
+ARM_CODE u16 obtain_block(u32 x, u32 y, u32 layer) {
     u32 block_x = (x >> 4) & 0x1f; // Get block x in buffer (0-31)
     u32 block_y = y >> 4;          // Get block y in buffer, not capped for easy level vertical extension
 
     return level_buffer[layer][block_x + block_y * LEVEL_BUFFER_WIDTH];
 }
 
-u16 obtain_collision_type(u32 x, u32 y, u32 layer) {
+ARM_CODE INLINE u16 obtain_collision_type(u32 x, u32 y, u32 layer) {
     // Obtain the col type from the table, indexed by metatile ID
     return metatiles[obtain_block(x,y,layer)][4];
 }
