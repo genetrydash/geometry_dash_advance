@@ -27,7 +27,7 @@ u8 decompressed_column;
 
 void screen_scroll_load();
 void decompress_column(u32 layer);
-void scroll_H(u32 layer);
+void scroll_H(u32 layer, s32 mt_count);
 void increment_column();
 void put_ground();
 void unpack_rle_packet(u32 layer);
@@ -46,9 +46,10 @@ void decompress_first_screen() {
             decompress_column(layer);
             // Draw this column
             for (s32 j = 0; j < 2; j++) {
-                seam_y = (scroll_y >> SUBPIXEL_BITS) - 0x16;
-                scroll_H(layer);
+                seam_y = (scroll_y >> SUBPIXEL_BITS);
+                scroll_H(layer, 11);
                 seam_x += 8;
+                
             }
             increment_column();
         }
@@ -74,8 +75,8 @@ void increment_column() {
     if (curr_column >= LEVEL_BUFFER_WIDTH) curr_column = 0;
 }
 
-void scroll_H(u32 layer) {
-    for (s32 mt = 0; mt < 16; mt += 1) {
+void scroll_H(u32 layer, s32 mt_count) {
+    for (s32 mt = 0; mt < mt_count; mt += 1) {
         for (s32 vtile = 0; vtile < 2; vtile++) {
             // Get metatile positions from seam
             s32 metatile_x = (seam_x >> 4) & 0x1f;
@@ -105,32 +106,30 @@ void scroll_H(u32 layer) {
 }
 
 void scroll_V(u32 layer) {
-    for (s32 mt = 0; mt < 16; mt += 1) {
-        for (s32 htile = 0; htile < 2; htile++) {
-            // Get metatile positions from seam
-            s32 metatile_x = (seam_x >> 4) & 0x1f;
-            s32 metatile_y = (seam_y >> 4);
-            
-            // Get metatile from the buffer
-            s32 metatile = level_buffer[layer][metatile_x + (metatile_y * LEVEL_BUFFER_WIDTH)];
-            
-            // Get tile position from the seam
-            s32 x = (seam_x >> 3) & 0x1f;
-            s32 y = (seam_y >> 3) & 0x1f;
+    for (s32 htile = 0; htile < 31; htile += 1) {
+        // Get metatile positions from seam
+        s32 metatile_x = (seam_x >> 4) & 0x1f;
+        s32 metatile_y = (seam_y >> 4);
+        
+        // Get metatile from the buffer
+        s32 metatile = level_buffer[layer][metatile_x + (metatile_y * LEVEL_BUFFER_WIDTH)];
+        
+        // Get tile position from the seam
+        s32 x = (seam_x >> 3) & 0x1f;
+        s32 y = (seam_y >> 3) & 0x1f;
 
-            // Obtain tile from the metatile table
-            s32 tile = metatiles[metatile][(x & 1) | ((y & 1) << 1)];
+        // Obtain tile from the metatile table
+        s32 tile = metatiles[metatile][(x & 1) | ((y & 1) << 1)];
 
-            // Swap direction if screen is mirrored
-            if (screen_mirrored) {
-                x = (SCREENBLOCK_W - 1) - x;
-                tile ^= SE_HFLIP;
-            }
-
-            // Put tile and advance to next tile
-            se_plot(&se_mem[24 + layer][0], x, y, tile);
-            seam_x += 8;
+        // Swap direction if screen is mirrored
+        if (screen_mirrored) {
+            x = (SCREENBLOCK_W - 1) - x;
+            tile ^= SE_HFLIP;
         }
+
+        // Put tile and advance to next tile
+        se_plot(&se_mem[24 + layer][0], x, y, tile);
+        seam_x += 8;
     }
 }
 
@@ -147,19 +146,19 @@ void screen_scroll_load() {
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Draw horizontal seam
         seam_x = (scroll_x >> SUBPIXEL_BITS) + SCREEN_WIDTH;  
-        seam_y = (scroll_y >> SUBPIXEL_BITS) - 0x16;
+        seam_y = (scroll_y >> SUBPIXEL_BITS);
         
-        scroll_H(layer);
+        scroll_H(layer, 10);
 
         // Draw bottom seam
-        seam_x = scroll_x >> SUBPIXEL_BITS;
-        seam_y = (scroll_y >> SUBPIXEL_BITS) + SCREEN_HEIGHT + 0x08;
+        seam_x = (scroll_x >> SUBPIXEL_BITS);
+        seam_y = (scroll_y >> SUBPIXEL_BITS) + SCREEN_HEIGHT;
         
         scroll_V(layer);
         
         // Draw top seam
-        seam_x = scroll_x >> SUBPIXEL_BITS;
-        seam_y = (scroll_y >> SUBPIXEL_BITS) - 0x16;
+        seam_x = (scroll_x >> SUBPIXEL_BITS);
+        seam_y = (scroll_y >> SUBPIXEL_BITS);
             
         scroll_V(layer);
     }
