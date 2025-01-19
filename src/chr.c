@@ -315,14 +315,14 @@ void load_chr_in_buffer() {
                 SCR_ENTRY tile_id = metatiles[metatile_ID][tile];
 
                 // Copy tile into buffer
-                dma3_cpy(vram_copy_buffer, &tile_ptr[tile_id & SE_ID_MASK], sizeof(TILE));
+                memcpy32(vram_copy_buffer, &tile_ptr[tile_id & SE_ID_MASK], (sizeof(TILE) / sizeof(u32)));
 
                 // Flip horizontally if it should be flipped
                 if (tile_id & SE_HFLIP) {
                     tile_h_flip(vram_copy_buffer);
 
                     // Copy back to the start of the buffer
-                    dma3_cpy(vram_copy_buffer, &vram_copy_buffer[sizeof(TILE)], sizeof(TILE));
+                    memcpy32(vram_copy_buffer, &vram_copy_buffer[sizeof(TILE)], (sizeof(TILE) / sizeof(u32)));
                 }
 
                 // Flip vertically if it should be flipped
@@ -330,15 +330,15 @@ void load_chr_in_buffer() {
                     tile_v_flip(vram_copy_buffer);
 
                     // Copy back to the start of the buffer
-                    dma3_cpy(vram_copy_buffer, &vram_copy_buffer[sizeof(TILE)], sizeof(TILE));
+                    memcpy32(vram_copy_buffer, &vram_copy_buffer[sizeof(TILE)], (sizeof(TILE) / sizeof(u32)));
                 }
 
                 // Copy to VRAM this tile
-                dma3_cpy(&tile_mem_obj[0][vram_offset + tile], vram_copy_buffer, sizeof(TILE));
+                memcpy32(&tile_mem_obj[0][vram_offset + tile], vram_copy_buffer, (sizeof(TILE) / sizeof(u32)));
             }
         } else {
             // Copy to VRAM from ROM
-            dma3_cpy(&tile_mem_obj[0][vram_offset], &sprites_chr[rom_offset], tile_num * sizeof(TILE));
+            memcpy32(&tile_mem_obj[0][vram_offset], &sprites_chr[rom_offset], tile_num * (sizeof(TILE) / sizeof(u32)));
         }
     }
 
@@ -360,7 +360,7 @@ void unload_chr_in_buffer() {
         if (tiles_to_copy < 0) tiles_to_copy = 0;
 
         // Move left the tiles after this object 
-        dma3_cpy(&tile_mem_obj[0][vram_offset], &tile_mem_obj[0][old_vram_offset], tiles_to_copy * sizeof(TILE));
+        memcpy32(&tile_mem_obj[0][vram_offset], &tile_mem_obj[0][old_vram_offset], tiles_to_copy * (sizeof(TILE) / sizeof(u32)));
     }
 
     unloaded_object_buffer_offset = 0;
