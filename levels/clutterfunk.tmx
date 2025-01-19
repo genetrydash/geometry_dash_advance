@@ -2063,7 +2063,7 @@
    </properties>
   </object>
   <object id="1878" gid="554" x="11752" y="336" width="16" height="16"/>
-  <object id="1879" gid="554" x="11800" y="256" width="16" height="16"/>
+  <object id="1879" gid="554" x="11803" y="256" width="16" height="16"/>
   <object id="1880" gid="547" x="11860" y="320" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
@@ -3011,9 +3011,9 @@
     <property name="Frames" type="int" value="180"/>
    </properties>
   </object>
-  <object id="2347" gid="561" x="11800" y="256" width="16" height="16"/>
+  <object id="2347" gid="561" x="11803" y="256" width="16" height="16"/>
   <object id="2349" gid="561" x="11752" y="336" width="16" height="16"/>
-  <object id="2352" gid="521" x="11800" y="240" width="16" height="16"/>
+  <object id="2352" gid="521" x="11803" y="240" width="16" height="16"/>
   <object id="2353" gid="521" x="11752" y="352" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>

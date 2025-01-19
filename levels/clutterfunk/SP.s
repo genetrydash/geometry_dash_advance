@@ -4852,19 +4852,19 @@ clutterfunk_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 781
-   .word 0x2e18 @ x
+   .word 0x2e1b @ x
    .hword 0xf0 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 782
-   .word 0x2e18 @ x
+   .word 0x2e1b @ x
    .hword 0x100 @ y
    .hword 0x29 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 783
-   .word 0x2e18 @ x
+   .word 0x2e1b @ x
    .hword 0x100 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
