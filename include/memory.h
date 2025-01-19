@@ -65,7 +65,7 @@ extern u16 loaded_song_id;
 
 #define NUM_CHANNELS 8
 
-extern EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
+extern u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
                                +MM_SIZEOF_ACTCH
                                +MM_SIZEOF_MIXCH)
                                +MM_MIXLEN_31KHZ];

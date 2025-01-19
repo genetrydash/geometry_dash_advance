@@ -52,7 +52,7 @@ u8 swap_queue = FALSE;
 u16 loaded_level_id;
 u16 loaded_song_id;
 
-EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
+u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
                                +MM_SIZEOF_ACTCH
                                +MM_SIZEOF_MIXCH)
                                +MM_MIXLEN_31KHZ];
