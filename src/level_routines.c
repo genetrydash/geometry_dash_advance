@@ -217,6 +217,11 @@ void decompress_column(u32 layer) {
 void set_initial_color(COLOR bg_color, COLOR ground_color) {
     set_bg_color(palette_buffer, bg_color);
     set_ground_color(palette_buffer, ground_color);
+    for (u32 channel = 0; channel < 4; channel++) {
+        set_color_channel_color(palette_buffer, CLR_RED, channel);
+    }
+
+    set_obj_color(palette_buffer, 0x7fff);
 }
 
 void reset_variables() {

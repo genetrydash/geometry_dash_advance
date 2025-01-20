@@ -1,23 +1,14 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "GBA",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/opt/devkitpro/libtonc/include",
-                "/opt/devkitpro/libgba/include",
-                "${workspaceFolder}/build",
-                "${workspaceFolder}/src",
-                "${workspaceFolder}/levels",
-                "${workspaceFolder}/audio",
-                "${workspaceFolder}/build/gen_inc",
-                "${workspaceFolder}/build/gen_inc/build/gen_bin"
+                "${env:DEVKITPRO}/libtonc/include"
             ],
             "defines": [],
-            "cStandard": "c17",
-            "cppStandard": "gnu++17",
-            "intelliSenseMode": "linux-gcc-x64",
-            "compilerPath": "/usr/bin/arm-none-eabi-gcc"
+            "compilerPath": "${env:DEVKITPRO}/devkitARM/bin/arm-none-eabi-gcc",
+            "intelliSenseMode": "gcc-arm"
         }
     ],
     "version": 4

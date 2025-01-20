@@ -211,12 +211,12 @@ const SCR_ENTRY metatiles[][5] = {
 
     
     
-    Metatile("GROUND_1",    TILE(0x180, 4, 0, 0), TILE(0x181, 4, 0, 0), TILE(0x190, 4, 0, 0), TILE(0x191, 4, 0, 0), COL_FULL) // 0xB0
-    Metatile("GROUND_2",    TILE(0x181, 4, 0, 0), TILE(0x181, 4, 0, 0), TILE(0x191, 4, 0, 0), TILE(0x191, 4, 0, 0), COL_FULL)
-    Metatile("GROUND_3",    TILE(0x181, 4, 0, 0), TILE(0x182, 4, 0, 0), TILE(0x191, 4, 0, 0), TILE(0x192, 4, 0, 0), COL_FULL)
-    Metatile("CEILING_1",   TILE(0x1f0, 4, 0, V), TILE(0x1f1, 4, 0, V), TILE(0x1e0, 4, 0, V), TILE(0x1e1, 4, 0, V), COL_FULL)
-    Metatile("CEILING_2",   TILE(0x1f1, 4, 0, V), TILE(0x1f1, 4, 0, V), TILE(0x1e1, 4, 0, V), TILE(0x1e1, 4, 0, V), COL_FULL)
-    Metatile("CEILING_3",   TILE(0x1f1, 4, 0, V), TILE(0x1f2, 4, 0, V), TILE(0x1e1, 4, 0, V), TILE(0x1e2, 4, 0, V), COL_FULL)
+    Metatile("GROUND_1",    TILE(0x180, 1, 0, 0), TILE(0x181, 1, 0, 0), TILE(0x190, 1, 0, 0), TILE(0x191, 1, 0, 0), COL_FULL) // 0xB0
+    Metatile("GROUND_2",    TILE(0x181, 1, 0, 0), TILE(0x181, 1, 0, 0), TILE(0x191, 1, 0, 0), TILE(0x191, 1, 0, 0), COL_FULL)
+    Metatile("GROUND_3",    TILE(0x181, 1, 0, 0), TILE(0x182, 1, 0, 0), TILE(0x191, 1, 0, 0), TILE(0x192, 1, 0, 0), COL_FULL)
+    Metatile("CEILING_1",   TILE(0x1f0, 1, 0, V), TILE(0x1f1, 1, 0, V), TILE(0x1e0, 1, 0, V), TILE(0x1e1, 1, 0, V), COL_FULL)
+    Metatile("CEILING_2",   TILE(0x1f1, 1, 0, V), TILE(0x1f1, 1, 0, V), TILE(0x1e1, 1, 0, V), TILE(0x1e1, 1, 0, V), COL_FULL)
+    Metatile("CEILING_3",   TILE(0x1f1, 1, 0, V), TILE(0x1f2, 1, 0, V), TILE(0x1e1, 1, 0, V), TILE(0x1e2, 1, 0, V), COL_FULL)
 
     Metatile("WAVY_SLAB_SINGLE_TOP", TILE(0x69, 0, 0, 0), TILE(0x6e, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_SLAB_TOP)
     Metatile("WAVY_SLAB_START_TOP",  TILE(0x6a, 0, 0, 0), TILE(0x6b, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x6d, 0, 0, 0), COL_SLAB_TOP)
@@ -231,12 +231,12 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
 
-    Metatile("GROUND_4",    TILE(0x1a0, 4, 0, 0), TILE(0x1a1, 4, 0, 0), TILE(0x1b0, 4, 0, 0), TILE(0x1b1, 4, 0, 0), COL_FULL) // 0xC0
-    Metatile("GROUND_5",    TILE(0x1a1, 4, 0, 0), TILE(0x1a1, 4, 0, 0), TILE(0x1b1, 4, 0, 0), TILE(0x1b1, 4, 0, 0), COL_FULL)
-    Metatile("GROUND_6",    TILE(0x1a1, 4, 0, 0), TILE(0x1a2, 4, 0, 0), TILE(0x1b1, 4, 0, 0), TILE(0x1b2, 4, 0, 0), COL_FULL)
-    Metatile("CEILING_4",   TILE(0x1d0, 4, 0, V), TILE(0x1d1, 4, 0, V), TILE(0x1c0, 4, 0, V), TILE(0x1c1, 4, 0, V), COL_FULL)
-    Metatile("CEILING_5",   TILE(0x1d1, 4, 0, V), TILE(0x1d1, 4, 0, V), TILE(0x1c1, 4, 0, V), TILE(0x1c1, 4, 0, V), COL_FULL)
-    Metatile("CEILING_6",   TILE(0x1d1, 4, 0, V), TILE(0x1d2, 4, 0, V), TILE(0x1c1, 4, 0, V), TILE(0x1c2, 4, 0, V), COL_FULL)
+    Metatile("GROUND_4",    TILE(0x1a0, 1, 0, 0), TILE(0x1a1, 1, 0, 0), TILE(0x1b0, 1, 0, 0), TILE(0x1b1, 1, 0, 0), COL_FULL) // 0xC0
+    Metatile("GROUND_5",    TILE(0x1a1, 1, 0, 0), TILE(0x1a1, 1, 0, 0), TILE(0x1b1, 1, 0, 0), TILE(0x1b1, 1, 0, 0), COL_FULL)
+    Metatile("GROUND_6",    TILE(0x1a1, 1, 0, 0), TILE(0x1a2, 1, 0, 0), TILE(0x1b1, 1, 0, 0), TILE(0x1b2, 1, 0, 0), COL_FULL)
+    Metatile("CEILING_4",   TILE(0x1d0, 1, 0, V), TILE(0x1d1, 1, 0, V), TILE(0x1c0, 1, 0, V), TILE(0x1c1, 1, 0, V), COL_FULL)
+    Metatile("CEILING_5",   TILE(0x1d1, 1, 0, V), TILE(0x1d1, 1, 0, V), TILE(0x1c1, 1, 0, V), TILE(0x1c1, 1, 0, V), COL_FULL)
+    Metatile("CEILING_6",   TILE(0x1d1, 1, 0, V), TILE(0x1d2, 1, 0, V), TILE(0x1c1, 1, 0, V), TILE(0x1c2, 1, 0, V), COL_FULL)
 
     Metatile("WAVY_SLAB_SINGLE_LEFT", TILE(0x70, 0, H, 0), TILE(0x00, 0, 0, 0), TILE(0x75, 0, H, 0), TILE(0x00, 0, 0, 0), COL_SLAB_LEFT)
     Metatile("WAVY_SLAB_START_LEFT",  TILE(0x71, 0, H, 0), TILE(0x00, 0, 0, 0), TILE(0x72, 0, H, 0), TILE(0x74, 0, H, 0), COL_SLAB_LEFT)
@@ -251,12 +251,12 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
 
-    Metatile("GROUND_7",    TILE(0x1c0, 4, 0, 0), TILE(0x1c1, 4, 0, 0), TILE(0x1d0, 4, 0, 0), TILE(0x1d1, 4, 0, 0), COL_FULL) // 0xD0
-    Metatile("GROUND_8",    TILE(0x1c1, 4, 0, 0), TILE(0x1c1, 4, 0, 0), TILE(0x1d1, 4, 0, 0), TILE(0x1d1, 4, 0, 0), COL_FULL)
-    Metatile("GROUND_9",    TILE(0x1c1, 4, 0, 0), TILE(0x1c2, 4, 0, 0), TILE(0x1d1, 4, 0, 0), TILE(0x1d2, 4, 0, 0), COL_FULL)
-    Metatile("CEILING_7",   TILE(0x1b0, 4, 0, V), TILE(0x1b1, 4, 0, V), TILE(0x1a0, 4, 0, V), TILE(0x1a1, 4, 0, V), COL_FULL)
-    Metatile("CEILING_8",   TILE(0x1b1, 4, 0, V), TILE(0x1b1, 4, 0, V), TILE(0x1a1, 4, 0, V), TILE(0x1a1, 4, 0, V), COL_FULL)
-    Metatile("CEILING_9",   TILE(0x1b1, 4, 0, V), TILE(0x1b2, 4, 0, V), TILE(0x1a1, 4, 0, V), TILE(0x1a2, 4, 0, V), COL_FULL)
+    Metatile("GROUND_7",    TILE(0x1c0, 1, 0, 0), TILE(0x1c1, 1, 0, 0), TILE(0x1d0, 1, 0, 0), TILE(0x1d1, 1, 0, 0), COL_FULL) // 0xD0
+    Metatile("GROUND_8",    TILE(0x1c1, 1, 0, 0), TILE(0x1c1, 1, 0, 0), TILE(0x1d1, 1, 0, 0), TILE(0x1d1, 1, 0, 0), COL_FULL)
+    Metatile("GROUND_9",    TILE(0x1c1, 1, 0, 0), TILE(0x1c2, 1, 0, 0), TILE(0x1d1, 1, 0, 0), TILE(0x1d2, 1, 0, 0), COL_FULL)
+    Metatile("CEILING_7",   TILE(0x1b0, 1, 0, V), TILE(0x1b1, 1, 0, V), TILE(0x1a0, 1, 0, V), TILE(0x1a1, 1, 0, V), COL_FULL)
+    Metatile("CEILING_8",   TILE(0x1b1, 1, 0, V), TILE(0x1b1, 1, 0, V), TILE(0x1a1, 1, 0, V), TILE(0x1a1, 1, 0, V), COL_FULL)
+    Metatile("CEILING_9",   TILE(0x1b1, 1, 0, V), TILE(0x1b2, 1, 0, V), TILE(0x1a1, 1, 0, V), TILE(0x1a2, 1, 0, V), COL_FULL)
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE) // 0xD8
@@ -268,12 +268,12 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
    
-    Metatile("GROUND_A",    TILE(0x1e0, 4, 0, 0), TILE(0x1e1, 4, 0, 0), TILE(0x1f0, 4, 0, 0), TILE(0x1f1, 4, 0, 0), COL_FULL) // 0xE0
-    Metatile("GROUND_B",    TILE(0x1e1, 4, 0, 0), TILE(0x1e1, 4, 0, 0), TILE(0x1f1, 4, 0, 0), TILE(0x1f1, 4, 0, 0), COL_FULL)
-    Metatile("GROUND_C",    TILE(0x1e1, 4, 0, 0), TILE(0x1e2, 4, 0, 0), TILE(0x1f1, 4, 0, 0), TILE(0x1f2, 4, 0, 0), COL_FULL)
-    Metatile("CEILING_A",   TILE(0x190, 4, 0, V), TILE(0x191, 4, 0, V), TILE(0x180, 4, 0, V), TILE(0x181, 4, 0, V), COL_FULL)
-    Metatile("CEILING_B",   TILE(0x191, 4, 0, V), TILE(0x191, 4, 0, V), TILE(0x181, 4, 0, V), TILE(0x181, 4, 0, V), COL_FULL)
-    Metatile("CEILING_C",   TILE(0x191, 4, 0, V), TILE(0x192, 4, 0, V), TILE(0x181, 4, 0, V), TILE(0x182, 4, 0, V), COL_FULL)
+    Metatile("GROUND_A",    TILE(0x1e0, 1, 0, 0), TILE(0x1e1, 1, 0, 0), TILE(0x1f0, 1, 0, 0), TILE(0x1f1, 1, 0, 0), COL_FULL) // 0xE0
+    Metatile("GROUND_B",    TILE(0x1e1, 1, 0, 0), TILE(0x1e1, 1, 0, 0), TILE(0x1f1, 1, 0, 0), TILE(0x1f1, 1, 0, 0), COL_FULL)
+    Metatile("GROUND_C",    TILE(0x1e1, 1, 0, 0), TILE(0x1e2, 1, 0, 0), TILE(0x1f1, 1, 0, 0), TILE(0x1f2, 1, 0, 0), COL_FULL)
+    Metatile("CEILING_A",   TILE(0x190, 1, 0, V), TILE(0x191, 1, 0, V), TILE(0x180, 1, 0, V), TILE(0x181, 1, 0, V), COL_FULL)
+    Metatile("CEILING_B",   TILE(0x191, 1, 0, V), TILE(0x191, 1, 0, V), TILE(0x181, 1, 0, V), TILE(0x181, 1, 0, V), COL_FULL)
+    Metatile("CEILING_C",   TILE(0x191, 1, 0, V), TILE(0x192, 1, 0, V), TILE(0x181, 1, 0, V), TILE(0x182, 1, 0, V), COL_FULL)
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",       TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE) // 0xE8

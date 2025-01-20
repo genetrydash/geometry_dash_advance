@@ -3,94 +3,109 @@
 #include "memory.h"
 #include "chr.h"
 
-#define BG_COLOR  0x00
-#define OBJ_COLOR 0x0A
-#define COLOR_ID_COL 0x0E
-
-#define BG_OBJ_GLOW 0x117
-
-#define BG_OBJ_BLENDING_1 0x08
-#define BG_OBJ_BLENDING_2 0x09
-
-#define BG_COL_BLENDING_1 0x0B
-#define BG_COL_BLENDING_2 0x0C
-#define BG_COL_BLENDING_3 0x0D
-
 INLINE void blend_bg_and_obj(COLOR *dst, u32 pal) {
     // Blend both BG and OBJ colors and put it on palette slot 0x07 and 0x08
-    clr_blend(&dst[pal], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_1 + pal], 1, 0x0a);
-    clr_blend(&dst[pal], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_2 + pal], 1, 0x15);
+    clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_1 + pal], 1, 0x0a);
+    clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_2 + pal], 1, 0x15);
 }
 
 INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
-    // Blend both BG and COL colors and put it on palette slot 0x0A, 0x0B and 0x0C
-    clr_blend(&dst[pal], &dst[COLOR_ID_COL + pal], &dst[BG_COL_BLENDING_1 + pal], 1, 0x0a);
-    clr_blend(&dst[pal], &dst[COLOR_ID_COL + pal], &dst[BG_COL_BLENDING_2 + pal], 1, 0x10);
-    clr_blend(&dst[pal], &dst[COLOR_ID_COL + pal], &dst[BG_COL_BLENDING_3 + pal], 1, 0x15);
+    u32 blend_value = 0x1f / (COL_ID_COLOR - BG_COL_BLENDING + 1);
+    for (u32 col = 0; col < 5; col++) {
+        clr_blend(&dst[pal + 0x01], &dst[COL_ID_COLOR + pal], &dst[BG_COL_BLENDING + col + pal], 1, blend_value);
+        blend_value += 0x1f / (COL_ID_COLOR - BG_COL_BLENDING + 1);
+    }
 }
 
 // Set BG color on the 4 color palettes
 void set_bg_color(COLOR *dst, COLOR color) {
-    for (u32 pal = 0; pal < 0x40; pal += 0x10) {
-        // Set BG color
-        dst[0x00 + pal] = color;
-        dst[0x01 + pal] = color;
+    // Set BG color
+    dst[0x00] = color;
+    dst[BG_PAL + BG_COLOR] = color;
 
-        // Adjust brightness for each color
-        for (u32 index = 2; index < 7; index++) {
-            clr_adj_brightness(&dst[index + pal], &dst[index - 1 + pal], 1, float2fx(-0.15));
-        }
-        
-        blend_bg_and_obj(dst, pal);
+    dst[LIGHTER_BG_PAL + BG_COLOR] = color;
+    
+    // Adjust brighter color
+    clr_blend(&dst[BG_PAL + BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[BRIGHTER_COLOR], 1, 0x15);
+    
+    blend_bg_and_obj(dst, BG_PAL);
+    
+    // Fade to black
+    for (u32 index = 2; index < 7; index++) {
+        clr_adj_brightness(&dst[index], &dst[index - 1], 1, float2fx(-0.15));
+    }
+
+    // Fade to white (lighter bg color)
+    for (u32 index = 2; index < 8; index++) {
+        clr_adj_brightness(&dst[LIGHTER_BG_PAL + index], &dst[LIGHTER_BG_PAL + index - 1], 1, float2fx(0.10));
+    }
+    
+    // Adjust brighter color
+    clr_blend(&dst[BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[LIGHTER_BG_PAL + BRIGHTER_COLOR], 1, 0x15);
+    
+    blend_bg_and_obj(dst, LIGHTER_BG_PAL);
+
+    for (u32 pal = COL_CHN_PAL; pal < COL_CHN_PAL_LAST; pal += 0x10) {  
+        // Blend col
+        dst[BG_COLOR + pal] = color;
         blend_bg_and_col(dst, pal);
+        blend_bg_and_obj(dst, pal);
+
+        // Adjust brighter color
+        clr_blend(&dst[BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[pal + BRIGHTER_COLOR], 1, 0x15);
     }
 
     // Copy first palette to last palette of sprites
-    memcpy16(&dst[0x1f0], &dst[0x00], 0x0a);
+    memcpy16(&dst[0x1f0], &dst[BG_PAL], 0x0a);
     
     // Portal colors also have a glow on them
-    clr_blend(&dst[0], &dst[0x112], &dst[0x117], 1, 0x0f);
+    clr_blend(&dst[0], &dst[PORTAL_WHITE_COLOR], &dst[PORTAL_GLOW_COLOR], 1, 0x0f);
 
-    u32 loops = (BG_OBJ_GLOW + 0x10) + ((NUM_PORTAL_PALETTES - 1) << 4);
-    for (u32 pal = (BG_OBJ_GLOW + 0x10) ; pal < loops; pal += 0x10) {
-        dst[pal] = dst[BG_OBJ_GLOW]; 
+    u32 loops = (PORTAL_GLOW_COLOR + 0x10) + ((NUM_PORTAL_PALETTES - 1) << 4);
+    for (u32 pal = (PORTAL_GLOW_COLOR + 0x10) ; pal < loops; pal += 0x10) {
+        dst[pal] = dst[PORTAL_GLOW_COLOR]; 
     }
 }
 
 void set_obj_color(COLOR *dst, COLOR color) {
-    for (u32 pal = 0; pal < 0x40; pal += 0x10) {
+    dst[OBJ_COLOR] = color;
+    blend_bg_and_obj(dst, BG_PAL);
+
+    dst[LIGHTER_BG_PAL + OBJ_COLOR] = color;
+    blend_bg_and_obj(dst, LIGHTER_BG_PAL);
+
+    for (u32 pal = COL_CHN_PAL; pal < COL_CHN_PAL_LAST; pal += 0x10) {
         // Set BG color
         dst[OBJ_COLOR + pal] = color;
         
         blend_bg_and_obj(dst, pal);
-        blend_bg_and_col(dst, pal);
     }
 }
 
 // Set ground color on the ground palette
 void set_ground_color(COLOR *dst, COLOR color) {
     // Set ground color
-    dst[0x40] = color;
-    dst[0x41] = color;
+    dst[GROUND_PAL + GROUND_COLOR] = color;
 
     // Adjust brightness for each color
     for (u32 index = 2; index < 7; index++) {
-        clr_adj_brightness(&dst[index + 0x40], &dst[index - 1 + 0x40], 1, float2fx(-0.15));
+        clr_adj_brightness(&dst[index + GROUND_PAL], &dst[index - 1 + GROUND_PAL], 1, float2fx(-0.15));
     }
 }
 
 // Set line color
 void set_line_color(COLOR *dst, COLOR color) {
-    dst[0x48] = color;
+    dst[GROUND_PAL + LINE_COLOR] = color;
 }
 
 
 // Set color channel of an specific palette
 void set_color_channel_color(COLOR *dst, COLOR color, u32 channel) {
-    // Set ground color
-    dst[0x0D + (channel << 4)] = color;
+    // Set col
+    u32 pal = (channel << 4) + COL_CHN_PAL;
+    dst[COL_ID_COLOR + pal] = color;
 
-    blend_bg_and_col(dst, channel);
+    blend_bg_and_col(dst, pal);
 }
 
 
