@@ -6,7 +6,7 @@ const unsigned int clutterfunk_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*level width*/   990,
+ /*level width*/   994,
  /*song*/          MOD_STEREOMA,
 };
 
