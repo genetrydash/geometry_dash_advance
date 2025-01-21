@@ -1,5 +1,7 @@
 #include <tonc.h>
 
+#pragma once
+
 #define NUM_COL_ID_CHANNELS 4
 
 #define BG_COLOR  0x01
@@ -28,7 +30,23 @@
 #define COL_CHN_PAL 0x30
 #define COL_CHN_PAL_LAST (COL_CHN_PAL + 0x10 * NUM_COL_ID_CHANNELS)
 
+struct RGB555 {
+    u8 red;
+    u8 green;
+    u8 blue;
+};
 
+struct HSV {
+    FIXED_16 hue;
+    FIXED_16 saturation;
+    FIXED_16 value;
+};
+
+ARM_CODE struct HSV rgb_to_hsv(struct RGB555 rgb);
+ARM_CODE struct RGB555 hsv_to_rgb(struct HSV hsv);
+ARM_CODE COLOR calculate_lbg(COLOR bg, COLOR p1);
+
+void update_lbg_palette(COLOR *dst);
 void set_bg_color(COLOR *dst, COLOR color);
 void set_obj_color(COLOR *dst, COLOR color);
 void set_ground_color(COLOR *dst, COLOR color);

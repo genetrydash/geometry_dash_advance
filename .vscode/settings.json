@@ -44,7 +44,9 @@
         "random": "c",
         "*.tcc": "c",
         "string": "c",
-        "initializer_list": "c"
+        "initializer_list": "c",
+        "color.h": "c",
+        "mgba_log.h": "c"
     },
     "C_Cpp.default.cStandard": "c99",
     "C_Cpp.errorSquiggles": "disabled",

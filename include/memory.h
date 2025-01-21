@@ -13,10 +13,21 @@
 #define SCREENBLOCK_W 32
 #define SCREENBLOCK_H 32
 
-#define TO_FIXED(a)     (((s64)(a) * SUBPIXEL_MULTIPLIER))
-#define FROM_FIXED(a)   (((s64)(a) / SUBPIXEL_MULTIPLIER))
-#define FIXED_MUL(a, b) (((s64)(a) * (b)) / SUBPIXEL_MULTIPLIER)
-#define FIXED_DIV(a, b) (((s64)(a) * SUBPIXEL_MULTIPLIER) / (b))
+typedef s64 FIXED_LONG_16;
+typedef s32 FIXED_16;
+
+#define FIXED_SHIFT 16
+#define FIXED_MULTIPLIER (1 << FIXED_SHIFT)
+#define FLOAT_TO_FIXED(f) ((FIXED_LONG_16)(f*FIXED_MULTIPLIER));
+#define TO_FIXED(a)     (((FIXED_LONG_16)(a) << FIXED_SHIFT))
+#define FROM_FIXED(a)   (((FIXED_LONG_16)(a) >> FIXED_SHIFT))
+#define FIXED_MUL(a, b) (((FIXED_LONG_16)(a) * (b)) >> FIXED_SHIFT)
+#define FIXED_DIV(a, b) (((FIXED_LONG_16)(a) << FIXED_SHIFT) / (b))
+
+#define BGR_TO_STRUCT(rgb, struct_rgb) \
+    struct_rgb.red = rgb & 0x1f; \
+    struct_rgb.green = (rgb >> 5) & 0x1f; \
+    struct_rgb.blue = (rgb >> 10) & 0x1f; \
 
 #define REG_MEMCTRL *(vu32*)(REG_BASE + 0x800)
 
