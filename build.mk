@@ -78,6 +78,7 @@ ALLFLAGS += \
 LDFLAGS	+= \
 	-Wl,-n \
 	-Wl,--gc-sections \
+ 	-Wl,--print-memory-usage\
 	-Wl,-Map,$(MAPFILE) \
 	$(LIBDIRS:%=-L%/lib) \
 	$(LIBS:%=-l%) \

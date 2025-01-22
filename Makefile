@@ -74,7 +74,7 @@ ALLFLAGS	:= -Wall -Wextra -g3 -gdwarf-4 -O2 \
 		-D_DEFAULT_SOURCE
 
 # C compiler flags
-CFLAGS		:= -std=c99 -mthumb-interwork
+CFLAGS		:= -std=c99 -mthumb-interwork 
 
 # C++ compiler flags
 CXXFLAGS	:= -std=c++20 -fno-rtti -fno-exceptions
