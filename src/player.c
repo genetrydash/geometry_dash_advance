@@ -232,18 +232,13 @@ void ship_gamemode() {
     if (player_size == SIZE_BIG) {
         player_width = SHIP_WIDTH;
         player_height = SHIP_HEIGHT;
+        gravity = SHIP_GRAVITY;
     } else {
         player_width = MINI_SHIP_WIDTH;
         player_height = MINI_SHIP_HEIGHT;
-    }
-
-    if (player_size == SIZE_BIG) {
-        gravity = SHIP_GRAVITY;
-    } else {
         gravity = SHIP_MINI_GRAVITY;
     }
 
-    s8 sign = gravity_dir ? -1 : 1;
     s8 mirror_sign = screen_mirrored ? -1 : 1;
 
     if (key_hit(KEY_A | KEY_UP)) {
@@ -252,22 +247,30 @@ void ship_gamemode() {
         player_buffering = NO_ORB_BUFFER;
     }
 
-    if (key_held(KEY_A | KEY_UP)) {
-        cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * ship_rot_multiplier[speed_id]; 
+    cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * ship_rot_multiplier[speed_id]; 
 
+    if (key_held(KEY_A | KEY_UP)) {
         if (player_size == SIZE_BIG) {
             gravity = SHIP_GRAVITY_HOLDING;
         } else {
             gravity = SHIP_MINI_GRAVITY_HOLDING;
         }
 
-        player_y_speed -= gravity * sign;
-        player_y_speed = CLAMP(player_y_speed, -SHIP_MAX_Y_SPEED_HOLDING, SHIP_MAX_Y_SPEED_HOLDING);
+        if (gravity_dir == GRAVITY_DOWN) {
+            player_y_speed -= gravity;
+            if (player_y_speed < -SHIP_MAX_Y_SPEED_HOLDING) player_y_speed = -SHIP_MAX_Y_SPEED_HOLDING;  
+        } else {    
+            player_y_speed += gravity;
+            if (player_y_speed > SHIP_MAX_Y_SPEED_HOLDING) player_y_speed = SHIP_MAX_Y_SPEED_HOLDING;  
+        }
     } else {
-        cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * ship_rot_multiplier[speed_id]; 
-
-        player_y_speed += gravity * sign;
-        player_y_speed = CLAMP(player_y_speed, -SHIP_MAX_Y_SPEED, SHIP_MAX_Y_SPEED);
+        if (gravity_dir == GRAVITY_DOWN) {
+            player_y_speed += gravity;
+            if (player_y_speed > SHIP_MAX_Y_SPEED) player_y_speed = SHIP_MAX_Y_SPEED;    
+        } else {    
+            player_y_speed -= gravity;
+            if (player_y_speed < -SHIP_MAX_Y_SPEED) player_y_speed = -SHIP_MAX_Y_SPEED;
+        }
     }
     
 
