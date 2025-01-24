@@ -188,120 +188,6 @@ s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer) {
 
     return FALSE;
 }
-// This function iterates through spikes that the player is touching and applies collision to it
-ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
-    // Iterate through 4 metatiles, forming a 2x2 metatile square
-    // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
-    for (u32 side = 0; side < 4; side++) {
-        // Get offset from the starting block
-        u32 x_offset = (side & 1) ? 0x10 : 0;
-        u32 y_offset = (side & 2) ? 0x10 : 0;
-
-        u32 col_type = obtain_collision_type(x + x_offset, y + y_offset, layer);
-
-        // Spikes origin is in the top left pixel, aka 0,0 inside the metatile
-        u32 spk_x = (x + x_offset) & 0xfffffff0;
-        u32 spk_y = (y + y_offset) & 0xfffffff0;
-
-        switch (col_type) {
-            // Normal spikes
-            case COL_SPIKE_TOP:
-            case COL_SPIKE_BOTTOM:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x07, spk_y + 0x05, 0x02, 0x06
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-            
-            case COL_SPIKE_RIGHT:
-            case COL_SPIKE_LEFT:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x05, spk_y + 0x07, 0x06, 0x02
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-
-            // Small spikes
-            case COL_SMALL_SPIKE_TOP:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x06, spk_y + 0x02, 0x04, 0x03
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-
-            case COL_SMALL_SPIKE_BOTTOM:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x06, spk_y + 0x0b, 0x04, 0x03
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-
-            case COL_SMALL_SPIKE_RIGHT:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x0b, spk_y + 0x06, 0x04, 0x03
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-            
-            case COL_SMALL_SPIKE_LEFT:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x02, spk_y + 0x06, 0x04, 0x03
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-
-            // Medium spikes
-
-            case COL_MEDIUM_SPIKE_TOP:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x07, spk_y + 0x02, 0x02, 0x04
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-
-            case COL_MEDIUM_SPIKE_BOTTOM:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x07, spk_y + 0x09, 0x02, 0x04
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-
-            case COL_MEDIUM_SPIKE_RIGHT:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x09, spk_y + 0x07, 0x04, 0x02
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-            
-            case COL_MEDIUM_SPIKE_LEFT:
-                if (is_colliding(
-                    x, y, width, height,
-                    spk_x + 0x02, spk_y + 0x07, 0x04, 0x02
-                )) {
-                    player_death = TRUE;  
-                }
-                break;
-        }
-    }
-}
 
 const u8 gamemode_max_eject[] = {
     /* Cube */ 0x06,
@@ -562,4 +448,267 @@ ARM_CODE s32 is_colliding_rotated_fixed(s32 x1, s32 y1, s32 w1, s32 h1, s32 x2, 
     }
 
     return TRUE; // No separating axis, collision detected
+}
+
+void col_spike_top_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x07, spk_y + 0x05, 0x02, 0x06
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_spike_left_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x05, spk_y + 0x07, 0x06, 0x02
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_small_spike_top(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x06, spk_y + 0x02, 0x04, 0x03
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_small_spike_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x06, spk_y + 0x0b, 0x04, 0x03
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_small_spike_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x0b, spk_y + 0x06, 0x04, 0x03
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_small_spike_left(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x02, spk_y + 0x06, 0x04, 0x03
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_medium_spike_top(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x07, spk_y + 0x02, 0x02, 0x04
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_medium_spike_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x07, spk_y + 0x09, 0x02, 0x04
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_medium_spike_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x09, spk_y + 0x07, 0x04, 0x02
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_medium_spike_left(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x02, spk_y + 0x07, 0x04, 0x02
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_spike_top(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x06, spk_y - 0x02, 0x04, 0x06
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_spike_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x06, spk_y + 0x0c, 0x04, 0x06
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_spike_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x0c, spk_y + 0x06, 0x06, 0x04
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_spike_left(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x - 0x02, spk_y + 0x06, 0x06, 0x04
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_wavy_spike_top(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x06, spk_y, 0x04, 0x04
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_wavy_spike_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x06, spk_y + 0x0c, 0x04, 0x04
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_wavy_spike_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x0c, spk_y + 0x06, 0x04, 0x04
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_wavy_spike_left(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x , spk_y + 0x06, 0x04, 0x04
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_bush_spike_top(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x04, spk_y - 0x03, 0x08, 0x0a
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_bush_spike_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x04, spk_y + 0x09, 0x08, 0x0a
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_bush_spike_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x09, spk_y + 0x04, 0x0a, 0x08
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void col_ground_bush_spike_left(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x - 0x03, spk_y + 0x04, 0x0a, 0x08
+    )) {
+        player_death = TRUE;  
+    }
+}
+
+void not_an_spike(UNUSED u32 x, UNUSED u32 y, UNUSED u32 width, UNUSED u32 height, UNUSED u32 spk_x, UNUSED u32 spk_y) {
+    // not an spike so do nothing
+}
+
+const jmp_table spike_coll_jump_table[] = {
+    not_an_spike, // COL_NONE
+    not_an_spike, // COL_FULL
+
+    col_spike_top_bottom, // COL_SPIKE_TOP
+    col_spike_top_bottom, // COL_SPIKE_BOTTOM
+    col_spike_left_right, // COL_SPIKE_RIGHT
+    col_spike_left_right, // COL_SPIKE_LEFT
+
+    col_small_spike_top,    // COL_SMALL_SPIKE_TOP
+    col_small_spike_bottom, // COL_SMALL_SPIKE_BOTTOM
+    col_small_spike_right,  // COL_SMALL_SPIKE_RIGHT
+    col_small_spike_left,   // COL_SMALL_SPIKE_LEFT
+
+    col_medium_spike_top,    // COL_MEDIUM_SPIKE_TOP
+    col_medium_spike_bottom, // COL_MEDIUM_SPIKE_BOTTOM
+    col_medium_spike_right,  // COL_MEDIUM_SPIKE_RIGHT
+    col_medium_spike_left,   // COL_MEDIUM_SPIKE_LEFT
+
+    not_an_spike, // COL_SLAB_TOP
+    not_an_spike, // COL_SLAB_BOTTOM
+    not_an_spike, // COL_SLAB_LEFT
+    not_an_spike, // COL_SLAB_RIGHT
+
+    col_ground_spike_top,    // COL_GROUND_SPIKE_TOP
+    col_ground_spike_bottom, // COL_GROUND_SPIKE_BOTTOM
+    col_ground_spike_right,  // COL_GROUND_SPIKE_RIGHT
+    col_ground_spike_left,   // COL_GROUND_SPIKE_LEFT
+
+    col_ground_wavy_spike_top,    // COL_GROUND_WAVY_SPIKE_TOP
+    col_ground_wavy_spike_bottom, // COL_GROUND_WAVY_SPIKE_BOTTOM
+    col_ground_wavy_spike_right,  // COL_GROUND_WAVY_SPIKE_RIGHT
+    col_ground_wavy_spike_left,   // COL_GROUND_WAVY_SPIKE_LEFT
+
+    col_ground_bush_spike_top,    // COL_GROUND_BUSH_SPIKE_TOP
+    col_ground_bush_spike_bottom, // COL_GROUND_BUSH_SPIKE_BOTTOM
+    col_ground_bush_spike_right,  // COL_GROUND_BUSH_SPIKE_RIGHT
+    col_ground_bush_spike_left,   // COL_GROUND_BUSH_SPIKE_LEFT
+};
+
+// This function iterates through spikes that the player is touching and applies collision to it
+ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
+    // Iterate through 4 metatiles, forming a 2x2 metatile square
+    // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
+    for (u32 side = 0; side < 4; side++) {
+        // Get offset from the starting block
+        u32 x_offset = (side & 1) ? 0x10 : 0;
+        u32 y_offset = (side & 2) ? 0x10 : 0;
+
+        u32 col_type = obtain_collision_type(x + x_offset, y + y_offset, layer);
+
+        // Spikes origin is in the top left pixel, aka 0,0 inside the metatile
+        u32 spk_x = (x + x_offset) & 0xfffffff0;
+        u32 spk_y = (y + y_offset) & 0xfffffff0;
+
+        if (col_type < COL_TYPES_COUNT) {
+            spike_coll_jump_table[col_type](x, y, width, height, spk_x, spk_y);
+        }
+    }
 }
