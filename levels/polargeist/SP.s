@@ -414,7 +414,7 @@ polargeist_spr_data:
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
 @ Object 67
-   .word 0xc6c @ x
+   .word 0xc6a @ x
    .hword 0x1b0 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
