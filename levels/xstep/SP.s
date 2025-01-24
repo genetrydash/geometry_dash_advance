@@ -4492,7 +4492,7 @@ xstep_spr_data:
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 718
-   .word 0x1f74 @ x
+   .word 0x1f73 @ x
    .hword 0x1a0 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
