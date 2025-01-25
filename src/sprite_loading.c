@@ -243,8 +243,8 @@ void setup_graphics_upload(u16 type, u8 object_slot, u16 attrib3) {
     }
 }
 
-#define IN_MAX 0xa00
-#define IN_MIN 0x200
+#define IN_MAX 0x900
+#define IN_MIN 0x100
 #define OUT_MAX 0x100
 #define OUT_MIN 0x60
 

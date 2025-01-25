@@ -106,6 +106,8 @@ void init_maxmod() {
     mySystem.soundbank         = (mm_addr)soundbank_bin;
 
     mmInit( &mySystem );
+    // 85% volume
+    mmSetModuleVolume(819);
     irq_init(NULL);
     irq_set(II_VBLANK, vblank_handler, 0);
     irq_enable(II_VBLANK);
