@@ -1,5 +1,8 @@
 #include "main.h"
 #include "physics_defines.h"
+#include <maxmod.h>
+#include "soundbank.bin.h"
+#include "soundbank.h"
 
 // Position variables, in subpixels
 s64 player_x; // gota love giant levels
@@ -503,6 +506,10 @@ void level_complete_cutscene() {
     if (cutscene_frame <= TOTAL_CUTSCENE_FRAMES) {
         anim_player_to_wall();
         
+    }
+
+    if (cutscene_frame == TOTAL_CUTSCENE_FRAMES - 2) {
+        mmEffect(SFX_LEVEL_COMPLETE);
     }
 
     if (cutscene_frame < EXIT_CUTSCENE_FRAME) {

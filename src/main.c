@@ -310,7 +310,10 @@ void game_loop() {
 
         draw_percentage();
 
-        if (player_death) reset_level();
+        if (player_death) {
+            mmEffect(SFX_EXPLOSION);
+            reset_level();
+        }
 
         // Run vertical scroll code
         scroll_screen_vertically();
