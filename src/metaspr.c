@@ -629,12 +629,24 @@ const u16 smallPulsingCircleSpr[] = {
     CENTER(8, 8),
     0xffff
 };
+
 const u16 pulsingObjectSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
     ATTR2_PALBANK(0),
     0, // x
     0, // y
+    PRIO_IDOFF(4, 0), // id offset
+    CENTER(8, 8),
+    0xffff,
+};
+
+const u16 pulsingObjectBigSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
+    ATTR1_SIZE_32x32 | ATTR1_AFF_ID(4),
+    ATTR2_PALBANK(0),
+    -8, // x
+    -8, // y
     PRIO_IDOFF(4, 0), // id offset
     CENTER(8, 8),
     0xffff,
@@ -999,6 +1011,20 @@ ROM_DATA const u16 *obj_sprites[] = {
     bigBgDecoSpr,
     mediumBgDecoSpr,
     smallBgDecoSpr,
+
+    pulsingObjectBigSpr,
+    pulsingObjectBigSpr,
+    pulsingObjectBigSpr,
+
+    // Spike bushes
+    spike_V,
+    spike_V,
+    spike_V,
+    spike_V,
+    spike_H,
+    spike_H,
+    spike_H,
+    spike_H,
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -1091,6 +1117,20 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("BIG_BG_SQUARES", 0x2e0, 0x20)
     CHR_SLOT("MEDIUM_BG_SQUARES", 0x300, 0x20)
     CHR_SLOT("SMALL_BG_SQUARES", 0x320, 0x8)
+    
+    CHR_SLOT("PULSING_ARROW", 0x330, 0x10)
+    CHR_SLOT("PULSING_EXCLAMATION", 0x340, 0x10)
+    CHR_SLOT("PULSING_INTERROGATION", 0x350, 0x10)
+
+    CHR_SLOT("GROUND_BUSH_SPIKE_1_V", 0x360, 0x4)
+    CHR_SLOT("GROUND_BUSH_SPIKE_2_V", 0x364, 0x4)
+    CHR_SLOT("GROUND_BUSH_SPIKE_3_V", 0x368, 0x4)
+    CHR_SLOT("GROUND_BUSH_SPIKE_4_V", 0x36c, 0x4)
+    CHR_SLOT("GROUND_BUSH_SPIKE_1_H", 0x370, 0x4)
+    CHR_SLOT("GROUND_BUSH_SPIKE_2_H", 0x374, 0x4)
+    CHR_SLOT("GROUND_BUSH_SPIKE_3_H", 0x378, 0x4)
+    CHR_SLOT("GROUND_BUSH_SPIKE_4_H", 0x37c, 0x4)
+    
 };
 #undef CHR_SLOT
 

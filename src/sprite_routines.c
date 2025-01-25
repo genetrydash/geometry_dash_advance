@@ -410,6 +410,21 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     do_nothing,
     do_nothing,
+
+    do_nothing,
+    do_nothing,
+    do_nothing,
+
+    // Spike bushes
+
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
+    kill_player,
 };
 
 // In pixels
@@ -450,14 +465,14 @@ const s16 obj_hitbox[][6] = {
 
     Object_Hitbox_Rectangle("SPIKE_V", 2, 6, 7, 5, 8, 8)
     Object_Hitbox_Rectangle("SPIKE_H", 6, 2, 5, 7, 8, 8)
-    Object_Hitbox_Rectangle("HALF_SPIKE_V", 4, 3, 6, 12, 8, 8)
+    Object_Hitbox_Rectangle("HALF_SPIKE_V", 4, 3, 6, 11, 8, 8)
     Object_Hitbox_Rectangle("HALF_SPIKE_H", 3, 4, 2, 6, 8, 8)
     Object_Hitbox_Rectangle("MEDIUM_SPIKE_V", 2, 4, 7, 9, 8, 8)
     Object_Hitbox_Rectangle("MEDIUM_SPIKE_H", 4, 2, 2, 7, 8, 8)
-    Object_Hitbox_Rectangle("GROUND_SPIKE_V", 4, 3, 6, 12, 8, 8)
-    Object_Hitbox_Rectangle("GROUND_SPIKE_H", 3, 4, 2, 6, 8, 8)
-    Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_V", 4, 3, 6, 12, 8, 8)
-    Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_H", 3, 4, 2, 6, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_SPIKE_V", 4, 6, 6, 12, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_SPIKE_H", 6, 4, -2, 6, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_V", 4, 4, 6, 12, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_H", 4, 4, 0, 6, 8, 8)
 
     Object_Hitbox_Circle("SAW_BIG", TRUE, 16, 0, 0, 8, 8)
     Object_Hitbox_Circle("SAW_MEDIUM", TRUE, 12, 0, 0, 8, 8)
@@ -484,10 +499,23 @@ const s16 obj_hitbox[][6] = {
 
     Object_Hitbox_Rectangle("UFO_PORTAL", 20, 46, -2, -15, 8, 8)
 
-    
     Object_Hitbox_Rectangle("BIG_BG_SQUARES", 0, 0, 0, 0, 0, 0)
     Object_Hitbox_Rectangle("MEDIUM_BG_SQUARES", 0, 0, 0, 0, 0, 0)
     Object_Hitbox_Rectangle("SMALL_BG_SQUARES", 0, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Rectangle("PULSING_ARROW", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("PULSING_EXCLAMATION", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("PULSING_INTERROGATION", 0, 0, 0, 0, 0, 0)
+    
+    Object_Hitbox_Rectangle("GROUND_BUSH_SPIKE_1_V", 8, 10, 4, 9, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_BUSH_SPIKE_2_V", 8, 10, 4, 9, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_BUSH_SPIKE_3_V", 8, 10, 4, 9, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_BUSH_SPIKE_4_V", 8, 10, 4, 9, 8, 8)
+
+    Object_Hitbox_Rectangle("GROUND_BUSH_SPIKE_1_H", 10, 8, -3, 4, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_BUSH_SPIKE_2_H", 10, 8, -3, 4, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_BUSH_SPIKE_3_H", 10, 8, -3, 4, 8, 8)
+    Object_Hitbox_Rectangle("GROUND_BUSH_SPIKE_4_H", 10, 8, -3, 4, 8, 8)
 };
 
 #undef Object_Hitbox
