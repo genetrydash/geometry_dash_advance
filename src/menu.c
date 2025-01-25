@@ -114,6 +114,10 @@ void menu_loop() {
             loaded_level_id = level_id;
             game_state = STATE_PLAYING;
             mmStop();
+            mmEffect(SFX_LEVEL_ENTER);
+            for (s32 i = 0; i < 30; i++) {
+                VBlankIntrWait();
+            }
             break;
         }
 
