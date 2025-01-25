@@ -232,14 +232,30 @@ void cube_gamemode() {
 }
 
 void ship_gamemode() {
+    // Detect if falling
+    u32 falling;
+    if (gravity_dir == GRAVITY_DOWN) {
+        falling = (player_y_speed > 0);
+    } else {
+        falling = (player_y_speed < 0);
+    }
+
+    u32 holding = key_held(KEY_A | KEY_UP);
+
     if (player_size == SIZE_BIG) {
         player_width = SHIP_WIDTH;
         player_height = SHIP_HEIGHT;
-        gravity = SHIP_GRAVITY;
     } else {
         player_width = MINI_SHIP_WIDTH;
         player_height = MINI_SHIP_HEIGHT;
-        gravity = SHIP_MINI_GRAVITY;
+    }
+
+    if (holding) {
+        gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY_HOLDING : SHIP_MINI_GRAVITY_HOLDING);
+    } else if (!holding && !falling) {
+        gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY_AFTER_HOLD : SHIP_MINI_GRAVITY_AFTER_HOLD);
+    } else {
+        gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY : SHIP_MINI_GRAVITY);
     }
 
     s8 mirror_sign = screen_mirrored ? -1 : 1;
