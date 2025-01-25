@@ -21,6 +21,7 @@ enum CollisionTypes {
     COL_NONE,
 
     COL_FULL,
+    COL_FLOOR_CEIL,
 
     COL_SPIKE_TOP,
     COL_SPIKE_BOTTOM,

@@ -203,6 +203,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     u32 y_inside_block = y & 0x0f;
 
     switch (col_type) {
+        case COL_FLOOR_CEIL:
         case COL_FULL:
             eject = y_inside_block;
             break;
@@ -244,7 +245,9 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     
     if (side == TOP) {
         s32 eject_value = (eject | 0xfffffff8) << SUBPIXEL_BITS;
-        if (eject_value >= -(gamemode_max_eject[gamemode] << SUBPIXEL_BITS)) {
+        s32 max_eject = gamemode_max_eject[gamemode];
+        if (col_type == COL_FLOOR_CEIL) max_eject = 0x10;
+        if (eject_value >= -(max_eject << SUBPIXEL_BITS)) {
             if (gravity_dir == GRAVITY_UP) {
                 // We are resting on the ceiling so allow jumping and stuff
                 on_floor = 1;
@@ -259,7 +262,9 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         }
     } else if (side == BOTTOM) {   
         s32 eject_value = eject << SUBPIXEL_BITS;
-        if (eject_value < (gamemode_max_eject[gamemode] << SUBPIXEL_BITS)) {
+        s32 max_eject = gamemode_max_eject[gamemode];
+        if (col_type == COL_FLOOR_CEIL) max_eject = 0x10;
+        if (eject_value < (max_eject << SUBPIXEL_BITS)) {
             if (gravity_dir == GRAVITY_DOWN) {
                 // We are resting on the floor so allow jumping and stuff
                 on_floor = 1;
@@ -655,7 +660,8 @@ void not_an_spike(UNUSED u32 x, UNUSED u32 y, UNUSED u32 width, UNUSED u32 heigh
 const jmp_table spike_coll_jump_table[] = {
     not_an_spike, // COL_NONE
     not_an_spike, // COL_FULL
-
+    not_an_spike, // COL_FLOOR_CEIL
+    
     col_spike_top_bottom, // COL_SPIKE_TOP
     col_spike_top_bottom, // COL_SPIKE_BOTTOM
     col_spike_left_right, // COL_SPIKE_RIGHT
