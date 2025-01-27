@@ -241,24 +241,36 @@ void ship_gamemode() {
     }
 
     u32 holding = key_held(KEY_A | KEY_UP);
+    s32 max_y_speed;
+    s32 max_y_speed_holding;
 
     if (player_size == SIZE_BIG) {
         player_width = SHIP_WIDTH;
         player_height = SHIP_HEIGHT;
+
+        max_y_speed = SHIP_MAX_Y_SPEED;
+        max_y_speed_holding = SHIP_MAX_Y_SPEED_HOLDING;
     } else {
         player_width = MINI_SHIP_WIDTH;
         player_height = MINI_SHIP_HEIGHT;
+        
+        max_y_speed = SHIP_MINI_MAX_Y_SPEED;
+        max_y_speed_holding = SHIP_MINI_MAX_Y_SPEED_HOLDING;
     }
 
     if (holding) {
-        gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY_HOLDING : SHIP_MINI_GRAVITY_HOLDING);
+        gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY_BASE : SHIP_MINI_GRAVITY_BASE);
     } else if (!holding && !falling) {
         gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY_AFTER_HOLD : SHIP_MINI_GRAVITY_AFTER_HOLD);
     } else {
         gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY : SHIP_MINI_GRAVITY);
     }
 
-    s8 mirror_sign = screen_mirrored ? -1 : 1;
+    if (holding && falling) {
+        gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY_HOLD_FALL : SHIP_MINI_GRAVITY_HOLD_FALL);
+    }
+
+    s8 mirror_sign = screen_mirrored ? 1 : -1;
 
     if (key_hit(KEY_A | KEY_UP)) {
         player_buffering = ORB_BUFFER_READY;
@@ -266,33 +278,26 @@ void ship_gamemode() {
         player_buffering = NO_ORB_BUFFER;
     }
 
-    cube_rotation = (-((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 2)) * ship_rot_multiplier[speed_id]; 
+    cube_rotation = ArcTan2(player_x_speed >> 8, player_y_speed >> 8) * mirror_sign;
 
-    if (key_held(KEY_A | KEY_UP)) {
-        if (player_size == SIZE_BIG) {
-            gravity = SHIP_GRAVITY_HOLDING;
-        } else {
-            gravity = SHIP_MINI_GRAVITY_HOLDING;
-        }
-
+    if (holding) {
         if (gravity_dir == GRAVITY_DOWN) {
             player_y_speed -= gravity;
-            if (player_y_speed < -SHIP_MAX_Y_SPEED_HOLDING) player_y_speed = -SHIP_MAX_Y_SPEED_HOLDING;  
+            if (player_y_speed < -max_y_speed_holding) player_y_speed = -max_y_speed_holding;  
         } else {    
             player_y_speed += gravity;
-            if (player_y_speed > SHIP_MAX_Y_SPEED_HOLDING) player_y_speed = SHIP_MAX_Y_SPEED_HOLDING;  
+            if (player_y_speed > max_y_speed_holding) player_y_speed = max_y_speed_holding;  
         }
     } else {
         if (gravity_dir == GRAVITY_DOWN) {
             player_y_speed += gravity;
-            if (player_y_speed > SHIP_MAX_Y_SPEED) player_y_speed = SHIP_MAX_Y_SPEED;    
+            if (player_y_speed > max_y_speed) player_y_speed = max_y_speed;    
         } else {    
             player_y_speed -= gravity;
-            if (player_y_speed < -SHIP_MAX_Y_SPEED) player_y_speed = -SHIP_MAX_Y_SPEED;
+            if (player_y_speed < -max_y_speed) player_y_speed = -max_y_speed;
         }
     }
     
-
     on_floor = 0;
     
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
