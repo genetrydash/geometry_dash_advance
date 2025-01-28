@@ -28,3 +28,5 @@ void swap_screen_dir();
 
 void draw_percentage();
 void mirror_transition();
+
+void upload_player_chr(u32 gamemode);

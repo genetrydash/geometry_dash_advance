@@ -319,6 +319,9 @@ void load_level(u32 level_ID) {
     memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
+    // Set initial player gamemode CHR
+    upload_player_chr(gamemode);
+
     // Set BG and ground colors
     set_initial_color(bg_color, ground_color);
 
@@ -613,4 +616,9 @@ void draw_percentage() {
         oam_metaspr(116, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + percentage, 0, TRUE);
         oam_metaspr(124, 8, numberSpr, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
     }
+}
+
+void upload_player_chr(u32 gamemode) {
+    // Copy 4 tiles depending on gamemode
+    memcpy32(&tile_mem_obj[0][0], &icon_0[gamemode << 2], 4 * (sizeof(TILE) / sizeof(u32)));
 }

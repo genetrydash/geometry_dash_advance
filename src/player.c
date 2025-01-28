@@ -497,15 +497,15 @@ void draw_player() {
 
                 y_offset = gravity_dir ? 9 : 7;
 
-                oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, playerSpr, FALSE, FALSE, 4, priority, FALSE);
+                oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, playerSpr, FALSE, FALSE, 0, priority, FALSE);
                 break;
             case GAMEMODE_BALL:
-                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 8, priority, FALSE);  
+                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 0, priority, FALSE);  
                 break;
             case GAMEMODE_UFO:
                 sign = gravity_dir ? -1 : 1;
 
-                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 12, priority, FALSE);  
+                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 0, priority, FALSE);  
                 break;
         }
 

@@ -29,12 +29,14 @@ const s32 orb_pad_bounces[][GAMEMODE_COUNT][5] = {
 void cube_portal(struct ObjectSlot *objectSlot) {
     if (gamemode == GAMEMODE_SHIP) player_y_speed /= 2;
     gamemode = GAMEMODE_CUBE;
+    upload_player_chr(GAMEMODE_CUBE);
     objectSlot->activated = TRUE;
 }
 
 void ship_portal(struct ObjectSlot *objectSlot) {
     if (gamemode != GAMEMODE_SHIP) player_y_speed /= 2;
     gamemode = GAMEMODE_SHIP;
+    upload_player_chr(GAMEMODE_SHIP);
     
     set_target_y_scroll(objectSlot->object.y);
 
@@ -44,6 +46,7 @@ void ship_portal(struct ObjectSlot *objectSlot) {
 void ball_portal(struct ObjectSlot *objectSlot) {
     if (gamemode == GAMEMODE_SHIP) player_y_speed /= 2;
     gamemode = GAMEMODE_BALL;
+    upload_player_chr(GAMEMODE_BALL);
     
     set_target_y_scroll(objectSlot->object.y);
 
@@ -53,6 +56,7 @@ void ball_portal(struct ObjectSlot *objectSlot) {
 void ufo_portal(struct ObjectSlot *objectSlot) {
     if (gamemode == GAMEMODE_SHIP) player_y_speed /= 2;
     gamemode = GAMEMODE_UFO;
+    upload_player_chr(GAMEMODE_UFO);
     
     set_target_y_scroll(objectSlot->object.y);
 
