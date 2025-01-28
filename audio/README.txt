@@ -7,11 +7,11 @@ Polargeist: Available
 Dry out: Unfinished
 Base after base: Unfinished
 Cant let go: Finished (ElAngel378)
-Jumper: Available
+Jumper: Finished (Orionconstel)
 Time machine: Available
 Cycles: Available
 Xstep: Finished (Nicolestarlight)
-Clutterfunk: Available
+Clutterfunk: Unfinished
 -- More coming soon... --
 
 Below I will present you the instructions for creating music for Adv-famidash
