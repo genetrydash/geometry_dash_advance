@@ -275,9 +275,10 @@ void scale_pulsing_objects() {
     obj_aff_scale_inv(&obj_aff_buffer[AFF_SLOT_PULSING], final_value, final_value);
 }
 
+#define SAW_SPEED 0x400
 void rotate_saws() {
-    saw_rotation[0] += 0x500;
-    saw_rotation[1] -= 0x500;
+    saw_rotation[0] += SAW_SPEED;
+    saw_rotation[1] -= SAW_SPEED;
 }
 
 ARM_CODE void display_objects() {
