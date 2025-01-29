@@ -1,5 +1,7 @@
 #include <tonc.h>
 
+#pragma once
+
 #define NUM_STEPS 4
 
 #define TOTAL_CUTSCENE_FRAMES 60
@@ -34,41 +36,72 @@ enum PlayerSize {
     SIZE_MINI
 };
 
-extern s64 player_x;
-extern s64 player_y;
+enum DualStatus {
+    DUAL_OFF,
+    DUAL_ON
+};
 
-extern s16 relative_player_x;
-extern s16 relative_player_y;
+enum PlayerID {
+    ID_PLAYER_1,
+    ID_PLAYER_2
+};
 
-extern u8 player_width;
-extern u8 player_height;
+struct Player {
+    // Position variables, in subpixels
+    s64 player_x; // gota love giant levels
+    s64 player_y;
 
-extern u8 player_internal_hitbox_width;
-extern u8 player_internal_hitbox_height;
+    // Player dimensions, in pixels
+    u8 player_width;
+    u8 player_height;
 
-extern s32 player_x_speed;
-extern s32 player_y_speed;
+    u8 player_internal_hitbox_width;
+    u8 player_internal_hitbox_height;
 
-extern s16 gravity;
-extern u8 gravity_dir;
+    // Speed variables, in subpixels/frame
+    s32 player_x_speed;
+    s32 player_y_speed;
 
-extern u8 player_size;
+    // Relative position on screen in pixels
+    s16 relative_player_x;
+    s16 relative_player_y;
 
+    // Change of y speed
+    s16 gravity;
+
+    // Direction of the gravity. 0 : down, 1 : up
+    u8 gravity_dir;
+
+    // 0 : big, 1 : mini
+    u8 player_size;
+
+    // 0 : on air, 1 : on floor
+    u8 on_floor;
+
+    // 0 : not buffering, 1 : buffering
+    u8 player_buffering;
+
+    // Current player gamemode
+    u8 gamemode;
+
+    // Cube rotation angle
+    u16 cube_rotation;
+
+    // - : left | + : right
+    s8 ball_rotation_direction;
+
+    // Initial position of player for the curve. In pixels
+    u32 cutscene_initial_player_x;
+    u32 cutscene_initial_player_y;
+};
 extern u8 player_death;
 
 extern u8 speed_id;
 
-extern u8 gamemode;
-
-extern u16 cube_rotation;
-
-extern u8 on_floor;
-
-extern u8 player_buffering;
-
-extern s8 ball_rotation_direction;
+extern u8 dual;
 
 extern FIXED mirror_scaling;
 
 void player_main();
 void draw_player();
+void set_player_speed();

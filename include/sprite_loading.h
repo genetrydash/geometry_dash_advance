@@ -45,7 +45,7 @@ struct Object {
 
 struct ObjectSlot {
     u8 occupied;
-    u8 activated;
+    u8 activated[2]; // One for each player
     u8 has_collision;
     struct Object object;
 };

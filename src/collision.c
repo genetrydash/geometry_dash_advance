@@ -24,17 +24,17 @@ ARM_CODE void do_collision_with_objects(u32 check_rotated);
 
 ARM_CODE void collision_cube() {
     // Exit if above screen
-    if (player_y < 0) return;
+    if (curr_player.player_y < 0) return;
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
-        coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
-        coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
+        coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+        coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
 
 #ifdef DEBUG
-        if (!noclip) collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
+        if (!noclip) collide_with_map_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer);
 #else
-        collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
+        collide_with_map_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer);
 #endif
 
         // If the player is dead, don't bother checking more
@@ -43,44 +43,44 @@ ARM_CODE void collision_cube() {
         }
 
         // Do center hitbox checks
-        coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_internal_hitbox_width) >> 1);
-        coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_internal_hitbox_height) >> 1);      
+        coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
+        coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_height) >> 1);      
 
 #ifdef DEBUG
         if (!noclip) {
-            if (do_center_checks(coll_x, coll_y, player_internal_hitbox_width, player_internal_hitbox_height, layer)) {
+            if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
                 return;
             }
         }
 #else
-        if (do_center_checks(coll_x, coll_y, player_internal_hitbox_width, player_internal_hitbox_height, layer)) {
+        if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
             return;
         }
 #endif
 
-        if (gravity_dir == GRAVITY_DOWN) {
-            if (player_y_speed >= 0) {
+        if (curr_player.gravity_dir == GRAVITY_DOWN) {
+            if (curr_player.player_y_speed >= 0) {
                 // Going down
-                coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
-                coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
+                coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+                coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
                 
-                if (run_coll(coll_x, coll_y + player_height, layer, BOTTOM)) {
+                if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
                     continue;
                 }
-                if (run_coll(coll_x + player_width, coll_y + player_height, layer, BOTTOM)) {
+                if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height, layer, BOTTOM)) {
                     continue;
                 }
             }
         } else {
-            if (player_y_speed <= 0) {
+            if (curr_player.player_y_speed <= 0) {
                 // Going up
-                coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
-                coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
+                coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+                coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
 
                 if (run_coll(coll_x, coll_y, layer, TOP)) {
                     continue;
                 }
-                if (run_coll(coll_x + player_width, coll_y, layer, TOP)) {
+                if (run_coll(coll_x + curr_player.player_width, coll_y, layer, TOP)) {
                     continue;
                 }
             }
@@ -90,17 +90,17 @@ ARM_CODE void collision_cube() {
 
 ARM_CODE void collision_ship_ball_ufo() {
     // Exit if above screen
-    if (player_y < 0) return;
+    if (curr_player.player_y < 0) return;
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
-        coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
-        coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
+        coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+        coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
 
 #ifdef DEBUG
-        if (!noclip) collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
+        if (!noclip) collide_with_map_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer);
 #else
-        collide_with_map_spikes(coll_x, coll_y, player_width, player_height, layer);
+        collide_with_map_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer);
 #endif
 
         // If the player is dead, don't bother checking more
@@ -109,43 +109,43 @@ ARM_CODE void collision_ship_ball_ufo() {
         }
         
         // Do center hitbox checks
-        coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_internal_hitbox_width) >> 1);
-        coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_internal_hitbox_height) >> 1);      
+        coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
+        coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_height) >> 1);      
 
 #ifdef DEBUG
         if (!noclip) {
-            if (do_center_checks(coll_x, coll_y, player_internal_hitbox_width, player_internal_hitbox_height, layer)) {
+            if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
                 return;
             }
         }
 #else
-        if (do_center_checks(coll_x, coll_y, player_internal_hitbox_width, player_internal_hitbox_height, layer)) {
+        if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
             return;
         }
 #endif
 
 
-        if (player_y_speed >= 0) {
+        if (curr_player.player_y_speed >= 0) {
             // Going down
-            coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
-            coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
+            coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+            coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
             
-            if (run_coll(coll_x, coll_y + player_height, layer, BOTTOM)) {
+            if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
                 continue;
             }
-            if (run_coll(coll_x + player_width, coll_y + player_height, layer, BOTTOM)) {
+            if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height, layer, BOTTOM)) {
                 continue;
             }
         }
-        if (player_y_speed <= 0) {
+        if (curr_player.player_y_speed <= 0) {
             // Going up
-            coll_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
-            coll_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1) + 1;
+            coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+            coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1) + 1;
 
             if (run_coll(coll_x, coll_y, layer, TOP)) {
                 continue;
             }
-            if (run_coll(coll_x + player_width, coll_y, layer, TOP)) {
+            if (run_coll(coll_x + curr_player.player_width, coll_y, layer, TOP)) {
                 continue;
             }
         }
@@ -245,35 +245,35 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     
     if (side == TOP) {
         s32 eject_value = (eject | 0xfffffff8) << SUBPIXEL_BITS;
-        s32 max_eject = gamemode_max_eject[gamemode];
+        s32 max_eject = gamemode_max_eject[curr_player.gamemode];
         if (col_type == COL_FLOOR_CEIL) max_eject = 0x10;
         if (eject_value >= -(max_eject << SUBPIXEL_BITS)) {
-            if (gravity_dir == GRAVITY_UP) {
+            if (curr_player.gravity_dir == GRAVITY_UP) {
                 // We are resting on the ceiling so allow jumping and stuff
-                on_floor = 1;
+                curr_player.on_floor = 1;
             }
             
-            player_y -= eject_value;
-            player_y_speed = 0;
+            curr_player.player_y -= eject_value;
+            curr_player.player_y_speed = 0;
 
             // Remove subpixels
-            player_y &= ~0xffff;
+            curr_player.player_y &= ~0xffff;
             scroll_y &= ~0xffff;
         }
     } else if (side == BOTTOM) {   
         s32 eject_value = eject << SUBPIXEL_BITS;
-        s32 max_eject = gamemode_max_eject[gamemode];
+        s32 max_eject = gamemode_max_eject[curr_player.gamemode];
         if (col_type == COL_FLOOR_CEIL) max_eject = 0x10;
         if (eject_value < (max_eject << SUBPIXEL_BITS)) {
-            if (gravity_dir == GRAVITY_DOWN) {
+            if (curr_player.gravity_dir == GRAVITY_DOWN) {
                 // We are resting on the floor so allow jumping and stuff
-                on_floor = 1;
+                curr_player.on_floor = 1;
             }
-            player_y -= eject_value;
-            player_y_speed = 0;
+            curr_player.player_y -= eject_value;
+            curr_player.player_y_speed = 0;
 
             // Remove subpixels
-            player_y &= ~0xffff;
+            curr_player.player_y &= ~0xffff;
             scroll_y &= ~0xffff;
         }
     }
@@ -297,13 +297,13 @@ ARM_CODE s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
             y = y - obj_y;
 
             // Set old player y pos to get the displacement later
-            u64 old_player_y = player_y;
+            u64 old_player_y = curr_player.player_y;
 
             // This always returns TRUE
             col_type_lookup(block_object_buffer_flags[i - 1], x, y, side);
             
             // Update coll_y with the displacement that has occured
-            coll_y += old_player_y - player_y;
+            coll_y += old_player_y - curr_player.player_y;
 
             return TRUE;
         }
@@ -327,7 +327,7 @@ ARM_CODE void do_collision_with_objects(u32 check_rotated) {
         // Check collision only if the slot is occupied
         struct ObjectSlot curr_object = object_buffer[slot];
         // If is occupied and it hasn't been activated yet, continue
-        if (curr_object.occupied && curr_object.activated == FALSE) {
+        if (curr_object.occupied && curr_object.activated[curr_player_id] == FALSE) {
             // If it is at most 128 pixels offscreen of the right side, continue
             s32 relative_x = curr_object.object.x - ((scroll_x >> SUBPIXEL_BITS) & 0xffffffff);
             if (relative_x < SCREEN_WIDTH + 128) {
@@ -460,7 +460,7 @@ void col_spike_top_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 sp
         x, y, width, height,
         spk_x + 0x07, spk_y + 0x05, 0x02, 0x06
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -469,7 +469,7 @@ void col_spike_left_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 sp
         x, y, width, height,
         spk_x + 0x05, spk_y + 0x07, 0x06, 0x02
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -478,7 +478,7 @@ void col_small_spike_top(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk
         x, y, width, height,
         spk_x + 0x06, spk_y + 0x02, 0x04, 0x03
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -487,7 +487,7 @@ void col_small_spike_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 
         x, y, width, height,
         spk_x + 0x06, spk_y + 0x0b, 0x04, 0x03
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -496,7 +496,7 @@ void col_small_spike_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 s
         x, y, width, height,
         spk_x + 0x0b, spk_y + 0x06, 0x04, 0x03
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -505,7 +505,7 @@ void col_small_spike_left(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 sp
         x, y, width, height,
         spk_x + 0x02, spk_y + 0x06, 0x04, 0x03
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -514,7 +514,7 @@ void col_medium_spike_top(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 sp
         x, y, width, height,
         spk_x + 0x07, spk_y + 0x02, 0x02, 0x04
     )) {
-        player_death = TRUE;  
+        player_death = TRUE; 
     }
 }
 
@@ -523,7 +523,7 @@ void col_medium_spike_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32
         x, y, width, height,
         spk_x + 0x07, spk_y + 0x09, 0x02, 0x04
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -532,7 +532,7 @@ void col_medium_spike_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 
         x, y, width, height,
         spk_x + 0x09, spk_y + 0x07, 0x04, 0x02
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -541,7 +541,7 @@ void col_medium_spike_left(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 s
         x, y, width, height,
         spk_x + 0x02, spk_y + 0x07, 0x04, 0x02
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -550,7 +550,7 @@ void col_ground_spike_top(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 sp
         x, y, width, height,
         spk_x + 0x06, spk_y - 0x02, 0x04, 0x06
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -559,7 +559,7 @@ void col_ground_spike_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32
         x, y, width, height,
         spk_x + 0x06, spk_y + 0x0c, 0x04, 0x06
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -568,7 +568,7 @@ void col_ground_spike_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 
         x, y, width, height,
         spk_x + 0x0c, spk_y + 0x06, 0x06, 0x04
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -577,7 +577,7 @@ void col_ground_spike_left(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 s
         x, y, width, height,
         spk_x - 0x02, spk_y + 0x06, 0x06, 0x04
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -586,7 +586,7 @@ void col_ground_wavy_spike_top(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u
         x, y, width, height,
         spk_x + 0x06, spk_y, 0x04, 0x04
     )) {
-        player_death = TRUE;  
+        player_death = TRUE; 
     }
 }
 
@@ -595,7 +595,7 @@ void col_ground_wavy_spike_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x
         x, y, width, height,
         spk_x + 0x06, spk_y + 0x0c, 0x04, 0x04
     )) {
-        player_death = TRUE;  
+        player_death = TRUE; 
     }
 }
 
@@ -604,7 +604,7 @@ void col_ground_wavy_spike_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x,
         x, y, width, height,
         spk_x + 0x0c, spk_y + 0x06, 0x04, 0x04
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -613,7 +613,7 @@ void col_ground_wavy_spike_left(u32 x, u32 y, u32 width, u32 height, u32 spk_x, 
         x, y, width, height,
         spk_x , spk_y + 0x06, 0x04, 0x04
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -631,7 +631,7 @@ void col_ground_bush_spike_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x
         x, y, width, height,
         spk_x + 0x04, spk_y + 0x09, 0x08, 0x0a
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 
@@ -640,7 +640,7 @@ void col_ground_bush_spike_right(u32 x, u32 y, u32 width, u32 height, u32 spk_x,
         x, y, width, height,
         spk_x + 0x09, spk_y + 0x04, 0x0a, 0x08
     )) {
-        player_death = TRUE;  
+        player_death = TRUE;
     }
 }
 

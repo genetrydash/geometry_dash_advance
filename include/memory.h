@@ -122,7 +122,10 @@ extern u8 frame_finished;
 
 extern u8 complete_cutscene;
 extern u16 cutscene_frame;
-extern u32 cutscene_initial_player_x;
-extern u32 cutscene_initial_player_y;
 
 extern EWRAM_DATA u32 ewram_data;
+
+extern struct Player player_1;
+extern struct Player player_2;
+extern struct Player curr_player;
+extern u8 curr_player_id;

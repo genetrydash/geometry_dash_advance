@@ -297,20 +297,21 @@ void game_loop() {
 #ifdef DEBUG
         if (key_hit(KEY_SELECT)) {
             debug_mode ^= 1;
-            noclip = 0;
         }
 
-        if (debug_mode && key_hit(KEY_L)) {
+        if (key_hit(KEY_L)) {
             noclip ^= 1;
         }
 #endif
 
+        // Reset next sprite index
         nextSpr = 0;
 
 #ifdef DEBUG
         if (noclip) oam_metaspr(0, 0, noclipSpr, 0, 0, 0, 0, TRUE); 
 #endif
 
+        // Draw level progress
         draw_percentage();
 
         if (player_death) {
@@ -318,24 +319,17 @@ void game_loop() {
             reset_level();
         }
 
-        // Run vertical scroll code
-        scroll_screen_vertically();
-
-        s64 last_player_x = player_x;
-        // Run player routines
-        if (!player_death) player_main();
-
-        // Start the song once the player goes from negative to positive x position
-        if ((last_player_x < 0) != (player_x < 0)) mmStart(loaded_song_id, MM_PLAY_ONCE);
+        // Run player code
+        player_code();
 
         // Run object routines
         load_objects();
         deoccupy_chr_slots();
         display_objects();
-        
-        
         rotate_saws();
         scale_pulsing_objects();
+
+        // Sort OAM
         sort_oam_by_prio();
 
 #ifdef DEBUG

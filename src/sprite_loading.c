@@ -150,7 +150,8 @@ ARM_CODE void load_objects() {
 
                 // Occupy object slot and init some variables
                 object_buffer[index].occupied = TRUE;
-                object_buffer[index].activated = FALSE;
+                object_buffer[index].activated[ID_PLAYER_1] = FALSE;
+                object_buffer[index].activated[ID_PLAYER_2] = FALSE;
                 object_buffer[index].object = new_object;
             }
         }
@@ -366,13 +367,13 @@ ARM_CODE void check_obj_collision(u32 index) {
     u32 obj_x = curr_object.x + offset_x;
     u32 obj_y = curr_object.y + offset_y;
 
-    u32 ply_x = (player_x >> SUBPIXEL_BITS) + ((0x10 - player_width) >> 1);
-    u32 ply_y = (player_y >> SUBPIXEL_BITS) + ((0x10 - player_height) >> 1);
+    u32 ply_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+    u32 ply_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
 
     if (curr_object.attrib1 & ENABLE_ROTATION_FLAG) {
         // Check if a collision has happened
         if (is_colliding_rotated_fixed(
-            ply_x, ply_y, player_width, player_height, 
+            ply_x, ply_y, curr_player.player_width, curr_player.player_height, 
             obj_x, obj_y, obj_width, obj_height, curr_object.x, curr_object.y, center_x, center_y, curr_object.rotation
         )) {
             // If yes, then run the collision routine
@@ -380,8 +381,8 @@ ARM_CODE void check_obj_collision(u32 index) {
         }   
     } else {
         if (curr_object.attrib2 & CIRCLE_HITBOX_FLAG) {
-            u32 ply_cx = ply_x + (player_width >> 1);
-            u32 ply_cy = ply_y + (player_height >> 1);
+            u32 ply_cx = ply_x + (curr_player.player_width >> 1);
+            u32 ply_cy = ply_y + (curr_player.player_height >> 1);
 
             u32 obj_cx = curr_object.x + center_x;
             u32 obj_cy = curr_object.y + center_y;
@@ -390,7 +391,7 @@ ARM_CODE void check_obj_collision(u32 index) {
             u32 obj_radius = obj_height;
 
             if (is_colliding_circle(
-                ply_cx, ply_cy, player_height >> 1,
+                ply_cx, ply_cy, curr_player.player_height >> 1,
                 obj_cx, obj_cy, obj_radius
             )) {
                 // If yes, then run the collision routine
@@ -399,7 +400,7 @@ ARM_CODE void check_obj_collision(u32 index) {
         } else {
             // Check if a collision has happened
             if (is_colliding(
-                ply_x, ply_y, player_width, player_height, 
+                ply_x, ply_y, curr_player.player_width, curr_player.player_height, 
                 obj_x, obj_y, obj_width, obj_height
             )) {
                 // If yes, then run the collision routine

@@ -50,10 +50,21 @@ const u16 numberSpr[] = {
 
 // Player
 
-const u16 playerSpr[] = {
+const u16 player1Spr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(0),
     ATTR2_PALBANK(0),
+    0,
+    0,
+    PRIO_IDOFF(2, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 player2Spr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
+    ATTR1_SIZE_16x16 | ATTR1_AFF_ID(1),
+    ATTR2_PALBANK(0) | ATTR2_ID(4),
     0,
     0,
     PRIO_IDOFF(2, 0), // id offset
@@ -417,6 +428,169 @@ const u16 sizePortalGreenSpr[] = {
     11, // x
     16, // y
     PRIO_IDOFF(0, 24), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+
+const u16 speedPortalHalf[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(6),
+    -8, // x
+    -8, // y
+    PRIO_IDOFF(3, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 speedPortal1x[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(3),
+    -8, // x
+    -8, // y
+    PRIO_IDOFF(3, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 speedPortal2x[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(2),
+    -8, // x
+    -8, // y
+    PRIO_IDOFF(3, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 speedPortal3x[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(1),
+    -10, // x
+    -8, // y
+    PRIO_IDOFF(3, 0), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_8x8,
+    ATTR2_PALBANK(1),
+    22, // x
+    4, // y
+    PRIO_IDOFF(3, 16), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 speedPortal4x[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(5),
+    -11, // x
+    -8, // y
+    PRIO_IDOFF(3, 0), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_8x16,
+    ATTR2_PALBANK(5),
+    21, // x
+    0, // y
+    PRIO_IDOFF(3, 16), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 dualPortalOrangeSpr[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(6),
+    -1, // x
+    -16, // y
+    PRIO_IDOFF(4, 0), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(6),
+    -1, // x
+    16, // y
+    PRIO_IDOFF(4, 8), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(6),
+    3, // x
+    -16, // y
+    PRIO_IDOFF(0, 12), // id offset
+    CENTER(8, 8),
+    
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(6),
+    9, // x
+    0, // y
+    PRIO_IDOFF(0, 16), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(6),
+    3, // x
+    16, // y
+    PRIO_IDOFF(0, 20), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 dualPortalBlueSpr[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(3),
+    -1, // x
+    -16, // y
+    PRIO_IDOFF(4, 0), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(3),
+    -1, // x
+    16, // y
+    PRIO_IDOFF(4, 8), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(3),
+    3, // x
+    -16, // y
+    PRIO_IDOFF(0, 12), // id offset
+    CENTER(8, 8),
+    
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(3),
+    9, // x
+    0, // y
+    PRIO_IDOFF(0, 16), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(3),
+    3, // x
+    16, // y
+    PRIO_IDOFF(0, 20), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -858,82 +1032,6 @@ const u16 sawDecoTiny[] = {
     0xffff
 };
 
-const u16 speedPortalHalf[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(6),
-    -8, // x
-    -8, // y
-    PRIO_IDOFF(3, 0), // id offset
-    CENTER(8, 8),
-
-    0xffff
-};
-
-const u16 speedPortal1x[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(3),
-    -8, // x
-    -8, // y
-    PRIO_IDOFF(3, 0), // id offset
-    CENTER(8, 8),
-
-    0xffff
-};
-
-const u16 speedPortal2x[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(2),
-    -8, // x
-    -8, // y
-    PRIO_IDOFF(3, 0), // id offset
-    CENTER(8, 8),
-
-    0xffff
-};
-
-const u16 speedPortal3x[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(1),
-    -10, // x
-    -8, // y
-    PRIO_IDOFF(3, 0), // id offset
-    CENTER(8, 8),
-
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_8x8,
-    ATTR2_PALBANK(1),
-    22, // x
-    4, // y
-    PRIO_IDOFF(3, 16), // id offset
-    CENTER(8, 8),
-
-    0xffff
-};
-
-const u16 speedPortal4x[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
-    ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(5),
-    -11, // x
-    -8, // y
-    PRIO_IDOFF(3, 0), // id offset
-    CENTER(8, 8),
-
-    ATTR0_4BPP | ATTR0_TALL,
-    ATTR1_SIZE_8x16,
-    ATTR2_PALBANK(5),
-    21, // x
-    0, // y
-    PRIO_IDOFF(3, 16), // id offset
-    CENTER(8, 8),
-
-    0xffff
-};
-
 ROM_DATA const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -1025,6 +1123,9 @@ ROM_DATA const u16 *obj_sprites[] = {
     spike_H,
     spike_H,
     spike_H,
+
+    dualPortalOrangeSpr,
+    dualPortalBlueSpr,
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -1130,6 +1231,9 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("GROUND_BUSH_SPIKE_2_H", 0x374, 0x4)
     CHR_SLOT("GROUND_BUSH_SPIKE_3_H", 0x378, 0x4)
     CHR_SLOT("GROUND_BUSH_SPIKE_4_H", 0x37c, 0x4)
+
+    CHR_SLOT("ORANGE_DUAL_PORTAL", 0x380, 0x18)
+    CHR_SLOT("BLUE_DUAL_PORTAL", 0x380, 0x18)
     
 };
 #undef CHR_SLOT

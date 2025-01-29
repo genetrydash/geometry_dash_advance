@@ -225,15 +225,15 @@ void set_initial_color(COLOR bg_color, COLOR ground_color) {
 }
 
 void reset_variables() {
-    player_x = -0x100000;  
-    relative_player_x = 0;
-    player_y_speed = 0;
-    player_size = SIZE_BIG;
-    gravity_dir = GRAVITY_DOWN;
+    player_1.player_x = -0x100000;  
+    player_1.relative_player_x = 0;
+    player_1.player_y_speed = 0;
+    player_1.player_size = SIZE_BIG;
+    player_1.gravity_dir = GRAVITY_DOWN;
     coll_x = 0;
     coll_y = 0;
     player_death = FALSE;
-    cube_rotation = 0;
+    player_1.cube_rotation = 0;
 
     screen_mirrored = FALSE;
     mirror_scaling = float2fx(1.0);
@@ -241,16 +241,19 @@ void reset_variables() {
     screen_mirrored_transition = FALSE;
 
     curr_column = 0;
-    on_floor = TRUE;
+    player_1.on_floor = TRUE;
     bitstream[0] = bitstream[1] = 0;
     bits_left[0] = bits_left[1] = 0;
 
     cutscene_frame = 0;
-    cutscene_initial_player_x = 0;
-    cutscene_initial_player_y = 0;
+    player_1.cutscene_initial_player_x = 0;
+    player_1.cutscene_initial_player_y = 0;
     complete_cutscene = FALSE;
 
     scroll_x = 0;
+
+    dual = DUAL_OFF;
+    player_2 = curr_player = player_1;
 
     next_free_tile_id = START_OF_OBJECT_CHR;
 
@@ -294,7 +297,7 @@ void load_level(u32 level_ID) {
     // Get level variables
     COLOR bg_color = properties_pointer[BG_COLOR_INDEX];
     COLOR ground_color = properties_pointer[GROUND_COLOR_INDEX];
-    gamemode = properties_pointer[GAMEMODE_INDEX];
+    player_1.gamemode = properties_pointer[GAMEMODE_INDEX];
     speed_id = properties_pointer[SPEED_INDEX];
     curr_level_height = properties_pointer[LEVEL_HEIGHT_INDEX];
     curr_level_width = properties_pointer[LEVEL_WIDTH_INDEX];
@@ -303,11 +306,11 @@ void load_level(u32 level_ID) {
     // Limit values to safe values
     if (loaded_song_id >= MSL_NSONGS) loaded_song_id = 0;
     if (curr_level_height >= MAX_LEVEL_HEIGHT) curr_level_height = MAX_LEVEL_HEIGHT - 1;
-    if (gamemode >= GAMEMODE_COUNT) gamemode = GAMEMODE_CUBE;
+    if (player_1.gamemode >= GAMEMODE_COUNT) player_1.gamemode = GAMEMODE_CUBE;
     if (speed_id >= NUM_SPEEDS) speed_id = SPEED_X1;
 
     // Put player on the ground
-    player_y = ((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS);  
+    player_1.player_y = ((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS);  
     scroll_y = BOTTOM_SCROLL_LIMIT;
     intended_scroll_y = BOTTOM_SCROLL_LIMIT;
 
@@ -320,7 +323,7 @@ void load_level(u32 level_ID) {
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
     // Set initial player gamemode CHR
-    upload_player_chr(gamemode);
+    upload_player_chr(player_1.gamemode, ID_PLAYER_1);
 
     // Set BG and ground colors
     set_initial_color(bg_color, ground_color);
@@ -348,7 +351,7 @@ void transition_update_spr() {
     obj_copy(oam_mem, shadow_oam, 128);
     obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
     draw_percentage();
-    draw_player();
+    draw_both_players();
     display_objects();
     rotate_saws();
     scale_pulsing_objects();
@@ -411,7 +414,7 @@ void reset_level() {
     
     nextSpr = 0;
     draw_percentage();
-    draw_player();
+    draw_both_players();
     display_objects();
     rotate_saws();
     scale_pulsing_objects();
@@ -439,19 +442,19 @@ u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_a
 u64 approach_value(u64 current, u64 target, s32 inc, s32 dec);
 
 void scroll_screen_vertically() {
-    if (gamemode == GAMEMODE_CUBE) {
+    if (player_1.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) {
         // This scrolls the screen on the y axis
-        if (relative_player_y + 16 >= BOTTOM_SCROLL_Y) {
+        if (player_1.relative_player_y + 16 >= BOTTOM_SCROLL_Y) {
             scroll_y_dir = 1;
             
-            if (player_y_speed > 0) {
-                intended_scroll_y += player_y_speed;
+            if (player_1.player_y_speed > 0) {
+                intended_scroll_y += player_1.player_y_speed;
             }
-        } else if (relative_player_y <= TOP_SCROLL_Y) { 
+        } else if (player_1.relative_player_y <= TOP_SCROLL_Y) { 
             scroll_y_dir = 0;
 
-            if (player_y_speed < 0) {
-                intended_scroll_y += player_y_speed;
+            if (player_1.player_y_speed < 0) {
+                intended_scroll_y += player_1.player_y_speed;
             }
         }
         
@@ -465,19 +468,34 @@ void scroll_screen_vertically() {
     }
 }
 
+void scroll_screen_horizontally() {
+    if (player_1.player_x >= 0x500000) {
+        scroll_x += player_1.player_x_speed;
+        
+        u64 screen_scroll_limit = (curr_level_width - (SCREEN_WIDTH_T/2)) << (SUBPIXEL_BITS + 4);
+        if (scroll_x > screen_scroll_limit) {
+            scroll_x = screen_scroll_limit;
+        }
+    }
+}
+
 const u8 gamemode_screen_y_offset[] = {
+    /* Cube */ 0xa0, // Only used on dual gamemode
     /* Ship */ 0xa0,
     /* Ball */ 0x90,
     /* Ufo */  0xa0,
 };
 
 void set_target_y_scroll(u32 object_y) {
-    u32 intended_pos_y = object_y - 0x40;
-    u32 offset = gamemode_screen_y_offset[gamemode - 1];
-    
-    if (intended_pos_y > ((GROUND_HEIGHT) << 4) - offset) intended_pos_y = ((GROUND_HEIGHT) << 4) - offset;
+    // Dont overwrite dual portal y position
+    if (dual == DUAL_OFF) {
+        u32 intended_pos_y = object_y - 0x40;
+        u32 offset = gamemode_screen_y_offset[curr_player.gamemode];
+        
+        if (intended_pos_y > ((GROUND_HEIGHT) << 4) - offset) intended_pos_y = ((GROUND_HEIGHT) << 4) - offset;
 
-    target_scroll_y = (intended_pos_y & ~0xf) << SUBPIXEL_BITS;
+        target_scroll_y = (intended_pos_y & ~0xf) << SUBPIXEL_BITS;
+    }
 }
 
 // Screen mirror stuff
@@ -595,12 +613,12 @@ u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
 void draw_percentage() {
     // Progress number in level
     u32 percentage;
-    if (player_x < 0) {
+    if (curr_player.player_x < 0) {
         percentage = 0;
     } else if (curr_level_width == 0) {
         percentage = 100;
     } else {
-        percentage = ((((u32) player_x) / curr_level_width) * 100) >> 20;
+        percentage = ((((u32) curr_player.player_x) / curr_level_width) * 100) >> 20;
     }
     
     if (percentage >= 100) {
@@ -618,7 +636,103 @@ void draw_percentage() {
     }
 }
 
-void upload_player_chr(u32 gamemode) {
+void upload_player_chr(u32 gamemode, u32 player_id) {
     // Copy 4 tiles depending on gamemode
-    memcpy32(&tile_mem_obj[0][0], &icon_0[gamemode << 2], 4 * (sizeof(TILE) / sizeof(u32)));
+    memcpy32(&tile_mem_obj[0][player_id << 2], &icon_0[gamemode << 2], 4 * (sizeof(TILE) / sizeof(u32)));
+}
+
+// This should be always called when curr_player is player 1
+void activate_dual() {
+    if (dual == DUAL_OFF) {
+        dual = DUAL_ON;
+
+        // Copy variables into player 2
+        player_2 = curr_player;
+        
+        // Flip gravity
+        player_2.gravity_dir ^= 1;
+        
+        // Flip vertical speed as well
+        player_2.player_y_speed = -curr_player.player_y_speed; 
+        
+        // Use player 1 position as curr_player has applied its speed
+        player_2.player_x = player_1.player_x; 
+
+        // Copy CHR into player 2 slots
+        upload_player_chr(player_2.gamemode, ID_PLAYER_2);
+    }
+}
+
+void deactivate_dual() {
+    if (dual == DUAL_ON) {
+        dual = DUAL_OFF;
+
+        // Copy curr_player into player_1, this makes so if player 2 touches the blue dual portal, player 1 teleports to that portal
+        player_1 = curr_player;
+        upload_player_chr(player_1.gamemode, ID_PLAYER_1);
+    }
+}
+
+void draw_both_players() {
+    curr_player_id = ID_PLAYER_1;
+    curr_player = player_1;
+    
+    // Draw player 1
+    draw_player();
+
+    player_1 = curr_player;
+
+    // Draw player 2
+    if (dual == DUAL_ON) {   
+        curr_player_id = ID_PLAYER_2;
+        curr_player = player_2;
+        
+        // Draw player 2
+        draw_player();
+        
+        player_2 = curr_player;
+    }
+}
+
+// Main player code
+void player_code() {
+    // Run vertical scroll code
+    scroll_screen_vertically();
+
+    // Set speed for both players
+    set_player_speed();
+
+    // Run player 1
+    curr_player_id = ID_PLAYER_1;
+    curr_player = player_1;
+
+    s64 last_player_x = curr_player.player_x;
+    
+    // Run player 1
+    player_main();
+    
+    // Run horizontal scroll code, it is important that it is ran between drawing and running the player
+    scroll_screen_horizontally();
+    
+    // Draw player 1
+    draw_player();
+
+    // Start the song once the player goes from negative to positive x position
+    if ((last_player_x < 0) != (curr_player.player_x < 0)) mmStart(loaded_song_id, MM_PLAY_ONCE);
+
+    player_1 = curr_player;
+
+    // Run player 2 if on dual
+    if (dual == DUAL_ON) {
+        curr_player_id = ID_PLAYER_2;
+        curr_player = player_2;
+
+        // Run player 2
+        player_main();
+
+        // Draw player 2
+        draw_player();
+
+        player_2 = curr_player;
+    }
 }

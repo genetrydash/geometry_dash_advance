@@ -105,8 +105,14 @@ u8 complete_cutscene = 0;
 // Current frame in the cutscene
 u16 cutscene_frame = 0;
 
-// Initial position of player for the curve. In pixels
-u32 cutscene_initial_player_x;
-u32 cutscene_initial_player_y;
-
 EWRAM_DATA u32 ewram_data;
+
+// First player
+struct Player player_1;
+
+// Second player
+struct Player player_2;
+
+// Current player
+struct Player curr_player;
+u8 curr_player_id;

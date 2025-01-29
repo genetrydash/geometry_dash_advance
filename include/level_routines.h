@@ -20,6 +20,7 @@ void fade_in();
 void fade_in_level();
 
 void scroll_screen_vertically();
+void scroll_screen_horizontally();
 void set_target_y_scroll(u32 object_y);
 
 void mirror_screen();
@@ -29,4 +30,9 @@ void swap_screen_dir();
 void draw_percentage();
 void mirror_transition();
 
-void upload_player_chr(u32 gamemode);
+void upload_player_chr(u32 gamemode, u32 player_id);
+
+void activate_dual();
+void deactivate_dual();
+void draw_both_players();
+void player_code();

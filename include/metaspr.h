@@ -9,7 +9,8 @@
 extern u8 nextSpr;
 extern const u16 noclipSpr[];
 extern const u16 numberSpr[];
-extern const u16 playerSpr[];
+extern const u16 player1Spr[];
+extern const u16 player2Spr[];
 extern const u16 *obj_sprites[];
 extern const u32 obj_chr_offset[][2];
 

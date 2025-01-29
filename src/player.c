@@ -4,52 +4,6 @@
 #include "soundbank.bin.h"
 #include "soundbank.h"
 
-// Position variables, in subpixels
-s64 player_x; // gota love giant levels
-s64 player_y;
-
-// Player dimensions, in pixels
-u8 player_width;
-u8 player_height;
-
-u8 player_internal_hitbox_width;
-u8 player_internal_hitbox_height;
-
-// Speed variables, in subpixels/frame
-s32 player_x_speed;
-s32 player_y_speed;
-
-// Relative position on screen in pixels
-s16 relative_player_x;
-s16 relative_player_y;
-
-// Change of y speed
-s16 gravity;
-
-// Direction of the gravity. 0 : down, 1 : up
-u8 gravity_dir;
-
-// 0 : big, 1 : mini
-u8 player_size = 0;
-
-// 0 : alive, 1 : death
-u8 player_death;
-
-// 0 : on air, 1 : on floor
-u8 on_floor;
-
-// 0 : not buffering, 1 : buffering
-u8 player_buffering;
-
-// Current player gamemode
-u8 gamemode = GAMEMODE_CUBE;
-
-// Cube rotation angle
-u16 cube_rotation = 0;
-
-// - : left | + : right
-s8 ball_rotation_direction;
-
 // in subpixels
 const u32 speed_constants[] = {
     SPEED_HALF, // x0.5
@@ -59,8 +13,14 @@ const u32 speed_constants[] = {
     SPEED_4x    // x4
 };
 
+// 0 : alive, 1 : death
+u8 player_death;
+
 // Current speed ID
 u8 speed_id = SPEED_X1;
+
+// Dual status
+u8 dual = DUAL_OFF;
 
 const u16 ship_rot_multiplier[] = {
     0x400,  // x0.5
@@ -97,38 +57,25 @@ void player_main() {
         level_complete_cutscene();
     } else {
         // Set internal square hitbox size
-        if (player_size == SIZE_BIG) {
-            player_internal_hitbox_width = INTERNAL_HITBOX_WIDTH;
-            player_internal_hitbox_height = INTERNAL_HITBOX_HEIGHT;
+        if (curr_player.player_size == SIZE_BIG) {
+            curr_player.player_internal_hitbox_width = INTERNAL_HITBOX_WIDTH;
+            curr_player.player_internal_hitbox_height = INTERNAL_HITBOX_HEIGHT;
         } else {
-            player_internal_hitbox_width = MINI_INTERNAL_HITBOX_WIDTH;
-            player_internal_hitbox_height = MINI_INTERNAL_HITBOX_HEIGHT;
+            curr_player.player_internal_hitbox_width = MINI_INTERNAL_HITBOX_WIDTH;
+            curr_player.player_internal_hitbox_height = MINI_INTERNAL_HITBOX_HEIGHT;
         }
-
-        // Set player speed
-        player_x_speed = speed_constants[speed_id];
         
-        // This scrolls the screen on the x axis
-        if (player_x >= 0x500000) {
-            scroll_x += player_x_speed;
-            
-            u64 screen_scroll_limit = (curr_level_width - (SCREEN_WIDTH_T/2)) << (SUBPIXEL_BITS + 4);
-            if (scroll_x > screen_scroll_limit) {
-                scroll_x = screen_scroll_limit;
-            }
-        }
-
-        if (player_y < -0x200000) player_death = TRUE;
+        if (curr_player.player_y < -0x200000) player_death = TRUE;
 
         if (key_held(KEY_A | KEY_UP)) {
-            if (player_buffering == NO_ORB_BUFFER) {
-                player_buffering = ORB_BUFFER_READY;
+            if (curr_player.player_buffering == NO_ORB_BUFFER) {
+                curr_player.player_buffering = ORB_BUFFER_READY;
             }
         } else {
-            player_buffering = NO_ORB_BUFFER;
+            curr_player.player_buffering = NO_ORB_BUFFER;
         }
         // Gamemode specific routines
-        switch (gamemode) {
+        switch (curr_player.gamemode) {
             case GAMEMODE_CUBE:
                 cube_gamemode();
                 break;
@@ -143,68 +90,75 @@ void player_main() {
                 break;
         }
 
+        // Check if the level complete cutscene should start
         s64 player_x_limit = ((curr_level_width << 4) - 0x98) << (SUBPIXEL_BITS);
-        if (player_x > player_x_limit) {
+        if (curr_player.player_x > player_x_limit) {
             complete_cutscene = TRUE;
-            cutscene_initial_player_x = player_x >> SUBPIXEL_BITS;
-            cutscene_initial_player_y = player_y >> SUBPIXEL_BITS;
+
+            // Copy position for player 1
+            curr_player.cutscene_initial_player_x = curr_player.player_x >> SUBPIXEL_BITS;
+            curr_player.cutscene_initial_player_y = curr_player.player_y >> SUBPIXEL_BITS;
+            
+            if (dual == DUAL_ON) {
+                // Copy positions for player 2 as well
+                player_2.cutscene_initial_player_x = curr_player.cutscene_initial_player_x;
+                player_2.cutscene_initial_player_y = player_2.player_y >> SUBPIXEL_BITS;
+            }
         }
 
         block_object_buffer_offset = 0;
     }
-
-    draw_player();
 }
 
 #define scale_inv(s) ((1<<24)/s)>>8
 
 void cube_gamemode() {
-    if (player_size == SIZE_BIG) {
-        player_width = CUBE_WIDTH;
-        player_height = CUBE_HEIGHT;
+    if (curr_player.player_size == SIZE_BIG) {
+        curr_player.player_width = CUBE_WIDTH;
+        curr_player.player_height = CUBE_HEIGHT;
     } else {
-        player_width = MINI_CUBE_WIDTH;
-        player_height = MINI_CUBE_HEIGHT;
+        curr_player.player_width = MINI_CUBE_WIDTH;
+        curr_player.player_height = MINI_CUBE_HEIGHT;
     }
 
-    gravity = CUBE_GRAVITY;
+    curr_player.gravity = CUBE_GRAVITY;
 
-    s8 sign = gravity_dir ? -1 : 1;
+    s8 sign = curr_player.gravity_dir ? -1 : 1;
     s8 mirror_sign = screen_mirrored ? -1 : 1;
 
-    // Depending on which direction the gravity points, apply gravity and cap speed in one direction or in the other
-    if (gravity_dir) {
-        player_y_speed -= gravity;
-        if (player_y_speed < -CUBE_MAX_Y_SPEED) player_y_speed = -CUBE_MAX_Y_SPEED;
+    // Depending on which direction the curr_player.gravity points, apply curr_player.gravity and cap speed in one direction or in the other
+    if (curr_player.gravity_dir) {
+        curr_player.player_y_speed -= curr_player.gravity;
+        if (curr_player.player_y_speed < -CUBE_MAX_Y_SPEED) curr_player.player_y_speed = -CUBE_MAX_Y_SPEED;
     } else {
-        player_y_speed += gravity;
-        if (player_y_speed > CUBE_MAX_Y_SPEED) player_y_speed = CUBE_MAX_Y_SPEED;
+        curr_player.player_y_speed += curr_player.gravity;
+        if (curr_player.player_y_speed > CUBE_MAX_Y_SPEED) curr_player.player_y_speed = CUBE_MAX_Y_SPEED;
     }
    
     // If on floor and holding A or UP, jump
-    if (on_floor && key_held(KEY_A | KEY_UP)) {
-        if (player_size == SIZE_BIG) {
-            player_y_speed = -CUBE_JUMP_SPEED * sign;     
+    if (curr_player.on_floor && key_held(KEY_A | KEY_UP)) {
+        if (curr_player.player_size == SIZE_BIG) {
+            curr_player.player_y_speed = -CUBE_JUMP_SPEED * sign;     
         } else {
-            player_y_speed = -CUBE_MINI_JUMP_SPEED * sign;     
+            curr_player.player_y_speed = -CUBE_MINI_JUMP_SPEED * sign;     
         }
-        player_buffering = ORB_BUFFER_END;
+        curr_player.player_buffering = ORB_BUFFER_END;
     }
 
     // If the cube is on the air, rotate, else, snap to nearest 
-    if (!on_floor) {
-        cube_rotation -= 0x500 * sign * mirror_sign;
+    if (!curr_player.on_floor) {
+        curr_player.cube_rotation -= 0x500 * sign * mirror_sign;
     } else {
-        cube_rotation = (cube_rotation + 0x2000) & 0xC000;
+        curr_player.cube_rotation = (curr_player.cube_rotation + 0x2000) & 0xC000;
     }
 
-    on_floor = 0;
+    curr_player.on_floor = 0;
 
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
         // Apply quarter of speed
         // Update player x and y
-        player_x += player_x_speed >> 2;
-        player_y += player_y_speed >> 2;
+        curr_player.player_x += curr_player.player_x_speed >> 2;
+        curr_player.player_y += curr_player.player_y_speed >> 2;
 
         // Do collision with objects
         do_collision_with_objects(FALSE);
@@ -220,8 +174,8 @@ void cube_gamemode() {
     if (!player_death) {
         // Apply last quarter of speed
         // Update player x and y
-        player_x += player_x_speed - ((player_x_speed >> 2) * 3);
-        player_y += player_y_speed - ((player_y_speed >> 2) * 3);
+        curr_player.player_x += curr_player.player_x_speed - ((curr_player.player_x_speed >> 2) * 3);
+        curr_player.player_y += curr_player.player_y_speed - ((curr_player.player_y_speed >> 2) * 3);
     
         // Do collision with objects (and rotated ones as well)
         do_collision_with_objects(TRUE);
@@ -234,77 +188,77 @@ void cube_gamemode() {
 void ship_gamemode() {
     // Detect if falling
     u32 falling;
-    if (gravity_dir == GRAVITY_DOWN) {
-        falling = (player_y_speed > 0);
+    if (curr_player.gravity_dir == GRAVITY_DOWN) {
+        falling = (curr_player.player_y_speed > 0);
     } else {
-        falling = (player_y_speed < 0);
+        falling = (curr_player.player_y_speed < 0);
     }
 
     u32 holding = key_held(KEY_A | KEY_UP);
     s32 max_y_speed;
     s32 max_y_speed_holding;
 
-    if (player_size == SIZE_BIG) {
-        player_width = SHIP_WIDTH;
-        player_height = SHIP_HEIGHT;
+    if (curr_player.player_size == SIZE_BIG) {
+        curr_player.player_width = SHIP_WIDTH;
+        curr_player.player_height = SHIP_HEIGHT;
 
         max_y_speed = SHIP_MAX_Y_SPEED;
         max_y_speed_holding = SHIP_MAX_Y_SPEED_HOLDING;
     } else {
-        player_width = MINI_SHIP_WIDTH;
-        player_height = MINI_SHIP_HEIGHT;
+        curr_player.player_width = MINI_SHIP_WIDTH;
+        curr_player.player_height = MINI_SHIP_HEIGHT;
         
         max_y_speed = SHIP_MINI_MAX_Y_SPEED;
         max_y_speed_holding = SHIP_MINI_MAX_Y_SPEED_HOLDING;
     }
 
     if (holding) {
-        gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY_BASE : SHIP_MINI_GRAVITY_BASE);
+        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_BASE : SHIP_MINI_GRAVITY_BASE);
     } else if (!holding && !falling) {
-        gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY_AFTER_HOLD : SHIP_MINI_GRAVITY_AFTER_HOLD);
+        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_AFTER_HOLD : SHIP_MINI_GRAVITY_AFTER_HOLD);
     } else {
-        gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY : SHIP_MINI_GRAVITY);
+        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY : SHIP_MINI_GRAVITY);
     }
 
     if (holding && falling) {
-        gravity = ((player_size == SIZE_BIG) ? SHIP_GRAVITY_HOLD_FALL : SHIP_MINI_GRAVITY_HOLD_FALL);
+        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_HOLD_FALL : SHIP_MINI_GRAVITY_HOLD_FALL);
     }
 
     s8 mirror_sign = screen_mirrored ? 1 : -1;
 
     if (key_hit(KEY_A | KEY_UP)) {
-        player_buffering = ORB_BUFFER_READY;
+        curr_player.player_buffering = ORB_BUFFER_READY;
     } else {
-        player_buffering = NO_ORB_BUFFER;
+        curr_player.player_buffering = NO_ORB_BUFFER;
     }
 
-    cube_rotation = ArcTan2(player_x_speed >> 8, player_y_speed >> 8) * mirror_sign;
+    curr_player.cube_rotation = ArcTan2(curr_player.player_x_speed >> 8, curr_player.player_y_speed >> 8) * mirror_sign;
 
     if (holding) {
-        if (gravity_dir == GRAVITY_DOWN) {
-            player_y_speed -= gravity;
-            if (player_y_speed < -max_y_speed_holding) player_y_speed = -max_y_speed_holding;  
+        if (curr_player.gravity_dir == GRAVITY_DOWN) {
+            curr_player.player_y_speed -= curr_player.gravity;
+            if (curr_player.player_y_speed < -max_y_speed_holding) curr_player.player_y_speed = -max_y_speed_holding;  
         } else {    
-            player_y_speed += gravity;
-            if (player_y_speed > max_y_speed_holding) player_y_speed = max_y_speed_holding;  
+            curr_player.player_y_speed += curr_player.gravity;
+            if (curr_player.player_y_speed > max_y_speed_holding) curr_player.player_y_speed = max_y_speed_holding;  
         }
     } else {
-        if (gravity_dir == GRAVITY_DOWN) {
-            player_y_speed += gravity;
-            if (player_y_speed > max_y_speed) player_y_speed = max_y_speed;    
+        if (curr_player.gravity_dir == GRAVITY_DOWN) {
+            curr_player.player_y_speed += curr_player.gravity;
+            if (curr_player.player_y_speed > max_y_speed) curr_player.player_y_speed = max_y_speed;    
         } else {    
-            player_y_speed -= gravity;
-            if (player_y_speed < -max_y_speed) player_y_speed = -max_y_speed;
+            curr_player.player_y_speed -= curr_player.gravity;
+            if (curr_player.player_y_speed < -max_y_speed) curr_player.player_y_speed = -max_y_speed;
         }
     }
     
-    on_floor = 0;
+    curr_player.on_floor = 0;
     
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
         // Apply quarter of speed
         // Update player x and y
-        player_x += player_x_speed >> 2;
-        player_y += player_y_speed >> 2;
+        curr_player.player_x += curr_player.player_x_speed >> 2;
+        curr_player.player_y += curr_player.player_y_speed >> 2;
 
         // Do collision with objects
         do_collision_with_objects(FALSE);
@@ -320,8 +274,8 @@ void ship_gamemode() {
     if (!player_death) {
         // Apply last quarter of speed
         // Update player x and y
-        player_x += player_x_speed - ((player_x_speed >> 2) * 3);
-        player_y += player_y_speed - ((player_y_speed >> 2) * 3);
+        curr_player.player_x += curr_player.player_x_speed - ((curr_player.player_x_speed >> 2) * 3);
+        curr_player.player_y += curr_player.player_y_speed - ((curr_player.player_y_speed >> 2) * 3);
         
         // Do collision with objects (and rotated ones as well)
         do_collision_with_objects(TRUE);
@@ -332,45 +286,45 @@ void ship_gamemode() {
 }
 
 void ball_gamemode() {
-    if (player_size == SIZE_BIG) {
-        player_width = BALL_WIDTH;
-        player_height = BALL_HEIGHT;
+    if (curr_player.player_size == SIZE_BIG) {
+        curr_player.player_width = BALL_WIDTH;
+        curr_player.player_height = BALL_HEIGHT;
     } else {
-        player_width = MINI_BALL_WIDTH;
-        player_height = MINI_BALL_HEIGHT;
+        curr_player.player_width = MINI_BALL_WIDTH;
+        curr_player.player_height = MINI_BALL_HEIGHT;
     }
 
-    gravity = BALL_GRAVITY;
+    curr_player.gravity = BALL_GRAVITY;
 
-    s8 sign = (gravity_dir == GRAVITY_UP) ? -1 : 1;
+    s8 sign = (curr_player.gravity_dir == GRAVITY_UP) ? -1 : 1;
     s8 mirror_sign = screen_mirrored ? -1 : 1;
 
-    if (on_floor) {
-        ball_rotation_direction = (gravity_dir == GRAVITY_DOWN) ? 2 : -2;
+    if (curr_player.on_floor) {
+        curr_player.ball_rotation_direction = (curr_player.gravity_dir == GRAVITY_DOWN) ? 2 : -2;
     }
 
-    player_y_speed += gravity * sign;
+    curr_player.player_y_speed += curr_player.gravity * sign;
 
-    if (on_floor && player_buffering == ORB_BUFFER_READY) {
-        gravity_dir ^= 1;
-        player_y_speed = BALL_SWITCH_SPEED * -sign; 
+    if (curr_player.on_floor && curr_player.player_buffering == ORB_BUFFER_READY) {
+        curr_player.gravity_dir ^= 1;
+        curr_player.player_y_speed = BALL_SWITCH_SPEED * -sign; 
         
-        ball_rotation_direction = (gravity_dir == GRAVITY_DOWN) ? -1 : 1;
+        curr_player.ball_rotation_direction = (curr_player.gravity_dir == GRAVITY_DOWN) ? -1 : 1;
 
-        player_buffering = ORB_BUFFER_END;
+        curr_player.player_buffering = ORB_BUFFER_END;
     }
 
-    cube_rotation -= 0x250 * ball_rotation_direction * mirror_sign;
+    curr_player.cube_rotation -= 0x250 * curr_player.ball_rotation_direction * mirror_sign;
 
-    player_y_speed = CLAMP(player_y_speed, -BALL_MAX_Y_SPEED, BALL_MAX_Y_SPEED);
+    curr_player.player_y_speed = CLAMP(curr_player.player_y_speed, -BALL_MAX_Y_SPEED, BALL_MAX_Y_SPEED);
 
-    on_floor = 0;
+    curr_player.on_floor = 0;
 
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
         // Apply quarter of speed
         // Update player x and y
-        player_x += player_x_speed >> 2;
-        player_y += player_y_speed >> 2;
+        curr_player.player_x += curr_player.player_x_speed >> 2;
+        curr_player.player_y += curr_player.player_y_speed >> 2;
 
         // Do collision with objects (and rotated ones as well)
         do_collision_with_objects(FALSE);
@@ -386,8 +340,8 @@ void ball_gamemode() {
     if (!player_death) {
         // Apply last quarter of speed
         // Update player x and y
-        player_x += player_x_speed - ((player_x_speed >> 2) * 3);
-        player_y += player_y_speed - ((player_y_speed >> 2) * 3);
+        curr_player.player_x += curr_player.player_x_speed - ((curr_player.player_x_speed >> 2) * 3);
+        curr_player.player_y += curr_player.player_y_speed - ((curr_player.player_y_speed >> 2) * 3);
         
         // Do collision with objects
         do_collision_with_objects(TRUE);
@@ -398,46 +352,46 @@ void ball_gamemode() {
 }
 
 void ufo_gamemode() {
-    if (player_size == SIZE_BIG) {
-        player_width = UFO_WIDTH;
-        player_height = UFO_HEIGHT;
+    if (curr_player.player_size == SIZE_BIG) {
+        curr_player.player_width = UFO_WIDTH;
+        curr_player.player_height = UFO_HEIGHT;
     } else {
-        player_width = MINI_UFO_WIDTH;
-        player_height = MINI_UFO_HEIGHT;
+        curr_player.player_width = MINI_UFO_WIDTH;
+        curr_player.player_height = MINI_UFO_HEIGHT;
     }
 
-    gravity = UFO_GRAVITY;
+    curr_player.gravity = UFO_GRAVITY;
 
-    s8 sign = gravity_dir ? -1 : 1;
+    s8 sign = curr_player.gravity_dir ? -1 : 1;
     UNUSED s8 mirror_sign = screen_mirrored ? -1 : 1;
 
-    // Depending on which direction the gravity points, apply gravity and cap speed in one direction or in the other
-    if (gravity_dir) {
-        player_y_speed -= gravity;
-        if (player_y_speed < -UFO_MAX_Y_SPEED) player_y_speed = -UFO_MAX_Y_SPEED;
+    // Depending on which direction the curr_player.gravity points, apply curr_player.gravity and cap speed in one direction or in the other
+    if (curr_player.gravity_dir) {
+        curr_player.player_y_speed -= curr_player.gravity;
+        if (curr_player.player_y_speed < -UFO_MAX_Y_SPEED) curr_player.player_y_speed = -UFO_MAX_Y_SPEED;
     } else {
-        player_y_speed += gravity;
-        if (player_y_speed > UFO_MAX_Y_SPEED) player_y_speed = UFO_MAX_Y_SPEED;
+        curr_player.player_y_speed += curr_player.gravity;
+        if (curr_player.player_y_speed > UFO_MAX_Y_SPEED) curr_player.player_y_speed = UFO_MAX_Y_SPEED;
     }
 
-    cube_rotation = (((player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x200; 
+    curr_player.cube_rotation = (((curr_player.player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x200; 
     
     // If on floor and holding A or UP, jump
     if (key_hit(KEY_A | KEY_UP)) {
-        if (player_size == SIZE_BIG) {
-            player_y_speed = -UFO_JUMP_SPEED * sign;     
+        if (curr_player.player_size == SIZE_BIG) {
+            curr_player.player_y_speed = -UFO_JUMP_SPEED * sign;     
         } else {
-            player_y_speed = -UFO_MINI_JUMP_SPEED * sign;     
+            curr_player.player_y_speed = -UFO_MINI_JUMP_SPEED * sign;     
         }
     }
 
-    on_floor = 0;
+    curr_player.on_floor = 0;
 
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
         // Apply quarter of speed
         // Update player x and y
-        player_x += player_x_speed >> 2;
-        player_y += player_y_speed >> 2;
+        curr_player.player_x += curr_player.player_x_speed >> 2;
+        curr_player.player_y += curr_player.player_y_speed >> 2;
 
         // Do collision with objects
         do_collision_with_objects(FALSE);
@@ -453,8 +407,8 @@ void ufo_gamemode() {
     if (!player_death) {
         // Apply last quarter of speed
         // Update player x and y
-        player_x += player_x_speed - ((player_x_speed >> 2) * 3);
-        player_y += player_y_speed - ((player_y_speed >> 2) * 3);
+        curr_player.player_x += curr_player.player_x_speed - ((curr_player.player_x_speed >> 2) * 3);
+        curr_player.player_y += curr_player.player_y_speed - ((curr_player.player_y_speed >> 2) * 3);
     
         // Do collision with objects (and rotated ones as well)
         do_collision_with_objects(TRUE);
@@ -467,66 +421,73 @@ void ufo_gamemode() {
 void draw_player() {
     s8 sign = 1;
     
-    relative_player_x = (player_x - scroll_x) >> SUBPIXEL_BITS;
-    relative_player_y = (player_y - scroll_y) >> SUBPIXEL_BITS;
+    curr_player.relative_player_x = (curr_player.player_x - scroll_x) >> SUBPIXEL_BITS;
+    curr_player.relative_player_y = (curr_player.player_y - scroll_y) >> SUBPIXEL_BITS;
 
     u8 priority = (cutscene_frame > TOTAL_CUTSCENE_FRAMES - 20) ? 2 : 0;
 
+    // Get player sprite depending
+    const u16 *player_sprite = (curr_player_id == ID_PLAYER_1) ? player1Spr : player2Spr;
+
     // Draw only if on screen vertically
-    if (relative_player_y > -48 && relative_player_y < SCREEN_HEIGHT + 48) {
-        switch (gamemode) {
+    if (curr_player.relative_player_y > -48 && curr_player.relative_player_y < SCREEN_HEIGHT + 48) {
+        switch (curr_player.gamemode) {
             case GAMEMODE_CUBE:
-                if (player_size == SIZE_BIG) {
+                if (curr_player.player_size == SIZE_BIG) {
                     // Offset depending on screen mirror status
                     if (screen_mirrored) {
-                        x_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
-                        y_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
+                        x_offset = ((curr_player.cube_rotation >= 0x2000 && curr_player.cube_rotation < 0xa000) ? 9 : 8);
+                        y_offset = ((curr_player.cube_rotation >= 0x6000 && curr_player.cube_rotation < 0xe000) ? 9 : 8);
                     } else {
-                        x_offset = ((cube_rotation >= 0x6000 && cube_rotation < 0xe000) ? 9 : 8);
-                        y_offset = ((cube_rotation >= 0x2000 && cube_rotation < 0xa000) ? 9 : 8);
+                        x_offset = ((curr_player.cube_rotation >= 0x6000 && curr_player.cube_rotation < 0xe000) ? 9 : 8);
+                        y_offset = ((curr_player.cube_rotation >= 0x2000 && curr_player.cube_rotation < 0xa000) ? 9 : 8);
                     }
                 } else {
                     x_offset = 9;
                     y_offset = 9;
                 }
                 
-                oam_metaspr(relative_player_x - x_offset, relative_player_y - y_offset, playerSpr, FALSE, FALSE, 0, priority, FALSE);
+                oam_metaspr(curr_player.relative_player_x - x_offset, curr_player.relative_player_y - y_offset, player_sprite, FALSE, FALSE, 0, priority, FALSE);
                 break;
             case GAMEMODE_SHIP:
-                sign = gravity_dir ? -1 : 1;
+                sign = curr_player.gravity_dir ? -1 : 1;
 
-                y_offset = gravity_dir ? 9 : 7;
+                y_offset = curr_player.gravity_dir ? 9 : 7;
 
-                oam_metaspr(relative_player_x - 8, relative_player_y - y_offset, playerSpr, FALSE, FALSE, 0, priority, FALSE);
+                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - y_offset, player_sprite, FALSE, FALSE, 0, priority, FALSE);
                 break;
             case GAMEMODE_BALL:
-                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 0, priority, FALSE);  
+                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, priority, FALSE); 
                 break;
             case GAMEMODE_UFO:
-                sign = gravity_dir ? -1 : 1;
+                sign = curr_player.gravity_dir ? -1 : 1;
 
-                oam_metaspr(relative_player_x - 8, relative_player_y - 8, playerSpr, FALSE, FALSE, 0, priority, FALSE);  
+                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, priority, FALSE); 
                 break;
         }
-
-        obj_aff_identity(&obj_aff_buffer[AFF_SLOT_P1]);
+        
+        obj_aff_identity(&obj_aff_buffer[curr_player_id]);
 
         /// Change sprite size depending on player size and screen mirror status
-        if (player_size == SIZE_BIG) {
-            obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], mirror_scaling, float2fx(1.0) * sign, cube_rotation);
+        if (curr_player.player_size == SIZE_BIG) {
+            obj_aff_rotscale(&obj_aff_buffer[curr_player_id], mirror_scaling, float2fx(1.0) * sign, curr_player.cube_rotation);
         } else {
-            obj_aff_rotscale(&obj_aff_buffer[AFF_SLOT_P1], scale_inv(fxmul(mirror_scaling, float2fx(MINI_SIZE))), scale_inv(float2fx(MINI_SIZE) * sign), cube_rotation); 
+            obj_aff_rotscale(&obj_aff_buffer[curr_player_id], scale_inv(fxmul(mirror_scaling, float2fx(MINI_SIZE))), scale_inv(float2fx(MINI_SIZE) * sign), curr_player.cube_rotation); 
         }
     }
 }
 
 #undef scale_inv
 
+void set_player_speed() {
+    player_1.player_x_speed = speed_constants[speed_id];
+    player_2.player_x_speed = speed_constants[speed_id];    
+}
+
 void level_complete_cutscene() {
-    cube_rotation -= 0x500;
+    curr_player.cube_rotation -= 0x500;
     if (cutscene_frame <= TOTAL_CUTSCENE_FRAMES) {
         anim_player_to_wall();
-        
     }
 
     if (cutscene_frame == TOTAL_CUTSCENE_FRAMES - 2) {
@@ -534,7 +495,8 @@ void level_complete_cutscene() {
     }
 
     if (cutscene_frame < EXIT_CUTSCENE_FRAME) {
-        cutscene_frame++;
+        // Only player 1 can increment the cutscene frame
+        if (curr_player_id == ID_PLAYER_1) cutscene_frame++;
     }
 }
 
@@ -552,21 +514,21 @@ void anim_player_to_wall() {
     u32 final_y = (scroll_y >> SUBPIXEL_BITS) + (SCREEN_HEIGHT/2) - 8;
 
     // Calculate points
-    u16 height_diff = cutscene_initial_player_y - (scroll_y >> SUBPIXEL_BITS);
+    u16 height_diff = curr_player.cutscene_initial_player_y - (scroll_y >> SUBPIXEL_BITS);
     u32 offset = height_diff >> 1;
 
-    u32 top_x = cutscene_initial_player_x + offset; 
-    u32 top_y = cutscene_initial_player_y - offset; 
+    u32 top_x = curr_player.cutscene_initial_player_x + offset; 
+    u32 top_y = curr_player.cutscene_initial_player_y - offset; 
     
     // Update player position
-    player_x = (
-                FIXED_MUL(one_minus_t_squared, cutscene_initial_player_x * SUBPIXEL_MULTIPLIER) +
+    curr_player.player_x = (
+                FIXED_MUL(one_minus_t_squared, curr_player.cutscene_initial_player_x * SUBPIXEL_MULTIPLIER) +
                 FIXED_MUL(FIXED_MUL(2 * SUBPIXEL_MULTIPLIER, one_minus_t), t_fixed) * top_x +
                 FIXED_MUL(t_squared, final_x * SUBPIXEL_MULTIPLIER)
     );
 
-    player_y = (
-                FIXED_MUL(one_minus_t_squared, cutscene_initial_player_y * SUBPIXEL_MULTIPLIER) +
+    curr_player.player_y = (
+                FIXED_MUL(one_minus_t_squared, curr_player.cutscene_initial_player_y * SUBPIXEL_MULTIPLIER) +
                 FIXED_MUL(FIXED_MUL(2 * SUBPIXEL_MULTIPLIER, one_minus_t), t_fixed) * top_y +
                 FIXED_MUL(t_squared, final_y * SUBPIXEL_MULTIPLIER)
     );

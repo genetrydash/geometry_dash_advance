@@ -108,6 +108,9 @@ enum ObjTypes {
     GROUND_BUSH_SPIKE_3_H,
     GROUND_BUSH_SPIKE_4_H,
 
+    ORANGE_DUAL_PORTAL,
+    BLUE_DUAL_PORTAL,
+
     OBJ_COUNT
 };
 
