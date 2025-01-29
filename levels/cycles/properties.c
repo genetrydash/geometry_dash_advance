@@ -7,7 +7,7 @@ const unsigned int cycles_properties[] = {
  /*speed*/         1,
  /*level height*/  27,
  /*level width*/   820,
- /*song*/          MOD_CYCLES,
+ /*song*/          MOD_STEREOMA,
 };
 
 const unsigned char cycles_name[] = {
