@@ -443,6 +443,19 @@ const jmp_table routines_jump_table[] = {
 
     orange_dual_portal,
     blue_dual_portal,
+
+    // Toe deco
+    do_nothing,
+    do_nothing,
+    do_nothing,
+
+    do_nothing,
+    do_nothing,
+    do_nothing,
+
+    do_nothing,
+    do_nothing,
+    do_nothing,
 };
 
 // In pixels
@@ -537,6 +550,18 @@ const s16 obj_hitbox[][6] = {
 
     Object_Hitbox_Rectangle("ORANGE_DUAL_PORTAL", 22, 48, -3, -16, 8, 8)
     Object_Hitbox_Rectangle("BLUE_DUAL_PORTAL", 22, 48, -3, -16, 8, 8)
+
+    Object_Hitbox_Circle("BIG_CIRCUNFERENCE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("MED_CIRCUNFERENCE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("SMA_CIRCUNFERENCE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Rectangle("SMALL_BG_CHAINS", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("SMALL_WIDE_BG_CHAINS", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BIG_WIDE_BG_CHAINS", 0, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Rectangle("BIG_CLOUD", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("MEDIUM_CLOUD", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("SMALL_CLOUD", 0, 0, 0, 0, 0, 0)
 };
 
 #undef Object_Hitbox

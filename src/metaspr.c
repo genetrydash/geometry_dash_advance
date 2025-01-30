@@ -747,6 +747,25 @@ const u16 bgChainsSpr[] = {
     0xffff
 };
 
+const u16 bgChainsBigSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    0,   // x
+    -32, // y
+    PRIO_IDOFF(4, 0), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    0,   // x
+    -16, // y
+    PRIO_IDOFF(4, 4), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
 const u16 largePulsingCircleSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
@@ -1032,6 +1051,50 @@ const u16 sawDecoTiny[] = {
     0xffff
 };
 
+const u16 bigCloud[] = {
+    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
+    ATTR1_SIZE_64x32,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    -24, // x
+    -8, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 mediumCloud[] = {
+    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    -16, // x
+    0, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    16, // x
+    0, // y
+    PRIO_IDOFF(5, 8), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 smallCloud[] = {
+    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    -16, // x
+    0, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
 ROM_DATA const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -1126,6 +1189,20 @@ ROM_DATA const u16 *obj_sprites[] = {
 
     dualPortalOrangeSpr,
     dualPortalBlueSpr,
+
+    // Toe Deco
+    sawDecoBig,
+    sawDecoMediumSmall,
+    sawDecoTiny,
+
+    bgChainsSpr,
+    bgChainsSpr,
+    bgChainsBigSpr,
+
+    bigCloud,
+    mediumCloud,
+    smallCloud,
+        
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -1234,7 +1311,18 @@ const u32 obj_chr_offset[][2] = {
 
     CHR_SLOT("ORANGE_DUAL_PORTAL", 0x380, 0x18)
     CHR_SLOT("BLUE_DUAL_PORTAL", 0x380, 0x18)
-    
+
+    CHR_SLOT("BIG_CIRCUNFERENCE_SAW_DECO", 0x3a0, 0x40)
+    CHR_SLOT("MED_CIRCUNFERENCE_SAW_DECO", 0x3e0, 0x10)
+    CHR_SLOT("SMA_CIRCUNFERENCE_SAW_DECO", 0x3f0, 0x4)
+
+    CHR_SLOT("SMALL_BG_CHAINS", 0x400, 0x8)
+    CHR_SLOT("SMALL_WIDE_BG_CHAINS", 0x408, 0x8)
+    CHR_SLOT("BIG_WIDE_BG_CHAINS", 0x3f4, 0xc)
+
+    CHR_SLOT("BIG_CLOUD", 0x410, 0x20)
+    CHR_SLOT("MEDIUM_CLOUD", 0x430, 0xc)
+    CHR_SLOT("SMALL_CLOUD", 0x440, 0x8)
 };
 #undef CHR_SLOT
 
