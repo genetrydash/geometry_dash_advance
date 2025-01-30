@@ -667,9 +667,16 @@ void activate_dual() {
         // Use player 1 position as curr_player has applied its speed
         player_2.player_x = player_1.player_x; 
 
+        set_ceil_invulnerability();
+
         // Copy CHR into player 2 slots
         gamemode_upload_buffer[ID_PLAYER_2] = player_2.gamemode;
     }
+}
+
+void set_ceil_invulnerability() {
+    player_1.should_check_ceiling = 10;
+    player_2.should_check_ceiling = 10;
 }
 
 void deactivate_dual() {
@@ -691,6 +698,7 @@ void check_for_same_dual_gravity() {
                 // Check if same gamemode
                 if (curr_player.gamemode == player_2.gamemode) {
                     player_2.player_y_speed /= 2;
+                    set_ceil_invulnerability();
                     player_2.gravity_dir = curr_player.gravity_dir ^ 1;
                 }
             }
@@ -700,6 +708,7 @@ void check_for_same_dual_gravity() {
                 // Check if same gamemode
                 if (player_1.gamemode == curr_player.gamemode) {
                     player_1.player_y_speed /= 2;
+                    set_ceil_invulnerability();
                     player_1.gravity_dir = curr_player.gravity_dir ^ 1;
                 }
             }

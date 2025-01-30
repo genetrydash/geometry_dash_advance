@@ -70,6 +70,18 @@ ARM_CODE void collision_cube() {
                 if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height, layer, BOTTOM)) {
                     continue;
                 }
+            } else if (curr_player.should_check_ceiling) { {
+                    // If ceiling should be checked, check for top collision
+                    if (run_coll(coll_x, coll_y, layer, TOP)) {
+                        continue;
+                    }
+                    if (run_coll(coll_x + curr_player.player_width, coll_y, layer, TOP)) {
+                        continue;
+                    }
+                    
+                    // Decrement counter
+                    curr_player.should_check_ceiling--;
+                }
             }
         } else {
             if (curr_player.player_y_speed <= 0) {
@@ -83,6 +95,17 @@ ARM_CODE void collision_cube() {
                 if (run_coll(coll_x + curr_player.player_width, coll_y, layer, TOP)) {
                     continue;
                 }
+            } else if (curr_player.should_check_ceiling) {
+                // If ceiling should be checked, check for bottom collision
+                if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
+                    continue;
+                }
+                if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height, layer, BOTTOM)) {
+                    continue;
+                }
+
+                // Decrement counter
+                curr_player.should_check_ceiling--;
             }
         }
     }

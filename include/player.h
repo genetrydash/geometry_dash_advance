@@ -93,6 +93,9 @@ struct Player {
     // Initial position of player for the curve. In pixels
     u32 cutscene_initial_player_x;
     u32 cutscene_initial_player_y;
+
+    // Only used for cube. If 1, then ceiling doesn't kill player
+    u8 should_check_ceiling;
 };
 extern u8 player_death;
 
