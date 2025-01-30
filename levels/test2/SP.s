@@ -258,14 +258,44 @@ test2_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 43
-   .word 0x9b0 @ x
-   .hword 0x168 @ y
-   .hword 0x49 @ type
+   .word 0xa30 @ x
+   .hword 0x1a0 @ y
+   .hword 0xf @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 44
-   .word 0x9c0 @ x
-   .hword 0x168 @ y
+   .word 0xab0 @ x
+   .hword 0x140 @ y
+   .hword 0x9 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 45
+   .word 0xab0 @ x
+   .hword 0x190 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 46
+   .word 0xb30 @ x
+   .hword 0x130 @ y
+   .hword 0x1a @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 47
+   .word 0xb30 @ x
+   .hword 0x1a0 @ y
+   .hword 0x1a @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 48
+   .word 0xc10 @ x
+   .hword 0x1a0 @ y
+   .hword 0x49 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 49
+   .word 0xc20 @ x
+   .hword 0x1a0 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation

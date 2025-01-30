@@ -1,3 +1,3 @@
 // Sprite data Header
-#define TEST2_TOTAL_SPR 44
+#define TEST2_TOTAL_SPR 49
 extern const unsigned short test2_spr_data[(TEST2_TOTAL_SPR * 2) + 1];

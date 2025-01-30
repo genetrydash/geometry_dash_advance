@@ -29,15 +29,17 @@ const s32 orb_pad_bounces[][GAMEMODE_COUNT][5] = {
 void cube_portal(struct ObjectSlot *objectSlot) {
     if (curr_player.gamemode == GAMEMODE_SHIP) curr_player.player_y_speed /= 2;
     curr_player.gamemode = GAMEMODE_CUBE;
-    upload_player_chr(GAMEMODE_CUBE, curr_player_id);
+    gamemode_upload_buffer[curr_player_id] = GAMEMODE_CUBE;
+    check_for_same_dual_gravity();
     objectSlot->activated[curr_player_id] = TRUE;
 }
 
 void ship_portal(struct ObjectSlot *objectSlot) {
     if (curr_player.gamemode != GAMEMODE_SHIP) curr_player.player_y_speed /= 2;
     curr_player.gamemode = GAMEMODE_SHIP;
-    upload_player_chr(GAMEMODE_SHIP, curr_player_id);
-    
+    gamemode_upload_buffer[curr_player_id] = GAMEMODE_SHIP;
+
+    check_for_same_dual_gravity();
     set_target_y_scroll(objectSlot->object.y);
 
     objectSlot->activated[curr_player_id] = TRUE;
@@ -46,8 +48,9 @@ void ship_portal(struct ObjectSlot *objectSlot) {
 void ball_portal(struct ObjectSlot *objectSlot) {
     if (curr_player.gamemode == GAMEMODE_SHIP) curr_player.player_y_speed /= 2;
     curr_player.gamemode = GAMEMODE_BALL;
-    upload_player_chr(GAMEMODE_BALL, curr_player_id);
+    gamemode_upload_buffer[curr_player_id] = GAMEMODE_BALL;
     
+    check_for_same_dual_gravity();
     set_target_y_scroll(objectSlot->object.y);
 
     objectSlot->activated[curr_player_id] = TRUE;
@@ -56,8 +59,9 @@ void ball_portal(struct ObjectSlot *objectSlot) {
 void ufo_portal(struct ObjectSlot *objectSlot) {
     if (curr_player.gamemode == GAMEMODE_SHIP) curr_player.player_y_speed /= 2;
     curr_player.gamemode = GAMEMODE_UFO;
-    upload_player_chr(GAMEMODE_UFO, curr_player_id);
+    gamemode_upload_buffer[curr_player_id] = GAMEMODE_UFO;
     
+    check_for_same_dual_gravity();
     set_target_y_scroll(objectSlot->object.y);
 
     objectSlot->activated[curr_player_id] = TRUE;
@@ -69,6 +73,7 @@ void blue_gravity_portal(struct ObjectSlot *objectSlot) {
         curr_player.gravity_dir = GRAVITY_DOWN;
         
         curr_player.ball_rotation_direction = -1;
+        check_for_same_dual_gravity();
     }
 
     objectSlot->activated[curr_player_id] = TRUE;
@@ -80,6 +85,7 @@ void yellow_gravity_portal(struct ObjectSlot *objectSlot) {
         curr_player.gravity_dir = GRAVITY_UP;
 
         curr_player.ball_rotation_direction = 1;
+        check_for_same_dual_gravity();
     }
 
     objectSlot->activated[curr_player_id] = TRUE;
@@ -245,6 +251,9 @@ void blue_orb(struct ObjectSlot *objectSlot) {
         curr_player.ball_rotation_direction = sign;
         
         curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][BLUE_ORB_PAD_INDEX] * sign;
+
+        check_for_same_dual_gravity();
+
         objectSlot->activated[curr_player_id] = TRUE;
         curr_player.on_floor = FALSE;
         curr_player.player_buffering = ORB_BUFFER_END;
@@ -283,6 +292,9 @@ void blue_pad(struct ObjectSlot *objectSlot) {
     curr_player.ball_rotation_direction = sign;
 
     curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][BLUE_ORB_PAD_INDEX] * sign;
+    
+    check_for_same_dual_gravity();
+    
     curr_player.on_floor = FALSE;
     objectSlot->activated[curr_player_id] = TRUE;
 }

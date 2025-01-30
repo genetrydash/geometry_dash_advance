@@ -366,3 +366,54 @@ void unload_chr_in_buffer() {
 
     unloaded_object_buffer_offset = 0;
 }
+
+const u8 player_color_mirror_lut[] = {
+    0x2, 0xc,
+    0x3, 0xc,
+    0x4, 0xb,
+    0x5, 0xa,
+    0x6, 0x9,
+    0x7, 0x8,
+    0x6, 0x7,
+};
+
+ARM_CODE void flip_player_colors(u8 *dst, u8 *src, u8 tile_num) {
+    for (s32 curr_tile = 0; curr_tile < tile_num; curr_tile++) {
+        for (u32 byte = 0; byte < sizeof(TILE); byte++) {
+            s32 index = (curr_tile << 5) + byte;
+            
+            // Get byte
+            u32 tile_byte = src[index];
+
+            u32 left_pixel = obtain_flipped_pixel(tile_byte >> 4);
+            
+            u32 right_pixel = obtain_flipped_pixel(tile_byte & 0b1111);
+
+            // Set new byte
+            dst[index] = (left_pixel << 4) | right_pixel;
+        }
+    }
+}
+
+ARM_CODE u32 obtain_flipped_pixel(u32 pixel) {
+    for (u32 i = 0; i < sizeof(player_color_mirror_lut) ; i += 2) {
+        // Get first byte of table entry
+        u8 lut_pixel = player_color_mirror_lut[i];
+
+        // If a match is found, return the second byte
+        if (pixel == lut_pixel) {
+            return player_color_mirror_lut[i + 1];
+        }
+        
+        // Now get the second byte
+        lut_pixel = player_color_mirror_lut[i + 1];
+
+        // If a match is found, return the first byte
+        if (pixel == lut_pixel) {
+            return player_color_mirror_lut[i];
+        }
+    }
+
+    // Not found
+    return pixel;
+}

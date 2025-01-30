@@ -34,5 +34,6 @@ void upload_player_chr(u32 gamemode, u32 player_id);
 
 void activate_dual();
 void deactivate_dual();
+void check_for_same_dual_gravity();
 void draw_both_players();
 void player_code();

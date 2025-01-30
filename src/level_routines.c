@@ -636,9 +636,18 @@ void draw_percentage() {
     }
 }
 
+#define PLAYER_CHR_SIZE (4 * (sizeof(TILE) / sizeof(u32)))
+#define PLAYER_CHR_SIZE_BYTES (4 * sizeof(TILE))
+
 void upload_player_chr(u32 gamemode, u32 player_id) {
-    // Copy 4 tiles depending on gamemode
-    memcpy32(&tile_mem_obj[0][player_id << 2], &icon_0[gamemode << 2], 4 * (sizeof(TILE) / sizeof(u32)));
+    if (player_id == ID_PLAYER_1) {
+        // Copy player sprite into VRAM
+        memcpy32(&tile_mem_obj[0][0], &icon_0[gamemode << 2], PLAYER_CHR_SIZE);
+    } else {
+        // Flip colors
+        flip_player_colors(vram_copy_buffer, (u8*)(&icon_0[gamemode << 2]), 4);
+        memcpy32(&tile_mem_obj[0][4], vram_copy_buffer, PLAYER_CHR_SIZE);
+    }
 }
 
 // This should be always called when curr_player is player 1
@@ -659,7 +668,7 @@ void activate_dual() {
         player_2.player_x = player_1.player_x; 
 
         // Copy CHR into player 2 slots
-        upload_player_chr(player_2.gamemode, ID_PLAYER_2);
+        gamemode_upload_buffer[ID_PLAYER_2] = player_2.gamemode;
     }
 }
 
@@ -669,7 +678,32 @@ void deactivate_dual() {
 
         // Copy curr_player into player_1, this makes so if player 2 touches the blue dual portal, player 1 teleports to that portal
         player_1 = curr_player;
-        upload_player_chr(player_1.gamemode, ID_PLAYER_1);
+        
+        gamemode_upload_buffer[ID_PLAYER_1] = player_1.gamemode;
+    }
+}
+
+void check_for_same_dual_gravity() {
+    if (dual == DUAL_ON) {
+        if (curr_player_id == ID_PLAYER_1) {
+            // Check if same gravity
+            if (curr_player.gravity_dir == player_2.gravity_dir) {
+                // Check if same gamemode
+                if (curr_player.gamemode == player_2.gamemode) {
+                    player_2.player_y_speed /= 2;
+                    player_2.gravity_dir = curr_player.gravity_dir ^ 1;
+                }
+            }
+        } else {
+            // Check if same gravity
+            if (player_1.gravity_dir == curr_player.gravity_dir) {
+                // Check if same gamemode
+                if (player_1.gamemode == curr_player.gamemode) {
+                    player_1.player_y_speed /= 2;
+                    player_1.gravity_dir = curr_player.gravity_dir ^ 1;
+                }
+            }
+        }
     }
 }
 

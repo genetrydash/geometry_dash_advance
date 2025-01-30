@@ -116,3 +116,6 @@ struct Player player_2;
 // Current player
 struct Player curr_player;
 u8 curr_player_id;
+
+// Holds the gamemode to upload on VBLANK
+s32 gamemode_upload_buffer[2];

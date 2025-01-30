@@ -55,6 +55,16 @@ void vblank_handler() {
 
             // Copy palette from buffer
             memcpy32(pal_bg_mem, palette_buffer, 256);
+
+            // Manage player CHR uploads
+            if (gamemode_upload_buffer[ID_PLAYER_1] >= 0) {
+                upload_player_chr(gamemode_upload_buffer[ID_PLAYER_1], ID_PLAYER_1);
+                gamemode_upload_buffer[ID_PLAYER_1] = -1;
+            }
+            if (gamemode_upload_buffer[ID_PLAYER_2] >= 0) {
+                upload_player_chr(gamemode_upload_buffer[ID_PLAYER_2], ID_PLAYER_2);
+                gamemode_upload_buffer[ID_PLAYER_2] = -1;
+            }
         }
 
         if (update_flags & CLEAR_OAM_BUFFER) {

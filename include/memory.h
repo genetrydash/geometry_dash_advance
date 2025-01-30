@@ -129,3 +129,5 @@ extern struct Player player_1;
 extern struct Player player_2;
 extern struct Player curr_player;
 extern u8 curr_player_id;
+
+extern s32 gamemode_upload_buffer[2];
