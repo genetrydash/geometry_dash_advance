@@ -16,6 +16,7 @@ jobs:
           submodules: recursive
       - name: Make application
         run: |
+          make levels
           make
       - name: Prepare for build publishing
         run: |
