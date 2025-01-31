@@ -203,7 +203,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                 file.write(f"#define {level_name.upper()}_TOTAL_SPR {counter}\n")
                 file.write(f"extern const unsigned short {level_name}_spr_data[({level_name.upper()}_TOTAL_SPR * 2) + 1];\n")
 
-            return len(objects) * 8 + 1
+            return byte_counter
     
     # If layer not found or doesn't contain objects, raise an error
     raise ValueError(f"Layer '{layer_name}' not found or does not contain objects.")
@@ -479,7 +479,11 @@ def main():
         output_s_path = f"levels/{level_name}/{layer}.s"  # Output .s file
         output_h_path = f"levels/{level_name}/{layer}.h"  # Output .h file
 
-        total_size += export_objects_to_assembly(file_path, level_name, layer, output_s_path, output_h_path)
+        object_size = export_objects_to_assembly(file_path, level_name, layer, output_s_path, output_h_path)
+        total_size += object_size
+        
+        original_size_list.append(0)
+        size_list.append(object_size)
 
         output_h_path = f"levels/{level_name}/properties.h"  # Output .h file
         output_c_path = f"levels/{level_name}/properties.c"  # Output .c file
@@ -513,6 +517,11 @@ def main():
             ratio = -((1 - (orig/new)) * 100)
 
         print(f"L2 - Original {orig} B | Compressed {new} B -> Compression ratio: {ratio}%")
+        index += 1
+
+        new = size_list[index]
+
+        print(f"SP - {new} B")
         index += 1
 
     print(f"\nAll levels TOTAL size: {total_total_size} B")
