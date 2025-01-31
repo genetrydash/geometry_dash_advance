@@ -107,8 +107,16 @@
 #include "clutterfunk/SP.h"
 #include "clutterfunk/properties.h"
 
+// theoryofeverything
+#define theoryofeverything_ID 11
+
+#include "theoryofeverything/l1.h"
+#include "theoryofeverything/l2.h"
+#include "theoryofeverything/SP.h"
+#include "theoryofeverything/properties.h"
+
 // test
-#define test_ID 11
+#define test_ID 12
 
 #include "test/l1.h"
 #include "test/l2.h"
@@ -116,13 +124,13 @@
 #include "test/properties.h"
 
 // test2
-#define test2_ID 12
+#define test2_ID 13
 
 #include "test2/l1.h"
 #include "test2/l2.h"
 #include "test2/SP.h"
 #include "test2/properties.h"
 
-#define LEVEL_COUNT 13
+#define LEVEL_COUNT 14
 extern ROM_DATA const u16 *level_defines[][4];
 extern ROM_DATA const u8 *level_names[];

@@ -256,6 +256,9 @@ void tile_v_flip(u8 *pointer) {
 }
 
 void deoccupy_chr_slots() {
+    // If an object has been loaded in this frame, return to avoid desyncs
+    if (loaded_object_buffer_offset > 0) return;
+
     for (s32 i = 0; i < MAX_OBJECTS; i++) {
         u8 was_occupied = chr_slots[i].occupied;
         u32 rom_offset = chr_slots[i].rom_offset;

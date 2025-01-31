@@ -96,6 +96,9 @@ struct Player {
 
     // Only used for cube. If 1, then ceiling doesn't kill player
     u8 should_check_ceiling;
+
+    // Set at the frame the cube changed size
+    u8 changed_size_frames;
 };
 extern u8 player_death;
 

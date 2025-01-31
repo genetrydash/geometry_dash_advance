@@ -115,11 +115,13 @@ void unmirror_portal(struct ObjectSlot *objectSlot) {
 
 void mini_portal(struct ObjectSlot *objectSlot) {
     curr_player.player_size = SIZE_MINI;
+    curr_player.changed_size_frames = 3;
     objectSlot->activated[curr_player_id] = TRUE;
 }
 
 void big_portal(struct ObjectSlot *objectSlot) {
     curr_player.player_size = SIZE_BIG;
+    curr_player.changed_size_frames = 3;
     objectSlot->activated[curr_player_id] = TRUE;
 }
 

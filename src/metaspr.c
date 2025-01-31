@@ -222,7 +222,7 @@ const u16 gravityPortalBlueSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
     ATTR2_PALBANK(3),
-    -5, // x
+    -8, // x
     -16, // y
     PRIO_IDOFF(4, 0), // id offset
     CENTER(8, 8),
@@ -230,7 +230,7 @@ const u16 gravityPortalBlueSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
     ATTR2_PALBANK(3),
-    -5, // x
+    -8, // x
     16, // y
     PRIO_IDOFF(4, 8), // id offset
     CENTER(8, 8),
@@ -238,7 +238,7 @@ const u16 gravityPortalBlueSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
     ATTR2_PALBANK(3),
-    11, // x
+    8, // x
     -16, // y
     PRIO_IDOFF(0, 16), // id offset
     CENTER(8, 8),
@@ -246,7 +246,7 @@ const u16 gravityPortalBlueSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
     ATTR2_PALBANK(3),
-    11, // x
+    8, // x
     16, // y
     PRIO_IDOFF(0, 24), // id offset
     CENTER(8, 8),
@@ -258,7 +258,7 @@ const u16 gravityPortalYellowSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
     ATTR2_PALBANK(4),
-    -5, // x
+    -8, // x
     -16, // y
     PRIO_IDOFF(4, 0), // id offset
     CENTER(8, 8),
@@ -266,7 +266,7 @@ const u16 gravityPortalYellowSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
     ATTR2_PALBANK(4),
-    -5, // x
+    -8, // x
     16, // y
     PRIO_IDOFF(4, 8), // id offset
     CENTER(8, 8),
@@ -274,7 +274,7 @@ const u16 gravityPortalYellowSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
     ATTR2_PALBANK(4),
-    11, // x
+    8, // x
     -16, // y
     PRIO_IDOFF(0, 16), // id offset
     CENTER(8, 8),
@@ -282,7 +282,7 @@ const u16 gravityPortalYellowSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
     ATTR2_PALBANK(4),
-    11, // x
+    8, // x
     16, // y
     PRIO_IDOFF(0, 24), // id offset
     CENTER(8, 8),
@@ -835,8 +835,8 @@ const u16 pulsingObjectSpr[] = {
 };
 
 const u16 pulsingObjectBigSpr[] = {
-    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
-    ATTR1_SIZE_32x32 | ATTR1_AFF_ID(4),
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_32x32,
     ATTR2_PALBANK(0),
     -8, // x
     -8, // y

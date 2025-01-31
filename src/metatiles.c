@@ -77,7 +77,8 @@ const SCR_ENTRY metatiles[][5] = {
 
     Metatile("ENDING_WALL",  TILE(0x00, 0, 0, 0), TILE(0x04, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x04, 0, 0, V), COL_SLAB_RIGHT)
 
-    Metatile("EMPTY",    TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_NONE)
+    Metatile("INVISIBLE_FLOOR_CEIL",    TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_FLOOR_CEIL)
+
     Metatile("EMPTY",    TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_NONE)

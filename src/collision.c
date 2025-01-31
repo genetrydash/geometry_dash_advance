@@ -189,6 +189,9 @@ ARM_CODE INLINE u16 obtain_collision_type(u32 x, u32 y, u32 layer) {
 
 // GD cube has a small square hitbox where if a block collides with, then the player dies
 s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer) {
+    // Don't check if changed size
+    if(curr_player.changed_size_frames) return FALSE;
+
     if (run_coll(x, y, layer, CENTER)) {
         player_death = TRUE;
         return TRUE;
@@ -269,7 +272,10 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     if (side == TOP) {
         s32 eject_value = (eject | 0xfffffff8) << SUBPIXEL_BITS;
         s32 max_eject = gamemode_max_eject[curr_player.gamemode];
-        if (col_type == COL_FLOOR_CEIL) max_eject = 0x10;
+
+        // Raise eject cap if changed size
+        if (curr_player.changed_size_frames) max_eject = 0x10;
+
         if (eject_value >= -(max_eject << SUBPIXEL_BITS)) {
             if (curr_player.gravity_dir == GRAVITY_UP) {
                 // We are resting on the ceiling so allow jumping and stuff
@@ -285,8 +291,11 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         }
     } else if (side == BOTTOM) {   
         s32 eject_value = eject << SUBPIXEL_BITS;
+
+        // Raise eject cap if changed size
         s32 max_eject = gamemode_max_eject[curr_player.gamemode];
-        if (col_type == COL_FLOOR_CEIL) max_eject = 0x10;
+
+        if (curr_player.changed_size_frames) max_eject = 0x10;
         if (eject_value < (max_eject << SUBPIXEL_BITS)) {
             if (curr_player.gravity_dir == GRAVITY_DOWN) {
                 // We are resting on the floor so allow jumping and stuff

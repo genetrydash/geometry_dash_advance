@@ -174,6 +174,7 @@ void unpack_rle_packet(u32 layer) {
     unpack_overflow_check(layer, VALUE_SIZE_BITS);
 
     s32 value_length_size = (bitstream[layer] >> (bits_left[layer] - VALUE_SIZE_BITS)) & 0xf;
+    value_length_size++;
     bits_left[layer] -= VALUE_SIZE_BITS;
     
     unpack_overflow_check(layer, value_length_size);
@@ -184,6 +185,7 @@ void unpack_rle_packet(u32 layer) {
     unpack_overflow_check(layer, COUNT_SIZE_BITS);
 
     s32 count_length_size = (bitstream[layer] >> (bits_left[layer] - COUNT_SIZE_BITS)) & 0xf;
+    count_length_size++;
     bits_left[layer] -= COUNT_SIZE_BITS;
 
     unpack_overflow_check(layer, count_length_size);
@@ -594,7 +596,10 @@ u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_a
     } else if (adjustement < -(s64)(max_adjustment)) {
         adjustement = -(s64)max_adjustment;
     }
-    return (current + adjustement);
+
+    // If too close, there will be a rounding error, so just finish the approach
+    if (ABS(diff) < 0x2000) return target;
+    else return (current + adjustement);
 }
 
 u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {

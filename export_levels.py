@@ -256,7 +256,7 @@ def pack_rle_data(compressed):
             value_size = value.bit_length()
             
         # Pack dynamic sized value
-        bitstream = (bitstream << 4) | value_size
+        bitstream = (bitstream << 4) | (value_size - 1)
         bit_count += 4
 
         # Pack 16-bit value
@@ -269,7 +269,7 @@ def pack_rle_data(compressed):
             count_size = count.bit_length()
 
         # Pack count size in bits
-        bitstream = (bitstream << 4) | count_size
+        bitstream = (bitstream << 4) | (count_size - 1)
         bit_count += 4
 
         # Pack dynamic sized count

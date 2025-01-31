@@ -107,6 +107,10 @@ void player_main() {
         }
 
         block_object_buffer_offset = 0;
+
+        if (curr_player.changed_size_frames) {
+            curr_player.changed_size_frames--;
+        }
     }
 }
 
@@ -374,7 +378,7 @@ void ufo_gamemode() {
         if (curr_player.player_y_speed > UFO_MAX_Y_SPEED) curr_player.player_y_speed = UFO_MAX_Y_SPEED;
     }
 
-    curr_player.cube_rotation = (((curr_player.player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x200; 
+    curr_player.cube_rotation = (((curr_player.player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x180; 
     
     // If on floor and holding A or UP, jump
     if (key_hit(KEY_A | KEY_UP)) {
