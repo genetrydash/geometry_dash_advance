@@ -6664,22 +6664,22 @@ theoryofeverything_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 1068
-   .word 0x2ea4 @ x
-   .hword 0x170 @ y
-   .hword 0x28 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
-@ Object 1069
-   .word 0x2ea4 @ x
-   .hword 0x180 @ y
-   .hword 0x8 @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0 @ rotation
-@ Object 1070
    .word 0x2eb0 @ x
    .hword 0xd0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 1069
+   .word 0x2eb0 @ x
+   .hword 0x170 @ y
+   .hword 0x28 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 1070
+   .word 0x2eb0 @ x
+   .hword 0x180 @ y
+   .hword 0x8 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 1071
    .word 0x2ec0 @ x
