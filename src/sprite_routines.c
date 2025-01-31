@@ -480,6 +480,14 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     do_nothing,
     do_nothing,
+
+    
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    do_nothing,
 };
 
 // In pixels
@@ -586,6 +594,13 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("BIG_CLOUD", 0, 0, 0, 0, 0, 0)
     Object_Hitbox_Rectangle("MEDIUM_CLOUD", 0, 0, 0, 0, 0, 0)
     Object_Hitbox_Rectangle("SMALL_CLOUD", 0, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Rectangle("BUSH_DECO_1", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BUSH_DECO_2", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BUSH_DECO_3", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BUSH_DECO_4", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BUSH_DECO_5", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BUSH_DECO_6", 0, 0, 0, 0, 0, 0)
 };
 
 #undef Object_Hitbox

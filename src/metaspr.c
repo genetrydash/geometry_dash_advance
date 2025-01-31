@@ -1095,6 +1095,30 @@ const u16 smallCloud[] = {
     0xffff
 };
 
+const u16 bushDeco[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    0, // x
+    0, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 bushDecoBig[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    -8, // x
+    -16, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
 ROM_DATA const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -1202,6 +1226,13 @@ ROM_DATA const u16 *obj_sprites[] = {
     bigCloud,
     mediumCloud,
     smallCloud,
+    
+    bushDeco,
+    bushDeco,
+    bushDeco,
+    bushDeco,
+    bushDeco,
+    bushDecoBig,
         
 };
 
@@ -1323,6 +1354,13 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("BIG_CLOUD", 0x410, 0x20)
     CHR_SLOT("MEDIUM_CLOUD", 0x430, 0xc)
     CHR_SLOT("SMALL_CLOUD", 0x440, 0x8)
+
+    CHR_SLOT("BUSH_DECO_1", 0x450, 0x4)
+    CHR_SLOT("BUSH_DECO_2", 0x454, 0x4)
+    CHR_SLOT("BUSH_DECO_3", 0x458, 0x4)
+    CHR_SLOT("BUSH_DECO_4", 0x45c, 0x4)
+    CHR_SLOT("BUSH_DECO_5", 0x460, 0x4)
+    CHR_SLOT("BUSH_DECO_6", 0x470, 0x10)
 };
 #undef CHR_SLOT
 

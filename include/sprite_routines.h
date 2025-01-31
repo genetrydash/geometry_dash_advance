@@ -123,6 +123,13 @@ enum ObjTypes {
     MEDIUM_CLOUD,
     SMALL_CLOUD,
 
+    BUSH_DECO_1,
+    BUSH_DECO_2,
+    BUSH_DECO_3,
+    BUSH_DECO_4,
+    BUSH_DECO_5,
+    BUSH_DECO_6,
+
     OBJ_COUNT
 };
 
