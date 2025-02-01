@@ -4745,19 +4745,19 @@ xstep_spr_data:
    .hword 0 @ rotation
 @ Object 758
    .word 0x2130 @ x
-   .hword 0x130 @ y
+   .hword 0x12c @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 759
    .word 0x2130 @ x
-   .hword 0x140 @ y
+   .hword 0x13c @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 760
    .word 0x2130 @ x
-   .hword 0x150 @ y
+   .hword 0x14c @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation

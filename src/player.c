@@ -50,6 +50,11 @@ void ship_gamemode();
 void ball_gamemode();
 void ufo_gamemode();
 
+void do_cube_gravity();
+void do_ship_gravity(s32 max_y_speed, s32 max_y_speed_holding);
+void do_ball_gravity();
+void do_ufo_gravity();
+
 FIXED mirror_scaling;
 
 void player_main() {    
@@ -136,15 +141,6 @@ void cube_gamemode() {
 
     s8 sign = curr_player.gravity_dir ? -1 : 1;
     s8 mirror_sign = screen_mirrored ? -1 : 1;
-
-    // Depending on which direction the curr_player.gravity points, apply curr_player.gravity and cap speed in one direction or in the other
-    if (curr_player.gravity_dir) {
-        curr_player.player_y_speed -= curr_player.gravity;
-        if (curr_player.player_y_speed < -CUBE_MAX_Y_SPEED) curr_player.player_y_speed = -CUBE_MAX_Y_SPEED;
-    } else {
-        curr_player.player_y_speed += curr_player.gravity;
-        if (curr_player.player_y_speed > CUBE_MAX_Y_SPEED) curr_player.player_y_speed = CUBE_MAX_Y_SPEED;
-    }
    
     // If on floor and holding A or UP, jump
     if (curr_player.on_floor && key_held(KEY_A | KEY_UP)) {
@@ -171,8 +167,11 @@ void cube_gamemode() {
         curr_player.player_x += curr_player.player_x_speed >> 2;
         curr_player.player_y += curr_player.player_y_speed >> 2;
 
+        // Do gravity
+        do_cube_gravity();
+
         // Do collision with objects
-        do_collision_with_objects(FALSE);
+        do_collision_with_objects();
 
         // Run collision
         collision_cube();
@@ -188,8 +187,11 @@ void cube_gamemode() {
         curr_player.player_x += curr_player.player_x_speed - ((curr_player.player_x_speed >> 2) * 3);
         curr_player.player_y += curr_player.player_y_speed - ((curr_player.player_y_speed >> 2) * 3);
     
+        // Do gravity
+        do_cube_gravity();
+
         // Do collision with objects (and rotated ones as well)
-        do_collision_with_objects(TRUE);
+        do_collision_with_objects();
 
         // Run collision
         collision_cube();
@@ -197,7 +199,6 @@ void cube_gamemode() {
 }
 
 void ship_gamemode() {
-    u32 holding = key_held(KEY_A | KEY_UP);
     s32 max_y_speed;
     s32 max_y_speed_holding;
 
@@ -215,18 +216,6 @@ void ship_gamemode() {
         max_y_speed_holding = SHIP_MINI_MAX_Y_SPEED_HOLDING;
     }
 
-    if (holding) {
-        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_BASE : SHIP_MINI_GRAVITY_BASE);
-    } else if (!holding && !curr_player.falling) {
-        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_AFTER_HOLD : SHIP_MINI_GRAVITY_AFTER_HOLD);
-    } else {
-        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY : SHIP_MINI_GRAVITY);
-    }
-
-    if (holding && curr_player.falling) {
-        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_HOLD_FALL : SHIP_MINI_GRAVITY_HOLD_FALL);
-    }
-
     s8 mirror_sign = screen_mirrored ? 1 : -1;
 
     if (key_hit(KEY_A | KEY_UP)) {
@@ -236,24 +225,6 @@ void ship_gamemode() {
     }
 
     curr_player.cube_rotation = ArcTan2(curr_player.player_x_speed >> 8, curr_player.player_y_speed >> 8) * mirror_sign;
-
-    if (holding) {
-        if (curr_player.gravity_dir == GRAVITY_DOWN) {
-            curr_player.player_y_speed -= curr_player.gravity;
-            if (curr_player.player_y_speed < -max_y_speed_holding) curr_player.player_y_speed = -max_y_speed_holding;  
-        } else {    
-            curr_player.player_y_speed += curr_player.gravity;
-            if (curr_player.player_y_speed > max_y_speed_holding) curr_player.player_y_speed = max_y_speed_holding;  
-        }
-    } else {
-        if (curr_player.gravity_dir == GRAVITY_DOWN) {
-            curr_player.player_y_speed += curr_player.gravity;
-            if (curr_player.player_y_speed > max_y_speed) curr_player.player_y_speed = max_y_speed;    
-        } else {    
-            curr_player.player_y_speed -= curr_player.gravity;
-            if (curr_player.player_y_speed < -max_y_speed) curr_player.player_y_speed = -max_y_speed;
-        }
-    }
     
     curr_player.on_floor = 0;
     
@@ -262,9 +233,12 @@ void ship_gamemode() {
         // Update player x and y
         curr_player.player_x += curr_player.player_x_speed >> 2;
         curr_player.player_y += curr_player.player_y_speed >> 2;
-
+        
+        // Do gravity
+        do_ship_gravity(max_y_speed, max_y_speed_holding);
+        
         // Do collision with objects
-        do_collision_with_objects(FALSE);
+        do_collision_with_objects();
 
         // Run collision
         collision_ship_ball_ufo();
@@ -279,9 +253,12 @@ void ship_gamemode() {
         // Update player x and y
         curr_player.player_x += curr_player.player_x_speed - ((curr_player.player_x_speed >> 2) * 3);
         curr_player.player_y += curr_player.player_y_speed - ((curr_player.player_y_speed >> 2) * 3);
+
+        // Do gravity
+        do_ship_gravity(max_y_speed, max_y_speed_holding);
         
         // Do collision with objects (and rotated ones as well)
-        do_collision_with_objects(TRUE);
+        do_collision_with_objects();
 
         // Run collision
         collision_ship_ball_ufo();
@@ -306,8 +283,6 @@ void ball_gamemode() {
         curr_player.ball_rotation_direction = (curr_player.gravity_dir == GRAVITY_DOWN) ? 2 : -2;
     }
 
-    curr_player.player_y_speed += curr_player.gravity * sign;
-
     if (curr_player.on_floor && curr_player.player_buffering == ORB_BUFFER_READY) {
         curr_player.gravity_dir ^= 1;
         curr_player.player_y_speed = BALL_SWITCH_SPEED * -sign; 
@@ -329,8 +304,11 @@ void ball_gamemode() {
         curr_player.player_x += curr_player.player_x_speed >> 2;
         curr_player.player_y += curr_player.player_y_speed >> 2;
 
+        // Do gravity
+        do_ball_gravity();
+
         // Do collision with objects (and rotated ones as well)
-        do_collision_with_objects(FALSE);
+        do_collision_with_objects();
         
         // Run collision
         collision_ship_ball_ufo();
@@ -346,8 +324,11 @@ void ball_gamemode() {
         curr_player.player_x += curr_player.player_x_speed - ((curr_player.player_x_speed >> 2) * 3);
         curr_player.player_y += curr_player.player_y_speed - ((curr_player.player_y_speed >> 2) * 3);
         
+        // Do gravity
+        do_ball_gravity();
+        
         // Do collision with objects
-        do_collision_with_objects(TRUE);
+        do_collision_with_objects();
         
         // Run collision
         collision_ship_ball_ufo();
@@ -367,15 +348,6 @@ void ufo_gamemode() {
 
     s8 sign = curr_player.gravity_dir ? -1 : 1;
     UNUSED s8 mirror_sign = screen_mirrored ? -1 : 1;
-
-    // Depending on which direction the curr_player.gravity points, apply curr_player.gravity and cap speed in one direction or in the other
-    if (curr_player.gravity_dir) {
-        curr_player.player_y_speed -= curr_player.gravity;
-        if (curr_player.player_y_speed < -UFO_MAX_Y_SPEED) curr_player.player_y_speed = -UFO_MAX_Y_SPEED;
-    } else {
-        curr_player.player_y_speed += curr_player.gravity;
-        if (curr_player.player_y_speed > UFO_MAX_Y_SPEED) curr_player.player_y_speed = UFO_MAX_Y_SPEED;
-    }
 
     if (curr_player.falling) {
         curr_player.cube_rotation = (((curr_player.player_y_speed / 2) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x40; 
@@ -400,8 +372,11 @@ void ufo_gamemode() {
         curr_player.player_x += curr_player.player_x_speed >> 2;
         curr_player.player_y += curr_player.player_y_speed >> 2;
 
+        // Do gravity
+        do_ufo_gravity();
+        
         // Do collision with objects
-        do_collision_with_objects(FALSE);
+        do_collision_with_objects();
 
         // Run collision
         collision_ship_ball_ufo();
@@ -416,12 +391,76 @@ void ufo_gamemode() {
         // Update player x and y
         curr_player.player_x += curr_player.player_x_speed - ((curr_player.player_x_speed >> 2) * 3);
         curr_player.player_y += curr_player.player_y_speed - ((curr_player.player_y_speed >> 2) * 3);
+        
+        // Do gravity
+        do_ufo_gravity();
     
         // Do collision with objects (and rotated ones as well)
-        do_collision_with_objects(TRUE);
+        do_collision_with_objects();
 
         // Run collision
         collision_ship_ball_ufo();
+    }
+}
+
+void do_cube_gravity() {
+    // Depending on which direction the curr_player.gravity points, apply curr_player.gravity and cap speed in one direction or in the other
+    if (curr_player.gravity_dir) {
+        curr_player.player_y_speed -= curr_player.gravity / 4;
+        if (curr_player.player_y_speed < -CUBE_MAX_Y_SPEED) curr_player.player_y_speed = -CUBE_MAX_Y_SPEED;
+    } else {
+        curr_player.player_y_speed += curr_player.gravity / 4;
+        if (curr_player.player_y_speed > CUBE_MAX_Y_SPEED) curr_player.player_y_speed = CUBE_MAX_Y_SPEED;
+    }
+}
+
+void do_ship_gravity(s32 max_y_speed, s32 max_y_speed_holding) {
+    u32 holding = key_held(KEY_A | KEY_UP);
+
+    if (holding) {
+        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_BASE : SHIP_MINI_GRAVITY_BASE);
+    } else if (!holding && !curr_player.falling) {
+        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_AFTER_HOLD : SHIP_MINI_GRAVITY_AFTER_HOLD);
+    } else {
+        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY : SHIP_MINI_GRAVITY);
+    }
+
+    if (holding && curr_player.falling) {
+        curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_HOLD_FALL : SHIP_MINI_GRAVITY_HOLD_FALL);
+    }
+    
+    if (holding) {
+        if (curr_player.gravity_dir == GRAVITY_DOWN) {
+            curr_player.player_y_speed -= curr_player.gravity / 4;
+            if (curr_player.player_y_speed < -max_y_speed_holding) curr_player.player_y_speed = -max_y_speed_holding;  
+        } else {    
+            curr_player.player_y_speed += curr_player.gravity / 4;
+            if (curr_player.player_y_speed > max_y_speed_holding) curr_player.player_y_speed = max_y_speed_holding;  
+        }
+    } else {
+        if (curr_player.gravity_dir == GRAVITY_DOWN) {
+            curr_player.player_y_speed += curr_player.gravity / 4;
+            if (curr_player.player_y_speed > max_y_speed) curr_player.player_y_speed = max_y_speed;    
+        } else {    
+            curr_player.player_y_speed -= curr_player.gravity / 4;
+            if (curr_player.player_y_speed < -max_y_speed) curr_player.player_y_speed = -max_y_speed;
+        }
+    }
+}
+
+void do_ball_gravity() {
+    s8 sign = (curr_player.gravity_dir == GRAVITY_UP) ? -1 : 1;
+    curr_player.player_y_speed += (curr_player.gravity / 4) * sign;
+}
+
+void do_ufo_gravity() {
+    // Depending on which direction the curr_player.gravity points, apply curr_player.gravity and cap speed in one direction or in the other
+    if (curr_player.gravity_dir) {
+        curr_player.player_y_speed -= curr_player.gravity / 4;
+        if (curr_player.player_y_speed < -UFO_MAX_Y_SPEED) curr_player.player_y_speed = -UFO_MAX_Y_SPEED;
+    } else {
+        curr_player.player_y_speed += curr_player.gravity / 4;
+        if (curr_player.player_y_speed > UFO_MAX_Y_SPEED) curr_player.player_y_speed = UFO_MAX_Y_SPEED;
     }
 }
 

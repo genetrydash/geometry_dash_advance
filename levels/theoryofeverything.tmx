@@ -2314,14 +2314,14 @@
   </object>
   <object id="1312" gid="587" x="8504" y="612" width="16" height="16"/>
   <object id="1313" gid="588" x="8504" y="612" width="16" height="16"/>
-  <object id="1314" gid="528" x="8568" y="668" width="16" height="16">
+  <object id="1314" gid="528" x="8568" y="664" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
     <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
-  <object id="1315" gid="587" x="8568" y="668" width="16" height="16"/>
-  <object id="1316" gid="588" x="8568" y="668" width="16" height="16"/>
+  <object id="1315" gid="587" x="8568" y="664" width="16" height="16"/>
+  <object id="1316" gid="588" x="8568" y="664" width="16" height="16"/>
   <object id="1317" gid="573" x="7992" y="688" width="16" height="16"/>
   <object id="1318" gid="573" x="8136" y="688" width="16" height="16"/>
   <object id="1319" gid="572" x="8088" y="688" width="16" height="16"/>

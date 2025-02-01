@@ -5055,19 +5055,19 @@ theoryofeverything_spr_data:
    .hword 0 @ rotation
 @ Object 817
    .word 0x2178 @ x
-   .hword 0x29c @ y
+   .hword 0x298 @ y
    .hword 0xf @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
 @ Object 818
    .word 0x2178 @ x
-   .hword 0x29c @ y
+   .hword 0x298 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 819
    .word 0x2178 @ x
-   .hword 0x29c @ y
+   .hword 0x298 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation

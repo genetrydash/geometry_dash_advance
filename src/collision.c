@@ -20,7 +20,6 @@ u32 eject = 0;
 ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
 ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
 s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
-ARM_CODE void do_collision_with_objects(u32 check_rotated);
 
 ARM_CODE void collision_cube() {
     // Exit if above screen
@@ -354,7 +353,7 @@ ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
     return col_type_lookup(col_type, x, y, side);
 }
 
-ARM_CODE void do_collision_with_objects(u32 check_rotated) {
+ARM_CODE void do_collision_with_objects() {
     for (s32 slot = 0; slot < MAX_OBJECTS; slot++) {
         // Check collision only if the slot is occupied
         struct ObjectSlot curr_object = object_buffer[slot];
@@ -369,7 +368,7 @@ ARM_CODE void do_collision_with_objects(u32 check_rotated) {
                 } 
                 // If it has collision and it is marked to collide with rotated objects, continue
                 // If it is not marked, check if the object is rotated, if not, continue
-                else if (curr_object.has_collision && (check_rotated || !(curr_object.object.attrib1 & ENABLE_ROTATION_FLAG))) {
+                else if (curr_object.has_collision) {
                     check_obj_collision(slot); 
                 }
             }

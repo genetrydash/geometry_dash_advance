@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="843" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1769">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="843" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1771">
  <editorsettings>
   <export target="xstep.json" format="json"/>
  </editorsettings>
@@ -675,7 +675,7 @@
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="704" gid="522" x="8496" y="320" width="16" height="16"/>
+  <object id="704" gid="522" x="8496" y="316" width="16" height="16"/>
   <object id="705" gid="522" x="8704" y="384" width="16" height="16"/>
   <object id="706" gid="523" x="8896" y="400" width="16" height="16"/>
   <object id="707" gid="522" x="8960" y="352" width="16" height="16"/>
@@ -1486,8 +1486,8 @@
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="1129" gid="521" x="8496" y="304" width="16" height="16"/>
-  <object id="1130" gid="521" x="8496" y="336" width="16" height="16">
+  <object id="1129" gid="521" x="8496" y="300" width="16" height="16"/>
+  <object id="1130" gid="521" x="8496" y="332" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
