@@ -56,6 +56,13 @@ void player_main() {
     if (complete_cutscene) {
         level_complete_cutscene();
     } else {
+        // Detect if falling
+        if (curr_player.gravity_dir == GRAVITY_DOWN) {
+            curr_player.falling = (curr_player.player_y_speed > 0);
+        } else {
+            curr_player.falling = (curr_player.player_y_speed < 0);
+        }
+
         // Set internal square hitbox size
         if (curr_player.player_size == SIZE_BIG) {
             curr_player.player_internal_hitbox_width = INTERNAL_HITBOX_WIDTH;
@@ -190,14 +197,6 @@ void cube_gamemode() {
 }
 
 void ship_gamemode() {
-    // Detect if falling
-    u32 falling;
-    if (curr_player.gravity_dir == GRAVITY_DOWN) {
-        falling = (curr_player.player_y_speed > 0);
-    } else {
-        falling = (curr_player.player_y_speed < 0);
-    }
-
     u32 holding = key_held(KEY_A | KEY_UP);
     s32 max_y_speed;
     s32 max_y_speed_holding;
@@ -218,13 +217,13 @@ void ship_gamemode() {
 
     if (holding) {
         curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_BASE : SHIP_MINI_GRAVITY_BASE);
-    } else if (!holding && !falling) {
+    } else if (!holding && !curr_player.falling) {
         curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_AFTER_HOLD : SHIP_MINI_GRAVITY_AFTER_HOLD);
     } else {
         curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY : SHIP_MINI_GRAVITY);
     }
 
-    if (holding && falling) {
+    if (holding && curr_player.falling) {
         curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_HOLD_FALL : SHIP_MINI_GRAVITY_HOLD_FALL);
     }
 
@@ -378,8 +377,12 @@ void ufo_gamemode() {
         if (curr_player.player_y_speed > UFO_MAX_Y_SPEED) curr_player.player_y_speed = UFO_MAX_Y_SPEED;
     }
 
-    curr_player.cube_rotation = (((curr_player.player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x180; 
-    
+    if (curr_player.falling) {
+        curr_player.cube_rotation = (((curr_player.player_y_speed / 2) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x40; 
+    } else {
+        curr_player.cube_rotation = (((curr_player.player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x180; 
+    }
+
     // If on floor and holding A or UP, jump
     if (key_hit(KEY_A | KEY_UP)) {
         if (curr_player.player_size == SIZE_BIG) {

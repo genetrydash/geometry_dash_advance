@@ -1886,42 +1886,48 @@ theoryofeverything_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 310
+   .word 0xd4f @ x
+   .hword 0x290 @ y
+   .hword 0x1e @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0 @ rotation
+@ Object 311
    .word 0xd50 @ x
    .hword 0x240 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 311
+@ Object 312
    .word 0xd50 @ x
    .hword 0x240 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 312
+@ Object 313
    .word 0xd50 @ x
    .hword 0x270 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 313
+@ Object 314
    .word 0xd70 @ x
    .hword 0x260 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 314
+@ Object 315
    .word 0xd70 @ x
    .hword 0x290 @ y
    .hword 0x13 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 315
+@ Object 316
    .word 0xd80 @ x
    .hword 0x2a0 @ y
    .hword 0x1d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 316
+@ Object 317
    .word 0xdd0 @ x
    .hword 0x1b0 @ y
    .hword 0x3 @ type
@@ -1929,7 +1935,7 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 317
+@ Object 318
    .word 0xdd0 @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -1937,49 +1943,49 @@ theoryofeverything_spr_data:
    .hword 0x542f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 318
+@ Object 319
    .word 0xdd0 @ x
    .hword 0x1f0 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 319
+@ Object 320
    .word 0xdd0 @ x
    .hword 0x1f0 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 320
+@ Object 321
    .word 0xdd0 @ x
    .hword 0x1f0 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 321
+@ Object 322
    .word 0xdd0 @ x
    .hword 0x260 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 322
+@ Object 323
    .word 0xdf0 @ x
    .hword 0x2b4 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 323
+@ Object 324
    .word 0xdf0 @ x
    .hword 0x2b4 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 324
+@ Object 325
    .word 0xdf0 @ x
    .hword 0x2b4 @ y
    .hword 0x4c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 325
+@ Object 326
    .word 0xe0c @ x
    .hword 0x1b0 @ y
    .hword 0x3 @ type
@@ -1987,7 +1993,7 @@ theoryofeverything_spr_data:
    .hword 0x3c1f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 326
+@ Object 327
    .word 0xe0c @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -1995,31 +2001,31 @@ theoryofeverything_spr_data:
    .hword 0x3435 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 327
+@ Object 328
    .word 0xe10 @ x
    .hword 0x230 @ y
    .hword 0xf @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 328
+@ Object 329
    .word 0xe10 @ x
    .hword 0x230 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 329
+@ Object 330
    .word 0xe10 @ x
    .hword 0x230 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 330
+@ Object 331
    .word 0xe30 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 331
+@ Object 332
    .word 0xe40 @ x
    .hword 0x1b0 @ y
    .hword 0x3 @ type
@@ -2027,7 +2033,7 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 332
+@ Object 333
    .word 0xe40 @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -2035,25 +2041,25 @@ theoryofeverything_spr_data:
    .hword 0x542f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 333
+@ Object 334
    .word 0xe40 @ x
    .hword 0x1f0 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 334
+@ Object 335
    .word 0xe40 @ x
    .hword 0x1f0 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 335
+@ Object 336
    .word 0xe40 @ x
    .hword 0x1f0 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 336
+@ Object 337
    .word 0xe58 @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -2061,7 +2067,7 @@ theoryofeverything_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 337
+@ Object 338
    .word 0xe70 @ x
    .hword 0x1b0 @ y
    .hword 0x3 @ type
@@ -2069,73 +2075,73 @@ theoryofeverything_spr_data:
    .hword 0x13a5 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 338
+@ Object 339
    .word 0xe70 @ x
    .hword 0x230 @ y
    .hword 0x39 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 339
+@ Object 340
    .word 0xe70 @ x
    .hword 0x230 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 340
+@ Object 341
    .word 0xe70 @ x
    .hword 0x230 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 341
+@ Object 342
    .word 0xea0 @ x
    .hword 0x1d0 @ y
    .hword 0x41 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 342
+@ Object 343
    .word 0xea0 @ x
    .hword 0x288 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 343
+@ Object 344
    .word 0xea0 @ x
    .hword 0x288 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 344
+@ Object 345
    .word 0xeb0 @ x
    .hword 0x1e0 @ y
    .hword 0x43 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 345
+@ Object 346
    .word 0xec0 @ x
    .hword 0x1ec @ y
    .hword 0x43 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 346
+@ Object 347
    .word 0xed0 @ x
    .hword 0x288 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 347
+@ Object 348
    .word 0xed0 @ x
    .hword 0x288 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 348
+@ Object 349
    .word 0xee0 @ x
    .hword 0x210 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 349
+@ Object 350
    .word 0xef0 @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -2143,13 +2149,13 @@ theoryofeverything_spr_data:
    .hword 0x1be7 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 350
+@ Object 351
    .word 0xef0 @ x
    .hword 0x220 @ y
    .hword 0x53 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 351
+@ Object 352
    .word 0xf00 @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -2157,85 +2163,85 @@ theoryofeverything_spr_data:
    .hword 0x13a5 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 352
+@ Object 353
    .word 0xf00 @ x
    .hword 0x220 @ y
    .hword 0x56 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 353
+@ Object 354
    .word 0xf00 @ x
    .hword 0x288 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 354
+@ Object 355
    .word 0xf00 @ x
    .hword 0x288 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 355
+@ Object 356
    .word 0xf10 @ x
    .hword 0x220 @ y
    .hword 0xb @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 356
+@ Object 357
    .word 0xf10 @ x
    .hword 0x250 @ y
    .hword 0x3d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 357
+@ Object 358
    .word 0xf30 @ x
    .hword 0x220 @ y
    .hword 0x54 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 358
+@ Object 359
    .word 0xf30 @ x
    .hword 0x288 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 359
+@ Object 360
    .word 0xf30 @ x
    .hword 0x288 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 360
+@ Object 361
    .word 0xf40 @ x
    .hword 0x210 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 361
+@ Object 362
    .word 0xf50 @ x
    .hword 0x288 @ y
    .hword 0x40 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 362
+@ Object 363
    .word 0xf60 @ x
    .hword 0x285 @ y
    .hword 0x42 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 363
+@ Object 364
    .word 0xf70 @ x
    .hword 0x210 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 364
+@ Object 365
    .word 0xf70 @ x
    .hword 0x282 @ y
    .hword 0x42 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 365
+@ Object 366
    .word 0xf7c @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -2243,13 +2249,13 @@ theoryofeverything_spr_data:
    .hword 0x1be7 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 366
+@ Object 367
    .word 0xf80 @ x
    .hword 0x260 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 367
+@ Object 368
    .word 0xf8c @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -2257,73 +2263,73 @@ theoryofeverything_spr_data:
    .hword 0x13a5 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 368
+@ Object 369
    .word 0xf90 @ x
    .hword 0x210 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 369
+@ Object 370
    .word 0xf90 @ x
    .hword 0x250 @ y
    .hword 0x58 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 370
+@ Object 371
    .word 0xfa8 @ x
    .hword 0x250 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 371
+@ Object 372
    .word 0xfb0 @ x
    .hword 0x210 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 372
+@ Object 373
    .word 0xfc0 @ x
    .hword 0x250 @ y
    .hword 0x54 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 373
+@ Object 374
    .word 0xfd0 @ x
    .hword 0x210 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 374
+@ Object 375
    .word 0xfd0 @ x
    .hword 0x260 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 375
+@ Object 376
    .word 0xff0 @ x
    .hword 0x260 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 376
+@ Object 377
    .word 0xff0 @ x
    .hword 0x260 @ y
    .hword 0x4c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 377
+@ Object 378
    .word 0x1000 @ x
    .hword 0x200 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 378
+@ Object 379
    .word 0x1000 @ x
    .hword 0x210 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 379
+@ Object 380
    .word 0x101c @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -2331,19 +2337,19 @@ theoryofeverything_spr_data:
    .hword 0x1be7 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 380
+@ Object 381
    .word 0x1020 @ x
    .hword 0x260 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 381
+@ Object 382
    .word 0x1020 @ x
    .hword 0x260 @ y
    .hword 0x4c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 382
+@ Object 383
    .word 0x102c @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -2351,79 +2357,79 @@ theoryofeverything_spr_data:
    .hword 0x13a5 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 383
+@ Object 384
    .word 0x1030 @ x
    .hword 0x200 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 384
+@ Object 385
    .word 0x1030 @ x
    .hword 0x220 @ y
    .hword 0x58 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 385
+@ Object 386
    .word 0x1040 @ x
    .hword 0x240 @ y
    .hword 0xb @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 386
+@ Object 387
    .word 0x1050 @ x
    .hword 0x210 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 387
+@ Object 388
    .word 0x1050 @ x
    .hword 0x230 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 388
+@ Object 389
    .word 0x1050 @ x
    .hword 0x260 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 389
+@ Object 390
    .word 0x1050 @ x
    .hword 0x260 @ y
    .hword 0x4c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 390
+@ Object 391
    .word 0x1073 @ x
    .hword 0x213 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 391
+@ Object 392
    .word 0x1073 @ x
    .hword 0x223 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 392
+@ Object 393
    .word 0x1088 @ x
    .hword 0x258 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 393
+@ Object 394
    .word 0x1088 @ x
    .hword 0x258 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 394
+@ Object 395
    .word 0x1088 @ x
    .hword 0x258 @ y
    .hword 0x4c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 395
+@ Object 396
    .word 0x10cc @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -2431,19 +2437,19 @@ theoryofeverything_spr_data:
    .hword 0x1be7 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 396
+@ Object 397
    .word 0x10d0 @ x
    .hword 0x1ee @ y
    .hword 0x43 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 397
+@ Object 398
    .word 0x10d0 @ x
    .hword 0x282 @ y
    .hword 0x41 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 398
+@ Object 399
    .word 0x10dc @ x
    .hword 0x1c0 @ y
    .hword 0x3 @ type
@@ -2451,83 +2457,83 @@ theoryofeverything_spr_data:
    .hword 0x13a5 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 399
+@ Object 400
    .word 0x10e0 @ x
    .hword 0x1ed @ y
    .hword 0x42 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 400
+@ Object 401
    .word 0x10e0 @ x
    .hword 0x283 @ y
    .hword 0x42 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 401
+@ Object 402
    .word 0x10f0 @ x
    .hword 0x1ec @ y
    .hword 0x41 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 402
+@ Object 403
    .word 0x10f0 @ x
    .hword 0x220 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 403
+@ Object 404
    .word 0x10f0 @ x
    .hword 0x250 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 404
+@ Object 405
    .word 0x10f0 @ x
    .hword 0x284 @ y
    .hword 0x43 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 405
+@ Object 406
    .word 0x1100 @ x
    .hword 0x208 @ y
    .hword 0x3e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 406
+@ Object 407
    .word 0x1100 @ x
    .hword 0x238 @ y
    .hword 0x3d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 407
+@ Object 408
    .word 0x1100 @ x
    .hword 0x268 @ y
    .hword 0x3e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 408
-   .word 0x1120 @ x
-   .hword 0x208 @ y
-   .hword 0x3 @ type
-   .hword 0x4 @ changes BG for 0 frames
-   .hword 0x41f @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
 @ Object 409
    .word 0x1120 @ x
-   .hword 0x268 @ y
+   .hword 0x208 @ y
    .hword 0x3 @ type
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x41f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
 @ Object 410
+   .word 0x1120 @ x
+   .hword 0x268 @ y
+   .hword 0x3 @ type
+   .hword 0x4 @ changes BG for 0 frames
+   .hword 0x41f @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x1 @ touch trigger
+@ Object 411
    .word 0x1130 @ x
    .hword 0x240 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 411
+@ Object 412
    .word 0x114c @ x
    .hword 0x238 @ y
    .hword 0x3 @ type
@@ -2535,13 +2541,13 @@ theoryofeverything_spr_data:
    .hword 0x1be7 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 412
+@ Object 413
    .word 0x1150 @ x
    .hword 0x230 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 413
+@ Object 414
    .word 0x115c @ x
    .hword 0x238 @ y
    .hword 0x3 @ type
@@ -2549,25 +2555,25 @@ theoryofeverything_spr_data:
    .hword 0x13a5 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 414
+@ Object 415
    .word 0x1170 @ x
    .hword 0x240 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 415
+@ Object 416
    .word 0x1190 @ x
    .hword 0x230 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 416
+@ Object 417
    .word 0x11b0 @ x
    .hword 0x270 @ y
    .hword 0x29 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 417
+@ Object 418
    .word 0x11ec @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -2575,13 +2581,13 @@ theoryofeverything_spr_data:
    .hword 0x1be7 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 418
+@ Object 419
    .word 0x11f0 @ x
    .hword 0x230 @ y
    .hword 0x29 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 419
+@ Object 420
    .word 0x11fc @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -2589,31 +2595,31 @@ theoryofeverything_spr_data:
    .hword 0x13a5 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 420
+@ Object 421
    .word 0x1200 @ x
    .hword 0x260 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 421
+@ Object 422
    .word 0x1210 @ x
    .hword 0x270 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 422
+@ Object 423
    .word 0x1220 @ x
    .hword 0x230 @ y
    .hword 0x29 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 423
+@ Object 424
    .word 0x1260 @ x
    .hword 0x260 @ y
    .hword 0x28 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 424
+@ Object 425
    .word 0x127c @ x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -2621,847 +2627,847 @@ theoryofeverything_spr_data:
    .hword 0xcb6 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 425
+@ Object 426
    .word 0x1280 @ x
    .hword 0x240 @ y
    .hword 0x2 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 426
+@ Object 427
    .word 0x12b8 @ x
    .hword 0x2b0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 427
+@ Object 428
    .word 0x12c0 @ x
    .hword 0x270 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 428
+@ Object 429
    .word 0x12c0 @ x
    .hword 0x290 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 429
+@ Object 430
    .word 0x12d0 @ x
    .hword 0x260 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 430
+@ Object 431
    .word 0x12e0 @ x
    .hword 0x280 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 431
+@ Object 432
    .word 0x12e0 @ x
    .hword 0x2a0 @ y
    .hword 0x58 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 432
+@ Object 433
    .word 0x12f8 @ x
    .hword 0x208 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 433
+@ Object 434
    .word 0x12f8 @ x
    .hword 0x218 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 64 @ metatile ID appareance
-@ Object 434
+@ Object 435
    .word 0x12f8 @ x
    .hword 0x228 @ y
    .hword 0x1e @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 435
+@ Object 436
    .word 0x12f8 @ x
    .hword 0x260 @ y
    .hword 0x1e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 436
+@ Object 437
    .word 0x12f8 @ x
    .hword 0x270 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 64 @ metatile ID appareance
-@ Object 437
+@ Object 438
    .word 0x12f8 @ x
    .hword 0x280 @ y
    .hword 0x4f @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 438
-   .word 0x12f8 @ x
-   .hword 0x2b4 @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 439
    .word 0x12f8 @ x
    .hword 0x2b4 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 440
    .word 0x12f8 @ x
    .hword 0x2b4 @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 441
+   .word 0x12f8 @ x
+   .hword 0x2b4 @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 442
    .word 0x1310 @ x
    .hword 0x280 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 442
+@ Object 443
    .word 0x1310 @ x
    .hword 0x2a0 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 443
+@ Object 444
    .word 0x1320 @ x
    .hword 0x270 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 444
+@ Object 445
    .word 0x1330 @ x
    .hword 0x290 @ y
    .hword 0x58 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 445
+@ Object 446
    .word 0x1330 @ x
    .hword 0x2a0 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 446
+@ Object 447
    .word 0x1340 @ x
    .hword 0x2b0 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 447
+@ Object 448
    .word 0x1350 @ x
    .hword 0x270 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 448
+@ Object 449
    .word 0x1360 @ x
    .hword 0x260 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 449
+@ Object 450
    .word 0x1370 @ x
    .hword 0x280 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 450
-   .word 0x1378 @ x
-   .hword 0x2b4 @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 451
    .word 0x1378 @ x
    .hword 0x2b4 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 452
    .word 0x1378 @ x
    .hword 0x2b4 @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 453
+   .word 0x1378 @ x
+   .hword 0x2b4 @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 454
    .word 0x1380 @ x
    .hword 0x290 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 454
+@ Object 455
    .word 0x1390 @ x
    .hword 0x270 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 455
+@ Object 456
    .word 0x13a0 @ x
    .hword 0x280 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 456
+@ Object 457
    .word 0x13a0 @ x
    .hword 0x2a0 @ y
    .hword 0x58 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 457
+@ Object 458
    .word 0x13a8 @ x
    .hword 0x2b0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 458
+@ Object 459
    .word 0x13b0 @ x
    .hword 0x270 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 459
+@ Object 460
    .word 0x13c0 @ x
    .hword 0x220 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 460
+@ Object 461
    .word 0x13c0 @ x
    .hword 0x250 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 461
+@ Object 462
    .word 0x13d0 @ x
    .hword 0x270 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 462
+@ Object 463
    .word 0x13d0 @ x
    .hword 0x290 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 463
-   .word 0x13d8 @ x
-   .hword 0x2b4 @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 464
    .word 0x13d8 @ x
    .hword 0x2b4 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 465
    .word 0x13d8 @ x
    .hword 0x2b4 @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 466
+   .word 0x13d8 @ x
+   .hword 0x2b4 @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 467
    .word 0x13e0 @ x
    .hword 0x280 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 467
+@ Object 468
    .word 0x13f0 @ x
    .hword 0x270 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 468
+@ Object 469
    .word 0x1400 @ x
    .hword 0x290 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 469
+@ Object 470
    .word 0x1408 @ x
    .hword 0x2b0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 470
+@ Object 471
    .word 0x1420 @ x
    .hword 0x220 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 471
+@ Object 472
    .word 0x1420 @ x
    .hword 0x290 @ y
    .hword 0x4f @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 472
-   .word 0x1438 @ x
-   .hword 0x2b4 @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 473
    .word 0x1438 @ x
    .hword 0x2b4 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 474
    .word 0x1438 @ x
    .hword 0x2b4 @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 475
+   .word 0x1438 @ x
+   .hword 0x2b4 @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 476
    .word 0x1450 @ x
    .hword 0x290 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 476
+@ Object 477
    .word 0x1460 @ x
    .hword 0x2b0 @ y
    .hword 0x58 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 477
+@ Object 478
    .word 0x1470 @ x
    .hword 0x2b0 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 478
+@ Object 479
    .word 0x1490 @ x
    .hword 0x290 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 479
+@ Object 480
    .word 0x1490 @ x
    .hword 0x290 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 480
+@ Object 481
    .word 0x14b0 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 481
+@ Object 482
    .word 0x14c0 @ x
    .hword 0x280 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 482
+@ Object 483
    .word 0x14c0 @ x
    .hword 0x290 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 483
+@ Object 484
    .word 0x14d0 @ x
    .hword 0x270 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 484
+@ Object 485
    .word 0x14e0 @ x
    .hword 0x290 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 485
-   .word 0x14e8 @ x
-   .hword 0x2b4 @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 486
    .word 0x14e8 @ x
    .hword 0x2b4 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 487
    .word 0x14e8 @ x
    .hword 0x2b4 @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 488
+   .word 0x14e8 @ x
+   .hword 0x2b4 @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 489
    .word 0x1500 @ x
    .hword 0x284 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 489
+@ Object 490
    .word 0x1500 @ x
    .hword 0x294 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 183 @ metatile ID appareance
-@ Object 490
+@ Object 491
    .word 0x1510 @ x
    .hword 0x294 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 184 @ metatile ID appareance
-@ Object 491
+@ Object 492
    .word 0x1510 @ x
    .hword 0x29c @ y
    .hword 0x4e @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 492
+@ Object 493
    .word 0x1520 @ x
    .hword 0x284 @ y
    .hword 0x1e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 493
+@ Object 494
    .word 0x1520 @ x
    .hword 0x294 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 185 @ metatile ID appareance
-@ Object 494
+@ Object 495
    .word 0x1520 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 495
+@ Object 496
    .word 0x1540 @ x
    .hword 0x274 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 496
+@ Object 497
    .word 0x1540 @ x
    .hword 0x274 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 497
+@ Object 498
    .word 0x1550 @ x
    .hword 0x200 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 498
+@ Object 499
    .word 0x1550 @ x
    .hword 0x220 @ y
    .hword 0x58 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 499
-   .word 0x1558 @ x
-   .hword 0x2b4 @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 500
    .word 0x1558 @ x
    .hword 0x2b4 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 501
    .word 0x1558 @ x
    .hword 0x2b4 @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 502
+   .word 0x1558 @ x
+   .hword 0x2b4 @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 503
    .word 0x1570 @ x
    .hword 0x230 @ y
    .hword 0xb @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 503
-   .word 0x1590 @ x
-   .hword 0x200 @ y
-   .hword 0x56 @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 16384 @ rotation
 @ Object 504
    .word 0x1590 @ x
-   .hword 0x220 @ y
+   .hword 0x200 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
 @ Object 505
    .word 0x1590 @ x
+   .hword 0x220 @ y
+   .hword 0x56 @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 16384 @ rotation
+@ Object 506
+   .word 0x1590 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 506
+@ Object 507
    .word 0x15a0 @ x
    .hword 0x240 @ y
    .hword 0x53 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 507
+@ Object 508
    .word 0x15b0 @ x
    .hword 0x200 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 508
+@ Object 509
    .word 0x15b0 @ x
    .hword 0x210 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 509
+@ Object 510
    .word 0x15b0 @ x
    .hword 0x230 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 510
+@ Object 511
    .word 0x15b0 @ x
    .hword 0x250 @ y
    .hword 0x13 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 511
+@ Object 512
    .word 0x15c0 @ x
    .hword 0x240 @ y
    .hword 0x53 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 512
+@ Object 513
    .word 0x15c8 @ x
    .hword 0x2b0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 513
+@ Object 514
    .word 0x15d0 @ x
    .hword 0x260 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 514
+@ Object 515
    .word 0x15d0 @ x
    .hword 0x260 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 515
+@ Object 516
    .word 0x15d8 @ x
    .hword 0x210 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 516
+@ Object 517
    .word 0x15d8 @ x
    .hword 0x220 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 517
-   .word 0x15f8 @ x
-   .hword 0x2b4 @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 518
    .word 0x15f8 @ x
    .hword 0x2b4 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 519
    .word 0x15f8 @ x
    .hword 0x2b4 @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 520
+   .word 0x15f8 @ x
+   .hword 0x2b4 @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 521
    .word 0x1600 @ x
    .hword 0x220 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 521
+@ Object 522
    .word 0x1600 @ x
    .hword 0x230 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 522
+@ Object 523
    .word 0x1624 @ x
    .hword 0x1e9 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
-@ Object 523
+@ Object 524
    .word 0x1624 @ x
    .hword 0x1f9 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
-@ Object 524
+@ Object 525
    .word 0x1624 @ x
    .hword 0x209 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
-@ Object 525
+@ Object 526
    .word 0x1624 @ x
    .hword 0x219 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
-@ Object 526
+@ Object 527
    .word 0x1624 @ x
    .hword 0x229 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
-@ Object 527
+@ Object 528
    .word 0x1624 @ x
    .hword 0x239 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 159 @ metatile ID appareance
-@ Object 528
+@ Object 529
    .word 0x1624 @ x
    .hword 0x249 @ y
    .hword 0xb @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 529
+@ Object 530
    .word 0x1628 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 530
+@ Object 531
    .word 0x1650 @ x
    .hword 0x201 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 531
+@ Object 532
    .word 0x1650 @ x
    .hword 0x211 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 532
+@ Object 533
    .word 0x1654 @ x
    .hword 0x249 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 533
+@ Object 534
    .word 0x1654 @ x
    .hword 0x259 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 144 @ metatile ID appareance
-@ Object 534
+@ Object 535
    .word 0x1654 @ x
    .hword 0x269 @ y
    .hword 0x13 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 535
-   .word 0x1658 @ x
-   .hword 0x2b4 @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 536
    .word 0x1658 @ x
    .hword 0x2b4 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 537
    .word 0x1658 @ x
    .hword 0x2b4 @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 538
+   .word 0x1658 @ x
+   .hword 0x2b4 @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 539
    .word 0x1664 @ x
    .hword 0x259 @ y
    .hword 0x55 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 539
+@ Object 540
    .word 0x167c @ x
    .hword 0x211 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 540
+@ Object 541
    .word 0x167c @ x
    .hword 0x221 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 541
+@ Object 542
    .word 0x1680 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 542
+@ Object 543
    .word 0x1684 @ x
    .hword 0x279 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 543
+@ Object 544
    .word 0x1684 @ x
    .hword 0x279 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 544
+@ Object 545
    .word 0x16a8 @ x
    .hword 0x221 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 545
+@ Object 546
    .word 0x16a8 @ x
    .hword 0x231 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 546
+@ Object 547
    .word 0x16b4 @ x
    .hword 0x259 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 547
+@ Object 548
    .word 0x16b8 @ x
    .hword 0x2b0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 548
+@ Object 549
    .word 0x16c4 @ x
    .hword 0x249 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 549
+@ Object 550
    .word 0x16c4 @ x
    .hword 0x259 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 144 @ metatile ID appareance
-@ Object 550
+@ Object 551
    .word 0x16d8 @ x
    .hword 0x2b4 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 551
+@ Object 552
    .word 0x16d8 @ x
    .hword 0x2b4 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 552
+@ Object 553
    .word 0x16d8 @ x
    .hword 0x2b4 @ y
    .hword 0x4c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 553
+@ Object 554
    .word 0x16e8 @ x
    .hword 0x238 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 554
+@ Object 555
    .word 0x16e8 @ x
    .hword 0x248 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 555
+@ Object 556
    .word 0x16f4 @ x
    .hword 0x26d @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 556
+@ Object 557
    .word 0x16f4 @ x
    .hword 0x27d @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 144 @ metatile ID appareance
-@ Object 557
+@ Object 558
    .word 0x16f4 @ x
    .hword 0x28d @ y
    .hword 0x13 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 558
+@ Object 559
    .word 0x1700 @ x
    .hword 0x2b0 @ y
    .hword 0x58 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 559
+@ Object 560
    .word 0x1704 @ x
    .hword 0x27d @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 560
+@ Object 561
    .word 0x1710 @ x
    .hword 0x2b0 @ y
    .hword 0x55 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 561
+@ Object 562
    .word 0x1714 @ x
    .hword 0x299 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 562
+@ Object 563
    .word 0x1714 @ x
    .hword 0x299 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 563
+@ Object 564
    .word 0x1720 @ x
    .hword 0x2b0 @ y
    .hword 0x57 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 564
+@ Object 565
    .word 0x1730 @ x
    .hword 0x2b0 @ y
    .hword 0x54 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 565
+@ Object 566
    .word 0x1750 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3469,7 +3475,7 @@ theoryofeverything_spr_data:
    .hword 0x7ce0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 566
+@ Object 567
    .word 0x1750 @ x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -3477,43 +3483,43 @@ theoryofeverything_spr_data:
    .hword 0x54a1 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 567
+@ Object 568
    .word 0x1750 @ x
    .hword 0x250 @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 568
-   .word 0x1750 @ x
-   .hword 0x250 @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 569
    .word 0x1750 @ x
    .hword 0x250 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 570
-   .word 0x1758 @ x
-   .hword 0x2b4 @ y
-   .hword 0x4a @ type
+   .word 0x1750 @ x
+   .hword 0x250 @ y
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 571
    .word 0x1758 @ x
    .hword 0x2b4 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 572
    .word 0x1758 @ x
    .hword 0x2b4 @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 573
+   .word 0x1758 @ x
+   .hword 0x2b4 @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 574
    .word 0x1780 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3521,7 +3527,7 @@ theoryofeverything_spr_data:
    .hword 0x3ff @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 574
+@ Object 575
    .word 0x1780 @ x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -3529,31 +3535,31 @@ theoryofeverything_spr_data:
    .hword 0x6b5 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 575
+@ Object 576
    .word 0x1780 @ x
    .hword 0x280 @ y
    .hword 0xf @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 576
+@ Object 577
    .word 0x1780 @ x
    .hword 0x280 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 577
+@ Object 578
    .word 0x1780 @ x
    .hword 0x280 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 578
+@ Object 579
    .word 0x1790 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 579
+@ Object 580
    .word 0x179c @ x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -3561,7 +3567,7 @@ theoryofeverything_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 580
+@ Object 581
    .word 0x17a4 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3569,37 +3575,37 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 581
+@ Object 582
    .word 0x17a4 @ x
    .hword 0x250 @ y
    .hword 0x1a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 582
+@ Object 583
    .word 0x17b0 @ x
    .hword 0x250 @ y
    .hword 0x2d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 583
+@ Object 584
    .word 0x17b8 @ x
    .hword 0x250 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 584
+@ Object 585
    .word 0x17c0 @ x
    .hword 0x218 @ y
    .hword 0x29 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 585
+@ Object 586
    .word 0x17c0 @ x
    .hword 0x280 @ y
    .hword 0x2f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 586
+@ Object 587
    .word 0x17f4 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3607,13 +3613,13 @@ theoryofeverything_spr_data:
    .hword 0x7d39 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 587
+@ Object 588
    .word 0x1800 @ x
    .hword 0x280 @ y
    .hword 0x2f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 588
+@ Object 589
    .word 0x1804 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3621,61 +3627,61 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 589
+@ Object 590
    .word 0x1810 @ x
    .hword 0x220 @ y
    .hword 0x3a @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 590
+@ Object 591
    .word 0x1820 @ x
    .hword 0x240 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 591
+@ Object 592
    .word 0x183c @ x
    .hword 0x270 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 592
+@ Object 593
    .word 0x1850 @ x
    .hword 0x220 @ y
    .hword 0x3b @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 593
+@ Object 594
    .word 0x1860 @ x
    .hword 0x280 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 594
+@ Object 595
    .word 0x186c @ x
    .hword 0x220 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 119 @ metatile ID appareance
-@ Object 595
+@ Object 596
    .word 0x1870 @ x
    .hword 0x290 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 596
+@ Object 597
    .word 0x1872 @ x
    .hword 0x230 @ y
    .hword 0xb @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 597
+@ Object 598
    .word 0x1878 @ x
    .hword 0x220 @ y
    .hword 0x2b @ type
    .hword 0x22 @ bg layer 4 flipped horizontally  
    .hword 119 @ metatile ID appareance
-@ Object 598
+@ Object 599
    .word 0x1882 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3683,31 +3689,31 @@ theoryofeverything_spr_data:
    .hword 0x7d39 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 599
+@ Object 600
    .word 0x1890 @ x
    .hword 0x220 @ y
    .hword 0x3c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 600
+@ Object 601
    .word 0x1890 @ x
    .hword 0x260 @ y
    .hword 0xf @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 601
+@ Object 602
    .word 0x1890 @ x
    .hword 0x260 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 602
+@ Object 603
    .word 0x1890 @ x
    .hword 0x260 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 603
+@ Object 604
    .word 0x1892 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3715,91 +3721,91 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 604
+@ Object 605
    .word 0x18a8 @ x
    .hword 0x220 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 115 @ metatile ID appareance
-@ Object 605
+@ Object 606
    .word 0x18a8 @ x
    .hword 0x230 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 119 @ metatile ID appareance
-@ Object 606
+@ Object 607
    .word 0x18b0 @ x
    .hword 0x294 @ y
    .hword 0x2f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 607
+@ Object 608
    .word 0x18b8 @ x
    .hword 0x240 @ y
    .hword 0xc @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 608
+@ Object 609
    .word 0x18c0 @ x
    .hword 0x270 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 609
+@ Object 610
    .word 0x18c8 @ x
    .hword 0x220 @ y
    .hword 0x2b @ type
    .hword 0x22 @ bg layer 4 flipped horizontally  
    .hword 115 @ metatile ID appareance
-@ Object 610
+@ Object 611
    .word 0x18c8 @ x
    .hword 0x230 @ y
    .hword 0x2b @ type
    .hword 0x22 @ bg layer 4 flipped horizontally  
    .hword 119 @ metatile ID appareance
-@ Object 611
+@ Object 612
    .word 0x18d8 @ x
    .hword 0x290 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 612
+@ Object 613
    .word 0x18ec @ x
    .hword 0x280 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 613
+@ Object 614
    .word 0x18ec @ x
    .hword 0x280 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 614
+@ Object 615
    .word 0x1900 @ x
    .hword 0x220 @ y
    .hword 0x3a @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 615
+@ Object 616
    .word 0x190c @ x
    .hword 0x240 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 616
+@ Object 617
    .word 0x190c @ x
    .hword 0x240 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 617
+@ Object 618
    .word 0x1910 @ x
    .hword 0x290 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 618
+@ Object 619
    .word 0x1913 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3807,7 +3813,7 @@ theoryofeverything_spr_data:
    .hword 0x7d39 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 619
+@ Object 620
    .word 0x1923 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3815,73 +3821,73 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 620
+@ Object 621
    .word 0x1928 @ x
    .hword 0x278 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 621
+@ Object 622
    .word 0x1928 @ x
    .hword 0x278 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 622
+@ Object 623
    .word 0x1940 @ x
    .hword 0x240 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 623
+@ Object 624
    .word 0x1948 @ x
    .hword 0x21c @ y
    .hword 0x2f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 624
+@ Object 625
    .word 0x1950 @ x
    .hword 0x290 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 625
+@ Object 626
    .word 0x1974 @ x
    .hword 0x260 @ y
    .hword 0xf @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 626
+@ Object 627
    .word 0x1974 @ x
    .hword 0x260 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 627
+@ Object 628
    .word 0x1974 @ x
    .hword 0x260 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 628
+@ Object 629
    .word 0x1980 @ x
    .hword 0x220 @ y
    .hword 0x3c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 629
+@ Object 630
    .word 0x1988 @ x
    .hword 0x294 @ y
    .hword 0x2f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 630
+@ Object 631
    .word 0x19a0 @ x
    .hword 0x280 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 631
+@ Object 632
    .word 0x19a4 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3889,7 +3895,7 @@ theoryofeverything_spr_data:
    .hword 0x7d39 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 632
+@ Object 633
    .word 0x19b4 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3897,79 +3903,79 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 633
+@ Object 634
    .word 0x19c0 @ x
    .hword 0x250 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 634
+@ Object 635
    .word 0x19e0 @ x
    .hword 0x270 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 635
+@ Object 636
    .word 0x19e0 @ x
    .hword 0x270 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 636
+@ Object 637
    .word 0x19e0 @ x
    .hword 0x290 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 637
+@ Object 638
    .word 0x19f0 @ x
    .hword 0x220 @ y
    .hword 0x3a @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 638
+@ Object 639
    .word 0x19f0 @ x
    .hword 0x240 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 639
+@ Object 640
    .word 0x1a18 @ x
    .hword 0x294 @ y
    .hword 0x2f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 640
+@ Object 641
    .word 0x1a20 @ x
    .hword 0x270 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 641
+@ Object 642
    .word 0x1a20 @ x
    .hword 0x270 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 642
+@ Object 643
    .word 0x1a30 @ x
    .hword 0x220 @ y
    .hword 0x3c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 643
+@ Object 644
    .word 0x1a3c @ x
    .hword 0x230 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 644
+@ Object 645
    .word 0x1a3c @ x
    .hword 0x230 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 645
+@ Object 646
    .word 0x1a44 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3977,7 +3983,7 @@ theoryofeverything_spr_data:
    .hword 0x7d39 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 646
+@ Object 647
    .word 0x1a54 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -3985,55 +3991,55 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 647
+@ Object 648
    .word 0x1a58 @ x
    .hword 0x268 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 648
+@ Object 649
    .word 0x1a58 @ x
    .hword 0x268 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 649
+@ Object 650
    .word 0x1a60 @ x
    .hword 0x290 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 650
+@ Object 651
    .word 0x1a70 @ x
    .hword 0x21c @ y
    .hword 0x2f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 651
+@ Object 652
    .word 0x1a90 @ x
    .hword 0x270 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 652
+@ Object 653
    .word 0x1a94 @ x
    .hword 0x294 @ y
    .hword 0x2f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 653
+@ Object 654
    .word 0x1ac0 @ x
    .hword 0x220 @ y
    .hword 0x3a @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 654
+@ Object 655
    .word 0x1ad0 @ x
    .hword 0x280 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 655
+@ Object 656
    .word 0x1ae4 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -4041,7 +4047,7 @@ theoryofeverything_spr_data:
    .hword 0x7d39 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 656
+@ Object 657
    .word 0x1af4 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -4049,91 +4055,91 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 657
+@ Object 658
    .word 0x1b00 @ x
    .hword 0x220 @ y
    .hword 0x3c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 658
+@ Object 659
    .word 0x1b00 @ x
    .hword 0x250 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 659
+@ Object 660
    .word 0x1b08 @ x
    .hword 0x290 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 660
+@ Object 661
    .word 0x1b14 @ x
    .hword 0x230 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 661
+@ Object 662
    .word 0x1b14 @ x
    .hword 0x230 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 662
+@ Object 663
    .word 0x1b30 @ x
    .hword 0x220 @ y
    .hword 0x3c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 663
+@ Object 664
    .word 0x1b34 @ x
    .hword 0x294 @ y
    .hword 0x2f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 664
+@ Object 665
    .word 0x1b40 @ x
    .hword 0x260 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 665
-   .word 0x1b4c @ x
-   .hword 0x230 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 666
    .word 0x1b4c @ x
    .hword 0x230 @ y
-   .hword 0x4b @ type
+   .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 667
-   .word 0x1b68 @ x
-   .hword 0x270 @ y
-   .hword 0x10 @ type
+   .word 0x1b4c @ x
+   .hword 0x230 @ y
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 668
    .word 0x1b68 @ x
    .hword 0x270 @ y
-   .hword 0x4b @ type
+   .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 669
+   .word 0x1b68 @ x
+   .hword 0x270 @ y
+   .hword 0x4b @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 670
    .word 0x1b70 @ x
    .hword 0x220 @ y
    .hword 0x3c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 670
+@ Object 671
    .word 0x1b70 @ x
    .hword 0x290 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 671
+@ Object 672
    .word 0x1b84 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -4141,25 +4147,25 @@ theoryofeverything_spr_data:
    .hword 0x7d39 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 672
+@ Object 673
    .word 0x1b88 @ x
    .hword 0x238 @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 673
+@ Object 674
    .word 0x1b88 @ x
    .hword 0x238 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 674
+@ Object 675
    .word 0x1b88 @ x
    .hword 0x238 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 675
+@ Object 676
    .word 0x1b94 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -4167,55 +4173,55 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 676
+@ Object 677
    .word 0x1bb0 @ x
    .hword 0x250 @ y
    .hword 0x2e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 677
+@ Object 678
    .word 0x1bb0 @ x
    .hword 0x250 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 678
+@ Object 679
    .word 0x1bb0 @ x
    .hword 0x250 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 679
+@ Object 680
    .word 0x1bb8 @ x
    .hword 0x220 @ y
    .hword 0x3b @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 680
+@ Object 681
    .word 0x1bd8 @ x
    .hword 0x260 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 681
+@ Object 682
    .word 0x1be0 @ x
    .hword 0x240 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 682
+@ Object 683
    .word 0x1bf8 @ x
    .hword 0x21c @ y
    .hword 0x2f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 683
+@ Object 684
    .word 0x1bf8 @ x
    .hword 0x290 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 684
+@ Object 685
    .word 0x1c13 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -4223,19 +4229,19 @@ theoryofeverything_spr_data:
    .hword 0x7d39 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 685
+@ Object 686
    .word 0x1c20 @ x
    .hword 0x260 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 686
+@ Object 687
    .word 0x1c20 @ x
    .hword 0x280 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 687
+@ Object 688
    .word 0x1c23 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -4243,79 +4249,79 @@ theoryofeverything_spr_data:
    .hword 0x7c16 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 688
+@ Object 689
    .word 0x1c40 @ x
    .hword 0x220 @ y
    .hword 0x3b @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 689
+@ Object 690
    .word 0x1c50 @ x
    .hword 0x230 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 690
+@ Object 691
    .word 0x1c50 @ x
    .hword 0x250 @ y
    .hword 0xc @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 691
+@ Object 692
    .word 0x1c50 @ x
    .hword 0x290 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 692
+@ Object 693
    .word 0x1c70 @ x
    .hword 0x270 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 693
+@ Object 694
    .word 0x1c70 @ x
    .hword 0x290 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 694
+@ Object 695
    .word 0x1c80 @ x
    .hword 0x220 @ y
    .hword 0x3a @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 695
+@ Object 696
    .word 0x1c90 @ x
    .hword 0x248 @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 696
+@ Object 697
    .word 0x1c90 @ x
    .hword 0x248 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 697
+@ Object 698
    .word 0x1c90 @ x
    .hword 0x248 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 698
+@ Object 699
    .word 0x1ca0 @ x
    .hword 0x280 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 699
+@ Object 700
    .word 0x1ca0 @ x
    .hword 0x290 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 700
+@ Object 701
    .word 0x1cb0 @ x
    .hword 0x1e0 @ y
    .hword 0x3 @ type
@@ -4323,7 +4329,7 @@ theoryofeverything_spr_data:
    .hword 0x3bf @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 701
+@ Object 702
    .word 0x1cb0 @ x
    .hword 0x1f0 @ y
    .hword 0x3 @ type
@@ -4331,7 +4337,7 @@ theoryofeverything_spr_data:
    .hword 0x3bf @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 702
+@ Object 703
    .word 0x1cb0 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -4339,85 +4345,85 @@ theoryofeverything_spr_data:
    .hword 0x1f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 703
+@ Object 704
    .word 0x1cb0 @ x
    .hword 0x250 @ y
    .hword 0x1 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 704
+@ Object 705
    .word 0x1cb0 @ x
    .hword 0x250 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 705
+@ Object 706
    .word 0x1cb0 @ x
    .hword 0x250 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 706
+@ Object 707
    .word 0x1cbc @ x
    .hword 0x250 @ y
    .hword 0x1c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 707
+@ Object 708
    .word 0x1cc8 @ x
    .hword 0x218 @ y
    .hword 0x29 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 708
+@ Object 709
    .word 0x1cc8 @ x
    .hword 0x298 @ y
    .hword 0x29 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 709
+@ Object 710
    .word 0x1d00 @ x
    .hword 0x258 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 710
+@ Object 711
    .word 0x1d00 @ x
    .hword 0x2a4 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 711
+@ Object 712
    .word 0x1d00 @ x
    .hword 0x2a4 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 712
+@ Object 713
    .word 0x1d00 @ x
    .hword 0x2a4 @ y
    .hword 0x4c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 713
+@ Object 714
    .word 0x1d08 @ x
    .hword 0x210 @ y
    .hword 0x3a @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 714
+@ Object 715
    .word 0x1d20 @ x
    .hword 0x248 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 715
+@ Object 716
    .word 0x1d24 @ x
    .hword 0x2a0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 716
+@ Object 717
    .word 0x1d40 @ x
    .hword 0x1e0 @ y
    .hword 0x3 @ type
@@ -4425,7 +4431,7 @@ theoryofeverything_spr_data:
    .hword 0x43f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 717
+@ Object 718
    .word 0x1d40 @ x
    .hword 0x1f0 @ y
    .hword 0x3 @ type
@@ -4433,7 +4439,7 @@ theoryofeverything_spr_data:
    .hword 0x43f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 718
+@ Object 719
    .word 0x1d40 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -4441,73 +4447,73 @@ theoryofeverything_spr_data:
    .hword 0x3bf @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 719
-   .word 0x1d50 @ x
-   .hword 0x20c @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 720
    .word 0x1d50 @ x
    .hword 0x20c @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 721
    .word 0x1d50 @ x
    .hword 0x20c @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 722
+   .word 0x1d50 @ x
+   .hword 0x20c @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 723
    .word 0x1d50 @ x
    .hword 0x238 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 723
+@ Object 724
    .word 0x1d70 @ x
    .hword 0x2a0 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 724
+@ Object 725
    .word 0x1d80 @ x
    .hword 0x248 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 725
+@ Object 726
    .word 0x1d98 @ x
    .hword 0x210 @ y
    .hword 0x3a @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 726
+@ Object 727
    .word 0x1da0 @ x
    .hword 0x260 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 727
+@ Object 728
    .word 0x1da0 @ x
    .hword 0x2a4 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 728
+@ Object 729
    .word 0x1da0 @ x
    .hword 0x2a4 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 729
+@ Object 730
    .word 0x1da0 @ x
    .hword 0x2a4 @ y
    .hword 0x4c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 730
+@ Object 731
    .word 0x1dd0 @ x
    .hword 0x1e0 @ y
    .hword 0x3 @ type
@@ -4515,7 +4521,7 @@ theoryofeverything_spr_data:
    .hword 0x7ff @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 731
+@ Object 732
    .word 0x1dd0 @ x
    .hword 0x1f0 @ y
    .hword 0x3 @ type
@@ -4523,7 +4529,7 @@ theoryofeverything_spr_data:
    .hword 0x7ff @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 732
+@ Object 733
    .word 0x1dd0 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -4531,73 +4537,73 @@ theoryofeverything_spr_data:
    .hword 0x3e3 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 733
+@ Object 734
    .word 0x1dd0 @ x
    .hword 0x270 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 734
+@ Object 735
    .word 0x1e00 @ x
    .hword 0x270 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 735
+@ Object 736
    .word 0x1e20 @ x
    .hword 0x250 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 736
+@ Object 737
    .word 0x1e20 @ x
    .hword 0x2a0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 737
+@ Object 738
    .word 0x1e28 @ x
    .hword 0x210 @ y
    .hword 0x3a @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 738
+@ Object 739
    .word 0x1e40 @ x
    .hword 0x240 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 739
+@ Object 740
    .word 0x1e60 @ x
    .hword 0x230 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 740
+@ Object 741
    .word 0x1e60 @ x
    .hword 0x2a0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 741
+@ Object 742
    .word 0x1e70 @ x
    .hword 0x20c @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 742
+@ Object 743
    .word 0x1e70 @ x
    .hword 0x20c @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 743
+@ Object 744
    .word 0x1e70 @ x
    .hword 0x20c @ y
    .hword 0x4c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 744
+@ Object 745
    .word 0x1e80 @ x
    .hword 0x1e0 @ y
    .hword 0x3 @ type
@@ -4605,7 +4611,7 @@ theoryofeverything_spr_data:
    .hword 0x7c22 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 745
+@ Object 746
    .word 0x1e80 @ x
    .hword 0x1f0 @ y
    .hword 0x3 @ type
@@ -4613,7 +4619,7 @@ theoryofeverything_spr_data:
    .hword 0x7c22 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 746
+@ Object 747
    .word 0x1e80 @ x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -4621,61 +4627,61 @@ theoryofeverything_spr_data:
    .hword 0x7be0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 747
+@ Object 748
    .word 0x1e80 @ x
    .hword 0x240 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 748
+@ Object 749
    .word 0x1e90 @ x
    .hword 0x2a0 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 749
+@ Object 750
    .word 0x1ea0 @ x
    .hword 0x250 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 750
+@ Object 751
    .word 0x1ed0 @ x
    .hword 0x260 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 751
+@ Object 752
    .word 0x1ed0 @ x
    .hword 0x2a4 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 752
+@ Object 753
    .word 0x1ed0 @ x
    .hword 0x2a4 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 753
+@ Object 754
    .word 0x1ed0 @ x
    .hword 0x2a4 @ y
    .hword 0x4c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 754
+@ Object 755
    .word 0x1ef0 @ x
    .hword 0x250 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 755
+@ Object 756
    .word 0x1f10 @ x
    .hword 0x250 @ y
    .hword 0x2 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 756
+@ Object 757
    .word 0x1f20 @ x
    .hword 0x170 @ y
    .hword 0x3 @ type
@@ -4683,7 +4689,7 @@ theoryofeverything_spr_data:
    .hword 0x564 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 757
+@ Object 758
    .word 0x1f20 @ x
    .hword 0x180 @ y
    .hword 0x3 @ type
@@ -4691,7 +4697,7 @@ theoryofeverything_spr_data:
    .hword 0xc1 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 758
+@ Object 759
    .word 0x1f20 @ x
    .hword 0x1a0 @ y
    .hword 0x3 @ type
@@ -4699,7 +4705,7 @@ theoryofeverything_spr_data:
    .hword 0x7fff @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 759
+@ Object 760
    .word 0x1f20 @ x
    .hword 0x1b0 @ y
    .hword 0x3 @ type
@@ -4707,295 +4713,325 @@ theoryofeverything_spr_data:
    .hword 0x7fff @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 760
+@ Object 761
    .word 0x1f20 @ x
    .hword 0x250 @ y
    .hword 0x1d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 761
+@ Object 762
    .word 0x1f38 @ x
    .hword 0x2b0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 762
+@ Object 763
    .word 0x1f50 @ x
    .hword 0x220 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 763
+@ Object 764
    .word 0x1f50 @ x
    .hword 0x230 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 764
+@ Object 765
    .word 0x1f60 @ x
    .hword 0x280 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 765
+@ Object 766
    .word 0x1f98 @ x
    .hword 0x2b0 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 766
+@ Object 767
    .word 0x1fb0 @ x
    .hword 0x2a0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 767
+@ Object 768
    .word 0x1fb0 @ x
    .hword 0x2a0 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 768
+@ Object 769
    .word 0x1fc4 @ x
    .hword 0x254 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 769
+@ Object 770
    .word 0x1fc4 @ x
    .hword 0x260 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 770
+@ Object 771
    .word 0x1fc4 @ x
    .hword 0x264 @ y
    .hword 0x2c @ type
    .hword 0x21 @ bg layer 4  flipped vertically 
    .hword 182 @ metatile ID appareance
-@ Object 771
+@ Object 772
    .word 0x1fc4 @ x
    .hword 0x26c @ y
    .hword 0x11 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 772
+@ Object 773
    .word 0x1fc8 @ x
    .hword 0x2b0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 773
+@ Object 774
    .word 0x1fd8 @ x
    .hword 0x210 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 774
+@ Object 775
    .word 0x1fd8 @ x
    .hword 0x220 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 775
+@ Object 776
    .word 0x1fdf @ x
    .hword 0x296 @ y
    .hword 0x11 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 776
+@ Object 777
    .word 0x1fdf @ x
    .hword 0x2a2 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 777
+@ Object 778
    .word 0x1fdf @ x
    .hword 0x2a6 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
-@ Object 778
+@ Object 779
    .word 0x1fdf @ x
    .hword 0x2ae @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 779
+@ Object 780
    .word 0x1ffc @ x
    .hword 0x250 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 780
+@ Object 781
    .word 0x1ffc @ x
    .hword 0x250 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 781
+@ Object 782
    .word 0x2008 @ x
    .hword 0x210 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 782
+@ Object 783
    .word 0x2008 @ x
    .hword 0x220 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 783
+@ Object 784
    .word 0x2008 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
-@ Object 784
-   .word 0x2018 @ x
-   .hword 0x298 @ y
-   .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 785
    .word 0x2018 @ x
    .hword 0x298 @ y
-   .hword 0x4b @ type
+   .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 786
+   .word 0x2018 @ x
+   .hword 0x298 @ y
+   .hword 0x4b @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 787
    .word 0x2038 @ x
    .hword 0x210 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 787
+@ Object 788
    .word 0x2038 @ x
    .hword 0x220 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 788
-   .word 0x2048 @ x
-   .hword 0x2b4 @ y
-   .hword 0x4a @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 789
    .word 0x2048 @ x
    .hword 0x2b4 @ y
-   .hword 0x4b @ type
+   .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 790
    .word 0x2048 @ x
    .hword 0x2b4 @ y
-   .hword 0x4c @ type
+   .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 791
+   .word 0x2048 @ x
+   .hword 0x2b4 @ y
+   .hword 0x4c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 792
    .word 0x2050 @ x
-   .hword 0x284 @ y
+   .hword 0x287 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 183 @ metatile ID appareance
-@ Object 792
+@ Object 793
    .word 0x2058 @ x
-   .hword 0x274 @ y
+   .hword 0x277 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 793
+@ Object 794
    .word 0x2060 @ x
-   .hword 0x284 @ y
+   .hword 0x287 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 185 @ metatile ID appareance
-@ Object 794
+@ Object 795
    .word 0x2078 @ x
    .hword 0x240 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 795
+@ Object 796
    .word 0x2078 @ x
    .hword 0x250 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 796
+@ Object 797
    .word 0x2088 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 797
-   .word 0x2090 @ x
-   .hword 0x284 @ y
-   .hword 0xa @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
 @ Object 798
    .word 0x2090 @ x
-   .hword 0x284 @ y
-   .hword 0xb @ type
+   .hword 0x287 @ y
+   .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 799
    .word 0x2090 @ x
-   .hword 0x294 @ y
+   .hword 0x287 @ y
+   .hword 0xb @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 800
+   .word 0x2090 @ x
+   .hword 0x297 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
-@ Object 800
+@ Object 801
+   .word 0x20b0 @ x
+   .hword 0x278 @ y
+   .hword 0x1e @ type
+   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0 @ rotation
+@ Object 802
+   .word 0x20b0 @ x
+   .hword 0x288 @ y
+   .hword 0x2b @ type
+   .hword 0x10 @ bg layer 2   
+   .hword 78 @ metatile ID appareance
+@ Object 803
+   .word 0x20b0 @ x
+   .hword 0x298 @ y
+   .hword 0x2b @ type
+   .hword 0x10 @ bg layer 2   
+   .hword 82 @ metatile ID appareance
+@ Object 804
+   .word 0x20b0 @ x
+   .hword 0x2a8 @ y
+   .hword 0x2b @ type
+   .hword 0x10 @ bg layer 2   
+   .hword 82 @ metatile ID appareance
+@ Object 805
+   .word 0x20b0 @ x
+   .hword 0x2b8 @ y
+   .hword 0x2b @ type
+   .hword 0x10 @ bg layer 2   
+   .hword 82 @ metatile ID appareance
+@ Object 806
    .word 0x20d0 @ x
    .hword 0x2b0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 801
+@ Object 807
    .word 0x20e8 @ x
    .hword 0x29c @ y
    .hword 0xf @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 802
+@ Object 808
    .word 0x20e8 @ x
    .hword 0x29c @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 803
+@ Object 809
    .word 0x20e8 @ x
    .hword 0x29c @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 804
+@ Object 810
    .word 0x2110 @ x
    .hword 0x2b0 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 805
+@ Object 811
    .word 0x2138 @ x
    .hword 0x264 @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 806
+@ Object 812
    .word 0x2138 @ x
    .hword 0x264 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 807
+@ Object 813
    .word 0x2138 @ x
    .hword 0x264 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 808
+@ Object 814
    .word 0x2140 @ x
    .hword 0x220 @ y
    .hword 0x3 @ type
@@ -5003,7 +5039,7 @@ theoryofeverything_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 809
+@ Object 815
    .word 0x2140 @ x
    .hword 0x230 @ y
    .hword 0x3 @ type
@@ -5011,73 +5047,73 @@ theoryofeverything_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 810
+@ Object 816
    .word 0x2150 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 811
+@ Object 817
    .word 0x2178 @ x
    .hword 0x29c @ y
    .hword 0xf @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 812
+@ Object 818
    .word 0x2178 @ x
    .hword 0x29c @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 813
+@ Object 819
    .word 0x2178 @ x
    .hword 0x29c @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 814
+@ Object 820
    .word 0x21b0 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 815
+@ Object 821
    .word 0x21d0 @ x
    .hword 0x1b0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 816
+@ Object 822
    .word 0x21e0 @ x
    .hword 0x160 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 817
+@ Object 823
    .word 0x2200 @ x
    .hword 0xf0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 818
+@ Object 824
    .word 0x2200 @ x
    .hword 0x110 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 819
+@ Object 825
    .word 0x2200 @ x
    .hword 0x2b0 @ y
    .hword 0x3a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 820
+@ Object 826
    .word 0x2210 @ x
    .hword 0x130 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 821
+@ Object 827
    .word 0x2220 @ x
    .hword 0x60 @ y
    .hword 0x3 @ type
@@ -5085,151 +5121,151 @@ theoryofeverything_spr_data:
    .hword 0x7c56 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 822
+@ Object 828
    .word 0x2220 @ x
    .hword 0xa0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 823
+@ Object 829
    .word 0x2220 @ x
    .hword 0x1f0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 824
+@ Object 830
    .word 0x2230 @ x
    .hword 0x158 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 825
+@ Object 831
    .word 0x2230 @ x
    .hword 0x1c0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 826
+@ Object 832
    .word 0x2240 @ x
    .hword 0xb0 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 827
+@ Object 833
    .word 0x2240 @ x
    .hword 0x110 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 828
+@ Object 834
    .word 0x2240 @ x
    .hword 0x2b0 @ y
    .hword 0x3b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 829
+@ Object 835
    .word 0x2250 @ x
    .hword 0x70 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 830
+@ Object 836
    .word 0x2250 @ x
    .hword 0xe0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 831
+@ Object 837
    .word 0x2260 @ x
    .hword 0x130 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 832
+@ Object 838
    .word 0x2270 @ x
    .hword 0x168 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 833
+@ Object 839
    .word 0x2270 @ x
    .hword 0x2b0 @ y
    .hword 0x3c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 834
+@ Object 840
    .word 0x2278 @ x
    .hword 0x80 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 835
+@ Object 841
    .word 0x2278 @ x
    .hword 0x80 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 836
+@ Object 842
    .word 0x2278 @ x
    .hword 0x80 @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 837
+@ Object 843
    .word 0x2280 @ x
    .hword 0xb0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 838
+@ Object 844
    .word 0x2280 @ x
    .hword 0xd0 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 839
+@ Object 845
    .word 0x2280 @ x
    .hword 0x190 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 840
+@ Object 846
    .word 0x2290 @ x
    .hword 0x110 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 841
+@ Object 847
    .word 0x2290 @ x
    .hword 0x150 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 842
+@ Object 848
    .word 0x22a0 @ x
    .hword 0x140 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 843
+@ Object 849
    .word 0x22b0 @ x
    .hword 0xb0 @ y
    .hword 0x39 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 844
+@ Object 850
    .word 0x22b0 @ x
    .hword 0xb0 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 845
+@ Object 851
    .word 0x22b0 @ x
    .hword 0xb0 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 846
+@ Object 852
    .word 0x22b0 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5237,7 +5273,7 @@ theoryofeverything_spr_data:
    .hword 0x7cba @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 847
+@ Object 853
    .word 0x22b0 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5245,25 +5281,25 @@ theoryofeverything_spr_data:
    .hword 0x7fe1 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 848
+@ Object 854
    .word 0x22c0 @ x
    .hword 0x80 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 849
+@ Object 855
    .word 0x22c0 @ x
    .hword 0xd0 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 850
+@ Object 856
    .word 0x22c0 @ x
    .hword 0xf0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 851
+@ Object 857
    .word 0x22c0 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5271,43 +5307,43 @@ theoryofeverything_spr_data:
    .hword 0x7c56 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 852
+@ Object 858
    .word 0x2300 @ x
    .hword 0x80 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 853
+@ Object 859
    .word 0x2300 @ x
    .hword 0xa0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 854
+@ Object 860
    .word 0x2300 @ x
    .hword 0x100 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 855
+@ Object 861
    .word 0x2320 @ x
    .hword 0xe0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 856
+@ Object 862
    .word 0x2330 @ x
    .hword 0x90 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 857
+@ Object 863
    .word 0x2340 @ x
    .hword 0x2b0 @ y
    .hword 0xd @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 858
+@ Object 864
    .word 0x2350 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5315,7 +5351,7 @@ theoryofeverything_spr_data:
    .hword 0x7cba @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 859
+@ Object 865
    .word 0x2350 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5323,7 +5359,7 @@ theoryofeverything_spr_data:
    .hword 0x17e1 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 860
+@ Object 866
    .word 0x2360 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5331,37 +5367,37 @@ theoryofeverything_spr_data:
    .hword 0x7c56 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 861
+@ Object 867
    .word 0x23d0 @ x
    .hword 0x70 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 862
+@ Object 868
    .word 0x23d0 @ x
    .hword 0x90 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 863
+@ Object 869
    .word 0x23d0 @ x
    .hword 0xe8 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 864
+@ Object 870
    .word 0x23d0 @ x
    .hword 0xe8 @ y
    .hword 0x31 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 865
+@ Object 871
    .word 0x23d0 @ x
    .hword 0x100 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 866
+@ Object 872
    .word 0x23f0 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5369,7 +5405,7 @@ theoryofeverything_spr_data:
    .hword 0x7cba @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 867
+@ Object 873
    .word 0x23f0 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5377,7 +5413,7 @@ theoryofeverything_spr_data:
    .hword 0x3fd @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 868
+@ Object 874
    .word 0x2400 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5385,37 +5421,37 @@ theoryofeverything_spr_data:
    .hword 0x7c56 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 869
+@ Object 875
    .word 0x2450 @ x
    .hword 0x70 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 870
+@ Object 876
    .word 0x2450 @ x
    .hword 0x90 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 871
+@ Object 877
    .word 0x2450 @ x
    .hword 0x90 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 872
+@ Object 878
    .word 0x2450 @ x
    .hword 0xe0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 873
+@ Object 879
    .word 0x2450 @ x
    .hword 0x100 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 874
+@ Object 880
    .word 0x2480 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5423,7 +5459,7 @@ theoryofeverything_spr_data:
    .hword 0x7cba @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 875
+@ Object 881
    .word 0x2480 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5431,7 +5467,7 @@ theoryofeverything_spr_data:
    .hword 0x15f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 876
+@ Object 882
    .word 0x2490 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5439,43 +5475,43 @@ theoryofeverything_spr_data:
    .hword 0x7c56 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 877
+@ Object 883
    .word 0x24c0 @ x
    .hword 0xa0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 878
+@ Object 884
    .word 0x24c0 @ x
    .hword 0x100 @ y
    .hword 0x19 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 879
+@ Object 885
    .word 0x24d0 @ x
    .hword 0x70 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 880
+@ Object 886
    .word 0x24d0 @ x
    .hword 0xe0 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 881
+@ Object 887
    .word 0x24d0 @ x
    .hword 0xe0 @ y
    .hword 0x31 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 882
+@ Object 888
    .word 0x24e0 @ x
    .hword 0x100 @ y
    .hword 0x19 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 883
+@ Object 889
    .word 0x2520 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5483,7 +5519,7 @@ theoryofeverything_spr_data:
    .hword 0x7cba @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 884
+@ Object 890
    .word 0x2520 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5491,7 +5527,7 @@ theoryofeverything_spr_data:
    .hword 0x541f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 885
+@ Object 891
    .word 0x2530 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5499,61 +5535,61 @@ theoryofeverything_spr_data:
    .hword 0x7c56 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 886
+@ Object 892
    .word 0x2550 @ x
    .hword 0x70 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 887
+@ Object 893
    .word 0x2550 @ x
    .hword 0x90 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 888
+@ Object 894
    .word 0x2550 @ x
    .hword 0x90 @ y
    .hword 0x31 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 889
+@ Object 895
    .word 0x2550 @ x
    .hword 0xe0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 890
+@ Object 896
    .word 0x2550 @ x
    .hword 0x100 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 891
+@ Object 897
    .word 0x2588 @ x
    .hword 0x100 @ y
    .hword 0x19 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 892
+@ Object 898
    .word 0x2590 @ x
    .hword 0x88 @ y
    .hword 0x3e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 893
+@ Object 899
    .word 0x2590 @ x
    .hword 0xb8 @ y
    .hword 0x3d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 894
+@ Object 900
    .word 0x2590 @ x
    .hword 0xe8 @ y
    .hword 0x3e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 895
+@ Object 901
    .word 0x25b0 @ x
    .hword 0xb8 @ y
    .hword 0x3 @ type
@@ -5561,7 +5597,7 @@ theoryofeverything_spr_data:
    .hword 0x7cba @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 896
+@ Object 902
    .word 0x25b0 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5569,7 +5605,7 @@ theoryofeverything_spr_data:
    .hword 0x7c60 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 897
+@ Object 903
    .word 0x25c0 @ x
    .hword 0xb8 @ y
    .hword 0x3 @ type
@@ -5577,7 +5613,7 @@ theoryofeverything_spr_data:
    .hword 0x7c56 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 898
+@ Object 904
    .word 0x25d0 @ x
    .hword 0x88 @ y
    .hword 0x3 @ type
@@ -5585,7 +5621,7 @@ theoryofeverything_spr_data:
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 899
+@ Object 905
    .word 0x25d0 @ x
    .hword 0xe8 @ y
    .hword 0x3 @ type
@@ -5593,7 +5629,7 @@ theoryofeverything_spr_data:
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 900
+@ Object 906
    .word 0x2650 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5601,7 +5637,7 @@ theoryofeverything_spr_data:
    .hword 0x7cba @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 901
+@ Object 907
    .word 0x2650 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5609,13 +5645,13 @@ theoryofeverything_spr_data:
    .hword 0x7fa0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 902
+@ Object 908
    .word 0x2660 @ x
    .hword 0xb8 @ y
    .hword 0x3d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 903
+@ Object 909
    .word 0x2660 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5623,19 +5659,19 @@ theoryofeverything_spr_data:
    .hword 0x7c56 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 904
+@ Object 910
    .word 0x26d8 @ x
    .hword 0x90 @ y
    .hword 0x1c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 905
+@ Object 911
    .word 0x26e0 @ x
    .hword 0x90 @ y
    .hword 0x2d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 906
+@ Object 912
    .word 0x26f0 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5643,7 +5679,7 @@ theoryofeverything_spr_data:
    .hword 0x23e0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 907
+@ Object 913
    .word 0x2700 @ x
    .hword 0x50 @ y
    .hword 0x3 @ type
@@ -5651,37 +5687,37 @@ theoryofeverything_spr_data:
    .hword 0x543f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 908
+@ Object 914
    .word 0x2740 @ x
    .hword 0xe0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 909
+@ Object 915
    .word 0x2750 @ x
    .hword 0x70 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 910
+@ Object 916
    .word 0x2750 @ x
    .hword 0x100 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 911
+@ Object 917
    .word 0x2770 @ x
    .hword 0x80 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 912
+@ Object 918
    .word 0x2780 @ x
    .hword 0xd0 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 913
+@ Object 919
    .word 0x2780 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5689,7 +5725,7 @@ theoryofeverything_spr_data:
    .hword 0x6c9f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 914
+@ Object 920
    .word 0x2780 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5697,19 +5733,19 @@ theoryofeverything_spr_data:
    .hword 0x3f1 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 915
+@ Object 921
    .word 0x2790 @ x
    .hword 0x70 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 916
+@ Object 922
    .word 0x2790 @ x
    .hword 0x100 @ y
    .hword 0x19 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 917
+@ Object 923
    .word 0x2790 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5717,31 +5753,31 @@ theoryofeverything_spr_data:
    .hword 0x543f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 918
+@ Object 924
    .word 0x27e0 @ x
    .hword 0xf0 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 919
+@ Object 925
    .word 0x27f0 @ x
    .hword 0x70 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 920
+@ Object 926
    .word 0x2800 @ x
    .hword 0x90 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 921
+@ Object 927
    .word 0x2800 @ x
    .hword 0x100 @ y
    .hword 0x19 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 922
+@ Object 928
    .word 0x2818 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5749,7 +5785,7 @@ theoryofeverything_spr_data:
    .hword 0x6c9f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 923
+@ Object 929
    .word 0x2820 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5757,7 +5793,7 @@ theoryofeverything_spr_data:
    .hword 0x3df @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 924
+@ Object 930
    .word 0x2828 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5765,49 +5801,49 @@ theoryofeverything_spr_data:
    .hword 0x543f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 925
+@ Object 931
    .word 0x2840 @ x
    .hword 0xb0 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 926
+@ Object 932
    .word 0x2840 @ x
    .hword 0xe0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 927
+@ Object 933
    .word 0x2850 @ x
    .hword 0x70 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 928
+@ Object 934
    .word 0x2850 @ x
    .hword 0x100 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 929
+@ Object 935
    .word 0x2880 @ x
    .hword 0xf0 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 930
+@ Object 936
    .word 0x2890 @ x
    .hword 0x80 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 931
+@ Object 937
    .word 0x2890 @ x
    .hword 0x100 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 932
+@ Object 938
    .word 0x28b0 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5815,7 +5851,7 @@ theoryofeverything_spr_data:
    .hword 0x9f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 933
+@ Object 939
    .word 0x28b3 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5823,7 +5859,7 @@ theoryofeverything_spr_data:
    .hword 0x6c9f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 934
+@ Object 940
    .word 0x28c3 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5831,55 +5867,55 @@ theoryofeverything_spr_data:
    .hword 0x543f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 935
+@ Object 941
    .word 0x28d0 @ x
    .hword 0x70 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 936
+@ Object 942
    .word 0x28d0 @ x
    .hword 0xc0 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 937
+@ Object 943
    .word 0x28e0 @ x
    .hword 0x80 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 938
+@ Object 944
    .word 0x28e0 @ x
    .hword 0x100 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 939
+@ Object 945
    .word 0x2910 @ x
    .hword 0x70 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 940
+@ Object 946
    .word 0x2910 @ x
    .hword 0x100 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 941
+@ Object 947
    .word 0x2920 @ x
    .hword 0x90 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 942
+@ Object 948
    .word 0x2920 @ x
    .hword 0xd0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 943
+@ Object 949
    .word 0x2950 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5887,7 +5923,7 @@ theoryofeverything_spr_data:
    .hword 0x641f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 944
+@ Object 950
    .word 0x2953 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5895,13 +5931,13 @@ theoryofeverything_spr_data:
    .hword 0x6c9f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 945
+@ Object 951
    .word 0x2960 @ x
    .hword 0xe0 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 946
+@ Object 952
    .word 0x2963 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5909,73 +5945,73 @@ theoryofeverything_spr_data:
    .hword 0x543f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 947
+@ Object 953
    .word 0x2970 @ x
    .hword 0x70 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 948
+@ Object 954
    .word 0x2970 @ x
    .hword 0xf0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 949
+@ Object 955
    .word 0x2980 @ x
    .hword 0x100 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 950
+@ Object 956
    .word 0x2990 @ x
    .hword 0x90 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 951
+@ Object 957
    .word 0x2998 @ x
    .hword 0x70 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 952
+@ Object 958
    .word 0x29b0 @ x
    .hword 0xa0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 953
+@ Object 959
    .word 0x29e0 @ x
    .hword 0x70 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 954
+@ Object 960
    .word 0x29e0 @ x
    .hword 0x100 @ y
    .hword 0x19 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 955
+@ Object 961
    .word 0x29f0 @ x
    .hword 0x88 @ y
    .hword 0x3d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 956
+@ Object 962
    .word 0x29f0 @ x
    .hword 0xb8 @ y
    .hword 0x3e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 957
+@ Object 963
    .word 0x29f0 @ x
    .hword 0xe8 @ y
    .hword 0x3e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 958
+@ Object 964
    .word 0x2a00 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -5983,7 +6019,7 @@ theoryofeverything_spr_data:
    .hword 0x7c0f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 959
+@ Object 965
    .word 0x2a03 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5991,7 +6027,7 @@ theoryofeverything_spr_data:
    .hword 0x6c9f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 960
+@ Object 966
    .word 0x2a13 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -5999,7 +6035,7 @@ theoryofeverything_spr_data:
    .hword 0x543f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 961
+@ Object 967
    .word 0x2a20 @ x
    .hword 0x88 @ y
    .hword 0x3 @ type
@@ -6007,7 +6043,7 @@ theoryofeverything_spr_data:
    .hword 0x7c35 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 962
+@ Object 968
    .word 0x2a20 @ x
    .hword 0xb8 @ y
    .hword 0x3 @ type
@@ -6015,7 +6051,7 @@ theoryofeverything_spr_data:
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 963
+@ Object 969
    .word 0x2a20 @ x
    .hword 0xe8 @ y
    .hword 0x3 @ type
@@ -6023,7 +6059,7 @@ theoryofeverything_spr_data:
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 964
+@ Object 970
    .word 0x2a93 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -6031,19 +6067,19 @@ theoryofeverything_spr_data:
    .hword 0x6c9f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 965
+@ Object 971
    .word 0x2a9c @ x
    .hword 0xb8 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 966
+@ Object 972
    .word 0x2a9c @ x
    .hword 0xe8 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 967
+@ Object 973
    .word 0x2aa0 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -6051,7 +6087,7 @@ theoryofeverything_spr_data:
    .hword 0x7f80 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 968
+@ Object 974
    .word 0x2aa3 @ x
    .hword 0x120 @ y
    .hword 0x3 @ type
@@ -6059,25 +6095,25 @@ theoryofeverything_spr_data:
    .hword 0x543f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 969
+@ Object 975
    .word 0x2b00 @ x
    .hword 0x88 @ y
    .hword 0x3e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 970
+@ Object 976
    .word 0x2b00 @ x
    .hword 0xb8 @ y
    .hword 0x3e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 971
+@ Object 977
    .word 0x2b00 @ x
    .hword 0xe8 @ y
    .hword 0x3d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 972
+@ Object 978
    .word 0x2b20 @ x
    .hword 0x88 @ y
    .hword 0x3 @ type
@@ -6085,7 +6121,7 @@ theoryofeverything_spr_data:
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 973
+@ Object 979
    .word 0x2b20 @ x
    .hword 0xb8 @ y
    .hword 0x3 @ type
@@ -6093,7 +6129,7 @@ theoryofeverything_spr_data:
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 974
+@ Object 980
    .word 0x2b20 @ x
    .hword 0xe8 @ y
    .hword 0x3 @ type
@@ -6101,7 +6137,7 @@ theoryofeverything_spr_data:
    .hword 0x3803 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x1 @ touch trigger
-@ Object 975
+@ Object 981
    .word 0x2b20 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -6109,13 +6145,13 @@ theoryofeverything_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 976
+@ Object 982
    .word 0x2b80 @ x
    .hword 0xe8 @ y
    .hword 0x1d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 977
+@ Object 983
    .word 0x2b90 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -6123,883 +6159,883 @@ theoryofeverything_spr_data:
    .hword 0x7fff @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 978
+@ Object 984
    .word 0x2ba0 @ x
    .hword 0xe8 @ y
    .hword 0x2e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 979
+@ Object 985
    .word 0x2bac @ x
    .hword 0x88 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 980
+@ Object 986
    .word 0x2bac @ x
    .hword 0xb8 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 981
+@ Object 987
    .word 0x2bb0 @ x
    .hword 0xe8 @ y
    .hword 0x2 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 982
+@ Object 988
    .word 0x2bd0 @ x
    .hword 0x150 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 983
+@ Object 989
    .word 0x2be0 @ x
    .hword 0x120 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 984
+@ Object 990
    .word 0x2be0 @ x
    .hword 0x120 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 985
+@ Object 991
    .word 0x2bf0 @ x
    .hword 0xc0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 986
+@ Object 992
    .word 0x2bf0 @ x
    .hword 0x138 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 987
+@ Object 993
    .word 0x2c18 @ x
    .hword 0x138 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 988
+@ Object 994
    .word 0x2c30 @ x
    .hword 0xf0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 989
+@ Object 995
    .word 0x2c40 @ x
    .hword 0x120 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 990
+@ Object 996
    .word 0x2c48 @ x
    .hword 0x138 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 991
+@ Object 997
    .word 0x2c70 @ x
    .hword 0xd0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 992
+@ Object 998
    .word 0x2c80 @ x
    .hword 0xa0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 993
+@ Object 999
    .word 0x2c80 @ x
    .hword 0x140 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 994
+@ Object 1000
    .word 0x2c80 @ x
    .hword 0x150 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 995
+@ Object 1001
    .word 0x2c90 @ x
    .hword 0x114 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 996
+@ Object 1002
    .word 0x2c90 @ x
    .hword 0x114 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 997
+@ Object 1003
    .word 0x2cb0 @ x
    .hword 0xc0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 998
+@ Object 1004
    .word 0x2cb0 @ x
    .hword 0x100 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 999
+@ Object 1005
    .word 0x2cb0 @ x
    .hword 0x100 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1000
+@ Object 1006
    .word 0x2cb0 @ x
    .hword 0x130 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1001
+@ Object 1007
    .word 0x2cb0 @ x
    .hword 0x140 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1002
+@ Object 1008
    .word 0x2ce0 @ x
    .hword 0xf8 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 183 @ metatile ID appareance
-@ Object 1003
+@ Object 1009
    .word 0x2ce0 @ x
    .hword 0x120 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1004
+@ Object 1010
    .word 0x2ce0 @ x
    .hword 0x130 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1005
+@ Object 1011
    .word 0x2ce8 @ x
    .hword 0xf8 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 184 @ metatile ID appareance
-@ Object 1006
+@ Object 1012
    .word 0x2cec @ x
    .hword 0x100 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1007
+@ Object 1013
    .word 0x2cf8 @ x
    .hword 0xe8 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1008
+@ Object 1014
    .word 0x2cf8 @ x
    .hword 0xf8 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 185 @ metatile ID appareance
-@ Object 1009
+@ Object 1015
    .word 0x2d00 @ x
    .hword 0xb0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1010
+@ Object 1016
    .word 0x2d00 @ x
    .hword 0xd0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1011
+@ Object 1017
    .word 0x2d30 @ x
    .hword 0xd0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1012
+@ Object 1018
    .word 0x2d30 @ x
    .hword 0x120 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1013
+@ Object 1019
    .word 0x2d40 @ x
    .hword 0xf0 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1014
+@ Object 1020
    .word 0x2d40 @ x
    .hword 0xf0 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1015
+@ Object 1021
    .word 0x2d40 @ x
    .hword 0x1c0 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1016
+@ Object 1022
    .word 0x2d40 @ x
    .hword 0x1d0 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1017
+@ Object 1023
    .word 0x2d50 @ x
    .hword 0x80 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1018
+@ Object 1024
    .word 0x2d5c @ x
    .hword 0x114 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1019
+@ Object 1025
    .word 0x2d5c @ x
    .hword 0x124 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1020
+@ Object 1026
    .word 0x2d60 @ x
    .hword 0x190 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1021
+@ Object 1027
    .word 0x2d60 @ x
    .hword 0x19c @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1022
+@ Object 1028
    .word 0x2d60 @ x
    .hword 0x1c0 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1023
+@ Object 1029
    .word 0x2d60 @ x
    .hword 0x1d0 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1024
+@ Object 1030
    .word 0x2d70 @ x
    .hword 0xe0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1025
+@ Object 1031
    .word 0x2d70 @ x
    .hword 0xe0 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1026
+@ Object 1032
    .word 0x2d80 @ x
    .hword 0x1c0 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1027
+@ Object 1033
    .word 0x2d80 @ x
    .hword 0x1d0 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1028
+@ Object 1034
    .word 0x2d84 @ x
    .hword 0x60 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1029
+@ Object 1035
    .word 0x2d84 @ x
    .hword 0x70 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1030
+@ Object 1036
    .word 0x2d84 @ x
    .hword 0x104 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1031
+@ Object 1037
    .word 0x2d84 @ x
    .hword 0x114 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1032
+@ Object 1038
    .word 0x2d90 @ x
    .hword 0xa0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1033
+@ Object 1039
    .word 0x2d90 @ x
    .hword 0xa0 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1034
+@ Object 1040
    .word 0x2d90 @ x
    .hword 0x140 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1035
+@ Object 1041
    .word 0x2d94 @ x
-   .hword 0x14c @ y
+   .hword 0x14e @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1036
+@ Object 1042
    .word 0x2d96 @ x
-   .hword 0x158 @ y
+   .hword 0x15a @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1037
+@ Object 1043
    .word 0x2d96 @ x
-   .hword 0x15c @ y
+   .hword 0x15e @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
-@ Object 1038
+@ Object 1044
    .word 0x2da0 @ x
    .hword 0x1c0 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1039
+@ Object 1045
    .word 0x2da0 @ x
    .hword 0x1d0 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1040
+@ Object 1046
    .word 0x2db0 @ x
    .hword 0xe0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1041
+@ Object 1047
    .word 0x2db4 @ x
    .hword 0x60 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1042
+@ Object 1048
    .word 0x2db4 @ x
    .hword 0x70 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1043
+@ Object 1049
    .word 0x2db4 @ x
    .hword 0x144 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1044
+@ Object 1050
    .word 0x2db4 @ x
    .hword 0x154 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1045
+@ Object 1051
    .word 0x2dc0 @ x
    .hword 0x120 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1046
+@ Object 1052
    .word 0x2dc0 @ x
    .hword 0x120 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1047
+@ Object 1053
    .word 0x2de0 @ x
    .hword 0xa0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1048
+@ Object 1054
    .word 0x2de4 @ x
    .hword 0x144 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1049
+@ Object 1055
    .word 0x2de4 @ x
    .hword 0x154 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1050
+@ Object 1056
    .word 0x2e10 @ x
    .hword 0xc0 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1051
+@ Object 1057
    .word 0x2e18 @ x
    .hword 0x138 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1052
+@ Object 1058
    .word 0x2e20 @ x
    .hword 0x150 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1053
+@ Object 1059
    .word 0x2e30 @ x
    .hword 0x100 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1054
+@ Object 1060
    .word 0x2e50 @ x
    .hword 0xb0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1055
-   .word 0x2e50 @ x
-   .hword 0x100 @ y
-   .hword 0x11 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
-@ Object 1056
-   .word 0x2e50 @ x
-   .hword 0x110 @ y
-   .hword 0x8 @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0 @ rotation
-@ Object 1057
-   .word 0x2e58 @ x
-   .hword 0x150 @ y
-   .hword 0x28 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
-@ Object 1058
-   .word 0x2e58 @ x
-   .hword 0x160 @ y
-   .hword 0x8 @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0 @ rotation
-@ Object 1059
-   .word 0x2e60 @ x
-   .hword 0xd0 @ y
-   .hword 0x8 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
-@ Object 1060
-   .word 0x2e60 @ x
-   .hword 0xe0 @ y
-   .hword 0x11 @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0 @ rotation
 @ Object 1061
-   .word 0x2e70 @ x
+   .word 0x2e50 @ x
    .hword 0x100 @ y
    .hword 0x11 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 1062
-   .word 0x2e70 @ x
+   .word 0x2e50 @ x
    .hword 0x110 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 1063
+   .word 0x2e58 @ x
+   .hword 0x150 @ y
+   .hword 0x28 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 1064
+   .word 0x2e58 @ x
+   .hword 0x160 @ y
+   .hword 0x8 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0 @ rotation
+@ Object 1065
+   .word 0x2e60 @ x
+   .hword 0xd0 @ y
+   .hword 0x8 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 1066
+   .word 0x2e60 @ x
+   .hword 0xe0 @ y
+   .hword 0x11 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0 @ rotation
+@ Object 1067
+   .word 0x2e70 @ x
+   .hword 0x100 @ y
+   .hword 0x11 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 1068
+   .word 0x2e70 @ x
+   .hword 0x110 @ y
+   .hword 0x8 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0 @ rotation
+@ Object 1069
    .word 0x2e80 @ x
    .hword 0xd0 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1064
+@ Object 1070
    .word 0x2e80 @ x
    .hword 0xe0 @ y
    .hword 0x11 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1065
+@ Object 1071
    .word 0x2ea0 @ x
    .hword 0x100 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1066
+@ Object 1072
    .word 0x2ea0 @ x
    .hword 0x140 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1067
+@ Object 1073
    .word 0x2ea0 @ x
    .hword 0x140 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1068
+@ Object 1074
    .word 0x2eb0 @ x
    .hword 0xd0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1069
+@ Object 1075
    .word 0x2eb0 @ x
    .hword 0x170 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1070
+@ Object 1076
    .word 0x2eb0 @ x
    .hword 0x180 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1071
+@ Object 1077
    .word 0x2ec0 @ x
    .hword 0x118 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1072
+@ Object 1078
    .word 0x2ec0 @ x
    .hword 0x118 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1073
+@ Object 1079
    .word 0x2ed4 @ x
    .hword 0x150 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1074
+@ Object 1080
    .word 0x2ed4 @ x
    .hword 0x160 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1075
+@ Object 1081
    .word 0x2ee0 @ x
    .hword 0xf0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1076
+@ Object 1082
    .word 0x2ef0 @ x
    .hword 0xf8 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1077
+@ Object 1083
    .word 0x2ef0 @ x
    .hword 0x108 @ y
    .hword 0x2c @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
-@ Object 1078
+@ Object 1084
    .word 0x2f04 @ x
    .hword 0x140 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1079
+@ Object 1085
    .word 0x2f04 @ x
    .hword 0x150 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1080
+@ Object 1086
    .word 0x2f10 @ x
    .hword 0xe0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1081
+@ Object 1087
    .word 0x2f10 @ x
    .hword 0x100 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1082
+@ Object 1088
    .word 0x2f10 @ x
    .hword 0x100 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1083
+@ Object 1089
    .word 0x2f34 @ x
    .hword 0x120 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1084
+@ Object 1090
    .word 0x2f34 @ x
    .hword 0x130 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1085
+@ Object 1091
    .word 0x2f60 @ x
    .hword 0xd0 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1086
+@ Object 1092
    .word 0x2f60 @ x
    .hword 0xd0 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1087
+@ Object 1093
    .word 0x2f64 @ x
    .hword 0x100 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1088
+@ Object 1094
    .word 0x2f64 @ x
    .hword 0x110 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1089
+@ Object 1095
    .word 0x2f80 @ x
    .hword 0x120 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1090
+@ Object 1096
    .word 0x2fa0 @ x
    .hword 0x100 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1091
+@ Object 1097
    .word 0x2fa0 @ x
    .hword 0x100 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1092
+@ Object 1098
    .word 0x2fa4 @ x
    .hword 0x130 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1093
+@ Object 1099
    .word 0x2fa4 @ x
    .hword 0x140 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1094
+@ Object 1100
    .word 0x2fc0 @ x
    .hword 0xd0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1095
+@ Object 1101
    .word 0x2fe0 @ x
    .hword 0xf0 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1096
+@ Object 1102
    .word 0x2fe4 @ x
    .hword 0x160 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1097
+@ Object 1103
    .word 0x2fe4 @ x
    .hword 0x170 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1098
+@ Object 1104
    .word 0x2fe8 @ x
    .hword 0x130 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1099
+@ Object 1105
    .word 0x2fe8 @ x
    .hword 0x130 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1100
+@ Object 1106
    .word 0x2ff0 @ x
    .hword 0x110 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1101
+@ Object 1107
    .word 0x3014 @ x
    .hword 0x150 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1102
+@ Object 1108
    .word 0x3014 @ x
    .hword 0x160 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1103
+@ Object 1109
    .word 0x3020 @ x
    .hword 0x2a0 @ y
    .hword 0x1c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1104
+@ Object 1110
    .word 0x3020 @ x
    .hword 0x2a0 @ y
    .hword 0x34 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1105
+@ Object 1111
    .word 0x3028 @ x
    .hword 0xd0 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1106
+@ Object 1112
    .word 0x3028 @ x
    .hword 0xe0 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1107
+@ Object 1113
    .word 0x302c @ x
    .hword 0x128 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1108
+@ Object 1114
    .word 0x3040 @ x
    .hword 0x170 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1109
+@ Object 1115
    .word 0x3044 @ x
    .hword 0x128 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1110
+@ Object 1116
    .word 0x3070 @ x
    .hword 0x100 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1111
+@ Object 1117
    .word 0x3080 @ x
    .hword 0x128 @ y
    .hword 0xf @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 1112
+@ Object 1118
    .word 0x3080 @ x
    .hword 0x128 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1113
+@ Object 1119
    .word 0x3080 @ x
    .hword 0x128 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1114
+@ Object 1120
    .word 0x3080 @ x
    .hword 0x160 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1115
+@ Object 1121
    .word 0x30c0 @ x
    .hword 0x100 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1116
+@ Object 1122
    .word 0x30c0 @ x
    .hword 0x100 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1117
+@ Object 1123
    .word 0x30c0 @ x
    .hword 0x100 @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1118
+@ Object 1124
    .word 0x30cc @ x
    .hword 0x164 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1119
+@ Object 1125
    .word 0x30cc @ x
    .hword 0x174 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1120
+@ Object 1126
    .word 0x30e0 @ x
    .hword 0x140 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1121
+@ Object 1127
    .word 0x30e0 @ x
    .hword 0x140 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1122
+@ Object 1128
    .word 0x30fc @ x
    .hword 0x164 @ y
    .hword 0x28 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1123
+@ Object 1129
    .word 0x30fc @ x
    .hword 0x174 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1124
+@ Object 1130
    .word 0x3120 @ x
    .hword 0xa0 @ y
    .hword 0x3 @ type
@@ -7007,7 +7043,7 @@ theoryofeverything_spr_data:
    .hword 0x409e @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1125
+@ Object 1131
    .word 0x3120 @ x
    .hword 0xb0 @ y
    .hword 0x3 @ type
@@ -7015,85 +7051,85 @@ theoryofeverything_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1126
+@ Object 1132
    .word 0x3120 @ x
    .hword 0x110 @ y
    .hword 0x1a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1127
+@ Object 1133
    .word 0x3120 @ x
    .hword 0x110 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1128
+@ Object 1134
    .word 0x3120 @ x
    .hword 0x110 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1129
+@ Object 1135
    .word 0x3120 @ x
    .hword 0x150 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1130
+@ Object 1136
    .word 0x3130 @ x
    .hword 0x110 @ y
    .hword 0x1c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1131
+@ Object 1137
    .word 0x3130 @ x
    .hword 0x130 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1132
+@ Object 1138
    .word 0x3138 @ x
    .hword 0x130 @ y
    .hword 0x54 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1133
+@ Object 1139
    .word 0x3160 @ x
    .hword 0x130 @ y
    .hword 0x58 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1134
+@ Object 1140
    .word 0x3170 @ x
    .hword 0x130 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1135
+@ Object 1141
    .word 0x3190 @ x
    .hword 0x140 @ y
    .hword 0x55 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 1136
+@ Object 1142
    .word 0x31a8 @ x
    .hword 0xf0 @ y
    .hword 0xc @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1137
+@ Object 1143
    .word 0x31b0 @ x
    .hword 0x140 @ y
    .hword 0x55 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 1138
+@ Object 1144
    .word 0x31b0 @ x
    .hword 0x14c @ y
    .hword 0x57 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 1139
+@ Object 1145
    .word 0x31c0 @ x
    .hword 0x80 @ y
    .hword 0x3 @ type
@@ -7101,7 +7137,7 @@ theoryofeverything_spr_data:
    .hword 0x697f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1140
+@ Object 1146
    .word 0x31d0 @ x
    .hword 0x80 @ y
    .hword 0x3 @ type
@@ -7109,67 +7145,67 @@ theoryofeverything_spr_data:
    .hword 0x749e @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1141
+@ Object 1147
    .word 0x31e0 @ x
    .hword 0xe4 @ y
    .hword 0x57 @ type
    .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1142
+@ Object 1148
    .word 0x31e0 @ x
    .hword 0x120 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1143
+@ Object 1149
    .word 0x31e0 @ x
    .hword 0x120 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1144
+@ Object 1150
    .word 0x31e0 @ x
    .hword 0x120 @ y
    .hword 0xf @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 1145
+@ Object 1151
    .word 0x3210 @ x
    .hword 0x108 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1146
+@ Object 1152
    .word 0x3210 @ x
    .hword 0x108 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1147
+@ Object 1153
    .word 0x3220 @ x
    .hword 0xf0 @ y
    .hword 0x55 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1148
+@ Object 1154
    .word 0x3220 @ x
    .hword 0x130 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1149
+@ Object 1155
    .word 0x3220 @ x
    .hword 0x130 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1150
+@ Object 1156
    .word 0x3240 @ x
    .hword 0x100 @ y
    .hword 0x57 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1151
+@ Object 1157
    .word 0x3256 @ x
    .hword 0x80 @ y
    .hword 0x3 @ type
@@ -7177,19 +7213,19 @@ theoryofeverything_spr_data:
    .hword 0x7d76 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1152
+@ Object 1158
    .word 0x3260 @ x
    .hword 0x100 @ y
    .hword 0xa @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1153
+@ Object 1159
    .word 0x3260 @ x
    .hword 0x100 @ y
    .hword 0xb @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1154
+@ Object 1160
    .word 0x3266 @ x
    .hword 0x80 @ y
    .hword 0x3 @ type
@@ -7197,43 +7233,43 @@ theoryofeverything_spr_data:
    .hword 0x7893 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1155
+@ Object 1161
    .word 0x3280 @ x
    .hword 0x150 @ y
    .hword 0x58 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 1156
+@ Object 1162
    .word 0x32a0 @ x
    .hword 0xf4 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1157
+@ Object 1163
    .word 0x32a0 @ x
    .hword 0xf4 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1158
+@ Object 1164
    .word 0x32c8 @ x
    .hword 0xe4 @ y
    .hword 0x55 @ type
    .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1159
+@ Object 1165
    .word 0x32d0 @ x
    .hword 0xdc @ y
    .hword 0x43 @ type
    .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1160
+@ Object 1166
    .word 0x32e0 @ x
    .hword 0xd8 @ y
    .hword 0x42 @ type
    .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1161
+@ Object 1167
    .word 0x32f0 @ x
    .hword 0x80 @ y
    .hword 0x3 @ type
@@ -7241,19 +7277,19 @@ theoryofeverything_spr_data:
    .hword 0x7d6b @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1162
+@ Object 1168
    .word 0x32f0 @ x
    .hword 0x14c @ y
    .hword 0x55 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 1163
+@ Object 1169
    .word 0x32f8 @ x
    .hword 0xd8 @ y
    .hword 0x2b @ type
    .hword 0x10 @ bg layer 2   
    .hword 151 @ metatile ID appareance
-@ Object 1164
+@ Object 1170
    .word 0x3300 @ x
    .hword 0x80 @ y
    .hword 0x3 @ type
@@ -7261,85 +7297,85 @@ theoryofeverything_spr_data:
    .hword 0x7886 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1165
+@ Object 1171
    .word 0x3308 @ x
    .hword 0xd8 @ y
    .hword 0x2b @ type
    .hword 0x12 @ bg layer 2 flipped horizontally  
    .hword 151 @ metatile ID appareance
-@ Object 1166
+@ Object 1172
    .word 0x3308 @ x
    .hword 0xe8 @ y
    .hword 0x11 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1167
+@ Object 1173
    .word 0x3310 @ x
    .hword 0x140 @ y
    .hword 0x55 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 1168
+@ Object 1174
    .word 0x3310 @ x
    .hword 0x14c @ y
    .hword 0x57 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 1169
+@ Object 1175
    .word 0x3320 @ x
    .hword 0xd8 @ y
    .hword 0x43 @ type
    .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1170
+@ Object 1176
    .word 0x3328 @ x
    .hword 0x14c @ y
    .hword 0x54 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
-@ Object 1171
+@ Object 1177
    .word 0x3330 @ x
    .hword 0xdc @ y
    .hword 0x42 @ type
    .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1172
+@ Object 1178
    .word 0x3330 @ x
    .hword 0x110 @ y
    .hword 0xf @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1173
+@ Object 1179
    .word 0x3330 @ x
    .hword 0x110 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1174
+@ Object 1180
    .word 0x3330 @ x
    .hword 0x110 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1175
+@ Object 1181
    .word 0x3370 @ x
    .hword 0x110 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1176
+@ Object 1182
    .word 0x3370 @ x
    .hword 0x110 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1177
+@ Object 1183
    .word 0x3370 @ x
    .hword 0x110 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1178
+@ Object 1184
    .word 0x3390 @ x
    .hword 0x80 @ y
    .hword 0x3 @ type
@@ -7347,193 +7383,193 @@ theoryofeverything_spr_data:
    .hword 0x2820 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1179
+@ Object 1185
    .word 0x3390 @ x
    .hword 0x110 @ y
    .hword 0x1 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1180
+@ Object 1186
    .word 0x3390 @ x
    .hword 0x110 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1181
+@ Object 1187
    .word 0x3390 @ x
    .hword 0x110 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1182
+@ Object 1188
    .word 0x33a0 @ x
    .hword 0x14c @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 1183
-   .word 0x33c0 @ x
-   .hword 0xd0 @ y
-   .hword 0x18 @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0 @ rotation
-@ Object 1184
-   .word 0x33c0 @ x
-   .hword 0x160 @ y
-   .hword 0x18 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0 @ rotation
-@ Object 1185
-   .word 0x33e0 @ x
-   .hword 0x100 @ y
-   .hword 0x56 @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 49152 @ rotation
-@ Object 1186
-   .word 0x33e0 @ x
-   .hword 0x158 @ y
-   .hword 0x57 @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 49152 @ rotation
-@ Object 1187
-   .word 0x3400 @ x
-   .hword 0xf0 @ y
-   .hword 0x57 @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 16384 @ rotation
-@ Object 1188
-   .word 0x3400 @ x
-   .hword 0x110 @ y
-   .hword 0x54 @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 16384 @ rotation
 @ Object 1189
-   .word 0x3418 @ x
+   .word 0x33c0 @ x
    .hword 0xd0 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 1190
-   .word 0x3418 @ x
+   .word 0x33c0 @ x
    .hword 0x160 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 1191
-   .word 0x3430 @ x
-   .hword 0xe0 @ y
-   .hword 0x57 @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 49152 @ rotation
-@ Object 1192
-   .word 0x3430 @ x
+   .word 0x33e0 @ x
    .hword 0x100 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1193
-   .word 0x3430 @ x
-   .hword 0x150 @ y
-   .hword 0x56 @ type
+@ Object 1192
+   .word 0x33e0 @ x
+   .hword 0x158 @ y
+   .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1194
-   .word 0x3450 @ x
-   .hword 0xe0 @ y
+@ Object 1193
+   .word 0x3400 @ x
+   .hword 0xf0 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
+@ Object 1194
+   .word 0x3400 @ x
+   .hword 0x110 @ y
+   .hword 0x54 @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 16384 @ rotation
 @ Object 1195
-   .word 0x3468 @ x
+   .word 0x3418 @ x
    .hword 0xd0 @ y
-   .hword 0x19 @ type
+   .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 1196
-   .word 0x3468 @ x
+   .word 0x3418 @ x
    .hword 0x160 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 1197
+   .word 0x3430 @ x
+   .hword 0xe0 @ y
+   .hword 0x57 @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 49152 @ rotation
+@ Object 1198
+   .word 0x3430 @ x
+   .hword 0x100 @ y
+   .hword 0x56 @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 49152 @ rotation
+@ Object 1199
+   .word 0x3430 @ x
+   .hword 0x150 @ y
+   .hword 0x56 @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 49152 @ rotation
+@ Object 1200
+   .word 0x3450 @ x
+   .hword 0xe0 @ y
+   .hword 0x57 @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 16384 @ rotation
+@ Object 1201
+   .word 0x3468 @ x
+   .hword 0xd0 @ y
+   .hword 0x19 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0 @ rotation
+@ Object 1202
+   .word 0x3468 @ x
+   .hword 0x160 @ y
+   .hword 0x18 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 1203
    .word 0x3480 @ x
    .hword 0xf0 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1198
+@ Object 1204
    .word 0x3480 @ x
    .hword 0x160 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1199
+@ Object 1205
    .word 0x34a0 @ x
    .hword 0x120 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 1200
+@ Object 1206
    .word 0x34b0 @ x
    .hword 0xd0 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1201
+@ Object 1207
    .word 0x34b0 @ x
    .hword 0x160 @ y
    .hword 0x19 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1202
+@ Object 1208
    .word 0x34c0 @ x
    .hword 0xe0 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1203
+@ Object 1209
    .word 0x34c0 @ x
    .hword 0x100 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1204
+@ Object 1210
    .word 0x34e0 @ x
    .hword 0x110 @ y
    .hword 0x54 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 1205
+@ Object 1211
    .word 0x34f0 @ x
    .hword 0xd0 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
-@ Object 1206
+@ Object 1212
    .word 0x34f0 @ x
    .hword 0x160 @ y
    .hword 0x19 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 1207
+@ Object 1213
    .word 0x3500 @ x
    .hword 0xd0 @ y
    .hword 0x57 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1208
+@ Object 1214
    .word 0x3500 @ x
    .hword 0xf0 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 1209
+@ Object 1215
    .word 0x3520 @ x
    .hword 0x150 @ y
    .hword 0x56 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
-@ Object 1210
+@ Object 1216
    .word 0x3530 @ x
    .hword 0xb0 @ y
    .hword 0x3 @ type

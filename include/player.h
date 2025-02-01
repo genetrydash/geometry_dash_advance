@@ -99,6 +99,9 @@ struct Player {
 
     // Set at the frame the cube changed size
     u8 changed_size_frames;
+
+    // TRUE if player is falling
+    u8 falling;
 };
 extern u8 player_death;
 
