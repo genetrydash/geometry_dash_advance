@@ -381,8 +381,6 @@ ARM_CODE void check_obj_collision(u32 index) {
         }   
     } else {
         if (curr_object.attrib2 & CIRCLE_HITBOX_FLAG) {
-            u32 ply_cx = ply_x + (curr_player.player_width >> 1);
-            u32 ply_cy = ply_y + (curr_player.player_height >> 1);
 
             u32 obj_cx = curr_object.x + center_x;
             u32 obj_cy = curr_object.y + center_y;
@@ -390,8 +388,8 @@ ARM_CODE void check_obj_collision(u32 index) {
             // Obj height contains the hitbox radius
             u32 obj_radius = obj_height;
 
-            if (is_colliding_circle(
-                ply_cx, ply_cy, curr_player.player_height >> 1,
+            if (is_colliding_circle_square(
+                ply_x, ply_y, curr_player.player_width, curr_player.player_height, 
                 obj_cx, obj_cy, obj_radius
             )) {
                 // If yes, then run the collision routine

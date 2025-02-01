@@ -414,6 +414,20 @@ ARM_CODE u32 is_colliding_circle(u32 cx1, u32 cy1, u32 r1, u32 cx2, u32 cy2, u32
     return obj_distance < radius_sum;
 }
 
+ARM_CODE u32 is_colliding_circle_square(u32 x1, u32 y1, u32 w1, u32 h1, u32 cx2, u32 cy2, u32 r2) {
+    s32 closest_x = MAX(x1, MIN(cx2, x1 + w1));
+    s32 closest_y = MAX(y1, MIN(cy2, y1 + h1));;
+
+    s32 distance_x = (cx2 - closest_x);
+    s32 distance_y = (cy2 - closest_y);
+
+    // Squared to avoid square roots
+    s32 obj_distance = distance_x*distance_x + distance_y*distance_y;
+    s32 radius_squared = r2*r2;
+
+    return obj_distance < radius_squared;
+}
+
 // Rotated hitbox stuff, all in IWRAM for extra speed
 
 #define SCALE_FACTOR 8
