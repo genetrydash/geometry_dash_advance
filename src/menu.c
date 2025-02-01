@@ -269,6 +269,8 @@ void print_level_info(u16 level_id) {
     // The text should start to the right of the face plus the GAP.
     s32 textStartX = startX + FACE_WIDTH + GAP;
 
+    if (numLines & 1) startY++;
+
     // Print all lines
     for (s32 line = 0; line < MAX_LINES; line++) {
         tte_set_pos(textStartX << 3, (startY + line) << 3);
