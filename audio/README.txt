@@ -3,15 +3,16 @@ Unfinished means it is being made. You can choose the ones that are marked with 
 ~~ Music ~~
 Stere Madness: Finished (ElAngel378)
 Back on track: Finished (Crafty Jumper)
-Polargeist: Available
+Polargeist: Unfinished
 Dry out: Unfinished
 Base after base: Unfinished
 Cant let go: Finished (ElAngel378)
 Jumper: Finished (Orionconstel)
-Time machine: Available
-Cycles: Available
+Time machine: Unfinished
+Cycles: Unfinished
 Xstep: Finished (Nicolestarlight)
 Clutterfunk: Unfinished
+Teory of everything: Unfinished
 -- More coming soon... --
 
 Below I will present you the instructions for creating music for Adv-famidash
