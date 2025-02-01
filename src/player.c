@@ -143,11 +143,11 @@ void cube_gamemode() {
     s8 mirror_sign = screen_mirrored ? -1 : 1;
    
     // If on floor and holding A or UP, jump
-    if (curr_player.on_floor && key_held(KEY_A | KEY_UP)) {
-        if (curr_player.player_size == SIZE_BIG) {
-            curr_player.player_y_speed = -CUBE_JUMP_SPEED * sign;     
+    if (curr_player.on_floor && (key_hit(KEY_A | KEY_UP) || key_held(KEY_A | KEY_UP))) {
+        if (key_hit(KEY_A | KEY_UP)) {
+            curr_player.player_y_speed = -((curr_player.player_size == SIZE_BIG) ? CUBE_FIRST_JUMP_SPEED : CUBE_MINI_FIRST_JUMP_SPEED) * sign;     
         } else {
-            curr_player.player_y_speed = -CUBE_MINI_JUMP_SPEED * sign;     
+            curr_player.player_y_speed = -((curr_player.player_size == SIZE_BIG) ? CUBE_JUMP_SPEED : CUBE_MINI_JUMP_SPEED) * sign;       
         }
         curr_player.player_buffering = ORB_BUFFER_END;
     }

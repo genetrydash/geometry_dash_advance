@@ -227,7 +227,7 @@ void set_initial_color(COLOR bg_color, COLOR ground_color) {
 }
 
 void reset_variables() {
-    player_1.player_x = -0x100000;  
+    player_1.player_x = -0x110000;  
     player_1.relative_player_x = 0;
     player_1.player_y_speed = 0;
     player_1.player_size = SIZE_BIG;
