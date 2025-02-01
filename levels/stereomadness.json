@@ -3567,6 +3567,11 @@
          "value":"#ff283eff"
         }, 
         {
+         "name":"Difficulty",
+         "type":"string",
+         "value":"EASY"
+        }, 
+        {
          "name":"GROUND",
          "type":"color",
          "value":"#ff0013c8"
@@ -3588,6 +3593,11 @@
         }, 
         {
          "name":"Speed",
+         "type":"int",
+         "value":1
+        }, 
+        {
+         "name":"Stars",
          "type":"int",
          "value":1
         }],

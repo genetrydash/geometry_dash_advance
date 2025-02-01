@@ -38,10 +38,10 @@ AUDIO_FILES	:= audio/*.xm audio/*.s3m audio/Sfx/*.wav
 #
 # Every file requires an accompanying .grit file,
 # so gfx/test.png needs gfx/test.grit
-GRAPHICS	:= graphics/*.png
+GRAPHICS	:=
 
 # Source files to compile
-SOURCES		:= graphics/*.s $(shell find levels -name '*.s') $(shell find levels -name '*.c') src/*.c lib/*.s
+SOURCES		:= graphics/*.s $(shell find levels -name '*.s') $(shell find levels -name '*.c') src/*.c lib/*.s graphics/menu/*.c
 
 # Include directories
 INCLUDES	:= include

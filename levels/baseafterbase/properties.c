@@ -8,6 +8,9 @@ const unsigned int baseafterbase_properties[] = {
  /*level height*/  27,
  /*level width*/   866,
  /*song*/          MOD_STEREOMA,
+ /*name length*/   13,
+ /*difficulty*/    2,
+ /*stars*/         5,
 };
 
 const unsigned char baseafterbase_name[] = {

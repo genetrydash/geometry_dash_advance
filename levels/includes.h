@@ -19,6 +19,12 @@
 #define LEVEL_WIDTH_INDEX 5
 #define LEVEL_SONG_INDEX 6
 
+#define LEVEL_NAME_LENGTH 7
+
+#define LEVEL_DIFFICULTY 8
+
+#define LEVEL_STARS_NUM 8
+
 // stereomadness
 #define stereomadness_ID 0
 

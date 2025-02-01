@@ -8,6 +8,9 @@ const unsigned int timemachine_properties[] = {
  /*level height*/  27,
  /*level width*/   995,
  /*song*/          MOD_STEREOMA,
+ /*name length*/   11,
+ /*difficulty*/    3,
+ /*stars*/         8,
 };
 
 const unsigned char timemachine_name[] = {

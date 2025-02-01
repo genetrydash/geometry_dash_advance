@@ -8,6 +8,9 @@ const unsigned int polargeist_properties[] = {
  /*level height*/  27,
  /*level width*/   933,
  /*song*/          MOD_STEREOMA,
+ /*name length*/   10,
+ /*difficulty*/    1,
+ /*stars*/         3,
 };
 
 const unsigned char polargeist_name[] = {

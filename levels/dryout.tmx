@@ -5,11 +5,13 @@
  </editorsettings>
  <properties>
   <property name="BG" type="color" value="#ffff284f"/>
+  <property name="Difficulty" value="NORMAL"/>
   <property name="GROUND" type="color" value="#ffff0033"/>
   <property name="Gamemode" type="int" value="0"/>
   <property name="Level name" value="DRY OUT"/>
   <property name="Song" value="STEREOMA"/>
   <property name="Speed" type="int" value="1"/>
+  <property name="Stars" type="int" value="4"/>
  </properties>
  <tileset firstgid="1" source="famidash.tsx"/>
  <tileset firstgid="513" source="sprites.tsx"/>

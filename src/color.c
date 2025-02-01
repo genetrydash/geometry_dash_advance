@@ -4,6 +4,15 @@
 #include "chr.h"
 #include "mgba_log.h"
 
+const COLOR face_colors[][2] = {
+    {CLR_CYAN, CLR_BLUE}, // Easy
+    {0x03E0, 0x0202}, // Normal
+    {0x03FF, 0x01FF}, // Hard
+    {0x01DF, 0x001F}, // Harder
+    {0x6DFF, 0x785D}, // Insane
+    {0x28FF, 0x009C}, // Demon
+};
+
 INLINE void blend_bg_and_obj(COLOR *dst, u32 pal) {
     // Blend both BG and OBJ colors and put it on palette slot 0x07 and 0x08
     clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_1 + pal], 1, 0x0a);
@@ -229,6 +238,17 @@ void run_col_trigger_changes() {
                 col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE] = FALSE;
             }
         }
+    }
+}
+
+#define FIRST_FACE_COLOR 0x32
+#define LAST_FACE_COLOR  0x3b
+
+void set_face_color(COLOR *dst, COLOR first_face_color, COLOR last_face_color) {
+    s32 value = 0;
+    for (s32 id = FIRST_FACE_COLOR; id <= LAST_FACE_COLOR; id++) {
+        clr_blend(&first_face_color, &last_face_color, &dst[id], 1, value);
+        value += 0x1f / (LAST_FACE_COLOR - FIRST_FACE_COLOR + 1);
     }
 }
 

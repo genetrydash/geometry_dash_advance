@@ -2868,6 +2868,11 @@
          "value":"#ffff04b9"
         }, 
         {
+         "name":"Difficulty",
+         "type":"string",
+         "value":"EASY"
+        }, 
+        {
          "name":"GROUND",
          "type":"color",
          "value":"#ffe2008a"
@@ -2891,6 +2896,11 @@
          "name":"Speed",
          "type":"int",
          "value":1
+        }, 
+        {
+         "name":"Stars",
+         "type":"int",
+         "value":2
         }],
  "renderorder":"right-down",
  "tiledversion":"1.11.0",

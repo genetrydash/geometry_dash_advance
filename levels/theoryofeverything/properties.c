@@ -8,6 +8,9 @@ const unsigned int theoryofeverything_properties[] = {
  /*level height*/  43,
  /*level width*/   862,
  /*song*/          MOD_STEREOMA,
+ /*name length*/   18,
+ /*difficulty*/    4,
+ /*stars*/         12,
 };
 
 const unsigned char theoryofeverything_name[] = {

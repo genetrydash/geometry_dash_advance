@@ -8,6 +8,9 @@ const unsigned int test_properties[] = {
  /*level height*/  27,
  /*level width*/   895,
  /*song*/          MOD_STEREOMA,
+ /*name length*/   4,
+ /*difficulty*/    0,
+ /*stars*/         0,
 };
 
 const unsigned char test_name[] = {

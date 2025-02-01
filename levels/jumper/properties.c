@@ -8,6 +8,9 @@ const unsigned int jumper_properties[] = {
  /*level height*/  27,
  /*level width*/   894,
  /*song*/          MOD_JUMPER,
+ /*name length*/   6,
+ /*difficulty*/    3,
+ /*stars*/         7,
 };
 
 const unsigned char jumper_name[] = {

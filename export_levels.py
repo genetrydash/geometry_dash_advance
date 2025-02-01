@@ -328,6 +328,9 @@ def export_includes_h(levels):
         file.write("#define LEVEL_HEIGHT_INDEX 4\n")
         file.write("#define LEVEL_WIDTH_INDEX 5\n")
         file.write("#define LEVEL_SONG_INDEX 6\n\n")
+        file.write("#define LEVEL_NAME_LENGTH 7\n\n")
+        file.write("#define LEVEL_DIFFICULTY 8\n\n")
+        file.write("#define LEVEL_STARS_NUM 8\n\n")
         for level_name in levels:
             file.write(f"// {level_name}\n")
             file.write(f"#define {level_name}_ID {level_counter}\n\n")
@@ -372,6 +375,8 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         menu_name = level_name
         speed = 1
         song = "STEREOMA"
+        difficulty = 0
+        stars = 0
         for prop in properties:
             if prop['name'] == 'BG':
                 bg_color = int(prop['value'][3:], 16)
@@ -385,6 +390,17 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
                 menu_name = prop['value']
             elif prop['name'] == 'Song':
                 song = prop['value']
+            elif prop['name'] == 'Difficulty':
+                diff_string = prop['value']
+                possible_diff = ["EASY", "NORMAL", "HARD", "HARDER", "INSANE", "DEMON"]
+
+                if diff_string not in possible_diff:
+                    raise Exception(f"Encountered invalid difficulty: {diff_string} Must be one of the following: EASY, NORMAL, HARD, HARDER, INSANE, DEMON") 
+
+                difficulty = possible_diff.index(diff_string)
+
+            elif prop['name'] == 'Stars':
+                stars = int(prop['value'])
         # BG color
         if bg_color != "":
             bg_color_bgr555 = rgb888_to_rgb555_24bit(bg_color)
@@ -411,6 +427,9 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         file.write(f" /*level height*/  {level_height},\n")
         file.write(f" /*level width*/   {level_width},\n")
         file.write(f" /*song*/          MOD_{song},\n")
+        file.write(f" /*name length*/   {len(level_name)},\n")
+        file.write(f" /*difficulty*/    {difficulty},\n")
+        file.write(f" /*stars*/         {stars},\n")
         file.write(f"}};\n\n")
 
         file.write(f"const unsigned char {level_name}_name[] = {{\n")

@@ -3835,6 +3835,11 @@
          "value":"#ff951aff"
         }, 
         {
+         "name":"Difficulty",
+         "type":"string",
+         "value":"HARDER"
+        }, 
+        {
          "name":"GROUND",
          "type":"color",
          "value":"#ff7000c8"
@@ -3858,6 +3863,11 @@
          "name":"Speed",
          "type":"int",
          "value":1
+        }, 
+        {
+         "name":"Stars",
+         "type":"int",
+         "value":7
         }],
  "renderorder":"right-down",
  "tiledversion":"1.11.0",

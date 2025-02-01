@@ -8,6 +8,9 @@ const unsigned int backontrack_properties[] = {
  /*level height*/  27,
  /*level width*/   846,
  /*song*/          MOD_BACKOT,
+ /*name length*/   11,
+ /*difficulty*/    0,
+ /*stars*/         2,
 };
 
 const unsigned char backontrack_name[] = {

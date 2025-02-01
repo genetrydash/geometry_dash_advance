@@ -3682,6 +3682,11 @@
          "value":"#ff06ff00"
         }, 
         {
+         "name":"Difficulty",
+         "type":"string",
+         "value":"NORMAL"
+        }, 
+        {
          "name":"GROUND",
          "type":"color",
          "value":"#ff07a300"
@@ -3700,6 +3705,11 @@
          "name":"Speed",
          "type":"int",
          "value":1
+        }, 
+        {
+         "name":"Stars",
+         "type":"int",
+         "value":3
         }],
  "renderorder":"right-down",
  "tiledversion":"1.11.0",

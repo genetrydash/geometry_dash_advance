@@ -8,6 +8,9 @@ const unsigned int xstep_properties[] = {
  /*level height*/  27,
  /*level width*/   843,
  /*song*/          MOD_XSTEP,
+ /*name length*/   5,
+ /*difficulty*/    4,
+ /*stars*/         10,
 };
 
 const unsigned char xstep_name[] = {

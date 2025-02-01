@@ -8,6 +8,9 @@ const unsigned int clutterfunk_properties[] = {
  /*level height*/  27,
  /*level width*/   994,
  /*song*/          MOD_STEREOMA,
+ /*name length*/   11,
+ /*difficulty*/    4,
+ /*stars*/         11,
 };
 
 const unsigned char clutterfunk_name[] = {

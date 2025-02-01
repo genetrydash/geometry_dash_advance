@@ -8,6 +8,9 @@ const unsigned int cantletgo_properties[] = {
  /*level height*/  27,
  /*level width*/   834,
  /*song*/          MOD_CANTLG,
+ /*name length*/   9,
+ /*difficulty*/    2,
+ /*stars*/         6,
 };
 
 const unsigned char cantletgo_name[] = {

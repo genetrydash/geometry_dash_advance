@@ -8,6 +8,9 @@ const unsigned int stereomadness_properties[] = {
  /*level height*/  27,
  /*level width*/   891,
  /*song*/          MOD_STEREOMA,
+ /*name length*/   13,
+ /*difficulty*/    0,
+ /*stars*/         1,
 };
 
 const unsigned char stereomadness_name[] = {

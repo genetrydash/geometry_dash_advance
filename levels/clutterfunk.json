@@ -18368,6 +18368,11 @@
          "value":"#fffb0006"
         }, 
         {
+         "name":"Difficulty",
+         "type":"string",
+         "value":"INSANE"
+        }, 
+        {
          "name":"GROUND",
          "type":"color",
          "value":"#ffba0004"
@@ -18391,6 +18396,11 @@
          "name":"Speed",
          "type":"int",
          "value":1
+        }, 
+        {
+         "name":"Stars",
+         "type":"int",
+         "value":11
         }],
  "renderorder":"right-down",
  "tiledversion":"1.11.0",

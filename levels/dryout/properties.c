@@ -8,6 +8,9 @@ const unsigned int dryout_properties[] = {
  /*level height*/  27,
  /*level width*/   842,
  /*song*/          MOD_STEREOMA,
+ /*name length*/   6,
+ /*difficulty*/    1,
+ /*stars*/         4,
 };
 
 const unsigned char dryout_name[] = {

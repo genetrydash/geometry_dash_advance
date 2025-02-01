@@ -42,6 +42,8 @@ struct HSV {
     FIXED_16 value;
 };
 
+extern const COLOR face_colors[][2];
+
 ARM_CODE struct HSV rgb_to_hsv(struct RGB555 rgb);
 ARM_CODE struct RGB555 hsv_to_rgb(struct HSV hsv);
 ARM_CODE COLOR calculate_lbg(COLOR bg, COLOR p1);
@@ -52,6 +54,7 @@ void set_obj_color(COLOR *dst, COLOR color);
 void set_ground_color(COLOR *dst, COLOR color);
 void set_line_color(COLOR *dst, COLOR color);
 void set_color_channel_color(COLOR *dst, COLOR color, u32 channel);
+void set_face_color(COLOR *dst, COLOR first_face_color, COLOR last_face_color);
 u16 lerp_color(COLOR color1, COLOR color2, FIXED time);
 
 void run_col_trigger_changes();
