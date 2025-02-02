@@ -41,14 +41,20 @@ const s32 gamemode_cap_lut[GAMEMODE_COUNT][GAMEMODE_COUNT] = {
 void cube_portal(struct ObjectSlot *objectSlot) {
     if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_CUBE]) curr_player.player_y_speed /= 2;
     curr_player.gamemode = GAMEMODE_CUBE;
+    curr_player.on_floor = FALSE;
+
     gamemode_upload_buffer[curr_player_id] = GAMEMODE_CUBE;
+
     check_for_same_dual_gravity();
+    
     objectSlot->activated[curr_player_id] = TRUE;
 }
 
 void ship_portal(struct ObjectSlot *objectSlot) {
     if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_SHIP]) curr_player.player_y_speed /= 2;
     curr_player.gamemode = GAMEMODE_SHIP;
+    curr_player.on_floor = FALSE;
+
     gamemode_upload_buffer[curr_player_id] = GAMEMODE_SHIP;
 
     check_for_same_dual_gravity();
@@ -60,6 +66,8 @@ void ship_portal(struct ObjectSlot *objectSlot) {
 void ball_portal(struct ObjectSlot *objectSlot) {
     if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_BALL]) curr_player.player_y_speed /= 2;
     curr_player.gamemode = GAMEMODE_BALL;
+    curr_player.on_floor = FALSE;
+    
     gamemode_upload_buffer[curr_player_id] = GAMEMODE_BALL;
     
     check_for_same_dual_gravity();
@@ -71,6 +79,8 @@ void ball_portal(struct ObjectSlot *objectSlot) {
 void ufo_portal(struct ObjectSlot *objectSlot) {
     if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_UFO]) curr_player.player_y_speed /= 2;
     curr_player.gamemode = GAMEMODE_UFO;
+    curr_player.on_floor = FALSE;
+
     gamemode_upload_buffer[curr_player_id] = GAMEMODE_UFO;
     
     check_for_same_dual_gravity();

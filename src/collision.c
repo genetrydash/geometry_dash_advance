@@ -276,7 +276,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         if (curr_player.changed_size_frames) max_eject = 0x10;
 
         if (eject_value >= -(max_eject << SUBPIXEL_BITS)) {
-            if (curr_player.gravity_dir == GRAVITY_UP) {
+            if (curr_player.gamemode != GAMEMODE_CUBE || curr_player.gravity_dir == GRAVITY_UP) {
                 // We are resting on the ceiling so allow jumping and stuff
                 curr_player.on_floor = 1;
             }
@@ -296,7 +296,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
 
         if (curr_player.changed_size_frames) max_eject = 0x10;
         if (eject_value < (max_eject << SUBPIXEL_BITS)) {
-            if (curr_player.gravity_dir == GRAVITY_DOWN) {
+            if (curr_player.gamemode != GAMEMODE_CUBE || curr_player.gravity_dir == GRAVITY_DOWN) {
                 // We are resting on the floor so allow jumping and stuff
                 curr_player.on_floor = 1;
             }

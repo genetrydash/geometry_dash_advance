@@ -224,8 +224,12 @@ void ship_gamemode() {
         curr_player.player_buffering = NO_ORB_BUFFER;
     }
 
-    curr_player.cube_rotation = ArcTan2(curr_player.player_x_speed >> 8, curr_player.player_y_speed >> 8) * mirror_sign;
-    
+    if (curr_player.on_floor) {
+        curr_player.cube_rotation = 0;
+    } else {
+        curr_player.cube_rotation = ArcTan2(curr_player.player_x_speed >> 8, curr_player.player_y_speed >> 8) * mirror_sign;
+    }
+
     curr_player.on_floor = 0;
     
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
@@ -356,7 +360,7 @@ void ufo_gamemode() {
     }
 
     // If on floor and holding A or UP, jump
-    if (key_hit(KEY_A | KEY_UP)) {
+    if (key_hit(KEY_A | KEY_UP) || curr_player.player_buffering == ORB_BUFFER_READY) {
         if (curr_player.player_size == SIZE_BIG) {
             curr_player.player_y_speed = -UFO_JUMP_SPEED * sign;     
         } else {
@@ -400,6 +404,9 @@ void ufo_gamemode() {
 
         // Run collision
         collision_ship_ball_ufo();
+        
+        // Stop buffering
+        if (curr_player.player_buffering == ORB_BUFFER_READY) curr_player.player_buffering = ORB_BUFFER_END;
     }
 }
 
