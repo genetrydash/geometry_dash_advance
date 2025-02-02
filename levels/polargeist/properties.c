@@ -7,7 +7,7 @@ const unsigned int polargeist_properties[] = {
  /*speed*/         1,
  /*level height*/  27,
  /*level width*/   933,
- /*song*/          MOD_POLAR,
+ /*song*/          MOD_STEREOMA,
  /*name length*/   10,
  /*difficulty*/    1,
  /*stars*/         3,
