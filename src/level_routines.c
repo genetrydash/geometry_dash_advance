@@ -410,6 +410,23 @@ void fade_in() {
     update_flags = UPDATE_ALL;
 }
 
+void fade_in_menu() {
+    update_flags = UPDATE_OAM;
+    // Fade in
+    for (s32 frame = 0; frame <= 32; frame += 4) {
+        VBlankIntrWait();
+        key_poll();
+        nextSpr = 0;
+        // Copy OAM buffer into OAM
+        obj_copy(oam_mem, shadow_oam, 128);
+        put_star_number(loaded_level_id);
+        put_coin_sprites(loaded_level_id);
+        
+        clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
+    }
+    update_flags = UPDATE_ALL;
+}
+
 void reset_level() {
     mmStop();
     update_flags = UPDATE_OAM | UPDATE_SCROLL;
@@ -611,9 +628,6 @@ u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
     }
     return current;
 }
-
-#define FIRST_NUMBER_ID 998
-#define PERCENTAGE_SYMBOL_ID 1008
 
 void draw_percentage() {
     // Progress number in level

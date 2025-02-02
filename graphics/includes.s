@@ -28,5 +28,8 @@ orb_pad_particles:
 level_text_chr:
     .incbin "graphics/level_text.chr"
 
-
+@ I put it there because gcc won't keep it
+.align 4
+save_string:
+    .ascii "FLASH512_Vnnn"
     

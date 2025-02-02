@@ -36,6 +36,53 @@ const u16 noclipSpr[] = {
     0xffff
 };
 
+// Menu
+
+const u16 menuStarSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_8x8,
+    ATTR2_PALBANK(0) | ATTR2_ID(8),
+    0,
+    0,
+    PRIO_IDOFF(0, 0), // id offset
+
+    0xffff
+};
+
+const u16 menuNumberSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_8x8,
+    ATTR2_PALBANK(1),
+    0,
+    0,
+    PRIO_IDOFF(0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 gottenCoinSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(0),
+    0,
+    0,
+    PRIO_IDOFF(0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 ungottenCoinSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(0) | ATTR2_ID(4),
+    0,
+    0,
+    PRIO_IDOFF(0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+
 // Number
 const u16 numberSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,

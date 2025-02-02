@@ -40,6 +40,7 @@ void menu_loop() {
 
     memset32(palette_buffer, 0, 256);
     memcpy16(palette_buffer, menu_palette, sizeof(menu_palette) / sizeof(COLOR));
+    memcpy16(&palette_buffer[256], menu_spr_palette, sizeof(menu_spr_palette) / sizeof(COLOR));
 
     // Init PUSAB font
     tte_init_se(
@@ -53,7 +54,9 @@ void menu_loop() {
 
     tte_set_special(0x2000);
 
-    memcpy32(&tile_mem[0][0], menu_chr, sizeof(menu_chr) / 4);
+    memcpy32(&tile_mem[0][0], menu_chr, sizeof(menu_chr) / 8);
+    memcpy32(&tile_mem_obj[0][0], &menu_chr[256], sizeof(menu_chr) / 8);
+    memcpy32(&tile_mem_obj[0][992], level_text_chr, sizeof(level_text_chr) / 4);
 
     memcpy32(&se_mem[24][0], menu_l0_tilemap, sizeof(menu_l0_tilemap) / 4);
     memcpy32(&se_mem[25][0], menu_l1_tilemap, sizeof(menu_l1_tilemap) / 4);
@@ -71,10 +74,20 @@ void menu_loop() {
     
     mmStart(MOD_MENU, MM_PLAY_LOOP);
 
-    fade_in();
+    fade_in_menu();
     while (1) {
         key_poll();
         
+        // Copy to OAM
+        obj_copy(oam_mem, shadow_oam, 128);
+
+        // Clear OAM
+        memset32(shadow_oam, ATTR0_HIDE, 256);
+        
+        nextSpr = 0;
+
+        put_star_number(level_id);
+        put_coin_sprites(level_id);
 #ifdef DEBUG
         if (key_hit(KEY_SELECT)) {
             debug_mode ^= 1;
@@ -290,6 +303,48 @@ void print_level_info(u16 level_id) {
     se_plot(&se_mem[31][0], faceX + 1, faceY     , SE_BUILD(difficulty_top_index + 1, 3, 0, 0));
     se_plot(&se_mem[31][0], faceX    , faceY + 1 , SE_BUILD(difficulty_top_index + 0x10, 3, 0, 0));
     se_plot(&se_mem[31][0], faceX + 1, faceY + 1 , SE_BUILD(difficulty_top_index + 0x11, 3, 0, 0));
+}
 
-    // Now put stars
+void put_star_number(u16 level_id) {
+    // Put star sprite
+    oam_metaspr(180, 28, menuStarSpr, FALSE, FALSE, 0, 0, TRUE);
+    
+    u32 *properties_pointer = (u32*) level_defines[level_id][LEVEL_PROPERTIES_INDEX];
+    
+    u32 stars = properties_pointer[LEVEL_STARS_NUM];
+
+    if (stars >= 10) {
+        oam_metaspr(164, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars / 10), 0, TRUE);
+        oam_metaspr(172, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars % 10), 0, TRUE);
+    } else {
+        oam_metaspr(172, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + stars, 0, TRUE);
+    }
+}
+
+#define MENU_COIN_X 154
+#define MENU_COIN_Y 56
+void put_coin_sprites(u16 level_id) {
+    // Obtain level data
+    struct SaveLevelData *level_data = obtain_level_data(level_id);
+
+    // Put coin 1 sprite
+    if (level_data->coin1) {
+        oam_metaspr(MENU_COIN_X, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+    } else {
+        oam_metaspr(MENU_COIN_X, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+    }
+
+    // Put coin 2 sprite
+    if (level_data->coin2) {
+        oam_metaspr(MENU_COIN_X + 11, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+    } else {
+        oam_metaspr(MENU_COIN_X + 11, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+    }
+    
+    // Put coin 3 sprite
+    if (level_data->coin3) {
+        oam_metaspr(MENU_COIN_X + 22, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+    } else {
+        oam_metaspr(MENU_COIN_X + 22, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+    }
 }

@@ -13,6 +13,9 @@
 #define SCREENBLOCK_W 32
 #define SCREENBLOCK_H 32
 
+#define FIRST_NUMBER_ID 998
+#define PERCENTAGE_SYMBOL_ID 1008
+
 typedef s64 FIXED_LONG_16;
 typedef s32 FIXED_16;
 

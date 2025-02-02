@@ -9,6 +9,7 @@
 #include "sprite_loading.h"
 #include "sprite_routines.h"
 #include "color.h"
+#include "save.h"
 #include <maxmod.h>
 
 // Enable DEBUG features

@@ -17,8 +17,8 @@ PROJECT		:= famidash_adv
 # Game code:     4 characters
 # Maker code:    2 characters
 # Version:       1 character
-ROM_TITLE	:=
-ROM_GAMECODE	:=
+ROM_TITLE	:= FAMIDASH_ADV
+ROM_GAMECODE	:= 3XXX # everdrive wants a 1 for sram
 ROM_MAKERCODE	:=
 ROM_VERSION	:=
 

@@ -10,4 +10,6 @@ enum GameState {
     STATE_PLAYING
 };
 
+void put_star_number(u16 level_id);
+void put_coin_sprites(u16 level_id);
 void menu_loop();

@@ -23,7 +23,7 @@
 
 #define LEVEL_DIFFICULTY 8
 
-#define LEVEL_STARS_NUM 8
+#define LEVEL_STARS_NUM 9
 
 // stereomadness
 #define stereomadness_ID 0

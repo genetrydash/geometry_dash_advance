@@ -330,7 +330,7 @@ def export_includes_h(levels):
         file.write("#define LEVEL_SONG_INDEX 6\n\n")
         file.write("#define LEVEL_NAME_LENGTH 7\n\n")
         file.write("#define LEVEL_DIFFICULTY 8\n\n")
-        file.write("#define LEVEL_STARS_NUM 8\n\n")
+        file.write("#define LEVEL_STARS_NUM 9\n\n")
         for level_name in levels:
             file.write(f"// {level_name}\n")
             file.write(f"#define {level_name}_ID {level_counter}\n\n")

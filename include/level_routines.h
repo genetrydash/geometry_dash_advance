@@ -18,6 +18,7 @@ void reset_level();
 void fade_out();
 void fade_in();
 void fade_in_level();
+void fade_in_menu();
 
 void scroll_screen_vertically();
 void scroll_screen_horizontally();

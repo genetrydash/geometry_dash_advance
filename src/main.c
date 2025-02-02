@@ -85,6 +85,13 @@ void vblank_handler() {
     mmFrame();
 }
 
+void hang() {
+    // Hang so SRAM doesn't get corrupted
+    while (TRUE) {
+        ;;
+    }
+}
+
 void init_maxmod() {
     u8* myData;
     mm_gba_system mySystem;
@@ -120,6 +127,7 @@ void init_maxmod() {
     mmSetModuleVolume(819);
     irq_init(NULL);
     irq_set(II_VBLANK, vblank_handler, 0);
+    irq_set(II_GAMEPAK, hang, 0);
     irq_enable(II_VBLANK);
 }
 
@@ -192,9 +200,9 @@ EWRAM_CODE u32 check_rom_waitstate(u32 mask) {
 }
 
 const u32 WSCNT_MASK[] = {
-    WS_ROM0_N2 | WS_ROM0_S1 | WS_PREFETCH,
-    WS_ROM0_N3 | WS_ROM0_S1 | WS_PREFETCH,
-    WS_ROM0_N3 | WS_ROM0_S2 | WS_PREFETCH,
+    WS_ROM0_N2 | WS_ROM0_S1 | WS_PREFETCH | WS_SRAM_8,
+    WS_ROM0_N3 | WS_ROM0_S1 | WS_PREFETCH | WS_SRAM_8,
+    WS_ROM0_N3 | WS_ROM0_S2 | WS_PREFETCH | WS_SRAM_8,
 };
 
 void rom_waitstates() {
@@ -212,6 +220,8 @@ s32 main() {
     check_ewram_overclock();
 
     rom_waitstates();
+
+    init_sram();
 
     REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG2, BLD_STD);
 

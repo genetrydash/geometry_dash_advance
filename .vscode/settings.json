@@ -48,7 +48,8 @@
         "color.h": "c",
         "mgba_log.h": "c",
         "physics_defines.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "save.h": "c"
     },
     "C_Cpp.default.cStandard": "c99",
     "C_Cpp.errorSquiggles": "disabled",

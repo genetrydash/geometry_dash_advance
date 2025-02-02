@@ -177,7 +177,7 @@ $(BUILDDIR)/gen_bin/soundbank.bin $(BUILDDIR)/gen_inc/soundbank.h &: $(AUDIO)
 
 %.elf:
 	@echo "link    $@"
-	$(SILENT)$(LD) -o $@ $^ $(LDFLAGS)
+	$(SILENT)$(LD) -o $@ $^ $(LDFLAGS) lib/libsavgba.a
 
 %.gba:
 	@echo "rom     $@"
