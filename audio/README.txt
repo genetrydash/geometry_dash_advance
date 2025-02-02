@@ -3,7 +3,7 @@ Unfinished means it is being made. You can choose the ones that are marked with 
 ~~ Music ~~
 Stere Madness: Finished (ElAngel378)
 Back on track: Finished (Crafty Jumper)
-Polargeist: Unfinished
+Polargeist: Finished (Orionconstel)
 Dry out: Unfinished
 Base after base: Unfinished
 Cant let go: Finished (ElAngel378)
