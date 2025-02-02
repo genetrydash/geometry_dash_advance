@@ -7,7 +7,7 @@ const unsigned int theoryofeverything_properties[] = {
  /*speed*/         1,
  /*level height*/  43,
  /*level width*/   862,
- /*song*/          MOD_CANTLG,
+ /*song*/          MOD_STEREOMA,
  /*name length*/   18,
  /*difficulty*/    4,
  /*stars*/         12,
