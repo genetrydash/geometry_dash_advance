@@ -31,5 +31,5 @@ level_text_chr:
 @ I put it there because gcc won't keep it
 .align 4
 save_string:
-    .ascii "FLASH512_Vnnn"
+    .ascii "SRAM_Vnnn"
     

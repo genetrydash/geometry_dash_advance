@@ -11,8 +11,6 @@ void memset8(volatile unsigned char *dst, unsigned char val, size_t length) {
 }
 
 void init_sram() {
-	flash_init(FLASH_SIZE_64KB);
-
 	read_save_block();
 
 	// Clear if magic is invalid or different save version
@@ -25,11 +23,11 @@ void init_sram() {
 }
 
 void read_save_block() {
-	flash_read(SAVE_BLOCK_ADDR, (u8*)&save_data, sizeof(save_data));
+	sram_read(SAVE_BLOCK_ADDR, (u8*)&save_data, sizeof(save_data));
 }
 
 void write_save_block() {
-	flash_write(SAVE_BLOCK_ADDR, (u8*)&save_data, sizeof(save_data));
+	sram_write(SAVE_BLOCK_ADDR, (u8*)&save_data, sizeof(save_data));
 }
 
 struct SaveLevelData *obtain_level_data(u16 level_id) {

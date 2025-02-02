@@ -85,7 +85,7 @@ void vblank_handler() {
     mmFrame();
 }
 
-void hang() {
+IWRAM_CODE void hang() {
     // Hang so SRAM doesn't get corrupted
     while (TRUE) {
         ;;

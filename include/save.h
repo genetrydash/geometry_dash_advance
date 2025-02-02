@@ -1,6 +1,6 @@
 #include <tonc.h>
 #include "../levels/includes.h"
-#include "libsavgba/gba_flash.h"
+#include "libsavgba/gba_sram.h"
 
 #pragma once
 
