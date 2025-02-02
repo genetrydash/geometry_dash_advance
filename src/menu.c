@@ -7,6 +7,7 @@
 #include <maxmod.h>
 #include "soundbank.bin.h"
 #include "soundbank.h"
+#include "physics_defines.h"
 #include <string.h>
 #include <ctype.h>
 #include "color.h"
@@ -17,6 +18,11 @@ u16 game_state;
 #define LEVEL_NAME_POS_Y 5*8
 
 void print_level_info(u16 level_id);
+void do_page_change(u16 level_id);
+#define HALF_U64 ((u64)1 << 63)
+
+s64 target_scroll_x;
+#define scroll_page intended_scroll_y // REPURPOSED FOR MENU
 
 void menu_loop() {
     // Enable all BGs, also enable sprites
@@ -30,27 +36,26 @@ void menu_loop() {
     REG_BG1HOFS = 0;
     REG_BG1VOFS = 0;
 
-    REG_BG2CNT  = BG_CBB(0) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(3);
-    REG_BG2HOFS = 0;
     REG_BG2VOFS = 0;
-    
-    REG_BG3CNT  = BG_CBB(0) | BG_SBB(27) | BG_REG_32x32 | BG_PRIO(2);
-    REG_BG3HOFS = 0;
     REG_BG3VOFS = 0;
+
+    REG_BG2CNT  = BG_CBB(0) | BG_SBB(26) | BG_REG_64x32 | BG_PRIO(3);
 
     memset32(palette_buffer, 0, 256);
     memcpy16(palette_buffer, menu_palette, sizeof(menu_palette) / sizeof(COLOR));
+    set_face_palettes(palette_buffer);
+
     memcpy16(&palette_buffer[256], menu_spr_palette, sizeof(menu_spr_palette) / sizeof(COLOR));
 
     // Init PUSAB font
     tte_init_se(
-        3,                      // Background number (BG 3)
-        BG_CBB(0) | BG_SBB(31), // BG control (for REG_BGxCNT)
-        0,                      // Tile offset (special cattr)
-        0,                      // Ink color
-        0,                      // BitUnpack offset (on-pixel = 15)
-        &pusabFont,             // Default font (sys8)
-        NULL);                  // Default renderer (se_drawg_s)
+        3,                                     // Background number (BG 3)
+        BG_CBB(0) | BG_SBB(30) | BG_REG_64x32, // BG control (for REG_BGxCNT)
+        0,                                     // Tile offset (special cattr)
+        0,                                     // Ink color
+        0,                                     // BitUnpack offset (on-pixel = 15)
+        &pusabFont,                            // Default font (sys8)
+        NULL);                                 // Default renderer (se_drawg_s)
 
     tte_set_special(0x2000);
 
@@ -61,23 +66,38 @@ void menu_loop() {
     memcpy32(&se_mem[24][0], menu_l0_tilemap, sizeof(menu_l0_tilemap) / 4);
     memcpy32(&se_mem[25][0], menu_l1_tilemap, sizeof(menu_l1_tilemap) / 4);
     memcpy32(&se_mem[26][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
-    
-    // Erase screen
-    tte_erase_rect(0, 0, 240, 128);
-    print_level_info(loaded_level_id);
+    memcpy32(&se_mem[27][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
 
     s32 level_id = loaded_level_id;
+
+    do_page_change(level_id);
+
+    target_scroll_x = HALF_U64 + ((level_id * 256) << SUBPIXEL_BITS);
+    scroll_x = target_scroll_x;
+    scroll_page = HALF_U64 + level_id; 
+
+    REG_BG2HOFS = REG_BG3HOFS = scroll_x >> SUBPIXEL_BITS;
     
     // Init OAM
     memset32(shadow_oam, ATTR0_HIDE, 256);
     obj_copy(oam_mem, shadow_oam, 128);
     
     mmStart(MOD_MENU, MM_PLAY_LOOP);
-
+    
     fade_in_menu();
     while (1) {
         key_poll();
         
+        scroll_x = approach_value_asymptotic(scroll_x, target_scroll_x, 0x2800, 0x300000);
+
+        for (s32 i = level_id - 1; i <= level_id + 1; i++) {
+            s32 level_id_to_display = i % LEVEL_COUNT;
+            put_star_number(level_id_to_display);
+            put_coin_sprites(level_id_to_display);
+        }
+
+        REG_BG2HOFS = REG_BG3HOFS = scroll_x >> SUBPIXEL_BITS;
+
         // Copy to OAM
         obj_copy(oam_mem, shadow_oam, 128);
 
@@ -86,8 +106,6 @@ void menu_loop() {
         
         nextSpr = 0;
 
-        put_star_number(level_id);
-        put_coin_sprites(level_id);
 #ifdef DEBUG
         if (key_hit(KEY_SELECT)) {
             debug_mode ^= 1;
@@ -97,28 +115,23 @@ void menu_loop() {
         if (key_hit(KEY_RIGHT)) {
             // Increment level ID
             level_id++;
+            scroll_page++;
             level_id = wrap(level_id, 0, LEVEL_COUNT);
 
-            // Erase written text
-            tte_erase_rect(0, 0, 240, 128);
-
-            // Write level name
-            print_level_info(level_id);
+            do_page_change(level_id);
             
             // Copy palette from buffer
             memcpy32(pal_bg_mem, palette_buffer, 256);
         }
+
         if (key_hit(KEY_LEFT)) {
             // Decrement level ID
             level_id--;
+            scroll_page--;
             level_id = wrap(level_id, 0, LEVEL_COUNT);
-            
-            // Erase written text
-            tte_erase_rect(0, 0, 240, 128);
 
-            // Write level name
-            print_level_info(level_id);
-            
+            do_page_change(level_id);
+
             // Copy palette from buffer
             memcpy32(pal_bg_mem, palette_buffer, 256);
         }
@@ -138,6 +151,20 @@ void menu_loop() {
         // Wait for VSYNC
         VBlankIntrWait();
     }
+}
+
+void do_page_change(u16 level_id) {
+    // Erase written text depending on page
+    if (level_id & 1) tte_erase_rect(0, 256, 240, 512);
+    else tte_erase_rect(0, 0, 240, 256);
+
+    // Write level name
+    print_level_info(level_id);
+
+    // Set BG color
+    menu_set_bg_color(palette_buffer, menu_bg_colors[level_id % (sizeof(menu_bg_colors) / sizeof(COLOR))]);
+    
+    target_scroll_x = HALF_U64 + ((scroll_page * 256) << SUBPIXEL_BITS);
 }
 
 
@@ -283,6 +310,11 @@ void print_level_info(u16 level_id) {
     s32 textStartX = startX + FACE_WIDTH + GAP;
 
     if (numLines & 1) startY++;
+    s32 sbNumber = 30;
+    if (level_id & 1) {
+        sbNumber = 31;
+        startY += 32;
+    }
 
     // Print all lines
     for (s32 line = 0; line < MAX_LINES; line++) {
@@ -295,56 +327,64 @@ void print_level_info(u16 level_id) {
     s32 difficulty = properties_pointer[LEVEL_DIFFICULTY];
 
     u32 difficulty_top_index = FACE_TILE_ID_OFFSET + (difficulty << 1);
-
-    set_face_color(palette_buffer, face_colors[difficulty][0], face_colors[difficulty][1]);
     
     // Plot tiles
-    se_plot(&se_mem[31][0], faceX    , faceY     , SE_BUILD(difficulty_top_index, 3, 0, 0));
-    se_plot(&se_mem[31][0], faceX + 1, faceY     , SE_BUILD(difficulty_top_index + 1, 3, 0, 0));
-    se_plot(&se_mem[31][0], faceX    , faceY + 1 , SE_BUILD(difficulty_top_index + 0x10, 3, 0, 0));
-    se_plot(&se_mem[31][0], faceX + 1, faceY + 1 , SE_BUILD(difficulty_top_index + 0x11, 3, 0, 0));
+    se_plot(&se_mem[sbNumber][0], faceX    , faceY     , SE_BUILD(difficulty_top_index, difficulty + 3, 0, 0));
+    se_plot(&se_mem[sbNumber][0], faceX + 1, faceY     , SE_BUILD(difficulty_top_index + 1, difficulty + 3, 0, 0));
+    se_plot(&se_mem[sbNumber][0], faceX    , faceY + 1 , SE_BUILD(difficulty_top_index + 0x10, difficulty + 3, 0, 0));
+    se_plot(&se_mem[sbNumber][0], faceX + 1, faceY + 1 , SE_BUILD(difficulty_top_index + 0x11, difficulty + 3, 0, 0));
 }
 
 void put_star_number(u16 level_id) {
+    // Obtain relatives
+    u32 offset_x = (level_id & 1 ? 256 : 0);
+
+    s32 relative_x = (offset_x + 164) - ((scroll_x >> SUBPIXEL_BITS) & 0x1ff);
+
     // Put star sprite
-    oam_metaspr(180, 28, menuStarSpr, FALSE, FALSE, 0, 0, TRUE);
+    oam_metaspr(relative_x + 16, 28, menuStarSpr, FALSE, FALSE, 0, 0, TRUE);
     
     u32 *properties_pointer = (u32*) level_defines[level_id][LEVEL_PROPERTIES_INDEX];
     
     u32 stars = properties_pointer[LEVEL_STARS_NUM];
 
     if (stars >= 10) {
-        oam_metaspr(164, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars / 10), 0, TRUE);
-        oam_metaspr(172, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars % 10), 0, TRUE);
+        oam_metaspr(relative_x, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars / 10), 0, TRUE);
+        oam_metaspr(relative_x + 8, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars % 10), 0, TRUE);
     } else {
-        oam_metaspr(172, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + stars, 0, TRUE);
+        oam_metaspr(relative_x + 8, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + stars, 0, TRUE);
     }
 }
 
 #define MENU_COIN_X 154
 #define MENU_COIN_Y 56
 void put_coin_sprites(u16 level_id) {
+    // Obtain relatives
+    u32 offset_x = (level_id & 1 ? 256 : 0);
+
+    s32 relative_x = (offset_x + MENU_COIN_X) - ((scroll_x >> SUBPIXEL_BITS) & 0x1ff);
+
     // Obtain level data
     struct SaveLevelData *level_data = obtain_level_data(level_id);
 
     // Put coin 1 sprite
     if (level_data->coin1) {
-        oam_metaspr(MENU_COIN_X, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+        oam_metaspr(relative_x, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
     } else {
-        oam_metaspr(MENU_COIN_X, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+        oam_metaspr(relative_x, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
     }
 
     // Put coin 2 sprite
     if (level_data->coin2) {
-        oam_metaspr(MENU_COIN_X + 11, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+        oam_metaspr(relative_x + 11, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
     } else {
-        oam_metaspr(MENU_COIN_X + 11, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+        oam_metaspr(relative_x + 11, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
     }
     
     // Put coin 3 sprite
     if (level_data->coin3) {
-        oam_metaspr(MENU_COIN_X + 22, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+        oam_metaspr(relative_x + 22, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
     } else {
-        oam_metaspr(MENU_COIN_X + 22, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
+        oam_metaspr(relative_x + 22, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 0, TRUE);
     }
 }

@@ -10,6 +10,11 @@ enum GameState {
     STATE_PLAYING
 };
 
+enum MenuDirection {
+    MENU_LEFT,
+    MENU_RIGHT,
+};
+
 void put_star_number(u16 level_id);
 void put_coin_sprites(u16 level_id);
 void menu_loop();

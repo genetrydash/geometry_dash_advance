@@ -4,6 +4,7 @@
 #include "chr.h"
 #include "mgba_log.h"
 
+#define NUM_FACES 6
 const COLOR face_colors[][2] = {
     {CLR_CYAN, CLR_BLUE}, // Easy
     {0x03E0, 0x0202}, // Normal
@@ -11,6 +12,18 @@ const COLOR face_colors[][2] = {
     {0x01DF, 0x001F}, // Harder
     {0x6DFF, 0x785D}, // Insane
     {0x28FF, 0x009C}, // Demon
+};
+
+const COLOR menu_bg_colors[] = {
+    0x6C00, // Stereo Madness
+    0x741D, // Back on Track
+    0x3019, // Polargeist
+    0x001B, // Dry Out
+    0x0177, // Base After Base
+    0x02D6, // Can't let go
+    0x02C0, // Jumper
+    0x5AC0, // Time Machine
+    0x5D60, // Cycles
 };
 
 INLINE void blend_bg_and_obj(COLOR *dst, u32 pal) {
@@ -25,6 +38,17 @@ INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
         clr_blend(&dst[pal + 0x01], &dst[COL_ID_COLOR + pal], &dst[BG_COL_BLENDING + col + pal], 1, blend_value);
         blend_value += 0x1f / (COL_ID_COLOR - BG_COL_BLENDING + 1);
     }
+}
+
+void menu_set_bg_color(COLOR *dst, COLOR color) {
+    dst[0x00] = color;
+    dst[BG_PAL + BG_COLOR] = color;
+    // Fade to black
+    for (u32 index = 2; index < 7; index++) {
+        clr_adj_brightness(&dst[index], &dst[index - 1], 1, float2fx(-0.15));
+    }
+
+    dst[0x12] = dst[0x04];
 }
 
 // Set BG color on the 4 color palettes
@@ -241,14 +265,21 @@ void run_col_trigger_changes() {
     }
 }
 
-#define FIRST_FACE_COLOR 0x32
-#define LAST_FACE_COLOR  0x3b
+#define FIRST_FACE_PAL 0x30
+#define FIRST_FACE_COLOR 0x2
+#define LAST_FACE_COLOR  0xb
 
-void set_face_color(COLOR *dst, COLOR first_face_color, COLOR last_face_color) {
-    s32 value = 0;
-    for (s32 id = FIRST_FACE_COLOR; id <= LAST_FACE_COLOR; id++) {
-        clr_blend(&first_face_color, &last_face_color, &dst[id], 1, value);
-        value += 0x1f / (LAST_FACE_COLOR - FIRST_FACE_COLOR + 1);
+void set_face_palettes(COLOR *dst) {
+    s32 difficulty = 0;
+    for (s32 pal = FIRST_FACE_PAL; pal < (FIRST_FACE_PAL + (NUM_FACES * 0x10)); pal += 0x10) {    
+        s32 value = 0;
+        dst[pal + 0x01] = CLR_WHITE;
+        dst[pal + 0x0d] = CLR_RED;
+        for (s32 id = FIRST_FACE_COLOR; id <= LAST_FACE_COLOR; id++) {
+            clr_blend(&face_colors[difficulty][0], &face_colors[difficulty][1], &dst[pal + id], 1, value);
+            value += 0x1f / (LAST_FACE_COLOR - FIRST_FACE_COLOR + 1);
+        }
+        difficulty++;
     }
 }
 

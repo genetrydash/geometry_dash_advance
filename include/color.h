@@ -43,6 +43,7 @@ struct HSV {
 };
 
 extern const COLOR face_colors[][2];
+extern const COLOR menu_bg_colors[9];
 
 ARM_CODE struct HSV rgb_to_hsv(struct RGB555 rgb);
 ARM_CODE struct RGB555 hsv_to_rgb(struct HSV hsv);
@@ -50,11 +51,12 @@ ARM_CODE COLOR calculate_lbg(COLOR bg, COLOR p1);
 
 void update_lbg_palette(COLOR *dst);
 void set_bg_color(COLOR *dst, COLOR color);
+void menu_set_bg_color(COLOR *dst, COLOR color);
 void set_obj_color(COLOR *dst, COLOR color);
 void set_ground_color(COLOR *dst, COLOR color);
 void set_line_color(COLOR *dst, COLOR color);
 void set_color_channel_color(COLOR *dst, COLOR color, u32 channel);
-void set_face_color(COLOR *dst, COLOR first_face_color, COLOR last_face_color);
+void set_face_palettes(COLOR *dst);
 u16 lerp_color(COLOR color1, COLOR color2, FIXED time);
 
 void run_col_trigger_changes();
