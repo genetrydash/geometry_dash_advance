@@ -15,13 +15,16 @@
 u16 game_state;
 
 #define LEVEL_NAME_POS_X 120
-#define LEVEL_NAME_POS_Y 5*8
+#define LEVEL_NAME_POS_Y 40
+
+#define TEXT_SCREEN_BLOCK 30
 
 void print_level_info(u16 level_id);
 void do_page_change(u16 level_id);
+
 #define HALF_U64 ((u64)1 << 63)
 
-s64 target_scroll_x;
+u64 target_scroll_x;
 #define scroll_page intended_scroll_y // REPURPOSED FOR MENU
 
 void menu_loop() {
@@ -50,7 +53,7 @@ void menu_loop() {
     // Init PUSAB font
     tte_init_se(
         3,                                     // Background number (BG 3)
-        BG_CBB(0) | BG_SBB(30) | BG_REG_64x32, // BG control (for REG_BGxCNT)
+        BG_CBB(0) | BG_SBB(TEXT_SCREEN_BLOCK) | BG_REG_64x32, // BG control (for REG_BGxCNT)
         0,                                     // Tile offset (special cattr)
         0,                                     // Ink color
         0,                                     // BitUnpack offset (on-pixel = 15)
@@ -72,6 +75,8 @@ void menu_loop() {
 
     do_page_change(level_id);
 
+    // Page wraps with the approach function are weird, so I just make it all continuous by placing it in the middle of an u64
+    // It would take 290 and a half years of non stop pressing A every frame to get an overflow
     target_scroll_x = HALF_U64 + ((level_id * 256) << SUBPIXEL_BITS);
     scroll_x = target_scroll_x;
     scroll_page = HALF_U64 + level_id; 
@@ -88,13 +93,11 @@ void menu_loop() {
     while (1) {
         key_poll();
         
+        // Approach target value
         scroll_x = approach_value_asymptotic(scroll_x, target_scroll_x, 0x2800, 0x300000);
 
-        for (s32 i = level_id - 1; i <= level_id + 1; i++) {
-            s32 level_id_to_display = i % LEVEL_COUNT;
-            put_star_number(level_id_to_display);
-            put_coin_sprites(level_id_to_display);
-        }
+        // Draw sprites
+        put_level_info_sprites(level_id);
 
         REG_BG2HOFS = REG_BG3HOFS = scroll_x >> SUBPIXEL_BITS;
 
@@ -110,8 +113,13 @@ void menu_loop() {
         if (key_hit(KEY_SELECT)) {
             debug_mode ^= 1;
         }
+
+        if (key_hit(KEY_L)) {
+            noclip ^= 1;
+        }
 #endif
 
+        // Go right
         if (key_hit(KEY_RIGHT)) {
             // Increment level ID
             level_id++;
@@ -124,6 +132,7 @@ void menu_loop() {
             memcpy32(pal_bg_mem, palette_buffer, 256);
         }
 
+        // Go left
         if (key_hit(KEY_LEFT)) {
             // Decrement level ID
             level_id--;
@@ -137,7 +146,7 @@ void menu_loop() {
         }
 
         if (key_hit(KEY_A | KEY_START)) {
-            // Start the game
+            // Start the level
             loaded_level_id = level_id;
             game_state = STATE_PLAYING;
             mmStop();
@@ -164,6 +173,7 @@ void do_page_change(u16 level_id) {
     // Set BG color
     menu_set_bg_color(palette_buffer, menu_bg_colors[level_id % (sizeof(menu_bg_colors) / sizeof(COLOR))]);
     
+    // Set target scroll x
     target_scroll_x = HALF_U64 + ((scroll_page * 256) << SUBPIXEL_BITS);
 }
 
@@ -176,28 +186,27 @@ void do_page_change(u16 level_id) {
 #define FACE_HEIGHT           2
 #define FACE_TILE_ID_OFFSET   0xA0
 #define GAP                   1
-
 #define OFFSET_X              6
 #define OFFSET_Y              3 
 
-// The usable width inside margins:
+// The usable width inside margins
 #define USABLE_WIDTH          (AREA_WIDTH - 2 * MARGIN)
-// Maximum allowed text width per line (text is on the left, then gap, then face):
+// Maximum allowed text width per line (face is on the left, then gap, then text)
 #define MAX_TEXT_WIDTH_ALLOWED (USABLE_WIDTH - (FACE_WIDTH + GAP))
 
-// Maximum number of lines we can wrap into.
+// Maximum number of lines we can wrap into
 #define MAX_LINES             4
 
 // --- Word Wrapping Function ---
 // This function splits the input text into lines so that each line is no longer
-// than 'maxWidth' characters (tiles). It respects word boundaries when possible.
-// If a word is longer than maxWidth, it will be split.
-s32 wordWrap(const char *text, s32 maxWidth, char lines[][maxWidth + 1], s32 maxLines) {
-    s32 lineCount = 0;
+// than 'max_width' characters (tiles). It respects word boundaries when possible.
+// If a word is longer than max_width, it will be split
+s32 word_wrap(const char *text, s32 max_width, char lines[][max_width + 1], s32 max_lines) {
+    s32 line_count = 0;
     s32 i = 0;
     s32 len = strlen(text);
-    char currentLine[maxWidth + 1];
-    s32 currentLength = 0;
+    char current_line[max_width + 1];
+    s32 current_length = 0;
 
     while (i < len) {
         // Skip any leading spaces.
@@ -207,152 +216,183 @@ s32 wordWrap(const char *text, s32 maxWidth, char lines[][maxWidth + 1], s32 max
         if (i >= len) break;
 
         // Identify the next word.
-        s32 wordStart = i;
+        s32 word_start = i;
         while (i < len && !isspace((unsigned char)text[i])) {
             i++;
         }
-        s32 wordLen = i - wordStart;
+        s32 word_len = i - word_start;
 
-        // If the word is longer than maxWidth, break it into pieces.
-        if (wordLen > maxWidth) {
-            s32 wordPos = 0;
-            while (wordPos < wordLen) {
-                s32 chunk = (wordLen - wordPos < maxWidth) ? (wordLen - wordPos) : maxWidth;
-                // If there is already text in currentLine, end that line first.
-                if (currentLength > 0) {
-                    currentLine[currentLength] = '\0';
-                    if (lineCount < maxLines) {
-                        strcpy(lines[lineCount], currentLine);
-                        lineCount++;
+        // If the word is longer than max_width, break it into pieces.
+        if (word_len > max_width) {
+            s32 word_pos = 0;
+            while (word_pos < word_len) {
+                s32 chunk = (word_len - word_pos < max_width) ? (word_len - word_pos) : max_width;
+                // If there is already text in current_line, end that line first.
+                if (current_length > 0) {
+                    current_line[current_length] = '\0';
+                    if (line_count < max_lines) {
+                        strcpy(lines[line_count], current_line);
+                        line_count++;
                     }
-                    currentLength = 0;
+                    current_length = 0;
                 }
-                // Copy a chunk of the word into currentLine.
-                strncpy(currentLine, text + wordStart + wordPos, chunk);
-                currentLine[chunk] = '\0';
-                if (lineCount < maxLines) {
-                    strcpy(lines[lineCount], currentLine);
-                    lineCount++;
+                // Copy a chunk of the word into current_line.
+                strncpy(current_line, text + word_start + word_pos, chunk);
+                current_line[chunk] = '\0';
+                if (line_count < max_lines) {
+                    strcpy(lines[line_count], current_line);
+                    line_count++;
                 }
-                wordPos += chunk;
+                word_pos += chunk;
             }
             continue; // Word has been processed.
         }
 
         // If adding this word would exceed the current line's limit, finish the line.
-        if (currentLength > 0 && currentLength + 1 + wordLen > maxWidth) {
-            currentLine[currentLength] = '\0';
-            if (lineCount < maxLines) {
-                strcpy(lines[lineCount], currentLine);
-                lineCount++;
+        if (current_length > 0 && current_length + 1 + word_len > max_width) {
+            current_line[current_length] = '\0';
+            if (line_count < max_lines) {
+                strcpy(lines[line_count], current_line);
+                line_count++;
             }
-            currentLength = 0;
+            current_length = 0;
         }
 
         // If this isn’t the first word on the line, add a space.
-        if (currentLength > 0) {
-            currentLine[currentLength] = ' ';
-            currentLength++;
+        if (current_length > 0) {
+            current_line[current_length] = ' ';
+            current_length++;
         }
         // Append the word.
-        strncpy(currentLine + currentLength, text + wordStart, wordLen);
-        currentLength += wordLen;
+        strncpy(current_line + current_length, text + word_start, word_len);
+        current_length += word_len;
     }
 
     // Add any remaining text as the last line.
-    if (currentLength > 0) {
-        currentLine[currentLength] = '\0';
-        if (lineCount < maxLines) {
-            strcpy(lines[lineCount], currentLine);
-            lineCount++;
+    if (current_length > 0) {
+        current_line[current_length] = '\0';
+        if (line_count < max_lines) {
+            strcpy(lines[line_count], current_line);
+            line_count++;
         }
     }
 
-    return lineCount;
+    return line_count;
 }
 
 
 void print_level_info(u16 level_id) {
+    // Get level name
     char *level_name = (char *) level_names[level_id];
     
-    // Buffer for wrapped lines.
+    // Buffer for wrapped lines
     char lines[MAX_LINES][MAX_TEXT_WIDTH_ALLOWED + 1];
     
+    // Add terminator character for all lines
     for (s32 line = 0; line < MAX_LINES; line++) {
         lines[line][0] = '\0';
     }
-    s32 numLines = wordWrap(level_name, MAX_TEXT_WIDTH_ALLOWED, lines, MAX_LINES);
 
-    // Determine the maximum line length.
-    s32 maxLineLength = 0;
-    for (s32 i = 0; i < numLines; i++) {
-        s32 lineLen = strlen(lines[i]);
-        if (lineLen > maxLineLength)
-            maxLineLength = lineLen;
+    // Obtain number of lines and fill the lines buffer
+    s32 num_lines = word_wrap(level_name, MAX_TEXT_WIDTH_ALLOWED, lines, MAX_LINES);
+
+    // Determine the maximum line length
+    s32 max_line_length = 0;
+    for (s32 i = 0; i < num_lines; i++) {
+        s32 line_len = strlen(lines[i]);
+
+        if (line_len > max_line_length) {   
+            // Update maximum line length
+            max_line_length = line_len;
+        }
     }
 
-    // Compute the width of the combined block (text + gap + face).
-    s32 blockWidth = maxLineLength + GAP + FACE_WIDTH;
+    // Compute the width of the combined block (text + gap + face)
+    s32 block_width = max_line_length + GAP + FACE_WIDTH;
 
-    // Calculate the starting X coordinate for the block within the usable area.
-    s32 startX = OFFSET_X + MARGIN + (USABLE_WIDTH - blockWidth) / 2;
-    // Center the text block vertically within the area (ignoring the margins).
-    s32 startY = OFFSET_Y + MARGIN + (AREA_HEIGHT - 2 * MARGIN - numLines) / 2;
+    // Calculate the starting X coordinate for the block within the usable area
+    s32 start_x = OFFSET_X + MARGIN + (USABLE_WIDTH - block_width) / 2;
+    // Center the text block vertically within the area (ignoring the margins)
+    s32 start_y = OFFSET_Y + MARGIN + (AREA_HEIGHT - 2 * MARGIN - num_lines) / 2;
     
     // Face position:
-    // Since the face is to the left, its left edge is at startX.
-    s32 faceX = startX;
-    // Vertically center the 2-tile-high face relative to the text block.
-    s32 faceY = startY + (numLines - FACE_HEIGHT) / 2;
+    // Since the face is to the left, its left edge is at start_x
+    s32 face_x = start_x;
+    // Vertically center the 2-tile-high face relative to the text block
+    s32 face_y = start_y + (num_lines - FACE_HEIGHT) / 2;
 
     // Text position:
-    // The text should start to the right of the face plus the GAP.
-    s32 textStartX = startX + FACE_WIDTH + GAP;
+    // The text should start to the right of the face plus the GAP
+    s32 text_start_x = start_x + FACE_WIDTH + GAP;
 
-    if (numLines & 1) startY++;
-    s32 sbNumber = 30;
+    // Shift down one tile if odd line count
+    if (num_lines & 1) start_y++;
+
+    // Get target screen block number
+    s32 sb_number = TEXT_SCREEN_BLOCK;
+
+    // Add SCREENBLOCK_H to start_y to print on the second screen block
     if (level_id & 1) {
-        sbNumber = 31;
-        startY += 32;
+        sb_number++;
+        start_y += SCREENBLOCK_H;
     }
 
     // Print all lines
     for (s32 line = 0; line < MAX_LINES; line++) {
-        tte_set_pos(textStartX << 3, (startY + line) << 3);
+        tte_set_pos(text_start_x << 3, (start_y + line) << 3);
         tte_write(lines[line]);
     }
         
     // Now place the face
     u32 *properties_pointer = (u32*) level_defines[level_id][LEVEL_PROPERTIES_INDEX];
-    s32 difficulty = properties_pointer[LEVEL_DIFFICULTY];
-
+    u32 difficulty = properties_pointer[LEVEL_DIFFICULTY];
     u32 difficulty_top_index = FACE_TILE_ID_OFFSET + (difficulty << 1);
     
+    u32 palette = difficulty + 3;
+
     // Plot tiles
-    se_plot(&se_mem[sbNumber][0], faceX    , faceY     , SE_BUILD(difficulty_top_index, difficulty + 3, 0, 0));
-    se_plot(&se_mem[sbNumber][0], faceX + 1, faceY     , SE_BUILD(difficulty_top_index + 1, difficulty + 3, 0, 0));
-    se_plot(&se_mem[sbNumber][0], faceX    , faceY + 1 , SE_BUILD(difficulty_top_index + 0x10, difficulty + 3, 0, 0));
-    se_plot(&se_mem[sbNumber][0], faceX + 1, faceY + 1 , SE_BUILD(difficulty_top_index + 0x11, difficulty + 3, 0, 0));
+    se_plot(&se_mem[sb_number][0], face_x    , face_y    , SE_BUILD(difficulty_top_index,        palette, 0, 0));
+    se_plot(&se_mem[sb_number][0], face_x + 1, face_y    , SE_BUILD(difficulty_top_index + 1,    palette, 0, 0));
+    se_plot(&se_mem[sb_number][0], face_x    , face_y + 1, SE_BUILD(difficulty_top_index + 0x10, palette, 0, 0));
+    se_plot(&se_mem[sb_number][0], face_x + 1, face_y + 1, SE_BUILD(difficulty_top_index + 0x11, palette, 0, 0));
 }
 
+void put_level_info_sprites(u16 level_id) {
+    s32 adjacent_level_id;
+
+    if (scroll_x < target_scroll_x) {
+        // Going to the right
+        adjacent_level_id = (level_id - 1) % LEVEL_COUNT;
+    } else {
+        // Going to the left
+        adjacent_level_id = (level_id + 1) % LEVEL_COUNT;
+    }
+    put_star_number(level_id);
+    put_coin_sprites(level_id);
+    
+    put_star_number(adjacent_level_id);
+    put_coin_sprites(adjacent_level_id);
+}
+
+#define STAR_COUNT_POS_X 164
+#define STAR_COUNT_POS_Y 28
 void put_star_number(u16 level_id) {
     // Obtain relatives
     u32 offset_x = (level_id & 1 ? 256 : 0);
-
-    s32 relative_x = (offset_x + 164) - ((scroll_x >> SUBPIXEL_BITS) & 0x1ff);
+    s32 relative_x = (offset_x + STAR_COUNT_POS_X) - ((scroll_x >> SUBPIXEL_BITS) & 0x1ff);
 
     // Put star sprite
-    oam_metaspr(relative_x + 16, 28, menuStarSpr, FALSE, FALSE, 0, 0, TRUE);
+    oam_metaspr(relative_x + 16, STAR_COUNT_POS_Y, menuStarSpr, FALSE, FALSE, 0, 0, TRUE);
     
     u32 *properties_pointer = (u32*) level_defines[level_id][LEVEL_PROPERTIES_INDEX];
-    
     u32 stars = properties_pointer[LEVEL_STARS_NUM];
 
+    // Put sprites depending on digits
     if (stars >= 10) {
-        oam_metaspr(relative_x, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars / 10), 0, TRUE);
-        oam_metaspr(relative_x + 8, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars % 10), 0, TRUE);
+        oam_metaspr(relative_x, STAR_COUNT_POS_Y, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars / 10), 0, TRUE);
+        oam_metaspr(relative_x + 8, STAR_COUNT_POS_Y, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars % 10), 0, TRUE);
     } else {
-        oam_metaspr(relative_x + 8, 28, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + stars, 0, TRUE);
+        oam_metaspr(relative_x + 8, STAR_COUNT_POS_Y, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + stars, 0, TRUE);
     }
 }
 
@@ -361,7 +401,6 @@ void put_star_number(u16 level_id) {
 void put_coin_sprites(u16 level_id) {
     // Obtain relatives
     u32 offset_x = (level_id & 1 ? 256 : 0);
-
     s32 relative_x = (offset_x + MENU_COIN_X) - ((scroll_x >> SUBPIXEL_BITS) & 0x1ff);
 
     // Obtain level data

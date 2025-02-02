@@ -18,3 +18,4 @@ enum MenuDirection {
 void put_star_number(u16 level_id);
 void put_coin_sprites(u16 level_id);
 void menu_loop();
+void put_level_info_sprites(u16 level_id);
