@@ -8,7 +8,7 @@
 extern const COLOR blockPalette[96];
 extern const COLOR spritePalette[256];
 extern const COLOR menu_palette[64];
-extern const COLOR menu_spr_palette[32];
+extern const COLOR menu_spr_palette[48];
 extern const COLOR black_buffer[512];
 extern const SCR_ENTRY bg_tiles[1024];
 

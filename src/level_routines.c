@@ -352,7 +352,7 @@ void transition_update_spr() {
     // Update OAM
     obj_copy(oam_mem, shadow_oam, 128);
     obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
-    draw_percentage();
+    draw_percentage(108, 8, get_level_progress(), numberSpr);
     draw_both_players();
     display_objects();
     rotate_saws();
@@ -419,8 +419,7 @@ void fade_in_menu() {
         nextSpr = 0;
         // Copy OAM buffer into OAM
         obj_copy(oam_mem, shadow_oam, 128);
-        put_star_number(loaded_level_id);
-        put_coin_sprites(loaded_level_id);
+        put_level_info_sprites(loaded_level_id);
         
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
@@ -432,7 +431,7 @@ void reset_level() {
     update_flags = UPDATE_OAM | UPDATE_SCROLL;
     
     nextSpr = 0;
-    draw_percentage();
+    draw_percentage(108, 8, get_level_progress(), numberSpr);
     draw_both_players();
     display_objects();
     rotate_saws();
@@ -629,8 +628,23 @@ u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
     return current;
 }
 
-void draw_percentage() {
-    // Progress number in level
+void draw_percentage(u32 x, u32 y, u32 percentage, const u16* number_sprite) {
+    if (percentage >= 100) {
+        oam_metaspr(x,      y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 1, 0, TRUE);
+        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, 0, TRUE);
+        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, 0, TRUE);
+        oam_metaspr(x + 24, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+    } else if (percentage >= 10) {
+        oam_metaspr(x + 4,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage / 10), 0, TRUE);
+        oam_metaspr(x + 12, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage % 10), 0, TRUE);
+        oam_metaspr(x + 20, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+    } else {
+        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + percentage, 0, TRUE);
+        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+    }
+}
+
+u32 get_level_progress() {
     u32 percentage;
     if (curr_player.player_x < 0) {
         percentage = 0;
@@ -639,20 +653,27 @@ void draw_percentage() {
     } else {
         percentage = ((((u32) curr_player.player_x) / curr_level_width) * 100) >> 20;
     }
-    
-    if (percentage >= 100) {
-        oam_metaspr(108, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + 1, 0, TRUE);
-        oam_metaspr(116, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + 0, 0, TRUE);
-        oam_metaspr(124, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + 0, 0, TRUE);
-        oam_metaspr(132, 8, numberSpr, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
-    } else if (percentage >= 10) {
-        oam_metaspr(112, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (percentage / 10), 0, TRUE);
-        oam_metaspr(120, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (percentage % 10), 0, TRUE);
-        oam_metaspr(128, 8, numberSpr, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+    return percentage;
+}
+
+void set_new_best(u32 new_best, u32 mode) {
+
+    struct SaveLevelData *level_data = obtain_level_data(loaded_level_id);
+
+    if (mode == NORMAL_MODE) {
+        if (level_data->normal_progress < new_best) {
+            // New normal mode best
+            level_data->normal_progress = new_best;
+            write_save_block();
+        }
     } else {
-        oam_metaspr(116, 8, numberSpr, FALSE, FALSE, FIRST_NUMBER_ID + percentage, 0, TRUE);
-        oam_metaspr(124, 8, numberSpr, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+        if (level_data->practice_progress < new_best) {
+            // New practice mode best
+            level_data->practice_progress = new_best;
+            write_save_block();
+        }
     }
+    
 }
 
 #define PLAYER_CHR_SIZE (4 * (sizeof(TILE) / sizeof(u32)))

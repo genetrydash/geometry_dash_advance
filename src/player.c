@@ -3,6 +3,7 @@
 #include <maxmod.h>
 #include "soundbank.bin.h"
 #include "soundbank.h"
+#include "menu.h"
 
 // in subpixels
 const u32 speed_constants[] = {
@@ -544,6 +545,7 @@ void level_complete_cutscene() {
     }
 
     if (cutscene_frame == TOTAL_CUTSCENE_FRAMES - 2) {
+        set_new_best(100, NORMAL_MODE); // Complete level
         mmEffect(SFX_LEVEL_COMPLETE);
     }
 

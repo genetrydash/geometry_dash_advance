@@ -357,6 +357,14 @@ void print_level_info(u16 level_id) {
     se_plot(&se_mem[sb_number][0], face_x + 1, face_y + 1, SE_BUILD(difficulty_top_index + 0x11, palette, 0, 0));
 }
 
+#define PROGRESS_BAR_POS_X 6
+#define NORMAL_PROGRESS_BAR_POS_Y 11
+#define PRACTICE_PROGRESS_BAR_POS_Y 14
+#define BAR_WIDTH_PX 144
+
+#define EVEN_PAGE_BAR_SB 26
+#define ODD_PAGE_BAR_SB  27
+
 void put_level_info_sprites(u16 level_id) {
     s32 adjacent_level_id;
 
@@ -367,11 +375,26 @@ void put_level_info_sprites(u16 level_id) {
         // Going to the left
         adjacent_level_id = (level_id + 1) % LEVEL_COUNT;
     }
+
+    // Current page
+    struct SaveLevelData *level_properties = obtain_level_data(level_id);
+    
+    u32 sb = (level_id & 1) ? ODD_PAGE_BAR_SB : EVEN_PAGE_BAR_SB;
+
     put_star_number(level_id);
     put_coin_sprites(level_id);
+    draw_progress_bar(PROGRESS_BAR_POS_X, NORMAL_PROGRESS_BAR_POS_Y, sb, level_id, level_properties->normal_progress, 100, BAR_WIDTH_PX, BAR_TYPE_NORMAL_MODE);
+    draw_progress_bar(PROGRESS_BAR_POS_X, PRACTICE_PROGRESS_BAR_POS_Y, sb, level_id, level_properties->practice_progress, 100, BAR_WIDTH_PX, BAR_TYPE_PRACTICE_MODE);
     
+    // Adjacent page (going to that one when switching)
+    struct SaveLevelData *adjacent_properties = obtain_level_data(adjacent_level_id);
+
+    u32 adjacent_sb = (adjacent_level_id & 1) ? ODD_PAGE_BAR_SB : EVEN_PAGE_BAR_SB;
+
     put_star_number(adjacent_level_id);
     put_coin_sprites(adjacent_level_id);
+    draw_progress_bar(PROGRESS_BAR_POS_X, NORMAL_PROGRESS_BAR_POS_Y, adjacent_sb, adjacent_level_id, adjacent_properties->normal_progress, 100, BAR_WIDTH_PX, BAR_TYPE_NORMAL_MODE);
+    draw_progress_bar(PROGRESS_BAR_POS_X, PRACTICE_PROGRESS_BAR_POS_Y, adjacent_sb, adjacent_level_id, adjacent_properties->practice_progress, 100, BAR_WIDTH_PX, BAR_TYPE_PRACTICE_MODE);
 }
 
 #define STAR_COUNT_POS_X 164
@@ -426,4 +449,50 @@ void put_coin_sprites(u16 level_id) {
     } else {
         oam_metaspr(relative_x + 22, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
     }
+}
+
+#define EMPTY_BAR  0x9f
+
+#define NORMAL_MODE_BAR_TILE  0x7e
+#define NORMAL_MODE_FINE_ID   11
+
+#define PRACTICE_MODE_BAR_TILE  0x7f
+#define PRACTICE_MODE_FINE_ID   12
+
+void draw_progress_bar(s32 x, s32 y, s32 sb, u32 page, u32 value, u32 max, u32 width, u32 bar_type) {
+    // Calculate pixels
+    FIXED_16 factor = FIXED_DIV(TO_FIXED(value), TO_FIXED(max));
+    FIXED_16 progress_px = FROM_FIXED(factor * (width - 2));
+
+    // Get tile IDs
+    u32 bar  = (bar_type == BAR_TYPE_NORMAL_MODE) ? NORMAL_MODE_BAR_TILE  : PRACTICE_MODE_BAR_TILE;
+    
+    s32 tiles = width >> 3;
+
+    // Put progress tiles
+    s32 counter = 0;
+    for (s32 i = progress_px; i >= 8; i -= 8) {
+        se_plot(&se_mem[sb][0], x + counter, y, SE_BUILD(bar, 1, 0, 0));
+        counter++;
+    }
+
+    // Put rest of bar tiles
+    for (; counter < tiles; counter++) {
+        se_plot(&se_mem[sb][0], x + counter, y, SE_BUILD(EMPTY_BAR, 1, 0, 0));
+    }
+
+    // Get fine sprite ID
+    u32 fine = (bar_type == BAR_TYPE_NORMAL_MODE) ? NORMAL_MODE_FINE_ID : PRACTICE_MODE_FINE_ID;
+
+    // Obtain relatives
+    u32 offset_x = ((page & 1) ? 256 : 0);
+    s32 relative_x = (offset_x + ((x - 1) << 3)) - ((scroll_x >> SUBPIXEL_BITS) & 0x1ff);
+
+    // Draw percentage numbers
+    draw_percentage(relative_x + (width >> 1) - 8, y << 3, value, menuNumberSpr);
+
+    // Draw progress bar sprites
+    oam_metaspr(relative_x + 1, y << 3, fineBarMaskSpr, FALSE, FALSE, 0, 2, FALSE);
+    oam_metaspr(relative_x + width - 1, y << 3, fineBarMaskSpr, TRUE, FALSE, 0, 2, FALSE);
+    oam_metaspr(relative_x + progress_px + 1, y << 3, fineBarSpr, FALSE, FALSE, fine, 2, FALSE);
 }

@@ -8,10 +8,14 @@
 
 extern u8 nextSpr;
 extern const u16 noclipSpr[];
+
 extern const u16 menuStarSpr[];
 extern const u16 menuNumberSpr[];
 extern const u16 gottenCoinSpr[];
 extern const u16 ungottenCoinSpr[];
+extern const u16 fineBarSpr[];
+extern const u16 fineBarMaskSpr[];
+
 extern const u16 numberSpr[];
 extern const u16 player1Spr[];
 extern const u16 player2Spr[];

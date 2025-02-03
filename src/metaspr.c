@@ -82,6 +82,30 @@ const u16 ungottenCoinSpr[] = {
     0xffff
 };
 
+const u16 fineBarMaskSpr[] = {
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_16x8,
+    ATTR2_PALBANK(2) | ATTR2_ID(9),
+    0,
+    0,
+    PRIO_IDOFF(0, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 fineBarSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_8x8,
+    ATTR2_PALBANK(2),
+    0,
+    0,
+    PRIO_IDOFF(0, 0), // id offset
+    CENTER(8, 8),
+    
+    0xffff
+};
+
 
 // Number
 const u16 numberSpr[] = {

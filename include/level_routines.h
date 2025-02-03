@@ -28,7 +28,10 @@ void mirror_screen();
 void unmirror_screen();
 void swap_screen_dir();
 
-void draw_percentage();
+void draw_percentage(u32 x, u32 y, u32 percentage, const u16* number_sprite);
+u32 get_level_progress();
+void set_new_best(u32 new_best, u32 mode);
+
 void mirror_transition();
 
 void upload_player_chr(u32 gamemode, u32 player_id);

@@ -332,10 +332,11 @@ void game_loop() {
 #endif
 
         // Draw level progress
-        draw_percentage();
+        draw_percentage(108, 8, get_level_progress(), numberSpr);
 
         if (player_death) {
             mmEffect(SFX_EXPLOSION);
+            set_new_best(get_level_progress(), NORMAL_MODE);
             reset_level();
         }
 

@@ -43,12 +43,13 @@ INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
 void menu_set_bg_color(COLOR *dst, COLOR color) {
     dst[0x00] = color;
     dst[BG_PAL + BG_COLOR] = color;
+    dst[0x121] = color;
     // Fade to black
     for (u32 index = 2; index < 7; index++) {
         clr_adj_brightness(&dst[index], &dst[index - 1], 1, float2fx(-0.15));
     }
 
-    dst[0x12] = dst[0x04];
+    dst[0x12] = dst[0x122] = dst[0x04];
 }
 
 // Set BG color on the 4 color palettes
