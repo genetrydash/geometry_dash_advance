@@ -2274,12 +2274,12 @@
    </properties>
   </object>
   <object id="1992" gid="547" x="15704" y="432" width="16" height="16"/>
-  <object id="1993" gid="543" x="11677" y="304" width="16" height="16">
+  <object id="1993" gid="543" x="11672" y="304" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="1994" gid="543" x="11709" y="304" width="16" height="16">
+  <object id="1994" gid="543" x="11704" y="304" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
@@ -2338,9 +2338,9 @@
   </object>
   <object id="2037" gid="524" x="11468" y="432" width="16" height="16"/>
   <object id="2038" gid="521" x="11592" y="336" width="16" height="16"/>
-  <object id="2039" gid="521" x="11661" y="272" width="16" height="16"/>
-  <object id="2040" gid="521" x="11693" y="240" width="16" height="16"/>
-  <object id="2041" gid="521" x="11725" y="272" width="16" height="16"/>
+  <object id="2039" gid="521" x="11656" y="272" width="16" height="16"/>
+  <object id="2040" gid="521" x="11688" y="240" width="16" height="16"/>
+  <object id="2041" gid="521" x="11720" y="272" width="16" height="16"/>
   <object id="2042" gid="521" x="11760" y="256" width="16" height="16"/>
   <object id="2043" gid="521" x="11808" y="288" width="16" height="16"/>
   <object id="2044" gid="521" x="11840" y="288" width="16" height="16"/>
@@ -3013,59 +3013,59 @@
    </properties>
   </object>
   <object id="2354" gid="560" x="11448" y="352" width="16" height="16"/>
-  <object id="2355" gid="543" x="11693" y="304" width="16" height="16">
+  <object id="2355" gid="543" x="11688" y="304" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="2356" gid="556" x="11677" y="272" width="16" height="16">
+  <object id="2356" gid="556" x="11672" y="272" width="16" height="16">
    <properties>
     <property name="metatile ID appearance" type="int" value="69"/>
    </properties>
   </object>
-  <object id="2357" gid="556" x="11709" y="272" width="16" height="16">
+  <object id="2357" gid="556" x="11704" y="272" width="16" height="16">
    <properties>
     <property name="hflip" type="bool" value="true"/>
     <property name="metatile ID appearance" type="int" value="69"/>
    </properties>
   </object>
-  <object id="2358" gid="556" x="11693" y="256" width="16" height="16">
+  <object id="2358" gid="556" x="11688" y="256" width="16" height="16">
    <properties>
     <property name="hflip" type="bool" value="false"/>
     <property name="metatile ID appearance" type="int" value="78"/>
    </properties>
   </object>
-  <object id="2359" gid="556" x="11677" y="288" width="16" height="16">
+  <object id="2359" gid="556" x="11672" y="288" width="16" height="16">
    <properties>
     <property name="hflip" type="bool" value="false"/>
     <property name="metatile ID appearance" type="int" value="66"/>
    </properties>
   </object>
-  <object id="2360" gid="556" x="11693" y="288" width="16" height="16">
+  <object id="2360" gid="556" x="11688" y="288" width="16" height="16">
    <properties>
     <property name="hflip" type="bool" value="false"/>
     <property name="metatile ID appearance" type="int" value="66"/>
    </properties>
   </object>
-  <object id="2361" gid="556" x="11709" y="288" width="16" height="16">
+  <object id="2361" gid="556" x="11704" y="288" width="16" height="16">
    <properties>
     <property name="hflip" type="bool" value="false"/>
     <property name="metatile ID appearance" type="int" value="66"/>
    </properties>
   </object>
-  <object id="2362" gid="556" x="11725" y="288" width="16" height="16">
+  <object id="2362" gid="556" x="11720" y="288" width="16" height="16">
    <properties>
     <property name="hflip" type="bool" value="false"/>
     <property name="metatile ID appearance" type="int" value="81"/>
    </properties>
   </object>
-  <object id="2363" gid="556" x="11661" y="288" width="16" height="16">
+  <object id="2363" gid="556" x="11656" y="288" width="16" height="16">
    <properties>
     <property name="hflip" type="bool" value="true"/>
     <property name="metatile ID appearance" type="int" value="81"/>
    </properties>
   </object>
-  <object id="2364" gid="556" x="11693" y="272" width="16" height="16">
+  <object id="2364" gid="556" x="11688" y="272" width="16" height="16">
    <properties>
     <property name="hflip" type="bool" value="false"/>
     <property name="metatile ID appearance" type="int" value="77"/>

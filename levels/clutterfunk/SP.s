@@ -4722,61 +4722,61 @@ clutterfunk_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 760
-   .word 0x2d8d @ x
+   .word 0x2d88 @ x
    .hword 0x110 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 761
-   .word 0x2d8d @ x
+   .word 0x2d88 @ x
    .hword 0x120 @ y
    .hword 0x2b @ type
    .hword 0x22 @ bg layer 4 flipped horizontally  
    .hword 81 @ metatile ID appareance
 @ Object 762
-   .word 0x2d9d @ x
+   .word 0x2d98 @ x
    .hword 0x110 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 69 @ metatile ID appareance
 @ Object 763
-   .word 0x2d9d @ x
+   .word 0x2d98 @ x
    .hword 0x120 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 66 @ metatile ID appareance
 @ Object 764
-   .word 0x2d9d @ x
+   .word 0x2d98 @ x
    .hword 0x130 @ y
    .hword 0x1e @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 765
-   .word 0x2dad @ x
+   .word 0x2da8 @ x
    .hword 0xf0 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 766
-   .word 0x2dad @ x
+   .word 0x2da8 @ x
    .hword 0x100 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 78 @ metatile ID appareance
 @ Object 767
-   .word 0x2dad @ x
+   .word 0x2da8 @ x
    .hword 0x110 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 77 @ metatile ID appareance
 @ Object 768
-   .word 0x2dad @ x
+   .word 0x2da8 @ x
    .hword 0x120 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 66 @ metatile ID appareance
 @ Object 769
-   .word 0x2dad @ x
+   .word 0x2da8 @ x
    .hword 0x130 @ y
    .hword 0x1e @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
@@ -4788,31 +4788,31 @@ clutterfunk_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 771
-   .word 0x2dbd @ x
+   .word 0x2db8 @ x
    .hword 0x110 @ y
    .hword 0x2b @ type
    .hword 0x22 @ bg layer 4 flipped horizontally  
    .hword 69 @ metatile ID appareance
 @ Object 772
-   .word 0x2dbd @ x
+   .word 0x2db8 @ x
    .hword 0x120 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 66 @ metatile ID appareance
 @ Object 773
-   .word 0x2dbd @ x
+   .word 0x2db8 @ x
    .hword 0x130 @ y
    .hword 0x1e @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 774
-   .word 0x2dcd @ x
+   .word 0x2dc8 @ x
    .hword 0x110 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 775
-   .word 0x2dcd @ x
+   .word 0x2dc8 @ x
    .hword 0x120 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
