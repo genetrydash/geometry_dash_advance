@@ -462,13 +462,14 @@ void do_ball_gravity() {
 }
 
 void do_ufo_gravity() {
+    s32 ufo_max_y_speed = (curr_player.player_size == SIZE_BIG) ? UFO_MAX_Y_SPEED : UFO_MINI_MAX_Y_SPEED;
     // Depending on which direction the curr_player.gravity points, apply curr_player.gravity and cap speed in one direction or in the other
     if (curr_player.gravity_dir) {
         curr_player.player_y_speed -= curr_player.gravity / 4;
-        if (curr_player.player_y_speed < -UFO_MAX_Y_SPEED) curr_player.player_y_speed = -UFO_MAX_Y_SPEED;
+        if (curr_player.player_y_speed < -ufo_max_y_speed) curr_player.player_y_speed = -ufo_max_y_speed;
     } else {
         curr_player.player_y_speed += curr_player.gravity / 4;
-        if (curr_player.player_y_speed > UFO_MAX_Y_SPEED) curr_player.player_y_speed = UFO_MAX_Y_SPEED;
+        if (curr_player.player_y_speed > ufo_max_y_speed) curr_player.player_y_speed = ufo_max_y_speed;
     }
 }
 
