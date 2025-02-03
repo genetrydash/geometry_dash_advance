@@ -2108,7 +2108,7 @@
   <object id="1910" gid="554" x="13248" y="352" width="16" height="16"/>
   <object id="1911" gid="547" x="13228" y="384" width="16" height="16"/>
   <object id="1912" gid="547" x="13284" y="384" width="16" height="16"/>
-  <object id="1913" gid="547" x="13275" y="384" width="16" height="16"/>
+  <object id="1913" gid="547" x="13276" y="384" width="16" height="16"/>
   <object id="1914" gid="523" x="13296" y="368" width="16" height="16"/>
   <object id="1915" gid="555" x="13168" y="392" width="16" height="16">
    <properties>
@@ -2167,7 +2167,7 @@
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="1935" gid="547" x="13835" y="208" width="16" height="16">
+  <object id="1935" gid="547" x="13836" y="208" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
@@ -2262,7 +2262,7 @@
   <object id="1982" gid="547" x="14874" y="320" width="16" height="16"/>
   <object id="1983" gid="547" x="14972" y="320" width="16" height="16"/>
   <object id="1984" gid="547" x="15028" y="320" width="16" height="16"/>
-  <object id="1985" gid="547" x="15019" y="320" width="16" height="16"/>
+  <object id="1985" gid="547" x="15020" y="320" width="16" height="16"/>
   <object id="1986" gid="523" x="15040" y="304" width="16" height="16"/>
   <object id="1987" gid="522" x="15120" y="288" width="16" height="16"/>
   <object id="1988" gid="523" x="15152" y="256" width="16" height="16"/>
@@ -2284,16 +2284,16 @@
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="1995" gid="547" x="15010" y="320" width="16" height="16"/>
+  <object id="1995" gid="547" x="15012" y="320" width="16" height="16"/>
   <object id="1996" gid="547" x="14436.5" y="336.25" width="16" height="16"/>
-  <object id="1997" gid="547" x="14427.5" y="336.25" width="16" height="16"/>
-  <object id="1998" gid="547" x="14418.5" y="336.25" width="16" height="16"/>
-  <object id="1999" gid="547" x="13826" y="208" width="16" height="16">
+  <object id="1997" gid="547" x="14428.5" y="336.25" width="16" height="16"/>
+  <object id="1998" gid="547" x="14420.5" y="336.25" width="16" height="16"/>
+  <object id="1999" gid="547" x="13828" y="208" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="2000" gid="547" x="13266" y="384" width="16" height="16"/>
+  <object id="2000" gid="547" x="13268" y="384" width="16" height="16"/>
   <object id="2001" gid="547" x="14293" y="336" width="16" height="16"/>
   <object id="2002" gid="547" x="14284" y="336" width="16" height="16"/>
   <object id="2003" gid="538" x="10800" y="432" width="16" height="16"/>
