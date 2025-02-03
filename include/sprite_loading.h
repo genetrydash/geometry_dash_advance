@@ -1,5 +1,6 @@
 #include <tonc.h>
 #include "memory.h"
+#include "physics_defines.h"
 
 #ifndef SPR_LOADING_H
 #define SPR_LOADING_H
@@ -23,6 +24,13 @@
 #define PRIORITY_FLAG_SHIFT 3
 #define PRIORITY_FLAG (0b111 << PRIORITY_FLAG_SHIFT)
 
+#define COIN_ID_SHIFT 7
+#define COIN_ID_FLAG (0b11 << COIN_ID_SHIFT)
+
+#define COIN_GRAVITY 0x4000
+
+#define COIN_JUMP_HEIGHT 2.0 * BLOCKS_TO_VALUE
+#define INITIAL_COIN_SPEED sqrt(2 * COIN_GRAVITY * COIN_JUMP_HEIGHT)
 
 #define CIRCLE_HITBOX_FLAG (1 << 0)
 

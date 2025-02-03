@@ -119,3 +119,8 @@ u8 curr_player_id;
 
 // Holds the gamemode to upload on VBLANK
 s32 gamemode_upload_buffer[2];
+
+// Holds collected coins while on a level
+u8 coin_buffer[NUM_COINS_PER_LEVEL];
+s32 coin_speed[NUM_COINS_PER_LEVEL];
+s32 coin_y_pos[NUM_COINS_PER_LEVEL];

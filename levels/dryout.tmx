@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="842" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="708">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="842" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="711">
  <editorsettings>
   <export target="dryout.json" format="json"/>
  </editorsettings>
@@ -787,5 +787,8 @@
     <property name="metatile ID appearance" type="int" value="182"/>
    </properties>
   </object>
+  <object id="708" gid="602" x="4008" y="416" width="16" height="16"/>
+  <object id="709" gid="602" x="8480" y="368" width="16" height="16"/>
+  <object id="710" gid="602" x="10832" y="304" width="16" height="16"/>
  </objectgroup>
 </map>

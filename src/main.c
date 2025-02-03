@@ -50,8 +50,8 @@ void vblank_handler() {
             // Run color stuff
             run_col_trigger_changes();
             
-            // Update particles
-            run_particles();
+            // Update animated sprites
+            run_animated_sprites();
 
             // Copy palette from buffer
             memcpy32(pal_bg_mem, palette_buffer, 256);

@@ -16,6 +16,8 @@
 #define FIRST_NUMBER_ID 998
 #define PERCENTAGE_SYMBOL_ID 1008
 
+#define NUM_COINS_PER_LEVEL 3
+
 typedef s64 FIXED_LONG_16;
 typedef s32 FIXED_16;
 
@@ -134,3 +136,7 @@ extern struct Player curr_player;
 extern u8 curr_player_id;
 
 extern s32 gamemode_upload_buffer[2];
+
+extern u8 coin_buffer[NUM_COINS_PER_LEVEL];
+extern s32 coin_speed[NUM_COINS_PER_LEVEL];
+extern s32 coin_y_pos[NUM_COINS_PER_LEVEL];

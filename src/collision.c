@@ -372,7 +372,7 @@ ARM_CODE void do_collision_with_objects() {
                     check_obj_collision(slot); 
                 }
             }
-        }  
+        }
     }
 }
 

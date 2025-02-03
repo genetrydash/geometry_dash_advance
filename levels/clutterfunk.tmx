@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="994" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="2417">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="994" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="2420">
  <editorsettings>
   <export target="clutterfunk.json" format="json"/>
  </editorsettings>
@@ -3271,5 +3271,8 @@
   <object id="2414" gid="561" x="15332" y="236" width="16" height="16"/>
   <object id="2415" gid="525" x="15320" y="208" width="16" height="16"/>
   <object id="2416" gid="538" x="15376" y="432" width="16" height="16"/>
+  <object id="2417" gid="602" x="4992" y="304" width="16" height="16"/>
+  <object id="2418" gid="602" x="10468" y="396" width="16" height="16"/>
+  <object id="2419" gid="602" x="13672" y="416" width="16" height="16"/>
  </objectgroup>
 </map>

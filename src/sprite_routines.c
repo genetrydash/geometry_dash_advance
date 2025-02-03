@@ -370,6 +370,17 @@ void slab(UNUSED struct ObjectSlot *objectSlot) {
     block_object_buffer_flags[block_object_buffer_offset++] = COL_SLAB_TOP;
 }
 
+void coin(UNUSED struct ObjectSlot *objectSlot) {
+    u32 coin_id = (objectSlot->object.attrib1 & COIN_ID_FLAG) >> COIN_ID_SHIFT;
+
+    coin_y_pos[coin_id] = objectSlot->object.y << SUBPIXEL_BITS;
+    coin_speed[coin_id] = INITIAL_COIN_SPEED;
+
+    coin_buffer[coin_id] = 1;
+
+    objectSlot->activated[ID_PLAYER_1] = objectSlot->activated[ID_PLAYER_2] = TRUE;
+}
+
 void do_nothing(UNUSED struct ObjectSlot *objectSlot) {
     // No routine defined
 }
@@ -500,6 +511,8 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     do_nothing,
     do_nothing,
+
+    coin,
 };
 
 // In pixels
@@ -613,6 +626,8 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("BUSH_DECO_4", 0, 0, 0, 0, 0, 0)
     Object_Hitbox_Rectangle("BUSH_DECO_5", 0, 0, 0, 0, 0, 0)
     Object_Hitbox_Rectangle("BUSH_DECO_6", 0, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Rectangle("COIN", 22, 22, -3, -3, 8, 8)
 };
 
 #undef Object_Hitbox

@@ -19448,6 +19448,42 @@
                  "width":16,
                  "x":3407,
                  "y":656
+                }, 
+                {
+                 "gid":602,
+                 "height":16,
+                 "id":1754,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":4232,
+                 "y":520
+                }, 
+                {
+                 "gid":602,
+                 "height":16,
+                 "id":1755,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":7824,
+                 "y":656
+                }, 
+                {
+                 "gid":602,
+                 "height":16,
+                 "id":1756,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11616,
+                 "y":388
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -19456,7 +19492,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":1754,
+ "nextobjectid":1757,
  "orientation":"orthogonal",
  "properties":[
         {

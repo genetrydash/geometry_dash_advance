@@ -4,7 +4,7 @@
 .global sprites_chr
 .global bg_chr
 .global menu_chr
-.global orb_pad_particles
+.global animated_sprites
 .global level_text_chr
 .align 2
 blockset:
@@ -22,8 +22,8 @@ bg_chr:
 menu_chr:
     .incbin "graphics/menu.chr"
 
-orb_pad_particles:
-    .incbin "graphics/orb_particles.chr"
+animated_sprites:
+    .incbin "graphics/animated_sprites.chr"
 
 level_text_chr:
     .incbin "graphics/level_text.chr"

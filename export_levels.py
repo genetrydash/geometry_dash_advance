@@ -48,7 +48,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
     # Load JSON
     with open(json_file_path, 'r') as f:
         json_data = json.load(f)
-    
+    coin_counter = 0
     # Find the layer by name
     for layer in json_data['layers']:
         if layer['name'] == layer_name and 'objects' in layer:
@@ -184,15 +184,23 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
 
                         except Exception:
                             pass
+                        
                        
                         if gid == 43 or gid == 44:
                             out_file.write(f"   .hword {hex(((priority & 0x7) << 3) | (h_flip << 1) | v_flip)} @ bg layer {priority} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
                             out_file.write(f"   .hword {graphics} @ metatile ID appareance\n")
                             byte_counter += 4
+                        elif gid == 89:
+                            out_file.write(f"   .hword {hex((coin_counter << 7) | ((priority & 0x7) << 3) | (enable_rotation << 2) | (h_flip << 1) | v_flip)} @ coin {coin_counter} bg layer {priority} {"rotated" if enable_rotation else "non rotated"} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
+                            out_file.write(f"   .hword {int(rotation / 360.0 * 65536)} @ rotation\n")
+                            byte_counter += 4
+                            coin_counter += 1
                         else:
                             out_file.write(f"   .hword {hex(((priority & 0x7) << 3) | (enable_rotation << 2) | (h_flip << 1) | v_flip)} @ bg layer {priority} {"rotated" if enable_rotation else "non rotated"} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
                             out_file.write(f"   .hword {int(rotation / 360.0 * 65536)} @ rotation\n")
                             byte_counter += 4
+                            
+                        
 
                 out_file.write(f"   .byte 0xff\n")
                 byte_counter += 1

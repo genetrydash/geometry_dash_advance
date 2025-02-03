@@ -1190,6 +1190,18 @@ const u16 bushDecoBig[] = {
     0xffff
 };
 
+const u16 coinSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(7) | ATTR2_ID(COIN_VRAM_ID),
+    -4, // x
+    -4, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
 ROM_DATA const u16 *obj_sprites[] = {
     NULL,
     shipPortalSpr,
@@ -1304,7 +1316,8 @@ ROM_DATA const u16 *obj_sprites[] = {
     bushDeco,
     bushDeco,
     bushDecoBig,
-        
+
+    coinSpr,
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -1432,6 +1445,8 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("BUSH_DECO_4", 0x45c, 0x4)
     CHR_SLOT("BUSH_DECO_5", 0x460, 0x4)
     CHR_SLOT("BUSH_DECO_6", 0x470, 0x10)
+    
+    CHR_SLOT("COIN", SPRITE_NO_CHR,0)
 };
 #undef CHR_SLOT
 

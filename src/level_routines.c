@@ -275,11 +275,18 @@ void reset_variables() {
     REG_WIN0H = SCREEN_WIDTH;
     REG_WIN0V = SCREEN_HEIGHT;
 
+    // Reset collected coins
+    for (u32 index = 0; index < NUM_COINS_PER_LEVEL; index++) {
+        coin_buffer[index] = 0;
+    }
+
+    // Empty chr slots
     for (u32 index = 0; index < MAX_OBJECTS; index++) {
         object_buffer[index].occupied = FALSE;
         chr_slots[index].rom_offset = 0xffffffff;
     }
 
+    // Disable color changes
     for (u32 channel = 0; channel < CHANNEL_COUNT; channel++) {
         col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE] = FALSE;
     }
@@ -348,7 +355,7 @@ void load_level(u32 level_ID) {
 void transition_update_spr() {
     nextSpr = 0;
     
-    run_particles();
+    run_animated_sprites();
     // Update OAM
     obj_copy(oam_mem, shadow_oam, 128);
     obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
@@ -661,9 +668,15 @@ void set_new_best(u32 new_best, u32 mode) {
     struct SaveLevelData *level_data = obtain_level_data(loaded_level_id);
 
     if (mode == NORMAL_MODE) {
-        if (level_data->normal_progress < new_best) {
+        if (level_data->normal_progress <= new_best) {
             // New normal mode best
             level_data->normal_progress = new_best;
+
+            if (new_best >= 100) {
+                level_data->coin1 |= coin_buffer[0];
+                level_data->coin2 |= coin_buffer[1];
+                level_data->coin3 |= coin_buffer[2];
+            }
             write_save_block();
         }
     } else {

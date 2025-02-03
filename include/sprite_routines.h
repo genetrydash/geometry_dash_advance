@@ -130,6 +130,8 @@ enum ObjTypes {
     BUSH_DECO_5,
     BUSH_DECO_6,
 
+    COIN,
+
     OBJ_COUNT
 };
 

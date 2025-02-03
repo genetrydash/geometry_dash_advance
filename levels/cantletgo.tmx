@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="834" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="623">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="834" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="626">
  <editorsettings>
   <export target="cantletgo.json" format="json"/>
  </editorsettings>
@@ -426,5 +426,8 @@
   </object>
   <object id="621" gid="549" x="184" y="432" width="16" height="16"/>
   <object id="622" gid="543" x="152" y="432" width="16" height="16"/>
+  <object id="623" gid="602" x="3488" y="408" width="16" height="16"/>
+  <object id="624" gid="602" x="8352" y="304" width="16" height="16"/>
+  <object id="625" gid="602" x="10160" y="192" width="16" height="16"/>
  </objectgroup>
 </map>

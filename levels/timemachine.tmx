@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="995" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1103">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="995" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1106">
  <editorsettings>
   <export target="timemachine.json" format="json"/>
  </editorsettings>
@@ -1486,5 +1486,8 @@
   <object id="1100" gid="559" x="12496" y="360" width="16" height="16"/>
   <object id="1101" gid="558" x="13616" y="328" width="16" height="16"/>
   <object id="1102" gid="559" x="14208" y="400" width="16" height="16"/>
+  <object id="1103" gid="602" x="11008" y="224" width="16" height="16"/>
+  <object id="1104" gid="602" x="5888" y="352" width="16" height="16"/>
+  <object id="1105" gid="602" x="2048" y="368" width="16" height="16"/>
  </objectgroup>
 </map>
