@@ -124,7 +124,7 @@ void menu_loop() {
             // Increment level ID
             level_id++;
             scroll_page++;
-            level_id = wrap(level_id, 0, LEVEL_COUNT);
+            level_id = WRAP(level_id, 0, LEVEL_COUNT);
 
             do_page_change(level_id);
             
@@ -137,7 +137,7 @@ void menu_loop() {
             // Decrement level ID
             level_id--;
             scroll_page--;
-            level_id = wrap(level_id, 0, LEVEL_COUNT);
+            level_id = WRAP(level_id, 0, LEVEL_COUNT);
 
             do_page_change(level_id);
 
@@ -164,7 +164,7 @@ void menu_loop() {
 
 void do_page_change(u16 level_id) {
     // Erase written text depending on page
-    if (level_id & 1) tte_erase_rect(0, 256, 240, 512);
+    if (scroll_page & 1) tte_erase_rect(0, 256, 240, 512);
     else tte_erase_rect(0, 0, 240, 256);
 
     // Write level name
@@ -332,7 +332,7 @@ void print_level_info(u16 level_id) {
     s32 sb_number = TEXT_SCREEN_BLOCK;
 
     // Add SCREENBLOCK_H to start_y to print on the second screen block
-    if (level_id & 1) {
+    if (scroll_page & 1) {
         sb_number++;
         start_y += SCREENBLOCK_H;
     }
@@ -370,38 +370,39 @@ void put_level_info_sprites(u16 level_id) {
 
     if (scroll_x < target_scroll_x) {
         // Going to the right
-        adjacent_level_id = (level_id - 1) % LEVEL_COUNT;
+        adjacent_level_id = WRAP((level_id - 1), 0, LEVEL_COUNT);
     } else {
         // Going to the left
-        adjacent_level_id = (level_id + 1) % LEVEL_COUNT;
+        adjacent_level_id = WRAP((level_id + 1), 0, LEVEL_COUNT);
     }
 
     // Current page
     struct SaveLevelData *level_properties = obtain_level_data(level_id);
-    
-    u32 sb = (level_id & 1) ? ODD_PAGE_BAR_SB : EVEN_PAGE_BAR_SB;
 
-    put_star_number(level_id);
-    put_coin_sprites(level_id);
+    u8 page = (scroll_page & 1);
+    u32 sb = page ? ODD_PAGE_BAR_SB : EVEN_PAGE_BAR_SB;
+
+    put_star_number(level_id, page);
+    put_coin_sprites(level_id, page);
     draw_progress_bar(PROGRESS_BAR_POS_X, NORMAL_PROGRESS_BAR_POS_Y, sb, level_id, level_properties->normal_progress, 100, BAR_WIDTH_PX, BAR_TYPE_NORMAL_MODE);
     draw_progress_bar(PROGRESS_BAR_POS_X, PRACTICE_PROGRESS_BAR_POS_Y, sb, level_id, level_properties->practice_progress, 100, BAR_WIDTH_PX, BAR_TYPE_PRACTICE_MODE);
     
     // Adjacent page (going to that one when switching)
     struct SaveLevelData *adjacent_properties = obtain_level_data(adjacent_level_id);
 
-    u32 adjacent_sb = (adjacent_level_id & 1) ? ODD_PAGE_BAR_SB : EVEN_PAGE_BAR_SB;
+    u32 adjacent_sb = (page ^ 1) ? ODD_PAGE_BAR_SB : EVEN_PAGE_BAR_SB;
 
-    put_star_number(adjacent_level_id);
-    put_coin_sprites(adjacent_level_id);
+    put_star_number(adjacent_level_id, page ^ 1);
+    put_coin_sprites(adjacent_level_id, page ^ 1);
     draw_progress_bar(PROGRESS_BAR_POS_X, NORMAL_PROGRESS_BAR_POS_Y, adjacent_sb, adjacent_level_id, adjacent_properties->normal_progress, 100, BAR_WIDTH_PX, BAR_TYPE_NORMAL_MODE);
     draw_progress_bar(PROGRESS_BAR_POS_X, PRACTICE_PROGRESS_BAR_POS_Y, adjacent_sb, adjacent_level_id, adjacent_properties->practice_progress, 100, BAR_WIDTH_PX, BAR_TYPE_PRACTICE_MODE);
 }
 
 #define STAR_COUNT_POS_X 164
 #define STAR_COUNT_POS_Y 28
-void put_star_number(u16 level_id) {
+void put_star_number(u16 level_id, u16 page) {
     // Obtain relatives
-    u32 offset_x = (level_id & 1 ? 256 : 0);
+    u32 offset_x = (page & 1 ? 256 : 0);
     s32 relative_x = (offset_x + STAR_COUNT_POS_X) - ((scroll_x >> SUBPIXEL_BITS) & 0x1ff);
 
     // Put star sprite
@@ -421,23 +422,24 @@ void put_star_number(u16 level_id) {
 
 #define MENU_COIN_X 154
 #define MENU_COIN_Y 56
-void put_coin_sprites(u16 level_id) {
+void put_coin_sprites(u16 level_id, u16 page) {
     // Obtain relatives
-    u32 offset_x = (level_id & 1 ? 256 : 0);
+    u32 offset_x = (page & 1 ? 256 : 0);
     s32 relative_x = (offset_x + MENU_COIN_X) - ((scroll_x >> SUBPIXEL_BITS) & 0x1ff);
 
     // Obtain level data
     struct SaveLevelData *level_data = obtain_level_data(level_id);
 
     u32 *properties_pointer = (u32*) level_defines[level_id][LEVEL_PROPERTIES_INDEX];
-
     u32 level_coins_num = properties_pointer[LEVEL_COINS_NUM];
+    
     offset_x = (3 - level_coins_num) * 11;
-    // Put coin 1 sprite
+    
 
     // Dont display anything if the level has no coins
     if (level_coins_num < 1) return;
 
+    // Put coin 1 sprite
     if (level_data->coin1) {
         oam_metaspr(relative_x + offset_x, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
     } else {
