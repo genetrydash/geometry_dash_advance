@@ -75,6 +75,10 @@ void menu_loop() {
     s32 level_id = loaded_level_id;
 
     do_page_change(level_id);
+    
+    // Set BG color and disable any prior transition
+    col_trigger_buffer[0][COL_TRIG_BUFF_ACTIVE] = FALSE;
+    menu_set_bg_color(palette_buffer, menu_bg_colors[level_id % (sizeof(menu_bg_colors) / sizeof(COLOR))]);
 
     // Page wraps with the approach function are weird, so I just make it all continuous by placing it in the middle of an u64
     // It would take 290 and a half years of non stop pressing A every frame to get an overflow
