@@ -11,6 +11,7 @@ const unsigned int polargeist_properties[] = {
  /*name length*/   10,
  /*difficulty*/    1,
  /*stars*/         3,
+ /*coins number*/  3,
 };
 
 const unsigned char polargeist_name[] = {

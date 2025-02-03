@@ -11,6 +11,7 @@ const unsigned int cycles_properties[] = {
  /*name length*/   6,
  /*difficulty*/    3,
  /*stars*/         9,
+ /*coins number*/  3,
 };
 
 const unsigned char cycles_name[] = {

@@ -11,6 +11,7 @@ const unsigned int timemachine_properties[] = {
  /*name length*/   11,
  /*difficulty*/    3,
  /*stars*/         8,
+ /*coins number*/  3,
 };
 
 const unsigned char timemachine_name[] = {

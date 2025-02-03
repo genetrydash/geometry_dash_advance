@@ -25,6 +25,8 @@
 
 #define LEVEL_STARS_NUM 9
 
+#define LEVEL_COINS_NUM 10
+
 // stereomadness
 #define stereomadness_ID 0
 

@@ -11,6 +11,7 @@ const unsigned int theoryofeverything_properties[] = {
  /*name length*/   18,
  /*difficulty*/    4,
  /*stars*/         12,
+ /*coins number*/  3,
 };
 
 const unsigned char theoryofeverything_name[] = {

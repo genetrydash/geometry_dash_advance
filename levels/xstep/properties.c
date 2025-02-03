@@ -11,6 +11,7 @@ const unsigned int xstep_properties[] = {
  /*name length*/   5,
  /*difficulty*/    4,
  /*stars*/         10,
+ /*coins number*/  3,
 };
 
 const unsigned char xstep_name[] = {

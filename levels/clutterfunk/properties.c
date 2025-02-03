@@ -11,6 +11,7 @@ const unsigned int clutterfunk_properties[] = {
  /*name length*/   11,
  /*difficulty*/    4,
  /*stars*/         11,
+ /*coins number*/  3,
 };
 
 const unsigned char clutterfunk_name[] = {

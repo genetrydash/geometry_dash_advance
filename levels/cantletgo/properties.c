@@ -11,6 +11,7 @@ const unsigned int cantletgo_properties[] = {
  /*name length*/   9,
  /*difficulty*/    2,
  /*stars*/         6,
+ /*coins number*/  3,
 };
 
 const unsigned char cantletgo_name[] = {

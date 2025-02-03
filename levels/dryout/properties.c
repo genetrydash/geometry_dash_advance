@@ -11,6 +11,7 @@ const unsigned int dryout_properties[] = {
  /*name length*/   6,
  /*difficulty*/    1,
  /*stars*/         4,
+ /*coins number*/  3,
 };
 
 const unsigned char dryout_name[] = {

@@ -211,7 +211,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                 file.write(f"#define {level_name.upper()}_TOTAL_SPR {counter}\n")
                 file.write(f"extern const unsigned short {level_name}_spr_data[({level_name.upper()}_TOTAL_SPR * 2) + 1];\n")
 
-            return byte_counter
+            return byte_counter, coin_counter
     
     # If layer not found or doesn't contain objects, raise an error
     raise ValueError(f"Layer '{layer_name}' not found or does not contain objects.")
@@ -339,6 +339,7 @@ def export_includes_h(levels):
         file.write("#define LEVEL_NAME_LENGTH 7\n\n")
         file.write("#define LEVEL_DIFFICULTY 8\n\n")
         file.write("#define LEVEL_STARS_NUM 9\n\n")
+        file.write("#define LEVEL_COINS_NUM 10\n\n")
         for level_name in levels:
             file.write(f"// {level_name}\n")
             file.write(f"#define {level_name}_ID {level_counter}\n\n")
@@ -369,7 +370,7 @@ def export_includes_h(levels):
 
 
 
-def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_path, level_array):
+def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_path, level_array, coins):
     level_height = len(level_array)
     level_width = len(level_array[0])
     # Load JSON
@@ -438,6 +439,7 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         file.write(f" /*name length*/   {len(level_name)},\n")
         file.write(f" /*difficulty*/    {difficulty},\n")
         file.write(f" /*stars*/         {stars},\n")
+        file.write(f" /*coins number*/  {coins},\n")
         file.write(f"}};\n\n")
 
         file.write(f"const unsigned char {level_name}_name[] = {{\n")
@@ -506,7 +508,7 @@ def main():
         output_s_path = f"levels/{level_name}/{layer}.s"  # Output .s file
         output_h_path = f"levels/{level_name}/{layer}.h"  # Output .h file
 
-        object_size = export_objects_to_assembly(file_path, level_name, layer, output_s_path, output_h_path)
+        object_size, coins = export_objects_to_assembly(file_path, level_name, layer, output_s_path, output_h_path)
         total_size += object_size
         
         original_size_list.append(0)
@@ -515,7 +517,7 @@ def main():
         output_h_path = f"levels/{level_name}/properties.h"  # Output .h file
         output_c_path = f"levels/{level_name}/properties.c"  # Output .c file
 
-        export_properties_to_h(level_name, output_h_path, output_c_path, file_path, level_array)
+        export_properties_to_h(level_name, output_h_path, output_c_path, file_path, level_array, coins)
 
         
         print(f"{level_name} TOTAL size: {total_size} B\n")

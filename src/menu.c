@@ -429,25 +429,40 @@ void put_coin_sprites(u16 level_id) {
     // Obtain level data
     struct SaveLevelData *level_data = obtain_level_data(level_id);
 
+    u32 *properties_pointer = (u32*) level_defines[level_id][LEVEL_PROPERTIES_INDEX];
+
+    u32 level_coins_num = properties_pointer[LEVEL_COINS_NUM];
+    offset_x = (3 - level_coins_num) * 11;
     // Put coin 1 sprite
+
+    // Dont display anything if the level has no coins
+    if (level_coins_num < 1) return;
+
     if (level_data->coin1) {
-        oam_metaspr(relative_x, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
     } else {
-        oam_metaspr(relative_x, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
     }
+    
+    // Dont display the rest of coins if the level has only one coin
+    if (level_coins_num < 2) return;
 
     // Put coin 2 sprite
     if (level_data->coin2) {
-        oam_metaspr(relative_x + 11, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x + 11, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
     } else {
-        oam_metaspr(relative_x + 11, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x + 11, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
     }
-    
+
+    // Dont display the third coin if the level has only two coins
+    if (level_coins_num < 3) return;
+
+
     // Put coin 3 sprite
-    if (level_data->coin3) {
-        oam_metaspr(relative_x + 22, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+    if (level_data->coin3 && level_coins_num > 2) {
+        oam_metaspr(relative_x + offset_x + 22, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
     } else {
-        oam_metaspr(relative_x + 22, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x + 22, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
     }
 }
 
