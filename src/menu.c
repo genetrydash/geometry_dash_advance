@@ -539,7 +539,7 @@ void draw_progress_bar(s32 x, s32 y, s32 sb, u32 page, u32 value, u32 max, u32 w
     draw_percentage(relative_x + (width >> 1) - 8, y << 3, value, menuNumberSpr, 2);
 
     // Draw progress bar sprites
-    oam_metaspr(relative_x + 1, y << 3, fineBarMaskSpr, FALSE, FALSE, 0, 2, FALSE);
-    oam_metaspr(relative_x + width - 1, y << 3, fineBarMaskSpr, TRUE, FALSE, 0, 2, FALSE);
-    oam_metaspr(relative_x + progress_px + 1, y << 3, fineBarSpr, FALSE, FALSE, fine, 2, FALSE);
+    oam_metaspr(relative_x + 1, y << 3, fineBarMaskSpr, FALSE, FALSE, 0, 2, TRUE);
+    oam_metaspr(relative_x + width - 1, y << 3, fineBarMaskSpr, TRUE, FALSE, 0, 2, TRUE);
+    oam_metaspr(relative_x + progress_px + 1, y << 3, fineBarSpr, FALSE, FALSE, fine, 2, TRUE);
 }
