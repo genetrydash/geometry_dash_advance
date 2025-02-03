@@ -536,7 +536,7 @@ void draw_progress_bar(s32 x, s32 y, s32 sb, u32 page, u32 value, u32 max, u32 w
     s32 relative_x = (offset_x + ((x - 1) << 3)) - ((scroll_x >> SUBPIXEL_BITS) & 0x1ff);
 
     // Draw percentage numbers
-    draw_percentage(relative_x + (width >> 1) - 8, y << 3, value, menuNumberSpr);
+    draw_percentage(relative_x + (width >> 1) - 8, y << 3, value, menuNumberSpr, 2);
 
     // Draw progress bar sprites
     oam_metaspr(relative_x + 1, y << 3, fineBarMaskSpr, FALSE, FALSE, 0, 2, FALSE);

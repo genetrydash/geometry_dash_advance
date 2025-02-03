@@ -359,7 +359,7 @@ void transition_update_spr() {
     // Update OAM
     obj_copy(oam_mem, shadow_oam, 128);
     obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
-    draw_percentage(108, 8, get_level_progress(), numberSpr);
+    draw_percentage(108, 8, get_level_progress(), numberSpr, 0);
     draw_both_players();
     display_objects();
     rotate_saws();
@@ -438,7 +438,7 @@ void reset_level() {
     update_flags = UPDATE_OAM | UPDATE_SCROLL;
     
     nextSpr = 0;
-    draw_percentage(108, 8, get_level_progress(), numberSpr);
+    draw_percentage(108, 8, get_level_progress(), numberSpr, 0);
     draw_both_players();
     display_objects();
     rotate_saws();
@@ -635,19 +635,19 @@ u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
     return current;
 }
 
-void draw_percentage(u32 x, u32 y, u32 percentage, const u16* number_sprite) {
+void draw_percentage(u32 x, u32 y, u32 percentage, const u16* number_sprite, u16 priority) {
     if (percentage >= 100) {
-        oam_metaspr(x,      y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 1, 0, TRUE);
-        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, 0, TRUE);
-        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, 0, TRUE);
-        oam_metaspr(x + 24, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+        oam_metaspr(x,      y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 1, priority, TRUE);
+        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, priority, TRUE);
+        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, priority, TRUE);
+        oam_metaspr(x + 24, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, priority, TRUE);
     } else if (percentage >= 10) {
-        oam_metaspr(x + 4,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage / 10), 0, TRUE);
-        oam_metaspr(x + 12, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage % 10), 0, TRUE);
-        oam_metaspr(x + 20, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+        oam_metaspr(x + 4,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage / 10), priority, TRUE);
+        oam_metaspr(x + 12, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage % 10), priority, TRUE);
+        oam_metaspr(x + 20, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, priority, TRUE);
     } else {
-        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + percentage, 0, TRUE);
-        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, 0, TRUE);
+        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + percentage, priority, TRUE);
+        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, priority, TRUE);
     }
 }
 

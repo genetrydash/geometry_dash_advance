@@ -332,7 +332,7 @@ void game_loop() {
 #endif
 
         // Draw level progress
-        draw_percentage(108, 8, get_level_progress(), numberSpr);
+        draw_percentage(108, 8, get_level_progress(), numberSpr, 0);
 
         if (player_death) {
             mmEffect(SFX_EXPLOSION);
