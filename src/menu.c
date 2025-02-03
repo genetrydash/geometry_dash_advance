@@ -21,6 +21,7 @@ u16 game_state;
 
 void print_level_info(u16 level_id);
 void do_page_change(u16 level_id);
+void do_menu_color_transition();
 
 #define HALF_U64 ((u64)1 << 63)
 
@@ -109,6 +110,8 @@ void menu_loop() {
         
         nextSpr = 0;
 
+        do_menu_color_transition();
+
 #ifdef DEBUG
         if (key_hit(KEY_SELECT)) {
             debug_mode ^= 1;
@@ -127,9 +130,6 @@ void menu_loop() {
             level_id = WRAP(level_id, 0, LEVEL_COUNT);
 
             do_page_change(level_id);
-            
-            // Copy palette from buffer
-            memcpy32(pal_bg_mem, palette_buffer, 256);
         }
 
         // Go left
@@ -140,9 +140,6 @@ void menu_loop() {
             level_id = WRAP(level_id, 0, LEVEL_COUNT);
 
             do_page_change(level_id);
-
-            // Copy palette from buffer
-            memcpy32(pal_bg_mem, palette_buffer, 256);
         }
 
         if (key_hit(KEY_A | KEY_START)) {
@@ -162,6 +159,31 @@ void menu_loop() {
     }
 }
 
+void do_menu_color_transition() {
+    if (col_trigger_buffer[0][COL_TRIG_BUFF_ACTIVE]) {
+        COLOR old_color = col_trigger_buffer[0][COL_TRIG_BUFF_OLD_COLOR];
+        COLOR new_color = col_trigger_buffer[0][COL_TRIG_BUFF_NEW_COLOR];
+        u16 frames      = col_trigger_buffer[0][COL_TRIG_BUFF_TOTAL_FRAMES];
+        u16 curr_frame  = col_trigger_buffer[0][COL_TRIG_BUFF_CURRENT_FRAMES];
+
+        u16 lerp_value = (curr_frame << 8) / (frames - 1); // Division, scary stuff
+        COLOR lerped_color = lerp_color(old_color, new_color, lerp_value);
+
+        // Set BG color
+        menu_set_bg_color(palette_buffer, lerped_color);
+
+        col_trigger_buffer[0][COL_TRIG_BUFF_CURRENT_FRAMES] = ++curr_frame;
+
+        // If we reached total frames, then deactivate color change
+        if (curr_frame >= frames) {
+            col_trigger_buffer[0][COL_TRIG_BUFF_ACTIVE] = FALSE;
+        }
+
+        // Copy palette from buffer
+        memcpy32(pal_bg_mem, palette_buffer, 256);
+    }
+}
+
 void do_page_change(u16 level_id) {
     // Erase written text depending on page
     if (scroll_page & 1) tte_erase_rect(0, 256, 240, 512);
@@ -170,8 +192,12 @@ void do_page_change(u16 level_id) {
     // Write level name
     print_level_info(level_id);
 
-    // Set BG color
-    menu_set_bg_color(palette_buffer, menu_bg_colors[level_id % (sizeof(menu_bg_colors) / sizeof(COLOR))]);
+    // Set transition variables
+    col_trigger_buffer[0][COL_TRIG_BUFF_ACTIVE] = TRUE;
+    col_trigger_buffer[0][COL_TRIG_BUFF_OLD_COLOR] = palette_buffer[BG_COLOR];
+    col_trigger_buffer[0][COL_TRIG_BUFF_NEW_COLOR] = menu_bg_colors[level_id % (sizeof(menu_bg_colors) / sizeof(COLOR))];
+    col_trigger_buffer[0][COL_TRIG_BUFF_TOTAL_FRAMES] = 15;
+    col_trigger_buffer[0][COL_TRIG_BUFF_CURRENT_FRAMES] = 0;
     
     // Set target scroll x
     target_scroll_x = HALF_U64 + ((scroll_page * 256) << SUBPIXEL_BITS);
