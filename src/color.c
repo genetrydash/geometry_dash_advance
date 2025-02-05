@@ -49,7 +49,11 @@ void menu_set_bg_color(COLOR *dst, COLOR color) {
         clr_adj_brightness(&dst[index], &dst[index - 1], 1, float2fx(-0.15));
     }
 
-    dst[0x12] = dst[0x122] = dst[0x04];
+    dst[0x12] = dst[0x122] = dst[0x24] = dst[0x04];
+
+    for (s32 i = 3; i < NUM_FACES + 3; i++) {
+        dst[(i << 4) + 0x0e] = dst[0x04];
+    }
 }
 
 // Set BG color on the 4 color palettes

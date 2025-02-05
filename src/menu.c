@@ -17,7 +17,7 @@ u16 game_state;
 #define LEVEL_NAME_POS_X 120
 #define LEVEL_NAME_POS_Y 40
 
-#define TEXT_SCREEN_BLOCK 30
+#define TEXT_SCREEN_BLOCK 26
 
 void print_level_info(u16 level_id);
 void do_page_change(u16 level_id);
@@ -32,18 +32,16 @@ void menu_loop() {
     // Enable all BGs, also enable sprites
     REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2 | DCNT_BG3;
 
-    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(0);
+    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(1);
     REG_BG0HOFS = 0;
     REG_BG0VOFS = 0;
 
-    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32 | BG_PRIO(1);
+    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32 | BG_PRIO(2);
     REG_BG1HOFS = 0;
     REG_BG1VOFS = 0;
 
+    REG_BG3CNT  = BG_CBB(0) | BG_SBB(28) | BG_REG_32x64 | BG_PRIO(0);
     REG_BG2VOFS = 0;
-    REG_BG3VOFS = 0;
-
-    REG_BG2CNT  = BG_CBB(0) | BG_SBB(26) | BG_REG_64x32 | BG_PRIO(3);
 
     memset32(palette_buffer, 0, 256);
     memcpy16(palette_buffer, menu_palette, sizeof(menu_palette) / sizeof(COLOR));
@@ -53,13 +51,14 @@ void menu_loop() {
 
     // Init PUSAB font
     tte_init_se(
-        3,                                     // Background number (BG 3)
-        BG_CBB(0) | BG_SBB(TEXT_SCREEN_BLOCK) | BG_REG_64x32, // BG control (for REG_BGxCNT)
+        2,                                     // Background number (BG 2)
+        BG_CBB(0) | BG_SBB(TEXT_SCREEN_BLOCK) | BG_REG_64x32 | BG_PRIO(3), // BG control (for REG_BGxCNT)
         0,                                     // Tile offset (special cattr)
         0,                                     // Ink color
         0,                                     // BitUnpack offset (on-pixel = 15)
         &pusabFont,                            // Default font (sys8)
         NULL);                                 // Default renderer (se_drawg_s)
+
 
     tte_set_special(0x2000);
 
@@ -73,8 +72,6 @@ void menu_loop() {
     memcpy32(&se_mem[27][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
 
     s32 level_id = loaded_level_id;
-
-    do_page_change(level_id);
     
     // Set BG color and disable any prior transition
     col_trigger_buffer[0][COL_TRIG_BUFF_ACTIVE] = FALSE;
@@ -87,6 +84,9 @@ void menu_loop() {
     scroll_page = HALF_U64 + level_id; 
 
     REG_BG2HOFS = REG_BG3HOFS = scroll_x >> SUBPIXEL_BITS;
+
+    // Do page change
+    do_page_change(level_id);
     
     // Init OAM
     memset32(shadow_oam, ATTR0_HIDE, 256);
@@ -366,6 +366,8 @@ void print_level_info(u16 level_id) {
         sb_number++;
         start_y += SCREENBLOCK_H;
     }
+
+    memcpy32(&se_mem[sb_number][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
 
     // Print all lines
     for (s32 line = 0; line < MAX_LINES; line++) {
