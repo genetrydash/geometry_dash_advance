@@ -330,13 +330,13 @@ ARM_CODE s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
             // Set old player y pos to get the displacement later
             u64 old_player_y = curr_player.player_y;
 
-            // This always returns TRUE
-            col_type_lookup(block_object_buffer_flags[i - 1], x, y, side);
+            
+            u32 returned = col_type_lookup(block_object_buffer_flags[i - 1], x, y, side);
             
             // Update coll_y with the displacement that has occured
             coll_y += old_player_y - curr_player.player_y;
 
-            return TRUE;
+            return returned;
         }
         
     }

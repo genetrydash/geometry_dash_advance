@@ -3,6 +3,7 @@
 #include "sprite_routines.h"
 #include "physics_defines.h"
 #include "color.h"
+#include "metatiles.h"
 
 // [gamemode][type]
 
@@ -354,7 +355,10 @@ void block(UNUSED struct ObjectSlot *objectSlot) {
     
     // If not, add it
     block_object_buffer[block_object_buffer_offset] = (s32 *) objectSlot;
-    block_object_buffer_flags[block_object_buffer_offset++] = COL_FULL;
+
+    u16 metatile_ID = objectSlot->object.attrib3;
+
+    block_object_buffer_flags[block_object_buffer_offset++] = metatiles[metatile_ID][4];
 }
 
 void slab(UNUSED struct ObjectSlot *objectSlot) {
@@ -367,7 +371,10 @@ void slab(UNUSED struct ObjectSlot *objectSlot) {
 
     // If not, add it
     block_object_buffer[block_object_buffer_offset] = (s32 *) objectSlot;
-    block_object_buffer_flags[block_object_buffer_offset++] = COL_SLAB_TOP;
+    
+    u16 metatile_ID = objectSlot->object.attrib3;
+    
+    block_object_buffer_flags[block_object_buffer_offset++] = metatiles[metatile_ID][4];
 }
 
 void coin(UNUSED struct ObjectSlot *objectSlot) {
