@@ -1264,192 +1264,294 @@ polargeist_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
 @ Object 206
+   .word 0x2bb8 @ x
+   .hword 0x1a0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 8 @ metatile ID appareance
+@ Object 207
+   .word 0x2bb8 @ x
+   .hword 0x1b0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 6 @ metatile ID appareance
+@ Object 208
+   .word 0x2bc8 @ x
+   .hword 0x1a0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 4 @ metatile ID appareance
+@ Object 209
+   .word 0x2bc8 @ x
+   .hword 0x1b0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 22 @ metatile ID appareance
+@ Object 210
    .word 0x2bd0 @ x
    .hword 0x150 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 207
-   .word 0x2c10 @ x
+@ Object 211
+   .word 0x2bd8 @ x
+   .hword 0x1a0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 4 @ metatile ID appareance
+@ Object 212
+   .word 0x2bd8 @ x
+   .hword 0x1b0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 22 @ metatile ID appareance
+@ Object 213
+   .word 0x2be8 @ x
+   .hword 0x1a0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 4 @ metatile ID appareance
+@ Object 214
+   .word 0x2be8 @ x
+   .hword 0x1b0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 22 @ metatile ID appareance
+@ Object 215
+   .word 0x2bf8 @ x
+   .hword 0x1a0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 4 @ metatile ID appareance
+@ Object 216
+   .word 0x2bf8 @ x
+   .hword 0x1b0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 22 @ metatile ID appareance
+@ Object 217
+   .word 0x2c08 @ x
    .hword 0x190 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 208
+@ Object 218
+   .word 0x2c08 @ x
+   .hword 0x1a0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 4 @ metatile ID appareance
+@ Object 219
+   .word 0x2c08 @ x
+   .hword 0x1b0 @ y
+   .hword 0x2b @ type
+   .hword 0x8 @ bg layer 1   
+   .hword 22 @ metatile ID appareance
+@ Object 220
+   .word 0x2c18 @ x
+   .hword 0x190 @ y
+   .hword 0x1e @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 221
+   .word 0x2c18 @ x
+   .hword 0x1a0 @ y
+   .hword 0x2b @ type
+   .hword 0xa @ bg layer 1 flipped horizontally  
+   .hword 8 @ metatile ID appareance
+@ Object 222
+   .word 0x2c18 @ x
+   .hword 0x1b0 @ y
+   .hword 0x2b @ type
+   .hword 0xa @ bg layer 1 flipped horizontally  
+   .hword 6 @ metatile ID appareance
+@ Object 223
    .word 0x2c30 @ x
    .hword 0x1b0 @ y
    .hword 0x6 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 209
+@ Object 224
    .word 0x2c38 @ x
    .hword 0x1aa @ y
    .hword 0x11 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 210
+@ Object 225
    .word 0x2c38 @ x
    .hword 0x1b0 @ y
    .hword 0x5 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 211
+@ Object 226
    .word 0x2c50 @ x
    .hword 0x1a0 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 212
+@ Object 227
    .word 0x2c60 @ x
    .hword 0xb0 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 213
+@ Object 228
    .word 0x2c70 @ x
    .hword 0x1b0 @ y
    .hword 0x5 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 214
+@ Object 229
    .word 0x2c80 @ x
-   .hword 0xe8 @ y
+   .hword 0xec @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 49152 @ rotation
-@ Object 215
+@ Object 230
    .word 0x2c90 @ x
    .hword 0x190 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 216
+@ Object 231
    .word 0x2cb0 @ x
    .hword 0x1b0 @ y
    .hword 0x5 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 217
+@ Object 232
    .word 0x2cc0 @ x
    .hword 0x10c @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 218
+@ Object 233
    .word 0x2cd0 @ x
    .hword 0x180 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 219
+@ Object 234
    .word 0x2cf0 @ x
    .hword 0xec @ y
    .hword 0x59 @ type
    .hword 0x120 @ coin 2 bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 220
+@ Object 235
    .word 0x2d30 @ x
    .hword 0xb0 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 221
+@ Object 236
+   .word 0x2d64 @ x
+   .hword 0x1b0 @ y
+   .hword 0x20 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 237
+   .word 0x2d72 @ x
+   .hword 0x1b0 @ y
+   .hword 0x20 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0 @ rotation
+@ Object 238
    .word 0x2d80 @ x
    .hword 0x1a0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 222
+@ Object 239
    .word 0x2e10 @ x
    .hword 0x1a0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 223
+@ Object 240
    .word 0x2ec8 @ x
    .hword 0x1b0 @ y
    .hword 0x1e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 224
+@ Object 241
    .word 0x2f50 @ x
    .hword 0x1b0 @ y
    .hword 0x6 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 225
+@ Object 242
    .word 0x2f70 @ x
    .hword 0x190 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 226
+@ Object 243
    .word 0x2fc0 @ x
    .hword 0x1b0 @ y
    .hword 0x7 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 227
+@ Object 244
    .word 0x2fe0 @ x
    .hword 0x190 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 228
+@ Object 245
    .word 0x3010 @ x
    .hword 0x160 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 229
+@ Object 246
    .word 0x3040 @ x
    .hword 0x160 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 230
+@ Object 247
    .word 0x3070 @ x
    .hword 0x1a0 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 231
+@ Object 248
    .word 0x30a0 @ x
    .hword 0x150 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 232
+@ Object 249
    .word 0x30c0 @ x
    .hword 0x1b0 @ y
    .hword 0x6 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 233
+@ Object 250
    .word 0x30e0 @ x
    .hword 0x1a0 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 234
+@ Object 251
    .word 0x3100 @ x
    .hword 0x1b0 @ y
    .hword 0x7 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 235
+@ Object 252
    .word 0x3120 @ x
    .hword 0x190 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 236
+@ Object 253
    .word 0x3140 @ x
    .hword 0x1b0 @ y
    .hword 0x6 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 237
+@ Object 254
    .word 0x3160 @ x
    .hword 0x130 @ y
    .hword 0x3 @ type
@@ -1457,7 +1559,7 @@ polargeist_spr_data:
    .hword 0x1ba0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 238
+@ Object 255
    .word 0x3160 @ x
    .hword 0x140 @ y
    .hword 0x3 @ type
@@ -1465,223 +1567,223 @@ polargeist_spr_data:
    .hword 0x6a0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 239
+@ Object 256
    .word 0x3160 @ x
    .hword 0x180 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 240
+@ Object 257
    .word 0x3180 @ x
    .hword 0x1b0 @ y
    .hword 0x7 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 241
+@ Object 258
    .word 0x31a0 @ x
    .hword 0x170 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 242
+@ Object 259
    .word 0x31c0 @ x
    .hword 0x1b0 @ y
    .hword 0x6 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 243
+@ Object 260
    .word 0x31e0 @ x
    .hword 0x120 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 244
+@ Object 261
    .word 0x3240 @ x
    .hword 0x1b0 @ y
    .hword 0x6 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 245
+@ Object 262
    .word 0x3280 @ x
    .hword 0x120 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 246
+@ Object 263
    .word 0x3280 @ x
    .hword 0x1b0 @ y
    .hword 0x5 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 247
+@ Object 264
    .word 0x33c0 @ x
    .hword 0x1a0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 248
+@ Object 265
    .word 0x3400 @ x
    .hword 0x1a0 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 249
+@ Object 266
    .word 0x3460 @ x
    .hword 0x1a0 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 250
+@ Object 267
    .word 0x34b0 @ x
    .hword 0x180 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 251
+@ Object 268
    .word 0x35b0 @ x
    .hword 0x1b0 @ y
    .hword 0x5 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 252
+@ Object 269
    .word 0x35d0 @ x
    .hword 0x190 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 253
+@ Object 270
    .word 0x35e0 @ x
    .hword 0x1b0 @ y
    .hword 0x7 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 254
+@ Object 271
    .word 0x3600 @ x
    .hword 0x1a0 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 255
+@ Object 272
    .word 0x3600 @ x
    .hword 0x1a0 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 256
+@ Object 273
    .word 0x36b0 @ x
    .hword 0x160 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 257
+@ Object 274
    .word 0x36c8 @ x
    .hword 0x1b0 @ y
    .hword 0x6 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 258
+@ Object 275
    .word 0x36e0 @ x
    .hword 0x1a0 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 259
+@ Object 276
    .word 0x36f8 @ x
    .hword 0x1b0 @ y
    .hword 0x7 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 260
+@ Object 277
    .word 0x3710 @ x
    .hword 0x150 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 261
+@ Object 278
    .word 0x3720 @ x
    .hword 0x150 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 262
+@ Object 279
    .word 0x3740 @ x
    .hword 0x1a0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 263
+@ Object 280
    .word 0x3780 @ x
    .hword 0x1a0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 264
+@ Object 281
    .word 0x37b0 @ x
    .hword 0x1b0 @ y
    .hword 0xd @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 265
+@ Object 282
    .word 0x3850 @ x
    .hword 0x190 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 266
+@ Object 283
    .word 0x3880 @ x
    .hword 0x140 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 267
+@ Object 284
    .word 0x38a0 @ x
    .hword 0x1b0 @ y
    .hword 0x7 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 268
+@ Object 285
    .word 0x38b0 @ x
    .hword 0x190 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 269
+@ Object 286
    .word 0x38c0 @ x
    .hword 0x1b0 @ y
    .hword 0x6 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 270
+@ Object 287
    .word 0x38e0 @ x
    .hword 0x140 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 271
+@ Object 288
    .word 0x38f0 @ x
    .hword 0x1b0 @ y
    .hword 0x7 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 272
+@ Object 289
    .word 0x3910 @ x
    .hword 0x190 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 273
+@ Object 290
    .word 0x3940 @ x
    .hword 0x140 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 274
+@ Object 291
    .word 0x3960 @ x
    .hword 0x1b0 @ y
    .hword 0x7 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0 @ rotation
-@ Object 275
+@ Object 292
    .word 0x3970 @ x
    .hword 0x190 @ y
    .hword 0xb @ type
