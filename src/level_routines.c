@@ -472,17 +472,24 @@ void scroll_screen_vertically() {
         if (player_1.relative_player_y + 16 >= BOTTOM_SCROLL_Y) {
             scroll_y_dir = 1;
             
+            // Scroll downwards if player is going downwards or is still
             if (player_1.player_y_speed > 0) {
                 intended_scroll_y += player_1.player_y_speed;
+            } else if (player_1.player_y_speed == 0) {
+                intended_scroll_y += CUBE_MAX_Y_SPEED / 2;
             }
         } else if (player_1.relative_player_y <= TOP_SCROLL_Y) { 
             scroll_y_dir = 0;
 
+            // Scroll upwards if player is going upwards or is still
             if (player_1.player_y_speed < 0) {
                 intended_scroll_y += player_1.player_y_speed;
+            } else if (player_1.player_y_speed == 0) {
+                intended_scroll_y -= CUBE_MAX_Y_SPEED / 2;
             }
         }
         
+        // Cap at level edges
         if (intended_scroll_y < 0) intended_scroll_y = 0;
         if (intended_scroll_y > BOTTOM_SCROLL_LIMIT) intended_scroll_y = BOTTOM_SCROLL_LIMIT;
 
