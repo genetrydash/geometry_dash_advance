@@ -324,15 +324,19 @@ ARM_CODE s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
         // Check if this pixel is inside the object hitbox
         if (is_colliding(x, y, 1, 1, obj_x, obj_y, obj_width, obj_height)) {
             // Relative positions
-            x = x - obj_x;
-            y = y - obj_y;
+            u32 mod_x = x - obj_x;
+            u32 mod_y = y - obj_y;
 
             // Set old player y pos to get the displacement later
             u64 old_player_y = curr_player.player_y;
 
+            u16 col_type = block_object_buffer_flags[i - 1];
             
-            u32 returned = col_type_lookup(block_object_buffer_flags[i - 1], x, y, side);
+            u32 returned = col_type_lookup(col_type, mod_x, mod_y, side);
             
+            // Continue if no collision
+            if (!returned) continue;
+
             // Update coll_y with the displacement that has occured
             coll_y += old_player_y - curr_player.player_y;
 
