@@ -6,7 +6,7 @@ const unsigned int jumper_properties[] = {
  /*gamemode*/      0,
  /*speed*/         1,
  /*level height*/  27,
- /*level width*/   894,
+ /*level width*/   895,
  /*song*/          MOD_JUMPER,
  /*name length*/   6,
  /*difficulty*/    3,
