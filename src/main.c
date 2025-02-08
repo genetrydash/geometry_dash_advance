@@ -288,7 +288,7 @@ void game_loop() {
 
     memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
     memcpy16(&palette_buffer[240], &menu_palette[16], 16);
-
+    
     memcpy32(&tile_mem_obj[0][992], level_text_chr, sizeof(level_text_chr) / 4);
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
