@@ -941,7 +941,7 @@ stereomadness_spr_data:
    .word 0x29c8 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x10 @ bg layer 2   
+   .hword 0x18 @ bg layer 3   
    .hword 2 @ metatile ID appareance
 @ Object 154
    .word 0x29f0 @ x

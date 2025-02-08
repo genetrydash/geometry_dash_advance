@@ -1029,19 +1029,19 @@ polargeist_spr_data:
    .word 0x1fd8 @ x
    .hword 0x190 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 168
    .word 0x1fd8 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 169
    .word 0x1fd8 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 170
    .word 0x2028 @ x
@@ -1215,25 +1215,25 @@ polargeist_spr_data:
    .word 0x24d0 @ x
    .hword 0x178 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 8 @ metatile ID appareance
 @ Object 199
    .word 0x24d0 @ x
    .hword 0x188 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 6 @ metatile ID appareance
 @ Object 200
    .word 0x24d0 @ x
    .hword 0x198 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 6 @ metatile ID appareance
 @ Object 201
    .word 0x24d0 @ x
    .hword 0x1a8 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 22 @ metatile ID appareance
 @ Object 202
    .word 0x24d0 @ x
@@ -1251,25 +1251,25 @@ polargeist_spr_data:
    .word 0x24e0 @ x
    .hword 0x178 @ y
    .hword 0x2b @ type
-   .hword 0xa @ bg layer 1 flipped horizontally  
+   .hword 0x12 @ bg layer 2 flipped horizontally  
    .hword 8 @ metatile ID appareance
 @ Object 205
    .word 0x24e0 @ x
    .hword 0x188 @ y
    .hword 0x2b @ type
-   .hword 0xa @ bg layer 1 flipped horizontally  
+   .hword 0x12 @ bg layer 2 flipped horizontally  
    .hword 6 @ metatile ID appareance
 @ Object 206
    .word 0x24e0 @ x
    .hword 0x198 @ y
    .hword 0x2b @ type
-   .hword 0xa @ bg layer 1 flipped horizontally  
+   .hword 0x12 @ bg layer 2 flipped horizontally  
    .hword 6 @ metatile ID appareance
 @ Object 207
    .word 0x24e0 @ x
    .hword 0x1a8 @ y
    .hword 0x2b @ type
-   .hword 0xa @ bg layer 1 flipped horizontally  
+   .hword 0x12 @ bg layer 2 flipped horizontally  
    .hword 22 @ metatile ID appareance
 @ Object 208
    .word 0x24e0 @ x
@@ -1537,25 +1537,25 @@ polargeist_spr_data:
    .word 0x2bb8 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 8 @ metatile ID appareance
 @ Object 252
    .word 0x2bb8 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 6 @ metatile ID appareance
 @ Object 253
    .word 0x2bc8 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 4 @ metatile ID appareance
 @ Object 254
    .word 0x2bc8 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 22 @ metatile ID appareance
 @ Object 255
    .word 0x2bd0 @ x
@@ -1567,37 +1567,37 @@ polargeist_spr_data:
    .word 0x2bd8 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 4 @ metatile ID appareance
 @ Object 257
    .word 0x2bd8 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 22 @ metatile ID appareance
 @ Object 258
    .word 0x2be8 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 4 @ metatile ID appareance
 @ Object 259
    .word 0x2be8 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 22 @ metatile ID appareance
 @ Object 260
    .word 0x2bf8 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 4 @ metatile ID appareance
 @ Object 261
    .word 0x2bf8 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 22 @ metatile ID appareance
 @ Object 262
    .word 0x2c08 @ x
@@ -1609,13 +1609,13 @@ polargeist_spr_data:
    .word 0x2c08 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 4 @ metatile ID appareance
 @ Object 264
    .word 0x2c08 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 22 @ metatile ID appareance
 @ Object 265
    .word 0x2c18 @ x
@@ -1627,13 +1627,13 @@ polargeist_spr_data:
    .word 0x2c18 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0xa @ bg layer 1 flipped horizontally  
+   .hword 0x12 @ bg layer 2 flipped horizontally  
    .hword 8 @ metatile ID appareance
 @ Object 267
    .word 0x2c18 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0xa @ bg layer 1 flipped horizontally  
+   .hword 0x12 @ bg layer 2 flipped horizontally  
    .hword 6 @ metatile ID appareance
 @ Object 268
    .word 0x2c30 @ x
@@ -2069,18 +2069,18 @@ polargeist_spr_data:
    .word 0x3990 @ x
    .hword 0x198 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 340
    .word 0x3990 @ x
    .hword 0x1a8 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 341
    .word 0x3990 @ x
    .hword 0x1b8 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
    .byte 0xff

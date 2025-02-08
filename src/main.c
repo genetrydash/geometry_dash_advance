@@ -251,17 +251,21 @@ void game_loop() {
 
     mirror_scaling = float2fx(1.0);
 
-    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(0);
+    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(1);
     REG_BG0HOFS = 0;
     REG_BG0VOFS = 0;
 
-    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32 | BG_PRIO(1);
+    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32 | BG_PRIO(2);
     REG_BG1HOFS = 0;
     REG_BG1VOFS = 0;
 
-    REG_BG2CNT  = BG_CBB(2) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(2);
+    REG_BG2CNT  = BG_CBB(2) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(3);
     REG_BG2HOFS = 0;
     REG_BG2VOFS = 0;
+
+    REG_BG3CNT  = BG_CBB(2) | BG_SBB(30) | BG_REG_32x64 | BG_PRIO(0);
+    REG_BG3HOFS = 0;
+    REG_BG3VOFS = 256;
 
     REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG2, BLD_STD);
 
@@ -278,13 +282,17 @@ void game_loop() {
     oam_init(shadow_oam, 128);
     memcpy32(&tile_mem[0][0], blockset, sizeof(blockset) / 4);
     memcpy32(&tile_mem[2][0], bg_chr, sizeof(bg_chr) / 4);
+    memcpy32(&tile_mem[2][256], level_complete_screen, sizeof(level_complete_screen) / 4);
     memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
+    memcpy16(&se_mem[30][0], level_complete_l3_tilemap, sizeof(level_complete_l3_tilemap) / 2);
+
     memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
+    memcpy16(&palette_buffer[240], &menu_palette[16], 16);
 
     memcpy32(&tile_mem_obj[0][992], level_text_chr, sizeof(level_text_chr) / 4);
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
-    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2 | DCNT_WIN0;
+    REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2 | DCNT_BG3 | DCNT_WIN0;
 
     load_level(loaded_level_id);
 

@@ -21,7 +21,7 @@ cantletgo_spr_data:
    .word 0xa8 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x0 @ bg layer 0   
+   .hword 0x8 @ bg layer 1   
    .hword 16 @ metatile ID appareance
 @ Object 4
    .word 0xa8 @ x

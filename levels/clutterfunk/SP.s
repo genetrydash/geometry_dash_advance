@@ -9,13 +9,13 @@ clutterfunk_spr_data:
    .word 0xe8 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 2
    .word 0xe8 @ x
    .hword 0x1b8 @ y
    .hword 0x14 @ type
-   .hword 0x8 @ bg layer 1 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
 @ Object 3
    .word 0xf8 @ x
@@ -27,13 +27,13 @@ clutterfunk_spr_data:
    .word 0x130 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 5
    .word 0x130 @ x
    .hword 0x1b8 @ y
    .hword 0x14 @ type
-   .hword 0x8 @ bg layer 1 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
 @ Object 6
    .word 0x140 @ x
@@ -57,7 +57,7 @@ clutterfunk_spr_data:
    .word 0x190 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 10
    .word 0x1a0 @ x
@@ -75,7 +75,7 @@ clutterfunk_spr_data:
    .word 0x1b0 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 13
    .word 0x1c0 @ x
@@ -87,7 +87,7 @@ clutterfunk_spr_data:
    .word 0x1d0 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 15
    .word 0x210 @ x
@@ -175,25 +175,25 @@ clutterfunk_spr_data:
    .word 0x350 @ x
    .hword 0x160 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 29
    .word 0x350 @ x
    .hword 0x160 @ y
    .hword 0x14 @ type
-   .hword 0x0 @ bg layer 0 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 30
    .word 0x380 @ x
    .hword 0x1b0 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 31
    .word 0x380 @ x
    .hword 0x1b0 @ y
    .hword 0x14 @ type
-   .hword 0x8 @ bg layer 1 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
 @ Object 32
    .word 0x3a0 @ x
@@ -217,13 +217,13 @@ clutterfunk_spr_data:
    .word 0x3e8 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x10 @ bg layer 2   
+   .hword 0x18 @ bg layer 3   
    .hword 78 @ metatile ID appareance
 @ Object 36
    .word 0x3e8 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x10 @ bg layer 2   
+   .hword 0x18 @ bg layer 3   
    .hword 82 @ metatile ID appareance
 @ Object 37
    .word 0x3f0 @ x
@@ -383,7 +383,7 @@ clutterfunk_spr_data:
    .word 0x574 @ x
    .hword 0x1b8 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 63
    .word 0x598 @ x
@@ -395,13 +395,13 @@ clutterfunk_spr_data:
    .word 0x598 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x10 @ bg layer 2   
+   .hword 0x18 @ bg layer 3   
    .hword 78 @ metatile ID appareance
 @ Object 65
    .word 0x5bc @ x
    .hword 0x1b8 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 66
    .word 0x5e0 @ x
@@ -621,7 +621,7 @@ clutterfunk_spr_data:
    .word 0x810 @ x
    .hword 0x1b8 @ y
    .hword 0x2b @ type
-   .hword 0x10 @ bg layer 2   
+   .hword 0x18 @ bg layer 3   
    .hword 78 @ metatile ID appareance
 @ Object 102
    .word 0x817 @ x
@@ -759,7 +759,7 @@ clutterfunk_spr_data:
    .word 0x990 @ x
    .hword 0x198 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 124
    .word 0x99c @ x
@@ -783,7 +783,7 @@ clutterfunk_spr_data:
    .word 0xa18 @ x
    .hword 0x198 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 128
    .word 0xa24 @ x
@@ -927,7 +927,7 @@ clutterfunk_spr_data:
    .word 0xb80 @ x
    .hword 0x19a @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 152
    .word 0xb8c @ x
@@ -945,7 +945,7 @@ clutterfunk_spr_data:
    .word 0xbbc @ x
    .hword 0x19a @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 155
    .word 0xbc8 @ x
@@ -957,7 +957,7 @@ clutterfunk_spr_data:
    .word 0xbf8 @ x
    .hword 0x198 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 157
    .word 0xc08 @ x
@@ -969,7 +969,7 @@ clutterfunk_spr_data:
    .word 0xc18 @ x
    .hword 0x198 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 159
    .word 0xc3c @ x
@@ -987,7 +987,7 @@ clutterfunk_spr_data:
    .word 0xc50 @ x
    .hword 0x198 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 162
    .word 0xc5c @ x
@@ -1011,7 +1011,7 @@ clutterfunk_spr_data:
    .word 0xc68 @ x
    .hword 0x198 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 166
    .word 0xc94 @ x
@@ -1029,7 +1029,7 @@ clutterfunk_spr_data:
    .word 0xcb8 @ x
    .hword 0x158 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 169
    .word 0xcb8 @ x
@@ -1071,13 +1071,13 @@ clutterfunk_spr_data:
    .word 0xd08 @ x
    .hword 0x198 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 176
    .word 0xd18 @ x
    .hword 0x188 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 177
    .word 0xd1c @ x
@@ -1095,7 +1095,7 @@ clutterfunk_spr_data:
    .word 0xd38 @ x
    .hword 0x188 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 180
    .word 0xd48 @ x
@@ -1121,7 +1121,7 @@ clutterfunk_spr_data:
    .word 0xd58 @ x
    .hword 0x188 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 184
    .word 0xd68 @ x
@@ -1133,13 +1133,13 @@ clutterfunk_spr_data:
    .word 0xd78 @ x
    .hword 0x188 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 186
    .word 0xdc5 @ x
    .hword 0x136 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 187
    .word 0xdc5 @ x
@@ -1163,7 +1163,7 @@ clutterfunk_spr_data:
    .word 0xe00 @ x
    .hword 0x136 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 191
    .word 0xe00 @ x
@@ -1187,7 +1187,7 @@ clutterfunk_spr_data:
    .word 0xe3c @ x
    .hword 0x136 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 195
    .word 0xe3c @ x
@@ -1211,7 +1211,7 @@ clutterfunk_spr_data:
    .word 0xe78 @ x
    .hword 0x198 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 199
    .word 0xe80 @ x
@@ -1253,7 +1253,7 @@ clutterfunk_spr_data:
    .word 0xf20 @ x
    .hword 0x198 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 206
    .word 0xf2c @ x
@@ -1265,7 +1265,7 @@ clutterfunk_spr_data:
    .word 0xf50 @ x
    .hword 0x158 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 208
    .word 0xf60 @ x
@@ -1283,7 +1283,7 @@ clutterfunk_spr_data:
    .word 0xf74 @ x
    .hword 0x158 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 211
    .word 0xf98 @ x
@@ -1373,7 +1373,7 @@ clutterfunk_spr_data:
    .word 0x1040 @ x
    .hword 0x15c @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 226
    .word 0x106e @ x
@@ -1433,7 +1433,7 @@ clutterfunk_spr_data:
    .word 0x10dc @ x
    .hword 0x198 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 236
    .word 0x10ec @ x
@@ -1451,7 +1451,7 @@ clutterfunk_spr_data:
    .word 0x10fc @ x
    .hword 0x198 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 239
    .word 0x1100 @ x
@@ -1475,7 +1475,7 @@ clutterfunk_spr_data:
    .word 0x111c @ x
    .hword 0x198 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 243
    .word 0x112c @ x
@@ -1511,7 +1511,7 @@ clutterfunk_spr_data:
    .word 0x1140 @ x
    .hword 0x198 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 249
    .word 0x1148 @ x
@@ -1535,7 +1535,7 @@ clutterfunk_spr_data:
    .word 0x1170 @ x
    .hword 0x158 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 253
    .word 0x1178 @ x
@@ -1547,13 +1547,13 @@ clutterfunk_spr_data:
    .word 0x1178 @ x
    .hword 0x158 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 130 @ metatile ID appareance
 @ Object 255
    .word 0x1178 @ x
    .hword 0x168 @ y
    .hword 0x2b @ type
-   .hword 0x9 @ bg layer 1  flipped vertically 
+   .hword 0x11 @ bg layer 2  flipped vertically 
    .hword 126 @ metatile ID appareance
 @ Object 256
    .word 0x1178 @ x
@@ -2941,13 +2941,13 @@ clutterfunk_spr_data:
    .word 0x1a40 @ x
    .hword 0x1a0 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 478
    .word 0x1a50 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 479
    .word 0x1a50 @ x
@@ -2971,7 +2971,7 @@ clutterfunk_spr_data:
    .word 0x1a80 @ x
    .hword 0x188 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 483
    .word 0x1a80 @ x
@@ -3003,7 +3003,7 @@ clutterfunk_spr_data:
    .word 0x1aa0 @ x
    .hword 0x198 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 488
    .word 0x1aa0 @ x
@@ -3027,7 +3027,7 @@ clutterfunk_spr_data:
    .word 0x1ac0 @ x
    .hword 0x198 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 492
    .word 0x1ac0 @ x
@@ -3051,7 +3051,7 @@ clutterfunk_spr_data:
    .word 0x1ae0 @ x
    .hword 0x198 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 496
    .word 0x1ae0 @ x
@@ -3085,7 +3085,7 @@ clutterfunk_spr_data:
    .word 0x1b10 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 501
    .word 0x1b10 @ x
@@ -3097,7 +3097,7 @@ clutterfunk_spr_data:
    .word 0x1b18 @ x
    .hword 0x1a8 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 503
    .word 0x1b18 @ x
@@ -3435,7 +3435,7 @@ clutterfunk_spr_data:
    .word 0x1d98 @ x
    .hword 0x1b8 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 556
    .word 0x1d98 @ x
@@ -3481,7 +3481,7 @@ clutterfunk_spr_data:
    .word 0x1de4 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
+   .hword 0x19 @ bg layer 3 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 563
    .word 0x1de4 @ x
@@ -3535,7 +3535,7 @@ clutterfunk_spr_data:
    .word 0x1e40 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
+   .hword 0x19 @ bg layer 3 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 572
    .word 0x1e40 @ x
@@ -3823,7 +3823,7 @@ clutterfunk_spr_data:
    .word 0x2170 @ x
    .hword 0x19c @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 618
    .word 0x21a8 @ x
@@ -3841,25 +3841,25 @@ clutterfunk_spr_data:
    .word 0x21c8 @ x
    .hword 0x198 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 621
    .word 0x21d8 @ x
    .hword 0x188 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 622
    .word 0x2210 @ x
    .hword 0x140 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 623
    .word 0x2250 @ x
    .hword 0x180 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 624
    .word 0x2288 @ x
@@ -3871,7 +3871,7 @@ clutterfunk_spr_data:
    .word 0x22a0 @ x
    .hword 0x1b0 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 626
    .word 0x22a8 @ x
@@ -3883,7 +3883,7 @@ clutterfunk_spr_data:
    .word 0x2300 @ x
    .hword 0x177 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 628
    .word 0x2328 @ x
@@ -3901,55 +3901,55 @@ clutterfunk_spr_data:
    .word 0x2348 @ x
    .hword 0x1a8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 631
    .word 0x2358 @ x
    .hword 0x198 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 632
    .word 0x2368 @ x
    .hword 0x188 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 633
    .word 0x2378 @ x
    .hword 0x178 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 634
    .word 0x2380 @ x
    .hword 0x120 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 635
    .word 0x2388 @ x
    .hword 0x168 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 636
    .word 0x23bf @ x
    .hword 0x172 @ y
    .hword -0x200 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 637
    .word 0x23d0 @ x
    .hword 0x160 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 638
    .word 0x2420 @ x
    .hword 0x120 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 639
    .word 0x2468 @ x
@@ -3967,13 +3967,13 @@ clutterfunk_spr_data:
    .word 0x24b0 @ x
    .hword 0x168 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 642
    .word 0x24b0 @ x
    .hword 0x198 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 643
    .word 0x24e8 @ x
@@ -3985,19 +3985,19 @@ clutterfunk_spr_data:
    .word 0x24fc @ x
    .hword 0x128 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 645
    .word 0x2530 @ x
    .hword 0x15c @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 646
    .word 0x2564 @ x
    .hword 0x128 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 647
    .word 0x2578 @ x
@@ -4035,7 +4035,7 @@ clutterfunk_spr_data:
    .word 0x2618 @ x
    .hword 0x180 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 653
    .word 0x2628 @ x
@@ -4053,7 +4053,7 @@ clutterfunk_spr_data:
    .word 0x2688 @ x
    .hword 0x160 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 656
    .word 0x2698 @ x
@@ -4071,7 +4071,7 @@ clutterfunk_spr_data:
    .word 0x26f8 @ x
    .hword 0x180 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 659
    .word 0x2708 @ x
@@ -4089,7 +4089,7 @@ clutterfunk_spr_data:
    .word 0x2768 @ x
    .hword 0x160 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 662
    .word 0x2778 @ x
@@ -4147,13 +4147,13 @@ clutterfunk_spr_data:
    .word 0x2880 @ x
    .hword 0x138 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 671
    .word 0x2888 @ x
    .hword 0x1ac @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 672
    .word 0x28c8 @ x
@@ -4179,7 +4179,7 @@ clutterfunk_spr_data:
    .word 0x28f0 @ x
    .hword 0x1ac @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 676
    .word 0x2938 @ x
@@ -4205,7 +4205,7 @@ clutterfunk_spr_data:
    .word 0x2970 @ x
    .hword 0x154 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 680
    .word 0x2998 @ x
@@ -4619,7 +4619,7 @@ clutterfunk_spr_data:
    .word 0x2ce8 @ x
    .hword 0x1b8 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 744
    .word 0x2ce8 @ x
@@ -4643,7 +4643,7 @@ clutterfunk_spr_data:
    .word 0x2d14 @ x
    .hword 0x1b8 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 748
    .word 0x2d14 @ x
@@ -4667,7 +4667,7 @@ clutterfunk_spr_data:
    .word 0x2d40 @ x
    .hword 0x1b8 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 752
    .word 0x2d40 @ x
@@ -5715,7 +5715,7 @@ clutterfunk_spr_data:
    .word 0x3370 @ x
    .hword 0x188 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 916
    .word 0x3370 @ x
@@ -5745,7 +5745,7 @@ clutterfunk_spr_data:
    .word 0x3390 @ x
    .hword 0x188 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 921
    .word 0x3390 @ x
@@ -5945,7 +5945,7 @@ clutterfunk_spr_data:
    .word 0x3548 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 954
    .word 0x3548 @ x
@@ -5993,7 +5993,7 @@ clutterfunk_spr_data:
    .word 0x3588 @ x
    .hword 0x1b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 962
    .word 0x3588 @ x
@@ -6089,7 +6089,7 @@ clutterfunk_spr_data:
    .word 0x35d0 @ x
    .hword 0x1b8 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 978
    .word 0x35d0 @ x
@@ -6131,7 +6131,7 @@ clutterfunk_spr_data:
    .word 0x35f0 @ x
    .hword 0x1b8 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 985
    .word 0x35f0 @ x
@@ -6423,7 +6423,7 @@ clutterfunk_spr_data:
    .word 0x37f0 @ x
    .hword 0x158 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1033
    .word 0x37f0 @ x
@@ -6459,7 +6459,7 @@ clutterfunk_spr_data:
    .word 0x3810 @ x
    .hword 0x158 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1039
    .word 0x3810 @ x
@@ -6851,7 +6851,7 @@ clutterfunk_spr_data:
    .word 0x3a40 @ x
    .hword 0x148 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1104
    .word 0x3a40 @ x
@@ -6887,7 +6887,7 @@ clutterfunk_spr_data:
    .word 0x3a60 @ x
    .hword 0x148 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1110
    .word 0x3a60 @ x

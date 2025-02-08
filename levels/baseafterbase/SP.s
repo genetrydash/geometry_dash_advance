@@ -199,19 +199,19 @@ baseafterbase_spr_data:
    .word 0x878 @ x
    .hword 0x190 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 33
    .word 0x878 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 34
    .word 0x878 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 35
    .word 0x8a0 @ x
@@ -1899,6 +1899,6 @@ baseafterbase_spr_data:
    .word 0x3570 @ x
    .hword 0x1b4 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 2 @ metatile ID appareance
    .byte 0xff

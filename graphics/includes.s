@@ -6,6 +6,8 @@
 .global menu_chr
 .global animated_sprites
 .global level_text_chr
+.global level_complete_screen
+    
 .align 2
 blockset:
     .incbin "graphics/tileset.chr"
@@ -27,6 +29,9 @@ animated_sprites:
 
 level_text_chr:
     .incbin "graphics/level_text.chr"
+
+level_complete_screen:
+    .incbin "graphics/level_complete_screen.chr"
 
 @ I put it there because gcc won't keep it
 .align 4

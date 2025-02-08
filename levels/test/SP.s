@@ -15,7 +15,7 @@ test_spr_data:
    .word 0x20 @ x
    .hword 0x170 @ y
    .hword 0x29 @ type
-   .hword 0x0 @ bg layer 0 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 3
    .word 0x40 @ x
@@ -27,7 +27,7 @@ test_spr_data:
    .word 0x50 @ x
    .hword 0x150 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 5
    .word 0x50 @ x

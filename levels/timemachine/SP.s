@@ -1341,43 +1341,43 @@ timemachine_spr_data:
    .word 0x16e0 @ x
    .hword 0x158 @ y
    .hword 0x1f @ type
-   .hword 0xa @ bg layer 1 non rotated flipped horizontally  
+   .hword 0x12 @ bg layer 2 non rotated flipped horizontally  
    .hword 0 @ rotation
 @ Object 222
    .word 0x16e0 @ x
    .hword 0x178 @ y
    .hword 0x1f @ type
-   .hword 0xa @ bg layer 1 non rotated flipped horizontally  
+   .hword 0x12 @ bg layer 2 non rotated flipped horizontally  
    .hword 0 @ rotation
 @ Object 223
    .word 0x16f0 @ x
    .hword 0x148 @ y
    .hword 0x20 @ type
-   .hword 0x8 @ bg layer 1 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
 @ Object 224
    .word 0x16f0 @ x
    .hword 0x158 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 8 @ metatile ID appareance
 @ Object 225
    .word 0x16f0 @ x
    .hword 0x168 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 22 @ metatile ID appareance
 @ Object 226
    .word 0x16f0 @ x
    .hword 0x178 @ y
    .hword 0x2b @ type
-   .hword 0x9 @ bg layer 1  flipped vertically 
+   .hword 0x11 @ bg layer 2  flipped vertically 
    .hword 8 @ metatile ID appareance
 @ Object 227
    .word 0x16f0 @ x
    .hword 0x188 @ y
    .hword 0x20 @ type
-   .hword 0x9 @ bg layer 1 non rotated  flipped vertically 
+   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 228
    .word 0x1700 @ x
@@ -1389,37 +1389,37 @@ timemachine_spr_data:
    .word 0x1700 @ x
    .hword 0x148 @ y
    .hword 0x20 @ type
-   .hword 0x8 @ bg layer 1 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
 @ Object 230
    .word 0x1700 @ x
    .hword 0x158 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 4 @ metatile ID appareance
 @ Object 231
    .word 0x1700 @ x
    .hword 0x168 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 22 @ metatile ID appareance
 @ Object 232
    .word 0x1700 @ x
    .hword 0x168 @ y
    .hword 0x59 @ type
-   .hword 0x80 @ coin 1 bg layer 0 non rotated   
+   .hword 0x88 @ coin 1 bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 233
    .word 0x1700 @ x
    .hword 0x178 @ y
    .hword 0x2b @ type
-   .hword 0x9 @ bg layer 1  flipped vertically 
+   .hword 0x11 @ bg layer 2  flipped vertically 
    .hword 4 @ metatile ID appareance
 @ Object 234
    .word 0x1700 @ x
    .hword 0x188 @ y
    .hword 0x20 @ type
-   .hword 0x9 @ bg layer 1 non rotated  flipped vertically 
+   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 235
    .word 0x1700 @ x
@@ -1431,43 +1431,43 @@ timemachine_spr_data:
    .word 0x1710 @ x
    .hword 0x148 @ y
    .hword 0x20 @ type
-   .hword 0x8 @ bg layer 1 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
 @ Object 237
    .word 0x1710 @ x
    .hword 0x158 @ y
    .hword 0x2b @ type
-   .hword 0xa @ bg layer 1 flipped horizontally  
+   .hword 0x12 @ bg layer 2 flipped horizontally  
    .hword 8 @ metatile ID appareance
 @ Object 238
    .word 0x1710 @ x
    .hword 0x168 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 22 @ metatile ID appareance
 @ Object 239
    .word 0x1710 @ x
    .hword 0x178 @ y
    .hword 0x2b @ type
-   .hword 0xb @ bg layer 1 flipped horizontally flipped vertically 
+   .hword 0x13 @ bg layer 2 flipped horizontally flipped vertically 
    .hword 8 @ metatile ID appareance
 @ Object 240
    .word 0x1710 @ x
    .hword 0x188 @ y
    .hword 0x20 @ type
-   .hword 0x9 @ bg layer 1 non rotated  flipped vertically 
+   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 241
    .word 0x1720 @ x
    .hword 0x158 @ y
    .hword 0x1f @ type
-   .hword 0x8 @ bg layer 1 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
 @ Object 242
    .word 0x1720 @ x
    .hword 0x178 @ y
    .hword 0x1f @ type
-   .hword 0x8 @ bg layer 1 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
 @ Object 243
    .word 0x1720 @ x

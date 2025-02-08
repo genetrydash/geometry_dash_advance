@@ -35,7 +35,7 @@ dryout_spr_data:
    .word 0x160 @ x
    .hword 0x1b8 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 6
    .word 0x220 @ x
@@ -71,7 +71,7 @@ dryout_spr_data:
    .word 0x400 @ x
    .hword 0x1b8 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 12
    .word 0x448 @ x
@@ -83,7 +83,7 @@ dryout_spr_data:
    .word 0x448 @ x
    .hword 0x1b8 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 14
    .word 0x458 @ x
@@ -165,7 +165,7 @@ dryout_spr_data:
    .word 0x680 @ x
    .hword 0x1b7 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 27
    .word 0x6c0 @ x
@@ -201,25 +201,25 @@ dryout_spr_data:
    .word 0x710 @ x
    .hword 0x188 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 33
    .word 0x710 @ x
    .hword 0x198 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 34
    .word 0x710 @ x
    .hword 0x1a8 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 35
    .word 0x710 @ x
    .hword 0x1b8 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 36
    .word 0x720 @ x
@@ -261,7 +261,7 @@ dryout_spr_data:
    .word 0x8d8 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 43
    .word 0x900 @ x
@@ -543,7 +543,7 @@ dryout_spr_data:
    .word 0xfa8 @ x
    .hword 0x1b8 @ y
    .hword 0x2c @ type
-   .hword 0x38 @ bg layer -1   
+   .hword 0x0 @ bg layer 0   
    .hword 182 @ metatile ID appareance
 @ Object 90
    .word 0xfb0 @ x
@@ -561,7 +561,7 @@ dryout_spr_data:
    .word 0xff0 @ x
    .hword 0x1b8 @ y
    .hword 0x2c @ type
-   .hword 0x38 @ bg layer -1   
+   .hword 0x0 @ bg layer 0   
    .hword 182 @ metatile ID appareance
 @ Object 93
    .word 0x1010 @ x
@@ -573,7 +573,7 @@ dryout_spr_data:
    .word 0x1038 @ x
    .hword 0x1b8 @ y
    .hword 0x2c @ type
-   .hword 0x38 @ bg layer -1   
+   .hword 0x0 @ bg layer 0   
    .hword 182 @ metatile ID appareance
 @ Object 95
    .word 0x1040 @ x
@@ -597,7 +597,7 @@ dryout_spr_data:
    .word 0x1080 @ x
    .hword 0x1b8 @ y
    .hword 0x2c @ type
-   .hword 0x38 @ bg layer -1   
+   .hword 0x0 @ bg layer 0   
    .hword 182 @ metatile ID appareance
 @ Object 99
    .word 0x10c0 @ x
@@ -875,7 +875,7 @@ dryout_spr_data:
    .word 0x1888 @ x
    .hword 0x140 @ y
    .hword 0x2b @ type
-   .hword 0x9 @ bg layer 1  flipped vertically 
+   .hword 0x11 @ bg layer 2  flipped vertically 
    .hword 16 @ metatile ID appareance
 @ Object 140
    .word 0x18a0 @ x
@@ -1151,13 +1151,13 @@ dryout_spr_data:
    .word 0x2238 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 184
    .word 0x2238 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 185
    .word 0x2280 @ x
@@ -1193,19 +1193,19 @@ dryout_spr_data:
    .word 0x2328 @ x
    .hword 0x190 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 191
    .word 0x2328 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 192
    .word 0x2328 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 193
    .word 0x2340 @ x
@@ -1671,19 +1671,19 @@ dryout_spr_data:
    .word 0x3028 @ x
    .hword 0x190 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 267
    .word 0x3028 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 268
    .word 0x3028 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 269
    .word 0x3040 @ x
@@ -1777,19 +1777,19 @@ dryout_spr_data:
    .word 0x3348 @ x
    .hword 0x190 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 16 @ metatile ID appareance
 @ Object 284
    .word 0x3348 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 285
    .word 0x3348 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 286
    .word 0x3360 @ x

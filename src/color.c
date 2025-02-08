@@ -66,6 +66,7 @@ void set_bg_color(COLOR *dst, COLOR color) {
     
     // Adjust brighter color
     clr_blend(&dst[BG_PAL + BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[BRIGHTER_COLOR], 1, 0x15);
+    clr_blend(&dst[BG_PAL + BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[BRIGHTER_COLOR + 1], 1, 0x1b);
     
     blend_bg_and_obj(dst, BG_PAL);
     
@@ -84,6 +85,7 @@ void set_bg_color(COLOR *dst, COLOR color) {
 
         // Adjust brighter color
         clr_blend(&dst[BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[pal + BRIGHTER_COLOR], 1, 0x15);
+        clr_blend(&dst[BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[pal + BRIGHTER_COLOR + 1], 1, 0x1b);
     }
 
     // Copy first palette to last palette of sprites
@@ -112,6 +114,7 @@ void update_lbg_palette(COLOR *dst) {
 
     // Adjust brighter color for LBG palette
     clr_blend(&dst[BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[LIGHTER_BG_PAL + BRIGHTER_COLOR], 1, 0x15);
+    clr_blend(&dst[BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[LIGHTER_BG_PAL + BRIGHTER_COLOR + 1], 1, 0x1b);
     
     // Blend BG and OBJ
     blend_bg_and_obj(dst, LIGHTER_BG_PAL);

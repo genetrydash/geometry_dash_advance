@@ -1079,37 +1079,37 @@ jumper_spr_data:
    .word 0x2258 @ x
    .hword 0xf0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 174
    .word 0x2258 @ x
    .hword 0x100 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 175
    .word 0x2258 @ x
    .hword 0x110 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 176
    .word 0x2258 @ x
    .hword 0x120 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 177
    .word 0x2258 @ x
    .hword 0x130 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 178
    .word 0x2258 @ x
    .hword 0x140 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 179
    .word 0x2258 @ x
@@ -1127,13 +1127,13 @@ jumper_spr_data:
    .word 0x2258 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 182
    .word 0x2258 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 183
    .word 0x2270 @ x
@@ -1145,37 +1145,37 @@ jumper_spr_data:
    .word 0x2298 @ x
    .hword 0xe0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 185
    .word 0x2298 @ x
    .hword 0xf0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 186
    .word 0x2298 @ x
    .hword 0x100 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 187
    .word 0x2298 @ x
    .hword 0x110 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 188
    .word 0x2298 @ x
    .hword 0x120 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 189
    .word 0x2298 @ x
    .hword 0x130 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 190
    .word 0x2298 @ x
@@ -1193,19 +1193,19 @@ jumper_spr_data:
    .word 0x2298 @ x
    .hword 0x190 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 193
    .word 0x2298 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 194
    .word 0x2298 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 20 @ metatile ID appareance
 @ Object 195
    .word 0x22b0 @ x
@@ -1817,37 +1817,37 @@ jumper_spr_data:
    .word 0x3730 @ x
    .hword 0x168 @ y
    .hword 0x1e @ type
-   .hword 0x8 @ bg layer 1 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
    .hword 0 @ rotation
 @ Object 292
    .word 0x3730 @ x
    .hword 0x178 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 2 @ metatile ID appareance
 @ Object 293
    .word 0x3730 @ x
    .hword 0x188 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 2 @ metatile ID appareance
 @ Object 294
    .word 0x3730 @ x
    .hword 0x198 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 2 @ metatile ID appareance
 @ Object 295
    .word 0x3730 @ x
    .hword 0x1a8 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 2 @ metatile ID appareance
 @ Object 296
    .word 0x3730 @ x
    .hword 0x1b8 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 2 @ metatile ID appareance
 @ Object 297
    .word 0x3740 @ x

@@ -17,7 +17,7 @@ theoryofeverything_spr_data:
    .word 0xac @ x
    .hword 0x2b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 3
    .word 0xc0 @ x
@@ -41,7 +41,7 @@ theoryofeverything_spr_data:
    .word 0xe2 @ x
    .hword 0x2a2 @ y
    .hword 0x29 @ type
-   .hword 0x0 @ bg layer 0 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 7
    .word 0x100 @ x
@@ -65,7 +65,7 @@ theoryofeverything_spr_data:
    .word 0x11c @ x
    .hword 0x2b4 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 11
    .word 0x120 @ x
@@ -83,7 +83,7 @@ theoryofeverything_spr_data:
    .word 0x13c @ x
    .hword 0x2a0 @ y
    .hword 0x28 @ type
-   .hword 0x0 @ bg layer 0 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 14
    .word 0x16c @ x
@@ -173,7 +173,7 @@ theoryofeverything_spr_data:
    .word 0x1a0 @ x
    .hword 0x2b4 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 29
    .word 0x1a8 @ x
@@ -287,7 +287,7 @@ theoryofeverything_spr_data:
    .word 0x230 @ x
    .hword 0x2b4 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 48
    .word 0x260 @ x
@@ -359,7 +359,7 @@ theoryofeverything_spr_data:
    .word 0x2e0 @ x
    .hword 0x210 @ y
    .hword 0x29 @ type
-   .hword 0x0 @ bg layer 0 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 60
    .word 0x2e0 @ x
@@ -389,7 +389,7 @@ theoryofeverything_spr_data:
    .word 0x300 @ x
    .hword 0x210 @ y
    .hword 0x29 @ type
-   .hword 0x0 @ bg layer 0 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 65
    .word 0x300 @ x
@@ -401,7 +401,7 @@ theoryofeverything_spr_data:
    .word 0x320 @ x
    .hword 0x210 @ y
    .hword 0x29 @ type
-   .hword 0x0 @ bg layer 0 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 67
    .word 0x320 @ x
@@ -431,7 +431,7 @@ theoryofeverything_spr_data:
    .word 0x320 @ x
    .hword 0x2b4 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 72
    .word 0x350 @ x
@@ -461,7 +461,7 @@ theoryofeverything_spr_data:
    .word 0x380 @ x
    .hword 0x240 @ y
    .hword 0x28 @ type
-   .hword 0x0 @ bg layer 0 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 77
    .word 0x38c @ x
@@ -515,7 +515,7 @@ theoryofeverything_spr_data:
    .word 0x3a0 @ x
    .hword 0x2b4 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 86
    .word 0x3d0 @ x
@@ -539,7 +539,7 @@ theoryofeverything_spr_data:
    .word 0x3f0 @ x
    .hword 0x240 @ y
    .hword 0x28 @ type
-   .hword 0x0 @ bg layer 0 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 90
    .word 0x3f0 @ x
@@ -569,7 +569,7 @@ theoryofeverything_spr_data:
    .word 0x418 @ x
    .hword 0x250 @ y
    .hword 0x29 @ type
-   .hword 0x38 @ bg layer -1 non rotated   
+   .hword 0x0 @ bg layer 0 non rotated   
    .hword 0 @ rotation
 @ Object 95
    .word 0x420 @ x
@@ -599,7 +599,7 @@ theoryofeverything_spr_data:
    .word 0x430 @ x
    .hword 0x2b4 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 100
    .word 0x438 @ x
@@ -611,7 +611,7 @@ theoryofeverything_spr_data:
    .word 0x438 @ x
    .hword 0x250 @ y
    .hword 0x29 @ type
-   .hword 0x0 @ bg layer 0 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
    .hword 0 @ rotation
 @ Object 102
    .word 0x450 @ x
@@ -707,13 +707,13 @@ theoryofeverything_spr_data:
    .word 0x4c8 @ x
    .hword 0x2a8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 117
    .word 0x4f0 @ x
    .hword 0x2aa @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 118
    .word 0x4f0 @ x
@@ -725,13 +725,13 @@ theoryofeverything_spr_data:
    .word 0x508 @ x
    .hword 0x258 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 120
    .word 0x510 @ x
    .hword 0x2aa @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 121
    .word 0x510 @ x
@@ -743,13 +743,13 @@ theoryofeverything_spr_data:
    .word 0x528 @ x
    .hword 0x278 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 123
    .word 0x530 @ x
    .hword 0x2aa @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 124
    .word 0x530 @ x
@@ -761,13 +761,13 @@ theoryofeverything_spr_data:
    .word 0x548 @ x
    .hword 0x258 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 126
    .word 0x550 @ x
    .hword 0x2aa @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 127
    .word 0x550 @ x
@@ -779,19 +779,19 @@ theoryofeverything_spr_data:
    .word 0x568 @ x
    .hword 0x254 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 129
    .word 0x578 @ x
    .hword 0x2a8 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 130
    .word 0x5a0 @ x
    .hword 0x288 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 131
    .word 0x5d0 @ x
@@ -845,13 +845,13 @@ theoryofeverything_spr_data:
    .word 0x610 @ x
    .hword 0x270 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 140
    .word 0x620 @ x
    .hword 0x225 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 141
    .word 0x620 @ x
@@ -863,7 +863,7 @@ theoryofeverything_spr_data:
    .word 0x620 @ x
    .hword 0x2aa @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 143
    .word 0x620 @ x
@@ -875,43 +875,43 @@ theoryofeverything_spr_data:
    .word 0x638 @ x
    .hword 0x250 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 145
    .word 0x638 @ x
    .hword 0x260 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 146
    .word 0x638 @ x
    .hword 0x270 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 147
    .word 0x638 @ x
    .hword 0x280 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 148
    .word 0x640 @ x
    .hword 0x248 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 149
    .word 0x640 @ x
    .hword 0x288 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 150
    .word 0x650 @ x
    .hword 0x225 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 151
    .word 0x650 @ x
@@ -923,19 +923,19 @@ theoryofeverything_spr_data:
    .word 0x650 @ x
    .hword 0x248 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 153
    .word 0x650 @ x
    .hword 0x288 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 154
    .word 0x650 @ x
    .hword 0x2aa @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 155
    .word 0x650 @ x
@@ -947,31 +947,31 @@ theoryofeverything_spr_data:
    .word 0x660 @ x
    .hword 0x248 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 157
    .word 0x660 @ x
    .hword 0x288 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 158
    .word 0x670 @ x
    .hword 0x248 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 159
    .word 0x670 @ x
    .hword 0x288 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 160
    .word 0x680 @ x
    .hword 0x225 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 161
    .word 0x680 @ x
@@ -983,19 +983,19 @@ theoryofeverything_spr_data:
    .word 0x680 @ x
    .hword 0x248 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 163
    .word 0x680 @ x
    .hword 0x288 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 164
    .word 0x680 @ x
    .hword 0x2aa @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 165
    .word 0x680 @ x
@@ -1007,25 +1007,25 @@ theoryofeverything_spr_data:
    .word 0x688 @ x
    .hword 0x250 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 167
    .word 0x688 @ x
    .hword 0x260 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 168
    .word 0x688 @ x
    .hword 0x270 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 169
    .word 0x688 @ x
    .hword 0x280 @ y
    .hword 0x2a @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 170
    .word 0x6a8 @ x
@@ -1055,7 +1055,7 @@ theoryofeverything_spr_data:
    .word 0x6ac @ x
    .hword 0x268 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 175
    .word 0x6b8 @ x
@@ -1309,7 +1309,7 @@ theoryofeverything_spr_data:
    .word 0x810 @ x
    .hword 0x290 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 216
    .word 0x810 @ x
@@ -1321,13 +1321,13 @@ theoryofeverything_spr_data:
    .word 0x818 @ x
    .hword 0x278 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 218
    .word 0x818 @ x
    .hword 0x2a8 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 219
    .word 0x830 @ x
@@ -1347,43 +1347,43 @@ theoryofeverything_spr_data:
    .word 0x838 @ x
    .hword 0x268 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 222
    .word 0x848 @ x
    .hword 0x278 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 223
    .word 0x858 @ x
    .hword 0x228 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 224
    .word 0x858 @ x
    .hword 0x288 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 225
    .word 0x868 @ x
    .hword 0x238 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 226
    .word 0x878 @ x
    .hword 0x248 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 227
    .word 0x890 @ x
    .hword 0x254 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 228
    .word 0x890 @ x
@@ -1395,19 +1395,19 @@ theoryofeverything_spr_data:
    .word 0x890 @ x
    .hword 0x290 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 230
    .word 0x8d0 @ x
    .hword 0x250 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 231
    .word 0x8d0 @ x
    .hword 0x28c @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 232
    .word 0x8d0 @ x
@@ -1563,7 +1563,7 @@ theoryofeverything_spr_data:
    .word 0xa68 @ x
    .hword 0x2b8 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 257
    .word 0xa68 @ x
@@ -2577,7 +2577,7 @@ theoryofeverything_spr_data:
    .word 0x11b0 @ x
    .hword 0x270 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 419
    .word 0x11ec @ x
@@ -2591,7 +2591,7 @@ theoryofeverything_spr_data:
    .word 0x11f0 @ x
    .hword 0x230 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 421
    .word 0x11fc @ x
@@ -2617,13 +2617,13 @@ theoryofeverything_spr_data:
    .word 0x1220 @ x
    .hword 0x230 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 425
    .word 0x1260 @ x
    .hword 0x260 @ y
    .hword 0x28 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 426
    .word 0x127c @ x
@@ -4379,13 +4379,13 @@ theoryofeverything_spr_data:
    .word 0x1cc8 @ x
    .hword 0x218 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 710
    .word 0x1cc8 @ x
    .hword 0x298 @ y
    .hword 0x29 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 711
    .word 0x1d00 @ x
@@ -4969,31 +4969,31 @@ theoryofeverything_spr_data:
    .word 0x20b0 @ x
    .hword 0x278 @ y
    .hword 0x1e @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 804
    .word 0x20b0 @ x
    .hword 0x288 @ y
    .hword 0x2b @ type
-   .hword 0x10 @ bg layer 2   
+   .hword 0x18 @ bg layer 3   
    .hword 78 @ metatile ID appareance
 @ Object 805
    .word 0x20b0 @ x
    .hword 0x298 @ y
    .hword 0x2b @ type
-   .hword 0x10 @ bg layer 2   
+   .hword 0x18 @ bg layer 3   
    .hword 82 @ metatile ID appareance
 @ Object 806
    .word 0x20b0 @ x
    .hword 0x2a8 @ y
    .hword 0x2b @ type
-   .hword 0x10 @ bg layer 2   
+   .hword 0x18 @ bg layer 3   
    .hword 82 @ metatile ID appareance
 @ Object 807
    .word 0x20b0 @ x
    .hword 0x2b8 @ y
    .hword 0x2b @ type
-   .hword 0x10 @ bg layer 2   
+   .hword 0x18 @ bg layer 3   
    .hword 82 @ metatile ID appareance
 @ Object 808
    .word 0x20d0 @ x
@@ -7139,13 +7139,13 @@ theoryofeverything_spr_data:
    .word 0x31b0 @ x
    .hword 0x140 @ y
    .hword 0x55 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1147
    .word 0x31b0 @ x
    .hword 0x14c @ y
    .hword 0x57 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1148
    .word 0x31c0 @ x
@@ -7167,7 +7167,7 @@ theoryofeverything_spr_data:
    .word 0x31e0 @ x
    .hword 0xe4 @ y
    .hword 0x57 @ type
-   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
+   .hword 0x19 @ bg layer 3 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 1151
    .word 0x31e0 @ x
@@ -7255,7 +7255,7 @@ theoryofeverything_spr_data:
    .word 0x3280 @ x
    .hword 0x150 @ y
    .hword 0x58 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1165
    .word 0x32a0 @ x
@@ -7273,19 +7273,19 @@ theoryofeverything_spr_data:
    .word 0x32c8 @ x
    .hword 0xe4 @ y
    .hword 0x55 @ type
-   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
+   .hword 0x19 @ bg layer 3 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 1168
    .word 0x32d0 @ x
    .hword 0xdc @ y
    .hword 0x43 @ type
-   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
+   .hword 0x19 @ bg layer 3 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 1169
    .word 0x32e0 @ x
    .hword 0xd8 @ y
    .hword 0x42 @ type
-   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
+   .hword 0x19 @ bg layer 3 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 1170
    .word 0x32f0 @ x
@@ -7299,13 +7299,13 @@ theoryofeverything_spr_data:
    .word 0x32f0 @ x
    .hword 0x14c @ y
    .hword 0x55 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1172
    .word 0x32f8 @ x
    .hword 0xd8 @ y
    .hword 0x2b @ type
-   .hword 0x10 @ bg layer 2   
+   .hword 0x18 @ bg layer 3   
    .hword 151 @ metatile ID appareance
 @ Object 1173
    .word 0x3300 @ x
@@ -7319,7 +7319,7 @@ theoryofeverything_spr_data:
    .word 0x3308 @ x
    .hword 0xd8 @ y
    .hword 0x2b @ type
-   .hword 0x12 @ bg layer 2 flipped horizontally  
+   .hword 0x1a @ bg layer 3 flipped horizontally  
    .hword 151 @ metatile ID appareance
 @ Object 1175
    .word 0x3308 @ x
@@ -7331,31 +7331,31 @@ theoryofeverything_spr_data:
    .word 0x3310 @ x
    .hword 0x140 @ y
    .hword 0x55 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1177
    .word 0x3310 @ x
    .hword 0x14c @ y
    .hword 0x57 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1178
    .word 0x3320 @ x
    .hword 0xd8 @ y
    .hword 0x43 @ type
-   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
+   .hword 0x19 @ bg layer 3 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 1179
    .word 0x3328 @ x
    .hword 0x14c @ y
    .hword 0x54 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1180
    .word 0x3330 @ x
    .hword 0xdc @ y
    .hword 0x42 @ type
-   .hword 0x11 @ bg layer 2 non rotated  flipped vertically 
+   .hword 0x19 @ bg layer 3 non rotated  flipped vertically 
    .hword 0 @ rotation
 @ Object 1181
    .word 0x3330 @ x

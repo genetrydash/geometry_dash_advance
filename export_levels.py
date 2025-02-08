@@ -180,7 +180,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                                     if gid == 43 or gid == 44:
                                         graphics = int(prop['value'])
                                 elif prop['name'] == 'bg layer':
-                                    priority = int(prop['value'])
+                                    priority = (int(prop['value']) + 1) % 4
 
                         except Exception:
                             pass

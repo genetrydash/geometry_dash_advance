@@ -4337,13 +4337,13 @@ xstep_spr_data:
    .word 0x1e48 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 78 @ metatile ID appareance
 @ Object 694
    .word 0x1e48 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 82 @ metatile ID appareance
 @ Object 695
    .word 0x1e60 @ x
@@ -4377,19 +4377,19 @@ xstep_spr_data:
    .word 0x1e88 @ x
    .hword 0x190 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 78 @ metatile ID appareance
 @ Object 700
    .word 0x1e88 @ x
    .hword 0x1a0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 82 @ metatile ID appareance
 @ Object 701
    .word 0x1e88 @ x
    .hword 0x1b0 @ y
    .hword 0x2b @ type
-   .hword 0x8 @ bg layer 1   
+   .hword 0x10 @ bg layer 2   
    .hword 82 @ metatile ID appareance
 @ Object 702
    .word 0x1e90 @ x
@@ -5255,7 +5255,7 @@ xstep_spr_data:
    .word 0x2680 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 838
    .word 0x2680 @ x
@@ -5273,7 +5273,7 @@ xstep_spr_data:
    .word 0x2690 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 841
    .word 0x26a0 @ x
@@ -5287,7 +5287,7 @@ xstep_spr_data:
    .word 0x26a0 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 843
    .word 0x26a0 @ x
@@ -5325,7 +5325,7 @@ xstep_spr_data:
    .word 0x26c8 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 849
    .word 0x26d8 @ x
@@ -5365,13 +5365,13 @@ xstep_spr_data:
    .word 0x2700 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 855
    .word 0x2710 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 856
    .word 0x2710 @ x
@@ -5395,13 +5395,13 @@ xstep_spr_data:
    .word 0x2720 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 860
    .word 0x2730 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 861
    .word 0x2740 @ x
@@ -5413,7 +5413,7 @@ xstep_spr_data:
    .word 0x2740 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 863
    .word 0x2740 @ x
@@ -5443,7 +5443,7 @@ xstep_spr_data:
    .word 0x2770 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 868
    .word 0x2770 @ x
@@ -5477,7 +5477,7 @@ xstep_spr_data:
    .word 0x2798 @ x
    .hword 0x160 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 873
    .word 0x2798 @ x
@@ -5543,7 +5543,7 @@ xstep_spr_data:
    .word 0x2810 @ x
    .hword 0x160 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 884
    .word 0x2820 @ x
@@ -5583,7 +5583,7 @@ xstep_spr_data:
    .word 0x2850 @ x
    .hword 0x180 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 890
    .word 0x2860 @ x
@@ -5595,7 +5595,7 @@ xstep_spr_data:
    .word 0x2860 @ x
    .hword 0x180 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 892
    .word 0x2870 @ x
@@ -5615,7 +5615,7 @@ xstep_spr_data:
    .word 0x2870 @ x
    .hword 0x180 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 895
    .word 0x2880 @ x
@@ -5629,13 +5629,13 @@ xstep_spr_data:
    .word 0x2880 @ x
    .hword 0x150 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 897
    .word 0x2880 @ x
    .hword 0x180 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 898
    .word 0x2888 @ x
@@ -5647,13 +5647,13 @@ xstep_spr_data:
    .word 0x2890 @ x
    .hword 0x150 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 900
    .word 0x2890 @ x
    .hword 0x180 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 901
    .word 0x28a0 @ x
@@ -5665,25 +5665,25 @@ xstep_spr_data:
    .word 0x28a0 @ x
    .hword 0x150 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 903
    .word 0x28a0 @ x
    .hword 0x180 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 904
    .word 0x28b0 @ x
    .hword 0x150 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 905
    .word 0x28b0 @ x
    .hword 0x180 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 906
    .word 0x28b9 @ x
@@ -5703,7 +5703,7 @@ xstep_spr_data:
    .word 0x28c0 @ x
    .hword 0x180 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 909
    .word 0x28c9 @ x
@@ -5723,7 +5723,7 @@ xstep_spr_data:
    .word 0x28d0 @ x
    .hword 0x180 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 912
    .word 0x28e0 @ x
@@ -5735,25 +5735,25 @@ xstep_spr_data:
    .word 0x28e0 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 914
    .word 0x28e0 @ x
    .hword 0x180 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 915
    .word 0x28f0 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 916
    .word 0x2900 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 917
    .word 0x2906 @ x
@@ -5773,7 +5773,7 @@ xstep_spr_data:
    .word 0x2910 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 920
    .word 0x2910 @ x
@@ -5793,7 +5793,7 @@ xstep_spr_data:
    .word 0x2920 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 923
    .word 0x2920 @ x
@@ -5805,13 +5805,13 @@ xstep_spr_data:
    .word 0x2930 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 925
    .word 0x2930 @ x
    .hword 0x160 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 926
    .word 0x2940 @ x
@@ -5829,7 +5829,7 @@ xstep_spr_data:
    .word 0x2940 @ x
    .hword 0x160 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 929
    .word 0x2950 @ x
@@ -5875,7 +5875,7 @@ xstep_spr_data:
    .word 0x2990 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 936
    .word 0x2990 @ x
@@ -6041,7 +6041,7 @@ xstep_spr_data:
    .word 0x2a60 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 963
    .word 0x2a70 @ x
@@ -6153,7 +6153,7 @@ xstep_spr_data:
    .word 0x2b20 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 980
    .word 0x2b2b @ x
@@ -6173,7 +6173,7 @@ xstep_spr_data:
    .word 0x2b30 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 983
    .word 0x2b30 @ x
@@ -6185,7 +6185,7 @@ xstep_spr_data:
    .word 0x2b40 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 985
    .word 0x2b50 @ x
@@ -6209,7 +6209,7 @@ xstep_spr_data:
    .word 0x2b60 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 989
    .word 0x2b60 @ x
@@ -6249,7 +6249,7 @@ xstep_spr_data:
    .word 0x2ba0 @ x
    .hword 0x110 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 995
    .word 0x2ba0 @ x
@@ -6269,7 +6269,7 @@ xstep_spr_data:
    .word 0x2bb0 @ x
    .hword 0x110 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 998
    .word 0x2bb0 @ x
@@ -6289,13 +6289,13 @@ xstep_spr_data:
    .word 0x2bc0 @ x
    .hword 0x110 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1001
    .word 0x2bc0 @ x
    .hword 0x140 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1002
    .word 0x2bc0 @ x
@@ -6307,55 +6307,55 @@ xstep_spr_data:
    .word 0x2bd0 @ x
    .hword 0x110 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1004
    .word 0x2bd0 @ x
    .hword 0x140 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1005
    .word 0x2be0 @ x
    .hword 0x110 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1006
    .word 0x2be0 @ x
    .hword 0x140 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1007
    .word 0x2bf0 @ x
    .hword 0x110 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1008
    .word 0x2bf0 @ x
    .hword 0x140 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1009
    .word 0x2c00 @ x
    .hword 0x110 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1010
    .word 0x2c00 @ x
    .hword 0x140 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1011
    .word 0x2c10 @ x
    .hword 0x110 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1012
    .word 0x2c10 @ x
@@ -6393,7 +6393,7 @@ xstep_spr_data:
    .word 0x2c50 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1018
    .word 0x2c60 @ x
@@ -6431,7 +6431,7 @@ xstep_spr_data:
    .word 0x2c80 @ x
    .hword 0x130 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1024
    .word 0x2c80 @ x
@@ -6467,7 +6467,7 @@ xstep_spr_data:
    .word 0x2cb0 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1030
    .word 0x2cc0 @ x
@@ -6537,7 +6537,7 @@ xstep_spr_data:
    .word 0x2d10 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1041
    .word 0x2d10 @ x
@@ -6577,7 +6577,7 @@ xstep_spr_data:
    .word 0x2d40 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1047
    .word 0x2d50 @ x
@@ -6641,7 +6641,7 @@ xstep_spr_data:
    .word 0x2da0 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1057
    .word 0x2db0 @ x
@@ -6813,7 +6813,7 @@ xstep_spr_data:
    .word 0x2ec0 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1084
    .word 0x2ec0 @ x
@@ -6851,7 +6851,7 @@ xstep_spr_data:
    .word 0x2ef0 @ x
    .hword 0x140 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1090
    .word 0x2f00 @ x
@@ -6869,7 +6869,7 @@ xstep_spr_data:
    .word 0x2f18 @ x
    .hword 0x170 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1093
    .word 0x2f18 @ x
@@ -6893,7 +6893,7 @@ xstep_spr_data:
    .word 0x2f40 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1097
    .word 0x2f40 @ x
@@ -6919,13 +6919,13 @@ xstep_spr_data:
    .word 0x2f50 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1101
    .word 0x2f60 @ x
    .hword 0x120 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1102
    .word 0x2f70 @ x
@@ -6949,7 +6949,7 @@ xstep_spr_data:
    .word 0x2f80 @ x
    .hword 0x160 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1106
    .word 0x2f80 @ x
@@ -6961,7 +6961,7 @@ xstep_spr_data:
    .word 0x2f90 @ x
    .hword 0x160 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1108
    .word 0x2fa0 @ x
@@ -6973,7 +6973,7 @@ xstep_spr_data:
    .word 0x2fa0 @ x
    .hword 0x160 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1110
    .word 0x2fa0 @ x
@@ -6997,7 +6997,7 @@ xstep_spr_data:
    .word 0x2fc0 @ x
    .hword 0x130 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1114
    .word 0x2fd0 @ x
@@ -7009,7 +7009,7 @@ xstep_spr_data:
    .word 0x2fd0 @ x
    .hword 0x130 @ y
    .hword 0x14 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x18 @ bg layer 3 non rotated   
    .hword 0 @ rotation
 @ Object 1116
    .word 0x2fd0 @ x
