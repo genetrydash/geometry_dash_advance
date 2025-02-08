@@ -51,6 +51,7 @@ ARM_CODE COLOR calculate_lbg(COLOR bg, COLOR p1);
 
 void update_lbg_palette(COLOR *dst);
 void set_bg_color(COLOR *dst, COLOR color);
+void adjust_brighter_color(COLOR *dst, u32 pal);
 void menu_set_bg_color(COLOR *dst, COLOR color);
 void set_obj_color(COLOR *dst, COLOR color);
 void set_ground_color(COLOR *dst, COLOR color);
