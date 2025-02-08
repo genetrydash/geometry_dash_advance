@@ -766,7 +766,7 @@ const u16 pinkPadSpr[] = {
 const u16 bigBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -24,   // x
     -10,   // y
     PRIO_IDOFF(5, 0), // id offset
@@ -777,7 +777,7 @@ const u16 bigBgDecoSpr[] = {
 const u16 mediumBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -24, // x
     -10, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -788,7 +788,7 @@ const u16 mediumBgDecoSpr[] = {
 const u16 smallBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_32x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -8, // x
     0,  // y
     PRIO_IDOFF(5, 0), // id offset
@@ -799,7 +799,7 @@ const u16 smallBgDecoSpr[] = {
 const u16 tinyBgSpikesSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_16x8,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0, // x
     6, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -810,7 +810,7 @@ const u16 tinyBgSpikesSpr[] = {
 const u16 bgChainsSpr[] = {
     ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0,   // x
     -16, // y
     PRIO_IDOFF(4, 0), // id offset
@@ -821,7 +821,7 @@ const u16 bgChainsSpr[] = {
 const u16 bgChainsBigSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0,   // x
     -32, // y
     PRIO_IDOFF(4, 0), // id offset
@@ -829,7 +829,7 @@ const u16 bgChainsBigSpr[] = {
 
     ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0,   // x
     -16, // y
     PRIO_IDOFF(4, 4), // id offset
@@ -1089,7 +1089,7 @@ const u16 basicSlab[] = {
 const u16 sawDecoBig[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_64x64,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -24, // x
     -24, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -1101,7 +1101,7 @@ const u16 sawDecoBig[] = {
 const u16 sawDecoMediumSmall[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -8, // x
     -8, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -1113,7 +1113,7 @@ const u16 sawDecoMediumSmall[] = {
 const u16 sawDecoTiny[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0, // x
     0, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -1125,7 +1125,7 @@ const u16 sawDecoTiny[] = {
 const u16 bigCloud[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -24, // x
     -8, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -1137,7 +1137,7 @@ const u16 bigCloud[] = {
 const u16 mediumCloud[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_32x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -16, // x
     0, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -1145,7 +1145,7 @@ const u16 mediumCloud[] = {
 
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     16, // x
     0, // y
     PRIO_IDOFF(5, 8), // id offset
@@ -1157,7 +1157,7 @@ const u16 mediumCloud[] = {
 const u16 smallCloud[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_32x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -16, // x
     0, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -1169,7 +1169,7 @@ const u16 smallCloud[] = {
 const u16 bushDeco[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0, // x
     0, // y
     PRIO_IDOFF(5, 0), // id offset
@@ -1181,7 +1181,7 @@ const u16 bushDeco[] = {
 const u16 bushDecoBig[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(2),
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -8, // x
     -16, // y
     PRIO_IDOFF(5, 0), // id offset
