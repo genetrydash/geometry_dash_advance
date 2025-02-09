@@ -343,10 +343,10 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("1.6_SID_INS_CRN_V_BL", TILE(0xb6, 0, H, 0), TILE(0xb2, 0, 0, V), TILE(0xb4, 0, H, 0), TILE(0xb2, 0, 0, V), COL_NONE)
     Metatile("1.6_SID_INS_CRN_V_BR", TILE(0xb2, 0, H, V), TILE(0xb6, 0, 0, 0), TILE(0xb2, 0, H, V), TILE(0xb4, 0, 0, 0), COL_NONE) // 0x118
 
-    Metatile("1.6_SLAB_BLOCK_TOP", TILE(0xa9, 0, 0, 0), TILE(0xa9, 0, H, 0), TILE(0xaa, 0, 0, V), TILE(0xaa, 0, H, V), COL_NONE)
-    Metatile("1.6_SLAB_BLOCK_BOT", TILE(0xaa, 0, 0, 0), TILE(0xaa, 0, H, 0), TILE(0xa9, 0, 0, V), TILE(0xa9, 0, H, V), COL_NONE)
-    Metatile("1.6_SLAB_BLOCK_LFT", TILE(0xa9, 0, 0, 0), TILE(0xaa, 0, H, 0), TILE(0xa9, 0, 0, V), TILE(0xaa, 0, H, V), COL_NONE)
-    Metatile("1.6_SLAB_BLOCK_RGT", TILE(0xaa, 0, 0, 0), TILE(0xa9, 0, H, 0), TILE(0xaa, 0, 0, V), TILE(0xa9, 0, H, V), COL_NONE)
+    Metatile("1.6_SLAB_BLOCK_TOP", TILE(0xa9, 0, 0, 0), TILE(0xa9, 0, H, 0), TILE(0xaa, 0, 0, V), TILE(0xaa, 0, H, V), COL_FULL)
+    Metatile("1.6_SLAB_BLOCK_BOT", TILE(0xaa, 0, 0, 0), TILE(0xaa, 0, H, 0), TILE(0xa9, 0, 0, V), TILE(0xa9, 0, H, V), COL_FULL)
+    Metatile("1.6_SLAB_BLOCK_LFT", TILE(0xa9, 0, 0, 0), TILE(0xaa, 0, H, 0), TILE(0xa9, 0, 0, V), TILE(0xaa, 0, H, V), COL_FULL)
+    Metatile("1.6_SLAB_BLOCK_RGT", TILE(0xaa, 0, 0, 0), TILE(0xa9, 0, H, 0), TILE(0xaa, 0, 0, V), TILE(0xa9, 0, H, V), COL_FULL)
 
     Metatile("1.6_SLAB_CRN_TL",    TILE(0xab, 0, 0, 0), TILE(0xac, 0, 0, 0), TILE(0xbb, 0, 0, 0), TILE(0xbc, 0, 0, 0), COL_FULL)
     Metatile("1.6_SLAB_CRN_TR",    TILE(0xac, 0, H, 0), TILE(0xab, 0, H, 0), TILE(0xbc, 0, H, 0), TILE(0xbb, 0, H, 0), COL_FULL)

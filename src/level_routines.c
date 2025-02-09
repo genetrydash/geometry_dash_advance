@@ -253,6 +253,7 @@ void reset_variables() {
     complete_cutscene = FALSE;
 
     scroll_x = 0;
+    last_sprite_x = 0;
 
     dual = DUAL_OFF;
     player_2 = curr_player = player_1;
@@ -299,7 +300,7 @@ void load_level(u32 level_ID) {
     // Set level pointers
     level_pointer[0] = (u32*) level_defines[level_ID][L1_DATA_INDEX];
     level_pointer[1] = (u32*) level_defines[level_ID][L2_DATA_INDEX];
-    sprite_pointer   = (u32*) level_defines[level_ID][SPRITE_DATA_INDEX];
+    sprite_pointer   = (u16*) level_defines[level_ID][SPRITE_DATA_INDEX];
     
     u32 *properties_pointer = (u32*) level_defines[level_ID][LEVEL_PROPERTIES_INDEX];
 

@@ -8,7 +8,8 @@
 #include "../graphics/includes.h"
 
 
-u32 *sprite_pointer;
+u16 *sprite_pointer;
+u64 last_sprite_x;
 
 // Rotation values for each saw
 u16 saw_rotation[2];
@@ -73,32 +74,40 @@ ARM_CODE void load_objects() {
         if (object_buffer[index].occupied == FALSE) {
             if ((*sprite_pointer & 0xff000000) != 0xff000000) {
                 struct Object new_object;
+
                 // Get x position
-                new_object.x = *sprite_pointer;
+                u16 delta_x = *sprite_pointer;
+                new_object.x = last_sprite_x + delta_x;
+                last_sprite_x += delta_x;
                 sprite_pointer++;
+
                 // The next word has both the Y position and type, first 16 bits is type and last 16 bits is Y
                 // Y position is relative to the level height, so calculate the position from the top left of the entire level buffer,
                 // that is, adding ground height minus level height (that calculates the empty space above the level) minus 1. That is in blocks
                 // so multiply it by 16 to get a block-pixel value
-                new_object.y = (u16)(*sprite_pointer) + ((GROUND_HEIGHT - curr_level_height - 1) << 4);
-                new_object.type = (*sprite_pointer) >> 16;
+                new_object.y = *sprite_pointer + ((GROUND_HEIGHT - curr_level_height - 1) << 4);
+                sprite_pointer++;
+                new_object.type = *sprite_pointer;
                 sprite_pointer++;
 
                 // If the object is a color trigger, then get more attributes (attrib3 is set on activation)
                 switch (new_object.type) {
                     case COL_TRIGGER:
-                        new_object.attrib1 = (u16)(*sprite_pointer);  // Frames and channel
-                        new_object.attrib2 = (*sprite_pointer) >> 16; // Color
+                        new_object.attrib1 = *sprite_pointer;  // Frames and channel
                         sprite_pointer++;
-                        new_object.attrib3 = (u16)(*sprite_pointer);  // Copy channel
-                        new_object.rotation = (*sprite_pointer) >> 16; // Extra flags
+                        new_object.attrib2 = *sprite_pointer; // Color
+                        sprite_pointer++;
+                        new_object.attrib3 = *sprite_pointer;  // Copy channel
+                        sprite_pointer++;
+                        new_object.rotation = *sprite_pointer; // Extra flags
                         sprite_pointer++;
                         break;
                     case BASIC_BLOCK_OBJ:
                     case BASIC_SLAB_OBJ:
-                        new_object.attrib1 = (u16)(*sprite_pointer); // Flags
+                        new_object.attrib1 = *sprite_pointer; // Flags
                         new_object.attrib2 = 0;
-                        new_object.attrib3 = ((*sprite_pointer) >> 16); // Metatile ID graphics
+                        sprite_pointer++;
+                        new_object.attrib3 = *sprite_pointer; // Metatile ID graphics
                         new_object.rotation = 0;
 
                         sprite_pointer++;
@@ -107,13 +116,14 @@ ARM_CODE void load_objects() {
                         break;
                     default:
                         // Load flip values
-                        new_object.attrib1 = (u16)(*sprite_pointer);
+                        new_object.attrib1 = *sprite_pointer;
                         new_object.attrib2 = 0;
                         new_object.attrib3 = 0;
+                        sprite_pointer++;
 
                         s32 enable_rotation = new_object.attrib1 & ENABLE_ROTATION_FLAG;
                         if (enable_rotation) {
-                            new_object.rotation = ((*sprite_pointer) >> 16);
+                            new_object.rotation = *sprite_pointer;
                         } else {
                             new_object.rotation = 0;
                         }

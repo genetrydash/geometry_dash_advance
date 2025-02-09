@@ -56,6 +56,7 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
             counter = 0
             byte_counter = 0
             sorted_objects = sorted(objects, key=lambda obj: (obj['x'], obj['y']))
+            abs_x = 0
             
             # Open the output file for writing
             with open(output_s_path, 'w') as out_file:
@@ -70,15 +71,19 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                 for obj in sorted_objects:
                     counter += 1
                     x = int(obj['x'])  # Convert to int
+                    
+                    delta_x = x - abs_x
+                    abs_x += delta_x
+
                     y = int(obj['y'])  # Convert to int
                     gid = int(obj['gid']) - 513  # Convert to int
                     
                     # Write the assembly instructions
                     out_file.write(f"@ Object {counter}\n")
-                    out_file.write(f"   .word {hex(x)} @ x\n")
+                    out_file.write(f"   .hword {hex(delta_x)} @ delta x\n")
                     out_file.write(f"   .hword {hex(y)} @ y\n")
                     out_file.write(f"   .hword {hex(gid)} @ type\n")
-                    byte_counter += 8
+                    byte_counter += 6
                     if gid == 3: # COLOR TRIGGER
                         channel = 'BG'
                         color = 0

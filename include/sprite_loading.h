@@ -72,7 +72,8 @@ enum OrbBufferStates {
     ORB_BUFFER_END
 };
 
-extern u32 *sprite_pointer;
+extern u16 *sprite_pointer;
+extern u64 last_sprite_x;
 extern struct ObjectSlot object_buffer[MAX_OBJECTS];
 
 
