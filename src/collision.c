@@ -66,12 +66,18 @@ ARM_CODE void collision_cube() {
                 if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
                     continue;
                 }
+                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height, layer, BOTTOM)) {
+                    continue;
+                }
                 if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height, layer, BOTTOM)) {
                     continue;
                 }
             } else if (curr_player.should_check_ceiling) { {
                     // If ceiling should be checked, check for top collision
                     if (run_coll(coll_x, coll_y, layer, TOP)) {
+                        continue;
+                    }
+                    if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y, layer, TOP)) {
                         continue;
                     }
                     if (run_coll(coll_x + curr_player.player_width, coll_y, layer, TOP)) {
@@ -91,12 +97,18 @@ ARM_CODE void collision_cube() {
                 if (run_coll(coll_x, coll_y, layer, TOP)) {
                     continue;
                 }
+                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y, layer, TOP)) {
+                    continue;
+                }
                 if (run_coll(coll_x + curr_player.player_width, coll_y, layer, TOP)) {
                     continue;
                 }
             } else if (curr_player.should_check_ceiling) {
                 // If ceiling should be checked, check for bottom collision
                 if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
+                    continue;
+                }
+                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height, layer, BOTTOM)) {
                     continue;
                 }
                 if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height, layer, BOTTOM)) {
@@ -155,6 +167,9 @@ ARM_CODE void collision_ship_ball_ufo() {
             if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
                 continue;
             }
+            if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height, layer, BOTTOM)) {
+                continue;
+            }
             if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height, layer, BOTTOM)) {
                 continue;
             }
@@ -165,6 +180,9 @@ ARM_CODE void collision_ship_ball_ufo() {
             coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1) + 1;
 
             if (run_coll(coll_x, coll_y, layer, TOP)) {
+                continue;
+            }
+            if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y, layer, TOP)) {
                 continue;
             }
             if (run_coll(coll_x + curr_player.player_width, coll_y, layer, TOP)) {
@@ -233,6 +251,8 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
             eject = y_inside_block;
             break;
             
+        // Normal slab 
+
         case COL_SLAB_TOP:
             if (y_inside_block < 0x8) {
                 eject = y_inside_block & 0x07;
@@ -261,6 +281,83 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
             }
             return 0;
 
+        // Medium slab
+
+        case COL_SLAB_MED_TOP:
+            if (x_inside_block >= 0x02 && x_inside_block < 0x0e) {
+                if (y_inside_block < 0x8) {
+                    eject = y_inside_block & 0x07;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_SLAB_MED_BOTTOM:
+            if (x_inside_block >= 0x02 && x_inside_block < 0x0e) {
+                if (y_inside_block >= 0x8) {
+                    eject = y_inside_block - 0x08;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_SLAB_MED_LEFT:
+            if (y_inside_block >= 0x02 && y_inside_block < 0x0e) {
+                if (x_inside_block < 0x8) {
+                    eject = y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_SLAB_MED_RIGHT:
+            if (y_inside_block >= 0x02 && y_inside_block < 0x0e) {
+                if (x_inside_block >= 0x8) {
+                    eject = y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+            
+        // Tiny slab
+
+        case COL_SLAB_TINY_TOP:
+            if (x_inside_block >= 0x05 && x_inside_block < 0x0b) {
+                if (y_inside_block < 0x8) {
+                    eject = y_inside_block & 0x07;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_SLAB_TINY_BOTTOM:
+            if (x_inside_block >= 0x05 && x_inside_block < 0x0b) {
+                if (y_inside_block >= 0x8) {
+                    eject = y_inside_block - 0x08;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_SLAB_TINY_LEFT:
+            if (y_inside_block >= 0x05 && y_inside_block < 0x0b) {
+                if (x_inside_block < 0x8) {
+                    eject = y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_SLAB_TINY_RIGHT:
+            if (y_inside_block >= 0x05 && y_inside_block < 0x0b) {
+                if (x_inside_block >= 0x8) {
+                    eject = y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+        
         // Everything else
         default:
             return 0;
@@ -745,6 +842,16 @@ const jmp_table spike_coll_jump_table[] = {
     col_ground_bush_spike_bottom, // COL_GROUND_BUSH_SPIKE_BOTTOM
     col_ground_bush_spike_right,  // COL_GROUND_BUSH_SPIKE_RIGHT
     col_ground_bush_spike_left,   // COL_GROUND_BUSH_SPIKE_LEFT
+
+    not_an_spike, // COL_SLAB_MED_TOP
+    not_an_spike, // COL_SLAB_MED_BOTTOM
+    not_an_spike, // COL_SLAB_MED_LEFT
+    not_an_spike, // COL_SLAB_MED_RIGHT
+
+    not_an_spike, // COL_SLAB_TINY_TOP
+    not_an_spike, // COL_SLAB_TINY_BOTTOM
+    not_an_spike, // COL_SLAB_TINY_LEFT
+    not_an_spike, // COL_SLAB_TINY_RIGHT
 };
 
 // This function iterates through spikes that the player is touching and applies collision to it
