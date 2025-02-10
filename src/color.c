@@ -36,14 +36,16 @@ const u16 pal_bg_to_spr[] = {
     0x1a0,
 };
 
+INLINE void copy_bg_pal_to_spr(COLOR *dst, u32 pal) {
+    // Copy palette to the sprite equivalent
+    u16 equivalent_palette = pal_bg_to_spr[pal >> 4];
+    if (equivalent_palette != 0xffff) memcpy16(&dst[equivalent_palette], &dst[pal], 0x0f);
+}
+
 INLINE void blend_bg_and_obj(COLOR *dst, u32 pal) {
     // Blend both BG and OBJ colors and put it on palette slot 0x07 and 0x08
     clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_1 + pal], 1, 0x0a);
     clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_2 + pal], 1, 0x15);
-
-    // Copy palette to the sprite equivalent
-    u16 equivalent_palette = pal_bg_to_spr[pal >> 4];
-    if (equivalent_palette != 0xffff) memcpy16(&dst[equivalent_palette], &dst[pal], 0x0f);
 }
 
 INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
@@ -52,10 +54,6 @@ INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
         clr_blend(&dst[pal + 0x01], &dst[COL_ID_COLOR + pal], &dst[BG_COL_BLENDING + col + pal], 1, blend_value);
         blend_value += 0x1f / (COL_ID_COLOR - BG_COL_BLENDING + 1);
     }
-
-    // Copy palette to the sprite equivalent
-    u16 equivalent_palette = pal_bg_to_spr[pal >> 4];
-    if (equivalent_palette != 0xffff) memcpy16(&dst[equivalent_palette], &dst[pal], 0x0f);
 }
 
 void menu_set_bg_color(COLOR *dst, COLOR color) {
@@ -91,7 +89,11 @@ void set_bg_color(COLOR *dst, COLOR color) {
     }
 
     blend_bg_and_obj(dst, BG_PAL);
+    
+    // Copy pal into sprites
+    copy_bg_pal_to_spr(dst, BG_PAL);
 
+    // Update lbg
     update_lbg_palette(dst);
 
     for (u32 pal = COL_CHN_PAL; pal < COL_CHN_PAL_LAST; pal += 0x10) {  
@@ -102,6 +104,9 @@ void set_bg_color(COLOR *dst, COLOR color) {
 
         // Adjust brighter color
         adjust_brighter_color(dst, pal);
+
+        // Copy pal into sprites
+        copy_bg_pal_to_spr(dst, pal);
     }
     
     // Portal colors also have a glow on them
@@ -130,6 +135,9 @@ void update_lbg_palette(COLOR *dst) {
     
     // Blend BG and OBJ
     blend_bg_and_obj(dst, LIGHTER_BG_PAL);
+
+    // Copy pal into sprites
+    copy_bg_pal_to_spr(dst, LIGHTER_BG_PAL);
 }
 
 void adjust_brighter_color(COLOR *dst, u32 pal) {
@@ -175,17 +183,24 @@ ARM_CODE COLOR calculate_lbg(COLOR bg, COLOR p1) {
 }
 
 void set_obj_color(COLOR *dst, COLOR color) {
+    // BG
     dst[OBJ_COLOR] = color;
     blend_bg_and_obj(dst, BG_PAL);
+    copy_bg_pal_to_spr(dst, BG_PAL);
 
+    // LBG
     dst[LIGHTER_BG_PAL + OBJ_COLOR] = color;
     blend_bg_and_obj(dst, LIGHTER_BG_PAL);
+    copy_bg_pal_to_spr(dst, LIGHTER_BG_PAL);
 
     for (u32 pal = COL_CHN_PAL; pal < COL_CHN_PAL_LAST; pal += 0x10) {
         // Set BG color
         dst[OBJ_COLOR + pal] = color;
         
         blend_bg_and_obj(dst, pal);
+        
+        // Copy pal into sprites
+        copy_bg_pal_to_spr(dst, pal);
     }
 }
 
@@ -213,6 +228,8 @@ void set_color_channel_color(COLOR *dst, COLOR color, u32 channel) {
     dst[COL_ID_COLOR + pal] = color;
 
     blend_bg_and_col(dst, pal);
+    
+    copy_bg_pal_to_spr(dst, pal);
 }
 
 
