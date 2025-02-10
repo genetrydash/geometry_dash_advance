@@ -26,10 +26,24 @@ const COLOR menu_bg_colors[] = {
     0x5D60, // Cycles
 };
 
+const u16 pal_bg_to_spr[] = {
+    0x1f0,
+    0xffff,
+    0x1e0,
+    0x1d0,
+    0x1c0,
+    0x1b0,
+    0x1a0,
+};
+
 INLINE void blend_bg_and_obj(COLOR *dst, u32 pal) {
     // Blend both BG and OBJ colors and put it on palette slot 0x07 and 0x08
     clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_1 + pal], 1, 0x0a);
     clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_2 + pal], 1, 0x15);
+
+    // Copy palette to the sprite equivalent
+    u16 equivalent_palette = pal_bg_to_spr[pal >> 4];
+    if (equivalent_palette != 0xffff) memcpy16(&dst[equivalent_palette], &dst[pal], 0x0f);
 }
 
 INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
@@ -38,6 +52,10 @@ INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
         clr_blend(&dst[pal + 0x01], &dst[COL_ID_COLOR + pal], &dst[BG_COL_BLENDING + col + pal], 1, blend_value);
         blend_value += 0x1f / (COL_ID_COLOR - BG_COL_BLENDING + 1);
     }
+
+    // Copy palette to the sprite equivalent
+    u16 equivalent_palette = pal_bg_to_spr[pal >> 4];
+    if (equivalent_palette != 0xffff) memcpy16(&dst[equivalent_palette], &dst[pal], 0x0f);
 }
 
 void menu_set_bg_color(COLOR *dst, COLOR color) {
@@ -85,12 +103,9 @@ void set_bg_color(COLOR *dst, COLOR color) {
         // Adjust brighter color
         adjust_brighter_color(dst, pal);
     }
-
-    // Copy first palette to last palette of sprites
-    memcpy16(&dst[0x1f0], &dst[BG_PAL], 0x0f);
     
     // Portal colors also have a glow on them
-    clr_blend(&dst[0], &dst[PORTAL_WHITE_COLOR], &dst[PORTAL_GLOW_COLOR], 1, 0x0f);
+    clr_blend(&dst[BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[PORTAL_GLOW_COLOR], 1, 0x0f);
 
     u32 loops = (PORTAL_GLOW_COLOR + 0x10) + ((NUM_PORTAL_PALETTES - 1) << 4);
     for (u32 pal = (PORTAL_GLOW_COLOR + 0x10) ; pal < loops; pal += 0x10) {
