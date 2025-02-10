@@ -123,11 +123,11 @@ ARM_CODE void load_objects() {
 
                         s32 enable_rotation = new_object.attrib1 & ENABLE_ROTATION_FLAG;
                         if (enable_rotation) {
-                            new_object.rotation = *sprite_pointer;
+                            new_object.rotation = *sprite_pointer;  
+                            sprite_pointer++;
                         } else {
                             new_object.rotation = 0;
                         }
-                        sprite_pointer++;
                         
                         // If an invalid object was found, skip it
                         if (new_object.type >= OBJ_COUNT) {
