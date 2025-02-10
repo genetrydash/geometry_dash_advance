@@ -352,12 +352,12 @@ void ufo_gamemode() {
     curr_player.gravity = UFO_GRAVITY;
 
     s8 sign = curr_player.gravity_dir ? -1 : 1;
-    UNUSED s8 mirror_sign = screen_mirrored ? -1 : 1;
+    s8 mirror_sign = screen_mirrored ? -1 : 1;
 
     if (curr_player.falling) {
-        curr_player.cube_rotation = (((curr_player.player_y_speed / 2) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x40; 
+        curr_player.cube_rotation = ((curr_player.player_y_speed / 2) * mirror_sign) / (1 << (SUBPIXEL_BITS - 1)) * 0x40; 
     } else {
-        curr_player.cube_rotation = (((curr_player.player_y_speed) * mirror_sign) >> (SUBPIXEL_BITS - 1)) * 0x180; 
+        curr_player.cube_rotation = ((curr_player.player_y_speed) * mirror_sign) / (1 << (SUBPIXEL_BITS - 1)) * 0x180; 
     }
 
     // If on floor and holding A or UP, jump
