@@ -85,12 +85,12 @@ void set_bg_color(COLOR *dst, COLOR color) {
     // Adjust brighter color
     adjust_brighter_color(dst, BG_PAL);
     
-    blend_bg_and_obj(dst, BG_PAL);
-    
     // Fade to black
     for (u32 index = 2; index < 7; index++) {
         clr_adj_brightness(&dst[index], &dst[index - 1], 1, float2fx(-0.15));
     }
+
+    blend_bg_and_obj(dst, BG_PAL);
 
     update_lbg_palette(dst);
 
