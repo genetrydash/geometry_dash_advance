@@ -1,3 +1,5 @@
+![image](https://github.com/AleFunky/famidash_advance/blob/main/images/Image.jpg)
+
 ## about
 Famidash advance is a demake of geometry dash for the gba.
 
