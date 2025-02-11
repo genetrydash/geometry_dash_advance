@@ -1,4 +1,4 @@
 // Level Data Header
 #define TEST2_l1_TOTAL_BLOCKS 24165
-#define TEST2_l1_RLE_DATA_SIZE 3256
+#define TEST2_l1_RLE_DATA_SIZE 3260
 extern const unsigned short test2_l1_level_data[TEST2_l1_RLE_DATA_SIZE];
