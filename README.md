@@ -18,6 +18,6 @@ Download nightly build (unstable) [here](https://nightly.link/AleFunky/famidash_
 |Nicolestarlight|music|
 |orionconstel|music and graphics|
 |Redgd|graphics|
-|adrluc096|graphics|
+|[adrluc096](https://github.com/123456oil)|graphics|
 |KirikkSiSq|graphics|
 |[crafty_jumper](https://github.com/Crafty-Jumper)|levels|music|
