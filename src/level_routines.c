@@ -744,8 +744,14 @@ void deactivate_dual() {
     if (dual == DUAL_ON) {
         dual = DUAL_OFF;
 
+        // Save player 1 x position
+        s64 x = player_1.player_x;
+        
         // Copy curr_player into player_1, this makes so if player 2 touches the blue dual portal, player 1 teleports to that portal
         player_1 = curr_player;
+
+        // Restore x position
+        player_1.player_x = x;
         
         gamemode_upload_buffer[ID_PLAYER_1] = player_1.gamemode;
     }
