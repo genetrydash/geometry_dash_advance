@@ -15,6 +15,9 @@ if __name__ == "__main__":
     else:
         target_tempo = int(args[0])
         for tempo in range(32, 256):
+            if tempo == target_tempo:
+                continue
+            
             for speed in range(1, 256):
                 calc_tempo = calculate_tempo(tempo, speed)
 

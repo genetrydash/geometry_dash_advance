@@ -15,7 +15,8 @@ u32 coll_x;
 u32 coll_y;
 
 // Collision eject
-u32 eject = 0;
+u32 eject_top = 0;
+u32 eject_bottom = 0;
 
 ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
 ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
@@ -248,35 +249,40 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     switch (col_type) {
         case COL_FLOOR_CEIL:
         case COL_FULL:
-            eject = y_inside_block;
+            eject_bottom = y_inside_block;
+            eject_top = 0x10 - y_inside_block;
             break;
             
         // Normal slab 
 
         case COL_SLAB_TOP:
             if (y_inside_block < 0x8) {
-                eject = y_inside_block & 0x07;
+                eject_bottom = y_inside_block & 0x07;
+                eject_top = 0x08 - y_inside_block;
                 break;
             }
             return 0;
 
         case COL_SLAB_BOTTOM:
             if (y_inside_block >= 0x8) {
-                eject = y_inside_block - 0x08;
+                eject_bottom = y_inside_block - 0x08;
+                eject_top = 0x10 - y_inside_block;
                 break;
             }
             return 0;
 
         case COL_SLAB_LEFT:
             if (x_inside_block < 0x8) {
-                eject = y_inside_block;
+                eject_bottom = y_inside_block;
+                eject_top = 0x10 - y_inside_block;
                 break;
             }
             return 0;
 
         case COL_SLAB_RIGHT:
             if (x_inside_block >= 0x8) {
-                eject = y_inside_block;
+                eject_bottom = y_inside_block;
+                eject_top = 0x10 - y_inside_block;
                 break;
             }
             return 0;
@@ -286,7 +292,8 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         case COL_SLAB_MED_TOP:
             if (x_inside_block >= 0x02 && x_inside_block < 0x0e) {
                 if (y_inside_block < 0x8) {
-                    eject = y_inside_block & 0x07;
+                    eject_bottom = y_inside_block & 0x07;
+                    eject_top = 0x08 - y_inside_block;
                     break;
                 }
             }
@@ -295,7 +302,8 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         case COL_SLAB_MED_BOTTOM:
             if (x_inside_block >= 0x02 && x_inside_block < 0x0e) {
                 if (y_inside_block >= 0x8) {
-                    eject = y_inside_block - 0x08;
+                    eject_bottom = y_inside_block - 0x08;
+                    eject_top = 0x10 - y_inside_block;
                     break;
                 }
             }
@@ -304,7 +312,8 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         case COL_SLAB_MED_LEFT:
             if (y_inside_block >= 0x02 && y_inside_block < 0x0e) {
                 if (x_inside_block < 0x8) {
-                    eject = y_inside_block;
+                    eject_bottom = y_inside_block - 0x02;
+                    eject_top = 0x0e - y_inside_block;
                     break;
                 }
             }
@@ -313,7 +322,8 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         case COL_SLAB_MED_RIGHT:
             if (y_inside_block >= 0x02 && y_inside_block < 0x0e) {
                 if (x_inside_block >= 0x8) {
-                    eject = y_inside_block;
+                    eject_bottom = y_inside_block - 0x02;
+                    eject_top = 0x0e - y_inside_block;
                     break;
                 }
             }
@@ -325,7 +335,8 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         case COL_SLAB_TINY_TOP:
             if (x_inside_block >= 0x05 && x_inside_block < 0x0b) {
                 if (y_inside_block < 0x8) {
-                    eject = y_inside_block & 0x07;
+                    eject_bottom = y_inside_block & 0x07;
+                    eject_top = 0x8 - y_inside_block;
                     break;
                 }
             }
@@ -334,7 +345,8 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         case COL_SLAB_TINY_BOTTOM:
             if (x_inside_block >= 0x05 && x_inside_block < 0x0b) {
                 if (y_inside_block >= 0x8) {
-                    eject = y_inside_block - 0x08;
+                    eject_bottom = y_inside_block - 0x08;
+                    eject_top = 0x10 - y_inside_block;
                     break;
                 }
             }
@@ -343,7 +355,8 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         case COL_SLAB_TINY_LEFT:
             if (y_inside_block >= 0x05 && y_inside_block < 0x0b) {
                 if (x_inside_block < 0x8) {
-                    eject = y_inside_block;
+                    eject_bottom = y_inside_block - 0x05;
+                    eject_top = 0x0b - y_inside_block;
                     break;
                 }
             }
@@ -352,7 +365,142 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
         case COL_SLAB_TINY_RIGHT:
             if (y_inside_block >= 0x05 && y_inside_block < 0x0b) {
                 if (x_inside_block >= 0x8) {
-                    eject = y_inside_block;
+                    eject_bottom = y_inside_block - 0x05;
+                    eject_top = 0x0b - y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+        // Electroman adventures ball part slab 
+
+        case COL_EA_SLAB_TOP:
+            if (y_inside_block < 0xa) {
+                eject_bottom = y_inside_block;
+                eject_top = 0x0a - y_inside_block;
+                break;
+            }
+            return 0;
+
+        case COL_EA_SLAB_BOTTOM:
+            if (y_inside_block >= 0x6) {
+                eject_bottom = y_inside_block - 0x06;
+                eject_top = 0x10 - y_inside_block;
+                break;
+            }
+            return 0;
+
+        case COL_EA_SLAB_LEFT:
+            if (x_inside_block < 0xa) {
+                eject_bottom = y_inside_block;
+                eject_top = 0x10 - y_inside_block;
+                break;
+            }
+            return 0;
+
+        case COL_EA_SLAB_RIGHT:
+            if (x_inside_block >= 0x6) {
+                eject_bottom = y_inside_block;
+                eject_top = 0x10 - y_inside_block;
+                break;
+            }
+            return 0;
+
+        // Electroman adventures ball part corner slab 
+
+        case COL_EA_CORNER_SLAB_TOP_LEFT:
+            if (x_inside_block < 0xa) {
+                if (y_inside_block < 0xa) {
+                    eject_bottom = y_inside_block;
+                    eject_top = 0xa - y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_EA_CORNER_SLAB_TOP_RIGHT:
+            if (x_inside_block >= 0x6) {
+                if (y_inside_block < 0xa) {
+                    eject_bottom = y_inside_block;
+                    eject_top = 0xa - y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_EA_CORNER_SLAB_BOTTOM_LEFT:
+            if (x_inside_block < 0xa) {
+                if (y_inside_block >= 0x6) {
+                    eject_bottom = y_inside_block - 0x06;
+                    eject_top = 0x10 - y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_EA_CORNER_SLAB_BOTTOM_RIGHT:
+            if (x_inside_block >= 0x6) {
+                if (y_inside_block >= 0x6) {
+                    eject_bottom = y_inside_block - 0x06;
+                    eject_top = 0x10 - y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+        // Electroman adventures ball part inside corner slab 
+
+        case COL_EA_CORNER_INSIDE_SLAB_TOP_LEFT:
+            if (x_inside_block < 0xa) {
+                eject_bottom = y_inside_block;
+                eject_top = 0x10 - y_inside_block;
+                break;
+            } else {
+                if (y_inside_block < 0xa) {
+                    eject_bottom = y_inside_block;
+                    eject_top = 0xa - y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_EA_CORNER_INSIDE_SLAB_TOP_RIGHT:
+            if (x_inside_block >= 0x6) {
+                eject_bottom = y_inside_block;
+                eject_top = 0x10 - y_inside_block;
+                break;
+            } else {
+                if (y_inside_block < 0xa) {
+                    eject_bottom = y_inside_block;
+                    eject_top = 0xa - y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_EA_CORNER_INSIDE_SLAB_BOTTOM_LEFT:
+            if (x_inside_block < 0xa) {
+                eject_bottom = y_inside_block;
+                eject_top = 0x10 - y_inside_block;
+                break;
+            } else {
+                if (y_inside_block >= 0x6) {
+                    eject_bottom = y_inside_block - 0x6;
+                    eject_top = 0x10 - y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
+        case COL_EA_CORNER_INSIDE_SLAB_BOTTOM_RIGHT:
+            if (x_inside_block >= 0x6) {
+                eject_bottom = y_inside_block;
+                eject_top = 0x10 - y_inside_block;
+                break;
+            } else {
+                if (y_inside_block >= 0x6) {
+                    eject_bottom = y_inside_block - 0x6;
+                    eject_top = 0x10 - y_inside_block;
                     break;
                 }
             }
@@ -366,19 +514,19 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
     // Set related vars and set new player y position, only if this is not a center check
     
     if (side == TOP) {
-        s32 eject_value = (eject | 0xfffffff8) << SUBPIXEL_BITS;
+        s32 eject_value = eject_top << SUBPIXEL_BITS;
         s32 max_eject = gamemode_max_eject[curr_player.gamemode];
 
         // Raise eject cap if changed size
         if (curr_player.changed_size_frames) max_eject = 0x10;
 
-        if (eject_value >= -(max_eject << SUBPIXEL_BITS)) {
+        if (eject_value < (max_eject << SUBPIXEL_BITS)) {
             if (curr_player.gamemode != GAMEMODE_CUBE || curr_player.gravity_dir == GRAVITY_UP) {
                 // We are resting on the ceiling so allow jumping and stuff
                 curr_player.on_floor = 1;
             }
             
-            curr_player.player_y -= eject_value;
+            curr_player.player_y += eject_value;
             curr_player.player_y_speed = 0;
 
             // Remove subpixels
@@ -386,7 +534,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
             scroll_y &= ~0xffff;
         }
     } else if (side == BOTTOM) {   
-        s32 eject_value = eject << SUBPIXEL_BITS;
+        s32 eject_value = eject_bottom << SUBPIXEL_BITS;
 
         // Raise eject cap if changed size
         s32 max_eject = gamemode_max_eject[curr_player.gamemode];
@@ -852,6 +1000,21 @@ const jmp_table spike_coll_jump_table[] = {
     not_an_spike, // COL_SLAB_TINY_BOTTOM
     not_an_spike, // COL_SLAB_TINY_LEFT
     not_an_spike, // COL_SLAB_TINY_RIGHT
+
+    not_an_spike, // COL_EA_SLAB_TOP
+    not_an_spike, // COL_EA_SLAB_BOTTOM
+    not_an_spike, // COL_EA_SLAB_LEFT
+    not_an_spike, // COL_EA_SLAB_RIGHT
+
+    not_an_spike, // COL_EA_CORNER_SLAB_TOP_LEFT
+    not_an_spike, // COL_EA_CORNER_SLAB_TOP_RIGHT
+    not_an_spike, // COL_EA_CORNER_SLAB_BOTTOM_LEFT
+    not_an_spike, // COL_EA_CORNER_SLAB_BOTTOM_RIGHT
+    
+    not_an_spike, // COL_EA_CORNER_INSIDE_SLAB_TOP_LEFT
+    not_an_spike, // COL_EA_CORNER_INSIDE_SLAB_TOP_RIGHT
+    not_an_spike, // COL_EA_CORNER_INSIDE_SLAB_BOTTOM_LEFT
+    not_an_spike, // COL_EA_CORNER_INSIDE_SLAB_BOTTOM_RIGHT
 };
 
 // This function iterates through spikes that the player is touching and applies collision to it
