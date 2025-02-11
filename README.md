@@ -20,4 +20,4 @@ Download nightly build (unstable) [here](https://nightly.link/AleFunky/famidash_
 |Nicolestarlight|music|
 |orionconstel|music and graphics|
 |Redgd|graphics|
-|[crafty_jumper](https://github.com/Crafty-Jumper)|levels|music|
+|[crafty_jumper](https://github.com/Crafty-Jumper)|music|
