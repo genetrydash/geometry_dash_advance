@@ -42,5 +42,8 @@ void check_for_same_dual_gravity();
 void set_ceil_invulnerability();
 void draw_both_players();
 void player_code();
+
+void break_brick(u32 x, u32 y, u32 layer);
+
 u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_adjustment);
 u64 approach_value(u64 current, u64 target, s32 inc, s32 dec);

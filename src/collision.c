@@ -193,11 +193,15 @@ ARM_CODE void collision_ship_ball_ufo() {
     }
 }
 
-ARM_CODE u16 obtain_block(u32 x, u32 y, u32 layer) {
+ARM_CODE u32 obtain_level_buffer_index(u32 x, u32 y) {
     u32 block_x = (x >> 4) & 0x1f; // Get block x in buffer (0-31)
     u32 block_y = y >> 4;          // Get block y in buffer, not capped for easy level vertical extension
 
-    return level_buffer[layer][block_x + block_y * LEVEL_BUFFER_WIDTH];
+    return block_x + block_y * LEVEL_BUFFER_WIDTH;
+}
+
+ARM_CODE u16 obtain_block(u32 x, u32 y, u32 layer) {
+    return level_buffer[layer][obtain_level_buffer_index(x, y)];
 }
 
 ARM_CODE INLINE u16 obtain_collision_type(u32 x, u32 y, u32 layer) {
@@ -241,7 +245,7 @@ const u8 gamemode_max_eject[] = {
     /* Wave */ 0x06,
 };
 
-ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
+ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
     // Positions inside block, top left pixel is [0,0]
     u32 x_inside_block = x & 0x0f;
     u32 y_inside_block = y & 0x0f;
@@ -506,6 +510,18 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side) {
             }
             return 0;
         
+        // Breakable brick
+
+        case BREAKABLE_BRICK:
+            if (side == CENTER) {
+                break_brick(x, y, layer);
+                return 0;
+            } else {
+                eject_bottom = y_inside_block;
+                eject_top = 0x10 - y_inside_block;
+                break;
+            }
+
         // Everything else
         default:
             return 0;
@@ -577,7 +593,7 @@ ARM_CODE s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
 
             u16 col_type = block_object_buffer_flags[i - 1];
             
-            u32 returned = col_type_lookup(col_type, mod_x, mod_y, side);
+            u32 returned = col_type_lookup(col_type, mod_x, mod_y, side, 0);
             
             // Continue if no collision
             if (!returned) continue;
@@ -599,7 +615,7 @@ ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
     }
     
     u16 col_type = obtain_collision_type(x, y, layer);
-    return col_type_lookup(col_type, x, y, side);
+    return col_type_lookup(col_type, x, y, side, layer);
 }
 
 ARM_CODE void do_collision_with_objects() {
@@ -1015,6 +1031,8 @@ const jmp_table spike_coll_jump_table[] = {
     not_an_spike, // COL_EA_CORNER_INSIDE_SLAB_TOP_RIGHT
     not_an_spike, // COL_EA_CORNER_INSIDE_SLAB_BOTTOM_LEFT
     not_an_spike, // COL_EA_CORNER_INSIDE_SLAB_BOTTOM_RIGHT
+
+    not_an_spike, // BREAKABLE_BRICK
 };
 
 // This function iterates through spikes that the player is touching and applies collision to it

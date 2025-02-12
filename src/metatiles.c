@@ -478,8 +478,9 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("1.6_EA_INS_CRN_ALT_TR", TILE(0x11a, 0, 0, V), TILE(0x11b, 0, 0, V), TILE(0x10a, 0, 0, V), TILE(0x10b, 0, 0, V), COL_EA_CORNER_INSIDE_SLAB_TOP_RIGHT)
     Metatile("1.6_EA_INS_CRN_ALT_TL", TILE(0x11b, 0, H, V), TILE(0x11a, 0, H, V), TILE(0x10b, 0, H, V), TILE(0x10a, 0, H, V), COL_EA_CORNER_INSIDE_SLAB_TOP_LEFT)
 
-    Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
-    Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
+    Metatile("BREAKABLE_BRICK",     TILE(0xd8, 0, 0, 0), TILE(0xd8, 0, H, 0), TILE(0xd8, 0, 0, V), TILE(0xd8, 0, H, V), BREAKABLE_BRICK)
+    Metatile("BREAKABLE_BRICK_ROT", TILE(0xd9, 0, 0, 0), TILE(0xd9, 0, H, 0), TILE(0xd9, 0, 0, V), TILE(0xd9, 0, H, V), BREAKABLE_BRICK)
+
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)

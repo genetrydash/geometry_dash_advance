@@ -783,6 +783,22 @@ void check_for_same_dual_gravity() {
     }
 }
 
+void break_brick(u32 x, u32 y, u32 layer) {
+    u32 index = obtain_level_buffer_index(x, y);
+    
+    // Put air block
+    level_buffer[layer][index] = 0;
+
+    // Obtain block pos on VRAM
+    s32 x_pos = (x >> 3) & 0b11110;
+    s32 y_pos = (y >> 3) & 0b11110;
+
+    se_plot(&se_mem[24 + layer][0], x_pos,     y_pos,     SE_BUILD(0,0,0,0));
+    se_plot(&se_mem[24 + layer][0], x_pos + 1, y_pos,     SE_BUILD(0,0,0,0));
+    se_plot(&se_mem[24 + layer][0], x_pos,     y_pos + 1, SE_BUILD(0,0,0,0));
+    se_plot(&se_mem[24 + layer][0], x_pos + 1, y_pos + 1, SE_BUILD(0,0,0,0));
+}
+
 void draw_both_players() {
     curr_player_id = ID_PLAYER_1;
     curr_player = player_1;
