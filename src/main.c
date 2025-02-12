@@ -65,6 +65,9 @@ void vblank_handler() {
                 upload_player_chr(gamemode_upload_buffer[ID_PLAYER_2], ID_PLAYER_2);
                 gamemode_upload_buffer[ID_PLAYER_2] = -1;
             }
+
+            // Handle fading blocks
+            handle_fading_blocks();
         }
 
         if (update_flags & CLEAR_OAM_BUFFER) {

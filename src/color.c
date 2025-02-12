@@ -43,9 +43,10 @@ INLINE void copy_bg_pal_to_spr(COLOR *dst, u32 pal) {
 }
 
 INLINE void blend_bg_and_obj(COLOR *dst, u32 pal) {
-    // Blend both BG and OBJ colors and put it on palette slot 0x07 and 0x08
-    clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_1 + pal], 1, 0x0a);
-    clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_2 + pal], 1, 0x15);
+    // Blend both BG and OBJ colors and put it on palette slot 0x08, 0x09 and 0x0a
+    clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_1 + pal], 1, 0x03);
+    clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_2 + pal], 1, 0x0a);
+    clr_blend(&dst[pal + BG_COLOR], &dst[OBJ_COLOR + pal], &dst[BG_OBJ_BLENDING_3 + pal], 1, 0x15);
 }
 
 INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {

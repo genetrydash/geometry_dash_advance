@@ -109,3 +109,4 @@ ARM_CODE u32 is_colliding_circle_square(u32 x1, u32 y1, u32 w1, u32 h1, u32 cx2,
 ARM_CODE s32 is_colliding_rotated_fixed(s32 x1, s32 y1, s32 w1, s32 h1, s32 x2, s32 y2, s32 w2, s32 h2, s32 orig_x, s32 orig_y, s32 cx2offset, s32 cy2offset, u16 angle);
 ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer);
 ARM_CODE u32 obtain_level_buffer_index(u32 x, u32 y);
+ARM_CODE u16 obtain_block(u32 x, u32 y, u32 layer);

@@ -8,9 +8,9 @@
 #define GROUND_COLOR  0x01
 
 #define LINE_COLOR 0x08
-#define OBJ_COLOR 0x0A
+#define OBJ_COLOR 0x0B
 #define COL_ID_COLOR 0x07
-#define BRIGHTER_COLOR 0x0B
+#define BRIGHTER_COLOR 0x0C
 
 #define PORTAL_WHITE_COLOR 0x112
 #define PORTAL_GLOW_COLOR 0x117
@@ -20,6 +20,7 @@
 
 #define BG_OBJ_BLENDING_1 0x08
 #define BG_OBJ_BLENDING_2 0x09
+#define BG_OBJ_BLENDING_3 0x0a
 
 #define BG_COL_BLENDING 0x02
 

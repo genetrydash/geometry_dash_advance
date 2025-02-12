@@ -481,11 +481,31 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("BREAKABLE_BRICK",     TILE(0xd8, 0, 0, 0), TILE(0xd8, 0, H, 0), TILE(0xd8, 0, 0, V), TILE(0xd8, 0, H, V), BREAKABLE_BRICK)
     Metatile("BREAKABLE_BRICK_ROT", TILE(0xd9, 0, 0, 0), TILE(0xd9, 0, H, 0), TILE(0xd9, 0, 0, V), TILE(0xd9, 0, H, V), BREAKABLE_BRICK)
 
+    Metatile("FADING_BLOCK", TILE(0x77, 0, 0, 0), TILE(0x77, 0, H, 0), TILE(0x77, 0, 0, V), TILE(0x77, 0, H, V), COL_FULL)
+
+    Metatile("FADING_SPIKE_UP",    TILE(0x130, 0, 0, 0), TILE(0x130, 0, H, 0), TILE(0x140, 0, 0, 0), TILE(0x140, 0, H, 0), COL_SPIKE_TOP)
+    Metatile("FADING_SPIKE_DOWN",  TILE(0x140, 0, 0, V), TILE(0x140, 0, H, V), TILE(0x130, 0, 0, V), TILE(0x130, 0, H, V), COL_SPIKE_BOTTOM)
+    Metatile("FADING_SPIKE_RIGHT", TILE(0x138, 0, 0, 0), TILE(0x139, 0, 0, 0), TILE(0x138, 0, 0, V), TILE(0x139, 0, 0, V), COL_SPIKE_RIGHT) // 0x190
+    Metatile("FADING_SPIKE_LEFT",  TILE(0x139, 0, H, 0), TILE(0x138, 0, H, 0), TILE(0x139, 0, H, V), TILE(0x138, 0, H, V), COL_SPIKE_LEFT)
+
+    Metatile("FADING_SMALL_SPIKE_BOTTOM", TILE(0x000, 0, 0, 0), TILE(0x000, 0, 0, 0), TILE(0x12c, 0, 0, 0), TILE(0x12c, 0, H, 0), COL_SMALL_SPIKE_BOTTOM)
+    Metatile("FADING_SMALL_SPIKE_TOP",    TILE(0x12c, 0, 0, V), TILE(0x12c, 0, H, V), TILE(0x000, 0, 0, 0), TILE(0x000, 0, 0, 0), COL_SMALL_SPIKE_TOP)
+    Metatile("FADING_SMALL_SPIKE_LEFT",   TILE(0x077, 0, 0, 0), TILE(0x000, 0, 0, 0), TILE(0x077, 0, 0, V), TILE(0x000, 0, 0, 0), COL_SMALL_SPIKE_LEFT)
+    Metatile("FADING_SMALL_SPIKE_RIGHT",  TILE(0x000, 0, 0, 0), TILE(0x077, 0, H, 0), TILE(0x000, 0, 0, 0), TILE(0x077, 0, H, V), COL_SMALL_SPIKE_RIGHT)
+
+    Metatile("FADING_MEDIUM_SPIKE_BOTTOM", TILE(0x134, 0, 0, 0), TILE(0x134, 0, H, 0), TILE(0x144, 0, 0, 0), TILE(0x144, 0, H, 0), COL_MEDIUM_SPIKE_BOTTOM)
+    Metatile("FADING_MEDIUM_SPIKE_TOP",    TILE(0x144, 0, 0, V), TILE(0x144, 0, H, V), TILE(0x134, 0, 0, V), TILE(0x134, 0, H, V), COL_MEDIUM_SPIKE_TOP)
+    Metatile("FADING_MEDIUM_SPIKE_LEFT",   TILE(0x148, 0, 0, 0), TILE(0x149, 0, 0, 0), TILE(0x148, 0, 0, V), TILE(0x149, 0, 0, V), COL_MEDIUM_SPIKE_LEFT) // 0x198
+    Metatile("FADING_MEDIUM_SPIKE_RIGHT",  TILE(0x149, 0, H, 0), TILE(0x148, 0, H, 0), TILE(0x149, 0, H, V), TILE(0x148, 0, H, V), COL_MEDIUM_SPIKE_RIGHT)
+
+    Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
+    Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
 
-    Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE) // 0x190
+    Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE) // 0x1a0
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
@@ -493,7 +513,7 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
-    Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE) // 0x198
+    Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE) // 0x1a8
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)
     Metatile("EMPTY",    TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), TILE(0, 0, 0, 0), COL_NONE)

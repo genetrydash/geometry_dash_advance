@@ -1,4 +1,5 @@
 #include <tonc.h>
+#include "memory.h"
 
 #define SCREEN_TRANSITION_FRAMES 31 // 15 + 1 middle + 15
 #define SCREEN_TRANSITION_SWITCH_FRAME (SCREEN_TRANSITION_FRAMES >> 1)
@@ -44,6 +45,7 @@ void draw_both_players();
 void player_code();
 
 void break_brick(u32 x, u32 y, u32 layer);
+ARM_CODE void handle_fading_blocks();
 
 u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_adjustment);
 u64 approach_value(u64 current, u64 target, s32 inc, s32 dec);
