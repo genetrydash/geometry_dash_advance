@@ -133,7 +133,7 @@ enum ObjTypes {
     COIN,
 
     // 1.6 
-    
+
     PULSING_HEARTH,
 
     BIG_DECO_TRIANGLE,
@@ -153,6 +153,10 @@ enum ObjTypes {
     SMALL_SPIKE_SAW_DECO,
 
     DIAMOND_BG_CHAINS,
+
+    ALT_BIG_OUTLINE_SAW,
+    ALT_MEDIUM_OUTLINE_SAW,
+    ALT_SMALL_OUTLINE_SAW,
 
     OBJ_COUNT
 };

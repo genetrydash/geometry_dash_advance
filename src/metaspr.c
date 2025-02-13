@@ -1360,6 +1360,10 @@ ROM_DATA const u16 *obj_sprites[] = {
     sawDecoMediumSmall,
 
     bgChainsSpr,
+    
+    sawBig,
+    sawMedium,
+    sawMedium,
 
 };
 
@@ -1512,6 +1516,10 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("SMALL_SPIKE_SAW_DECO", 0x500, 0x10)
 
     CHR_SLOT("DIAMOND_BG_CHAINS", 0x510, 0x8)
+
+    CHR_SLOT("ALT_BIG_OUTLINE_SAW", 0x590, 0x40)
+    CHR_SLOT("ALT_MEDIUM_OUTLINE_SAW", 0x5d0, 0x10)
+    CHR_SLOT("ALT_SMALL_OUTLINE_SAW", 0x5e0, 0x10)
 };
 #undef CHR_SLOT
 

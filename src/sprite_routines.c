@@ -543,6 +543,10 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
 
     do_nothing,
+    
+    kill_player,
+    kill_player,
+    kill_player,
 };
 
 // In pixels
@@ -680,6 +684,10 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Circle("SMALL_SPIKE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
 
     Object_Hitbox_Rectangle("DIAMOND_BG_CHAINS", 0, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Circle("ALT_BIG_OUTLINE_SAW", TRUE, 8, 0, 0, 8, 8)
+    Object_Hitbox_Circle("ALT_MEDIUM_OUTLINE_SAW", TRUE, 10, 0, 0, 8, 8)
+    Object_Hitbox_Circle("ALT_SMALL_OUTLINE_SAW", TRUE, 2, 0, 0, 8, 8)
 };
 
 #undef Object_Hitbox
