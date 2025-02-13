@@ -226,13 +226,6 @@ s32 main() {
 
     init_sram();
 
-    REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG2, BLD_STD);
-
-    BFN_SET(REG_BLDCNT, BLD_MODE(1), BLD_MODE);
-
-    // Update blend weights
-    REG_BLDALPHA = BLDA_BUILD(0x80/8, 0x70/8);
-
     while(1) {
         switch (game_state) {
             case STATE_MENU:
@@ -270,9 +263,15 @@ void game_loop() {
     REG_BG3HOFS = 0;
     REG_BG3VOFS = 256;
 
-    REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG2, BLD_STD);
+    // Set blending registers
+    REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG0 | BLD_BG1 | BLD_BG2, BLD_STD);
 
     BFN_SET(REG_BLDCNT, BLD_MODE(1), BLD_MODE);
+
+    // Update blend weights
+    REG_BLDALPHA = BLDA_BUILD(0x80/8, 0x70/8);
+
+    // Set window registers
 
     REG_WININ = WIN_BG0 | WIN_BG1 | WIN_BG2 | WIN_BLD | WIN_OBJ;
     REG_WINOUT = WIN_BG2;

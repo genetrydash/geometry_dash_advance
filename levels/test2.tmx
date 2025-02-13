@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="650">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="672">
  <editorsettings>
   <export target="test2.json" format="json"/>
  </editorsettings>
@@ -142,5 +142,30 @@
   <object id="647" gid="530" x="224" y="432" width="16" height="16"/>
   <object id="648" gid="527" x="352" y="368" width="16" height="16"/>
   <object id="649" gid="523" x="80" y="432" width="16" height="16"/>
+  <object id="650" gid="604" x="160" y="374" width="16" height="16"/>
+  <object id="651" gid="605" x="288" y="378" width="16" height="16">
+   <properties>
+    <property name="vflip" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="652" gid="606" x="240" y="432" width="16" height="16"/>
+  <object id="653" gid="606" x="208" y="432" width="16" height="16"/>
+  <object id="655" gid="603" x="224" y="384" width="16" height="16"/>
+  <object id="656" gid="610" x="704" y="368" width="16" height="16"/>
+  <object id="659" gid="611" x="656" y="352" width="16" height="16"/>
+  <object id="660" gid="612" x="544" y="400" width="16" height="16"/>
+  <object id="661" gid="616" x="320" y="432" width="16" height="16"/>
+  <object id="662" gid="616" x="352" y="432" width="16" height="16"/>
+  <object id="663" gid="608" x="656" y="352" width="16" height="16"/>
+  <object id="664" gid="607" x="704" y="368" width="16" height="16"/>
+  <object id="665" gid="609" x="544" y="400" width="16" height="16"/>
+  <object id="666" gid="613" x="288" y="416" width="16" height="16"/>
+  <object id="667" gid="614" x="192" y="336" width="16" height="16"/>
+  <object id="668" gid="615" x="48" y="400" width="16" height="16"/>
+  <object id="671" gid="614" x="160" y="400" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

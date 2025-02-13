@@ -916,6 +916,28 @@ const u16 pulsingObjectBigSpr[] = {
     0xffff,
 };
 
+const u16 squareBgDecoSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    0, // x
+    0, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 tallBgDecoSpr[] = {
+    ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    0, // x
+    -16, // y
+    PRIO_IDOFF(5, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
 // Spikes
 const u16 spike_V[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -1318,6 +1340,27 @@ ROM_DATA const u16 *obj_sprites[] = {
     bushDecoBig,
 
     coinSpr,
+
+    // 1.6 deco
+    pulsingObjectSpr,
+    tallBgDecoSpr,
+    squareBgDecoSpr,
+    squareBgDecoSpr,
+
+    sawDecoMediumSmall,
+    sawDecoMediumSmall,
+    sawDecoTiny,
+    
+    sawBig,
+    sawMedium,
+    sawMedium,
+
+    sawDecoBig,
+    sawDecoMediumSmall,
+    sawDecoMediumSmall,
+
+    bgChainsSpr,
+
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -1447,6 +1490,28 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("BUSH_DECO_6", 0x470, 0x10)
     
     CHR_SLOT("COIN", SPRITE_NO_CHR,0)
+
+    // 1.6
+
+    CHR_SLOT("PULSING_HEARTH", 0x128, 0x4)
+
+    CHR_SLOT("BIG_DECO_TRIANGLE", 0x580, 0x8)
+    CHR_SLOT("MEDIUM_DECO_TRIANGLE", 0x588, 0x4)
+    CHR_SLOT("SMALL_DECO_TRIANGLE", 0x58c, 0x4)
+
+    CHR_SLOT("BIG_CIRCLE_SAW_DECO", 0x480, 0x10)
+    CHR_SLOT("MEDIUM_CIRCLE_SAW_DECO", 0x490, 0x10)
+    CHR_SLOT("SMALL_CIRCLE_SAW_DECO", 0x4a0, 0x4)
+    
+    CHR_SLOT("BIG_OUTLINE_SAW", 0x520, 0x40)
+    CHR_SLOT("MEDIUM_OUTLINE_SAW", 0x560, 0x10)
+    CHR_SLOT("SMALL_OUTLINE_SAW", 0x570, 0x10)
+
+    CHR_SLOT("BIG_SPIKE_SAW_DECO", 0x4b0, 0x40)
+    CHR_SLOT("MEDIUM_SPIKE_SAW_DECO", 0x4f0, 0x10)
+    CHR_SLOT("SMALL_SPIKE_SAW_DECO", 0x500, 0x10)
+
+    CHR_SLOT("DIAMOND_BG_CHAINS", 0x510, 0x8)
 };
 #undef CHR_SLOT
 

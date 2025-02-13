@@ -522,6 +522,27 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
 
     coin,
+
+    // 1.6
+    do_nothing,
+
+    do_nothing,
+    do_nothing,
+    do_nothing,
+
+    do_nothing,
+    do_nothing,
+    do_nothing,
+
+    kill_player,
+    kill_player,
+    kill_player,
+
+    do_nothing,
+    do_nothing,
+    do_nothing,
+
+    do_nothing,
 };
 
 // In pixels
@@ -637,6 +658,28 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("BUSH_DECO_6", 0, 0, 0, 0, 0, 0)
 
     Object_Hitbox_Rectangle("COIN", 22, 22, -3, -3, 8, 8)
+    
+    // 1.6
+
+    Object_Hitbox_Rectangle("PULSING_HEARTH", 0, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Rectangle("BIG_DECO_TRIANGLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("MEDIUM_DECO_TRIANGLE", 0, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("SMALL_DECO_TRIANGLE", 0, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Circle("BIG_CIRCLE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("MEDIUM_CIRCLE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("SMALL_CIRCLE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
+    
+    Object_Hitbox_Circle("BIG_OUTLINE_SAW", TRUE, 16, 0, 0, 8, 8)
+    Object_Hitbox_Circle("MEDIUM_OUTLINE_SAW", TRUE, 12, 0, 0, 8, 8)
+    Object_Hitbox_Circle("SMALL_OUTLINE_SAW", TRUE, 7, 0, 0, 8, 8)
+
+    Object_Hitbox_Circle("BIG_SPIKE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("MEDIUM_SPIKE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("SMALL_SPIKE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Rectangle("DIAMOND_BG_CHAINS", 0, 0, 0, 0, 0, 0)
 };
 
 #undef Object_Hitbox
