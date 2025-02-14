@@ -546,7 +546,7 @@ void level_complete_cutscene() {
     }
 
     if (cutscene_frame == TOTAL_CUTSCENE_FRAMES - 2) {
-        set_new_best(100, NORMAL_MODE); // Complete level
+        set_new_best(100, in_practice_mode); // Complete level
         mmEffect(SFX_LEVEL_COMPLETE);
     }
 
