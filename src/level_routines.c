@@ -26,11 +26,12 @@ u8 decompressed_column;
 
 
 void screen_scroll_load();
-void decompress_column(u32 layer);
+ARM_CODE void decompress_column(u32 layer);
 void scroll_H(u32 layer, s32 mt_count);
 void increment_column();
 void put_ground();
 void unpack_rle_packet(u32 layer);
+void restore_practice_vars();
 
 void decompress_first_screen() {
     // Put ground tiles
@@ -164,6 +165,17 @@ void screen_scroll_load() {
     }
 }
 
+ARM_CODE void practice_scroll_load() {
+    // If the scroll x value changed block position, decompress a new column in both layers
+    if (decompressed_column != ((scroll_x >> (4+SUBPIXEL_BITS)) & 0xff)) {
+        decompress_column(0);
+        decompress_column(1);
+        decompressed_column += 1;
+
+        increment_column();
+    }
+}
+
 void unpack_overflow_check(u32 layer, u32 bits_left_check);
 
 #define VALUE_SIZE_BITS 4   // 4 bits for value size
@@ -203,7 +215,7 @@ void unpack_overflow_check(u32 layer, u32 bits_left_check) {
     }
 }
 
-void decompress_column(u32 layer) {
+ARM_CODE void decompress_column(u32 layer) {
     // RLE decompress an entire column of curr_level_height blocks
     for (s32 i = 0; i < curr_level_height; i++) {
         if (length[layer] < 0) {
@@ -365,6 +377,7 @@ void transition_update_spr() {
     display_objects();
     rotate_saws();
     scale_pulsing_objects();
+    draw_checkpoints();
     
     // Sort OAM
     sort_oam_by_prio();
@@ -397,7 +410,7 @@ void fade_in_level() {
     for (s32 frame = 0; frame <= 32; frame += 4) {
         VBlankIntrWait();
         key_poll();
-        
+
         transition_update_spr();
 
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
@@ -459,6 +472,10 @@ void reset_level() {
 
     oam_init(shadow_oam, 128);
     load_level(loaded_level_id);
+
+    if (checkpoint_count > 0) {
+        restore_practice_vars();
+    }
 
     frame_finished = TRUE;
 
@@ -1144,5 +1161,193 @@ void player_code() {
         draw_player();
 
         player_2 = curr_player;
+    }
+}
+
+void store_practice_vars() {
+    struct PracticeCheckpoint new_checkpoint;
+
+    new_checkpoint.scroll_x = scroll_x;
+    new_checkpoint.scroll_y = scroll_y;
+
+    new_checkpoint.player1 = player_1;
+    new_checkpoint.player2 = player_2;
+
+    new_checkpoint.screen_mirrored = screen_mirrored;
+    new_checkpoint.screen_mirrored_transition = screen_mirrored_transition;
+    new_checkpoint.mirror_scaling = mirror_scaling;
+    new_checkpoint.transition_frame = transition_frame;
+
+    new_checkpoint.intended_scroll_y = intended_scroll_y;
+    new_checkpoint.target_scroll_y = target_scroll_y;
+
+    new_checkpoint.channels[COL1]   = palette_buffer[COL_ID_COLOR + COL_CHN_PAL];
+    new_checkpoint.channels[COL2]   = palette_buffer[COL_ID_COLOR + COL_CHN_PAL + 0x10];
+    new_checkpoint.channels[COL3]   = palette_buffer[COL_ID_COLOR + COL_CHN_PAL + 0x20];
+    new_checkpoint.channels[COL4]   = palette_buffer[COL_ID_COLOR + COL_CHN_PAL + 0x30];
+    new_checkpoint.channels[BG]     = palette_buffer[BG_COLOR + BG_PAL];
+    new_checkpoint.channels[GROUND] = palette_buffer[GROUND_COLOR + GROUND_PAL];
+    new_checkpoint.channels[OBJ]    = palette_buffer[OBJ_COLOR + BG_PAL];
+    new_checkpoint.channels[LINE]   = palette_buffer[LINE_COLOR + GROUND_PAL];
+
+    memcpy16(new_checkpoint.col_trigger_buffer, col_trigger_buffer, sizeof(col_trigger_buffer) / 2);
+
+    // Wrap around
+    if (++checkpoint_pointer >= NUM_PRACTICE_CHECKPOINTS) checkpoint_pointer = 0;
+
+    // Cap checkpoint count
+    if (++checkpoint_count > NUM_PRACTICE_CHECKPOINTS) checkpoint_count = NUM_PRACTICE_CHECKPOINTS;
+
+    checkpoints[checkpoint_pointer] = new_checkpoint;    
+}
+
+void restore_practice_vars() {
+    // Obtain checkpoint
+    struct PracticeCheckpoint curr_checkpoint = checkpoints[checkpoint_pointer];
+    
+    screen_mirrored = curr_checkpoint.screen_mirrored;
+    screen_mirrored_transition = curr_checkpoint.screen_mirrored_transition;
+    mirror_scaling = curr_checkpoint.mirror_scaling;
+    transition_frame = curr_checkpoint.transition_frame;
+
+    scroll_y = curr_checkpoint.scroll_y;
+
+    // Load level until scroll x is reached
+    do {
+        practice_scroll_load();
+ 
+        // If close enough to the spawn point, then start drawing to the screen
+        if (scroll_x >= 0x1000000 && scroll_x < curr_checkpoint.scroll_x - 0x1000000) {
+            scroll_x += 0x100000;
+        } else {
+            for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
+                // Draw horizontal seam
+                seam_x = (scroll_x >> SUBPIXEL_BITS) + SCREEN_WIDTH;  
+                seam_y = (scroll_y >> SUBPIXEL_BITS);
+                
+                scroll_H(layer, 10);
+        
+                // Draw bottom seam
+                seam_x = (scroll_x >> SUBPIXEL_BITS);
+                seam_y = (scroll_y >> SUBPIXEL_BITS) + SCREEN_HEIGHT;
+                
+                scroll_V(layer);
+                
+                // Draw top seam
+                seam_x = (scroll_x >> SUBPIXEL_BITS);
+                seam_y = (scroll_y >> SUBPIXEL_BITS);
+                    
+                scroll_V(layer);
+            }
+            scroll_x += 0x80000;
+        }
+    } while (scroll_x < curr_checkpoint.scroll_x);
+    
+    nextSpr = 0;
+
+    memset32(shadow_oam, ATTR0_HIDE, 256);
+    memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
+
+    scroll_x = curr_checkpoint.scroll_x;
+
+    player_1 = curr_checkpoint.player1;
+    player_2 = curr_checkpoint.player2;
+
+    upload_player_chr(player_1.gamemode, ID_PLAYER_1);
+    upload_player_chr(player_2.gamemode, ID_PLAYER_2);
+
+    intended_scroll_y = curr_checkpoint.intended_scroll_y;
+    target_scroll_y = curr_checkpoint.target_scroll_y;
+
+    // Set saved colors
+    set_color_channel_color(palette_buffer, curr_checkpoint.channels[COL1], 0);
+    set_color_channel_color(palette_buffer, curr_checkpoint.channels[COL2], 1);
+    set_color_channel_color(palette_buffer, curr_checkpoint.channels[COL3], 2);
+    set_color_channel_color(palette_buffer, curr_checkpoint.channels[COL4], 3);
+    set_bg_color(palette_buffer, curr_checkpoint.channels[BG]);
+    set_ground_color(palette_buffer, curr_checkpoint.channels[GROUND]);
+    set_obj_color(palette_buffer, curr_checkpoint.channels[OBJ]);
+    set_line_color(palette_buffer, curr_checkpoint.channels[LINE]);
+    
+    // Load objects from beginning until spawn point
+    u64 scroll_x_pixels = scroll_x >> SUBPIXEL_BITS;
+    while (last_sprite_x < scroll_x_pixels) {
+        display_objects();
+        load_chr_in_buffer();
+        unload_chr_in_buffer();
+        load_objects();
+    }
+    
+    for (s32 i = 0; i < MAX_OBJECTS; i++) {
+        struct Object curr_object = object_buffer[i].object;
+
+        if (curr_object.type == COL_TRIGGER) {
+            // If trigger is spawned behind player, then don't trigger it
+            u64 player_x_pixels = player_1.player_x >> SUBPIXEL_BITS;
+            if (curr_object.x < player_x_pixels) {
+                object_buffer[i].occupied = FALSE;
+                continue;
+            }
+        }
+    }
+
+    memcpy16(col_trigger_buffer, curr_checkpoint.col_trigger_buffer, sizeof(col_trigger_buffer) / 2);
+    
+    update_scroll();
+}
+
+void delete_last_checkpoint() {
+    if (checkpoint_count > 0) {
+        checkpoint_count--;
+
+        // Wrap around pointer
+        if (--checkpoint_pointer == 0) {
+            checkpoint_pointer = NUM_PRACTICE_CHECKPOINTS - 1;
+        }
+    }
+}
+
+void draw_checkpoints() {
+    for (u32 checkpoint = 0; checkpoint < checkpoint_count; checkpoint++) {
+        // Obtain buffer index
+        s32 index = WRAP((s32) (checkpoint_pointer - checkpoint), 0, NUM_PRACTICE_CHECKPOINTS);
+        struct PracticeCheckpoint curr_checkpoint = checkpoints[index];
+
+        // Obtain relative positions
+        s32 relative_x = (curr_checkpoint.player1.player_x >> SUBPIXEL_BITS) - (scroll_x >> SUBPIXEL_BITS);
+        s32 relative_y = (curr_checkpoint.player1.player_y >> SUBPIXEL_BITS) - (scroll_y >> SUBPIXEL_BITS);
+
+        // If checkpoint is inside the screen horizontally, continue
+        if (relative_x > -32 && relative_x < SCREEN_WIDTH + 128) { 
+            // If the checkpoint is inside the screen vertically, draw it
+            if (relative_y > -48 && relative_y < SCREEN_HEIGHT + 48) {
+                oam_metaspr(relative_x, relative_y, practiceCheckpoint, FALSE, FALSE, 0, 1, FALSE);
+            }
+        }
+    }
+}
+
+void update_scroll() {
+    if (screen_mirrored) {
+        REG_BG0HOFS = REG_BG1HOFS = 256 - (((scroll_x >> SUBPIXEL_BITS) - 16) & 0xff);
+        REG_BG2HOFS = 256 - ((scroll_x >> (2+SUBPIXEL_BITS)) & 0xff);
+    } else {
+        REG_BG0HOFS = REG_BG1HOFS = scroll_x >> SUBPIXEL_BITS;
+        REG_BG2HOFS = scroll_x >> (2+SUBPIXEL_BITS);
+    }
+
+    REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
+    REG_BG2VOFS = 34 + (scroll_y >> (5+SUBPIXEL_BITS));
+}
+
+void handle_gamemode_uploads() {
+    // Manage player CHR uploads
+    if (gamemode_upload_buffer[ID_PLAYER_1] >= 0) {
+        upload_player_chr(gamemode_upload_buffer[ID_PLAYER_1], ID_PLAYER_1);
+        gamemode_upload_buffer[ID_PLAYER_1] = -1;
+    }
+    if (gamemode_upload_buffer[ID_PLAYER_2] >= 0) {
+        upload_player_chr(gamemode_upload_buffer[ID_PLAYER_2], ID_PLAYER_2);
+        gamemode_upload_buffer[ID_PLAYER_2] = -1;
     }
 }

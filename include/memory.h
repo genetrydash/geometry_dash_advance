@@ -18,6 +18,8 @@
 
 #define NUM_COINS_PER_LEVEL 3
 
+#define NUM_PRACTICE_CHECKPOINTS 100
+
 typedef s64 FIXED_LONG_16;
 typedef s32 FIXED_16;
 
@@ -62,7 +64,7 @@ extern EWRAM_DATA u16 col_trigger_buffer[CHANNEL_COUNT][5];
 extern u8 curr_column;
 extern u8 curr_level_height;
 extern u32 curr_level_width;
-extern u32 *level_pointer[2];
+extern u32 *level_pointer[LEVEL_LAYERS];
 
 extern u64 scroll_x;
 extern u64 scroll_y;
@@ -140,3 +142,30 @@ extern s32 gamemode_upload_buffer[2];
 extern u8 coin_buffer[NUM_COINS_PER_LEVEL];
 extern s32 coin_speed[NUM_COINS_PER_LEVEL];
 extern s32 coin_y_pos[NUM_COINS_PER_LEVEL];
+
+#include "player.h"
+
+struct PracticeCheckpoint {
+    struct Player player1;
+    struct Player player2;
+    
+    u64 scroll_x;
+    u64 scroll_y;
+    s64 intended_scroll_y;
+    u32 target_scroll_y;
+
+    u8 screen_mirrored;
+    u8 screen_mirrored_transition;
+    FIXED mirror_scaling;
+    s8 transition_frame;
+
+    u16 col_trigger_buffer[CHANNEL_COUNT][5];
+
+    COLOR channels[CHANNEL_COUNT];
+};
+
+extern u8 in_practice_mode;
+
+extern u32 checkpoint_count;
+extern u32 checkpoint_pointer;
+extern EWRAM_DATA struct PracticeCheckpoint checkpoints[NUM_PRACTICE_CHECKPOINTS];

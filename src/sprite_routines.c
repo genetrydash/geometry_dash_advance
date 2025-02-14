@@ -380,14 +380,16 @@ void slab(UNUSED struct ObjectSlot *objectSlot) {
 }
 
 void coin(UNUSED struct ObjectSlot *objectSlot) {
-    u32 coin_id = (objectSlot->object.attrib1 & COIN_ID_FLAG) >> COIN_ID_SHIFT;
+    if (!in_practice_mode) {
+        u32 coin_id = (objectSlot->object.attrib1 & COIN_ID_FLAG) >> COIN_ID_SHIFT;
 
-    coin_y_pos[coin_id] = objectSlot->object.y << SUBPIXEL_BITS;
-    coin_speed[coin_id] = INITIAL_COIN_SPEED;
+        coin_y_pos[coin_id] = objectSlot->object.y << SUBPIXEL_BITS;
+        coin_speed[coin_id] = INITIAL_COIN_SPEED;
 
-    coin_buffer[coin_id] = 1;
+        coin_buffer[coin_id] = 1;
 
-    objectSlot->activated[ID_PLAYER_1] = objectSlot->activated[ID_PLAYER_2] = TRUE;
+        objectSlot->activated[ID_PLAYER_1] = objectSlot->activated[ID_PLAYER_2] = TRUE;
+    }
 }
 
 void do_nothing(UNUSED struct ObjectSlot *objectSlot) {

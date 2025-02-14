@@ -31,16 +31,7 @@ void vblank_handler() {
 
         if (update_flags & UPDATE_SCROLL) {
             // If screen is mirrored, flip screen position so it goes left instead of right
-            if (screen_mirrored) {
-                REG_BG0HOFS = REG_BG1HOFS = 256 - (((scroll_x >> SUBPIXEL_BITS) - 16) & 0xff);
-                REG_BG2HOFS = 256 - ((scroll_x >> (2+SUBPIXEL_BITS)) & 0xff);
-            } else {
-                REG_BG0HOFS = REG_BG1HOFS = scroll_x >> SUBPIXEL_BITS;
-                REG_BG2HOFS = scroll_x >> (2+SUBPIXEL_BITS);
-            }
-
-            REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
-            REG_BG2VOFS = 34 + (scroll_y >> (5+SUBPIXEL_BITS));
+            update_scroll();
 
             // Run scroll routines
             screen_scroll_load();
@@ -56,15 +47,7 @@ void vblank_handler() {
             // Copy palette from buffer
             memcpy32(pal_bg_mem, palette_buffer, 256);
 
-            // Manage player CHR uploads
-            if (gamemode_upload_buffer[ID_PLAYER_1] >= 0) {
-                upload_player_chr(gamemode_upload_buffer[ID_PLAYER_1], ID_PLAYER_1);
-                gamemode_upload_buffer[ID_PLAYER_1] = -1;
-            }
-            if (gamemode_upload_buffer[ID_PLAYER_2] >= 0) {
-                upload_player_chr(gamemode_upload_buffer[ID_PLAYER_2], ID_PLAYER_2);
-                gamemode_upload_buffer[ID_PLAYER_2] = -1;
-            }
+            handle_gamemode_uploads();
 
             // Handle fading blocks
             handle_fading_blocks();
@@ -76,6 +59,12 @@ void vblank_handler() {
             // Clear rotation buffer
             memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
         }
+
+        if (in_practice_mode) {
+            if (key_hit(KEY_R)) {
+                delete_last_checkpoint();
+            }
+        }
     }
 
     // Increment global timer
@@ -86,6 +75,7 @@ void vblank_handler() {
 
     // Run sound
     mmFrame();
+    
 }
 
 IWRAM_CODE void hang() {
@@ -312,6 +302,11 @@ void game_loop() {
                 mmEffect(SFX_LEVEL_EXIT);
                 game_state = STATE_MENU;      
                 memcpy32(palette_buffer, pal_bg_mem, 256);
+
+                checkpoint_count = 0;
+                checkpoint_pointer = 0;
+                in_practice_mode = FALSE;
+
                 fade_out();
                 return;
             }
@@ -325,11 +320,11 @@ void game_loop() {
         }
         
 #ifdef DEBUG
-        if (key_hit(KEY_SELECT)) {
+        if (key_hit(KEY_RIGHT)) {
             debug_mode ^= 1;
         }
 
-        if (key_hit(KEY_L)) {
+        if (key_hit(KEY_LEFT)) {
             noclip ^= 1;
         }
 #endif
@@ -346,7 +341,7 @@ void game_loop() {
 
         if (player_death) {
             mmEffect(SFX_EXPLOSION);
-            set_new_best(get_level_progress(), NORMAL_MODE);
+            set_new_best(get_level_progress(), in_practice_mode);
             reset_level();
         }
 
@@ -359,6 +354,14 @@ void game_loop() {
         display_objects();
         rotate_saws();
         scale_pulsing_objects();
+
+        if (in_practice_mode) {
+            if (key_hit(KEY_L)) {
+                store_practice_vars();
+            }
+
+            draw_checkpoints();
+        }
 
         // Sort OAM
         sort_oam_by_prio();
@@ -393,6 +396,28 @@ u32 paused_routines() {
             break;
         }
 
+        // Practice mode
+        if (key_hit(KEY_SELECT)) {
+            checkpoint_count = 0;
+            checkpoint_pointer = 0;
+            
+            in_practice_mode ^= 1;
+            update_flags = UPDATE_ALL;
+
+            if (!in_practice_mode) {
+                fade_out_level();
+
+                oam_init(shadow_oam, 128);
+                load_level(loaded_level_id);
+
+                frame_finished = TRUE;
+
+                fade_in_level();
+            }
+            break;
+        }
+
+        // Exit level
         if (key_hit(KEY_B)) {
             return 1;
         }

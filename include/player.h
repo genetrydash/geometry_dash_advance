@@ -1,4 +1,5 @@
 #include <tonc.h>
+#include "memory.h"
 
 #pragma once
 
@@ -103,6 +104,7 @@ struct Player {
     // TRUE if player is falling
     u8 falling;
 };
+
 extern u8 player_death;
 
 extern u8 speed_id;

@@ -36,6 +36,17 @@ const u16 noclipSpr[] = {
     0xffff
 };
 
+const u16 practiceCheckpoint[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(2) | ATTR2_ID(1013),
+    0,
+    0,
+    PRIO_IDOFF(0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
 // Menu
 
 const u16 menuStarSpr[] = {

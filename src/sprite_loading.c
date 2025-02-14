@@ -336,7 +336,7 @@ ARM_CODE void display_objects() {
                     }
                 }
 
-                 if (object_buffer[index].object.type == COIN && object_buffer[index].activated[ID_PLAYER_1]) {
+                if (object_buffer[index].object.type == COIN && object_buffer[index].activated[ID_PLAYER_1]) {
                     // The coin has been collected so play the animation
                     u32 coin_id = (object_buffer[index].object.attrib1 & COIN_ID_FLAG) >> COIN_ID_SHIFT;
 

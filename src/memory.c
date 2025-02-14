@@ -124,3 +124,10 @@ s32 gamemode_upload_buffer[2];
 u8 coin_buffer[NUM_COINS_PER_LEVEL];
 s32 coin_speed[NUM_COINS_PER_LEVEL];
 s32 coin_y_pos[NUM_COINS_PER_LEVEL];
+
+
+u8 in_practice_mode;
+
+u32 checkpoint_count;
+u32 checkpoint_pointer;
+EWRAM_DATA struct PracticeCheckpoint checkpoints[NUM_PRACTICE_CHECKPOINTS];

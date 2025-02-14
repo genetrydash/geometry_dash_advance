@@ -18,6 +18,7 @@ void reset_level();
 
 void fade_out();
 void fade_in();
+void fade_out_level();
 void fade_in_level();
 void fade_in_menu();
 
@@ -49,3 +50,10 @@ ARM_CODE void handle_fading_blocks();
 
 u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_adjustment);
 u64 approach_value(u64 current, u64 target, s32 inc, s32 dec);
+
+void store_practice_vars();
+void delete_last_checkpoint();
+void draw_checkpoints();
+void handle_gamemode_uploads(); 
+
+void update_scroll();
