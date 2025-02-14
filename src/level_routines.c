@@ -415,6 +415,12 @@ void fade_in_level() {
 
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }
+
+    // Do interframe drawing and clearing
+    VBlankIntrWait();
+    key_poll();
+    nextSpr = 0;
+    draw_percentage(108, 8, get_level_progress(), numberSpr, 0);
     
     update_flags = UPDATE_ALL;
 }
@@ -457,6 +463,8 @@ void reset_level() {
     display_objects();
     rotate_saws();
     scale_pulsing_objects();
+    draw_checkpoints();
+
     // Sort OAM
     sort_oam_by_prio();
 
@@ -1269,13 +1277,26 @@ void restore_practice_vars() {
     set_obj_color(palette_buffer, curr_checkpoint.channels[OBJ]);
     set_line_color(palette_buffer, curr_checkpoint.channels[LINE]);
     
-    // Load objects from beginning until spawn point
-    u64 scroll_x_pixels = scroll_x >> SUBPIXEL_BITS;
-    while (last_sprite_x < scroll_x_pixels) {
-        display_objects();
+    u8 sprite_unloaded = TRUE;
+    while (sprite_unloaded) {
+        sprite_unloaded = FALSE;
+        
         load_chr_in_buffer();
         unload_chr_in_buffer();
+
         load_objects();
+
+        for (s32 i = 0; i < MAX_OBJECTS; i++) {
+            struct Object curr_object = object_buffer[i].object;
+    
+            // If object is spawned behind scroll, then don't spawn it
+            u64 scroll_x_pixels = scroll_x >> SUBPIXEL_BITS;
+            if (curr_object.x < scroll_x_pixels) {
+                object_buffer[i].occupied = FALSE;
+                sprite_unloaded = TRUE;
+                continue;
+            }
+        }
     }
     
     for (s32 i = 0; i < MAX_OBJECTS; i++) {
@@ -1292,7 +1313,7 @@ void restore_practice_vars() {
     }
 
     memcpy16(col_trigger_buffer, curr_checkpoint.col_trigger_buffer, sizeof(col_trigger_buffer) / 2);
-    
+
     update_scroll();
 }
 
@@ -1321,7 +1342,7 @@ void draw_checkpoints() {
         if (relative_x > -32 && relative_x < SCREEN_WIDTH + 128) { 
             // If the checkpoint is inside the screen vertically, draw it
             if (relative_y > -48 && relative_y < SCREEN_HEIGHT + 48) {
-                oam_metaspr(relative_x, relative_y, practiceCheckpoint, FALSE, FALSE, 0, 1, FALSE);
+                oam_metaspr(relative_x, relative_y, practiceCheckpoint, FALSE, FALSE, 0, 0, FALSE);
             }
         }
     }

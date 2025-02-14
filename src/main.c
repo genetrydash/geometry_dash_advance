@@ -59,7 +59,9 @@ void vblank_handler() {
             // Clear rotation buffer
             memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
         }
+    }
 
+    if (game_state == STATE_PLAYING) {
         if (in_practice_mode) {
             if (key_hit(KEY_R)) {
                 delete_last_checkpoint();
