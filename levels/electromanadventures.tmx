@@ -9,7 +9,7 @@
   <property name="GROUND" type="color" value="#ff000e2e"/>
   <property name="Gamemode" type="int" value="0"/>
   <property name="Level name" value="ELECTROMAN ADVENTURES"/>
-  <property name="Song" value="STEREOMA"/>
+  <property name="Song" value="ELECTRO"/>
   <property name="Speed" type="int" value="1"/>
   <property name="Stars" type="int" value="10"/>
  </properties>
