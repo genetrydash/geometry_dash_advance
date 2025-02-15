@@ -7,7 +7,7 @@ const unsigned int electromanadventures_properties[] = {
  /*speed*/         1,
  /*level height*/  27,
  /*level width*/   879,
- /*song*/          MOD_STEREOMA,
+ /*song*/          MOD_ELECTRO,
  /*name length*/   20,
  /*difficulty*/    4,
  /*stars*/         10,
