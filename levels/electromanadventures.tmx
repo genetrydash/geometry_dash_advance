@@ -341,8 +341,16 @@
   <object id="514" gid="531" x="992" y="416" width="16" height="16"/>
   <object id="515" gid="522" x="1040" y="416" width="16" height="16"/>
   <object id="516" gid="613" x="1040" y="416" width="16" height="16"/>
-  <object id="517" gid="613" x="992" y="416" width="16" height="16"/>
-  <object id="518" gid="613" x="944" y="416" width="16" height="16"/>
+  <object id="517" gid="613" x="992" y="416" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="1"/>
+   </properties>
+  </object>
+  <object id="518" gid="613" x="944" y="416" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="1"/>
+   </properties>
+  </object>
   <object id="519" gid="545" x="1016" y="432" width="16" height="16"/>
   <object id="520" gid="588" x="912" y="440" width="16" height="16">
    <properties>
@@ -1751,8 +1759,16 @@
   <object id="1023" gid="529" x="5488" y="272" width="16" height="16"/>
   <object id="1024" gid="529" x="5520" y="320" width="16" height="16"/>
   <object id="1025" gid="529" x="5552" y="272" width="16" height="16"/>
-  <object id="1026" gid="613" x="5552" y="272" width="16" height="16"/>
-  <object id="1027" gid="613" x="5488" y="272" width="16" height="16"/>
+  <object id="1026" gid="613" x="5552" y="272" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="1"/>
+   </properties>
+  </object>
+  <object id="1027" gid="613" x="5488" y="272" width="16" height="16">
+   <properties>
+    <property name="bg layer" value="1"/>
+   </properties>
+  </object>
   <object id="1028" gid="613" x="5520" y="320" width="16" height="16"/>
   <object id="1029" gid="613" x="5456" y="320" width="16" height="16"/>
   <object id="1030" gid="613" x="5408" y="320" width="16" height="16"/>

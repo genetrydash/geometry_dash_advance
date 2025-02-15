@@ -442,7 +442,7 @@ electromanadventures_spr_data:
    .hword 0x0 @ delta x
    .hword 0x1a0 @ y
    .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
 @ Object 84
    .hword 0x18 @ delta x
    .hword 0x1b8 @ y
@@ -467,7 +467,7 @@ electromanadventures_spr_data:
    .hword 0x0 @ delta x
    .hword 0x1a0 @ y
    .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
 @ Object 89
    .hword 0x18 @ delta x
    .hword 0x1b0 @ y
@@ -2960,7 +2960,7 @@ electromanadventures_spr_data:
    .hword 0x0 @ delta x
    .hword 0x110 @ y
    .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
 @ Object 559
    .hword 0x0 @ delta x
    .hword 0x174 @ y
@@ -2998,7 +2998,7 @@ electromanadventures_spr_data:
    .hword 0x0 @ delta x
    .hword 0x110 @ y
    .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x10 @ bg layer 2 non rotated   
 @ Object 566
    .hword 0x18 @ delta x
    .hword 0x15a @ y
