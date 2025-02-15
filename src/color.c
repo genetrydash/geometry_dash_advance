@@ -61,9 +61,13 @@ void menu_set_bg_color(COLOR *dst, COLOR color) {
     dst[0x00] = color;
     dst[BG_PAL + BG_COLOR] = color;
     dst[0x121] = color;
+    
+    COLOR black = 0;
     // Fade to black
+    u32 blend_value = 0x1f / (7 - 2 + 1);
     for (u32 index = 2; index < 7; index++) {
-        clr_adj_brightness(&dst[index], &dst[index - 1], 1, float2fx(-0.15));
+        clr_blend(&dst[BG_PAL + BG_COLOR], &black, &dst[index], 1, blend_value);
+        blend_value += 0x1f / (7 - 2 + 1);
     }
 
     dst[0x12] = dst[0x122] = dst[0x24] = dst[0x04];
@@ -83,10 +87,14 @@ void set_bg_color(COLOR *dst, COLOR color) {
     
     // Adjust brighter color
     adjust_brighter_color(dst, BG_PAL);
+
+    COLOR black = 0;
     
     // Fade to black
+    u32 blend_value = 0x1f / (7 - 2 + 1);
     for (u32 index = 2; index < 7; index++) {
-        clr_adj_brightness(&dst[index], &dst[index - 1], 1, float2fx(-0.15));
+        clr_blend(&dst[BG_PAL + BG_COLOR], &black, &dst[index], 1, blend_value);
+        blend_value += 0x1f / (7 - 2 + 1);
     }
 
     blend_bg_and_obj(dst, BG_PAL);
@@ -210,9 +218,13 @@ void set_ground_color(COLOR *dst, COLOR color) {
     // Set ground color
     dst[GROUND_PAL + GROUND_COLOR] = color;
 
-    // Adjust brightness for each color
+    COLOR black = 0;
+
+    // Fade to black
+    u32 blend_value = 0x1f / (7 - 2 + 1);
     for (u32 index = 2; index < 7; index++) {
-        clr_adj_brightness(&dst[index + GROUND_PAL], &dst[index - 1 + GROUND_PAL], 1, float2fx(-0.15));
+        clr_blend(&dst[GROUND_PAL + GROUND_COLOR], &black, &dst[index + GROUND_PAL], 1, blend_value);
+        blend_value += 0x1f / (7 - 2 + 1);
     }
 }
 
