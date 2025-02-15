@@ -246,10 +246,10 @@ void set_color_channel_color(COLOR *dst, COLOR color, u32 channel) {
 }
 
 
-// Lerp between two BGR555 colors. Time is a value between 0 and 256 (both inclusive) and it is a fixed point value so 0 = 0.0, 128 = 0.5 and 256 = 1.0
+// Lerp between two BGR555 colors. Time is a value between 0 and 65536 (both inclusive) and it is a fixed point value so 0 = 0.0, 32768 = 0.5 and 65536 = 1.0
 u16 lerp_color(COLOR color1, COLOR color2, FIXED time) {
     // Cap value to 1.0
-    if (time > 0x100) time = 0x100;
+    if (time > TO_FIXED(1)) time = TO_FIXED(1);
 
     // Extract components
     u32 r1 = color1 & 0x1F;
@@ -261,9 +261,9 @@ u16 lerp_color(COLOR color1, COLOR color2, FIXED time) {
     u32 b2 = (color2 >> 10) & 0x1F;
 
     // Interpolate components
-    u32 red_lerp   = (r1 * (0x100 - time) + r2 * time) >> 8;
-    u32 green_lerp = (g1 * (0x100 - time) + g2 * time) >> 8;
-    u32 blue_lerp  = (b1 * (0x100 - time) + b2 * time) >> 8;
+    u32 red_lerp   = FROM_FIXED(r1 * (TO_FIXED(1) - time) + r2 * time);
+    u32 green_lerp = FROM_FIXED(g1 * (TO_FIXED(1) - time) + g2 * time);
+    u32 blue_lerp  = FROM_FIXED(b1 * (TO_FIXED(1) - time) + b2 * time);
 
     // Combine into a single BGR555 value
     return (blue_lerp << 10) | (green_lerp << 5) | red_lerp;
@@ -282,7 +282,7 @@ void run_col_trigger_changes() {
 
             // Calculate lerped color. If the value is less than 2, then it is an instant color change
             if (frames > 1) {
-                u16 lerp_value = (curr_frame << 8) / (frames - 1); // Division, scary stuff
+                u32 lerp_value = TO_FIXED(curr_frame) / (frames - 1); // Division, scary stuff
                 lerped_color = lerp_color(old_color, new_color, lerp_value);
             } else {
                 lerped_color = new_color;
