@@ -256,12 +256,11 @@ void game_loop() {
     REG_BG3VOFS = 256;
 
     // Set blending registers
-    REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG0 | BLD_BG1 | BLD_BG2, BLD_STD);
+    REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG0 | BLD_BG1 | BLD_BG2, BLD_MODE(1));
 
-    BFN_SET(REG_BLDCNT, BLD_MODE(1), BLD_MODE);
 
     // Update blend weights
-    REG_BLDALPHA = BLDA_BUILD(0x80/8, 0x70/8);
+    REG_BLDALPHA = BLDA_BUILD(16, 12);
 
     // Set window registers
 
