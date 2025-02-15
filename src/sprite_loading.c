@@ -320,8 +320,8 @@ ARM_CODE void display_objects() {
                     chr_slots[chr_id].occupied = TRUE;
                 }   
 
-                // Unload object in case that it is 64 pixels left to the screen
-                if (relative_x < -64) {
+                // Unload object in case that it is 32 pixels left to the screen
+                if (relative_x < -32) {
                     object_buffer[index].occupied = FALSE;
                     continue;
                 }

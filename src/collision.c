@@ -583,7 +583,7 @@ ARM_CODE s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
         u32 obj_height = obj_hitbox[slot.object.type][1];
 
         // Check if this pixel is inside the object hitbox
-        if (is_colliding(x, y, 1, 1, obj_x, obj_y, obj_width, obj_height)) {
+        if (is_colliding(x, y, 0, 0, obj_x, obj_y, obj_width, obj_height)) {
             // Relative positions
             u32 mod_x = x - obj_x;
             u32 mod_y = y - obj_y;

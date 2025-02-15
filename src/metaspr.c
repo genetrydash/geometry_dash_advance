@@ -1313,9 +1313,9 @@ ROM_DATA const u16 *obj_sprites[] = {
     mediumBgDecoSpr,
     smallBgDecoSpr,
 
-    pulsingObjectBigSpr,
-    pulsingObjectBigSpr,
-    pulsingObjectBigSpr,
+    pulsingObjectBigSpr, // arrow
+    pulsingObjectBigSpr, // exclamation
+    pulsingObjectBigSpr, // interrogation
 
     // Spike bushes
     spike_V,
@@ -1375,6 +1375,15 @@ ROM_DATA const u16 *obj_sprites[] = {
     sawBig,
     sawMedium,
     sawMedium,
+
+    pulsingObjectBigSpr, // x
+
+    spike_V,
+    spike_H,
+    halfSpike_V,
+    halfSpike_H,
+    mediumSpike_V,
+    mediumSpike_H,
 
 };
 
@@ -1531,6 +1540,15 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("ALT_BIG_OUTLINE_SAW", 0x590, 0x40)
     CHR_SLOT("ALT_MEDIUM_OUTLINE_SAW", 0x5d0, 0x10)
     CHR_SLOT("ALT_SMALL_OUTLINE_SAW", 0x5e0, 0x10)
+
+    CHR_SLOT("PULSING_X", 0x5f0, 0x10)
+
+    CHR_SLOT("1.6_SPIKE_V", 0x144, 0x4)
+    CHR_SLOT("1.6_SPIKE_H", 0x134, 0x4)
+    CHR_SLOT("1.6_HALF_SPIKE_V", 0x14c, 0x2)
+    CHR_SLOT("1.6_HALF_SPIKE_H", 0x13c, 0x2)
+    CHR_SLOT("1.6_MEDIUM_SPIKE_V", 0x148, 0x4)
+    CHR_SLOT("1.6_MEDIUM_SPIKE_H", 0x138, 0x4)
 };
 #undef CHR_SLOT
 

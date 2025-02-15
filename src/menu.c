@@ -416,8 +416,8 @@ void put_level_info_sprites(u16 level_id) {
 
     put_star_number(level_id, page);
     put_coin_sprites(level_id, page);
-    draw_progress_bar(PROGRESS_BAR_POS_X, NORMAL_PROGRESS_BAR_POS_Y, sb, level_id, level_properties->normal_progress, 100, BAR_WIDTH_PX, BAR_TYPE_NORMAL_MODE);
-    draw_progress_bar(PROGRESS_BAR_POS_X, PRACTICE_PROGRESS_BAR_POS_Y, sb, level_id, level_properties->practice_progress, 100, BAR_WIDTH_PX, BAR_TYPE_PRACTICE_MODE);
+    draw_progress_bar(PROGRESS_BAR_POS_X, NORMAL_PROGRESS_BAR_POS_Y, sb, page, level_properties->normal_progress, 100, BAR_WIDTH_PX, BAR_TYPE_NORMAL_MODE);
+    draw_progress_bar(PROGRESS_BAR_POS_X, PRACTICE_PROGRESS_BAR_POS_Y, sb, page, level_properties->practice_progress, 100, BAR_WIDTH_PX, BAR_TYPE_PRACTICE_MODE);
     
     // Adjacent page (going to that one when switching)
     struct SaveLevelData *adjacent_properties = obtain_level_data(adjacent_level_id);
@@ -426,8 +426,8 @@ void put_level_info_sprites(u16 level_id) {
 
     put_star_number(adjacent_level_id, page ^ 1);
     put_coin_sprites(adjacent_level_id, page ^ 1);
-    draw_progress_bar(PROGRESS_BAR_POS_X, NORMAL_PROGRESS_BAR_POS_Y, adjacent_sb, adjacent_level_id, adjacent_properties->normal_progress, 100, BAR_WIDTH_PX, BAR_TYPE_NORMAL_MODE);
-    draw_progress_bar(PROGRESS_BAR_POS_X, PRACTICE_PROGRESS_BAR_POS_Y, adjacent_sb, adjacent_level_id, adjacent_properties->practice_progress, 100, BAR_WIDTH_PX, BAR_TYPE_PRACTICE_MODE);
+    draw_progress_bar(PROGRESS_BAR_POS_X, NORMAL_PROGRESS_BAR_POS_Y, adjacent_sb, page ^ 1, adjacent_properties->normal_progress, 100, BAR_WIDTH_PX, BAR_TYPE_NORMAL_MODE);
+    draw_progress_bar(PROGRESS_BAR_POS_X, PRACTICE_PROGRESS_BAR_POS_Y, adjacent_sb, page ^ 1, adjacent_properties->practice_progress, 100, BAR_WIDTH_PX, BAR_TYPE_PRACTICE_MODE);
 }
 
 #define STAR_COUNT_POS_X 164
