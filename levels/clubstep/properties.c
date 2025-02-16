@@ -7,7 +7,7 @@ const unsigned int clubstep_properties[] = {
  /*speed*/         1,
  /*level height*/  54,
  /*level width*/   899,
- /*song*/          MOD_STEREOMA,
+ /*song*/          MOD_CLUBSTEP,
  /*name length*/   8,
  /*difficulty*/    5,
  /*stars*/         14,
