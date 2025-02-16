@@ -54,6 +54,7 @@ u64 approach_value(u64 current, u64 target, s32 inc, s32 dec);
 void store_practice_vars();
 void delete_last_checkpoint();
 void draw_checkpoints();
+void clear_checkpoints();
 void handle_gamemode_uploads(); 
 
 void update_scroll();

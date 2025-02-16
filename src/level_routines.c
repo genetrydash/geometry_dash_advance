@@ -1328,6 +1328,11 @@ void delete_last_checkpoint() {
     }
 }
 
+void clear_checkpoints() {
+    checkpoint_count = 0;
+    checkpoint_pointer = 0;
+}
+
 void draw_checkpoints() {
     for (u32 checkpoint = 0; checkpoint < checkpoint_count; checkpoint++) {
         // Obtain buffer index

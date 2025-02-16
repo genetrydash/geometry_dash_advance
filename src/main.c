@@ -303,9 +303,7 @@ void game_loop() {
                 mmEffect(SFX_LEVEL_EXIT);
                 game_state = STATE_MENU;      
                 memcpy32(palette_buffer, pal_bg_mem, 256);
-
-                checkpoint_count = 0;
-                checkpoint_pointer = 0;
+                clear_checkpoints();
                 in_practice_mode = FALSE;
 
                 fade_out();
@@ -317,6 +315,7 @@ void game_loop() {
             game_state = STATE_MENU;      
             memcpy32(palette_buffer, pal_bg_mem, 256);
             fade_out();
+            clear_checkpoints();
             return;
         }
         
@@ -399,8 +398,7 @@ u32 paused_routines() {
 
         // Practice mode
         if (key_hit(KEY_SELECT)) {
-            checkpoint_count = 0;
-            checkpoint_pointer = 0;
+            clear_checkpoints();
             
             in_practice_mode ^= 1;
             update_flags = UPDATE_ALL;
