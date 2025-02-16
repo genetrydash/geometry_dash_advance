@@ -2,7 +2,7 @@ Unfinished means it is being made. You can choose the ones that are marked with 
 
 ~~ Music ~~
 Stere Madness: Finished (ElAngel378)
-Back on track: Finished (Crafty Jumper)
+Back on track: Finished (ElAngel378)
 Polargeist: Finished (Orionconstel)
 Dry out: Unfinished
 Base after base: Unfinished
@@ -13,6 +13,10 @@ Cycles: Unfinished
 Xstep: Finished (Nicolestarlight)
 Clutterfunk: Unfinished
 Teory of everything: Finished (ElAngel378 and Orionconstel)
+Electroman Adventures: Finished (Orionconstel)
+Clubstep: Finished (Orionconstel)
+Electrodynamix: available
+Hexagon force: available
 -- More coming soon... --
 
 Below I will present you the instructions for creating music for Adv-famidash:
