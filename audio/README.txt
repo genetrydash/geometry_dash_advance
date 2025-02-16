@@ -1,6 +1,7 @@
 Unfinished means it is being made. You can choose the ones that are marked with "Available"
 
 ~~ Music ~~
+Main theme: Finished (ElAngel378)
 Stere Madness: Finished (ElAngel378)
 Back on track: Finished (ElAngel378)
 Polargeist: Finished (Orionconstel)
