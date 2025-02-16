@@ -3,8 +3,9 @@
 #define SPRITE_CHR_COPY_FROM_METATILE (u32)(-2)
 #define SPRITE_NO_CHR (u32)(-1)
 
-#define TILE_OFFSET_MASK 0x3ff
+#define TILE_OFFSET_MASK 0x1ff
 #define PRIORITY_MASK 0x1c00
+#define DLB_SCALE_MASK 0x0200
 
 extern u8 nextSpr;
 extern const u16 noclipSpr[];

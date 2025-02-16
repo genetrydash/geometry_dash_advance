@@ -329,7 +329,7 @@ ARM_CODE void display_objects() {
                 // If object's sprite is null, then do not draw anything
                 if (obj_sprites[curr_object.type] != NULL) {
                     // If object is inside the screen horizontally, continue
-                    if (relative_x < SCREEN_WIDTH + 128) { 
+                    if (relative_x < SCREEN_WIDTH + 32) { 
                         // If the object is inside the screen vertically, display it
                         if (relative_y > -48 && relative_y < SCREEN_HEIGHT + 48) {
                             do_display(curr_object, relative_x, relative_y, hflip, vflip, priority);

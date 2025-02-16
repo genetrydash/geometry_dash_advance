@@ -5,7 +5,7 @@
 #ifndef SPR_LOADING_H
 #define SPR_LOADING_H
 
-#define MAX_OBJECTS 64
+#define MAX_OBJECTS 96
 #define NUM_ROT_SLOTS 27 // 5 are reserved to saws, music pulsing circles, and both players
 #define NUM_RESERVED_ROT_SLOTS 32 - NUM_ROT_SLOTS 
 

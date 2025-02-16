@@ -14,6 +14,7 @@ ROM_DATA const u16 *level_defines[][4] = {
    { clutterfunk_l1_level_data, clutterfunk_l2_level_data, clutterfunk_spr_data, (u16 *) clutterfunk_properties },
    { theoryofeverything_l1_level_data, theoryofeverything_l2_level_data, theoryofeverything_spr_data, (u16 *) theoryofeverything_properties },
    { electromanadventures_l1_level_data, electromanadventures_l2_level_data, electromanadventures_spr_data, (u16 *) electromanadventures_properties },
+   { clubstep_l1_level_data, clubstep_l2_level_data, clubstep_spr_data, (u16 *) clubstep_properties },
    { test_l1_level_data, test_l2_level_data, test_spr_data, (u16 *) test_properties },
    { test2_l1_level_data, test2_l2_level_data, test2_spr_data, (u16 *) test2_properties },
 };
@@ -32,6 +33,7 @@ ROM_DATA const u8 *level_names[] = {
    clutterfunk_name,
    theoryofeverything_name,
    electromanadventures_name,
+   clubstep_name,
    test_name,
    test2_name,
 };

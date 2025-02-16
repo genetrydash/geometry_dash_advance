@@ -75,9 +75,16 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                     delta_x = x - abs_x
                     abs_x += delta_x
 
+                    saved_metatile_id = -1
+
                     y = int(obj['y'])  # Convert to int
-                    gid = int(obj['gid']) - 513  # Convert to int
-                    
+                    gid = int(obj['gid'])
+                    if gid > 512:
+                        gid = int(obj['gid']) - 513  # Sprite
+                    else:
+                        saved_metatile_id = gid - 1
+                        gid = 43
+
                     # Write the assembly instructions
                     out_file.write(f"@ Object {counter}\n")
                     out_file.write(f"   .hword {hex(delta_x)} @ delta x\n")
@@ -190,7 +197,10 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                         except Exception:
                             pass
                         
-                       
+                        if saved_metatile_id >= 0:
+                            graphics = saved_metatile_id
+                            
+                    
                         if gid == 43 or gid == 44:
                             out_file.write(f"   .hword {hex(((priority & 0x7) << 3) | (h_flip << 1) | v_flip)} @ bg layer {priority} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
                             out_file.write(f"   .hword {graphics} @ metatile ID appareance\n")

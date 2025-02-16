@@ -3390,8 +3390,9 @@ clutterfunk_spr_data:
 @ Object 636
    .hword 0x37 @ delta x
    .hword 0x172 @ y
-   .hword -0x200 @ type
-   .hword 0x18 @ bg layer 3 non rotated   
+   .hword 0x2b @ type
+   .hword 0x18 @ bg layer 3   
+   .hword 0 @ metatile ID appareance
 @ Object 637
    .hword 0x11 @ delta x
    .hword 0x160 @ y

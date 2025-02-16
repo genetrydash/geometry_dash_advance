@@ -3,7 +3,7 @@
 #include "memory.h"
 
 #define CENTER(x,y) ((x & 0xff) << 8) | (y & 0xff)
-#define PRIO_IDOFF(prio, id_off) ((prio << 10) & PRIORITY_MASK) | (id_off & TILE_OFFSET_MASK)
+#define PRIO_IDOFF(prio, use_dbl, id_off) ((prio << 10) & PRIORITY_MASK) | ((use_dbl << 9) & DLB_SCALE_MASK) | (id_off & TILE_OFFSET_MASK)
 
 // Next sprite slot in OAM
 u8 nextSpr = 0;
@@ -14,7 +14,7 @@ const u16 noclipSpr[] = {
     ATTR2_PALBANK(5) | ATTR2_ID(992),
     0,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
     0,
 
     ATTR0_4BPP | ATTR0_WIDE,
@@ -22,7 +22,7 @@ const u16 noclipSpr[] = {
     ATTR2_PALBANK(5) | ATTR2_ID(994),
     16,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
     0,
 
     ATTR0_4BPP | ATTR0_WIDE,
@@ -30,7 +30,7 @@ const u16 noclipSpr[] = {
     ATTR2_PALBANK(5) | ATTR2_ID(996),
     32,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
     0,
 
     0xffff
@@ -42,7 +42,7 @@ const u16 practiceCheckpoint[] = {
     ATTR2_PALBANK(2) | ATTR2_ID(1013),
     0,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -55,7 +55,7 @@ const u16 menuStarSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_ID(8),
     0,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
 
     0xffff
 };
@@ -66,7 +66,7 @@ const u16 menuNumberSpr[] = {
     ATTR2_PALBANK(1),
     0,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -77,7 +77,7 @@ const u16 gottenCoinSpr[] = {
     ATTR2_PALBANK(0),
     0,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -88,7 +88,7 @@ const u16 ungottenCoinSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_ID(4),
     0,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -99,7 +99,7 @@ const u16 fineBarMaskSpr[] = {
     ATTR2_PALBANK(2) | ATTR2_ID(9),
     0,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -111,7 +111,7 @@ const u16 fineBarSpr[] = {
     ATTR2_PALBANK(2),
     0,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
     CENTER(8, 8),
     
     0xffff
@@ -125,7 +125,7 @@ const u16 numberSpr[] = {
     ATTR2_PALBANK(5),
     0,
     0,
-    PRIO_IDOFF(0, 0), // id offset
+    PRIO_IDOFF(0, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -138,7 +138,7 @@ const u16 player1Spr[] = {
     ATTR2_PALBANK(0),
     0,
     0,
-    PRIO_IDOFF(2, 0), // id offset
+    PRIO_IDOFF(2, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -149,7 +149,7 @@ const u16 player2Spr[] = {
     ATTR2_PALBANK(0) | ATTR2_ID(4),
     0,
     0,
-    PRIO_IDOFF(2, 0), // id offset
+    PRIO_IDOFF(2, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -162,7 +162,7 @@ const u16 cubePortalSpr[] = {
     ATTR2_PALBANK(2),
     -8, // x
     -16, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_WIDE,
@@ -170,7 +170,7 @@ const u16 cubePortalSpr[] = {
     ATTR2_PALBANK(2),
     -8, // x
     16, // y
-    PRIO_IDOFF(0, 32), // id offset
+    PRIO_IDOFF(0, 0, 32), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -178,7 +178,7 @@ const u16 cubePortalSpr[] = {
     ATTR2_PALBANK(2),
     -5, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -186,7 +186,7 @@ const u16 cubePortalSpr[] = {
     ATTR2_PALBANK(2),
     -5, // x
     16,  // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -198,7 +198,7 @@ const u16 shipPortalSpr[] = {
     ATTR2_PALBANK(1),
     -8, // x
     -16, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_WIDE,
@@ -206,7 +206,7 @@ const u16 shipPortalSpr[] = {
     ATTR2_PALBANK(1),
     -8, // x
     16, // y
-    PRIO_IDOFF(0, 32), // id offset
+    PRIO_IDOFF(0, 0, 32), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -214,7 +214,7 @@ const u16 shipPortalSpr[] = {
     ATTR2_PALBANK(1),
     -5, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -222,7 +222,7 @@ const u16 shipPortalSpr[] = {
     ATTR2_PALBANK(1),
     -5, // x
     16,  // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -234,7 +234,7 @@ const u16 ballPortalSpr[] = {
     ATTR2_PALBANK(5),
     -8, // x
     -16, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_WIDE,
@@ -242,7 +242,7 @@ const u16 ballPortalSpr[] = {
     ATTR2_PALBANK(5),
     -8, // x
     16, // y
-    PRIO_IDOFF(0, 32), // id offset
+    PRIO_IDOFF(0, 0, 32), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -250,7 +250,7 @@ const u16 ballPortalSpr[] = {
     ATTR2_PALBANK(5),
     -5, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -258,7 +258,7 @@ const u16 ballPortalSpr[] = {
     ATTR2_PALBANK(5),
     -5, // x
     16,  // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -270,7 +270,7 @@ const u16 ufoPortalSpr[] = {
     ATTR2_PALBANK(6),
     -8, // x
     -16, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_WIDE,
@@ -278,7 +278,7 @@ const u16 ufoPortalSpr[] = {
     ATTR2_PALBANK(6),
     -8, // x
     16, // y
-    PRIO_IDOFF(0, 32), // id offset
+    PRIO_IDOFF(0, 0, 32), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -286,7 +286,7 @@ const u16 ufoPortalSpr[] = {
     ATTR2_PALBANK(6),
     -5, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -294,7 +294,7 @@ const u16 ufoPortalSpr[] = {
     ATTR2_PALBANK(6),
     -5, // x
     16,  // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -306,7 +306,7 @@ const u16 gravityPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     -8, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -314,7 +314,7 @@ const u16 gravityPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     -8, // x
     16, // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -322,7 +322,7 @@ const u16 gravityPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     8, // x
     -16, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -330,7 +330,7 @@ const u16 gravityPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     8, // x
     16, // y
-    PRIO_IDOFF(0, 24), // id offset
+    PRIO_IDOFF(0, 0, 24), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -342,7 +342,7 @@ const u16 gravityPortalYellowSpr[] = {
     ATTR2_PALBANK(4),
     -8, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -350,7 +350,7 @@ const u16 gravityPortalYellowSpr[] = {
     ATTR2_PALBANK(4),
     -8, // x
     16, // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -358,7 +358,7 @@ const u16 gravityPortalYellowSpr[] = {
     ATTR2_PALBANK(4),
     8, // x
     -16, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -366,7 +366,7 @@ const u16 gravityPortalYellowSpr[] = {
     ATTR2_PALBANK(4),
     8, // x
     16, // y
-    PRIO_IDOFF(0, 24), // id offset
+    PRIO_IDOFF(0, 0, 24), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -377,7 +377,7 @@ const u16 mirrorPortalOrangeSpr[] = {
     ATTR2_PALBANK(6),
     0, // x
     -16, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_WIDE,
@@ -385,7 +385,7 @@ const u16 mirrorPortalOrangeSpr[] = {
     ATTR2_PALBANK(6),
     0, // x
     16, // y
-    PRIO_IDOFF(0, 32), // id offset
+    PRIO_IDOFF(0, 0, 32), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -393,7 +393,7 @@ const u16 mirrorPortalOrangeSpr[] = {
     ATTR2_PALBANK(6),
     -16, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -401,7 +401,7 @@ const u16 mirrorPortalOrangeSpr[] = {
     ATTR2_PALBANK(6),
     -16, // x
     16,  // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -413,7 +413,7 @@ const u16 mirrorPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     0, // x
     -16, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_WIDE,
@@ -421,7 +421,7 @@ const u16 mirrorPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     0, // x
     16, // y
-    PRIO_IDOFF(0, 32), // id offset
+    PRIO_IDOFF(0, 0, 32), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -429,7 +429,7 @@ const u16 mirrorPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     -16, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -437,7 +437,7 @@ const u16 mirrorPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     -16, // x
     16,  // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -449,7 +449,7 @@ const u16 sizePortalPinkSpr[] = {
     ATTR2_PALBANK(1),
     -5, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -457,7 +457,7 @@ const u16 sizePortalPinkSpr[] = {
     ATTR2_PALBANK(1),
     -5, // x
     16, // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -465,7 +465,7 @@ const u16 sizePortalPinkSpr[] = {
     ATTR2_PALBANK(1),
     11, // x
     -16, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -473,7 +473,7 @@ const u16 sizePortalPinkSpr[] = {
     ATTR2_PALBANK(1),
     11, // x
     16, // y
-    PRIO_IDOFF(0, 24), // id offset
+    PRIO_IDOFF(0, 0, 24), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -485,7 +485,7 @@ const u16 sizePortalGreenSpr[] = {
     ATTR2_PALBANK(2),
     -5, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -493,7 +493,7 @@ const u16 sizePortalGreenSpr[] = {
     ATTR2_PALBANK(2),
     -5, // x
     16, // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -501,7 +501,7 @@ const u16 sizePortalGreenSpr[] = {
     ATTR2_PALBANK(2),
     11, // x
     -16, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -509,7 +509,7 @@ const u16 sizePortalGreenSpr[] = {
     ATTR2_PALBANK(2),
     11, // x
     16, // y
-    PRIO_IDOFF(0, 24), // id offset
+    PRIO_IDOFF(0, 0, 24), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -521,7 +521,7 @@ const u16 speedPortalHalf[] = {
     ATTR2_PALBANK(6),
     -8, // x
     -8, // y
-    PRIO_IDOFF(3, 0), // id offset
+    PRIO_IDOFF(3, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -533,7 +533,7 @@ const u16 speedPortal1x[] = {
     ATTR2_PALBANK(3),
     -8, // x
     -8, // y
-    PRIO_IDOFF(3, 0), // id offset
+    PRIO_IDOFF(3, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -545,7 +545,7 @@ const u16 speedPortal2x[] = {
     ATTR2_PALBANK(2),
     -8, // x
     -8, // y
-    PRIO_IDOFF(3, 0), // id offset
+    PRIO_IDOFF(3, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -557,7 +557,7 @@ const u16 speedPortal3x[] = {
     ATTR2_PALBANK(1),
     -10, // x
     -8, // y
-    PRIO_IDOFF(3, 0), // id offset
+    PRIO_IDOFF(3, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -565,7 +565,7 @@ const u16 speedPortal3x[] = {
     ATTR2_PALBANK(1),
     22, // x
     4, // y
-    PRIO_IDOFF(3, 16), // id offset
+    PRIO_IDOFF(3, 0, 16), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -577,7 +577,7 @@ const u16 speedPortal4x[] = {
     ATTR2_PALBANK(5),
     -11, // x
     -8, // y
-    PRIO_IDOFF(3, 0), // id offset
+    PRIO_IDOFF(3, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -585,7 +585,7 @@ const u16 speedPortal4x[] = {
     ATTR2_PALBANK(5),
     21, // x
     0, // y
-    PRIO_IDOFF(3, 16), // id offset
+    PRIO_IDOFF(3, 0, 16), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -597,7 +597,7 @@ const u16 dualPortalOrangeSpr[] = {
     ATTR2_PALBANK(6),
     -1, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -605,7 +605,7 @@ const u16 dualPortalOrangeSpr[] = {
     ATTR2_PALBANK(6),
     -1, // x
     16, // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -613,7 +613,7 @@ const u16 dualPortalOrangeSpr[] = {
     ATTR2_PALBANK(6),
     3, // x
     -16, // y
-    PRIO_IDOFF(0, 12), // id offset
+    PRIO_IDOFF(0, 0, 12), // id offset
     CENTER(8, 8),
     
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -621,7 +621,7 @@ const u16 dualPortalOrangeSpr[] = {
     ATTR2_PALBANK(6),
     9, // x
     0, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -629,7 +629,7 @@ const u16 dualPortalOrangeSpr[] = {
     ATTR2_PALBANK(6),
     3, // x
     16, // y
-    PRIO_IDOFF(0, 20), // id offset
+    PRIO_IDOFF(0, 0, 20), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -640,7 +640,7 @@ const u16 dualPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     -1, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -648,7 +648,7 @@ const u16 dualPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     -1, // x
     16, // y
-    PRIO_IDOFF(4, 8), // id offset
+    PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -656,7 +656,7 @@ const u16 dualPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     3, // x
     -16, // y
-    PRIO_IDOFF(0, 12), // id offset
+    PRIO_IDOFF(0, 0, 12), // id offset
     CENTER(8, 8),
     
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -664,7 +664,7 @@ const u16 dualPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     9, // x
     0, // y
-    PRIO_IDOFF(0, 16), // id offset
+    PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -672,7 +672,7 @@ const u16 dualPortalBlueSpr[] = {
     ATTR2_PALBANK(3),
     3, // x
     16, // y
-    PRIO_IDOFF(0, 20), // id offset
+    PRIO_IDOFF(0, 0, 20), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -685,7 +685,7 @@ const u16 yellowOrbSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -696,7 +696,7 @@ const u16 yellowPadSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
@@ -704,7 +704,7 @@ const u16 yellowPadSpr[] = {
     ATTR2_PALBANK(1) | ATTR2_ID(1020),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -716,7 +716,7 @@ const u16 blueOrbSpr[] = {
     ATTR2_PALBANK(2),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -727,7 +727,7 @@ const u16 bluePadSpr[] = {
     ATTR2_PALBANK(2),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
@@ -735,7 +735,7 @@ const u16 bluePadSpr[] = {
     ATTR2_PALBANK(2) | ATTR2_ID(1020),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -747,7 +747,7 @@ const u16 pinkOrbSpr[] = {
     ATTR2_PALBANK(3),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -758,7 +758,7 @@ const u16 pinkPadSpr[] = {
     ATTR2_PALBANK(3),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
@@ -766,7 +766,7 @@ const u16 pinkPadSpr[] = {
     ATTR2_PALBANK(3) | ATTR2_ID(1020),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -780,7 +780,7 @@ const u16 bigBgDecoSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -24,   // x
     -10,   // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -791,7 +791,7 @@ const u16 mediumBgDecoSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -24, // x
     -10, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -802,7 +802,7 @@ const u16 smallBgDecoSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -8, // x
     0,  // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -813,7 +813,7 @@ const u16 tinyBgSpikesSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0, // x
     6, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -824,7 +824,7 @@ const u16 bgChainsSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0,   // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(6, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -835,7 +835,7 @@ const u16 bgChainsBigSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0,   // x
     -32, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(6, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
@@ -843,7 +843,7 @@ const u16 bgChainsBigSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0,   // x
     -16, // y
-    PRIO_IDOFF(4, 4), // id offset
+    PRIO_IDOFF(6, 0, 4), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -854,7 +854,7 @@ const u16 largePulsingCircleSpr[] = {
     ATTR2_PALBANK(0),
     0, // x
     -16, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_TALL,
@@ -862,7 +862,7 @@ const u16 largePulsingCircleSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     -8, // y
-    PRIO_IDOFF(5, 4), // id offset
+    PRIO_IDOFF(5, 0, 4), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -873,7 +873,7 @@ const u16 mediumPulsingCircleSpr[] = {
     ATTR2_PALBANK(0),
     0,  // x
     -8, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE,
@@ -881,7 +881,7 @@ const u16 mediumPulsingCircleSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     0, // y
-    PRIO_IDOFF(5, 6), // id offset
+    PRIO_IDOFF(5, 0, 6), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -892,7 +892,7 @@ const u16 smallPulsingCircleSpr[] = {
     ATTR2_PALBANK(0),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_WIDE,
@@ -900,7 +900,7 @@ const u16 smallPulsingCircleSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     8, // y
-    PRIO_IDOFF(5, 8), // id offset
+    PRIO_IDOFF(5, 0, 8), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -911,7 +911,7 @@ const u16 pulsingObjectSpr[] = {
     ATTR2_PALBANK(0),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -922,7 +922,7 @@ const u16 pulsingObjectBigSpr[] = {
     ATTR2_PALBANK(0),
     -8, // x
     -8, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 1, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -933,7 +933,7 @@ const u16 squareBgDecoSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0, // x
     0, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 1, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -944,7 +944,7 @@ const u16 tallBgDecoSpr[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0, // x
     -16, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -956,7 +956,7 @@ const u16 spike_V[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -967,7 +967,7 @@ const u16 spike_H[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -978,7 +978,7 @@ const u16 halfSpike_V[] = {
     ATTR2_PALBANK(15),
     0, // x
     8, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -989,7 +989,7 @@ const u16 halfSpike_H[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -1000,7 +1000,7 @@ const u16 mediumSpike_V[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -1011,7 +1011,7 @@ const u16 mediumSpike_H[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -1022,7 +1022,7 @@ const u16 groundSpike_V[] = {
     ATTR2_PALBANK(15),
     0, // x
     8, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -1033,7 +1033,7 @@ const u16 groundSpike_H[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -1044,7 +1044,7 @@ const u16 groundWavySpike_V[] = {
     ATTR2_PALBANK(15),
     0, // x
     8, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -1055,7 +1055,7 @@ const u16 groundWavySpike_H[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };
@@ -1066,7 +1066,7 @@ const u16 sawBig[] = {
     ATTR2_PALBANK(15),
     -24, // x
     -24, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1078,7 +1078,7 @@ const u16 sawMedium[] = {
     ATTR2_PALBANK(15),
     -8, // x
     -8, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1090,7 +1090,7 @@ const u16 sawSmall[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0), // id offset
+    PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1102,7 +1102,7 @@ const u16 basicBlock[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(3, 0), // id offset
+    PRIO_IDOFF(3, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1113,7 +1113,7 @@ const u16 basicSlab[] = {
     ATTR2_PALBANK(15),
     0, // x
     0, // y
-    PRIO_IDOFF(3, 0), // id offset
+    PRIO_IDOFF(3, 0, 0), // id offset
     CENTER(8, 4),
 
     0xffff
@@ -1125,7 +1125,7 @@ const u16 sawDecoBig[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -24, // x
     -24, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1137,7 +1137,7 @@ const u16 sawDecoMediumSmall[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -8, // x
     -8, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1149,7 +1149,7 @@ const u16 sawDecoTiny[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0, // x
     0, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1161,7 +1161,7 @@ const u16 bigCloud[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -24, // x
     -8, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1173,7 +1173,7 @@ const u16 mediumCloud[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -16, // x
     0, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
@@ -1181,7 +1181,7 @@ const u16 mediumCloud[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     16, // x
     0, // y
-    PRIO_IDOFF(5, 8), // id offset
+    PRIO_IDOFF(5, 0, 8), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1193,7 +1193,7 @@ const u16 smallCloud[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -16, // x
     0, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1205,7 +1205,7 @@ const u16 bushDeco[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     0, // x
     0, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1217,7 +1217,7 @@ const u16 bushDecoBig[] = {
     ATTR2_PALBANK(0) | ATTR2_PRIO(3),
     -8, // x
     -16, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1229,7 +1229,7 @@ const u16 coinSpr[] = {
     ATTR2_PALBANK(7) | ATTR2_ID(COIN_VRAM_ID),
     -4, // x
     -4, // y
-    PRIO_IDOFF(5, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -1679,8 +1679,11 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         u16 attribute1 = data[i + 1];
         u16 attribute2 = data[i + 2];
 
-        // Set double size flag if especified
-        if (dbl) {
+        u8 shape = (attribute0 & ATTR0_SHAPE_MASK) >> 12;
+
+        u8 should_use_double_size = dbl && ((shape != ATTR0_SQUARE && !(rotation & 0x3fff)) || !(data[i + 5] & DLB_SCALE_MASK)) ;
+        // Set double size flag if especified, not square and rotation is not a multiple of 90º
+        if (should_use_double_size) {
             attribute0 |= ATTR0_AFF_DBL;
         }
 
@@ -1710,7 +1713,7 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
             attribute1,  // ATTR1
             attribute2); // ATTR2
 
-        u8 wh_index = ((data[i] & ATTR0_SHAPE_MASK) >> 12) | ((data[i + 1] & ATTR1_SIZE_MASK) >> 14);
+        u8 wh_index = (shape) | ((data[i + 1] & ATTR1_SIZE_MASK) >> 14);
 
         u8 width = spr_width_height_table[wh_index << 1];
         u8 height = spr_width_height_table[(wh_index << 1) + 1];
@@ -1734,8 +1737,8 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         s32 rotated_x = ((s64)(relative_x_centered * cos_theta) - (s64)(relative_y_centered * sin_theta)) / 4096;
         s32 rotated_y = ((s64)(relative_y_centered * cos_theta) + (s64)(relative_x_centered * sin_theta)) / 4096;
 
-        s32 total_x = x + (center_x - (width >> 1)) + rotated_x - (dbl ? (width >> 1) : 0);
-        s32 total_y = y + (center_y - (height >> 1)) + rotated_y - (dbl ? (height >> 1) : 0);
+        s32 total_x = x + (center_x - (width >> 1)) + rotated_x - (should_use_double_size ? (width >> 1) : 0);
+        s32 total_y = y + (center_y - (height >> 1)) + rotated_y - (should_use_double_size ? (height >> 1) : 0);
         
         s32 x_rel;
         u8 aff_dbl = (attribute0 & ATTR0_AFF_DBL_BIT) >> 9;

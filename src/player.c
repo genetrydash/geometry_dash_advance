@@ -191,7 +191,7 @@ void cube_gamemode() {
         // Do gravity
         do_cube_gravity();
 
-        // Do collision with objects (and rotated ones as well)
+        // Do collision with objects
         do_collision_with_objects();
 
         // Run collision
@@ -262,7 +262,7 @@ void ship_gamemode() {
         // Do gravity
         do_ship_gravity(max_y_speed, max_y_speed_holding);
         
-        // Do collision with objects (and rotated ones as well)
+        // Do collision with objects
         do_collision_with_objects();
 
         // Run collision
@@ -312,7 +312,7 @@ void ball_gamemode() {
         // Do gravity
         do_ball_gravity();
 
-        // Do collision with objects (and rotated ones as well)
+        // Do collision with objects
         do_collision_with_objects();
         
         // Run collision
@@ -400,7 +400,7 @@ void ufo_gamemode() {
         // Do gravity
         do_ufo_gravity();
     
-        // Do collision with objects (and rotated ones as well)
+        // Do collision with objects
         do_collision_with_objects();
 
         // Run collision

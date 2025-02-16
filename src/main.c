@@ -316,6 +316,7 @@ void game_loop() {
             memcpy32(palette_buffer, pal_bg_mem, 256);
             fade_out();
             clear_checkpoints();
+            in_practice_mode = FALSE;
             return;
         }
         

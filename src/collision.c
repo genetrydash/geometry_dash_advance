@@ -547,7 +547,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
-            scroll_y &= ~0xffff;
+            if (curr_player.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) scroll_y &= ~0xffff;
         }
     } else if (side == BOTTOM) {   
         s32 eject_value = eject_bottom << SUBPIXEL_BITS;
@@ -566,7 +566,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
-            scroll_y &= ~0xffff;
+            if (curr_player.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) scroll_y &= ~0xffff;
         }
     }
    
@@ -593,7 +593,7 @@ ARM_CODE s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
 
             u16 col_type = block_object_buffer_flags[i - 1];
             
-            u32 returned = col_type_lookup(col_type, mod_x, mod_y, side, 0);
+            u32 returned = col_type_lookup(col_type, mod_x, mod_y, side, 3);
             
             // Continue if no collision
             if (!returned) continue;
@@ -624,15 +624,13 @@ ARM_CODE void do_collision_with_objects() {
         struct ObjectSlot curr_object = object_buffer[slot];
         // If is occupied and it hasn't been activated yet, continue
         if (curr_object.occupied && curr_object.activated[curr_player_id] == FALSE) {
-            // If it is at most 128 pixels offscreen of the right side, continue
-            s32 relative_x = curr_object.object.x - ((scroll_x >> SUBPIXEL_BITS) & 0xffffffff);
-            if (relative_x < SCREEN_WIDTH + 128) {
+            // If it is offscreen of the right side, don't collision
+            if (curr_object.object.x < (curr_player.player_x >> SUBPIXEL_BITS) + 64) {
                 // Check if this object is a touch col trigger, if so, check collision
                 if (curr_object.object.type == COL_TRIGGER && curr_object.object.rotation & COL_TRIGGER_ROT_VAR_TOUCH_MASK) {
                     check_obj_collision(slot); 
                 } 
-                // If it has collision and it is marked to collide with rotated objects, continue
-                // If it is not marked, check if the object is rotated, if not, continue
+                // If it has collision, continue
                 else if (curr_object.has_collision) {
                     check_obj_collision(slot); 
                 }
@@ -1037,6 +1035,9 @@ const jmp_table spike_coll_jump_table[] = {
 
 // This function iterates through spikes that the player is touching and applies collision to it
 ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
+    // Try to collide with sprite spikes
+    collide_with_obj_spikes(x, y, width, height);
+
     // Iterate through 4 metatiles, forming a 2x2 metatile square
     // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
     for (u32 side = 0; side < 4; side++) {
@@ -1052,6 +1053,25 @@ ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 la
 
         if (col_type < COL_TYPES_COUNT) {
             spike_coll_jump_table[col_type](x, y, width, height, spk_x, spk_y);
+        }
+    }
+}
+
+ARM_CODE void collide_with_obj_spikes(u32 x, u32 y, u32 width, u32 height) {
+    for (s32 i = block_object_buffer_offset; i > 0; i--) {
+        struct ObjectSlot slot = *((struct ObjectSlot *) block_object_buffer[i - 1]);
+        
+        u32 obj_x = slot.object.x;
+        u32 obj_y = slot.object.y;
+        u32 obj_width = obj_hitbox[slot.object.type][0];
+        u32 obj_height = obj_hitbox[slot.object.type][1];
+
+        // Check if this pixel is inside the object hitbox
+        if (is_colliding(x, y, width, height, obj_x, obj_y, obj_width, obj_height)) {
+            u16 col_type = block_object_buffer_flags[i - 1];
+            if (col_type < COL_TYPES_COUNT) {
+                spike_coll_jump_table[col_type](x, y, width, height, obj_x, obj_y);
+            }
         }
     }
 }
