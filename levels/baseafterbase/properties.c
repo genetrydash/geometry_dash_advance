@@ -7,7 +7,7 @@ const unsigned int baseafterbase_properties[] = {
  /*speed*/         1,
  /*level height*/  27,
  /*level width*/   866,
- /*song*/          MOD_STEREOMA,
+ /*song*/          MOD_BASE,
  /*name length*/   13,
  /*difficulty*/    2,
  /*stars*/         5,
