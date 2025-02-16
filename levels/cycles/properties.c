@@ -7,7 +7,7 @@ const unsigned int cycles_properties[] = {
  /*speed*/         1,
  /*level height*/  27,
  /*level width*/   820,
- /*song*/          MOD_STEREOMA,
+ /*song*/          MOD_CYCLES,
  /*name length*/   6,
  /*difficulty*/    3,
  /*stars*/         9,
