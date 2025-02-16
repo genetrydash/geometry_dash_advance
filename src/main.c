@@ -349,7 +349,7 @@ void game_loop() {
         player_code();
 
         // Run object routines
-        load_objects();
+        load_objects(TRUE);
         deoccupy_chr_slots();
         display_objects();
         rotate_saws();

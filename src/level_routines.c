@@ -361,8 +361,8 @@ void load_level(u32 level_ID) {
 
     decompressed_column = 0;
     
-    // Load objects
-    load_objects(); 
+    // Load objects if starting from 0%
+    if (checkpoint_count == 0) load_objects(TRUE); 
 }
 
 void transition_update_spr() {
@@ -1277,40 +1277,55 @@ void restore_practice_vars() {
     set_obj_color(palette_buffer, curr_checkpoint.channels[OBJ]);
     set_line_color(palette_buffer, curr_checkpoint.channels[LINE]);
     
+    s64 scroll_x_pixels = (scroll_x >> SUBPIXEL_BITS) - 32;
+
+    if (scroll_x_pixels < 0) scroll_x_pixels = 0;
+    
+    // Load objects
     u8 sprite_unloaded = TRUE;
     while (sprite_unloaded) {
         sprite_unloaded = FALSE;
-        
-        load_chr_in_buffer();
-        unload_chr_in_buffer();
+        load_objects(FALSE);
 
-        load_objects();
+        for (s32 index = 0; index < MAX_OBJECTS; index++) {
+            struct Object curr_object = object_buffer[index].object;
 
-        for (s32 i = 0; i < MAX_OBJECTS; i++) {
-            struct Object curr_object = object_buffer[i].object;
-    
             // If object is spawned behind scroll, then don't spawn it
-            u64 scroll_x_pixels = scroll_x >> SUBPIXEL_BITS;
             if (curr_object.x < scroll_x_pixels) {
-                object_buffer[i].occupied = FALSE;
+                object_buffer[index].occupied = FALSE;
                 sprite_unloaded = TRUE;
-                continue;
             }
         }
     }
     
+    // Disable triggers that were activated and upload object chr
     for (s32 i = 0; i < MAX_OBJECTS; i++) {
         struct Object curr_object = object_buffer[i].object;
 
         if (curr_object.type == COL_TRIGGER) {
             // If trigger is spawned behind player, then don't trigger it
             u64 player_x_pixels = player_1.player_x >> SUBPIXEL_BITS;
-            if (curr_object.x < player_x_pixels) {
+            if (curr_object.x + 8 < player_x_pixels) {
                 object_buffer[i].occupied = FALSE;
-                continue;
+            }
+        } else {
+            switch (curr_object.type) {
+                case BASIC_BLOCK_OBJ:
+                case BASIC_SLAB_OBJ:
+                    setup_graphics_upload(curr_object.type, i, curr_object.attrib3);
+                    break;
+                default:
+                    // If an invalid object was found, skip it
+                    if (curr_object.type >= OBJ_COUNT) {
+                        continue;
+                    }
+
+                    setup_graphics_upload(curr_object.type, i, 0);
             }
         }
     }
+
+    load_chr_in_buffer();
 
     memcpy16(col_trigger_buffer, curr_checkpoint.col_trigger_buffer, sizeof(col_trigger_buffer) / 2);
 

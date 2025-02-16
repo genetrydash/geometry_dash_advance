@@ -77,11 +77,16 @@ extern u64 last_sprite_x;
 extern struct ObjectSlot object_buffer[MAX_OBJECTS];
 
 
-IWRAM_CODE void load_objects();
+IWRAM_CODE void load_objects(u32 load_chr);
 IWRAM_CODE void display_objects();
+
+s32 get_chr_slot_id(u32 rom_offset, u8 tile_num);
+
 void scale_pulsing_objects();
 void rotate_saws();
 void object_tile_data_load(u16 object_type);
+
+void setup_graphics_upload(u16 type, u8 object_slot, u16 attrib3);
 
 IWRAM_CODE void sort_oam_by_prio();
 #endif

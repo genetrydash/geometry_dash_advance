@@ -16,7 +16,6 @@ u16 saw_rotation[2];
 
 struct ObjectSlot object_buffer[MAX_OBJECTS];
 
-void setup_graphics_upload(u16 type, u8 object_slot, u16 attrib3);
 
 s32 get_tile_id(u32 chr_offset, u8 tile_num) {
     s32 i;
@@ -67,9 +66,9 @@ s32 get_free_chr_slot_id(u32 rom_offset, u8 tile_num) {
     return -1;
 }
 
-ARM_CODE void load_objects() {
+ARM_CODE void load_objects(u32 load_chr) {
     // Save there
-    old_next_free_tile_id = next_free_tile_id;
+    if (load_chr) old_next_free_tile_id = next_free_tile_id;
     for (s32 index = 0; index < MAX_OBJECTS; index++) {
         if (object_buffer[index].occupied == FALSE) {
             if ((*sprite_pointer & 0xff000000) != 0xff000000) {
@@ -112,7 +111,8 @@ ARM_CODE void load_objects() {
 
                         sprite_pointer++;
 
-                        setup_graphics_upload(new_object.type, index, new_object.attrib3);
+                        // Upload chr if needed
+                        if (load_chr) setup_graphics_upload(new_object.type, index, new_object.attrib3);
                         break;
                     default:
                         // Load flip values
@@ -134,7 +134,8 @@ ARM_CODE void load_objects() {
                             continue;
                         }
                         
-                        setup_graphics_upload(new_object.type, index, 0);
+                        // Upload chr if needed
+                        if (load_chr) setup_graphics_upload(new_object.type, index, 0);
                 }
                 
 
