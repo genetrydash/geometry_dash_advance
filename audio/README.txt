@@ -10,7 +10,7 @@ Base after base: Finished (ElAngel378)
 Cant let go: Finished (ElAngel378)
 Jumper: Finished (Orionconstel)
 Time machine: Unfinished
-Cycles: Unfinished
+Cycles: Finished (Orionconstel and ElAngel378)
 Xstep: Finished (Nicolestarlight)
 Clutterfunk: Unfinished
 Teory of everything: Finished (ElAngel378 and Orionconstel)
