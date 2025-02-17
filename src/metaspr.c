@@ -447,7 +447,7 @@ const u16 sizePortalPinkSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
     ATTR2_PALBANK(1),
-    -5, // x
+    -8, // x
     -16, // y
     PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
@@ -455,7 +455,7 @@ const u16 sizePortalPinkSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
     ATTR2_PALBANK(1),
-    -5, // x
+    -8, // x
     16, // y
     PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
@@ -463,7 +463,7 @@ const u16 sizePortalPinkSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
     ATTR2_PALBANK(1),
-    11, // x
+    8, // x
     -16, // y
     PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
@@ -471,7 +471,7 @@ const u16 sizePortalPinkSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
     ATTR2_PALBANK(1),
-    11, // x
+    8, // x
     16, // y
     PRIO_IDOFF(0, 0, 24), // id offset
     CENTER(8, 8),
@@ -483,7 +483,7 @@ const u16 sizePortalGreenSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
     ATTR2_PALBANK(2),
-    -5, // x
+    -8, // x
     -16, // y
     PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
@@ -491,7 +491,7 @@ const u16 sizePortalGreenSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
     ATTR2_PALBANK(2),
-    -5, // x
+    -8, // x
     16, // y
     PRIO_IDOFF(4, 0, 8), // id offset
     CENTER(8, 8),
@@ -499,7 +499,7 @@ const u16 sizePortalGreenSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
     ATTR2_PALBANK(2),
-    11, // x
+    8, // x
     -16, // y
     PRIO_IDOFF(0, 0, 16), // id offset
     CENTER(8, 8),
@@ -507,7 +507,7 @@ const u16 sizePortalGreenSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_16x16,
     ATTR2_PALBANK(2),
-    11, // x
+    8, // x
     16, // y
     PRIO_IDOFF(0, 0, 24), // id offset
     CENTER(8, 8),
