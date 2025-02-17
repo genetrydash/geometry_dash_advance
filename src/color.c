@@ -329,7 +329,11 @@ void set_face_palettes(COLOR *dst) {
     for (s32 pal = FIRST_FACE_PAL; pal < (FIRST_FACE_PAL + (NUM_FACES * 0x10)); pal += 0x10) {    
         s32 value = 0;
         dst[pal + 0x01] = CLR_WHITE;
-        dst[pal + 0x0d] = CLR_RED;
+
+        // Demon face uses green instead of red
+        if (pal == 0x80) dst[pal + 0x0d] = CLR_LIME;
+        else dst[pal + 0x0d] = CLR_RED;
+
         for (s32 id = FIRST_FACE_COLOR; id <= LAST_FACE_COLOR; id++) {
             clr_blend(&face_colors[difficulty][0], &face_colors[difficulty][1], &dst[pal + id], 1, value);
             value += 0x1f / (LAST_FACE_COLOR - FIRST_FACE_COLOR + 1);
