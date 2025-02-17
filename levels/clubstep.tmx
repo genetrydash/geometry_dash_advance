@@ -3048,28 +3048,28 @@
     <property name="Frames" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1429" gid="516" x="5724" y="584.667" width="16" height="16">
+  <object id="1429" gid="516" x="5720" y="584.667" width="16" height="16">
    <properties>
     <property name="Channel" value="BG"/>
     <property name="Color" type="color" value="#fff20cff"/>
     <property name="Frames" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1430" gid="516" x="5756" y="584.667" width="16" height="16">
+  <object id="1430" gid="516" x="5752" y="584.667" width="16" height="16">
    <properties>
     <property name="Channel" value="BG"/>
     <property name="Color" type="color" value="#ffbe0cff"/>
     <property name="Frames" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1431" gid="516" x="5788" y="584.667" width="16" height="16">
+  <object id="1431" gid="516" x="5784" y="584.667" width="16" height="16">
    <properties>
     <property name="Channel" value="BG"/>
     <property name="Color" type="color" value="#ff880cff"/>
     <property name="Frames" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1432" gid="516" x="5819" y="584" width="16" height="16">
+  <object id="1432" gid="516" x="5815" y="584" width="16" height="16">
    <properties>
     <property name="Channel" value="BG"/>
     <property name="Color" type="color" value="#ff600cff"/>
@@ -3153,28 +3153,28 @@
     <property name="Frames" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1444" gid="516" x="5724" y="601.334" width="16" height="16">
+  <object id="1444" gid="516" x="5720" y="601.334" width="16" height="16">
    <properties>
     <property name="Channel" value="GROUND"/>
     <property name="Color" type="color" value="#fff20cff"/>
     <property name="Frames" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1445" gid="516" x="5756" y="601.334" width="16" height="16">
+  <object id="1445" gid="516" x="5752" y="601.334" width="16" height="16">
    <properties>
     <property name="Channel" value="GROUND"/>
     <property name="Color" type="color" value="#ffbe0cff"/>
     <property name="Frames" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1446" gid="516" x="5788" y="601.334" width="16" height="16">
+  <object id="1446" gid="516" x="5784" y="601.334" width="16" height="16">
    <properties>
     <property name="Channel" value="GROUND"/>
     <property name="Color" type="color" value="#ff880cff"/>
     <property name="Frames" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1447" gid="516" x="5819" y="600.667" width="16" height="16">
+  <object id="1447" gid="516" x="5815" y="600.667" width="16" height="16">
    <properties>
     <property name="Channel" value="GROUND"/>
     <property name="Color" type="color" value="#ff600cff"/>
@@ -4299,7 +4299,7 @@
   <object id="1904" gid="613" x="11936" y="672" width="16" height="16"/>
   <object id="1905" gid="613" x="12000" y="672" width="16" height="16">
    <properties>
-    <property name="bg layer" value="1"/>
+    <property name="bg layer" value="0"/>
    </properties>
   </object>
   <object id="1906" gid="588" x="11920" y="740" width="16" height="16">

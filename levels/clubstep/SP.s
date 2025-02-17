@@ -4621,23 +4621,13 @@ clubstep_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 849
    .hword 0x18 @ delta x
-   .hword 0x28c @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-@ Object 850
-   .hword 0x0 @ delta x
-   .hword 0x28c @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-@ Object 851
-   .hword 0x4 @ delta x
    .hword 0x248 @ y
    .hword 0x3 @ type
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x7c3e @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 852
+@ Object 850
    .hword 0x0 @ delta x
    .hword 0x259 @ y
    .hword 0x3 @ type
@@ -4645,8 +4635,18 @@ clubstep_spr_data:
    .hword 0x7c3e @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
+@ Object 851
+   .hword 0x0 @ delta x
+   .hword 0x28c @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+@ Object 852
+   .hword 0x0 @ delta x
+   .hword 0x28c @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
 @ Object 853
-   .hword 0x14 @ delta x
+   .hword 0x18 @ delta x
    .hword 0x2c4 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
@@ -4656,7 +4656,7 @@ clubstep_spr_data:
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 855
-   .hword 0xc @ delta x
+   .hword 0x8 @ delta x
    .hword 0x248 @ y
    .hword 0x3 @ type
    .hword 0x4 @ changes BG for 0 frames
@@ -4672,7 +4672,7 @@ clubstep_spr_data:
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
 @ Object 857
-   .hword 0x10 @ delta x
+   .hword 0x14 @ delta x
    .hword 0x28c @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
@@ -4682,7 +4682,7 @@ clubstep_spr_data:
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 859
-   .hword 0x10 @ delta x
+   .hword 0xc @ delta x
    .hword 0x248 @ y
    .hword 0x3 @ type
    .hword 0x4 @ changes BG for 0 frames
@@ -4698,7 +4698,7 @@ clubstep_spr_data:
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
 @ Object 861
-   .hword 0x18 @ delta x
+   .hword 0x1c @ delta x
    .hword 0x2d0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
@@ -4708,7 +4708,7 @@ clubstep_spr_data:
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 863
-   .hword 0x7 @ delta x
+   .hword 0x3 @ delta x
    .hword 0x248 @ y
    .hword 0x3 @ type
    .hword 0x4 @ changes BG for 0 frames
@@ -4724,7 +4724,7 @@ clubstep_spr_data:
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
 @ Object 865
-   .hword 0x19 @ delta x
+   .hword 0x1d @ delta x
    .hword 0x330 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
@@ -7386,7 +7386,7 @@ clubstep_spr_data:
    .hword 0x0 @ delta x
    .hword 0x2a0 @ y
    .hword 0x64 @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x8 @ bg layer 1 non rotated   
 @ Object 1352
    .hword 0x1c @ delta x
    .hword 0x230 @ y

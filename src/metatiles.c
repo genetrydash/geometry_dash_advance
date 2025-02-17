@@ -481,7 +481,7 @@ const SCR_ENTRY metatiles[][5] = {
     Metatile("BREAKABLE_BRICK",     TILE(0xd8, 0, 0, 0), TILE(0xd8, 0, H, 0), TILE(0xd8, 0, 0, V), TILE(0xd8, 0, H, V), BREAKABLE_BRICK)
     Metatile("BREAKABLE_BRICK_ROT", TILE(0xd9, 0, 0, 0), TILE(0xd9, 0, H, 0), TILE(0xd9, 0, 0, V), TILE(0xd9, 0, H, V), BREAKABLE_BRICK)
 
-    Metatile("FADING_BLOCK", TILE(0x77, 0, 0, 0), TILE(0x77, 0, H, 0), TILE(0x77, 0, 0, V), TILE(0x77, 0, H, V), COL_FULL)
+    Metatile("FADING_BLOCK", TILE(0x120, 0, 0, 0), TILE(0x120, 0, H, 0), TILE(0x120, 0, 0, V), TILE(0x120, 0, H, V), COL_FULL)
 
     Metatile("FADING_SPIKE_UP",    TILE(0x130, 0, 0, 0), TILE(0x130, 0, H, 0), TILE(0x140, 0, 0, 0), TILE(0x140, 0, H, 0), COL_SPIKE_TOP)
     Metatile("FADING_SPIKE_DOWN",  TILE(0x140, 0, 0, V), TILE(0x140, 0, H, V), TILE(0x130, 0, 0, V), TILE(0x130, 0, H, V), COL_SPIKE_BOTTOM)
