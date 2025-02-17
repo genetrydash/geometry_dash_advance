@@ -239,9 +239,9 @@ s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer) {
 
 const u8 gamemode_max_eject[] = {
     /* Cube */ 0x06,
-    /* Ship */ 0x03,
+    /* Ship */ 0x04,
     /* Ball */ 0x06,
-    /* Ufo */  0x03,
+    /* Ufo */  0x04,
     /* Wave */ 0x06,
 };
 
