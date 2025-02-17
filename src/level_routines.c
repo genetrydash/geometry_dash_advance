@@ -530,9 +530,11 @@ void scroll_screen_horizontally() {
     if (player_1.player_x >= 0x500000) {
         scroll_x += player_1.player_x_speed;
         
-        u64 screen_scroll_limit = (curr_level_width - (SCREEN_WIDTH_T/2)) << (SUBPIXEL_BITS + 4);
-        if (scroll_x > screen_scroll_limit) {
-            scroll_x = screen_scroll_limit;
+        // Stop scroll at the end wall
+        u64 screen_scroll_limit = ((curr_level_width - (SCREEN_WIDTH_T/2)) << (SUBPIXEL_BITS + 4)) - TO_FIXED(15);
+        if (scroll_x > screen_scroll_limit - TO_FIXED(7)) {
+            // Ease out
+            scroll_x = approach_value_asymptotic(scroll_x, screen_scroll_limit, 0x2800, 0x30000);
         }
     }
 }
