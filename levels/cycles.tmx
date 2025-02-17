@@ -9,7 +9,7 @@
   <property name="GROUND" type="color" value="#ffbf00ff"/>
   <property name="Gamemode" type="int" value="0"/>
   <property name="Level name" value="CYCLES"/>
-  <property name="Song" value="STEREOMA"/>
+  <property name="Song" value="CYCLES"/>
   <property name="Speed" type="int" value="1"/>
   <property name="Stars" type="int" value="9"/>
  </properties>

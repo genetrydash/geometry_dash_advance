@@ -9,7 +9,7 @@
   <property name="GROUND" type="color" value="#ff000000"/>
   <property name="Gamemode" type="int" value="0"/>
   <property name="Level name" value="CLUBSTEP"/>
-  <property name="Song" value="STEREOMA"/>
+  <property name="Song" value="CLUBSTEP"/>
   <property name="Speed" type="int" value="1"/>
   <property name="Stars" type="int" value="14"/>
  </properties>
