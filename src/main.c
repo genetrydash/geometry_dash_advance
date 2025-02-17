@@ -413,6 +413,10 @@ u32 paused_routines() {
                 frame_finished = TRUE;
 
                 fade_in_level();
+                mmStop();
+            } else {
+                // Start practice song
+                mmStart(MOD_MENU, MM_PLAY_LOOP);
             }
             break;
         }

@@ -454,7 +454,7 @@ void fade_in_menu() {
 }
 
 void reset_level() {
-    mmStop();
+    if (!in_practice_mode) mmStop();
     update_flags = UPDATE_OAM | UPDATE_SCROLL;
     
     nextSpr = 0;
@@ -1152,8 +1152,8 @@ void player_code() {
     // Draw player 1
     draw_player();
 
-    // Start the song once the player goes from negative to positive x position
-    if ((last_player_x < 0) != (curr_player.player_x < 0)) mmStart(loaded_song_id, MM_PLAY_ONCE);
+    // Start the song once the player goes from negative to positive x position, if not in practice mode
+    if ((last_player_x < 0) != (curr_player.player_x < 0) && !in_practice_mode) mmStart(loaded_song_id, MM_PLAY_ONCE);
 
     player_1 = curr_player;
 
