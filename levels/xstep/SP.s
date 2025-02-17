@@ -4537,7 +4537,7 @@ xstep_spr_data:
    .hword 0x0 @ normal trigger
 @ Object 834
    .hword 0x0 @ delta x
-   .hword 0x148 @ y
+   .hword 0x147 @ y
    .hword 0x1a @ type
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 835
@@ -6100,12 +6100,12 @@ xstep_spr_data:
    .hword 0x0 @ normal trigger
 @ Object 1119
    .hword 0x8 @ delta x
-   .hword 0x148 @ y
+   .hword 0x147 @ y
    .hword 0x1 @ type
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 1120
    .hword 0x4 @ delta x
-   .hword 0x148 @ y
+   .hword 0x147 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 1121

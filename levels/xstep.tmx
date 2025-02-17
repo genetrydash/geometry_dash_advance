@@ -713,7 +713,7 @@
    </properties>
   </object>
   <object id="719" gid="527" x="9692" y="336" width="16" height="16"/>
-  <object id="720" gid="539" x="9808" y="328" width="16" height="16"/>
+  <object id="720" gid="539" x="9808" y="327" width="16" height="16"/>
   <object id="721" gid="522" x="10192" y="368" width="16" height="16"/>
   <object id="722" gid="527" x="10016" y="324" width="16" height="16">
    <properties>
@@ -743,8 +743,8 @@
   <object id="732" gid="522" x="11728" y="352" width="16" height="16"/>
   <object id="733" gid="522" x="11808" y="352" width="16" height="16"/>
   <object id="734" gid="522" x="11888" y="352" width="16" height="16"/>
-  <object id="735" gid="514" x="12272" y="328" width="16" height="16"/>
-  <object id="736" gid="527" x="12276" y="328" width="16" height="16"/>
+  <object id="735" gid="514" x="12272" y="327" width="16" height="16"/>
+  <object id="736" gid="527" x="12276" y="327" width="16" height="16"/>
   <object id="737" gid="515" x="7360" y="360" width="16" height="16"/>
   <object id="738" gid="527" x="7364" y="360" width="16" height="16"/>
   <object id="739" gid="514" x="4904" y="352" width="16" height="16"/>
