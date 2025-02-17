@@ -416,7 +416,7 @@ u32 paused_routines() {
                 mmStop();
             } else {
                 // Start practice song
-                mmStart(MOD_MENU, MM_PLAY_LOOP);
+                mmStart(MOD_PRACTICE, MM_PLAY_LOOP);
             }
             break;
         }
