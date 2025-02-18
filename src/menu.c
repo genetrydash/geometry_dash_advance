@@ -438,17 +438,17 @@ void put_star_number(u16 level_id, u16 page) {
     s32 relative_x = (offset_x + STAR_COUNT_POS_X) - ((scroll_x >> SUBPIXEL_BITS) & 0x1ff);
 
     // Put star sprite
-    oam_metaspr(relative_x + 16, STAR_COUNT_POS_Y, menuStarSpr, FALSE, FALSE, 0, 2, TRUE);
+    oam_metaspr(relative_x + 16, STAR_COUNT_POS_Y, menuStarSpr, FALSE, FALSE, 0, -1, 2, TRUE);
     
     u32 *properties_pointer = (u32*) level_defines[level_id][LEVEL_PROPERTIES_INDEX];
     u32 stars = properties_pointer[LEVEL_STARS_NUM];
 
     // Put sprites depending on digits
     if (stars >= 10) {
-        oam_metaspr(relative_x, STAR_COUNT_POS_Y, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars / 10), 2, TRUE);
-        oam_metaspr(relative_x + 8, STAR_COUNT_POS_Y, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars % 10), 2, TRUE);
+        oam_metaspr(relative_x, STAR_COUNT_POS_Y, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars / 10), -1, 2, TRUE);
+        oam_metaspr(relative_x + 8, STAR_COUNT_POS_Y, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + (stars % 10), -1, 2, TRUE);
     } else {
-        oam_metaspr(relative_x + 8, STAR_COUNT_POS_Y, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + stars, 2, TRUE);
+        oam_metaspr(relative_x + 8, STAR_COUNT_POS_Y, menuNumberSpr, FALSE, FALSE, FIRST_NUMBER_ID + stars, -1, 2, TRUE);
     }
 }
 
@@ -473,9 +473,9 @@ void put_coin_sprites(u16 level_id, u16 page) {
 
     // Put coin 1 sprite
     if (level_data->coin1) {
-        oam_metaspr(relative_x + offset_x, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, -1, 2, TRUE);
     } else {
-        oam_metaspr(relative_x + offset_x, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, -1, 2, TRUE);
     }
     
     // Dont display the rest of coins if the level has only one coin
@@ -483,9 +483,9 @@ void put_coin_sprites(u16 level_id, u16 page) {
 
     // Put coin 2 sprite
     if (level_data->coin2) {
-        oam_metaspr(relative_x + offset_x + 11, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x + 11, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, -1, 2, TRUE);
     } else {
-        oam_metaspr(relative_x + offset_x + 11, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x + 11, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, -1, 2, TRUE);
     }
 
     // Dont display the third coin if the level has only two coins
@@ -494,9 +494,9 @@ void put_coin_sprites(u16 level_id, u16 page) {
 
     // Put coin 3 sprite
     if (level_data->coin3 && level_coins_num > 2) {
-        oam_metaspr(relative_x + offset_x + 22, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x + 22, MENU_COIN_Y, gottenCoinSpr, FALSE, FALSE, 0, -1, 2, TRUE);
     } else {
-        oam_metaspr(relative_x + offset_x + 22, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, 2, TRUE);
+        oam_metaspr(relative_x + offset_x + 22, MENU_COIN_Y, ungottenCoinSpr, FALSE, FALSE, 0, -1, 2, TRUE);
     }
 }
 
@@ -541,7 +541,7 @@ void draw_progress_bar(s32 x, s32 y, s32 sb, u32 page, u32 value, u32 max, u32 w
     draw_percentage(relative_x + (width >> 1) - 8, y << 3, value, menuNumberSpr, 2);
 
     // Draw progress bar sprites
-    oam_metaspr(relative_x + 1, y << 3, fineBarMaskSpr, FALSE, FALSE, 0, 2, TRUE);
-    oam_metaspr(relative_x + width - 1, y << 3, fineBarMaskSpr, TRUE, FALSE, 0, 2, TRUE);
-    oam_metaspr(relative_x + progress_px + 1, y << 3, fineBarSpr, FALSE, FALSE, fine, 2, TRUE);
+    oam_metaspr(relative_x + 1, y << 3, fineBarMaskSpr, FALSE, FALSE, 0, -1, 2, TRUE);
+    oam_metaspr(relative_x + width - 1, y << 3, fineBarMaskSpr, TRUE, FALSE, 0, -1, 2, TRUE);
+    oam_metaspr(relative_x + progress_px + 1, y << 3, fineBarSpr, FALSE, FALSE, fine, -1, 2, TRUE);
 }

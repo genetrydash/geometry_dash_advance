@@ -24,5 +24,5 @@ extern const u16 *obj_sprites[];
 extern const u32 obj_chr_offset[][2];
 extern const u16 practiceCheckpoint[];
 
-ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 tile_id, u8 priority, u8 disable_mirror);
-ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id, u8 dbl, u16 tile_id, u8 priority, u8 disable_mirror);
+ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 tile_id, s16 palette, u8 priority, u8 disable_mirror);
+ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id, u8 dbl, u16 tile_id, s16 palette, u8 priority, u8 disable_mirror);

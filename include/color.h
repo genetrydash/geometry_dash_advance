@@ -45,6 +45,8 @@ struct HSV {
 
 extern const COLOR face_colors[][2];
 extern const COLOR menu_bg_colors[9];
+extern const u16 pal_bg_to_spr[7];
+extern const u16 pal_bg_to_spr_index[7];
 
 ARM_CODE struct HSV rgb_to_hsv(struct RGB555 rgb);
 ARM_CODE struct RGB555 hsv_to_rgb(struct HSV hsv);

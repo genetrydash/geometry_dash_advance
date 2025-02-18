@@ -672,17 +672,17 @@ u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
 
 void draw_percentage(u32 x, u32 y, u32 percentage, const u16* number_sprite, u16 priority) {
     if (percentage >= 100) {
-        oam_metaspr(x,      y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 1, priority, TRUE);
-        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, priority, TRUE);
-        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, priority, TRUE);
-        oam_metaspr(x + 24, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, priority, TRUE);
+        oam_metaspr(x,      y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 1, -1, priority, TRUE);
+        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, -1, priority, TRUE);
+        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, -1, priority, TRUE);
+        oam_metaspr(x + 24, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, -1, priority, TRUE);
     } else if (percentage >= 10) {
-        oam_metaspr(x + 4,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage / 10), priority, TRUE);
-        oam_metaspr(x + 12, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage % 10), priority, TRUE);
-        oam_metaspr(x + 20, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, priority, TRUE);
+        oam_metaspr(x + 4,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage / 10), -1, priority, TRUE);
+        oam_metaspr(x + 12, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage % 10), -1, priority, TRUE);
+        oam_metaspr(x + 20, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, -1, priority, TRUE);
     } else {
-        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + percentage, priority, TRUE);
-        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, priority, TRUE);
+        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + percentage, -1, priority, TRUE);
+        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, -1, priority, TRUE);
     }
 }
 
@@ -1364,7 +1364,7 @@ void draw_checkpoints() {
         if (relative_x > -32 && relative_x < SCREEN_WIDTH + 128) { 
             // If the checkpoint is inside the screen vertically, draw it
             if (relative_y > -48 && relative_y < SCREEN_HEIGHT + 48) {
-                oam_metaspr(relative_x, relative_y, practiceCheckpoint, FALSE, FALSE, 0, 0, FALSE);
+                oam_metaspr(relative_x, relative_y, practiceCheckpoint, FALSE, FALSE, 0, -1, 0, FALSE);
             }
         }
     }

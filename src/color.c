@@ -36,6 +36,16 @@ const u16 pal_bg_to_spr[] = {
     0x1a0,
 };
 
+const u16 pal_bg_to_spr_index[] = {
+    0xf,
+    0xf,
+    0xe,
+    0xd,
+    0xc,
+    0xb,
+    0xa,
+};
+
 INLINE void copy_bg_pal_to_spr(COLOR *dst, u32 pal) {
     // Copy palette to the sprite equivalent
     u16 equivalent_palette = pal_bg_to_spr[pal >> 4];
