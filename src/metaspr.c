@@ -911,7 +911,7 @@ const u16 pulsingObjectSpr[] = {
     ATTR2_PALBANK(0),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
     0xffff,
 };

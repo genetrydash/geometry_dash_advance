@@ -7422,19 +7422,19 @@ clubstep_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 1358
    .hword 0x0 @ delta x
-   .hword 0x310 @ y
+   .hword 0x318 @ y
    .hword 0xf @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
 @ Object 1359
    .hword 0x0 @ delta x
-   .hword 0x310 @ y
+   .hword 0x318 @ y
    .hword 0x1c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 16384 @ rotation
 @ Object 1360
    .hword 0x0 @ delta x
-   .hword 0x310 @ y
+   .hword 0x318 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 1361
