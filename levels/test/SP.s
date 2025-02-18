@@ -140,7 +140,7 @@ test_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x1f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 27
    .hword 0x10 @ delta x
    .hword 0x140 @ y

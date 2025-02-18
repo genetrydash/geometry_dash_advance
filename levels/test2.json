@@ -1072,6 +1072,72 @@
                  "width":16,
                  "x":48,
                  "y":400
+                }, 
+                {
+                 "gid":2052,
+                 "height":16,
+                 "id":676,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Channel",
+                         "type":"string",
+                         "value":"1"
+                        }, 
+                        {
+                         "name":"Color",
+                         "type":"color",
+                         "value":"#ffff00d8"
+                        }, 
+                        {
+                         "name":"Color Blending",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"Frames",
+                         "type":"int",
+                         "value":12
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":0,
+                 "y":336
+                }, 
+                {
+                 "gid":2052,
+                 "height":16,
+                 "id":677,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Channel",
+                         "type":"string",
+                         "value":"1"
+                        }, 
+                        {
+                         "name":"Color",
+                         "type":"color",
+                         "value":"#ffff00d8"
+                        }, 
+                        {
+                         "name":"Color Blending",
+                         "type":"bool",
+                         "value":false
+                        }, 
+                        {
+                         "name":"Frames",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":96,
+                 "y":336
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1080,7 +1146,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":676,
+ "nextobjectid":678,
  "orientation":"orthogonal",
  "properties":[
         {

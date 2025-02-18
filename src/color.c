@@ -447,3 +447,24 @@ ARM_CODE struct RGB555 hsv_to_rgb(struct HSV hsv) {
 
     return rgb_struct;
 }
+
+COLOR blend_colors(COLOR col1, COLOR col2) {
+    // Get structs
+    struct RGB555 col1_struct;
+    BGR_TO_STRUCT(col1, col1_struct)
+    struct RGB555 col2_struct; 
+    BGR_TO_STRUCT(col2, col2_struct)
+
+    // Add color components
+    u8 red = col1_struct.red + col2_struct.red;
+    u8 green = col1_struct.green + col2_struct.green;
+    u8 blue = col1_struct.blue + col2_struct.blue;
+
+    // Cap to max number
+    if (red > 31)   red = 31;
+    if (green > 31) green = 31;
+    if (blue > 31)  blue = 31;
+
+    // Return new color
+    return RGB15_SAFE(red, green, blue);
+}

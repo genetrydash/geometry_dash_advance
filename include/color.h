@@ -60,5 +60,6 @@ void set_line_color(COLOR *dst, COLOR color);
 void set_color_channel_color(COLOR *dst, COLOR color, u32 channel);
 void set_face_palettes(COLOR *dst);
 u16 lerp_color(COLOR color1, COLOR color2, FIXED time);
+COLOR blend_colors(COLOR col1, COLOR col2);
 
 void run_col_trigger_changes();

@@ -1081,7 +1081,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0xcbf @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 212
    .hword 0x0 @ delta x
    .hword 0x29c @ y
@@ -1089,7 +1089,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0xcbf @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 213
    .hword 0x10 @ delta x
    .hword 0x284 @ y
@@ -1097,7 +1097,7 @@ theoryofeverything_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0xc9b @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 214
    .hword 0x0 @ delta x
    .hword 0x29c @ y
@@ -1105,7 +1105,7 @@ theoryofeverything_spr_data:
    .hword 0x64 @ changes BG for 12 frames
    .hword 0xc9b @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 215
    .hword 0x50 @ delta x
    .hword 0x290 @ y
@@ -2165,7 +2165,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x41f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 411
    .hword 0x0 @ delta x
    .hword 0x268 @ y
@@ -2173,7 +2173,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x41f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 412
    .hword 0x10 @ delta x
    .hword 0x240 @ y
@@ -2186,7 +2186,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x1be7 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 414
    .hword 0x4 @ delta x
    .hword 0x230 @ y
@@ -2199,7 +2199,7 @@ theoryofeverything_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x13a5 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 416
    .hword 0x14 @ delta x
    .hword 0x240 @ y
@@ -4885,7 +4885,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0x7cba @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 904
    .hword 0x0 @ delta x
    .hword 0x140 @ y
@@ -4901,7 +4901,7 @@ theoryofeverything_spr_data:
    .hword 0x94 @ changes BG for 18 frames
    .hword 0x7c56 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 906
    .hword 0x10 @ delta x
    .hword 0x88 @ y
@@ -4909,7 +4909,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 907
    .hword 0x0 @ delta x
    .hword 0xe8 @ y
@@ -4917,7 +4917,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 908
    .hword 0x80 @ delta x
    .hword 0x120 @ y
@@ -5291,7 +5291,7 @@ theoryofeverything_spr_data:
    .hword 0xf4 @ changes BG for 30 frames
    .hword 0x7c35 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 970
    .hword 0x0 @ delta x
    .hword 0xb8 @ y
@@ -5299,7 +5299,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 971
    .hword 0x0 @ delta x
    .hword 0xe8 @ y
@@ -5307,7 +5307,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 972
    .hword 0x73 @ delta x
    .hword 0x120 @ y
@@ -5364,7 +5364,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 981
    .hword 0x0 @ delta x
    .hword 0xb8 @ y
@@ -5372,7 +5372,7 @@ theoryofeverything_spr_data:
    .hword 0x4 @ changes BG for 0 frames
    .hword 0xc3f @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 982
    .hword 0x0 @ delta x
    .hword 0xe8 @ y
@@ -5380,7 +5380,7 @@ theoryofeverything_spr_data:
    .hword 0x1e4 @ changes BG for 60 frames
    .hword 0x3803 @ color
    .hword 0x0 @ doesn't copy any channel
-   .hword 0x1 @ touch trigger
+   .hword 0x2 @ touch trigger
 @ Object 983
    .hword 0x0 @ delta x
    .hword 0x140 @ y
