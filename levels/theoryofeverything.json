@@ -324,42 +324,6 @@
                  "y":688
                 }, 
                 {
-                 "gid":2093,
-                 "height":16,
-                 "id":443,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":183
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":364,
-                 "y":676
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":444,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":185
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":380,
-                 "y":676
-                }, 
-                {
                  "gid":2068,
                  "height":16,
                  "id":448,
@@ -406,24 +370,6 @@
                  "width":16,
                  "x":448,
                  "y":640
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":452,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":182
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":424,
-                 "y":654
                 }, 
                 {
                  "gid":2068,
@@ -634,42 +580,6 @@
                  "width":16,
                  "x":496,
                  "y":688
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":470,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":64
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":544,
-                 "y":612
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":471,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":64
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":560,
-                 "y":552
                 }, 
                 {
                  "gid":2066,
@@ -1150,42 +1060,6 @@
                  "width":16,
                  "x":928,
                  "y":692
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":517,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":183
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":908,
-                 "y":664
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":518,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":185
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":924,
-                 "y":664
                 }, 
                 {
                  "gid":2066,
@@ -3774,60 +3648,6 @@
                  "width":16,
                  "x":2664,
                  "y":696
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":730,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":64
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":2752,
-                 "y":628
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":731,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":64
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":2736,
-                 "y":628
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":732,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":64
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":2720,
-                 "y":628
                 }, 
                 {
                  "gid":2079,
@@ -6687,24 +6507,6 @@
                  "y":552
                 }, 
                 {
-                 "gid":2092,
-                 "height":16,
-                 "id":924,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":64
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":4856,
-                 "y":536
-                }, 
-                {
                  "gid":2128,
                  "height":16,
                  "id":926,
@@ -8122,132 +7924,6 @@
                  "y":608
                 }, 
                 {
-                 "gid":2092,
-                 "height":16,
-                 "id":1016,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":159
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":5668,
-                 "y":569
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1017,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":162
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":5668,
-                 "y":553
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1018,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":162
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":5668,
-                 "y":537
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1019,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":162
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":5668,
-                 "y":521
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1020,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":162
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":5668,
-                 "y":505
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1021,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":162
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":5668,
-                 "y":489
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1022,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":144
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":5716,
-                 "y":601
-                }, 
-                {
                  "gid":2060,
                  "height":16,
                  "id":1023,
@@ -8415,24 +8091,6 @@
                  "y":513
                 }, 
                 {
-                 "gid":2092,
-                 "height":16,
-                 "id":1036,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":144
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":5828,
-                 "y":601
-                }, 
-                {
                  "gid":2128,
                  "height":16,
                  "id":1037,
@@ -8466,24 +8124,6 @@
                  "width":16,
                  "x":5812,
                  "y":601
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1039,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":144
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":5876,
-                 "y":637
                 }, 
                 {
                  "gid":2128,
@@ -9172,129 +8812,6 @@
                  "width":16,
                  "x":6044,
                  "y":528
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1089,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":119
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":6252,
-                 "y":544
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1090,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"hflip",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":119
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":6264,
-                 "y":544
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1091,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":119
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":6312,
-                 "y":560
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1092,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"hflip",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":119
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":6344,
-                 "y":560
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1093,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":115
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":6312,
-                 "y":544
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1094,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"hflip",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":115
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":6344,
-                 "y":544
                 }, 
                 {
                  "gid":2061,
@@ -12081,29 +11598,6 @@
                  "y":672
                 }, 
                 {
-                 "gid":2093,
-                 "height":16,
-                 "id":1276,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":182
-                        }, 
-                        {
-                         "name":"vflip",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":8132,
-                 "y":612
-                }, 
-                {
                  "gid":2057,
                  "height":16,
                  "id":1277,
@@ -12144,24 +11638,6 @@
                  "width":16,
                  "x":8159,
                  "y":662
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":1281,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":182
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":8159,
-                 "y":678
                 }, 
                 {
                  "gid":2057,
@@ -12350,42 +11826,6 @@
                  "y":528
                 }, 
                 {
-                 "gid":2093,
-                 "height":16,
-                 "id":1300,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":183
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":8272,
-                 "y":647
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":1301,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":185
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":8288,
-                 "y":647
-                }, 
-                {
                  "gid":2057,
                  "height":16,
                  "id":1302,
@@ -12396,24 +11836,6 @@
                  "width":16,
                  "x":8280,
                  "y":631
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":1303,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":182
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":8336,
-                 "y":663
                 }, 
                 {
                  "gid":2059,
@@ -13424,8 +12846,7 @@
                  "width":16,
                  "x":9168,
                  "y":144
-                },
-            
+                }, 
                 {
                  "gid":2072,
                  "height":16,
@@ -14002,7 +13423,8 @@
                  "width":16,
                  "x":9520,
                  "y":288
-                }, 
+                },
+            
                 {
                  "gid":2052,
                  "height":16,
@@ -16051,60 +15473,6 @@
                  "y":176
                 }, 
                 {
-                 "gid":2093,
-                 "height":16,
-                 "id":1529,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":184
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":11496,
-                 "y":248
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":1530,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":185
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":11512,
-                 "y":248
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":1531,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":183
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":11488,
-                 "y":248
-                }, 
-                {
                  "gid":2059,
                  "height":16,
                  "id":1532,
@@ -16481,24 +15849,6 @@
                  "width":16,
                  "x":11668,
                  "y":334
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":1562,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":182
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":11670,
-                 "y":350
                 }, 
                 {
                  "gid":2059,
@@ -16955,24 +16305,6 @@
                  "width":16,
                  "x":11952,
                  "y":208
-                }, 
-                {
-                 "gid":2093,
-                 "height":16,
-                 "id":1600,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":182
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":12016,
-                 "y":264
                 }, 
                 {
                  "gid":2059,
@@ -18022,57 +17354,6 @@
                  "width":16,
                  "x":12960,
                  "y":244
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1678,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"bg layer",
-                         "type":"string",
-                         "value":"2"
-                        }, 
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":151
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":13048,
-                 "y":216
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1679,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"bg layer",
-                         "type":"string",
-                         "value":"2"
-                        }, 
-                        {
-                         "name":"hflip",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":151
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":13064,
-                 "y":216
                 }, 
                 {
                  "gid":2116,
@@ -19322,98 +18603,6 @@
                  "y":672
                 }, 
                 {
-                 "gid":2092,
-                 "height":16,
-                 "id":1748,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"bg layer",
-                         "type":"string",
-                         "value":"2"
-                        }, 
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":82
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":8368,
-                 "y":696
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1749,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"bg layer",
-                         "type":"string",
-                         "value":"2"
-                        }, 
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":82
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":8368,
-                 "y":680
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1750,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"bg layer",
-                         "type":"string",
-                         "value":"2"
-                        }, 
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":82
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":8368,
-                 "y":664
-                }, 
-                {
-                 "gid":2092,
-                 "height":16,
-                 "id":1751,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"bg layer",
-                         "type":"string",
-                         "value":"2"
-                        }, 
-                        {
-                         "name":"metatile ID appearance",
-                         "type":"int",
-                         "value":78
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":8368,
-                 "y":648
-                }, 
-                {
                  "gid":2079,
                  "height":16,
                  "id":1752,
@@ -19484,6 +18673,528 @@
                  "width":16,
                  "x":11616,
                  "y":388
+                }, 
+                {
+                 "gid":65,
+                 "height":16,
+                 "id":1757,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":544,
+                 "y":612
+                }, 
+                {
+                 "gid":65,
+                 "height":16,
+                 "id":1758,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":560,
+                 "y":552
+                }, 
+                {
+                 "gid":183,
+                 "height":16,
+                 "id":1759,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":424,
+                 "y":654
+                }, 
+                {
+                 "gid":184,
+                 "height":16,
+                 "id":1760,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":364,
+                 "y":676
+                }, 
+                {
+                 "gid":186,
+                 "height":16,
+                 "id":1761,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":380,
+                 "y":676
+                }, 
+                {
+                 "gid":186,
+                 "height":16,
+                 "id":1762,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":924,
+                 "y":664
+                }, 
+                {
+                 "gid":184,
+                 "height":16,
+                 "id":1763,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":908,
+                 "y":664
+                }, 
+                {
+                 "gid":65,
+                 "height":16,
+                 "id":1764,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":2720,
+                 "y":628
+                }, 
+                {
+                 "gid":65,
+                 "height":16,
+                 "id":1765,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":2736,
+                 "y":628
+                }, 
+                {
+                 "gid":65,
+                 "height":16,
+                 "id":1766,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":2752,
+                 "y":628
+                }, 
+                {
+                 "gid":65,
+                 "height":16,
+                 "id":1767,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":4856,
+                 "y":536
+                }, 
+                {
+                 "gid":160,
+                 "height":16,
+                 "id":1768,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":5668,
+                 "y":569
+                }, 
+                {
+                 "gid":163,
+                 "height":16,
+                 "id":1769,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":5668,
+                 "y":553
+                }, 
+                {
+                 "gid":163,
+                 "height":16,
+                 "id":1770,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":5668,
+                 "y":537
+                }, 
+                {
+                 "gid":163,
+                 "height":16,
+                 "id":1771,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":5668,
+                 "y":521
+                }, 
+                {
+                 "gid":163,
+                 "height":16,
+                 "id":1772,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":5668,
+                 "y":505
+                }, 
+                {
+                 "gid":163,
+                 "height":16,
+                 "id":1774,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":5668,
+                 "y":489
+                }, 
+                {
+                 "gid":145,
+                 "height":16,
+                 "id":1775,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":5716,
+                 "y":601
+                }, 
+                {
+                 "gid":145,
+                 "height":16,
+                 "id":1776,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":5828,
+                 "y":601
+                }, 
+                {
+                 "gid":145,
+                 "height":16,
+                 "id":1777,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":5876,
+                 "y":637
+                }, 
+                {
+                 "gid":121,
+                 "height":16,
+                 "id":1778,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":6264,
+                 "y":544
+                }, 
+                {
+                 "gid":120,
+                 "height":16,
+                 "id":1779,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":6252,
+                 "y":544
+                }, 
+                {
+                 "gid":121,
+                 "height":16,
+                 "id":1780,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":6344,
+                 "y":560
+                }, 
+                {
+                 "gid":120,
+                 "height":16,
+                 "id":1781,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":6312,
+                 "y":560
+                }, 
+                {
+                 "gid":117,
+                 "height":16,
+                 "id":1782,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":6344,
+                 "y":544
+                }, 
+                {
+                 "gid":116,
+                 "height":16,
+                 "id":1783,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":6312,
+                 "y":544
+                }, 
+                {
+                 "gid":183,
+                 "height":16,
+                 "id":1784,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":8159,
+                 "y":678
+                }, 
+                {
+                 "gid":187,
+                 "height":16,
+                 "id":1785,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":8132,
+                 "y":604
+                }, 
+                {
+                 "gid":183,
+                 "height":16,
+                 "id":1786,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":8336,
+                 "y":663
+                }, 
+                {
+                 "gid":184,
+                 "height":16,
+                 "id":1787,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":8272,
+                 "y":647
+                }, 
+                {
+                 "gid":186,
+                 "height":16,
+                 "id":1788,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":8288,
+                 "y":647
+                }, 
+                {
+                 "gid":159,
+                 "height":16,
+                 "id":1789,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":8368,
+                 "y":648
+                }, 
+                {
+                 "gid":163,
+                 "height":16,
+                 "id":1790,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":8368,
+                 "y":664
+                }, 
+                {
+                 "gid":163,
+                 "height":16,
+                 "id":1791,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":8368,
+                 "y":680
+                }, 
+                {
+                 "gid":163,
+                 "height":16,
+                 "id":1792,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"bg layer",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":8368,
+                 "y":696
+                }, 
+                {
+                 "gid":184,
+                 "height":16,
+                 "id":1793,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11488,
+                 "y":248
+                }, 
+                {
+                 "gid":186,
+                 "height":16,
+                 "id":1794,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11512,
+                 "y":248
+                }, 
+                {
+                 "gid":185,
+                 "height":16,
+                 "id":1795,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11496,
+                 "y":248
+                }, 
+                {
+                 "gid":183,
+                 "height":16,
+                 "id":1796,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":11670,
+                 "y":350
+                }, 
+                {
+                 "gid":183,
+                 "height":16,
+                 "id":1797,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":12016,
+                 "y":264
+                }, 
+                {
+                 "gid":152,
+                 "height":16,
+                 "id":1798,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"bg layer",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":13048,
+                 "y":216
+                }, 
+                {
+                 "gid":153,
+                 "height":16,
+                 "id":1799,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"bg layer",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":13064,
+                 "y":216
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -19492,7 +19203,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":1757,
+ "nextobjectid":1800,
  "orientation":"orthogonal",
  "properties":[
         {

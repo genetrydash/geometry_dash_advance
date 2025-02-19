@@ -4084,8 +4084,8 @@ clutterfunk_spr_data:
    .hword 0x0 @ delta x
    .hword 0x120 @ y
    .hword 0x2b @ type
-   .hword 0x22 @ bg layer 4 flipped horizontally  
-   .hword 81 @ metatile ID appareance
+   .hword 0x20 @ bg layer 4   
+   .hword 80 @ metatile ID appareance
 @ Object 762
    .hword 0x10 @ delta x
    .hword 0x110 @ y
@@ -4119,7 +4119,7 @@ clutterfunk_spr_data:
    .hword 0x110 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
-   .hword 77 @ metatile ID appareance
+   .hword 73 @ metatile ID appareance
 @ Object 768
    .hword 0x0 @ delta x
    .hword 0x120 @ y
@@ -4140,8 +4140,8 @@ clutterfunk_spr_data:
    .hword 0x8 @ delta x
    .hword 0x110 @ y
    .hword 0x2b @ type
-   .hword 0x22 @ bg layer 4 flipped horizontally  
-   .hword 69 @ metatile ID appareance
+   .hword 0x20 @ bg layer 4   
+   .hword 70 @ metatile ID appareance
 @ Object 772
    .hword 0x0 @ delta x
    .hword 0x120 @ y
@@ -5088,7 +5088,7 @@ clutterfunk_spr_data:
 @ Object 942
    .hword 0x0 @ delta x
    .hword 0x138 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
 @ Object 943
@@ -5122,7 +5122,7 @@ clutterfunk_spr_data:
 @ Object 948
    .hword 0x18 @ delta x
    .hword 0x118 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 183 @ metatile ID appareance
 @ Object 949
@@ -5138,7 +5138,7 @@ clutterfunk_spr_data:
 @ Object 951
    .hword 0x8 @ delta x
    .hword 0x118 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 185 @ metatile ID appareance
 @ Object 952
@@ -5406,10 +5406,10 @@ clutterfunk_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 1004
    .hword 0x8 @ delta x
-   .hword 0x120 @ y
-   .hword 0x2c @ type
-   .hword 0x21 @ bg layer 4  flipped vertically 
-   .hword 182 @ metatile ID appareance
+   .hword 0x118 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 186 @ metatile ID appareance
 @ Object 1005
    .hword 0x0 @ delta x
    .hword 0x128 @ y
@@ -6079,7 +6079,7 @@ clutterfunk_spr_data:
 @ Object 1137
    .hword 0x0 @ delta x
    .hword 0xd8 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
 @ Object 1138

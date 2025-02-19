@@ -76,7 +76,7 @@ theoryofeverything_spr_data:
 @ Object 14
    .hword 0x30 @ delta x
    .hword 0x2a4 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 183 @ metatile ID appareance
 @ Object 15
@@ -112,7 +112,7 @@ theoryofeverything_spr_data:
 @ Object 21
    .hword 0x0 @ delta x
    .hword 0x2a4 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 185 @ metatile ID appareance
 @ Object 22
@@ -158,7 +158,7 @@ theoryofeverything_spr_data:
 @ Object 30
    .hword 0x0 @ delta x
    .hword 0x28e @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
 @ Object 31
@@ -396,7 +396,7 @@ theoryofeverything_spr_data:
 @ Object 77
    .hword 0xc @ delta x
    .hword 0x298 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 183 @ metatile ID appareance
 @ Object 78
@@ -412,7 +412,7 @@ theoryofeverything_spr_data:
 @ Object 80
    .hword 0x2 @ delta x
    .hword 0x298 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 185 @ metatile ID appareance
 @ Object 81
@@ -3198,8 +3198,8 @@ theoryofeverything_spr_data:
    .hword 0x6 @ delta x
    .hword 0x220 @ y
    .hword 0x2b @ type
-   .hword 0x22 @ bg layer 4 flipped horizontally  
-   .hword 119 @ metatile ID appareance
+   .hword 0x20 @ bg layer 4   
+   .hword 120 @ metatile ID appareance
 @ Object 600
    .hword 0xa @ delta x
    .hword 0x200 @ y
@@ -3267,14 +3267,14 @@ theoryofeverything_spr_data:
    .hword 0x8 @ delta x
    .hword 0x220 @ y
    .hword 0x2b @ type
-   .hword 0x22 @ bg layer 4 flipped horizontally  
-   .hword 115 @ metatile ID appareance
+   .hword 0x20 @ bg layer 4   
+   .hword 116 @ metatile ID appareance
 @ Object 612
    .hword 0x0 @ delta x
    .hword 0x230 @ y
    .hword 0x2b @ type
-   .hword 0x22 @ bg layer 4 flipped horizontally  
-   .hword 119 @ metatile ID appareance
+   .hword 0x20 @ bg layer 4   
+   .hword 120 @ metatile ID appareance
 @ Object 613
    .hword 0x10 @ delta x
    .hword 0x290 @ y
@@ -4158,15 +4158,15 @@ theoryofeverything_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 772
    .hword 0x0 @ delta x
+   .hword 0x25c @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 186 @ metatile ID appareance
+@ Object 773
+   .hword 0x0 @ delta x
    .hword 0x260 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
-@ Object 773
-   .hword 0x0 @ delta x
-   .hword 0x264 @ y
-   .hword 0x2c @ type
-   .hword 0x21 @ bg layer 4  flipped vertically 
-   .hword 182 @ metatile ID appareance
 @ Object 774
    .hword 0x0 @ delta x
    .hword 0x26c @ y
@@ -4200,7 +4200,7 @@ theoryofeverything_spr_data:
 @ Object 780
    .hword 0x0 @ delta x
    .hword 0x2a6 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
 @ Object 781
@@ -4271,7 +4271,7 @@ theoryofeverything_spr_data:
 @ Object 794
    .hword 0x8 @ delta x
    .hword 0x287 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 183 @ metatile ID appareance
 @ Object 795
@@ -4282,7 +4282,7 @@ theoryofeverything_spr_data:
 @ Object 796
    .hword 0x8 @ delta x
    .hword 0x287 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 185 @ metatile ID appareance
 @ Object 797
@@ -4313,7 +4313,7 @@ theoryofeverything_spr_data:
 @ Object 802
    .hword 0x0 @ delta x
    .hword 0x297 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
 @ Object 803
@@ -4325,26 +4325,26 @@ theoryofeverything_spr_data:
    .hword 0x0 @ delta x
    .hword 0x288 @ y
    .hword 0x2b @ type
-   .hword 0x18 @ bg layer 3   
-   .hword 78 @ metatile ID appareance
+   .hword 0x20 @ bg layer 4   
+   .hword 158 @ metatile ID appareance
 @ Object 805
    .hword 0x0 @ delta x
    .hword 0x298 @ y
    .hword 0x2b @ type
-   .hword 0x18 @ bg layer 3   
-   .hword 82 @ metatile ID appareance
+   .hword 0x20 @ bg layer 4   
+   .hword 162 @ metatile ID appareance
 @ Object 806
    .hword 0x0 @ delta x
    .hword 0x2a8 @ y
    .hword 0x2b @ type
-   .hword 0x18 @ bg layer 3   
-   .hword 82 @ metatile ID appareance
+   .hword 0x20 @ bg layer 4   
+   .hword 162 @ metatile ID appareance
 @ Object 807
    .hword 0x0 @ delta x
    .hword 0x2b8 @ y
    .hword 0x2b @ type
-   .hword 0x18 @ bg layer 3   
-   .hword 82 @ metatile ID appareance
+   .hword 0x10 @ bg layer 2   
+   .hword 162 @ metatile ID appareance
 @ Object 808
    .hword 0x20 @ delta x
    .hword 0x2b0 @ y
@@ -5525,7 +5525,7 @@ theoryofeverything_spr_data:
 @ Object 1010
    .hword 0x30 @ delta x
    .hword 0xf8 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 183 @ metatile ID appareance
 @ Object 1011
@@ -5541,7 +5541,7 @@ theoryofeverything_spr_data:
 @ Object 1013
    .hword 0x8 @ delta x
    .hword 0xf8 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 184 @ metatile ID appareance
 @ Object 1014
@@ -5557,7 +5557,7 @@ theoryofeverything_spr_data:
 @ Object 1016
    .hword 0x0 @ delta x
    .hword 0xf8 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 185 @ metatile ID appareance
 @ Object 1017
@@ -5708,7 +5708,7 @@ theoryofeverything_spr_data:
 @ Object 1046
    .hword 0x0 @ delta x
    .hword 0x15e @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
 @ Object 1047
@@ -5909,7 +5909,7 @@ theoryofeverything_spr_data:
 @ Object 1086
    .hword 0x0 @ delta x
    .hword 0x108 @ y
-   .hword 0x2c @ type
+   .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 182 @ metatile ID appareance
 @ Object 1087
@@ -6368,7 +6368,7 @@ theoryofeverything_spr_data:
    .hword 0x8 @ delta x
    .hword 0xd8 @ y
    .hword 0x2b @ type
-   .hword 0x18 @ bg layer 3   
+   .hword 0x10 @ bg layer 2   
    .hword 151 @ metatile ID appareance
 @ Object 1173
    .hword 0x8 @ delta x
@@ -6382,8 +6382,8 @@ theoryofeverything_spr_data:
    .hword 0x8 @ delta x
    .hword 0xd8 @ y
    .hword 0x2b @ type
-   .hword 0x1a @ bg layer 3 flipped horizontally  
-   .hword 151 @ metatile ID appareance
+   .hword 0x10 @ bg layer 2   
+   .hword 152 @ metatile ID appareance
 @ Object 1175
    .hword 0x0 @ delta x
    .hword 0xe8 @ y
