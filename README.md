@@ -1,7 +1,7 @@
-![image](https://github.com/AleFunky/famidash_advance/blob/main/images/Image.jpg)
+![image](https://github.com/AleFunky/geometry_dash_advance/blob/main/images/Image.jpg)
 
 ## about
-Famidash advance is a demake of geometry dash for the gba.
+Geometry Dash Advance is a demake of geometry dash for the gba.
 
 ## Nightly builds
 Download nightly build (unstable) [here](https://nightly.link/AleFunky/famidash_advance/workflows/main/main/famidash-adv.zip)
