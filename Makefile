@@ -5,7 +5,7 @@ endif
 # Name of your ROM
 #
 # Add _mb to the end to build a multiboot ROM.
-PROJECT		:= famidash_adv
+PROJECT		:= gd_adv
 
 # Uncomment this if you're building a library
 #
@@ -17,7 +17,7 @@ PROJECT		:= famidash_adv
 # Game code:     4 characters
 # Maker code:    2 characters
 # Version:       1 character
-ROM_TITLE	:= FAMIDASH_ADV
+ROM_TITLE	:= GD_ADV
 ROM_GAMECODE	:= 1XXX # everdrive wants a 1 for sram
 ROM_MAKERCODE	:=
 ROM_VERSION	:=

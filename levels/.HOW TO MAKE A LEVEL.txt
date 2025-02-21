@@ -59,7 +59,7 @@ You can find instructions on how to install devkitpro here: https://devkitpro.or
 Once you have installed devkitpro, to build the game run "make".
 In Windows, you use MSys2 to navigate it to your folder (path must have only eng symbols and "_"). Then run make.
 In Linux, just use the terminal lol. Also navigate it to your folder and run make.
-If the game compiled, the last line should say "rom build/famidash_adv.gba", if not, an error probably occured.
+If the game compiled, the last line should say "rom build/gd_adv.gba", if not, an error probably occured.
 
 Also you might need to delete the "build" folder every time you build a new version.
 

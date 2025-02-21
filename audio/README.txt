@@ -20,7 +20,7 @@ Electrodynamix: available
 Hexagon force: available
 -- More coming soon... --
 
-Below I will present you the instructions for creating music for Famidash Advance:
+Below I will present you the instructions for creating music for Geometry Dash Advance:
 
 Sample instructions:
 • Quality:    16000kHz
