@@ -21,10 +21,13 @@ u32 eject_bottom = 0;
 ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
 ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
 s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
+ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer);
 
 ARM_CODE void collision_cube() {
     // Exit if above screen
     if (curr_player.player_y < 0) return;
+
+    curr_player.on_floor_step = FALSE;
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
@@ -40,6 +43,15 @@ ARM_CODE void collision_cube() {
         // If the player is dead, don't bother checking more
         if (player_death) {
             return;
+        }
+
+        if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer)) {
+            curr_player.on_slope = TRUE;
+            return;
+        } else if (curr_player.on_slope && !curr_player.on_floor_step) {
+            // Player was on slope, launch
+            curr_player.player_y_speed = curr_player.player_y_diff;
+            curr_player.on_slope = FALSE;
         }
 
         // Do center hitbox checks
@@ -121,11 +133,14 @@ ARM_CODE void collision_cube() {
             }
         }
     }
+
 }
 
 ARM_CODE void collision_ship_ball_ufo() {
     // Exit if above screen
     if (curr_player.player_y < 0) return;
+
+    curr_player.on_floor_step = FALSE;
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
@@ -141,6 +156,15 @@ ARM_CODE void collision_ship_ball_ufo() {
         // If the player is dead, don't bother checking more
         if (player_death) {
             return;
+        }
+
+        if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer)) {
+            curr_player.on_slope = TRUE;
+            return;
+        } else if (curr_player.on_slope && !curr_player.on_floor_step) {
+            // Player was on slope, launch
+            curr_player.player_y_speed = curr_player.player_y_diff;
+            curr_player.on_slope = FALSE;
         }
         
         // Do center hitbox checks
@@ -539,11 +563,13 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
         if (eject_value < (max_eject << SUBPIXEL_BITS)) {
             if (curr_player.gamemode != GAMEMODE_CUBE || curr_player.gravity_dir == GRAVITY_UP) {
                 // We are resting on the ceiling so allow jumping and stuff
-                curr_player.on_floor = 1;
+                curr_player.on_floor = TRUE;
+                curr_player.on_floor_step = TRUE;
             }
             
             curr_player.player_y += eject_value;
             curr_player.player_y_speed = 0;
+            curr_player.on_slope = FALSE;
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
@@ -559,10 +585,12 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
         if (eject_value < (max_eject << SUBPIXEL_BITS)) {
             if (curr_player.gamemode != GAMEMODE_CUBE || curr_player.gravity_dir == GRAVITY_DOWN) {
                 // We are resting on the floor so allow jumping and stuff
-                curr_player.on_floor = 1;
+                curr_player.on_floor = TRUE;
+                curr_player.on_floor_step = TRUE;
             }
             curr_player.player_y -= eject_value;
             curr_player.player_y_speed = 0;
+            curr_player.on_slope = FALSE;
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
@@ -1031,6 +1059,30 @@ const jmp_table spike_coll_jump_table[] = {
     not_an_spike, // COL_EA_CORNER_INSIDE_SLAB_BOTTOM_RIGHT
 
     not_an_spike, // BREAKABLE_BRICK
+
+    not_an_spike, // COL_SLOPE_45_UP
+    not_an_spike, // COL_SLOPE_45_DOWN
+    not_an_spike, // COL_SLOPE_45_UP_UD
+    not_an_spike, // COL_SLOPE_45_DOWN_UD
+    
+    not_an_spike, // COL_SLOPE_22_UP_1,
+    not_an_spike, // COL_SLOPE_22_UP_2,
+    not_an_spike, // COL_SLOPE_22_DOWN,
+    not_an_spike, // COL_SLOPE_22_DOWN_2,
+    not_an_spike, // COL_SLOPE_22_UP_UD,
+    not_an_spike, // COL_SLOPE_22_UP_UD_2,
+    not_an_spike, // COL_SLOPE_22_DOWN_UD,
+    not_an_spike, // COL_SLOPE_22_DOWN_UD_2,
+
+    not_an_spike, // COL_SLOPE_66_UP_1,
+    not_an_spike, // COL_SLOPE_66_UP_2,
+    not_an_spike, // COL_SLOPE_66_DOWN,
+    not_an_spike, // COL_SLOPE_66_DOWN_2,
+    not_an_spike, // COL_SLOPE_66_UP_UD,
+    not_an_spike, // COL_SLOPE_66_UP_UD_2,
+    not_an_spike, // COL_SLOPE_66_DOWN_UD,
+    not_an_spike, // COL_SLOPE_66_DOWN_UD_2,
+
 };
 
 // This function iterates through spikes that the player is touching and applies collision to it
@@ -1055,6 +1107,438 @@ ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 la
             spike_coll_jump_table[col_type](x, y, width, height, spk_x, spk_y);
         }
     }
+}
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+typedef struct {
+    int64_t x, y; // Top-left corner
+    int32_t size; // Side length
+} square_t;
+
+struct point_t {
+    int x;
+    int y;
+};
+
+typedef struct {
+    struct point_t p1;
+    struct point_t p2;
+    struct point_t p3;
+} triangle_t;
+
+
+// Function to compute the cross product of two vectors
+int cross_product(int x1, int y1, int x2, int y2) {
+    return x1 * y2 - x2 * y1;
+}
+
+// Function to check if a point (x, y) is inside the triangle defined by (x1, y1), (x2, y2), (x3, y3)
+int is_point_inside_triangle(int x, int y, int x1, int y1, int x2, int y2, int x3, int y3) {
+    // Compute vectors
+    int v1x = x2 - x1, v1y = y2 - y1; // Vector from A to B
+    int v2x = x3 - x2, v2y = y3 - y2; // Vector from B to C
+    int v3x = x1 - x3, v3y = y1 - y3; // Vector from C to A
+
+    // Compute cross products
+    int cp1 = cross_product(x - x1, y - y1, v1x, v1y); // Cross product for edge AB
+    int cp2 = cross_product(x - x2, y - y2, v2x, v2y); // Cross product for edge BC
+    int cp3 = cross_product(x - x3, y - y3, v3x, v3y); // Cross product for edge CA
+
+    // Check if all cross products have the same sign (or zero for boundary points)
+    if ((cp1 >= 0 && cp2 >= 0 && cp3 >= 0) || (cp1 <= 0 && cp2 <= 0 && cp3 <= 0)) {
+        return 1; // Point is inside or on the boundary
+    } else {
+        return 0; // Point is outside
+    }
+}
+
+
+// Function to eject a point vertically from the triangle
+s32 eject_point_vertically(int x, int y, int x1, int y1, int x2, int y2, int x3, int y3) {
+    // Determine the direction to eject (upwards or downwards)
+    // Find the closest non-vertical edge and eject perpendicular to it
+    int minDistance = 0x7fffffff;
+    int closestEdge = 0; // 1 = AB, 2 = BC, 3 = CA
+
+    // Distance to edge AB (skip if vertical)
+    if (x1 != x2 && y1 != y2) {
+        int distanceAB = ABS((x2 - x1) * (y1 - y) - (x1 - x) * (y2 - y1));
+        if (distanceAB < minDistance) {
+            minDistance = distanceAB;
+            closestEdge = 1;
+        }
+    }
+
+    // Distance to edge BC (skip if vertical)
+    if (x2 != x3 && y2 != y3) {
+        int distanceBC = ABS((x3 - x2) * (y2 - y) - (x2 - x) * (y3 - y2));
+        if (distanceBC < minDistance) {
+            minDistance = distanceBC;
+            closestEdge = 2;
+        }
+    }
+
+    // Distance to edge CA (skip if vertical)
+    if (x3 != x1 && y3 != y1) {
+        int distanceCA = ABS((x1 - x3) * (y3 - y) - (x3 - x) * (y1 - y3));
+        if (distanceCA < minDistance) {
+            minDistance = distanceCA;
+            closestEdge = 3;
+        }
+    }
+
+    // Eject the point vertically based on the closest edge
+    if (closestEdge == 1) { // Edge AB
+        // Calculate the y-intercept of the edge AB at the point's x-coordinate
+        int edgeY = y1 + (y2 - y1) * (x - x1) / (x2 - x1);
+        return edgeY - y; // Positive for upward ejection, negative for downward
+    } else if (closestEdge == 2) { // Edge BC
+        // Calculate the y-intercept of the edge BC at the point's x-coordinate
+        int edgeY = y2 + (y3 - y2) * (x - x2) / (x3 - x2);
+        return edgeY - y; // Positive for upward ejection, negative for downward
+    } else if (closestEdge == 3) { // Edge CA
+        // Calculate the y-intercept of the edge CA at the point's x-coordinate
+        int edgeY = y3 + (y1 - y3) * (x - x3) / (x1 - x3);
+        return edgeY - y; // Positive for upward ejection, negative for downward
+    }
+    return 0;
+}
+
+#define NO_SLOPE_COLL_DETECTED 69420
+
+// Function to check collision between square and triangle
+s32 check_slope_collision(square_t sq, triangle_t tri) {
+    // Check hitbox
+    if (is_point_inside_triangle(sq.x + 1, sq.y + 1, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y)) {
+        return eject_point_vertically(sq.x, sq.y, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y);
+    }
+
+    if (is_point_inside_triangle(sq.x - 1, sq.y, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y)) {
+        return eject_point_vertically(sq.x, sq.y, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y);
+    }
+
+    if (is_point_inside_triangle(sq.x + 1, sq.y + sq.size - 1, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y)) {
+        return eject_point_vertically(sq.x, sq.y + sq.size, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y);
+    }
+
+    if (is_point_inside_triangle(sq.x - 1, sq.y + sq.size, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y)) {
+        return eject_point_vertically(sq.x, sq.y + sq.size, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y);
+    }
+    
+
+    return NO_SLOPE_COLL_DETECTED;
+}
+
+#define SLOPE_CHECK \
+    if ((eject = check_slope_collision(player, slope)) != NO_SLOPE_COLL_DETECTED) { \
+        curr_player.player_y += TO_FIXED(eject);  \
+        player.y += eject; \
+        curr_player.on_floor = TRUE; \
+        curr_player.on_slope = TRUE; \
+        return TRUE; \
+    }
+
+// This function iterates through spikes that the player is touching and applies collision to it
+ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
+    square_t player;
+    player.x = x + (width >> 1);
+    player.y = y;
+    player.size = height;
+
+    // Iterate through 4 metatiles, forming a 2x2 metatile square
+    // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
+    for (u32 side = 0; side < 4; side++) {
+        // Get offset from the starting block
+        u32 x_offset = (side & 1) ? 0x10 : 0;
+        u32 y_offset = (side & 2) ? 0x10 : 0;
+
+        u32 col_type = obtain_collision_type(x + x_offset, y + y_offset, layer);
+
+        // Spikes origin is in the top left pixel, aka 0,0 inside the metatile
+        u32 slope_x = (x + x_offset) & 0xfffffff0;
+        u32 slope_y = (y + y_offset) & 0xfffffff0;
+
+        triangle_t slope;
+
+        s32 eject;
+        switch (col_type) {
+
+            // 45 DEG
+
+            case COL_SLOPE_45_UP:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x + 0x10;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y + 0x10;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_45_DOWN:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y + 0x10;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_45_UP_UD:
+                slope.p1.x = slope_x + 0x10;
+                slope.p1.y = slope_y;
+
+                slope.p2.x = slope_x + 0x10;
+                slope.p2.y = slope_y + 0x10;
+
+                slope.p3.x = slope_x;
+                slope.p3.y = slope_y;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_45_DOWN_UD:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y;
+                
+                SLOPE_CHECK
+                break;
+
+            // 22 deg
+
+            case COL_SLOPE_22_UP_1:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x + 0x20;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x20;
+                slope.p3.y = slope_y + 0x10;
+                
+                SLOPE_CHECK
+                break;
+
+                
+            case COL_SLOPE_22_UP_2:
+                slope.p1.x = slope_x - 0x10;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x + 0x10;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y + 0x10;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_22_DOWN_1:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x20;
+                slope.p3.y = slope_y + 0x10;
+                
+                SLOPE_CHECK
+                break;
+
+                
+            case COL_SLOPE_22_DOWN_2:
+                slope.p1.x = slope_x - 0x10;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x - 0x10;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y + 0x10;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_22_UP_UD_1:
+                slope.p1.x = slope_x + 0x20;
+                slope.p1.y = slope_y;
+
+                slope.p2.x = slope_x + 0x20;
+                slope.p2.y = slope_y + 0x10;
+
+                slope.p3.x = slope_x;
+                slope.p3.y = slope_y;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_22_UP_UD_2:
+                slope.p1.x = slope_x + 0x10;
+                slope.p1.y = slope_y;
+
+                slope.p2.x = slope_x + 0x10;
+                slope.p2.y = slope_y + 0x10;
+
+                slope.p3.x = slope_x - 0x10;
+                slope.p3.y = slope_y;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_22_DOWN_UD_1:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x20;
+                slope.p3.y = slope_y;
+                
+                SLOPE_CHECK
+                break;
+
+            
+            case COL_SLOPE_22_DOWN_UD_2:
+                slope.p1.x = slope_x - 0x10;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x - 0x10;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y;
+                
+                SLOPE_CHECK
+                break;
+
+            // 66 DEG
+
+            case COL_SLOPE_66_UP_1:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x20;
+
+                slope.p2.x = slope_x + 0x10;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y + 0x20;
+                
+                SLOPE_CHECK
+                break;
+
+                
+            case COL_SLOPE_66_UP_2:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x + 0x10;
+                slope.p2.y = slope_y - 0x10;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y + 0x10;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_66_DOWN_1:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x;
+                slope.p2.y = slope_y - 0x10;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y + 0x10;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_66_DOWN_2:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x20;
+
+                slope.p2.x = slope_x;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y + 0x20;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_66_UP_UD_1:
+                slope.p1.x = slope_x + 0x10;
+                slope.p1.y = slope_y - 0x10;
+
+                slope.p2.x = slope_x + 0x10;
+                slope.p2.y = slope_y + 0x10;
+
+                slope.p3.x = slope_x;
+                slope.p3.y = slope_y - 0x10;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_66_UP_UD_2:
+                slope.p1.x = slope_x + 0x10;
+                slope.p1.y = slope_y;
+
+                slope.p2.x = slope_x + 0x10;
+                slope.p2.y = slope_y + 0x20;
+
+                slope.p3.x = slope_x;
+                slope.p3.y = slope_y;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_66_DOWN_UD_1:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x20;
+
+                slope.p2.x = slope_x;
+                slope.p2.y = slope_y;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y;
+                
+                SLOPE_CHECK
+                break;
+
+            case COL_SLOPE_66_DOWN_UD_2:
+                slope.p1.x = slope_x;
+                slope.p1.y = slope_y + 0x10;
+
+                slope.p2.x = slope_x;
+                slope.p2.y = slope_y - 0x10;
+
+                slope.p3.x = slope_x + 0x10;
+                slope.p3.y = slope_y - 0x10;
+                
+                SLOPE_CHECK
+                break;
+
+        }
+    }   
+
+    return FALSE;
 }
 
 ARM_CODE void collide_with_obj_spikes(u32 x, u32 y, u32 width, u32 height) {

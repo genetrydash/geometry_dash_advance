@@ -51,6 +51,8 @@ struct Player {
     // Position variables, in subpixels
     s64 player_x; // gota love giant levels
     s64 player_y;
+    s64 old_player_y;
+    s32 player_y_diff;
 
     // Player dimensions, in pixels
     u8 player_width;
@@ -77,7 +79,11 @@ struct Player {
     u8 player_size;
 
     // 0 : on air, 1 : on floor
+    u8 on_floor_step;
     u8 on_floor;
+
+    // TRUE if player is on slope
+    u8 on_slope;
 
     // 0 : not buffering, 1 : buffering
     u8 player_buffering;
@@ -103,6 +109,7 @@ struct Player {
 
     // TRUE if player is falling
     u8 falling;
+
 };
 
 extern u8 player_death;

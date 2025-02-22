@@ -87,6 +87,9 @@ void player_main() {
         } else {
             curr_player.player_buffering = NO_ORB_BUFFER;
         }
+
+        curr_player.old_player_y = curr_player.player_y;
+
         // Gamemode specific routines
         switch (curr_player.gamemode) {
             case GAMEMODE_CUBE:
@@ -102,6 +105,8 @@ void player_main() {
                 ufo_gamemode();
                 break;
         }
+
+        curr_player.player_y_diff = curr_player.player_y - curr_player.old_player_y;
 
         // Check if the level complete cutscene should start
         s64 player_x_limit = ((curr_level_width << 4) - 0x98) << (SUBPIXEL_BITS);
@@ -151,6 +156,7 @@ void cube_gamemode() {
             curr_player.player_y_speed = -((curr_player.player_size == SIZE_BIG) ? CUBE_JUMP_SPEED : CUBE_MINI_JUMP_SPEED) * sign;       
         }
         curr_player.player_buffering = ORB_BUFFER_END;
+        curr_player.on_slope = FALSE;
     }
 
     // If the cube is on the air, rotate, else, snap to nearest 
@@ -160,7 +166,7 @@ void cube_gamemode() {
         curr_player.cube_rotation = (curr_player.cube_rotation + 0x2000) & 0xC000;
     }
 
-    curr_player.on_floor = 0;
+    curr_player.on_floor = FALSE;
 
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
         // Apply quarter of speed
@@ -230,8 +236,8 @@ void ship_gamemode() {
     } else {
         curr_player.cube_rotation = ArcTan2(curr_player.player_x_speed >> 8, curr_player.player_y_speed >> 8) * mirror_sign;
     }
-
-    curr_player.on_floor = 0;
+    
+    curr_player.on_floor = FALSE;
     
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
         // Apply quarter of speed
@@ -300,8 +306,8 @@ void ball_gamemode() {
     curr_player.cube_rotation -= 0x250 * curr_player.ball_rotation_direction * mirror_sign;
 
     curr_player.player_y_speed = CLAMP(curr_player.player_y_speed, -BALL_MAX_Y_SPEED, BALL_MAX_Y_SPEED);
-
-    curr_player.on_floor = 0;
+    
+    curr_player.on_floor = FALSE;
 
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
         // Apply quarter of speed
@@ -368,8 +374,8 @@ void ufo_gamemode() {
             curr_player.player_y_speed = -UFO_MINI_JUMP_SPEED * sign;     
         }
     }
-
-    curr_player.on_floor = 0;
+    
+    curr_player.on_floor = FALSE;
 
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
         // Apply quarter of speed
