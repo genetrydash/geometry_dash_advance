@@ -4,6 +4,7 @@
 #include "soundbank.bin.h"
 #include "soundbank.h"
 #include "menu.h"
+#include "math.h"
 
 // in subpixels
 const u32 speed_constants[] = {
@@ -107,6 +108,12 @@ void player_main() {
         }
 
         curr_player.player_y_diff = curr_player.player_y - curr_player.old_player_y;
+        
+        if (curr_player.on_floor) {
+            curr_player.slope_counter++;
+        } else {
+            curr_player.slope_counter = 0;
+        }
 
         // Check if the level complete cutscene should start
         s64 player_x_limit = ((curr_level_width << 4) - 0x98) << (SUBPIXEL_BITS);
@@ -163,7 +170,21 @@ void cube_gamemode() {
     if (!curr_player.on_floor) {
         curr_player.cube_rotation -= 0x500 * sign * mirror_sign;
     } else {
-        curr_player.cube_rotation = (curr_player.cube_rotation + 0x2000) & 0xC000;
+        if (curr_player.on_slope) {
+            switch (curr_player.slope_type) {
+                case DEGREES_45:
+                    curr_player.cube_rotation = (curr_player.cube_rotation + 0x2000) & 0xC000;
+                    break;
+                case DEGREES_26_5:
+                    curr_player.cube_rotation = snap_to_tan_theta_1_2(curr_player.cube_rotation);
+                    break;
+                case DEGREES_63_5:
+                    curr_player.cube_rotation = snap_to_tan_theta_1_2_rotated_90(curr_player.cube_rotation);
+                    break;
+            }
+        } else {
+            curr_player.cube_rotation = (curr_player.cube_rotation + 0x2000) & 0xC000;
+        }
     }
 
     curr_player.on_floor = FALSE;
@@ -231,13 +252,14 @@ void ship_gamemode() {
         curr_player.player_buffering = NO_ORB_BUFFER;
     }
 
-    if (curr_player.on_floor) {
+    if (curr_player.snap_cube_rotation) {
         curr_player.cube_rotation = 0;
     } else {
         curr_player.cube_rotation = ArcTan2(curr_player.player_x_speed >> 8, curr_player.player_y_speed >> 8) * mirror_sign;
     }
     
     curr_player.on_floor = FALSE;
+    curr_player.snap_cube_rotation = FALSE;
     
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
         // Apply quarter of speed

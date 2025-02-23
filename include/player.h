@@ -82,8 +82,12 @@ struct Player {
     u8 on_floor_step;
     u8 on_floor;
 
+    // 0 : no snap, 1 : snapping
+    u8 snap_cube_rotation;
+
     // TRUE if player is on slope
     u8 on_slope;
+    u8 slope_counter;
 
     // 0 : not buffering, 1 : buffering
     u8 player_buffering;
@@ -110,6 +114,8 @@ struct Player {
     // TRUE if player is falling
     u8 falling;
 
+    // 0 : 45º, 1 : 26.5º, 2 : 26.5 + 90º
+    u8 slope_type;
 };
 
 extern u8 player_death;

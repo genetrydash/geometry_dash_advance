@@ -242,6 +242,7 @@ void reset_variables() {
     player_1.player_x = -0x110000;  
     player_1.relative_player_x = 0;
     player_1.player_y_speed = 0;
+    player_1.on_slope = 0;
     player_1.player_size = SIZE_BIG;
     player_1.gravity_dir = GRAVITY_DOWN;
     coll_x = 0;
@@ -256,6 +257,7 @@ void reset_variables() {
 
     curr_column = 0;
     player_1.on_floor = TRUE;
+    player_1.on_floor_step = TRUE;
     bitstream[0] = bitstream[1] = 0;
     bits_left[0] = bits_left[1] = 0;
 

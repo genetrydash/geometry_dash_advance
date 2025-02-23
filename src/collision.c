@@ -48,10 +48,6 @@ ARM_CODE void collision_cube() {
         if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer)) {
             curr_player.on_slope = TRUE;
             return;
-        } else if (curr_player.on_slope && !curr_player.on_floor_step) {
-            // Player was on slope, launch
-            curr_player.player_y_speed = curr_player.player_y_diff;
-            curr_player.on_slope = FALSE;
         }
 
         // Do center hitbox checks
@@ -161,10 +157,6 @@ ARM_CODE void collision_ship_ball_ufo() {
         if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer)) {
             curr_player.on_slope = TRUE;
             return;
-        } else if (curr_player.on_slope && !curr_player.on_floor_step) {
-            // Player was on slope, launch
-            curr_player.player_y_speed = curr_player.player_y_diff;
-            curr_player.on_slope = FALSE;
         }
         
         // Do center hitbox checks
@@ -182,7 +174,6 @@ ARM_CODE void collision_ship_ball_ufo() {
             return;
         }
 #endif
-
 
         if (curr_player.player_y_speed >= 0) {
             // Going down
@@ -565,6 +556,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
                 // We are resting on the ceiling so allow jumping and stuff
                 curr_player.on_floor = TRUE;
                 curr_player.on_floor_step = TRUE;
+                curr_player.snap_cube_rotation = TRUE;
             }
             
             curr_player.player_y += eject_value;
@@ -587,10 +579,10 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
                 // We are resting on the floor so allow jumping and stuff
                 curr_player.on_floor = TRUE;
                 curr_player.on_floor_step = TRUE;
+                curr_player.snap_cube_rotation = TRUE;
             }
             curr_player.player_y -= eject_value;
             curr_player.player_y_speed = 0;
-            curr_player.on_slope = FALSE;
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
@@ -1112,129 +1104,170 @@ ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 la
 #include <stdbool.h>
 #include <stdint.h>
 
-typedef struct {
-    int64_t x, y; // Top-left corner
-    int32_t size; // Side length
-} square_t;
+struct circle_t {
+    int64_t cx, cy; // Top-left corner
+    int32_t radius; // Side length
+};
 
 struct point_t {
     int x;
     int y;
 };
 
-typedef struct {
+struct triangle_t {
     struct point_t p1;
     struct point_t p2;
     struct point_t p3;
-} triangle_t;
+};
 
-
-// Function to compute the cross product of two vectors
-int cross_product(int x1, int y1, int x2, int y2) {
-    return x1 * y2 - x2 * y1;
-}
-
-// Function to check if a point (x, y) is inside the triangle defined by (x1, y1), (x2, y2), (x3, y3)
-int is_point_inside_triangle(int x, int y, int x1, int y1, int x2, int y2, int x3, int y3) {
-    // Compute vectors
-    int v1x = x2 - x1, v1y = y2 - y1; // Vector from A to B
-    int v2x = x3 - x2, v2y = y3 - y2; // Vector from B to C
-    int v3x = x1 - x3, v3y = y1 - y3; // Vector from C to A
-
-    // Compute cross products
-    int cp1 = cross_product(x - x1, y - y1, v1x, v1y); // Cross product for edge AB
-    int cp2 = cross_product(x - x2, y - y2, v2x, v2y); // Cross product for edge BC
-    int cp3 = cross_product(x - x3, y - y3, v3x, v3y); // Cross product for edge CA
-
-    // Check if all cross products have the same sign (or zero for boundary points)
-    if ((cp1 >= 0 && cp2 >= 0 && cp3 >= 0) || (cp1 <= 0 && cp2 <= 0 && cp3 <= 0)) {
-        return 1; // Point is inside or on the boundary
-    } else {
-        return 0; // Point is outside
-    }
-}
-
-
-// Function to eject a point vertically from the triangle
-s32 eject_point_vertically(int x, int y, int x1, int y1, int x2, int y2, int x3, int y3) {
-    // Determine the direction to eject (upwards or downwards)
-    // Find the closest non-vertical edge and eject perpendicular to it
-    int minDistance = 0x7fffffff;
-    int closestEdge = 0; // 1 = AB, 2 = BC, 3 = CA
-
-    // Distance to edge AB (skip if vertical)
-    if (x1 != x2 && y1 != y2) {
-        int distanceAB = ABS((x2 - x1) * (y1 - y) - (x1 - x) * (y2 - y1));
-        if (distanceAB < minDistance) {
-            minDistance = distanceAB;
-            closestEdge = 1;
-        }
-    }
-
-    // Distance to edge BC (skip if vertical)
-    if (x2 != x3 && y2 != y3) {
-        int distanceBC = ABS((x3 - x2) * (y2 - y) - (x2 - x) * (y3 - y2));
-        if (distanceBC < minDistance) {
-            minDistance = distanceBC;
-            closestEdge = 2;
-        }
-    }
-
-    // Distance to edge CA (skip if vertical)
-    if (x3 != x1 && y3 != y1) {
-        int distanceCA = ABS((x1 - x3) * (y3 - y) - (x3 - x) * (y1 - y3));
-        if (distanceCA < minDistance) {
-            minDistance = distanceCA;
-            closestEdge = 3;
-        }
-    }
-
-    // Eject the point vertically based on the closest edge
-    if (closestEdge == 1) { // Edge AB
-        // Calculate the y-intercept of the edge AB at the point's x-coordinate
-        int edgeY = y1 + (y2 - y1) * (x - x1) / (x2 - x1);
-        return edgeY - y; // Positive for upward ejection, negative for downward
-    } else if (closestEdge == 2) { // Edge BC
-        // Calculate the y-intercept of the edge BC at the point's x-coordinate
-        int edgeY = y2 + (y3 - y2) * (x - x2) / (x3 - x2);
-        return edgeY - y; // Positive for upward ejection, negative for downward
-    } else if (closestEdge == 3) { // Edge CA
-        // Calculate the y-intercept of the edge CA at the point's x-coordinate
-        int edgeY = y3 + (y1 - y3) * (x - x3) / (x1 - x3);
-        return edgeY - y; // Positive for upward ejection, negative for downward
-    }
-    return 0;
-}
 
 #define NO_SLOPE_COLL_DETECTED 69420
 
+void getLine(s32 x1, s32 y1, s32 x2, s32 y2, s32 *a, s32 *b, s32 *c){
+       // (x- p1X) / (p2X - p1X) = (y - p1Y) / (p2Y - p1Y) 
+       *a = y1 - y2; // Note: this was incorrectly "y2 - y1" in the original answer
+       *b = x2 - x1;
+       *c = x1 * y2 - x2 * y1;
+}
+
+s32 find_squared_distance_to_line(s32 point_x, s32 point_y, s32 x1, s32 y1, s32 x2, s32 y2) {
+    // Compute the squared length of the segment
+    s32 dx = x2 - x1;
+    s32 dy = y2 - y1;
+    s32 segment_length_sq = dx * dx + dy * dy;
+
+    // If the segment is a single point, return squared distance to that point
+    if (segment_length_sq == 0) {
+        s32 dx_p = point_x - x1;
+        s32 dy_p = point_y - y1;
+        return dx_p * dx_p + dy_p * dy_p;
+    }
+
+    // Compute the projection parameter t
+    s32 t = (point_x - x1) * dx + (point_y - y1) * dy;
+
+    // Clamp t to [0, segment_length_sq] to ensure it lies on the segment
+    if (t < 0) {
+        t = 0;
+    } else if (t > segment_length_sq) {
+        t = segment_length_sq;
+    }
+
+    // Find the closest point Q on the segment
+    s32 Qx = x1 + (t * dx) / segment_length_sq;
+    s32 Qy = y1 + (t * dy) / segment_length_sq;
+
+    // Compute the squared distance between the point and Q
+    s32 dx_q = point_x - Qx;
+    s32 dy_q = point_y - Qy;
+    return dx_q * dx_q + dy_q * dy_q;
+}
+
+void get_hipotenuse(struct triangle_t triangle, s32 *x1, s32 *y1, s32 *x2, s32 *y2) {
+    if (triangle.p1.x != triangle.p2.x && triangle.p1.y != triangle.p2.y) {
+        *x1 = triangle.p1.x;
+        *y1 = triangle.p1.y;
+        *x2 = triangle.p2.x;
+        *y2 = triangle.p2.y;
+    } else if (triangle.p2.x != triangle.p3.x && triangle.p2.y != triangle.p3.y) {
+        *x1 = triangle.p2.x;
+        *y1 = triangle.p2.y;
+        *x2 = triangle.p3.x;
+        *y2 = triangle.p3.y;
+    } else {
+        *x1 = triangle.p3.x;
+        *y1 = triangle.p3.y;
+        *x2 = triangle.p1.x;
+        *y2 = triangle.p1.y;
+    }
+}
+
+s32 check_distance_circle_triangle(struct circle_t circle, struct triangle_t triangle) {
+    s32 hipo_x1, hipo_y1, hipo_x2, hipo_y2;
+
+    get_hipotenuse(triangle, &hipo_x1, &hipo_y1, &hipo_x2, &hipo_y2);
+
+    return find_squared_distance_to_line(circle.cx, circle.cy, hipo_x1, hipo_y1, hipo_x2, hipo_y2) <= circle.radius * circle.radius;
+}
+
+void get_horizontal_edge(struct triangle_t triangle, s32 *x1, s32 *x2, s32 *y) {
+    if (triangle.p1.y == triangle.p2.y) {
+        *x1 = triangle.p1.x;
+        *x2 = triangle.p2.x;
+        *y  = triangle.p2.y;
+    } else if (triangle.p2.y == triangle.p3.y) {
+        *x1 = triangle.p2.x;
+        *x2 = triangle.p3.x;
+        *y  = triangle.p3.y;
+    } else {
+        *x1 = triangle.p3.x;
+        *x2 = triangle.p1.x;
+        *y  = triangle.p1.y;
+    }
+}
+
+s32 get_step(struct triangle_t triangle) {
+    s32 edge_x1, edge_x2, edge_y;
+    s32 hipo_x1, hipo_y1, hipo_x2, hipo_y2;
+
+    get_hipotenuse(triangle, &hipo_x1, &hipo_y1, &hipo_x2, &hipo_y2);
+    get_horizontal_edge(triangle, &edge_x1, &edge_x2, &edge_y);
+
+    s32 half_height = (hipo_y1 + hipo_y2) / 2;
+
+    if (half_height > edge_y) {
+        return -1;
+    } else {
+        return 1;
+    }
+}
+
 // Function to check collision between square and triangle
-s32 check_slope_collision(square_t sq, triangle_t tri) {
-    // Check hitbox
-    if (is_point_inside_triangle(sq.x + 1, sq.y + 1, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y)) {
-        return eject_point_vertically(sq.x, sq.y, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y);
+s32 check_slope_collision(struct circle_t circle, struct triangle_t triangle) {
+    s32 ejection = 0;
+
+    s32 step = get_step(triangle);
+    while (check_distance_circle_triangle(circle, triangle)) {
+        circle.cy -= step;
+        ejection -= step;
     }
 
-    if (is_point_inside_triangle(sq.x - 1, sq.y, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y)) {
-        return eject_point_vertically(sq.x, sq.y, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y);
-    }
-
-    if (is_point_inside_triangle(sq.x + 1, sq.y + sq.size - 1, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y)) {
-        return eject_point_vertically(sq.x, sq.y + sq.size, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y);
-    }
-
-    if (is_point_inside_triangle(sq.x - 1, sq.y + sq.size, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y)) {
-        return eject_point_vertically(sq.x, sq.y + sq.size, tri.p1.x, tri.p1.y, tri.p2.x, tri.p2.y, tri.p3.x, tri.p3.y);
-    }
-    
+    if (ejection != 0) return ejection;
 
     return NO_SLOPE_COLL_DETECTED;
 }
 
+const FIXED_16 slope_speed_multiplier[] = {
+    FLOAT_TO_FIXED(-1.0), // COL_SLOPE_45_UP
+    FLOAT_TO_FIXED(1.0), // COL_SLOPE_45_DOWN
+    FLOAT_TO_FIXED(1.0), // COL_SLOPE_45_UP_UD
+    FLOAT_TO_FIXED(-1.0), // COL_SLOPE_45_DOWN_UD
+
+    FLOAT_TO_FIXED(-0.5), // COL_SLOPE_22_UP_1
+    FLOAT_TO_FIXED(-0.5), // COL_SLOPE_22_UP_2
+    FLOAT_TO_FIXED(0.5), // COL_SLOPE_22_DOWN_1
+    FLOAT_TO_FIXED(0.5), // COL_SLOPE_22_DOWN_2
+    FLOAT_TO_FIXED(0.5), // COL_SLOPE_22_UP_UD_1
+    FLOAT_TO_FIXED(0.5), // COL_SLOPE_22_UP_UD_2
+    FLOAT_TO_FIXED(-0.5), // COL_SLOPE_22_DOWN_UD_1
+    FLOAT_TO_FIXED(0.0), // COL_SLOPE_22_DOWN_UD_2
+
+    FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_UP_1
+    FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_UP_2
+    FLOAT_TO_FIXED(0.0), // COL_SLOPE_66_DOWN_1
+    FLOAT_TO_FIXED(0.0), // COL_SLOPE_66_DOWN_2
+    FLOAT_TO_FIXED(2.0), // COL_SLOPE_66_UP_UD_1
+    FLOAT_TO_FIXED(2.0), // COL_SLOPE_66_UP_UD_2
+    FLOAT_TO_FIXED(0.0), // COL_SLOPE_66_DOWN_UD_1
+    FLOAT_TO_FIXED(0.0), // COL_SLOPE_66_DOWN_UD_2
+};
+
 #define SLOPE_CHECK \
     if ((eject = check_slope_collision(player, slope)) != NO_SLOPE_COLL_DETECTED) { \
+        curr_player.player_y_speed = FIXED_MUL(slope_speed_multiplier[col_type - COL_SLOPE_START], curr_player.player_x_speed); \
         curr_player.player_y += TO_FIXED(eject);  \
-        player.y += eject; \
+        player.cy += eject; \
+        curr_player.on_floor_step = TRUE; \
         curr_player.on_floor = TRUE; \
         curr_player.on_slope = TRUE; \
         return TRUE; \
@@ -1242,10 +1275,10 @@ s32 check_slope_collision(square_t sq, triangle_t tri) {
 
 // This function iterates through spikes that the player is touching and applies collision to it
 ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
-    square_t player;
-    player.x = x + (width >> 1);
-    player.y = y;
-    player.size = height;
+    struct circle_t player;
+    player.radius = width >> 1;
+    player.cx = x + (width >> 1);
+    player.cy = y + (height >> 1);
 
     // Iterate through 4 metatiles, forming a 2x2 metatile square
     // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
@@ -1260,7 +1293,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
         u32 slope_x = (x + x_offset) & 0xfffffff0;
         u32 slope_y = (y + y_offset) & 0xfffffff0;
 
-        triangle_t slope;
+        struct triangle_t slope;
 
         s32 eject;
         switch (col_type) {
@@ -1276,6 +1309,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
+
+                curr_player.slope_type = DEGREES_45;
                 
                 SLOPE_CHECK
                 break;
@@ -1290,6 +1325,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
                 
+                curr_player.slope_type = DEGREES_45;
+
                 SLOPE_CHECK
                 break;
 
@@ -1303,6 +1340,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x;
                 slope.p3.y = slope_y;
                 
+                curr_player.slope_type = DEGREES_45;
+                
                 SLOPE_CHECK
                 break;
 
@@ -1315,6 +1354,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y;
+                
+                curr_player.slope_type = DEGREES_45;
                 
                 SLOPE_CHECK
                 break;
@@ -1331,6 +1372,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x20;
                 slope.p3.y = slope_y + 0x10;
                 
+                curr_player.slope_type = DEGREES_26_5;
+                
                 SLOPE_CHECK
                 break;
 
@@ -1345,6 +1388,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
                 
+                curr_player.slope_type = DEGREES_26_5;
+                
                 SLOPE_CHECK
                 break;
 
@@ -1357,6 +1402,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x + 0x20;
                 slope.p3.y = slope_y + 0x10;
+                
+                curr_player.slope_type = DEGREES_26_5;
                 
                 SLOPE_CHECK
                 break;
@@ -1372,6 +1419,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
                 
+                curr_player.slope_type = DEGREES_26_5;
+                
                 SLOPE_CHECK
                 break;
 
@@ -1384,6 +1433,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x;
                 slope.p3.y = slope_y;
+                
+                curr_player.slope_type = DEGREES_26_5;
                 
                 SLOPE_CHECK
                 break;
@@ -1398,6 +1449,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x - 0x10;
                 slope.p3.y = slope_y;
                 
+                curr_player.slope_type = DEGREES_26_5;
+                
                 SLOPE_CHECK
                 break;
 
@@ -1410,6 +1463,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x + 0x20;
                 slope.p3.y = slope_y;
+                
+                curr_player.slope_type = DEGREES_26_5;
                 
                 SLOPE_CHECK
                 break;
@@ -1424,6 +1479,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y;
+                
+                curr_player.slope_type = DEGREES_26_5;
                 
                 SLOPE_CHECK
                 break;
@@ -1440,6 +1497,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x20;
                 
+                curr_player.slope_type = DEGREES_63_5;
+                
                 SLOPE_CHECK
                 break;
 
@@ -1454,6 +1513,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
                 
+                curr_player.slope_type = DEGREES_63_5;
+                
                 SLOPE_CHECK
                 break;
 
@@ -1466,6 +1527,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
+                
+                curr_player.slope_type = DEGREES_63_5;
                 
                 SLOPE_CHECK
                 break;
@@ -1480,6 +1543,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x20;
                 
+                curr_player.slope_type = DEGREES_63_5;
+                
                 SLOPE_CHECK
                 break;
 
@@ -1492,6 +1557,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x;
                 slope.p3.y = slope_y - 0x10;
+                
+                curr_player.slope_type = DEGREES_63_5;
                 
                 SLOPE_CHECK
                 break;
@@ -1506,6 +1573,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x;
                 slope.p3.y = slope_y;
                 
+                curr_player.slope_type = DEGREES_63_5;
+                
                 SLOPE_CHECK
                 break;
 
@@ -1519,6 +1588,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y;
                 
+                curr_player.slope_type = DEGREES_63_5;
+                
                 SLOPE_CHECK
                 break;
 
@@ -1531,6 +1602,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y - 0x10;
+                
+                curr_player.slope_type = DEGREES_63_5;
                 
                 SLOPE_CHECK
                 break;

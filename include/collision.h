@@ -85,7 +85,8 @@ enum CollisionTypes {
 
     BREAKABLE_BRICK,
 
-    COL_SLOPE_45_UP,
+    COL_SLOPE_START = BREAKABLE_BRICK + 1,
+    COL_SLOPE_45_UP = COL_SLOPE_START,
     COL_SLOPE_45_DOWN,
     COL_SLOPE_45_UP_UD,
     COL_SLOPE_45_DOWN_UD,
@@ -109,6 +110,12 @@ enum CollisionTypes {
     COL_SLOPE_66_DOWN_UD_2,
 
     COL_TYPES_COUNT,
+};
+
+enum SlopeTypes {
+    DEGREES_45,
+    DEGREES_26_5,
+    DEGREES_63_5,
 };
 
 enum CollisionSides {

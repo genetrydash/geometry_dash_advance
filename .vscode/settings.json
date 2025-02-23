@@ -50,7 +50,8 @@
         "physics_defines.h": "c",
         "string.h": "c",
         "save.h": "c",
-        "gba_sram.h": "c"
+        "gba_sram.h": "c",
+        "stdbool.h": "c"
     },
     "C_Cpp.default.cStandard": "c99",
     "C_Cpp.errorSquiggles": "disabled",
