@@ -155,6 +155,14 @@
 #include "test2/SP.h"
 #include "test2/properties.h"
 
-#define LEVEL_COUNT 16
+// leveleasy
+#define leveleasy_ID 16
+
+#include "leveleasy/l1.h"
+#include "leveleasy/l2.h"
+#include "leveleasy/SP.h"
+#include "leveleasy/properties.h"
+
+#define LEVEL_COUNT 17
 extern ROM_DATA const u16 *level_defines[][4];
 extern ROM_DATA const u8 *level_names[];

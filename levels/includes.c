@@ -17,6 +17,7 @@ ROM_DATA const u16 *level_defines[][4] = {
    { clubstep_l1_level_data, clubstep_l2_level_data, clubstep_spr_data, (u16 *) clubstep_properties },
    { test_l1_level_data, test_l2_level_data, test_spr_data, (u16 *) test_properties },
    { test2_l1_level_data, test2_l2_level_data, test2_spr_data, (u16 *) test2_properties },
+   { leveleasy_l1_level_data, leveleasy_l2_level_data, leveleasy_spr_data, (u16 *) leveleasy_properties },
 };
 
 ROM_DATA const u8 *level_names[] = {
@@ -36,4 +37,5 @@ ROM_DATA const u8 *level_names[] = {
    clubstep_name,
    test_name,
    test2_name,
+   leveleasy_name,
 };
