@@ -227,10 +227,10 @@ void col_trigger(struct ObjectSlot *objectSlot) {
                     col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[GROUND_PAL + LINE_COLOR];
                     break;
                 case P1:
-                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[P1_COLOR];
+                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[PLAYER_SPR_PAL + P1_COLOR];
                     break;
                 case P2:
-                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[P2_COLOR];
+                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[PLAYER_SPR_PAL + P2_COLOR];
                     break;
                 case COL1:
                 case COL2:

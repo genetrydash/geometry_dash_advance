@@ -27,23 +27,25 @@ const COLOR menu_bg_colors[] = {
 };
 
 const u16 pal_bg_to_spr[] = {
-    0x1f0,
-    0xffff,
-    0x1e0,
-    0x1d0,
-    0x1c0,
-    0x1b0,
-    0x1a0,
+    0x1f0,  // BG
+    0xffff, // GROUND
+    0x1e0,  // LBG
+    0x1d0,  // COL 1
+    0x1c0,  // COL 2
+    0x1b0,  // COL 3
+    0x1a0,  // COL 4
+    0x100,  // PLAYER
 };
 
 const u16 pal_bg_to_spr_index[] = {
-    0xf,
-    0xf,
-    0xe,
-    0xd,
-    0xc,
-    0xb,
-    0xa,
+    0xf, // BG
+    0xf, // GROUND
+    0xe, // LBG
+    0xd, // COL 1
+    0xc, // COL 2
+    0xb, // COL 3
+    0xa, // COL 4
+    0x0, // PLAYER
 };
 
 INLINE void copy_bg_pal_to_spr(COLOR *dst, u32 pal) {
@@ -65,6 +67,28 @@ INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
         clr_blend(&dst[pal + 0x01], &dst[COL_ID_COLOR + pal], &dst[BG_COL_BLENDING + col + pal], 1, blend_value);
         blend_value += 0x1f / (COL_ID_COLOR - BG_COL_BLENDING + 1);
     }
+}
+
+void blend_p1_with_bg(COLOR *dst) {
+    // Blend P1
+    clr_blend(&dst[PLAYER_BG_PAL + P1_COLOR], &dst[BG_PAL + BG_COLOR], &dst[PLAYER_BG_PAL + P1_COLOR - 1], 1, 0x06);
+    clr_blend(&dst[PLAYER_BG_PAL + P1_COLOR], &dst[BG_PAL + BG_COLOR], &dst[PLAYER_BG_PAL + P1_COLOR - 2], 1, 0x0c);
+    clr_blend(&dst[PLAYER_BG_PAL + P1_COLOR], &dst[BG_PAL + BG_COLOR], &dst[PLAYER_BG_PAL + P1_COLOR - 3], 1, 0x13);
+    clr_blend(&dst[PLAYER_BG_PAL + P1_COLOR], &dst[BG_PAL + BG_COLOR], &dst[PLAYER_BG_PAL + P1_COLOR - 4], 1, 0x19);
+}
+
+void blend_p2_with_bg(COLOR *dst) {
+    // Blend P1
+    clr_blend(&dst[PLAYER_BG_PAL + P2_COLOR], &dst[BG_PAL + BG_COLOR], &dst[PLAYER_BG_PAL + P2_COLOR + 1], 1, 0x06);
+    clr_blend(&dst[PLAYER_BG_PAL + P2_COLOR], &dst[BG_PAL + BG_COLOR], &dst[PLAYER_BG_PAL + P2_COLOR + 2], 1, 0x0c);
+    clr_blend(&dst[PLAYER_BG_PAL + P2_COLOR], &dst[BG_PAL + BG_COLOR], &dst[PLAYER_BG_PAL + P2_COLOR + 3], 1, 0x13);
+    clr_blend(&dst[PLAYER_BG_PAL + P2_COLOR], &dst[BG_PAL + BG_COLOR], &dst[PLAYER_BG_PAL + P2_COLOR + 4], 1, 0x19);
+}
+
+void blend_p1_with_p2(COLOR *dst) {
+    // Blend P1
+    clr_blend(&dst[P1_COLOR], &dst[P2_COLOR], &dst[P1_COLOR + 1], 1, 0x0c);
+    clr_blend(&dst[P1_COLOR], &dst[P2_COLOR], &dst[P2_COLOR - 1], 1, 0x14);
 }
 
 void menu_set_bg_color(COLOR *dst, COLOR color) {
@@ -135,11 +159,16 @@ void set_bg_color(COLOR *dst, COLOR color) {
     for (u32 pal = (PORTAL_GLOW_COLOR + 0x10) ; pal < loops; pal += 0x10) {
         dst[pal] = dst[PORTAL_GLOW_COLOR]; 
     }
+    
+    // Blend BG player colors
+    blend_p1_with_bg(dst);
+    blend_p2_with_bg(dst);
+    blend_p1_with_p2(&dst[PLAYER_BG_PAL]);
 }
 
 void update_lbg_palette(COLOR *dst) {
     // Get LBG color
-    COLOR lbg = calculate_lbg(dst[BG_PAL + BG_COLOR], dst[P1_COLOR]);
+    COLOR lbg = calculate_lbg(dst[BG_PAL + BG_COLOR], dst[PLAYER_SPR_PAL + P1_COLOR]);
     dst[LIGHTER_BG_PAL + COL_ID_COLOR] = lbg;
 
     // Blend both bg and lbg
@@ -162,6 +191,40 @@ void update_lbg_palette(COLOR *dst) {
 void adjust_brighter_color(COLOR *dst, u32 pal) {
     clr_blend(&dst[BG_PAL + BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[pal + BRIGHTER_COLOR], 1, 0x0a);
     clr_blend(&dst[BG_PAL + BG_COLOR], &dst[PORTAL_WHITE_COLOR], &dst[pal + BRIGHTER_COLOR + 1], 1, 0x10);
+}
+
+void set_player_colors(COLOR *dst, COLOR p1, COLOR p2, COLOR glow) {
+    COLOR black = 0x0000;
+
+    // Modify sprite colors
+    dst[PLAYER_SPR_PAL + P1_COLOR] = p1;
+    dst[PLAYER_SPR_PAL + P2_COLOR] = p2;
+    dst[PLAYER_SPR_PAL + PLAYER_GLOW_COLOR] = glow;
+
+    // Modify bg colors
+    dst[PLAYER_BG_PAL + P1_COLOR] = p1;
+    dst[PLAYER_BG_PAL + P2_COLOR] = p2;
+    dst[PLAYER_BG_PAL + PLAYER_GLOW_COLOR] = glow;
+
+    // Blend P1
+    clr_blend(&dst[PLAYER_SPR_PAL + P1_COLOR], &black, &dst[PLAYER_SPR_PAL + P1_COLOR - 1], 1, 0x06);
+    clr_blend(&dst[PLAYER_SPR_PAL + P1_COLOR], &black, &dst[PLAYER_SPR_PAL + P1_COLOR - 2], 1, 0x0c);
+    clr_blend(&dst[PLAYER_SPR_PAL + P1_COLOR], &black, &dst[PLAYER_SPR_PAL + P1_COLOR - 3], 1, 0x13);
+    clr_blend(&dst[PLAYER_SPR_PAL + P1_COLOR], &black, &dst[PLAYER_SPR_PAL + P1_COLOR - 4], 1, 0x19);
+
+    // Blend P2
+    clr_blend(&dst[PLAYER_SPR_PAL + P2_COLOR], &black, &dst[PLAYER_SPR_PAL + P2_COLOR + 1], 1, 0x06);
+    clr_blend(&dst[PLAYER_SPR_PAL + P2_COLOR], &black, &dst[PLAYER_SPR_PAL + P2_COLOR + 2], 1, 0x0c);
+    clr_blend(&dst[PLAYER_SPR_PAL + P2_COLOR], &black, &dst[PLAYER_SPR_PAL + P2_COLOR + 3], 1, 0x13);
+    clr_blend(&dst[PLAYER_SPR_PAL + P2_COLOR], &black, &dst[PLAYER_SPR_PAL + P2_COLOR + 4], 1, 0x19);
+
+    // Blend P1 with P2
+    blend_p1_with_p2(&dst[PLAYER_SPR_PAL]);
+
+    // Blend P1 and P2 on BG pal
+    blend_p1_with_bg(dst);
+    blend_p2_with_bg(dst);
+    blend_p1_with_p2(&dst[PLAYER_BG_PAL]);
 }
 
 ARM_CODE COLOR calculate_lbg(COLOR bg, COLOR p1) {

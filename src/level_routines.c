@@ -345,6 +345,7 @@ void load_level(u32 level_ID) {
     // Copy palettes into the buffer
     memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
+    set_player_colors(palette_buffer, 0x13E0, 0x7FE0, 0x7FE0);
 
     // Set initial player gamemode CHR
     upload_player_chr(player_1.gamemode, ID_PLAYER_1);

@@ -279,7 +279,6 @@ void game_loop() {
     memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
     memcpy16(&se_mem[30][0], level_complete_l3_tilemap, sizeof(level_complete_l3_tilemap) / 2);
 
-    memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
     memcpy16(&palette_buffer[240], &menu_palette[16], 16);
     
     memcpy32(&tile_mem_obj[0][992], level_text_chr, sizeof(level_text_chr) / 4);
