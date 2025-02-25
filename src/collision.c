@@ -537,6 +537,16 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
                 break;
             }
 
+        case COL_CENTERED_MINI_BLOCK:
+            if (x_inside_block >= 0x04 && x_inside_block < 0x0c) {
+                if (y_inside_block >= 0x04 && y_inside_block < 0x0c) {
+                    eject_bottom = y_inside_block - 0x04;
+                    eject_top = 0xc - y_inside_block;
+                    break;
+                }
+            }
+            return 0;
+
         // Everything else
         default:
             return 0;
@@ -556,6 +566,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
                 // We are resting on the ceiling so allow jumping and stuff
                 curr_player.on_floor = TRUE;
                 curr_player.on_floor_step = TRUE;
+                curr_player.on_slope = FALSE;
                 curr_player.snap_cube_rotation = TRUE;
             }
             
@@ -579,6 +590,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
                 // We are resting on the floor so allow jumping and stuff
                 curr_player.on_floor = TRUE;
                 curr_player.on_floor_step = TRUE;
+                curr_player.on_slope = FALSE;
                 curr_player.snap_cube_rotation = TRUE;
             }
             curr_player.player_y -= eject_value;
@@ -1051,6 +1063,8 @@ const jmp_table spike_coll_jump_table[] = {
     not_an_spike, // COL_EA_CORNER_INSIDE_SLAB_BOTTOM_RIGHT
 
     not_an_spike, // BREAKABLE_BRICK
+
+    not_an_spike, // COL_CENTERED_MINI_BLOCK
 
     not_an_spike, // COL_SLOPE_45_UP
     not_an_spike, // COL_SLOPE_45_DOWN

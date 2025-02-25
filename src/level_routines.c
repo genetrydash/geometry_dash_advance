@@ -857,6 +857,7 @@ void modify_fade_block(u16 block_id, s32 calculated_x, s32 calculated_y, u32 lay
 #define FADING_MEDIUM_SPIKE_TOP_ID    407
 #define FADING_MEDIUM_SPIKE_LEFT_ID   408
 #define FADING_MEDIUM_SPIKE_RIGHT_ID  409
+#define FADING_MINIBLOCK_ID           410
 
 #define FIRST_FADING_METATILE FADING_BLOCK_ID
 #define LAST_FADING_METATILE FADING_MEDIUM_SPIKE_RIGHT_ID
@@ -868,6 +869,13 @@ const u16 fading_block_frames[][4] = {
     { TILE(0x121, 0, 0, 0), TILE(0x121, 0, H, 0), TILE(0x121, 0, 0, V), TILE(0x121, 0, H, V) },
     { TILE(0x122, 0, 0, 0), TILE(0x122, 0, H, 0), TILE(0x122, 0, 0, V), TILE(0x122, 0, H, V) },
     { TILE(0x123, 0, 0, 0), TILE(0x123, 0, H, 0), TILE(0x123, 0, 0, V), TILE(0x123, 0, H, V) },
+};
+
+const u16 fading_miniblock_frames[][4] = {
+    { TILE(0x16c, 0, 0, 0), TILE(0x16c, 0, H, 0), TILE(0x16c, 0, 0, V), TILE(0x16c, 0, H, V) },
+    { TILE(0x16d, 0, 0, 0), TILE(0x16d, 0, H, 0), TILE(0x16d, 0, 0, V), TILE(0x16d, 0, H, V) },
+    { TILE(0x16e, 0, 0, 0), TILE(0x16e, 0, H, 0), TILE(0x16e, 0, 0, V), TILE(0x16e, 0, H, V) },
+    { TILE(0x16f, 0, 0, 0), TILE(0x16f, 0, H, 0), TILE(0x16f, 0, 0, V), TILE(0x16f, 0, H, V) },
 };
 
 // Normal spikes
@@ -960,6 +968,23 @@ const u16 fading_medium_spike_right_frames[][4] = {
     { TILE(0x14f, 0, H, 0), TILE(0x14e, 0, H, 0), TILE(0x14f, 0, H, V), TILE(0x14e, 0, H, V), },
 };
 
+const u16 (*fading_table[])[4] = {
+    fading_block_frames,
+    fading_spike_up_frames,
+    fading_spike_down_frames,
+    fading_spike_left_frames,
+    fading_spike_right_frames,
+    fading_small_spike_bottom_frames,
+    fading_small_spike_top_frames,
+    fading_small_spike_left_frames,
+    fading_small_spike_right_frames,
+    fading_medium_spike_bottom_frames,
+    fading_medium_spike_top_frames,
+    fading_medium_spike_left_frames,
+    fading_medium_spike_right_frames,
+    fading_miniblock_frames,
+};
+
 #undef TILE
 #undef H
 #undef V
@@ -1011,106 +1036,10 @@ ARM_CODE void handle_fading_blocks() {
 }
 
 void modify_fade_block(u16 block_id, s32 calculated_x, s32 calculated_y, u32 layer, u32 frame_id) {
-    switch (block_id) {
-        // Block
-
-        case FADING_BLOCK_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_block_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_block_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_block_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_block_frames[frame_id][3]);
-            break;
-
-        // Normal spikes
-
-        case FADING_SPIKE_UP_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_spike_up_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_spike_up_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_spike_up_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_spike_up_frames[frame_id][3]);
-            break;
-        
-        case FADING_SPIKE_DOWN_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_spike_down_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_spike_down_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_spike_down_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_spike_down_frames[frame_id][3]);
-            break;
-        
-        case FADING_SPIKE_LEFT_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_spike_left_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_spike_left_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_spike_left_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_spike_left_frames[frame_id][3]);
-            break;
-        
-        case FADING_SPIKE_RIGHT_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_spike_right_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_spike_right_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_spike_right_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_spike_right_frames[frame_id][3]);
-            break;
-        
-        // Small spikes
-
-        case FADING_SMALL_SPIKE_BOTTOM_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_small_spike_bottom_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_small_spike_bottom_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_small_spike_bottom_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_small_spike_bottom_frames[frame_id][3]);
-            break;
-        
-        case FADING_SMALL_SPIKE_TOP_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_small_spike_top_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_small_spike_top_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_small_spike_top_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_small_spike_top_frames[frame_id][3]);
-            break;
-        
-        case FADING_SMALL_SPIKE_LEFT_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_small_spike_left_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_small_spike_left_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_small_spike_left_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_small_spike_left_frames[frame_id][3]);
-            break;
-        
-        case FADING_SMALL_SPIKE_RIGHT_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_small_spike_right_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_small_spike_right_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_small_spike_right_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_small_spike_right_frames[frame_id][3]);
-            break;
-
-        // Medium spikes
-
-        case FADING_MEDIUM_SPIKE_BOTTOM_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_medium_spike_bottom_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_medium_spike_bottom_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_medium_spike_bottom_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_medium_spike_bottom_frames[frame_id][3]);
-            break;
-        
-        case FADING_MEDIUM_SPIKE_TOP_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_medium_spike_top_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_medium_spike_top_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_medium_spike_top_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_medium_spike_top_frames[frame_id][3]);
-            break;
-        
-        case FADING_MEDIUM_SPIKE_LEFT_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_medium_spike_left_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_medium_spike_left_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_medium_spike_left_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_medium_spike_left_frames[frame_id][3]);
-            break;
-        
-        case FADING_MEDIUM_SPIKE_RIGHT_ID:
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_medium_spike_right_frames[frame_id][0]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_medium_spike_right_frames[frame_id][1]);
-            se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_medium_spike_right_frames[frame_id][2]);
-            se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_medium_spike_right_frames[frame_id][3]);
-            break;
-    }
+    se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_table[block_id - FIRST_FADING_METATILE][frame_id][0]);
+    se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_table[block_id - FIRST_FADING_METATILE][frame_id][1]);
+    se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_table[block_id - FIRST_FADING_METATILE][frame_id][2]);
+    se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_table[block_id - FIRST_FADING_METATILE][frame_id][3]);
 }
 
 void draw_both_players() {
