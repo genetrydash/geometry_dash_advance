@@ -7,7 +7,7 @@ const unsigned int timemachine_properties[] = {
  /*speed*/         1,
  /*level height*/  27,
  /*level width*/   995,
- /*song*/          MOD_STEREOMA,
+ /*song*/          MOD_TIME,
  /*name length*/   11,
  /*difficulty*/    3,
  /*stars*/         8,
