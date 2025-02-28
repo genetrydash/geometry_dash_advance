@@ -280,6 +280,7 @@ void reset_variables() {
     memset16(unloaded_object_buffer, 0xffff, sizeof(unloaded_object_buffer) / sizeof(s16));
     memset32(object_buffer, 0x0000, (sizeof(struct ObjectSlot) * MAX_OBJECTS) / sizeof(u32));
     memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
+    memset32(wave_trail_heights, 0xffffffff, sizeof(wave_trail_heights) / 4);
 
     REG_BG0HOFS = REG_BG1HOFS = 0;
     REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
@@ -1325,5 +1326,43 @@ void handle_gamemode_uploads() {
     if (gamemode_upload_buffer[ID_PLAYER_2] >= 0) {
         upload_player_chr(gamemode_upload_buffer[ID_PLAYER_2], ID_PLAYER_2);
         gamemode_upload_buffer[ID_PLAYER_2] = -1;
+    }
+}
+
+void handle_wave_trail() {
+    if (player_death) return;
+
+    s32 diff = FROM_FIXED(scroll_x + curr_player.player_x_speed) - FROM_FIXED(scroll_x);
+
+    for (s32 i = 0; i < wave_trail_pointer[curr_player_id]; i++) {
+        s32 x = wave_trail_x[curr_player_id][i];
+        s32 y = wave_trail_heights[curr_player_id][i];
+
+        oam_metaspr(x, y, waveTrailChunk, FALSE, FALSE, 0, 0, 0, TRUE);
+
+        if (x - diff > -8) {
+            wave_trail_x[curr_player_id][i] -= diff;
+        } else {
+            wave_trail_pointer[curr_player_id]--;
+        }
+    }
+}
+
+void wave_set_new_point() {
+    u32 rel_y = curr_player.relative_player_y;
+    u32 rel_x = curr_player.relative_player_x;
+
+    wave_trail_x[curr_player_id][0] = rel_x + 4;
+    wave_trail_heights[curr_player_id][0] = rel_y + 4;
+
+    wave_trail_pointer[curr_player_id]++;
+
+    for (s32 i = wave_trail_pointer[curr_player_id]; i >= 0; i--) {
+        u8 height = wave_trail_heights[curr_player_id][i];
+        s16 x_pos = wave_trail_x[curr_player_id][i];
+        if (i < wave_trail_pointer[curr_player_id]) {
+            wave_trail_heights[curr_player_id][i + 1] = height; 
+            wave_trail_x[curr_player_id][i + 1] = x_pos; 
+        }
     }
 }

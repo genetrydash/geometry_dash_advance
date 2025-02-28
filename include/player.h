@@ -45,7 +45,8 @@ enum DualStatus {
 
 enum PlayerID {
     ID_PLAYER_1,
-    ID_PLAYER_2
+    ID_PLAYER_2,
+    PLAYER_COUNT,
 };
 
 struct Player {
@@ -65,10 +66,12 @@ struct Player {
     // Speed variables, in subpixels/frame
     s32 player_x_speed;
     s32 player_y_speed;
+    s32 old_player_y_speed;
 
     // Relative position on screen in pixels
     s16 relative_player_x;
     s16 relative_player_y;
+    s16 old_relative_player_y;
 
     // Change of y speed
     s16 gravity;

@@ -96,6 +96,7 @@ void player_main() {
         }
 
         curr_player.old_player_y = curr_player.player_y;
+        curr_player.old_player_y_speed = curr_player.player_y_speed;
 
         // Gamemode specific routines
         switch (curr_player.gamemode) {
@@ -469,6 +470,8 @@ void wave_gamemode() {
         curr_player.player_y_speed = curr_player.player_x_speed * 2 * sign * hold_sign;     
     }
     
+    wave_set_new_point();
+    
     curr_player.on_floor = FALSE;
 
     for (s32 step = 0; step < NUM_STEPS - 1; step++) {
@@ -570,6 +573,8 @@ void do_ufo_gravity() {
 void draw_player() {
     s8 sign = 1;
     
+    curr_player.old_relative_player_y = curr_player.relative_player_y;
+
     curr_player.relative_player_x = (curr_player.player_x - scroll_x) >> SUBPIXEL_BITS;
     curr_player.relative_player_y = (curr_player.player_y - scroll_y) >> SUBPIXEL_BITS;
 
@@ -614,6 +619,7 @@ void draw_player() {
                 oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, FALSE); 
                 break;
             case GAMEMODE_WAVE:
+                handle_wave_trail();
                 oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, FALSE); 
                 break;
         }

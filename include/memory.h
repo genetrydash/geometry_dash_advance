@@ -166,6 +166,12 @@ struct PracticeCheckpoint {
 
 extern u8 in_practice_mode;
 
+#define WAVE_TRAIL_HEIGHTS_COUNT 0x60
+
+extern u8 wave_trail_heights[PLAYER_COUNT][WAVE_TRAIL_HEIGHTS_COUNT];
+extern s16 wave_trail_x[PLAYER_COUNT][WAVE_TRAIL_HEIGHTS_COUNT];
+extern u8 wave_trail_pointer[PLAYER_COUNT];
+
 extern u32 checkpoint_count;
 extern u32 checkpoint_pointer;
 extern EWRAM_DATA struct PracticeCheckpoint checkpoints[NUM_PRACTICE_CHECKPOINTS];

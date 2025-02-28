@@ -32,7 +32,6 @@ void vblank_handler() {
         if (update_flags & UPDATE_SCROLL) {
             // If screen is mirrored, flip screen position so it goes left instead of right
             update_scroll();
-
             // Run scroll routines
             screen_scroll_load();
         }
@@ -258,7 +257,6 @@ void game_loop() {
     // Set blending registers
     REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG0 | BLD_BG1 | BLD_BG2, BLD_MODE(1));
 
-
     // Update blend weights
     REG_BLDALPHA = BLDA_BUILD(16, 12);
 
@@ -269,7 +267,6 @@ void game_loop() {
 
     REG_WIN0H = SCREEN_WIDTH;
     REG_WIN0V = SCREEN_HEIGHT;
-
 
     // Init OAM and VRAM
     oam_init(shadow_oam, 128);

@@ -125,6 +125,9 @@ u8 coin_buffer[NUM_COINS_PER_LEVEL];
 s32 coin_speed[NUM_COINS_PER_LEVEL];
 s32 coin_y_pos[NUM_COINS_PER_LEVEL];
 
+u8 wave_trail_heights[PLAYER_COUNT][WAVE_TRAIL_HEIGHTS_COUNT];
+s16 wave_trail_x[PLAYER_COUNT][WAVE_TRAIL_HEIGHTS_COUNT];
+u8 wave_trail_pointer[PLAYER_COUNT];
 
 u8 in_practice_mode;
 

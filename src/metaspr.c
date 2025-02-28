@@ -47,6 +47,18 @@ const u16 practiceCheckpoint[] = {
     0xffff
 };
 
+const u16 waveTrailChunk[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_8x8,
+    ATTR2_PALBANK(0) | ATTR2_ID(1017),
+    0,
+    0,
+    PRIO_IDOFF(3, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+
 // Menu
 
 const u16 menuStarSpr[] = {

@@ -1,5 +1,6 @@
 #include <tonc.h>
 #include "memory.h"
+#include "player.h"
 #include "physics_defines.h"
 
 #ifndef SPR_LOADING_H
@@ -53,7 +54,7 @@ struct Object {
 
 struct ObjectSlot {
     u8 occupied;
-    u8 activated[2]; // One for each player
+    u8 activated[PLAYER_COUNT]; // One for each player
     u8 has_collision;
     struct Object object;
 };
