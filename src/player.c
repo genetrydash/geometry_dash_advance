@@ -51,6 +51,7 @@ void cube_gamemode();
 void ship_gamemode();
 void ball_gamemode();
 void ufo_gamemode();
+void wave_gamemode();
 
 void do_cube_gravity();
 void do_ship_gravity(s32 max_y_speed, s32 max_y_speed_holding);
@@ -70,13 +71,18 @@ void player_main() {
             curr_player.falling = (curr_player.player_y_speed < 0);
         }
 
-        // Set internal square hitbox size
-        if (curr_player.player_size == SIZE_BIG) {
-            curr_player.player_internal_hitbox_width = INTERNAL_HITBOX_WIDTH;
-            curr_player.player_internal_hitbox_height = INTERNAL_HITBOX_HEIGHT;
+        // Set internal square hitbox size, for wave this is always 1
+        if (curr_player.gamemode != GAMEMODE_WAVE) {
+            if (curr_player.player_size == SIZE_BIG) {
+                curr_player.player_internal_hitbox_width = INTERNAL_HITBOX_WIDTH;
+                curr_player.player_internal_hitbox_height = INTERNAL_HITBOX_HEIGHT;
+            } else {
+                curr_player.player_internal_hitbox_width = MINI_INTERNAL_HITBOX_WIDTH;
+                curr_player.player_internal_hitbox_height = MINI_INTERNAL_HITBOX_HEIGHT;
+            }
         } else {
-            curr_player.player_internal_hitbox_width = MINI_INTERNAL_HITBOX_WIDTH;
-            curr_player.player_internal_hitbox_height = MINI_INTERNAL_HITBOX_HEIGHT;
+            curr_player.player_internal_hitbox_width = 1;
+            curr_player.player_internal_hitbox_height = 1;
         }
         
         if (curr_player.player_y < -0x200000) player_death = TRUE;
@@ -104,6 +110,9 @@ void player_main() {
                 break;
             case GAMEMODE_UFO:
                 ufo_gamemode();
+                break;
+            case GAMEMODE_WAVE:
+                wave_gamemode();
                 break;
         }
 
@@ -439,6 +448,63 @@ void ufo_gamemode() {
     }
 }
 
+void wave_gamemode() {
+    if (curr_player.player_size == SIZE_BIG) {
+        curr_player.player_width = WAVE_WIDTH;
+        curr_player.player_height = WAVE_HEIGHT;
+    } else {
+        curr_player.player_width = MINI_WAVE_WIDTH;
+        curr_player.player_height = MINI_WAVE_HEIGHT;
+    }
+
+    s8 sign = curr_player.gravity_dir ? -1 : 1;
+    s8 hold_sign = key_held(KEY_A | KEY_UP) ? -1 : 1;
+    s8 mirror_sign = screen_mirrored ? 1 : -1;
+
+    curr_player.cube_rotation = ArcTan2(curr_player.player_x_speed >> 8, curr_player.player_y_speed >> 8) * mirror_sign;
+
+    if (curr_player.player_size == SIZE_BIG) {
+        curr_player.player_y_speed = curr_player.player_x_speed * sign * hold_sign;     
+    } else {
+        curr_player.player_y_speed = curr_player.player_x_speed * 2 * sign * hold_sign;     
+    }
+    
+    curr_player.on_floor = FALSE;
+
+    for (s32 step = 0; step < NUM_STEPS - 1; step++) {
+        // Apply quarter of speed
+        // Update player x and y
+        curr_player.player_x += curr_player.player_x_speed >> 2;
+        curr_player.player_y += curr_player.player_y_speed >> 2;
+        
+        // Do collision with objects
+        do_collision_with_objects();
+
+        // Run collision
+        collision_wave();
+
+        // If player is dead, do not advance more quarter steps
+        if (player_death) break;
+    }
+    
+    // If player is dead, do not advance more quarter steps
+    if (!player_death) {
+        // Apply last quarter of speed
+        // Update player x and y
+        curr_player.player_x += curr_player.player_x_speed - ((curr_player.player_x_speed >> 2) * 3);
+        curr_player.player_y += curr_player.player_y_speed - ((curr_player.player_y_speed >> 2) * 3);
+    
+        // Do collision with objects
+        do_collision_with_objects();
+
+        // Run collision
+        collision_wave();
+        
+        // Stop buffering
+        if (curr_player.player_buffering == ORB_BUFFER_READY) curr_player.player_buffering = ORB_BUFFER_END;
+    }
+}
+
 void do_cube_gravity() {
     // Depending on which direction the curr_player.gravity points, apply curr_player.gravity and cap speed in one direction or in the other
     if (curr_player.gravity_dir) {
@@ -545,6 +611,9 @@ void draw_player() {
             case GAMEMODE_UFO:
                 sign = curr_player.gravity_dir ? -1 : 1;
 
+                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, FALSE); 
+                break;
+            case GAMEMODE_WAVE:
                 oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, FALSE); 
                 break;
         }

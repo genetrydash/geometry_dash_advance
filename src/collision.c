@@ -207,6 +207,83 @@ ARM_CODE void collision_ship_ball_ufo() {
         }
     }
 }
+ARM_CODE void collision_wave() {
+    // Exit if above screen
+    if (curr_player.player_y < 0) return;
+
+    curr_player.on_floor_step = FALSE;
+
+    u8 offset = curr_player.player_size ? 2 : 3;
+
+    for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
+        // Check spikes
+        coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+        coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
+
+#ifdef DEBUG
+        if (!noclip) collide_with_map_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer);
+#else
+        collide_with_map_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer);
+#endif
+
+        // If the player is dead, don't bother checking more
+        if (player_death) {
+            return;
+        }
+
+        if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer)) {
+            curr_player.on_slope = TRUE;
+            return;
+        }
+        
+        // Do center hitbox checks
+        coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
+        coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_height) >> 1);      
+
+#ifdef DEBUG
+        if (!noclip) {
+            if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
+                return;
+            }
+        }
+#else
+        if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
+            return;
+        }
+#endif
+
+        if (curr_player.player_y_speed >= 0) {
+            // Going down
+            coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+            coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
+            
+            if (run_coll(coll_x, coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
+                continue;
+            }
+            if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
+                continue;
+            }
+            if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
+                continue;
+            }
+        }
+        if (curr_player.player_y_speed <= 0) {
+            // Going up
+            coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+            coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
+
+            if (run_coll(coll_x, coll_y - offset, layer, TOP)) {
+                continue;
+            }
+            if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y - offset, layer, TOP)) {
+                continue;
+            }
+            if (run_coll(coll_x + curr_player.player_width, coll_y - offset, layer, TOP)) {
+                continue;
+            }
+        }
+    }
+}
 
 ARM_CODE u32 obtain_level_buffer_index(u32 x, u32 y) {
     u32 block_x = (x >> 4) & 0x1f; // Get block x in buffer (0-31)
@@ -577,6 +654,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
             if (curr_player.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) scroll_y &= ~0xffff;
+            if (curr_player.gamemode == GAMEMODE_WAVE && col_type != COL_FLOOR_CEIL) player_death = TRUE;
         }
     } else if (side == BOTTOM) {   
         s32 eject_value = eject_bottom << SUBPIXEL_BITS;
@@ -599,6 +677,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
             if (curr_player.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) scroll_y &= ~0xffff;
+            if (curr_player.gamemode == GAMEMODE_WAVE && col_type != COL_FLOOR_CEIL) player_death = TRUE;
         }
     }
    

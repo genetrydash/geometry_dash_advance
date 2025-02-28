@@ -300,6 +300,42 @@ const u16 ufoPortalSpr[] = {
     0xffff
 };
 
+const u16 wavePortalSpr[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(3),
+    -8, // x
+    -16, // y
+    PRIO_IDOFF(0, 0, 16), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(3),
+    -8, // x
+    16, // y
+    PRIO_IDOFF(0, 0, 32), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(3),
+    -5, // x
+    -16, // y
+    PRIO_IDOFF(4, 0, 0), // id offset
+    CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(3),
+    -5, // x
+    16,  // y
+    PRIO_IDOFF(4, 0, 8), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
 const u16 gravityPortalBlueSpr[] = {
     ATTR0_4BPP | ATTR0_TALL,
     ATTR1_SIZE_16x32,
@@ -1385,6 +1421,8 @@ ROM_DATA const u16 *obj_sprites[] = {
     mediumSpike_V,
     mediumSpike_H,
 
+    wavePortalSpr,
+
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -1549,6 +1587,8 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("1.6_HALF_SPIKE_H", 0x13c, 0x2)
     CHR_SLOT("1.6_MEDIUM_SPIKE_V", 0x148, 0x4)
     CHR_SLOT("1.6_MEDIUM_SPIKE_H", 0x138, 0x4)
+
+    CHR_SLOT("WAVE_PORTAL", 0x00, 0x28)
 };
 #undef CHR_SLOT
 

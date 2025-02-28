@@ -19,28 +19,39 @@ const s32 orb_pad_bounces[][GAMEMODE_COUNT][5] = {
         /* Ship */ {SHIP_YELLOW_ORB_JUMP_SPEED, SHIP_YELLOW_PAD_JUMP_SPEED, SHIP_PINK_ORB_JUMP_SPEED, SHIP_PINK_PAD_JUMP_SPEED, SHIP_BLUE_ORB_PAD_INITIAL_SPEED},
         /* Ball */ {BALL_YELLOW_ORB_JUMP_SPEED, BALL_YELLOW_PAD_JUMP_SPEED, BALL_PINK_ORB_JUMP_SPEED, BALL_PINK_PAD_JUMP_SPEED, BALL_BLUE_ORB_PAD_INITIAL_SPEED},
         /* Ufo */  {UFO_YELLOW_ORB_JUMP_SPEED,  UFO_YELLOW_PAD_JUMP_SPEED,  UFO_PINK_ORB_JUMP_SPEED,  UFO_PINK_PAD_JUMP_SPEED,  UFO_BLUE_ORB_PAD_INITIAL_SPEED},
+        /* Wave */ {0,  0,  0,  0,  0},
     }, { // Mini
         /* Cube */ {CUBE_MINI_YELLOW_ORB_JUMP_SPEED, CUBE_MINI_YELLOW_PAD_JUMP_SPEED, CUBE_MINI_PINK_ORB_JUMP_SPEED, CUBE_MINI_PINK_PAD_JUMP_SPEED, CUBE_BLUE_ORB_PAD_INITIAL_SPEED * 0.8},
         /* Ship */ {SHIP_MINI_YELLOW_ORB_JUMP_SPEED, SHIP_MINI_YELLOW_PAD_JUMP_SPEED, SHIP_MINI_PINK_ORB_JUMP_SPEED, SHIP_MINI_PINK_PAD_JUMP_SPEED, SHIP_BLUE_ORB_PAD_INITIAL_SPEED * 0.8},
         /* Ball */ {BALL_MINI_YELLOW_ORB_JUMP_SPEED, BALL_MINI_YELLOW_PAD_JUMP_SPEED, BALL_MINI_PINK_ORB_JUMP_SPEED, BALL_MINI_PINK_PAD_JUMP_SPEED, BALL_BLUE_ORB_PAD_INITIAL_SPEED * 0.8},
         /* Ufo */  {UFO_MINI_YELLOW_ORB_JUMP_SPEED,  UFO_MINI_YELLOW_PAD_JUMP_SPEED,  UFO_MINI_PINK_ORB_JUMP_SPEED,  UFO_MINI_PINK_PAD_JUMP_SPEED,  UFO_BLUE_ORB_PAD_INITIAL_SPEED * 0.8},
+        /* Wave */ {0,  0,  0,  0,  0},
     }
 };
 
+#define RST 2 // Reset speed
 #define CAP 1
 #define _   0
 const s32 gamemode_cap_lut[GAMEMODE_COUNT][GAMEMODE_COUNT] = {
-    // FROM | TO Cube  Ship  Ball  Ufo
-    /* Cube */ { _,    CAP,  _,    CAP },
-    /* Ship */ { CAP,  _,    CAP,  CAP },
-    /* Ball */ { _,    CAP,  _,    CAP },
-    /* Ufo  */ { CAP,  CAP,  CAP,  _   },
+    // FROM | TO Cube  Ship  Ball  Ufo Wave
+    /* Cube */ { _,    CAP,  _,    CAP, _ },
+    /* Ship */ { CAP,  _,    CAP,  CAP, _ },
+    /* Ball */ { _,    CAP,  _,    CAP, _ },
+    /* Ufo  */ { CAP,  CAP,  CAP,  _,   _ },
+    /* Wave */ { RST,  RST,  RST,  RST, _ },
 };
+
+void portal_transition_speed() {
+    if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_CUBE] == CAP) curr_player.player_y_speed /= 2;
+    else if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_CUBE] == RST) curr_player.player_y_speed /= 3;
+}
+
+#undef RST
 #undef CAP
 #undef _
 
 void cube_portal(struct ObjectSlot *objectSlot) {
-    if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_CUBE]) curr_player.player_y_speed /= 2;
+    portal_transition_speed();
     curr_player.gamemode = GAMEMODE_CUBE;
     curr_player.on_floor = FALSE;
 
@@ -52,7 +63,7 @@ void cube_portal(struct ObjectSlot *objectSlot) {
 }
 
 void ship_portal(struct ObjectSlot *objectSlot) {
-    if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_SHIP]) curr_player.player_y_speed /= 2;
+    portal_transition_speed();
     curr_player.gamemode = GAMEMODE_SHIP;
     curr_player.on_floor = FALSE;
 
@@ -65,7 +76,7 @@ void ship_portal(struct ObjectSlot *objectSlot) {
 }
 
 void ball_portal(struct ObjectSlot *objectSlot) {
-    if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_BALL]) curr_player.player_y_speed /= 2;
+    portal_transition_speed();
     curr_player.gamemode = GAMEMODE_BALL;
     curr_player.on_floor = FALSE;
     
@@ -78,11 +89,23 @@ void ball_portal(struct ObjectSlot *objectSlot) {
 }
 
 void ufo_portal(struct ObjectSlot *objectSlot) {
-    if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_UFO]) curr_player.player_y_speed /= 2;
+    portal_transition_speed();
     curr_player.gamemode = GAMEMODE_UFO;
     curr_player.on_floor = FALSE;
 
     gamemode_upload_buffer[curr_player_id] = GAMEMODE_UFO;
+    
+    check_for_same_dual_gravity();
+    set_target_y_scroll(objectSlot->object.y);
+
+    objectSlot->activated[curr_player_id] = TRUE;
+}
+
+void wave_portal(struct ObjectSlot *objectSlot) {
+    curr_player.gamemode = GAMEMODE_WAVE;
+    curr_player.on_floor = FALSE;
+
+    gamemode_upload_buffer[curr_player_id] = GAMEMODE_WAVE;
     
     check_for_same_dual_gravity();
     set_target_y_scroll(objectSlot->object.y);
@@ -563,6 +586,8 @@ const jmp_table routines_jump_table[] = {
     kill_player,
     kill_player,
     kill_player,
+
+    wave_portal,
 };
 
 // In pixels
@@ -713,6 +738,8 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("1.6_HALF_SPIKE_H", 3, 4, 2, 6, 8, 8)
     Object_Hitbox_Rectangle("1.6_MEDIUM_SPIKE_V", 2, 4, 7, 9, 8, 8)
     Object_Hitbox_Rectangle("1.6_MEDIUM_SPIKE_H", 4, 2, 2, 7, 8, 8)
+
+    Object_Hitbox_Rectangle("WAVE_PORTAL", 20, 46, -2, -15, 8, 8)
 };
 
 #undef Object_Hitbox

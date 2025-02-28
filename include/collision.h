@@ -133,6 +133,7 @@ extern u32 coll_y;
 
 ARM_CODE void collision_cube();
 ARM_CODE void collision_ship_ball_ufo();
+ARM_CODE void collision_wave();
 ARM_CODE void do_collision_with_objects();
 ARM_CODE void check_obj_collision(u32 index);
 ARM_CODE u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2, u32 h2);
