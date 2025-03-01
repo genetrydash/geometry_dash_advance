@@ -593,6 +593,12 @@ const jmp_table routines_jump_table[] = {
     kill_player,
 
     wave_portal,
+
+    do_nothing,
+    do_nothing,
+    do_nothing,
+    do_nothing
+
 };
 
 // In pixels
@@ -745,6 +751,11 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("1.6_MEDIUM_SPIKE_H", 4, 2, 2, 7, 8, 8)
 
     Object_Hitbox_Rectangle("WAVE_PORTAL", 20, 46, -2, -15, 8, 8)
+
+    Object_Hitbox_Circle("BIG_ROTATING_FLOWER", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("MEDIUM_ROTATING_FLOWER", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Circle("SMALL_ROTATING_FLOWER", TRUE, 0, 0, 0, 0, 0)
+    Object_Hitbox_Rectangle("BIG_PULSING_CIRCUNFERENCE", 0, 0, 0, 0, 0, 0)
 };
 
 #undef Object_Hitbox

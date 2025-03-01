@@ -1446,6 +1446,11 @@ ROM_DATA const u16 *obj_sprites[] = {
 
     wavePortalSpr,
 
+    sawDecoBig,
+    sawDecoMediumSmall,
+    sawDecoMediumSmall,
+    pulsingObjectBigSpr,
+
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -1612,6 +1617,11 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("1.6_MEDIUM_SPIKE_H", 0x138, 0x4)
 
     CHR_SLOT("WAVE_PORTAL", 0x00, 0x28)
+
+    CHR_SLOT("BIG_ROTATING_FLOWER", 0x600, 0x40)
+    CHR_SLOT("MEDIUM_ROTATING_FLOWER", 0x640, 0x10)
+    CHR_SLOT("SMALL_ROTATING_FLOWER", 0x650, 0x10)
+    CHR_SLOT("BIG_PULSING_CIRCUNFERENCE", 0x660, 0x10)
 };
 #undef CHR_SLOT
 
