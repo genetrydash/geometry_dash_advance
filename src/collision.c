@@ -1219,7 +1219,7 @@ struct triangle_t {
 
 void getLine(s32 x1, s32 y1, s32 x2, s32 y2, s32 *a, s32 *b, s32 *c){
        // (x- p1X) / (p2X - p1X) = (y - p1Y) / (p2Y - p1Y) 
-       *a = y1 - y2; // Note: this was incorrectly "y2 - y1" in the original answer
+       *a = y1 - y2;
        *b = x2 - x1;
        *c = x1 * y2 - x2 * y1;
 }
@@ -1258,6 +1258,7 @@ s32 find_squared_distance_to_line(s32 point_x, s32 point_y, s32 x1, s32 y1, s32 
 }
 
 void get_hipotenuse(struct triangle_t triangle, s32 *x1, s32 *y1, s32 *x2, s32 *y2) {
+    // Get the only edge that is not axis-aligned
     if (triangle.p1.x != triangle.p2.x && triangle.p1.y != triangle.p2.y) {
         *x1 = triangle.p1.x;
         *y1 = triangle.p1.y;
@@ -1285,6 +1286,7 @@ s32 check_distance_circle_triangle(struct circle_t circle, struct triangle_t tri
 }
 
 void get_horizontal_edge(struct triangle_t triangle, s32 *x1, s32 *x2, s32 *y) {
+    // Get the only horizontally-aligned edge
     if (triangle.p1.y == triangle.p2.y) {
         *x1 = triangle.p1.x;
         *x2 = triangle.p2.x;
@@ -1309,6 +1311,7 @@ s32 get_step(struct triangle_t triangle) {
 
     s32 half_height = (hipo_y1 + hipo_y2) / 2;
 
+    // Return negative or positive depending on relative position between center of triangle and horizontally-aligned edge
     if (half_height > edge_y) {
         return -1;
     } else {
@@ -1333,25 +1336,25 @@ s32 check_slope_collision(struct circle_t circle, struct triangle_t triangle) {
 
 const FIXED_16 slope_speed_multiplier[] = {
     FLOAT_TO_FIXED(-1.0), // COL_SLOPE_45_UP
-    FLOAT_TO_FIXED(1.0), // COL_SLOPE_45_DOWN
-    FLOAT_TO_FIXED(1.0), // COL_SLOPE_45_UP_UD
+    FLOAT_TO_FIXED(1.0),  // COL_SLOPE_45_DOWN
+    FLOAT_TO_FIXED(1.0),  // COL_SLOPE_45_UP_UD
     FLOAT_TO_FIXED(-1.0), // COL_SLOPE_45_DOWN_UD
 
     FLOAT_TO_FIXED(-0.5), // COL_SLOPE_22_UP_1
     FLOAT_TO_FIXED(-0.5), // COL_SLOPE_22_UP_2
-    FLOAT_TO_FIXED(0.5), // COL_SLOPE_22_DOWN_1
-    FLOAT_TO_FIXED(0.5), // COL_SLOPE_22_DOWN_2
-    FLOAT_TO_FIXED(0.5), // COL_SLOPE_22_UP_UD_1
-    FLOAT_TO_FIXED(0.5), // COL_SLOPE_22_UP_UD_2
+    FLOAT_TO_FIXED(0.5),  // COL_SLOPE_22_DOWN_1
+    FLOAT_TO_FIXED(0.5),  // COL_SLOPE_22_DOWN_2
+    FLOAT_TO_FIXED(0.5),  // COL_SLOPE_22_UP_UD_1
+    FLOAT_TO_FIXED(0.5),  // COL_SLOPE_22_UP_UD_2
     FLOAT_TO_FIXED(-0.5), // COL_SLOPE_22_DOWN_UD_1
     FLOAT_TO_FIXED(-0.5), // COL_SLOPE_22_DOWN_UD_2
 
     FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_UP_1
     FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_UP_2
-    FLOAT_TO_FIXED(2.0), // COL_SLOPE_66_DOWN_1
-    FLOAT_TO_FIXED(2.0), // COL_SLOPE_66_DOWN_2
-    FLOAT_TO_FIXED(2.0), // COL_SLOPE_66_UP_UD_1
-    FLOAT_TO_FIXED(2.0), // COL_SLOPE_66_UP_UD_2
+    FLOAT_TO_FIXED(2.0),  // COL_SLOPE_66_DOWN_1
+    FLOAT_TO_FIXED(2.0),  // COL_SLOPE_66_DOWN_2
+    FLOAT_TO_FIXED(2.0),  // COL_SLOPE_66_UP_UD_1
+    FLOAT_TO_FIXED(2.0),  // COL_SLOPE_66_UP_UD_2
     FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_DOWN_UD_1
     FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_DOWN_UD_2
 };
@@ -1389,7 +1392,7 @@ const FIXED_16 slope_speed_multiplier[] = {
 // This function iterates through spikes that the player is touching and applies collision to it
 u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
     struct circle_t player;
-    player.radius = width >> 1;
+    player.radius = (width >> 1) - 1;
     player.cx = x + (width >> 1);
     player.cy = y + (height >> 1);
 

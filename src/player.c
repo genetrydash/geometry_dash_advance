@@ -177,7 +177,7 @@ void cube_gamemode() {
         // Give a small boost if on rising 45 degrees or 26.6 degrees slope
         if (curr_player.slope_counter) {
             if (curr_player.slope_type == DEGREES_45 || curr_player.slope_type == DEGREES_26_5) {
-                curr_player.player_y_speed += -0x10000 * sign;
+                curr_player.player_y_speed += -0x8000 * sign;
             }
         }
 
@@ -195,6 +195,7 @@ void cube_gamemode() {
             switch (curr_player.slope_type) {
                 case DEGREES_45:
                     curr_player.cube_rotation = (curr_player.cube_rotation + 0x2000) & 0xC000;
+                    curr_player.cube_rotation |= 0x2000;
                     break;
                 case DEGREES_26_5:
                 case DEGREES_63_5_MIRRORED:
