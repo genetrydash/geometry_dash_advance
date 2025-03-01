@@ -88,7 +88,7 @@ extern u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
                                +MM_SIZEOF_MIXCH)
                                +MM_MIXLEN_16KHZ];
 
-extern ALIGN4 u8 myMixingBuffer[MM_MIXLEN_16KHZ];
+extern ALIGN4 u8 mixing_buffer[MM_MIXLEN_16KHZ];
 
 extern u8 debug_mode;
 extern u8 noclip;
@@ -166,11 +166,13 @@ struct PracticeCheckpoint {
 
 extern u8 in_practice_mode;
 
-#define WAVE_TRAIL_HEIGHTS_COUNT 0x60
+#define WAVE_TRAIL_MAX_POINTS 0x30
 
-extern u8 wave_trail_heights[PLAYER_COUNT][WAVE_TRAIL_HEIGHTS_COUNT];
-extern s16 wave_trail_x[PLAYER_COUNT][WAVE_TRAIL_HEIGHTS_COUNT];
 extern u8 wave_trail_pointer[PLAYER_COUNT];
+
+extern u32 wave_trail_x[PLAYER_COUNT][WAVE_TRAIL_MAX_POINTS];
+extern u16 wave_trail_y[PLAYER_COUNT][WAVE_TRAIL_MAX_POINTS];
+extern u8 wave_trail_size[PLAYER_COUNT][WAVE_TRAIL_MAX_POINTS];
 
 extern u32 checkpoint_count;
 extern u32 checkpoint_pointer;

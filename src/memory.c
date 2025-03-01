@@ -58,7 +58,7 @@ EWRAM_DATA u8 music_data[NUM_CHANNELS * (MM_SIZEOF_MODCH
                                +MM_MIXLEN_16KHZ];
 
 
-ALIGN4 u8 myMixingBuffer[MM_MIXLEN_16KHZ];
+ALIGN4 u8 mixing_buffer[MM_MIXLEN_16KHZ];
 
 // 0 : off | 1 : on
 u8 debug_mode = 0;
@@ -125,9 +125,11 @@ u8 coin_buffer[NUM_COINS_PER_LEVEL];
 s32 coin_speed[NUM_COINS_PER_LEVEL];
 s32 coin_y_pos[NUM_COINS_PER_LEVEL];
 
-u8 wave_trail_heights[PLAYER_COUNT][WAVE_TRAIL_HEIGHTS_COUNT];
-s16 wave_trail_x[PLAYER_COUNT][WAVE_TRAIL_HEIGHTS_COUNT];
-u8 wave_trail_pointer[PLAYER_COUNT];
+EWRAM_DATA u8 wave_trail_pointer[PLAYER_COUNT];
+
+EWRAM_DATA u32 wave_trail_x[PLAYER_COUNT][WAVE_TRAIL_MAX_POINTS];
+EWRAM_DATA u16 wave_trail_y[PLAYER_COUNT][WAVE_TRAIL_MAX_POINTS];
+EWRAM_DATA u8 wave_trail_size[PLAYER_COUNT][WAVE_TRAIL_MAX_POINTS];
 
 u8 in_practice_mode;
 

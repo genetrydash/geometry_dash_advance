@@ -261,6 +261,9 @@ void reset_variables() {
     bitstream[0] = bitstream[1] = 0;
     bits_left[0] = bits_left[1] = 0;
 
+    wave_trail_pointer[ID_PLAYER_1] = 0;
+    wave_trail_pointer[ID_PLAYER_2] = 0;
+
     cutscene_frame = 0;
     player_1.cutscene_initial_player_x = 0;
     player_1.cutscene_initial_player_y = 0;
@@ -280,7 +283,6 @@ void reset_variables() {
     memset16(unloaded_object_buffer, 0xffff, sizeof(unloaded_object_buffer) / sizeof(s16));
     memset32(object_buffer, 0x0000, (sizeof(struct ObjectSlot) * MAX_OBJECTS) / sizeof(u32));
     memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
-    memset32(wave_trail_heights, 0xffffffff, sizeof(wave_trail_heights) / 4);
 
     REG_BG0HOFS = REG_BG1HOFS = 0;
     REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
@@ -1359,39 +1361,51 @@ void handle_gamemode_uploads() {
 }
 
 void handle_wave_trail() {
+    // Do nothing if player is dead
     if (player_death) return;
 
-    s32 diff = FROM_FIXED(scroll_x + curr_player.player_x_speed) - FROM_FIXED(scroll_x);
-
     for (s32 i = 0; i < wave_trail_pointer[curr_player_id]; i++) {
-        s32 x = wave_trail_x[curr_player_id][i];
-        s32 y = wave_trail_heights[curr_player_id][i];
+        u32 x = wave_trail_x[curr_player_id][i];
+        u16 y = wave_trail_y[curr_player_id][i];
+        u32 size = wave_trail_size[curr_player_id][i];
 
-        oam_metaspr(x, y, waveTrailChunk, FALSE, FALSE, 0, 0, 0, TRUE);
+        // Get relative positions
+        s32 relative_x = x - FROM_FIXED(scroll_x);
+        s32 relative_y = y - FROM_FIXED(scroll_y);
 
-        if (x - diff > -8) {
-            wave_trail_x[curr_player_id][i] -= diff;
-        } else {
+        // Put the trail sprite depending on size
+        if (size == SIZE_BIG) oam_metaspr(relative_x, relative_y, waveTrailChunk, FALSE, FALSE, 0, 0, 0, TRUE);
+        else oam_metaspr(relative_x, relative_y - 4, miniWaveTrailChunk, FALSE, FALSE, 0, 0, 0, TRUE);
+
+        // If this point is offscreen, remove it
+        if (relative_x < -8) {
             wave_trail_pointer[curr_player_id]--;
         }
     }
 }
 
 void wave_set_new_point() {
-    u32 rel_y = curr_player.relative_player_y;
-    u32 rel_x = curr_player.relative_player_x;
+    if (wave_trail_pointer[curr_player_id] >= WAVE_TRAIL_MAX_POINTS) return;
 
-    wave_trail_x[curr_player_id][0] = rel_x + 4;
-    wave_trail_heights[curr_player_id][0] = rel_y + 4;
+    // Move all points to the right, leaving the first slot empty
+    for (s32 i = wave_trail_pointer[curr_player_id] - 1; i >= 0; i--) {
+        u32 x = wave_trail_x[curr_player_id][i];
+        u16 y = wave_trail_y[curr_player_id][i];
+        u8 size = wave_trail_size[curr_player_id][i];
+
+        wave_trail_x[curr_player_id][i + 1] = x; 
+        wave_trail_y[curr_player_id][i + 1] = y; 
+        wave_trail_size[curr_player_id][i + 1] = size; 
+    }
+
+    // Obtain player position
+    u32 x = FROM_FIXED(curr_player.player_x);
+    u16 y = FROM_FIXED(curr_player.player_y);
+
+    // Set the new point in the first slot
+    wave_trail_x[curr_player_id][0] = x + 4;
+    wave_trail_y[curr_player_id][0] = y + 4;
+    wave_trail_size[curr_player_id][0] = curr_player.player_size;
 
     wave_trail_pointer[curr_player_id]++;
-
-    for (s32 i = wave_trail_pointer[curr_player_id]; i >= 0; i--) {
-        u8 height = wave_trail_heights[curr_player_id][i];
-        s16 x_pos = wave_trail_x[curr_player_id][i];
-        if (i < wave_trail_pointer[curr_player_id]) {
-            wave_trail_heights[curr_player_id][i + 1] = height; 
-            wave_trail_x[curr_player_id][i + 1] = x_pos; 
-        }
-    }
 }

@@ -58,6 +58,17 @@ const u16 waveTrailChunk[] = {
     0xffff
 };
 
+const u16 miniWaveTrailChunk[] = {
+    ATTR0_4BPP | ATTR0_TALL,
+    ATTR1_SIZE_8x16,
+    ATTR2_PALBANK(0) | ATTR2_ID(1018),
+    0,
+    0,
+    PRIO_IDOFF(3, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
 
 // Menu
 

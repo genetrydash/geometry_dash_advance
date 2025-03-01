@@ -266,11 +266,11 @@ void setup_graphics_upload(u16 type, u8 object_slot, u16 attrib3) {
 #define OUT_MAX 0x100
 #define OUT_MIN 0xa8
 
-#define MIXING_BUFFER_SHORT_SIZE (s32)(sizeof(myMixingBuffer) / 2)
-#define MIXING_BUFFER_SHORT_SIZE (s32)(sizeof(myMixingBuffer) / 2)
+#define MIXING_BUFFER_SHORT_SIZE (s32)(sizeof(mixing_buffer) / 2)
+#define MIXING_BUFFER_SHORT_SIZE (s32)(sizeof(mixing_buffer) / 2)
 void scale_pulsing_objects() {
     obj_aff_identity(&obj_aff_buffer[AFF_SLOT_PULSING]);
-    u16 *mix_buffer_ptr = (u16 *) myMixingBuffer;
+    u16 *mix_buffer_ptr = (u16 *) mixing_buffer;
 
     // Get sum
     s32 counter = 0;

@@ -109,7 +109,7 @@ void init_maxmod() {
     mySystem.active_channels   = (mm_addr)(myData+(NUM_CHANNELS*MM_SIZEOF_MODCH));
     mySystem.mixing_channels   = (mm_addr)(myData+(NUM_CHANNELS*(MM_SIZEOF_MODCH
 	                                             +MM_SIZEOF_ACTCH)));
-    mySystem.mixing_memory     = (mm_addr)myMixingBuffer;
+    mySystem.mixing_memory     = (mm_addr)mixing_buffer;
     mySystem.wave_memory       = (mm_addr)(myData+(NUM_CHANNELS*(MM_SIZEOF_MODCH
                                                      +MM_SIZEOF_ACTCH
                                                      +MM_SIZEOF_MIXCH)));
