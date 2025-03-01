@@ -163,9 +163,9 @@
   <object id="678" gid="705" x="104" y="360" width="16" height="16"/>
   <object id="680" gid="2102" x="528" y="416" width="16" height="16"/>
   <object id="681" gid="2078" x="528" y="416" width="16" height="16"/>
-  <object id="684" gid="2063" x="944" y="400" width="16" height="16"/>
+  <object id="684" gid="2063" x="876" y="360" width="16" height="16"/>
   <object id="688" gid="2050" x="544" y="416" width="16" height="16"/>
-  <object id="689" gid="2051" x="720" y="400" width="16" height="16"/>
+  <object id="689" gid="2051" x="872" y="360" width="16" height="16"/>
   <object id="690" gid="2163" x="1088" y="416" width="16" height="16"/>
   <object id="692" gid="2077" x="1184" y="416" width="16" height="16"/>
  </objectgroup>

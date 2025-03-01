@@ -158,17 +158,17 @@ test2_spr_data:
    .hword 0x5f @ type
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 30
-   .hword 0x90 @ delta x
-   .hword 0x190 @ y
+   .hword 0x128 @ delta x
+   .hword 0x168 @ y
    .hword 0x2 @ type
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 31
-   .hword 0xe0 @ delta x
-   .hword 0x190 @ y
+   .hword 0x4 @ delta x
+   .hword 0x168 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
 @ Object 32
-   .hword 0x90 @ delta x
+   .hword 0xd4 @ delta x
    .hword 0x1a0 @ y
    .hword 0x72 @ type
    .hword 0x20 @ bg layer 4 non rotated   

@@ -88,6 +88,7 @@ struct Player {
 
     // 0 : no snap, 1 : snapping
     u8 snap_cube_rotation;
+    u8 inverse_rotation_flag;
 
     // TRUE if player is on slope
     u8 on_slope;

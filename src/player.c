@@ -119,10 +119,10 @@ void player_main() {
 
         curr_player.player_y_diff = curr_player.player_y - curr_player.old_player_y;
         
-        if (curr_player.on_floor) {
-            curr_player.slope_counter++;
-        } else {
-            curr_player.slope_counter = 0;
+        if (curr_player.slope_counter) {
+            if (--curr_player.slope_counter == 0) {
+                curr_player.on_slope = FALSE;
+            }
         }
 
         // Check if the level complete cutscene should start
@@ -163,6 +163,7 @@ void cube_gamemode() {
     curr_player.gravity = CUBE_GRAVITY;
 
     s8 sign = curr_player.gravity_dir ? -1 : 1;
+    s8 rotation_sign = curr_player.inverse_rotation_flag ? -1 : 1;
     s8 mirror_sign = screen_mirrored ? -1 : 1;
    
     // If on floor and holding A or UP, jump
@@ -172,23 +173,35 @@ void cube_gamemode() {
         } else {
             curr_player.player_y_speed = -((curr_player.player_size == SIZE_BIG) ? CUBE_JUMP_SPEED : CUBE_MINI_JUMP_SPEED) * sign;       
         }
+
+        // Give a small boost if on rising 45 degrees or 26.6 degrees slope
+        if (curr_player.slope_counter) {
+            if (curr_player.slope_type == DEGREES_45 || curr_player.slope_type == DEGREES_26_5) {
+                curr_player.player_y_speed += -0x10000 * sign;
+            }
+        }
+
         curr_player.player_buffering = ORB_BUFFER_END;
         curr_player.on_slope = FALSE;
+        curr_player.inverse_rotation_flag = FALSE;
     }
 
-    // If the cube is on the air, rotate, else, snap to nearest 
-    if (!curr_player.on_floor) {
-        curr_player.cube_rotation -= 0x500 * sign * mirror_sign;
+    // If the cube is on the air and not on slope, rotate, else, snap to nearest 
+    if (!(curr_player.on_floor || curr_player.slope_counter)) {
+        curr_player.cube_rotation -= 0x500 * sign * mirror_sign * rotation_sign;
     } else {
-        if (curr_player.on_slope) {
+        // If player is on slope, snap the rotation to it, else, snap to normal ground
+        if (curr_player.slope_counter) {
             switch (curr_player.slope_type) {
                 case DEGREES_45:
                     curr_player.cube_rotation = (curr_player.cube_rotation + 0x2000) & 0xC000;
                     break;
                 case DEGREES_26_5:
+                case DEGREES_63_5_MIRRORED:
                     curr_player.cube_rotation = snap_to_tan_theta_1_2(curr_player.cube_rotation);
                     break;
                 case DEGREES_63_5:
+                case DEGREES_26_5_MIRRORED:
                     curr_player.cube_rotation = snap_to_tan_theta_1_2_rotated_90(curr_player.cube_rotation);
                     break;
             }

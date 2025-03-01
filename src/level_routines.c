@@ -242,7 +242,7 @@ void reset_variables() {
     player_1.player_x = -0x110000;  
     player_1.relative_player_x = 0;
     player_1.player_y_speed = 0;
-    player_1.on_slope = 0;
+    player_1.on_slope = FALSE;
     player_1.player_size = SIZE_BIG;
     player_1.gravity_dir = GRAVITY_DOWN;
     coll_x = 0;
@@ -1361,9 +1361,6 @@ void handle_gamemode_uploads() {
 }
 
 void handle_wave_trail() {
-    // Do nothing if player is dead
-    if (player_death) return;
-
     for (s32 i = 0; i < wave_trail_pointer[curr_player_id]; i++) {
         u32 x = wave_trail_x[curr_player_id][i];
         u16 y = wave_trail_y[curr_player_id][i];

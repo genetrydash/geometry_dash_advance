@@ -21,7 +21,7 @@ u32 eject_bottom = 0;
 ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
 ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
 s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
-ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer);
+u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer);
 
 ARM_CODE void collision_cube() {
     // Exit if above screen
@@ -65,6 +65,8 @@ ARM_CODE void collision_cube() {
             return;
         }
 #endif
+
+        if (curr_player.slope_counter) return;
 
         if (curr_player.gravity_dir == GRAVITY_DOWN) {
             if (curr_player.player_y_speed >= 0) {
@@ -174,6 +176,8 @@ ARM_CODE void collision_ship_ball_ufo() {
             return;
         }
 #endif
+
+        if (curr_player.slope_counter) return;
 
         if (curr_player.player_y_speed >= 0) {
             // Going down
@@ -643,13 +647,12 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
                 // We are resting on the ceiling so allow jumping and stuff
                 curr_player.on_floor = TRUE;
                 curr_player.on_floor_step = TRUE;
-                curr_player.on_slope = FALSE;
                 curr_player.snap_cube_rotation = TRUE;
             }
-            
             curr_player.player_y += eject_value;
             curr_player.player_y_speed = 0;
-            curr_player.on_slope = FALSE;
+            
+            curr_player.inverse_rotation_flag = FALSE;
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
@@ -668,11 +671,12 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
                 // We are resting on the floor so allow jumping and stuff
                 curr_player.on_floor = TRUE;
                 curr_player.on_floor_step = TRUE;
-                curr_player.on_slope = FALSE;
                 curr_player.snap_cube_rotation = TRUE;
             }
             curr_player.player_y -= eject_value;
             curr_player.player_y_speed = 0;
+
+            curr_player.inverse_rotation_flag = FALSE;
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
@@ -1193,9 +1197,6 @@ ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 la
         }
     }
 }
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdint.h>
 
 struct circle_t {
     int64_t cx, cy; // Top-left corner
@@ -1343,31 +1344,48 @@ const FIXED_16 slope_speed_multiplier[] = {
     FLOAT_TO_FIXED(0.5), // COL_SLOPE_22_UP_UD_1
     FLOAT_TO_FIXED(0.5), // COL_SLOPE_22_UP_UD_2
     FLOAT_TO_FIXED(-0.5), // COL_SLOPE_22_DOWN_UD_1
-    FLOAT_TO_FIXED(0.0), // COL_SLOPE_22_DOWN_UD_2
+    FLOAT_TO_FIXED(-0.5), // COL_SLOPE_22_DOWN_UD_2
 
     FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_UP_1
     FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_UP_2
-    FLOAT_TO_FIXED(0.0), // COL_SLOPE_66_DOWN_1
-    FLOAT_TO_FIXED(0.0), // COL_SLOPE_66_DOWN_2
+    FLOAT_TO_FIXED(2.0), // COL_SLOPE_66_DOWN_1
+    FLOAT_TO_FIXED(2.0), // COL_SLOPE_66_DOWN_2
     FLOAT_TO_FIXED(2.0), // COL_SLOPE_66_UP_UD_1
     FLOAT_TO_FIXED(2.0), // COL_SLOPE_66_UP_UD_2
-    FLOAT_TO_FIXED(0.0), // COL_SLOPE_66_DOWN_UD_1
-    FLOAT_TO_FIXED(0.0), // COL_SLOPE_66_DOWN_UD_2
+    FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_DOWN_UD_1
+    FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_DOWN_UD_2
 };
 
-#define SLOPE_CHECK \
+#define SLOPE_CHECK(type) \
     if ((eject = check_slope_collision(player, slope)) != NO_SLOPE_COLL_DETECTED) { \
+        /* Set the player speed so it goes along the slope */ \
         curr_player.player_y_speed = FIXED_MUL(slope_speed_multiplier[col_type - COL_SLOPE_START], curr_player.player_x_speed); \
         curr_player.player_y += TO_FIXED(eject);  \
+        if (curr_player.gamemode == GAMEMODE_CUBE) { \
+            /* If the player is a cube, then die if colliding with a ceiling slope */ \
+            if (curr_player.gravity_dir == GRAVITY_DOWN && get_step(slope) == -1) { \
+                if (!noclip) player_death = TRUE; \
+                return FALSE; \
+            } else if (curr_player.gravity_dir == GRAVITY_UP && get_step(slope) == 1) { \
+                if (!noclip) player_death = TRUE; \
+                return FALSE; \
+            } \
+        } else if (curr_player.gamemode == GAMEMODE_BALL) {\
+            if (curr_player.slope_type == DEGREES_63_5) { \
+                curr_player.player_y_speed /= 2; \
+            } \
+        } \
         player.cy += eject; \
         curr_player.on_floor_step = TRUE; \
         curr_player.on_floor = TRUE; \
         curr_player.on_slope = TRUE; \
-        return TRUE; \
+        curr_player.slope_counter = 5; \
+        curr_player.inverse_rotation_flag = TRUE; \
+        curr_player.slope_type = type; \
     }
 
 // This function iterates through spikes that the player is touching and applies collision to it
-ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
+u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
     struct circle_t player;
     player.radius = width >> 1;
     player.cx = x + (width >> 1);
@@ -1402,10 +1420,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
-
-                curr_player.slope_type = DEGREES_45;
                 
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_45)
                 break;
 
             case COL_SLOPE_45_DOWN:
@@ -1417,10 +1433,8 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
 
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
-                
-                curr_player.slope_type = DEGREES_45;
 
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_45)
                 break;
 
             case COL_SLOPE_45_UP_UD:
@@ -1433,9 +1447,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x;
                 slope.p3.y = slope_y;
                 
-                curr_player.slope_type = DEGREES_45;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_45)
                 break;
 
             case COL_SLOPE_45_DOWN_UD:
@@ -1448,9 +1460,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y;
                 
-                curr_player.slope_type = DEGREES_45;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_45)
                 break;
 
             // 22 deg
@@ -1465,9 +1475,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x20;
                 slope.p3.y = slope_y + 0x10;
                 
-                curr_player.slope_type = DEGREES_26_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_26_5)
                 break;
 
                 
@@ -1481,9 +1489,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
                 
-                curr_player.slope_type = DEGREES_26_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_26_5)
                 break;
 
             case COL_SLOPE_22_DOWN_1:
@@ -1496,9 +1502,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x20;
                 slope.p3.y = slope_y + 0x10;
                 
-                curr_player.slope_type = DEGREES_26_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_26_5_MIRRORED)
                 break;
 
                 
@@ -1512,9 +1516,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
                 
-                curr_player.slope_type = DEGREES_26_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_26_5_MIRRORED)
                 break;
 
             case COL_SLOPE_22_UP_UD_1:
@@ -1527,9 +1529,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x;
                 slope.p3.y = slope_y;
                 
-                curr_player.slope_type = DEGREES_26_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_26_5)
                 break;
 
             case COL_SLOPE_22_UP_UD_2:
@@ -1542,9 +1542,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x - 0x10;
                 slope.p3.y = slope_y;
                 
-                curr_player.slope_type = DEGREES_26_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_26_5)
                 break;
 
             case COL_SLOPE_22_DOWN_UD_1:
@@ -1557,9 +1555,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x20;
                 slope.p3.y = slope_y;
                 
-                curr_player.slope_type = DEGREES_26_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_26_5_MIRRORED)
                 break;
 
             
@@ -1573,9 +1569,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y;
                 
-                curr_player.slope_type = DEGREES_26_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_26_5_MIRRORED)
                 break;
 
             // 66 DEG
@@ -1590,9 +1584,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x20;
                 
-                curr_player.slope_type = DEGREES_63_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_63_5)
                 break;
 
                 
@@ -1606,9 +1598,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
                 
-                curr_player.slope_type = DEGREES_63_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_63_5)
                 break;
 
             case COL_SLOPE_66_DOWN_1:
@@ -1621,9 +1611,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x10;
                 
-                curr_player.slope_type = DEGREES_63_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_63_5_MIRRORED)
                 break;
 
             case COL_SLOPE_66_DOWN_2:
@@ -1636,9 +1624,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y + 0x20;
                 
-                curr_player.slope_type = DEGREES_63_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_63_5_MIRRORED)
                 break;
 
             case COL_SLOPE_66_UP_UD_1:
@@ -1651,9 +1637,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x;
                 slope.p3.y = slope_y - 0x10;
                 
-                curr_player.slope_type = DEGREES_63_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_63_5)
                 break;
 
             case COL_SLOPE_66_UP_UD_2:
@@ -1666,9 +1650,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x;
                 slope.p3.y = slope_y;
                 
-                curr_player.slope_type = DEGREES_63_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_63_5)
                 break;
 
             case COL_SLOPE_66_DOWN_UD_1:
@@ -1681,9 +1663,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y;
                 
-                curr_player.slope_type = DEGREES_63_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_63_5_MIRRORED)
                 break;
 
             case COL_SLOPE_66_DOWN_UD_2:
@@ -1696,9 +1676,7 @@ ARM_CODE u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 lay
                 slope.p3.x = slope_x + 0x10;
                 slope.p3.y = slope_y - 0x10;
                 
-                curr_player.slope_type = DEGREES_63_5;
-                
-                SLOPE_CHECK
+                SLOPE_CHECK(DEGREES_63_5_MIRRORED)
                 break;
 
         }

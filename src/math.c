@@ -5,9 +5,9 @@
 
 // Precomputed target angles where tan(θ) = 1/2
 #define TAN_THETA_1_2_1 0x12E4  // ~26.565°
-#define TAN_THETA_1_2_2 0x6D1C  // ~116.565°
-#define TAN_THETA_1_2_3 0x92E4  // ~206.565°
-#define TAN_THETA_1_2_4 0xED1C  // ~333.435°
+#define TAN_THETA_1_2_2 0x52E4  // ~116.565°
+#define TAN_THETA_1_2_3 0x92E9  // ~206.565°
+#define TAN_THETA_1_2_4 0xD2FB  // ~296.435°
 
 // Function to snap to the nearest angle where tan(θ) = 1/2
 s32 snap_to_tan_theta_1_2(s32 current_rotation) {
@@ -30,10 +30,10 @@ s32 snap_to_tan_theta_1_2(s32 current_rotation) {
 }
 
 // Precomputed target angles where tan(θ) = 1/2, rotated by 90 degrees
-#define TAN_THETA_1_2_ROT_1 0x2D1C  // ~63.435°
-#define TAN_THETA_1_2_ROT_2 0x6D1C  // ~153.435° 
-#define TAN_THETA_1_2_ROT_3 0xAD1C  // ~243.435°
-#define TAN_THETA_1_2_ROT_4 0xED1C  // ~296.565°
+#define TAN_THETA_1_2_ROT_1 0x2D2A  // ~63.435°
+#define TAN_THETA_1_2_ROT_2 0x6D2F  // ~153.435° 
+#define TAN_THETA_1_2_ROT_3 0xAD34  // ~243.435°
+#define TAN_THETA_1_2_ROT_4 0xED26  // ~333.435º
 
 // Function to snap to the nearest angle where tan(θ) = 1/2, rotated by 90 degrees
 s32 snap_to_tan_theta_1_2_rotated_90(s32 current_rotation) {
