@@ -1374,6 +1374,8 @@ const FIXED_16 slope_speed_multiplier[] = {
             if (curr_player.slope_type == DEGREES_63_5) { \
                 curr_player.player_y_speed /= 2; \
             } \
+        } else if (curr_player.gamemode == GAMEMODE_WAVE) { \
+            player_death = TRUE; \
         } \
         player.cy += eject; \
         curr_player.on_floor_step = TRUE; \
