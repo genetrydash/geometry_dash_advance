@@ -381,7 +381,15 @@ void set_background(u16 background_ID) {
     switch (background_ID) {
         case BG_SQUARES:
             memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
-            memcpy32(&tile_mem[2][0], bg_chr, sizeof(bg_chr) / 4);
+            memcpy32(&tile_mem[2][0], square_background_chr, sizeof(square_background_chr) / 4);
+            break;
+        case BG_CIRCLES:
+            memcpy16(&se_mem[26][0], circle_background_tilemap, sizeof(circle_background_tilemap) / 2);
+            memcpy32(&tile_mem[2][0], circle_background_chr, sizeof(circle_background_chr) / 4);
+            break;
+        case BG_LINES:
+            memcpy16(&se_mem[26][0], line_background_tilemap, sizeof(line_background_tilemap) / 2);
+            memcpy32(&tile_mem[2][0], line_background_chr, sizeof(line_background_chr) / 4);
             break;
     }
 }

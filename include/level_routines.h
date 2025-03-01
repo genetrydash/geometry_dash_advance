@@ -68,6 +68,8 @@ void set_ground(u16 ground_ID);
 
 enum BG_types {
     BG_SQUARES,
+    BG_CIRCLES,
+    BG_LINES,
 
     BG_COUNT
 };

@@ -9,8 +9,13 @@ extern TILE animated_sprites[512];
 extern TILE level_text_chr[32];
 extern TILE level_complete_screen[80];
 extern TILE grounds[256];
+extern TILE square_background_chr[256];
+extern TILE circle_background_chr[512];
+extern TILE line_background_chr[512];
 
 extern unsigned char menu_l0_tilemap[1280];
 extern unsigned char menu_l1_tilemap[1280];
 extern unsigned char menu_l2_tilemap[1280];
 extern unsigned char level_complete_l3_tilemap[1280];
+extern unsigned char circle_background_tilemap[2048];
+extern unsigned char line_background_tilemap[2048];

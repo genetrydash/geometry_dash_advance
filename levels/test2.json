@@ -965,7 +965,7 @@
         {
          "name":"Background Type",
          "type":"int",
-         "value":0
+         "value":2
         }, 
         {
          "name":"Difficulty",

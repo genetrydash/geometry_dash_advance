@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="697">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="895" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="698">
  <editorsettings>
   <export target="test2.json" format="json"/>
  </editorsettings>
  <properties>
   <property name="BG" type="color" value="#ff283eff"/>
-  <property name="Background Type" type="int" value="0"/>
+  <property name="Background Type" type="int" value="2"/>
   <property name="Difficulty" value="EASY"/>
   <property name="GROUND" type="color" value="#ff0013c8"/>
   <property name="Gamemode" type="int" value="0"/>
