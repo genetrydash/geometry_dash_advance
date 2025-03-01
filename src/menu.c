@@ -17,7 +17,7 @@ u16 game_state;
 #define LEVEL_NAME_POS_X 120
 #define LEVEL_NAME_POS_Y 40
 
-#define TEXT_SCREEN_BLOCK 26
+#define TEXT_SCREEN_BLOCK 28
 
 void print_level_info(u16 level_id);
 void do_page_change(u16 level_id);
@@ -32,15 +32,15 @@ void menu_loop() {
     // Enable all BGs, also enable sprites
     REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2 | DCNT_BG3;
 
-    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(1);
+    REG_BG0CNT  = BG_CBB(0) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(1);
     REG_BG0HOFS = 0;
     REG_BG0VOFS = 0;
 
-    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32 | BG_PRIO(2);
+    REG_BG1CNT  = BG_CBB(0) | BG_SBB(27) | BG_REG_32x32 | BG_PRIO(2);
     REG_BG1HOFS = 0;
     REG_BG1VOFS = 0;
 
-    REG_BG3CNT  = BG_CBB(0) | BG_SBB(28) | BG_REG_32x64 | BG_PRIO(0);
+    REG_BG3CNT  = BG_CBB(0) | BG_SBB(30) | BG_REG_32x64 | BG_PRIO(0);
     REG_BG2VOFS = 0;
 
     memset32(palette_buffer, 0, 256);
@@ -66,10 +66,10 @@ void menu_loop() {
     memcpy32(&tile_mem_obj[0][0], &menu_chr[256], sizeof(menu_chr) / 8);
     memcpy32(&tile_mem_obj[0][992], level_text_chr, sizeof(level_text_chr) / 4);
 
-    memcpy32(&se_mem[24][0], menu_l0_tilemap, sizeof(menu_l0_tilemap) / 4);
-    memcpy32(&se_mem[25][0], menu_l1_tilemap, sizeof(menu_l1_tilemap) / 4);
-    memcpy32(&se_mem[26][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
-    memcpy32(&se_mem[27][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
+    memcpy32(&se_mem[26][0], menu_l0_tilemap, sizeof(menu_l0_tilemap) / 4);
+    memcpy32(&se_mem[27][0], menu_l1_tilemap, sizeof(menu_l1_tilemap) / 4);
+    memcpy32(&se_mem[28][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
+    memcpy32(&se_mem[29][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
 
     s32 level_id = loaded_level_id;
     
@@ -394,8 +394,8 @@ void print_level_info(u16 level_id) {
 #define PRACTICE_PROGRESS_BAR_POS_Y 14
 #define BAR_WIDTH_PX 144
 
-#define EVEN_PAGE_BAR_SB 26
-#define ODD_PAGE_BAR_SB  27
+#define EVEN_PAGE_BAR_SB 28
+#define ODD_PAGE_BAR_SB  29
 
 void put_level_info_sprites(u16 level_id) {
     s32 adjacent_level_id;

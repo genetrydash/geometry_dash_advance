@@ -238,15 +238,15 @@ void game_loop() {
 
     mirror_scaling = float2fx(1.0);
 
-    REG_BG0CNT  = BG_CBB(0) | BG_SBB(24) | BG_REG_32x32 | BG_PRIO(1);
+    REG_BG0CNT  = BG_CBB(0) | BG_SBB(27) | BG_REG_32x32 | BG_PRIO(1);
     REG_BG0HOFS = 0;
     REG_BG0VOFS = 0;
 
-    REG_BG1CNT  = BG_CBB(0) | BG_SBB(25) | BG_REG_32x32 | BG_PRIO(2);
+    REG_BG1CNT  = BG_CBB(0) | BG_SBB(28) | BG_REG_32x32 | BG_PRIO(2);
     REG_BG1HOFS = 0;
     REG_BG1VOFS = 0;
 
-    REG_BG2CNT  = BG_CBB(2) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(3);
+    REG_BG2CNT  = BG_CBB(2) | BG_SBB(29) | BG_REG_32x32 | BG_PRIO(3);
     REG_BG2HOFS = 0;
     REG_BG2VOFS = 0;
 
@@ -271,7 +271,6 @@ void game_loop() {
     // Init OAM and VRAM
     oam_init(shadow_oam, 128);
     memcpy32(&tile_mem[0][0], blockset, sizeof(blockset) / 4);
-    memcpy32(&tile_mem[2][432], level_complete_screen, sizeof(level_complete_screen) / 4);
     memcpy16(&se_mem[30][0], level_complete_l3_tilemap, sizeof(level_complete_l3_tilemap) / 2);
 
     memcpy16(&palette_buffer[240], &menu_palette[16], 16);

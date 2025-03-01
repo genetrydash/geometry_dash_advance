@@ -100,7 +100,7 @@ void scroll_H(u32 layer, s32 mt_count) {
             }
 
             // Put tile and advance to next tile
-            se_plot(&se_mem[24 + layer][0], x, y, tile);
+            se_plot(&se_mem[27 + layer][0], x, y, tile);
             seam_y += 8;
         }
     }   
@@ -129,7 +129,7 @@ void scroll_V(u32 layer) {
         }
 
         // Put tile and advance to next tile
-        se_plot(&se_mem[24 + layer][0], x, y, tile);
+        se_plot(&se_mem[27 + layer][0], x, y, tile);
         seam_x += 8;
     }
 }
@@ -380,18 +380,21 @@ void load_level(u32 level_ID) {
 void set_background(u16 background_ID) {
     switch (background_ID) {
         case BG_SQUARES:
-            memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
+            memcpy16(&se_mem[29][0], bg_tiles, sizeof(bg_tiles) / 2);
             memcpy32(&tile_mem[2][0], square_background_chr, sizeof(square_background_chr) / 4);
             break;
         case BG_CIRCLES:
-            memcpy16(&se_mem[26][0], circle_background_tilemap, sizeof(circle_background_tilemap) / 2);
+            memcpy16(&se_mem[29][0], circle_background_tilemap, sizeof(circle_background_tilemap) / 2);
             memcpy32(&tile_mem[2][0], circle_background_chr, sizeof(circle_background_chr) / 4);
             break;
         case BG_LINES:
-            memcpy16(&se_mem[26][0], line_background_tilemap, sizeof(line_background_tilemap) / 2);
+            memcpy16(&se_mem[29][0], line_background_tilemap, sizeof(line_background_tilemap) / 2);
             memcpy32(&tile_mem[2][0], line_background_chr, sizeof(line_background_chr) / 4);
             break;
     }
+
+    // Copy back menu tiles
+    memcpy32(&tile_mem[2][560], level_complete_screen, sizeof(level_complete_screen) / 4);
 }
 
 #define GROUND_POS 896
@@ -621,13 +624,13 @@ ARM_CODE void swap_screen_dir() {
         // Copy tilemap into buffer
         SCR_ENTRY *mirror_screen_buffer = (SCR_ENTRY *) &vram_copy_buffer;
         
-        memcpy32(mirror_screen_buffer, &se_mem[24 + layer], (SCREENBLOCK_W * SCREENBLOCK_H) / 2);
+        memcpy32(mirror_screen_buffer, &se_mem[27 + layer], (SCREENBLOCK_W * SCREENBLOCK_H) / 2);
 
         s32 y_pos = 0;
         for (s32 y = 0; y < SCREENBLOCK_H; y++) {
             for (s32 x = 0; x < SCREENBLOCK_W; x++) {
                 // Mirror tilemap columns
-                se_mem[24 + layer][((SCREENBLOCK_W - 1) - x) + y_pos] = mirror_screen_buffer[x + y_pos] ^ SE_HFLIP;
+                se_mem[27 + layer][((SCREENBLOCK_W - 1) - x) + y_pos] = mirror_screen_buffer[x + y_pos] ^ SE_HFLIP;
             }
             y_pos += SCREENBLOCK_W;
         }
@@ -864,10 +867,10 @@ void break_brick(u32 x, u32 y, u32 layer) {
     s32 x_pos = (x >> 3) & 0b11110;
     s32 y_pos = (y >> 3) & 0b11110;
 
-    se_plot(&se_mem[24 + layer][0], x_pos,     y_pos,     SE_BUILD(0,0,0,0));
-    se_plot(&se_mem[24 + layer][0], x_pos + 1, y_pos,     SE_BUILD(0,0,0,0));
-    se_plot(&se_mem[24 + layer][0], x_pos,     y_pos + 1, SE_BUILD(0,0,0,0));
-    se_plot(&se_mem[24 + layer][0], x_pos + 1, y_pos + 1, SE_BUILD(0,0,0,0));
+    se_plot(&se_mem[27 + layer][0], x_pos,     y_pos,     SE_BUILD(0,0,0,0));
+    se_plot(&se_mem[27 + layer][0], x_pos + 1, y_pos,     SE_BUILD(0,0,0,0));
+    se_plot(&se_mem[27 + layer][0], x_pos,     y_pos + 1, SE_BUILD(0,0,0,0));
+    se_plot(&se_mem[27 + layer][0], x_pos + 1, y_pos + 1, SE_BUILD(0,0,0,0));
 }
 
 void modify_fade_block(u16 block_id, s32 calculated_x, s32 calculated_y, u32 layer, u32 frame_id);
@@ -1077,10 +1080,10 @@ ARM_CODE void handle_fading_blocks() {
 }
 
 void modify_fade_block(u16 block_id, s32 calculated_x, s32 calculated_y, u32 layer, u32 frame_id) {
-    se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y,     fading_table[block_id - FIRST_FADING_METATILE][frame_id][0]);
-    se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y,     fading_table[block_id - FIRST_FADING_METATILE][frame_id][1]);
-    se_plot(&se_mem[24 + layer][0], calculated_x,     calculated_y + 1, fading_table[block_id - FIRST_FADING_METATILE][frame_id][2]);
-    se_plot(&se_mem[24 + layer][0], calculated_x + 1, calculated_y + 1, fading_table[block_id - FIRST_FADING_METATILE][frame_id][3]);
+    se_plot(&se_mem[27 + layer][0], calculated_x,     calculated_y,     fading_table[block_id - FIRST_FADING_METATILE][frame_id][0]);
+    se_plot(&se_mem[27 + layer][0], calculated_x + 1, calculated_y,     fading_table[block_id - FIRST_FADING_METATILE][frame_id][1]);
+    se_plot(&se_mem[27 + layer][0], calculated_x,     calculated_y + 1, fading_table[block_id - FIRST_FADING_METATILE][frame_id][2]);
+    se_plot(&se_mem[27 + layer][0], calculated_x + 1, calculated_y + 1, fading_table[block_id - FIRST_FADING_METATILE][frame_id][3]);
 }
 
 void draw_both_players() {
