@@ -327,6 +327,8 @@ void load_level(u32 level_ID) {
     curr_level_height = properties_pointer[LEVEL_HEIGHT_INDEX];
     curr_level_width = properties_pointer[LEVEL_WIDTH_INDEX];
     loaded_song_id = properties_pointer[LEVEL_SONG_INDEX];
+    u32 background_type = properties_pointer[LEVEL_BACKGROUND_TYPE];
+    u32 ground_type = properties_pointer[LEVEL_GROUND_TYPE];
 
     // Limit values to safe values
     if (loaded_song_id >= MSL_NSONGS) loaded_song_id = 0;
@@ -357,6 +359,10 @@ void load_level(u32 level_ID) {
     // Reset gameplay vars
     reset_variables();
     
+    // Set background and ground
+    set_background(background_type);
+    set_ground(ground_type);
+
     // Set seam position and decompress the first screen
     seam_x = scroll_x >> SUBPIXEL_BITS;
     seam_y = scroll_y >> SUBPIXEL_BITS;
@@ -367,6 +373,29 @@ void load_level(u32 level_ID) {
     
     // Load objects if starting from 0%
     if (checkpoint_count == 0) load_objects(TRUE); 
+}
+
+void set_background(u16 background_ID) {
+    switch (background_ID) {
+        case BG_SQUARES:
+            memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
+            memcpy32(&tile_mem[2][0], bg_chr, sizeof(bg_chr) / 4);
+            break;
+    }
+}
+
+#define GROUND_POS 896
+
+void set_ground(u16 ground_ID) {
+    u32 rom_index = (ground_ID >> 1) << 7;
+    if (ground_ID & 1) {
+        rom_index += 0b1000;
+    }
+
+    for (s32 i = 0; i < 8; i++) {
+        s32 offset = i << 4;
+        memcpy32(&tile_mem[0][GROUND_POS + offset], &grounds[rom_index + offset], (sizeof(TILE) / sizeof(u32)) * 8);
+    }
 }
 
 void transition_update_spr() {

@@ -12,6 +12,8 @@ const unsigned int jumper_properties[] = {
  /*difficulty*/    3,
  /*stars*/         7,
  /*coins number*/  3,
+ /*background*/    0,
+ /*ground*/        0,
 };
 
 const unsigned char jumper_name[] = {

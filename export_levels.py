@@ -362,6 +362,8 @@ def export_includes_h(levels):
         file.write("#define LEVEL_DIFFICULTY 8\n\n")
         file.write("#define LEVEL_STARS_NUM 9\n\n")
         file.write("#define LEVEL_COINS_NUM 10\n\n")
+        file.write("#define LEVEL_BACKGROUND_TYPE 11\n\n")
+        file.write("#define LEVEL_GROUND_TYPE 12\n")
         for level_name in levels:
             file.write(f"// {level_name}\n")
             file.write(f"#define {level_name}_ID {level_counter}\n\n")
@@ -408,6 +410,8 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         song = "STEREOMA"
         difficulty = 0
         stars = 0
+        ground_type = 0
+        background_type = 0
         for prop in properties:
             if prop['name'] == 'BG':
                 bg_color = int(prop['value'][3:], 16)
@@ -432,6 +436,10 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
 
             elif prop['name'] == 'Stars':
                 stars = int(prop['value'])
+            elif prop['name'] == 'Background Type':
+                background_type = int(prop['value'])
+            elif prop['name'] == 'Ground Type':
+                ground_type = int(prop['value'])
         # BG color
         if bg_color != "":
             bg_color_bgr555 = rgb888_to_rgb555_24bit(bg_color)
@@ -462,6 +470,8 @@ def export_properties_to_h(level_name, output_path_h, output_path_c, json_file_p
         file.write(f" /*difficulty*/    {difficulty},\n")
         file.write(f" /*stars*/         {stars},\n")
         file.write(f" /*coins number*/  {coins},\n")
+        file.write(f" /*background*/    {background_type},\n")
+        file.write(f" /*ground*/        {ground_type},\n")
         file.write(f"}};\n\n")
 
         file.write(f"const unsigned char {level_name}_name[] = {{\n")

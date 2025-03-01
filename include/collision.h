@@ -1,21 +1,25 @@
 #include <tonc.h>
 #include "memory.h"
 
-#define GROUND_TILE_1 0xb0
-#define GROUND_TILE_2 0xb1
-#define GROUND_TILE_3 0xb2
+#define GROUND_TILE_0 0x590
+#define GROUND_TILE_1 0x591
+#define GROUND_TILE_2 0x592
+#define GROUND_TILE_3 0x593
 
-#define GROUND_TILE_4 0xc0
-#define GROUND_TILE_5 0xc1
-#define GROUND_TILE_6 0xc2
+#define GROUND_TILE_4 0x5a0
+#define GROUND_TILE_5 0x5a1
+#define GROUND_TILE_6 0x5a2
+#define GROUND_TILE_7 0x5a3
 
-#define GROUND_TILE_7 0xd0
-#define GROUND_TILE_8 0xd1
-#define GROUND_TILE_9 0xd2
+#define GROUND_TILE_8 0x5b0
+#define GROUND_TILE_9 0x5b1
+#define GROUND_TILE_A 0x5b2
+#define GROUND_TILE_B 0x5b3
 
-#define GROUND_TILE_A 0xe0
-#define GROUND_TILE_B 0xe1
-#define GROUND_TILE_C 0xe2
+#define GROUND_TILE_C 0x5c0
+#define GROUND_TILE_D 0x5c1
+#define GROUND_TILE_E 0x5c2
+#define GROUND_TILE_F 0x5c3
 
 enum CollisionTypes {
     COL_NONE,

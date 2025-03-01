@@ -1,6 +1,8 @@
 #include <tonc.h>
 #include "memory.h"
 
+#pragma once
+
 #define SCREEN_TRANSITION_FRAMES 31 // 15 + 1 middle + 15
 #define SCREEN_TRANSITION_SWITCH_FRAME (SCREEN_TRANSITION_FRAMES >> 1)
 #define SCREEN_TRANSITION_HALF SCREEN_TRANSITION_SWITCH_FRAME
@@ -60,3 +62,12 @@ void handle_gamemode_uploads();
 void handle_wave_trail();
 void wave_set_new_point();
 void update_scroll();
+
+void set_background(u16 background_ID);
+void set_ground(u16 ground_ID);
+
+enum BG_types {
+    BG_SQUARES,
+
+    BG_COUNT
+};

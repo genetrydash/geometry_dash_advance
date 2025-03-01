@@ -12,6 +12,8 @@ const unsigned int backontrack_properties[] = {
  /*difficulty*/    0,
  /*stars*/         2,
  /*coins number*/  3,
+ /*background*/    0,
+ /*ground*/        0,
 };
 
 const unsigned char backontrack_name[] = {

@@ -1425,12 +1425,22 @@
          "value":"#ff283eff"
         }, 
         {
+         "name":"Background Type",
+         "type":"int",
+         "value":0
+        }, 
+        {
          "name":"GROUND",
          "type":"color",
          "value":"#ff0013c8"
         }, 
         {
          "name":"Gamemode",
+         "type":"int",
+         "value":0
+        }, 
+        {
+         "name":"Ground Type",
          "type":"int",
          "value":0
         }, 

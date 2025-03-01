@@ -271,9 +271,7 @@ void game_loop() {
     // Init OAM and VRAM
     oam_init(shadow_oam, 128);
     memcpy32(&tile_mem[0][0], blockset, sizeof(blockset) / 4);
-    memcpy32(&tile_mem[2][0], bg_chr, sizeof(bg_chr) / 4);
     memcpy32(&tile_mem[2][256], level_complete_screen, sizeof(level_complete_screen) / 4);
-    memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
     memcpy16(&se_mem[30][0], level_complete_l3_tilemap, sizeof(level_complete_l3_tilemap) / 2);
 
     memcpy16(&palette_buffer[240], &menu_palette[16], 16);

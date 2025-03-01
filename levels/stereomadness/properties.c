@@ -12,6 +12,8 @@ const unsigned int stereomadness_properties[] = {
  /*difficulty*/    0,
  /*stars*/         1,
  /*coins number*/  3,
+ /*background*/    0,
+ /*ground*/        0,
 };
 
 const unsigned char stereomadness_name[] = {

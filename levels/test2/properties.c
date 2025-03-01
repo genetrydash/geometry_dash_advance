@@ -12,6 +12,8 @@ const unsigned int test2_properties[] = {
  /*difficulty*/    0,
  /*stars*/         0,
  /*coins number*/  0,
+ /*background*/    0,
+ /*ground*/        1,
 };
 
 const unsigned char test2_name[] = {

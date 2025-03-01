@@ -5,14 +5,16 @@
  </editorsettings>
  <properties>
   <property name="BG" type="color" value="#ff283eff"/>
+  <property name="Background Type" type="int" value="0"/>
   <property name="GROUND" type="color" value="#ff0013c8"/>
   <property name="Gamemode" type="int" value="0"/>
+  <property name="Ground Type" type="int" value="0"/>
   <property name="Level name" value="TEST"/>
   <property name="Song" value="STEREOMA"/>
   <property name="Speed" type="int" value="1"/>
  </properties>
  <tileset firstgid="1" source="famidash.tsx"/>
- <tileset firstgid="513" source="sprites.tsx"/>
+ <tileset firstgid="2049" source="sprites.tsx"/>
  <layer id="4" name="l2" width="895" height="27">
   <data encoding="csv">
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -76,161 +78,161 @@
 </data>
  </layer>
  <objectgroup id="7" name="SP">
-  <object id="419" gid="539" x="2720" y="416" width="16" height="16">
+  <object id="419" gid="2075" x="2720" y="416" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
     <property name="rotation angle" type="int" value="45"/>
    </properties>
   </object>
-  <object id="420" gid="523" x="2768" y="432" width="16" height="16"/>
-  <object id="421" gid="522" x="2848" y="416" width="16" height="16"/>
-  <object id="423" gid="532" x="3088" y="432" width="16" height="16"/>
-  <object id="424" gid="531" x="3136" y="432" width="16" height="16"/>
-  <object id="425" gid="523" x="3296" y="432" width="16" height="16"/>
-  <object id="428" gid="529" x="3376" y="416" width="16" height="16"/>
-  <object id="429" gid="527" x="3648" y="400" width="16" height="16">
+  <object id="420" gid="2059" x="2768" y="432" width="16" height="16"/>
+  <object id="421" gid="2058" x="2848" y="416" width="16" height="16"/>
+  <object id="423" gid="2068" x="3088" y="432" width="16" height="16"/>
+  <object id="424" gid="2067" x="3136" y="432" width="16" height="16"/>
+  <object id="425" gid="2059" x="3296" y="432" width="16" height="16"/>
+  <object id="428" gid="2065" x="3376" y="416" width="16" height="16"/>
+  <object id="429" gid="2063" x="3648" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
     <property name="rotation angle" type="int" value="270"/>
    </properties>
   </object>
-  <object id="430" gid="527" x="3728" y="400" width="16" height="16">
+  <object id="430" gid="2063" x="3728" y="400" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
     <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
-  <object id="431" gid="514" x="1680" y="416" width="16" height="16"/>
-  <object id="432" gid="523" x="1728" y="432" width="16" height="16"/>
-  <object id="433" gid="522" x="1792" y="400" width="16" height="16"/>
-  <object id="434" gid="532" x="2112" y="432" width="16" height="16"/>
-  <object id="435" gid="531" x="2160" y="432" width="16" height="16"/>
-  <object id="444" gid="542" x="1536" y="416" width="16" height="16"/>
-  <object id="445" gid="532" x="288" y="432" width="16" height="16"/>
-  <object id="446" gid="531" x="320" y="432" width="16" height="16"/>
-  <object id="447" gid="530" x="384" y="432" width="16" height="16"/>
-  <object id="448" gid="530" x="400" y="400" width="16" height="16">
+  <object id="431" gid="2050" x="1680" y="416" width="16" height="16"/>
+  <object id="432" gid="2059" x="1728" y="432" width="16" height="16"/>
+  <object id="433" gid="2058" x="1792" y="400" width="16" height="16"/>
+  <object id="434" gid="2068" x="2112" y="432" width="16" height="16"/>
+  <object id="435" gid="2067" x="2160" y="432" width="16" height="16"/>
+  <object id="444" gid="2078" x="1536" y="416" width="16" height="16"/>
+  <object id="445" gid="2068" x="288" y="432" width="16" height="16"/>
+  <object id="446" gid="2067" x="320" y="432" width="16" height="16"/>
+  <object id="447" gid="2066" x="384" y="432" width="16" height="16"/>
+  <object id="448" gid="2066" x="400" y="400" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="450" gid="539" x="464" y="416" width="16" height="16">
+  <object id="450" gid="2075" x="464" y="416" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="false"/>
     <property name="rotation angle" type="int" value="0"/>
    </properties>
   </object>
-  <object id="451" gid="523" x="512" y="432" width="16" height="16"/>
-  <object id="452" gid="522" x="560" y="416" width="16" height="16"/>
-  <object id="453" gid="530" x="656" y="432" width="16" height="16"/>
-  <object id="455" gid="532" x="768" y="320" width="16" height="16">
+  <object id="451" gid="2059" x="512" y="432" width="16" height="16"/>
+  <object id="452" gid="2058" x="560" y="416" width="16" height="16"/>
+  <object id="453" gid="2066" x="656" y="432" width="16" height="16"/>
+  <object id="455" gid="2068" x="768" y="320" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="456" gid="531" x="800" y="320" width="16" height="16"/>
-  <object id="457" gid="532" x="880" y="320" width="16" height="16">
+  <object id="456" gid="2067" x="800" y="320" width="16" height="16"/>
+  <object id="457" gid="2068" x="880" y="320" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="458" gid="529" x="912" y="320" width="16" height="16"/>
-  <object id="459" gid="515" x="1104" y="416" width="16" height="16"/>
-  <object id="497" gid="543" x="1207" y="409" width="16" height="16"/>
-  <object id="498" gid="545" x="1234.5" y="410" width="16" height="16"/>
-  <object id="499" gid="546" x="1269" y="410.5" width="16" height="16"/>
-  <object id="500" gid="547" x="1297" y="408.5" width="16" height="16"/>
-  <object id="501" gid="548" x="1320.5" y="410" width="16" height="16"/>
-  <object id="502" gid="549" x="1352" y="408.5" width="16" height="16"/>
-  <object id="503" gid="550" x="1382" y="410.5" width="16" height="16"/>
-  <object id="504" gid="551" x="1415" y="409.5" width="16" height="16"/>
-  <object id="505" gid="552" x="1443.5" y="409" width="16" height="16"/>
-  <object id="506" gid="544" x="1180" y="407.5" width="16" height="16"/>
-  <object id="508" gid="554" x="32" y="368" width="16" height="16">
+  <object id="458" gid="2065" x="912" y="320" width="16" height="16"/>
+  <object id="459" gid="2051" x="1104" y="416" width="16" height="16"/>
+  <object id="497" gid="2079" x="1207" y="409" width="16" height="16"/>
+  <object id="498" gid="2081" x="1234.5" y="410" width="16" height="16"/>
+  <object id="499" gid="2082" x="1269" y="410.5" width="16" height="16"/>
+  <object id="500" gid="2083" x="1297" y="408.5" width="16" height="16"/>
+  <object id="501" gid="2084" x="1320.5" y="410" width="16" height="16"/>
+  <object id="502" gid="2085" x="1352" y="408.5" width="16" height="16"/>
+  <object id="503" gid="2086" x="1382" y="410.5" width="16" height="16"/>
+  <object id="504" gid="2087" x="1415" y="409.5" width="16" height="16"/>
+  <object id="505" gid="2088" x="1443.5" y="409" width="16" height="16"/>
+  <object id="506" gid="2080" x="1180" y="407.5" width="16" height="16"/>
+  <object id="508" gid="2090" x="32" y="368" width="16" height="16">
    <properties>
     <property name="bg layer" value="0"/>
    </properties>
   </object>
-  <object id="511" gid="556" x="80" y="416" width="16" height="16"/>
-  <object id="512" gid="554" x="80" y="336" width="16" height="16">
+  <object id="511" gid="2092" x="80" y="416" width="16" height="16"/>
+  <object id="512" gid="2090" x="80" y="336" width="16" height="16">
    <properties>
     <property name="bg layer" value="2"/>
    </properties>
   </object>
-  <object id="513" gid="555" x="64" y="384" width="16" height="16"/>
-  <object id="514" gid="556" x="96" y="412" width="16" height="16">
+  <object id="513" gid="2091" x="64" y="384" width="16" height="16"/>
+  <object id="514" gid="2092" x="96" y="412" width="16" height="16">
    <properties>
     <property name="metatile ID appearance" type="int" value="20"/>
    </properties>
   </object>
-  <object id="516" gid="541" x="240" y="416" width="16" height="16"/>
-  <object id="520" gid="557" x="680" y="380" width="16" height="16"/>
-  <object id="521" gid="558" x="1200" y="432" width="16" height="16"/>
-  <object id="522" gid="559" x="1208" y="432" width="16" height="16"/>
-  <object id="523" gid="558" x="1216" y="432" width="16" height="16"/>
-  <object id="524" gid="559" x="1224" y="432" width="16" height="16"/>
-  <object id="525" gid="558" x="1232" y="432" width="16" height="16"/>
-  <object id="526" gid="559" x="1240" y="432" width="16" height="16"/>
-  <object id="529" gid="558" x="1248" y="432" width="16" height="16"/>
-  <object id="530" gid="559" x="1256" y="432" width="16" height="16"/>
-  <object id="531" gid="558" x="1264" y="432" width="16" height="16"/>
-  <object id="532" gid="559" x="1272" y="432" width="16" height="16"/>
-  <object id="533" gid="558" x="1280" y="432" width="16" height="16"/>
-  <object id="534" gid="559" x="1288" y="432" width="16" height="16"/>
-  <object id="550" gid="558" x="1296" y="432" width="16" height="16"/>
-  <object id="551" gid="559" x="1304" y="432" width="16" height="16"/>
-  <object id="552" gid="558" x="1312" y="432" width="16" height="16"/>
-  <object id="553" gid="559" x="1320" y="432" width="16" height="16"/>
-  <object id="554" gid="560" x="128" y="352" width="16" height="16"/>
-  <object id="555" gid="561" x="168" y="352" width="16" height="16"/>
-  <object id="556" gid="562" x="208" y="352" width="16" height="16"/>
-  <object id="557" gid="563" x="240" y="352" width="16" height="16"/>
-  <object id="558" gid="558" x="2304" y="368" width="16" height="16"/>
-  <object id="559" gid="564" x="16" y="400" width="16" height="16"/>
-  <object id="560" gid="554" x="784" y="384" width="16" height="16"/>
-  <object id="561" gid="561" x="784" y="384" width="16" height="16"/>
-  <object id="562" gid="515" x="3792" y="416" width="16" height="16"/>
-  <object id="563" gid="565" x="3872" y="416" width="16" height="16"/>
-  <object id="564" gid="567" x="4000" y="416" width="16" height="16"/>
-  <object id="565" gid="568" x="4192" y="416" width="16" height="16"/>
-  <object id="566" gid="569" x="4336" y="416" width="16" height="16"/>
-  <object id="567" gid="566" x="4480" y="416" width="16" height="16"/>
-  <object id="571" gid="570" x="4592" y="416" width="16" height="16"/>
-  <object id="572" gid="523" x="4752" y="432" width="16" height="16"/>
-  <object id="573" gid="529" x="4816" y="416" width="16" height="16"/>
-  <object id="574" gid="530" x="144" y="432" width="16" height="16"/>
-  <object id="575" gid="530" x="192" y="304" width="16" height="16">
+  <object id="516" gid="2077" x="240" y="416" width="16" height="16"/>
+  <object id="520" gid="2093" x="680" y="380" width="16" height="16"/>
+  <object id="521" gid="2094" x="1200" y="432" width="16" height="16"/>
+  <object id="522" gid="2095" x="1208" y="432" width="16" height="16"/>
+  <object id="523" gid="2094" x="1216" y="432" width="16" height="16"/>
+  <object id="524" gid="2095" x="1224" y="432" width="16" height="16"/>
+  <object id="525" gid="2094" x="1232" y="432" width="16" height="16"/>
+  <object id="526" gid="2095" x="1240" y="432" width="16" height="16"/>
+  <object id="529" gid="2094" x="1248" y="432" width="16" height="16"/>
+  <object id="530" gid="2095" x="1256" y="432" width="16" height="16"/>
+  <object id="531" gid="2094" x="1264" y="432" width="16" height="16"/>
+  <object id="532" gid="2095" x="1272" y="432" width="16" height="16"/>
+  <object id="533" gid="2094" x="1280" y="432" width="16" height="16"/>
+  <object id="534" gid="2095" x="1288" y="432" width="16" height="16"/>
+  <object id="550" gid="2094" x="1296" y="432" width="16" height="16"/>
+  <object id="551" gid="2095" x="1304" y="432" width="16" height="16"/>
+  <object id="552" gid="2094" x="1312" y="432" width="16" height="16"/>
+  <object id="553" gid="2095" x="1320" y="432" width="16" height="16"/>
+  <object id="554" gid="2096" x="128" y="352" width="16" height="16"/>
+  <object id="555" gid="2097" x="168" y="352" width="16" height="16"/>
+  <object id="556" gid="2098" x="208" y="352" width="16" height="16"/>
+  <object id="557" gid="2099" x="240" y="352" width="16" height="16"/>
+  <object id="558" gid="2094" x="2304" y="368" width="16" height="16"/>
+  <object id="559" gid="2100" x="16" y="400" width="16" height="16"/>
+  <object id="560" gid="2090" x="784" y="384" width="16" height="16"/>
+  <object id="561" gid="2097" x="784" y="384" width="16" height="16"/>
+  <object id="562" gid="2051" x="3792" y="416" width="16" height="16"/>
+  <object id="563" gid="2101" x="3872" y="416" width="16" height="16"/>
+  <object id="564" gid="2103" x="4000" y="416" width="16" height="16"/>
+  <object id="565" gid="2104" x="4192" y="416" width="16" height="16"/>
+  <object id="566" gid="2105" x="4336" y="416" width="16" height="16"/>
+  <object id="567" gid="2102" x="4480" y="416" width="16" height="16"/>
+  <object id="571" gid="2106" x="4592" y="416" width="16" height="16"/>
+  <object id="572" gid="2059" x="4752" y="432" width="16" height="16"/>
+  <object id="573" gid="2065" x="4816" y="416" width="16" height="16"/>
+  <object id="574" gid="2066" x="144" y="432" width="16" height="16"/>
+  <object id="575" gid="2066" x="192" y="304" width="16" height="16">
    <properties>
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="576" gid="516" x="752" y="432" width="16" height="16">
+  <object id="576" gid="2052" x="752" y="432" width="16" height="16">
    <properties>
     <property name="Channel" value="BG"/>
     <property name="Color" type="color" value="#ffff0000"/>
     <property name="Touch trigger" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="577" gid="571" x="1040" y="432" width="16" height="16"/>
-  <object id="578" gid="572" x="912" y="432" width="16" height="16"/>
-  <object id="579" gid="573" x="976" y="432" width="16" height="16"/>
-  <object id="580" gid="553" x="848" y="384" width="16" height="16"/>
-  <object id="581" gid="560" x="848" y="384" width="16" height="16"/>
-  <object id="582" gid="562" x="912" y="384" width="16" height="16"/>
-  <object id="583" gid="555" x="912" y="384" width="16" height="16"/>
-  <object id="584" gid="574" x="288" y="384" width="16" height="16"/>
-  <object id="585" gid="575" x="336" y="384" width="16" height="16"/>
-  <object id="587" gid="576" x="384" y="384" width="16" height="16"/>
-  <object id="589" gid="577" x="1180" y="376" width="16" height="16"/>
-  <object id="590" gid="578" x="1208" y="376" width="16" height="16"/>
-  <object id="591" gid="579" x="1236" y="376" width="16" height="16"/>
-  <object id="592" gid="580" x="1268" y="376" width="16" height="16"/>
-  <object id="593" gid="581" x="1296" y="376" width="16" height="16"/>
-  <object id="594" gid="582" x="1320" y="376" width="16" height="16"/>
-  <object id="595" gid="583" x="1352" y="376" width="16" height="16"/>
-  <object id="596" gid="584" x="1380" y="376" width="16" height="16"/>
-  <object id="597" gid="602" x="800" y="416" width="16" height="16"/>
-  <object id="598" gid="602" x="832" y="416" width="16" height="16"/>
-  <object id="599" gid="602" x="864" y="416" width="16" height="16"/>
+  <object id="577" gid="2107" x="1040" y="432" width="16" height="16"/>
+  <object id="578" gid="2108" x="912" y="432" width="16" height="16"/>
+  <object id="579" gid="2109" x="976" y="432" width="16" height="16"/>
+  <object id="580" gid="2089" x="848" y="384" width="16" height="16"/>
+  <object id="581" gid="2096" x="848" y="384" width="16" height="16"/>
+  <object id="582" gid="2098" x="912" y="384" width="16" height="16"/>
+  <object id="583" gid="2091" x="912" y="384" width="16" height="16"/>
+  <object id="584" gid="2110" x="288" y="384" width="16" height="16"/>
+  <object id="585" gid="2111" x="336" y="384" width="16" height="16"/>
+  <object id="587" gid="2112" x="384" y="384" width="16" height="16"/>
+  <object id="589" gid="2113" x="1180" y="376" width="16" height="16"/>
+  <object id="590" gid="2114" x="1208" y="376" width="16" height="16"/>
+  <object id="591" gid="2115" x="1236" y="376" width="16" height="16"/>
+  <object id="592" gid="2116" x="1268" y="376" width="16" height="16"/>
+  <object id="593" gid="2117" x="1296" y="376" width="16" height="16"/>
+  <object id="594" gid="2118" x="1320" y="376" width="16" height="16"/>
+  <object id="595" gid="2119" x="1352" y="376" width="16" height="16"/>
+  <object id="596" gid="2120" x="1380" y="376" width="16" height="16"/>
+  <object id="597" gid="2138" x="800" y="416" width="16" height="16"/>
+  <object id="598" gid="2138" x="832" y="416" width="16" height="16"/>
+  <object id="599" gid="2138" x="864" y="416" width="16" height="16"/>
  </objectgroup>
 </map>

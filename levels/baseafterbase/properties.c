@@ -12,6 +12,8 @@ const unsigned int baseafterbase_properties[] = {
  /*difficulty*/    2,
  /*stars*/         5,
  /*coins number*/  3,
+ /*background*/    0,
+ /*ground*/        0,
 };
 
 const unsigned char baseafterbase_name[] = {

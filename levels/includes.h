@@ -27,6 +27,9 @@
 
 #define LEVEL_COINS_NUM 10
 
+#define LEVEL_BACKGROUND_TYPE 11
+
+#define LEVEL_GROUND_TYPE 12
 // stereomadness
 #define stereomadness_ID 0
 

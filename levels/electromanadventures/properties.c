@@ -12,6 +12,8 @@ const unsigned int electromanadventures_properties[] = {
  /*difficulty*/    4,
  /*stars*/         10,
  /*coins number*/  3,
+ /*background*/    0,
+ /*ground*/        0,
 };
 
 const unsigned char electromanadventures_name[] = {

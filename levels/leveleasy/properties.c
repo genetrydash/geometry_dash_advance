@@ -12,6 +12,8 @@ const unsigned int leveleasy_properties[] = {
  /*difficulty*/    1,
  /*stars*/         3,
  /*coins number*/  0,
+ /*background*/    0,
+ /*ground*/        0,
 };
 
 const unsigned char leveleasy_name[] = {
