@@ -5,11 +5,11 @@ Main theme: Finished (ElAngel378)
 Stere Madness: Finished (ElAngel378)
 Back on track: Finished (ElAngel378)
 Polargeist: Finished (Orionconstel)
-Dry out: Unfinished
+Dry out: Finished (Orionconstel)
 Base after base: Finished (ElAngel378)
 Cant let go: Finished (ElAngel378)
 Jumper: Finished (Orionconstel)
-Time machine: Unfinished
+Time machine: (Nicolestarlight)
 Cycles: Finished (Orionconstel and ElAngel378)
 Xstep: Finished (Nicolestarlight)
 Clutterfunk: Unfinished
