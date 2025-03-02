@@ -159,6 +159,8 @@ struct PracticeCheckpoint {
     FIXED mirror_scaling;
     s8 transition_frame;
 
+    u8 speed_id;
+
     u16 col_trigger_buffer[CHANNEL_COUNT][5];
 
     COLOR channels[CHANNEL_COUNT];

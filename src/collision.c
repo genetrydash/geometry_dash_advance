@@ -1418,12 +1418,15 @@ s32 check_slope_collision(struct circle_t circle, struct triangle_t triangle) {
 
 #define EJECTION_TYPE_HIPO 1
 #define EJECTION_TYPE_HORZ 2
+#define EJECTION_TYPE_VERT 2
 
 s32 check_slope_eject_type(struct circle_t circle, struct triangle_t triangle) {
     if (check_distance_circle_hipotenuse(circle, triangle)) {
         return EJECTION_TYPE_HIPO;
     } else if (check_distance_circle_horizontal_edge(circle, triangle)) {
         return EJECTION_TYPE_HORZ;
+    } else if (check_distance_circle_vertical_edge(circle, triangle)){
+        return EJECTION_TYPE_VERT;
     } else {
         return 0;
     }
@@ -1456,25 +1459,29 @@ const FIXED_16 slope_speed_multiplier[] = {
 
 s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct circle_t *player, struct triangle_t slope) {
     // Internal collision just for death purposes
-    struct circle_t player_center;
-    player_center.radius = 2;
-    player_center.cx = player->cx;
-    player_center.cy = player->cy;
-    
-    // Die if the internal hitbox collides with an slope
-    if (check_slope_collision(player_center, slope) != NO_SLOPE_COLL_DETECTED) {
-        if (!noclip) player_death = TRUE;
-    }
+    struct circle_t player_internal_hitbox;
+    player_internal_hitbox.radius = 3;
+    player_internal_hitbox.cx = player->cx;
+    player_internal_hitbox.cy = player->cy;
 
-    if (check_distance_circle_vertical_edge(player_center, slope)) {
+    // Die if the internal hitbox collides with an slope
+    if (check_slope_eject_type(player_internal_hitbox, slope) == EJECTION_TYPE_VERT) {
         if (!noclip) player_death = TRUE;
     }
 
     // If the player is a cube, then ignore ceiling slopes
     if (curr_player.gamemode == GAMEMODE_CUBE) {
         if (curr_player.gravity_dir == GRAVITY_DOWN && get_step(*player, slope) == -1) {
+            // Die if the internal hitbox collides with an slope
+            if (check_slope_collision(player_internal_hitbox, slope) != NO_SLOPE_COLL_DETECTED) {
+                if (!noclip) player_death = TRUE;
+            }
             return TRUE;
         } else if (curr_player.gravity_dir == GRAVITY_UP && get_step(*player, slope) == 1) {
+            // Die if the internal hitbox collides with an slope
+            if (check_slope_collision(player_internal_hitbox, slope) != NO_SLOPE_COLL_DETECTED) {
+                if (!noclip) player_death = TRUE;
+            }
             return TRUE;
         }
     }
@@ -1542,6 +1549,9 @@ u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
     player.radius = (width >> 1) - 1;
     player.cx = x + (width >> 1);
     player.cy = y + (height >> 1);
+
+    // Make wave hitbox 2 pixels bigger
+    if (curr_player.gamemode == GAMEMODE_WAVE) player.radius += 2;
 
     // Try to collide with sprite slopes
     collide_with_obj_slopes(&player);
