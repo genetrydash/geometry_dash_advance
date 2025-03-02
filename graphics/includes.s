@@ -5,6 +5,7 @@
 .global square_background_chr
 .global circle_background_chr
 .global line_background_chr
+.global checkerboard_background_chr
 .global menu_chr
 .global animated_sprites
 .global level_text_chr
@@ -44,6 +45,9 @@ circle_background_chr:
     
 line_background_chr:
     .incbin "graphics/backgrounds/line_background.chr"
+    
+checkerboard_background_chr:
+    .incbin "graphics/backgrounds/checkerboard_background.chr"
 
 @ I put it there because gcc won't keep it
 .align 4

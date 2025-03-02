@@ -391,6 +391,10 @@ void set_background(u16 background_ID) {
             memcpy16(&se_mem[29][0], line_background_tilemap, sizeof(line_background_tilemap) / 2);
             memcpy32(&tile_mem[2][0], line_background_chr, sizeof(line_background_chr) / 4);
             break;
+        case BG_CHECKERBOARD:
+            memcpy16(&se_mem[29][0], checkerboard_background_tilemap, sizeof(checkerboard_background_tilemap) / 2);
+            memcpy32(&tile_mem[2][0], checkerboard_background_chr, sizeof(checkerboard_background_chr) / 4);
+            break;
     }
 
     // Copy back menu tiles

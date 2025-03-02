@@ -70,6 +70,7 @@ enum BG_types {
     BG_SQUARES,
     BG_CIRCLES,
     BG_LINES,
+    BG_CHECKERBOARD,
 
     BG_COUNT
 };
