@@ -122,8 +122,9 @@ enum SlopeTypes {
     DEGREES_45,
     DEGREES_26_5,
     DEGREES_63_5,
-    DEGREES_26_5_MIRRORED,
-    DEGREES_63_5_MIRRORED,
+    DEGREES_45_DOWN,
+    DEGREES_26_5_DOWN,
+    DEGREES_63_5_DOWN,
 };
 
 enum CollisionSides {
