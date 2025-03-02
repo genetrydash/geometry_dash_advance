@@ -1425,7 +1425,7 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
     // If collided with the horizontal edge, skip
     if (ejection_type == EJECTION_TYPE_HIPO) {
         // Set the player speed so it goes along the slope
-        curr_player.player_y_speed = FIXED_MUL(slope_speed_multiplier[col_type - COL_SLOPE_START], curr_player.player_x_speed);
+        curr_player.player_y_speed = FIXED_MUL(slope_speed_multiplier[col_type - COL_SLOPE_START], FIXED_MUL(curr_player.player_x_speed, curr_player.slope_speed_multiplier));
     } else {
         curr_player.player_y_speed = 0;
         curr_player.snap_cube_rotation = TRUE;
@@ -1459,6 +1459,9 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
         curr_player.on_slope = TRUE;
         curr_player.slope_counter = 5;
         curr_player.inverse_rotation_flag = TRUE;
+        if (curr_player.slope_speed_multiplier < 0x10000) {
+            curr_player.slope_speed_multiplier += 0x2000;
+        }
     }
 
     return FALSE;
