@@ -756,14 +756,21 @@ ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
     return col_type_lookup(col_type, x, y, side, layer);
 }
 
+ARM_CODE s32 check_collision_distance(struct ObjectSlot curr_object) {
+    s32 player_x_pixels = curr_player.player_x >> SUBPIXEL_BITS;
+    s32 player_y_pixels = curr_player.player_y >> SUBPIXEL_BITS;
+    return (s32) curr_object.object.x > player_x_pixels - 48 && (s32) curr_object.object.x < player_x_pixels + 48 &&
+           (s32) curr_object.object.y > player_y_pixels - 48 && (s32) curr_object.object.y < player_y_pixels + 48;
+}
+
 ARM_CODE void do_collision_with_objects() {
     for (s32 slot = 0; slot < MAX_OBJECTS; slot++) {
         // Check collision only if the slot is occupied
         struct ObjectSlot curr_object = object_buffer[slot];
         // If is occupied and it hasn't been activated yet, continue
         if (curr_object.occupied && curr_object.activated[curr_player_id] == FALSE) {
-            // If it is offscreen of the right side, don't collision
-            if (curr_object.object.x < (curr_player.player_x >> SUBPIXEL_BITS) + 64) {
+            // If it is behind the collision distance, skip
+            if (check_collision_distance(curr_object)) {
                 // Check if this object is a touch col trigger, if so, check collision
                 if (curr_object.object.type == COL_TRIGGER && curr_object.object.rotation & COL_TRIGGER_ROT_VAR_TOUCH_MASK) {
                     check_obj_collision(slot); 
