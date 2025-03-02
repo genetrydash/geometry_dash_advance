@@ -69,30 +69,34 @@ ARM_CODE void collision_cube() {
         }
 #endif
 
-        if (curr_player.slope_counter) return;
-
         if (curr_player.gravity_dir == GRAVITY_DOWN) {
             if (curr_player.player_y_speed >= 0) {
                 // Going down
                 coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
                 coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
                 
-                if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
-                    continue;
+                if (!curr_player.slope_counter) {
+                    if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
+                        continue;
+                    }
+                    if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height, layer, BOTTOM)) {
+                        continue;
+                    }
                 }
-                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height, layer, BOTTOM)) {
-                    continue;
-                }
+
                 if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height, layer, BOTTOM)) {
                     continue;
                 }
             } else if (curr_player.should_check_ceiling) { {
                     // If ceiling should be checked, check for top collision
-                    if (run_coll(coll_x, coll_y, layer, TOP)) {
-                        continue;
-                    }
-                    if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y, layer, TOP)) {
-                        continue;
+                    
+                    if (!curr_player.slope_counter) {
+                        if (run_coll(coll_x, coll_y, layer, TOP)) {
+                            continue;
+                        }
+                        if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y, layer, TOP)) {
+                            continue;
+                        }
                     }
                     if (run_coll(coll_x + curr_player.player_width, coll_y, layer, TOP)) {
                         continue;
@@ -108,22 +112,28 @@ ARM_CODE void collision_cube() {
                 coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
                 coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
 
-                if (run_coll(coll_x, coll_y, layer, TOP)) {
-                    continue;
-                }
-                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y, layer, TOP)) {
-                    continue;
+                if (!curr_player.slope_counter) {
+                    if (run_coll(coll_x, coll_y, layer, TOP)) {
+                        continue;
+                    }
+                    if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y, layer, TOP)) {
+                        continue;
+                    }
                 }
                 if (run_coll(coll_x + curr_player.player_width, coll_y, layer, TOP)) {
                     continue;
                 }
             } else if (curr_player.should_check_ceiling) {
                 // If ceiling should be checked, check for bottom collision
-                if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
-                    continue;
-                }
-                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height, layer, BOTTOM)) {
-                    continue;
+
+                
+                if (!curr_player.slope_counter) {
+                    if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
+                        continue;
+                    }
+                    if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height, layer, BOTTOM)) {
+                        continue;
+                    }
                 }
                 if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height, layer, BOTTOM)) {
                     continue;
@@ -188,11 +198,13 @@ ARM_CODE void collision_ship_ball_ufo() {
             coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
             coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
             
-            if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
-                continue;
-            }
-            if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height, layer, BOTTOM)) {
-                continue;
+            if (!curr_player.slope_counter) {
+                if (run_coll(coll_x, coll_y + curr_player.player_height, layer, BOTTOM)) {
+                    continue;
+                }
+                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height, layer, BOTTOM)) {
+                    continue;
+                }
             }
             if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height, layer, BOTTOM)) {
                 continue;
@@ -203,12 +215,15 @@ ARM_CODE void collision_ship_ball_ufo() {
             coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
             coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1) + 1;
 
-            if (run_coll(coll_x, coll_y, layer, TOP)) {
-                continue;
+            if (!curr_player.slope_counter) {
+                if (run_coll(coll_x, coll_y, layer, TOP)) {
+                    continue;
+                }
+                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y, layer, TOP)) {
+                    continue;
+                }
             }
-            if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y, layer, TOP)) {
-                continue;
-            }
+
             if (run_coll(coll_x + curr_player.player_width, coll_y, layer, TOP)) {
                 continue;
             }
@@ -267,11 +282,13 @@ ARM_CODE void collision_wave() {
             coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
             coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
             
-            if (run_coll(coll_x, coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
-                continue;
-            }
-            if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
-                continue;
+            if (!curr_player.slope_counter) {
+                if (run_coll(coll_x, coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
+                    continue;
+                }
+                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
+                    continue;
+                }
             }
             if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
                 continue;
@@ -282,11 +299,13 @@ ARM_CODE void collision_wave() {
             coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
             coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
 
-            if (run_coll(coll_x, coll_y - offset, layer, TOP)) {
-                continue;
-            }
-            if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y - offset, layer, TOP)) {
-                continue;
+            if (!curr_player.slope_counter) {
+                if (run_coll(coll_x, coll_y - offset, layer, TOP)) {
+                    continue;
+                }
+                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y - offset, layer, TOP)) {
+                    continue;
+                }
             }
             if (run_coll(coll_x + curr_player.player_width, coll_y - offset, layer, TOP)) {
                 continue;
@@ -1297,6 +1316,23 @@ void get_horizontal_edge(struct triangle_t triangle, s32 *x1, s32 *x2, s32 *y) {
     }
 }
 
+void get_vertical_edge(struct triangle_t triangle, s32 *x, s32 *y1, s32 *y2) {
+    // Get the only horizontally-aligned edge
+    if (triangle.p1.x == triangle.p2.x) {
+        *x  = triangle.p1.x;
+        *y1 = triangle.p1.y;
+        *y2 = triangle.p2.y;
+    } else if (triangle.p2.x == triangle.p3.x) {
+        *x  = triangle.p2.x;
+        *y1 = triangle.p2.y;
+        *y2 = triangle.p3.y;
+    } else {
+        *x  = triangle.p3.x;
+        *y1 = triangle.p3.y;
+        *y2 = triangle.p1.y;
+    }
+}
+
 s32 check_distance_circle_hipotenuse(struct circle_t circle, struct triangle_t triangle) {
     s32 hipo_x1, hipo_y1, hipo_x2, hipo_y2;
 
@@ -1311,6 +1347,14 @@ s32 check_distance_circle_horizontal_edge(struct circle_t circle, struct triangl
     get_horizontal_edge(triangle, &edge_x1, &edge_x2, &edge_y);
 
     return (u32) find_squared_distance_to_line(circle.cx, circle.cy, edge_x1, edge_y, edge_x2, edge_y) <= circle.radius * circle.radius;
+}
+
+s32 check_distance_circle_vertical_edge(struct circle_t circle, struct triangle_t triangle) {
+    s32 edge_x, edge_y1, edge_y2;
+
+    get_vertical_edge(triangle, &edge_x, &edge_y1, &edge_y2);
+
+    return (u32) find_squared_distance_to_line(circle.cx, circle.cy, edge_x, edge_y1, edge_x, edge_y2) <= circle.radius * circle.radius;
 }
 
 s32 get_step_call(struct triangle_t triangle) {
@@ -1364,6 +1408,8 @@ s32 check_slope_collision(struct circle_t circle, struct triangle_t triangle) {
         }
 
         return ejection + step;
+    } else if (check_distance_circle_vertical_edge(circle, triangle)) {
+        return 0;
     }
 
     return NO_SLOPE_COLL_DETECTED;
@@ -1419,6 +1465,10 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
         if (!noclip) player_death = TRUE;
     }
 
+    if (check_distance_circle_vertical_edge(player_center, slope)) {
+        if (!noclip) player_death = TRUE;
+    }
+
     // If the player is a cube, then ignore ceiling slopes
     if (curr_player.gamemode == GAMEMODE_CUBE) {
         if (curr_player.gravity_dir == GRAVITY_DOWN && get_step(*player, slope) == -1) {
@@ -1453,7 +1503,7 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
         }
     } else if (curr_player.gamemode == GAMEMODE_WAVE) {
         // Kill if wave
-        player_death = TRUE;
+        if (!noclip) player_death = TRUE;
     }
     
     // Set slope related variables
