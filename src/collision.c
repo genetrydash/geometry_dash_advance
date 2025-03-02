@@ -28,6 +28,17 @@ ARM_CODE void collision_cube() {
     if (curr_player.player_y < 0) return;
 
     curr_player.on_floor_step = FALSE;
+    
+    // Check slopes
+    coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+    coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
+
+    if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, 0)) {
+        curr_player.on_slope = TRUE;
+    }
+    if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, 1)) {
+        curr_player.on_slope = TRUE;
+    }
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
@@ -45,10 +56,6 @@ ARM_CODE void collision_cube() {
             return;
         }
 
-        if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer)) {
-            curr_player.on_slope = TRUE;
-            return;
-        }
 
         // Do center hitbox checks
         coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
@@ -140,6 +147,17 @@ ARM_CODE void collision_ship_ball_ufo() {
 
     curr_player.on_floor_step = FALSE;
 
+    // Check slopes
+    coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+    coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
+    
+    if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, 0)) {
+        curr_player.on_slope = TRUE;
+    }
+    if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, 1)) {
+        curr_player.on_slope = TRUE;
+    }
+
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
         coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
@@ -155,12 +173,6 @@ ARM_CODE void collision_ship_ball_ufo() {
         if (player_death) {
             return;
         }
-
-        if (collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, layer)) {
-            curr_player.on_slope = TRUE;
-            return;
-        }
-        
         // Do center hitbox checks
         coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
         coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_height) >> 1);      
@@ -1404,7 +1416,7 @@ const FIXED_16 slope_speed_multiplier[] = {
 s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct circle_t *player, struct triangle_t slope) {
     // Internal collision just for death purposes
     struct circle_t player_center;
-    player_center.radius = 3;
+    player_center.radius = 2;
     player_center.cx = player->cx;
     player_center.cy = player->cy;
     
@@ -1468,12 +1480,14 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
 }
 
 #define SLOPE_CHECK(type) \
-    if ((eject = check_slope_collision(player, slope)) != NO_SLOPE_COLL_DETECTED) { \
-        u32 ejection_type = check_slope_eject_type(player, slope); \
-        if (slope_check(type, col_type, eject, ejection_type, &player, slope)) { \
-            return FALSE; \
+    if ((eject = check_slope_collision(*player, slope)) != NO_SLOPE_COLL_DETECTED) { \
+        u32 ejection_type = check_slope_eject_type(*player, slope); \
+        if (slope_check(type, col_type, eject, ejection_type, player, slope)) { \
+            return TRUE; \
         } \
     }
+
+s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *player);
 
 // This function iterates through spikes that the player is touching and applies collision to it
 u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
@@ -1495,284 +1509,291 @@ u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
         u32 slope_x = (x + x_offset) & 0xfffffff0;
         u32 slope_y = (y + y_offset) & 0xfffffff0;
 
-        struct triangle_t slope;
-
-        s32 eject;
-        switch (col_type) {
-
-            // 45 DEG
-
-            case COL_SLOPE_45_UP:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x + 0x10;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y + 0x10;
-                
-                SLOPE_CHECK(DEGREES_45)
-                break;
-
-            case COL_SLOPE_45_DOWN:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y + 0x10;
-
-                SLOPE_CHECK(DEGREES_45)
-                break;
-
-            case COL_SLOPE_45_UP_UD:
-                slope.p1.x = slope_x + 0x10;
-                slope.p1.y = slope_y;
-
-                slope.p2.x = slope_x + 0x10;
-                slope.p2.y = slope_y + 0x10;
-
-                slope.p3.x = slope_x;
-                slope.p3.y = slope_y;
-                
-                SLOPE_CHECK(DEGREES_45)
-                break;
-
-            case COL_SLOPE_45_DOWN_UD:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y;
-                
-                SLOPE_CHECK(DEGREES_45)
-                break;
-
-            // 22 deg
-
-            case COL_SLOPE_22_UP_1:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x + 0x20;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x20;
-                slope.p3.y = slope_y + 0x10;
-                
-                SLOPE_CHECK(DEGREES_26_5)
-                break;
-
-                
-            case COL_SLOPE_22_UP_2:
-                slope.p1.x = slope_x - 0x10;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x + 0x10;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y + 0x10;
-                
-                SLOPE_CHECK(DEGREES_26_5)
-                break;
-
-            case COL_SLOPE_22_DOWN_1:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x20;
-                slope.p3.y = slope_y + 0x10;
-                
-                SLOPE_CHECK(DEGREES_26_5_MIRRORED)
-                break;
-
-                
-            case COL_SLOPE_22_DOWN_2:
-                slope.p1.x = slope_x - 0x10;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x - 0x10;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y + 0x10;
-                
-                SLOPE_CHECK(DEGREES_26_5_MIRRORED)
-                break;
-
-            case COL_SLOPE_22_UP_UD_1:
-                slope.p1.x = slope_x + 0x20;
-                slope.p1.y = slope_y;
-
-                slope.p2.x = slope_x + 0x20;
-                slope.p2.y = slope_y + 0x10;
-
-                slope.p3.x = slope_x;
-                slope.p3.y = slope_y;
-                
-                SLOPE_CHECK(DEGREES_26_5)
-                break;
-
-            case COL_SLOPE_22_UP_UD_2:
-                slope.p1.x = slope_x + 0x10;
-                slope.p1.y = slope_y;
-
-                slope.p2.x = slope_x + 0x10;
-                slope.p2.y = slope_y + 0x10;
-
-                slope.p3.x = slope_x - 0x10;
-                slope.p3.y = slope_y;
-                
-                SLOPE_CHECK(DEGREES_26_5)
-                break;
-
-            case COL_SLOPE_22_DOWN_UD_1:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x20;
-                slope.p3.y = slope_y;
-                
-                SLOPE_CHECK(DEGREES_26_5_MIRRORED)
-                break;
-
-            
-            case COL_SLOPE_22_DOWN_UD_2:
-                slope.p1.x = slope_x - 0x10;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x - 0x10;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y;
-                
-                SLOPE_CHECK(DEGREES_26_5_MIRRORED)
-                break;
-
-            // 66 DEG
-
-            case COL_SLOPE_66_UP_1:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x20;
-
-                slope.p2.x = slope_x + 0x10;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y + 0x20;
-                
-                SLOPE_CHECK(DEGREES_63_5)
-                break;
-
-                
-            case COL_SLOPE_66_UP_2:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x + 0x10;
-                slope.p2.y = slope_y - 0x10;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y + 0x10;
-                
-                SLOPE_CHECK(DEGREES_63_5)
-                break;
-
-            case COL_SLOPE_66_DOWN_1:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x;
-                slope.p2.y = slope_y - 0x10;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y + 0x10;
-                
-                SLOPE_CHECK(DEGREES_63_5_MIRRORED)
-                break;
-
-            case COL_SLOPE_66_DOWN_2:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x20;
-
-                slope.p2.x = slope_x;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y + 0x20;
-                
-                SLOPE_CHECK(DEGREES_63_5_MIRRORED)
-                break;
-
-            case COL_SLOPE_66_UP_UD_1:
-                slope.p1.x = slope_x + 0x10;
-                slope.p1.y = slope_y - 0x10;
-
-                slope.p2.x = slope_x + 0x10;
-                slope.p2.y = slope_y + 0x10;
-
-                slope.p3.x = slope_x;
-                slope.p3.y = slope_y - 0x10;
-                
-                SLOPE_CHECK(DEGREES_63_5)
-                break;
-
-            case COL_SLOPE_66_UP_UD_2:
-                slope.p1.x = slope_x + 0x10;
-                slope.p1.y = slope_y;
-
-                slope.p2.x = slope_x + 0x10;
-                slope.p2.y = slope_y + 0x20;
-
-                slope.p3.x = slope_x;
-                slope.p3.y = slope_y;
-                
-                SLOPE_CHECK(DEGREES_63_5)
-                break;
-
-            case COL_SLOPE_66_DOWN_UD_1:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x20;
-
-                slope.p2.x = slope_x;
-                slope.p2.y = slope_y;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y;
-                
-                SLOPE_CHECK(DEGREES_63_5_MIRRORED)
-                break;
-
-            case COL_SLOPE_66_DOWN_UD_2:
-                slope.p1.x = slope_x;
-                slope.p1.y = slope_y + 0x10;
-
-                slope.p2.x = slope_x;
-                slope.p2.y = slope_y - 0x10;
-
-                slope.p3.x = slope_x + 0x10;
-                slope.p3.y = slope_y - 0x10;
-                
-                SLOPE_CHECK(DEGREES_63_5_MIRRORED)
-                break;
-
+        if(slope_type_check(slope_x, slope_y, col_type, &player)) {
+            return FALSE;
         }
     }   
 
+    return FALSE;
+}
+
+s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *player) {
+    struct triangle_t slope;
+
+    s32 eject;
+    switch (col_type) {
+
+        // 45 DEG
+
+        case COL_SLOPE_45_UP:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x + 0x10;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y + 0x10;
+            
+            SLOPE_CHECK(DEGREES_45)
+            break;
+
+        case COL_SLOPE_45_DOWN:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y + 0x10;
+
+            SLOPE_CHECK(DEGREES_45)
+            break;
+
+        case COL_SLOPE_45_UP_UD:
+            slope.p1.x = slope_x + 0x10;
+            slope.p1.y = slope_y;
+
+            slope.p2.x = slope_x + 0x10;
+            slope.p2.y = slope_y + 0x10;
+
+            slope.p3.x = slope_x;
+            slope.p3.y = slope_y;
+            
+            SLOPE_CHECK(DEGREES_45)
+            break;
+
+        case COL_SLOPE_45_DOWN_UD:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y;
+            
+            SLOPE_CHECK(DEGREES_45)
+            break;
+
+        // 22 deg
+
+        case COL_SLOPE_22_UP_1:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x + 0x20;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x20;
+            slope.p3.y = slope_y + 0x10;
+            
+            SLOPE_CHECK(DEGREES_26_5)
+            break;
+
+            
+        case COL_SLOPE_22_UP_2:
+            slope.p1.x = slope_x - 0x10;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x + 0x10;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y + 0x10;
+            
+            SLOPE_CHECK(DEGREES_26_5)
+            break;
+
+        case COL_SLOPE_22_DOWN_1:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x20;
+            slope.p3.y = slope_y + 0x10;
+            
+            SLOPE_CHECK(DEGREES_26_5_MIRRORED)
+            break;
+
+            
+        case COL_SLOPE_22_DOWN_2:
+            slope.p1.x = slope_x - 0x10;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x - 0x10;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y + 0x10;
+            
+            SLOPE_CHECK(DEGREES_26_5_MIRRORED)
+            break;
+
+        case COL_SLOPE_22_UP_UD_1:
+            slope.p1.x = slope_x + 0x20;
+            slope.p1.y = slope_y;
+
+            slope.p2.x = slope_x + 0x20;
+            slope.p2.y = slope_y + 0x10;
+
+            slope.p3.x = slope_x;
+            slope.p3.y = slope_y;
+            
+            SLOPE_CHECK(DEGREES_26_5)
+            break;
+
+        case COL_SLOPE_22_UP_UD_2:
+            slope.p1.x = slope_x + 0x10;
+            slope.p1.y = slope_y;
+
+            slope.p2.x = slope_x + 0x10;
+            slope.p2.y = slope_y + 0x10;
+
+            slope.p3.x = slope_x - 0x10;
+            slope.p3.y = slope_y;
+            
+            SLOPE_CHECK(DEGREES_26_5)
+            break;
+
+        case COL_SLOPE_22_DOWN_UD_1:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x20;
+            slope.p3.y = slope_y;
+            
+            SLOPE_CHECK(DEGREES_26_5_MIRRORED)
+            break;
+
+        
+        case COL_SLOPE_22_DOWN_UD_2:
+            slope.p1.x = slope_x - 0x10;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x - 0x10;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y;
+            
+            SLOPE_CHECK(DEGREES_26_5_MIRRORED)
+            break;
+
+        // 66 DEG
+
+        case COL_SLOPE_66_UP_1:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x20;
+
+            slope.p2.x = slope_x + 0x10;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y + 0x20;
+            
+            SLOPE_CHECK(DEGREES_63_5)
+            break;
+
+            
+        case COL_SLOPE_66_UP_2:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x + 0x10;
+            slope.p2.y = slope_y - 0x10;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y + 0x10;
+            
+            SLOPE_CHECK(DEGREES_63_5)
+            break;
+
+        case COL_SLOPE_66_DOWN_1:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x;
+            slope.p2.y = slope_y - 0x10;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y + 0x10;
+            
+            SLOPE_CHECK(DEGREES_63_5_MIRRORED)
+            break;
+
+        case COL_SLOPE_66_DOWN_2:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x20;
+
+            slope.p2.x = slope_x;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y + 0x20;
+            
+            SLOPE_CHECK(DEGREES_63_5_MIRRORED)
+            break;
+
+        case COL_SLOPE_66_UP_UD_1:
+            slope.p1.x = slope_x + 0x10;
+            slope.p1.y = slope_y - 0x10;
+
+            slope.p2.x = slope_x + 0x10;
+            slope.p2.y = slope_y + 0x10;
+
+            slope.p3.x = slope_x;
+            slope.p3.y = slope_y - 0x10;
+            
+            SLOPE_CHECK(DEGREES_63_5)
+            break;
+
+        case COL_SLOPE_66_UP_UD_2:
+            slope.p1.x = slope_x + 0x10;
+            slope.p1.y = slope_y;
+
+            slope.p2.x = slope_x + 0x10;
+            slope.p2.y = slope_y + 0x20;
+
+            slope.p3.x = slope_x;
+            slope.p3.y = slope_y;
+            
+            SLOPE_CHECK(DEGREES_63_5)
+            break;
+
+        case COL_SLOPE_66_DOWN_UD_1:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x20;
+
+            slope.p2.x = slope_x;
+            slope.p2.y = slope_y;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y;
+            
+            SLOPE_CHECK(DEGREES_63_5_MIRRORED)
+            break;
+
+        case COL_SLOPE_66_DOWN_UD_2:
+            slope.p1.x = slope_x;
+            slope.p1.y = slope_y + 0x10;
+
+            slope.p2.x = slope_x;
+            slope.p2.y = slope_y - 0x10;
+
+            slope.p3.x = slope_x + 0x10;
+            slope.p3.y = slope_y - 0x10;
+            
+            SLOPE_CHECK(DEGREES_63_5_MIRRORED)
+            break;
+
+    }
     return FALSE;
 }
 
