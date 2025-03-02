@@ -771,14 +771,10 @@ ARM_CODE void do_collision_with_objects() {
         if (curr_object.occupied && curr_object.activated[curr_player_id] == FALSE) {
             // If it is behind the collision distance, skip
             if (check_collision_distance(curr_object)) {
-                // Check if this object is a touch col trigger, if so, check collision
-                if (curr_object.object.type == COL_TRIGGER && curr_object.object.rotation & COL_TRIGGER_ROT_VAR_TOUCH_MASK) {
+                // If it has collision, continue. Check if this object is a touch col trigger, if so, check collision
+                if (curr_object.has_collision || (curr_object.object.type == COL_TRIGGER && curr_object.object.rotation & COL_TRIGGER_ROT_VAR_TOUCH_MASK)) {
                     check_obj_collision(slot); 
                 } 
-                // If it has collision, continue
-                else if (curr_object.has_collision) {
-                    check_obj_collision(slot); 
-                }
             }
         }
     }
