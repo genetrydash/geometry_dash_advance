@@ -377,4 +377,19 @@ test2_spr_data:
    .hword 0x1a0 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
+@ Object 73
+   .hword 0x10 @ delta x
+   .hword 0x1a0 @ y
+   .hword 0x1a @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+@ Object 74
+   .hword 0x0 @ delta x
+   .hword 0x1a0 @ y
+   .hword 0x38 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+@ Object 75
+   .hword 0x160 @ delta x
+   .hword 0x1a0 @ y
+   .hword 0x35 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
    .byte 0xff
