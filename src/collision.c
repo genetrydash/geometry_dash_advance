@@ -1199,13 +1199,13 @@ ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 la
 }
 
 struct circle_t {
-    int64_t cx, cy; // Top-left corner
-    int32_t radius; // Side length
+    s64 cx, cy; // Top-left corner
+    u32 radius; // Side length
 };
 
 struct point_t {
-    int x;
-    int y;
+    u32 x;
+    u32 y;
 };
 
 struct triangle_t {
@@ -1213,9 +1213,6 @@ struct triangle_t {
     struct point_t p2;
     struct point_t p3;
 };
-
-
-#define NO_SLOPE_COLL_DETECTED 69420
 
 void getLine(s32 x1, s32 y1, s32 x2, s32 y2, s32 *a, s32 *b, s32 *c){
        // (x- p1X) / (p2X - p1X) = (y - p1Y) / (p2Y - p1Y) 
@@ -1277,14 +1274,6 @@ void get_hipotenuse(struct triangle_t triangle, s32 *x1, s32 *y1, s32 *x2, s32 *
     }
 }
 
-s32 check_distance_circle_triangle(struct circle_t circle, struct triangle_t triangle) {
-    s32 hipo_x1, hipo_y1, hipo_x2, hipo_y2;
-
-    get_hipotenuse(triangle, &hipo_x1, &hipo_y1, &hipo_x2, &hipo_y2);
-
-    return find_squared_distance_to_line(circle.cx, circle.cy, hipo_x1, hipo_y1, hipo_x2, hipo_y2) <= circle.radius * circle.radius;
-}
-
 void get_horizontal_edge(struct triangle_t triangle, s32 *x1, s32 *x2, s32 *y) {
     // Get the only horizontally-aligned edge
     if (triangle.p1.y == triangle.p2.y) {
@@ -1302,7 +1291,23 @@ void get_horizontal_edge(struct triangle_t triangle, s32 *x1, s32 *x2, s32 *y) {
     }
 }
 
-s32 get_step(struct triangle_t triangle) {
+s32 check_distance_circle_hipotenuse(struct circle_t circle, struct triangle_t triangle) {
+    s32 hipo_x1, hipo_y1, hipo_x2, hipo_y2;
+
+    get_hipotenuse(triangle, &hipo_x1, &hipo_y1, &hipo_x2, &hipo_y2);
+
+    return (u32) find_squared_distance_to_line(circle.cx, circle.cy, hipo_x1, hipo_y1, hipo_x2, hipo_y2) <= circle.radius * circle.radius;
+}
+
+s32 check_distance_circle_horizontal_edge(struct circle_t circle, struct triangle_t triangle) {
+    s32 edge_x1, edge_x2, edge_y;
+
+    get_horizontal_edge(triangle, &edge_x1, &edge_x2, &edge_y);
+
+    return (u32) find_squared_distance_to_line(circle.cx, circle.cy, edge_x1, edge_y, edge_x2, edge_y) <= circle.radius * circle.radius;
+}
+
+s32 get_step_call(struct triangle_t triangle) {
     s32 edge_x1, edge_x2, edge_y;
     s32 hipo_x1, hipo_y1, hipo_x2, hipo_y2;
 
@@ -1319,19 +1324,56 @@ s32 get_step(struct triangle_t triangle) {
     }
 }
 
+s32 get_step(struct circle_t circle, struct triangle_t triangle) {
+    s32 step = get_step_call(triangle);
+
+    if (check_distance_circle_hipotenuse(circle, triangle)) {
+        return step;
+    } else {
+        return -step;
+    }
+}
+
+
+#define NO_SLOPE_COLL_DETECTED (1 << 31)
+
 // Function to check collision between square and triangle
 s32 check_slope_collision(struct circle_t circle, struct triangle_t triangle) {
     s32 ejection = 0;
 
-    s32 step = get_step(triangle);
-    while (check_distance_circle_triangle(circle, triangle)) {
-        circle.cy -= step;
-        ejection -= step;
+    s32 step = get_step(circle, triangle);
+    if (check_distance_circle_hipotenuse(circle, triangle)) {
+        // Colliding with the hipotenuse
+        while (check_distance_circle_hipotenuse(circle, triangle)) {
+            circle.cy -= step;
+            ejection -= step;
+        }
+
+        return ejection;
+    } else if (check_distance_circle_horizontal_edge(circle, triangle)) {
+        // Colliding with the horizontal edge
+        while (check_distance_circle_horizontal_edge(circle, triangle)) {
+            circle.cy -= step;
+            ejection -= step;
+        }
+
+        return ejection + step;
     }
 
-    if (ejection != 0) return ejection;
-
     return NO_SLOPE_COLL_DETECTED;
+}
+
+#define EJECTION_TYPE_HIPO 1
+#define EJECTION_TYPE_HORZ 2
+
+s32 check_slope_eject_type(struct circle_t circle, struct triangle_t triangle) {
+    if (check_distance_circle_hipotenuse(circle, triangle)) {
+        return EJECTION_TYPE_HIPO;
+    } else if (check_distance_circle_horizontal_edge(circle, triangle)) {
+        return EJECTION_TYPE_HORZ;
+    } else {
+        return 0;
+    }
 }
 
 const FIXED_16 slope_speed_multiplier[] = {
@@ -1359,34 +1401,75 @@ const FIXED_16 slope_speed_multiplier[] = {
     FLOAT_TO_FIXED(-2.0), // COL_SLOPE_66_DOWN_UD_2
 };
 
+s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct circle_t *player, struct triangle_t slope) {
+    // Internal collision just for death purposes
+    struct circle_t player_center;
+    player_center.radius = 3;
+    player_center.cx = player->cx;
+    player_center.cy = player->cy;
+    
+    // Die if the internal hitbox collides with an slope
+    if (check_slope_collision(player_center, slope) != NO_SLOPE_COLL_DETECTED) {
+        if (!noclip) player_death = TRUE;
+    }
+
+    // If the player is a cube, then ignore ceiling slopes
+    if (curr_player.gamemode == GAMEMODE_CUBE) {
+        if (curr_player.gravity_dir == GRAVITY_DOWN && get_step(*player, slope) == -1) {
+            return TRUE;
+        } else if (curr_player.gravity_dir == GRAVITY_UP && get_step(*player, slope) == 1) {
+            return TRUE;
+        }
+    }
+
+    // If collided with the horizontal edge, skip
+    if (ejection_type == EJECTION_TYPE_HIPO) {
+        // Set the player speed so it goes along the slope
+        curr_player.player_y_speed = FIXED_MUL(slope_speed_multiplier[col_type - COL_SLOPE_START], curr_player.player_x_speed);
+    } else {
+        curr_player.player_y_speed = 0;
+        curr_player.snap_cube_rotation = TRUE;
+    }
+
+    // Eject player
+    curr_player.player_y += TO_FIXED(eject);
+    curr_player.player_y &= ~0xffff;
+    if (curr_player.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) scroll_y &= ~0xffff;
+    player->cy += eject;
+
+    // Set here slope type
+    curr_player.slope_type = type;
+
+    // If ball and 66.5 degree slope, halve speed
+    if (curr_player.gamemode == GAMEMODE_BALL) {
+        if (curr_player.slope_type == DEGREES_63_5) {
+            curr_player.player_y_speed /= 2;
+        }
+    } else if (curr_player.gamemode == GAMEMODE_WAVE) {
+        // Kill if wave
+        player_death = TRUE;
+    }
+    
+    // Set slope related variables
+    curr_player.on_floor_step = TRUE;
+    curr_player.on_floor = TRUE;
+    
+    // If collided with the horizontal edge, skip
+    if (ejection_type == EJECTION_TYPE_HIPO) {
+        curr_player.on_slope = TRUE;
+        curr_player.slope_counter = 5;
+        curr_player.inverse_rotation_flag = TRUE;
+    }
+
+    return FALSE;
+}
+
 #define SLOPE_CHECK(type) \
     if ((eject = check_slope_collision(player, slope)) != NO_SLOPE_COLL_DETECTED) { \
-        /* Set the player speed so it goes along the slope */ \
-        curr_player.player_y_speed = FIXED_MUL(slope_speed_multiplier[col_type - COL_SLOPE_START], curr_player.player_x_speed); \
-        curr_player.player_y += TO_FIXED(eject);  \
-        if (curr_player.gamemode == GAMEMODE_CUBE) { \
-            /* If the player is a cube, then die if colliding with a ceiling slope */ \
-            if (curr_player.gravity_dir == GRAVITY_DOWN && get_step(slope) == -1) { \
-                if (!noclip) player_death = TRUE; \
-                return FALSE; \
-            } else if (curr_player.gravity_dir == GRAVITY_UP && get_step(slope) == 1) { \
-                if (!noclip) player_death = TRUE; \
-                return FALSE; \
-            } \
-        } else if (curr_player.gamemode == GAMEMODE_BALL) {\
-            if (curr_player.slope_type == DEGREES_63_5) { \
-                curr_player.player_y_speed /= 2; \
-            } \
-        } else if (curr_player.gamemode == GAMEMODE_WAVE) { \
-            player_death = TRUE; \
+        u32 ejection_type = check_slope_eject_type(player, slope); \
+        if (slope_check(type, col_type, eject, ejection_type, &player, slope)) { \
+            return FALSE; \
         } \
-        player.cy += eject; \
-        curr_player.on_floor_step = TRUE; \
-        curr_player.on_floor = TRUE; \
-        curr_player.on_slope = TRUE; \
-        curr_player.slope_counter = 5; \
-        curr_player.inverse_rotation_flag = TRUE; \
-        curr_player.slope_type = type; \
     }
 
 // This function iterates through spikes that the player is touching and applies collision to it
