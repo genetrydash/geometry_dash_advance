@@ -191,8 +191,6 @@ ARM_CODE void collision_ship_ball_ufo() {
         }
 #endif
 
-        if (curr_player.slope_counter) return;
-
         if (curr_player.player_y_speed >= 0) {
             // Going down
             coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
@@ -682,7 +680,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
             if (curr_player.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) scroll_y &= ~0xffff;
-            if (curr_player.gamemode == GAMEMODE_WAVE && col_type != COL_FLOOR_CEIL) player_death = TRUE;
+            if (curr_player.gamemode == GAMEMODE_WAVE && col_type != COL_FLOOR_CEIL && !noclip) player_death = TRUE;
         }
     } else if (side == BOTTOM) {   
         s32 eject_value = eject_bottom << SUBPIXEL_BITS;
@@ -706,7 +704,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
             if (curr_player.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) scroll_y &= ~0xffff;
-            if (curr_player.gamemode == GAMEMODE_WAVE && col_type != COL_FLOOR_CEIL) player_death = TRUE;
+            if (curr_player.gamemode == GAMEMODE_WAVE && col_type != COL_FLOOR_CEIL && !noclip) player_death = TRUE;
         }
     }
    

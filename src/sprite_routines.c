@@ -287,7 +287,8 @@ void yellow_orb(struct ObjectSlot *objectSlot) {
     if (curr_player.player_buffering == ORB_BUFFER_READY) {
         s32 sign = (curr_player.gravity_dir == GRAVITY_UP) ? 1 : -1;
         curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][YELLOW_ORB_INDEX] * sign;
- 
+        curr_player.inverse_rotation_flag = FALSE;
+
         curr_player.ball_rotation_direction = sign;
 
         objectSlot->activated[curr_player_id] = TRUE;
@@ -307,7 +308,8 @@ void blue_orb(struct ObjectSlot *objectSlot) {
     if (curr_player.player_buffering == ORB_BUFFER_READY) {
         curr_player.gravity_dir ^= 1;
         s32 sign = (curr_player.gravity_dir == GRAVITY_UP) ? -1 : 1;
-
+        curr_player.inverse_rotation_flag = FALSE;
+        
         curr_player.ball_rotation_direction = sign;
         
         curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][BLUE_ORB_PAD_INDEX] * sign;
@@ -350,7 +352,8 @@ void blue_pad(struct ObjectSlot *objectSlot) {
     s32 sign = (curr_player.gravity_dir == GRAVITY_UP) ? -1 : 1;
 
     curr_player.ball_rotation_direction = sign;
-
+    curr_player.inverse_rotation_flag = FALSE;
+        
     curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][BLUE_ORB_PAD_INDEX] * sign;
     
     check_for_same_dual_gravity();
@@ -366,6 +369,7 @@ void pink_orb(struct ObjectSlot *objectSlot) {
         curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][PINK_ORB_INDEX] * sign;
         
         curr_player.ball_rotation_direction = sign;
+        curr_player.inverse_rotation_flag = FALSE;
         
         objectSlot->activated[curr_player_id] = TRUE;
         curr_player.on_floor = FALSE;
@@ -376,6 +380,7 @@ void pink_orb(struct ObjectSlot *objectSlot) {
 void pink_pad(struct ObjectSlot *objectSlot) {
     s32 sign = (curr_player.gravity_dir == GRAVITY_UP) ? 1 : -1;
     curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][PINK_PAD_INDEX] * sign;
+    curr_player.inverse_rotation_flag = FALSE;
     curr_player.on_floor = FALSE;
     objectSlot->activated[curr_player_id] = TRUE;
 }

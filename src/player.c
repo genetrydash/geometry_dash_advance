@@ -603,7 +603,7 @@ void draw_player() {
     if (curr_player.relative_player_y > -48 && curr_player.relative_player_y < SCREEN_HEIGHT + 48) {
         switch (curr_player.gamemode) {
             case GAMEMODE_CUBE:
-                if (curr_player.player_size == SIZE_BIG) {
+                if (curr_player.player_size == SIZE_BIG && !curr_player.slope_counter) {
                     // Offset depending on screen mirror status
                     if (screen_mirrored) {
                         x_offset = ((curr_player.cube_rotation >= 0x2000 && curr_player.cube_rotation < 0xa000) ? 9 : 8);
