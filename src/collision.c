@@ -1483,13 +1483,17 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
     }
 
 s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *player);
+ARM_CODE void collide_with_obj_slopes(struct circle_t *player);
 
-// This function iterates through spikes that the player is touching and applies collision to it
+// This function iterates through slopes that the player is touching and applies collision to it
 u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
     struct circle_t player;
     player.radius = (width >> 1) - 1;
     player.cx = x + (width >> 1);
     player.cy = y + (height >> 1);
+
+    // Try to collide with sprite slopes
+    collide_with_obj_slopes(&player);
 
     // Iterate through 4 metatiles, forming a 2x2 metatile square
     // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
@@ -1500,7 +1504,7 @@ u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
 
         u32 col_type = obtain_collision_type(x + x_offset, y + y_offset, layer);
 
-        // Spikes origin is in the top left pixel, aka 0,0 inside the metatile
+        // Slope origin is in the top left pixel, aka 0,0 inside the metatile
         u32 slope_x = (x + x_offset) & 0xfffffff0;
         u32 slope_y = (y + y_offset) & 0xfffffff0;
 
@@ -1808,5 +1812,17 @@ ARM_CODE void collide_with_obj_spikes(u32 x, u32 y, u32 width, u32 height) {
                 spike_coll_jump_table[col_type](x, y, width, height, obj_x, obj_y);
             }
         }
+    }
+}
+
+ARM_CODE void collide_with_obj_slopes(struct circle_t *player) {
+    for (s32 i = block_object_buffer_offset; i > 0; i--) {
+        struct ObjectSlot slot = *((struct ObjectSlot *) block_object_buffer[i - 1]);
+        
+        u32 obj_x = slot.object.x;
+        u32 obj_y = slot.object.y;
+
+        u16 col_type = block_object_buffer_flags[i - 1];
+        slope_type_check(obj_x, obj_y, col_type, player);
     }
 }
