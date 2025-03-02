@@ -300,6 +300,7 @@ void yellow_orb(struct ObjectSlot *objectSlot) {
 void yellow_pad(struct ObjectSlot *objectSlot) {
     s32 sign = (curr_player.gravity_dir == GRAVITY_UP) ? 1 : -1;
     curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][YELLOW_PAD_INDEX] * sign;
+    curr_player.inverse_rotation_flag = FALSE;
     curr_player.on_floor = FALSE;
     objectSlot->activated[curr_player_id] = TRUE;
 }
