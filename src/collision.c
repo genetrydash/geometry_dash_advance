@@ -1460,12 +1460,12 @@ const FIXED_16 slope_speed_multiplier[] = {
 s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct circle_t *player, struct triangle_t slope) {
     // Internal collision just for death purposes
     struct circle_t player_internal_hitbox;
-    player_internal_hitbox.radius = 3;
+    player_internal_hitbox.radius = 2;
     player_internal_hitbox.cx = player->cx;
     player_internal_hitbox.cy = player->cy;
 
-    // Die if the internal hitbox collides with an slope
-    if (check_slope_eject_type(player_internal_hitbox, slope) == EJECTION_TYPE_VERT) {
+    // Die if the internal hitbox and normal hitbox collides with the vertical edge
+    if (ejection_type == EJECTION_TYPE_VERT && check_slope_eject_type(player_internal_hitbox, slope) == EJECTION_TYPE_VERT) {
         if (!noclip) player_death = TRUE;
     }
 
