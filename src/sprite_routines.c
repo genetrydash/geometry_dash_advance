@@ -271,10 +271,13 @@ void col_trigger(struct ObjectSlot *objectSlot) {
             if (col_trigger.rotation & COL_TRIGGER_ROT_VAR_BLENDING_MASK) {
                 COLOR blended_color = blend_colors(palette_buffer[0x00], col_trigger.attrib2);
                 col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = blended_color;
+                col_channels_flags[channel] |= COL_CHANNEL_BLENDING_FLAG;
             } else {
                 col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = col_trigger.attrib2;
+                col_channels_flags[channel] &= ~COL_CHANNEL_BLENDING_FLAG;
             }
         }
+        col_channels_original_color[channel] = col_trigger.attrib2;
         col_trigger_buffer[channel][COL_TRIG_BUFF_TOTAL_FRAMES] = frames; // Total frames
         col_trigger_buffer[channel][COL_TRIG_BUFF_CURRENT_FRAMES] = 0;      // Current frame
 

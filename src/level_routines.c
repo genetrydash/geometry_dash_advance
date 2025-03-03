@@ -307,6 +307,8 @@ void reset_variables() {
     // Disable color changes
     for (u32 channel = 0; channel < CHANNEL_COUNT; channel++) {
         col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE] = FALSE;
+        col_channels_original_color[channel] = 0;
+        col_channels_flags[channel] = 0;
     }
 
     rotate_saws();
@@ -1182,6 +1184,8 @@ void store_practice_vars() {
     new_checkpoint.channels[LINE]   = palette_buffer[LINE_COLOR + GROUND_PAL];
 
     memcpy16(new_checkpoint.col_trigger_buffer, col_trigger_buffer, sizeof(col_trigger_buffer) / 2);
+    memcpy16(new_checkpoint.col_channels_flags, col_channels_flags, sizeof(col_channels_flags) / 2);
+    memcpy16(new_checkpoint.col_channels_original_color, col_channels_original_color, sizeof(col_channels_original_color) / 2);
 
     // Wrap around
     if (++checkpoint_pointer >= NUM_PRACTICE_CHECKPOINTS) checkpoint_pointer = 0;
@@ -1312,6 +1316,8 @@ void restore_practice_vars() {
     load_chr_in_buffer();
 
     memcpy16(col_trigger_buffer, curr_checkpoint.col_trigger_buffer, sizeof(col_trigger_buffer) / 2);
+    memcpy16(col_channels_flags, curr_checkpoint.col_channels_flags, sizeof(col_channels_flags) / 2);
+    memcpy16(col_channels_original_color, curr_checkpoint.col_channels_original_color, sizeof(col_channels_original_color) / 2);
 
     update_scroll();
 }

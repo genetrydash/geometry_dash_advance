@@ -62,6 +62,12 @@ INLINE void blend_bg_and_obj(COLOR *dst, u32 pal) {
 }
 
 INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
+    u32 index = (pal - COL_CHN_PAL) >> 4;
+    if(col_channels_flags[index] & COL_CHANNEL_BLENDING_FLAG) {
+        COLOR blended_color = blend_colors(palette_buffer[pal + 0x01], col_channels_original_color[index]);
+        dst[COL_ID_COLOR + pal] = blended_color;
+    }
+
     u32 blend_value = 0x1f / (COL_ID_COLOR - BG_COL_BLENDING + 1);
     for (u32 col = 0; col < 5; col++) {
         clr_blend(&dst[pal + 0x01], &dst[COL_ID_COLOR + pal], &dst[BG_COL_BLENDING + col + pal], 1, blend_value);

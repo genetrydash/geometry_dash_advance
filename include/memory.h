@@ -60,6 +60,8 @@ extern EWRAM_DATA u16 rotation_buffer[NUM_ROT_SLOTS];
 #define COL_TRIG_BUFF_CURRENT_FRAMES 4
 
 extern EWRAM_DATA u16 col_trigger_buffer[CHANNEL_COUNT][5];
+extern EWRAM_DATA u8 col_channels_flags[CHANNEL_COUNT];
+extern EWRAM_DATA u16 col_channels_original_color[CHANNEL_COUNT];
 
 extern u8 curr_column;
 extern u8 curr_level_height;
@@ -162,6 +164,8 @@ struct PracticeCheckpoint {
     u8 speed_id;
 
     u16 col_trigger_buffer[CHANNEL_COUNT][5];
+    u8 col_channels_flags[CHANNEL_COUNT];
+    u16 col_channels_original_color[CHANNEL_COUNT];
 
     COLOR channels[CHANNEL_COUNT];
 };

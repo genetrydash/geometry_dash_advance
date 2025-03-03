@@ -9,6 +9,8 @@
 #define COL_TRIGGER_ROT_VAR_TOUCH_MASK 0b10
 #define COL_TRIGGER_ROT_VAR_BLENDING_MASK 0b1
 
+#define COL_CHANNEL_BLENDING_FLAG 0b1
+
 typedef void (*jmp_table)();
 extern const jmp_table routines_jump_table[];
 extern const s16 obj_hitbox[][6];

@@ -1524,9 +1524,6 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
         curr_player.slope_counter = 5;
         curr_player.inverse_rotation_flag = TRUE;
         curr_player.slope_type = type;
-        if (curr_player.slope_speed_multiplier < 0x10000) {
-            curr_player.slope_speed_multiplier += 0x2000;
-        }
     }
 
     return FALSE;
