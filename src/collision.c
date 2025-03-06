@@ -1102,6 +1102,78 @@ void col_ground_bush_spike_left(u32 x, u32 y, u32 width, u32 height, u32 spk_x, 
     }
 }
 
+void col_ground_wavy_spike_edge_bl(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x04, spk_y + 0x0c, 0x03, 0x04
+    )) {
+        player_death = TRUE;
+    }
+}
+
+void col_ground_wavy_spike_edge_br(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x0c, spk_y + 0x0c, 0x03, 0x04
+    )) {
+        player_death = TRUE;
+    }
+}
+
+void col_ground_wavy_spike_edge_tl(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x04, spk_y, 0x03, 0x04
+    )) {
+        player_death = TRUE;
+    }
+}
+
+void col_ground_wavy_spike_edge_tr(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x0c, spk_y, 0x03, 0x04
+    )) {
+        player_death = TRUE;
+    }
+}
+
+void col_ground_wavy_spike_edge_lb(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x04, spk_y + 0x09, 0x04, 0x03
+    )) {
+        player_death = TRUE;
+    }
+}
+
+void col_ground_wavy_spike_edge_lt(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x04, spk_y, 0x04, 0x03
+    )) {
+        player_death = TRUE;
+    }
+}
+
+void col_ground_wavy_spike_edge_rb(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x0c, spk_y + 0x09, 0x04, 0x03
+    )) {
+        player_death = TRUE;
+    }
+}
+
+void col_ground_wavy_spike_edge_rt(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
+    if (is_colliding(
+        x, y, width, height,
+        spk_x + 0x0c, spk_y, 0x04, 0x03
+    )) {
+        player_death = TRUE;
+    }
+}
+
 void not_an_spike(UNUSED u32 x, UNUSED u32 y, UNUSED u32 width, UNUSED u32 height, UNUSED u32 spk_x, UNUSED u32 spk_y) {
     // not an spike so do nothing
 }
@@ -1175,6 +1247,15 @@ const jmp_table spike_coll_jump_table[] = {
 
     not_an_spike, // COL_CENTERED_MINI_BLOCK
 
+    col_ground_wavy_spike_edge_bl, // COL_GROUND_WAVY_SPIKE_EDGE_BL
+    col_ground_wavy_spike_edge_br, // COL_GROUND_WAVY_SPIKE_EDGE_BR
+    col_ground_wavy_spike_edge_tl, // COL_GROUND_WAVY_SPIKE_EDGE_TL
+    col_ground_wavy_spike_edge_tr, // COL_GROUND_WAVY_SPIKE_EDGE_TR
+    col_ground_wavy_spike_edge_lb, // COL_GROUND_WAVY_SPIKE_EDGE_LB
+    col_ground_wavy_spike_edge_lt, // COL_GROUND_WAVY_SPIKE_EDGE_LT
+    col_ground_wavy_spike_edge_rb, // COL_GROUND_WAVY_SPIKE_EDGE_RB
+    col_ground_wavy_spike_edge_rt, // COL_GROUND_WAVY_SPIKE_EDGE_RT
+
     not_an_spike, // COL_SLOPE_45_UP
     not_an_spike, // COL_SLOPE_45_DOWN
     not_an_spike, // COL_SLOPE_45_UP_UD
@@ -1197,7 +1278,6 @@ const jmp_table spike_coll_jump_table[] = {
     not_an_spike, // COL_SLOPE_66_UP_UD_2,
     not_an_spike, // COL_SLOPE_66_DOWN_UD,
     not_an_spike, // COL_SLOPE_66_DOWN_UD_2,
-
 };
 
 // This function iterates through spikes that the player is touching and applies collision to it

@@ -16,7 +16,7 @@ EWRAM_DATA u16 rotation_buffer[NUM_ROT_SLOTS];
 EWRAM_DATA u16 level_buffer[LEVEL_LAYERS][MAX_LEVEL_HEIGHT*LEVEL_BUFFER_WIDTH];
 IWRAM_DATA COLOR palette_buffer[512];
 
-EWRAM_DATA u16 col_trigger_buffer[CHANNEL_COUNT][5];
+EWRAM_DATA u16 col_trigger_buffer[CHANNEL_COUNT][6];
 EWRAM_DATA u8 col_channels_flags[CHANNEL_COUNT];
 EWRAM_DATA u16 col_channels_original_color[CHANNEL_COUNT];
 

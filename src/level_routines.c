@@ -910,7 +910,7 @@ void modify_fade_block(u16 block_id, s32 calculated_x, s32 calculated_y, u32 lay
 #define FADING_MINIBLOCK_ID           410
 
 #define FIRST_FADING_METATILE FADING_BLOCK_ID
-#define LAST_FADING_METATILE FADING_MEDIUM_SPIKE_RIGHT_ID
+#define LAST_FADING_METATILE FADING_MINIBLOCK_ID
 
 // Block
 
@@ -1394,8 +1394,8 @@ void handle_wave_trail() {
         s32 relative_y = y - FROM_FIXED(scroll_y);
 
         // Put the trail sprite depending on size
-        if (size == SIZE_BIG) oam_metaspr(relative_x, relative_y, waveTrailChunk, FALSE, FALSE, 0, 0, 0, TRUE);
-        else oam_metaspr(relative_x, relative_y - 4, miniWaveTrailChunk, FALSE, FALSE, 0, 0, 0, TRUE);
+        if (size == SIZE_BIG) oam_metaspr(relative_x, relative_y, waveTrailChunk, FALSE, FALSE, 0, 0, 0, FALSE);
+        else oam_metaspr(relative_x, relative_y - 4, miniWaveTrailChunk, FALSE, FALSE, 0, 0, 0, FALSE);
 
         // If this point is offscreen, remove it
         if (relative_x < -8) {

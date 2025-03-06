@@ -175,7 +175,7 @@ void set_bg_color(COLOR *dst, COLOR color) {
 void update_lbg_palette(COLOR *dst) {
     // Get LBG color
     COLOR lbg = calculate_lbg(dst[BG_PAL + BG_COLOR], dst[PLAYER_SPR_PAL + P1_COLOR]);
-    dst[LIGHTER_BG_PAL + COL_ID_COLOR] = lbg;
+    dst[LIGHTER_BG_PAL + COL_ID_COLOR] = blend_colors(lbg, dst[BG_PAL + BG_COLOR]);
 
     // Blend both bg and lbg
     u32 blend_value = 0x1f / (COL_ID_COLOR - BG_COL_BLENDING + 1);
@@ -245,12 +245,12 @@ ARM_CODE COLOR calculate_lbg(COLOR bg, COLOR p1) {
     // Convert into HSV
     struct HSV hsv = rgb_to_hsv(bg_rgb);
 
-    // Subtract 0.40 to saturation (GD uses 0.20, but it also has translucency, GBA can't have that)
-    hsv.saturation -= FLOAT_TO_FIXED(0.40f);
+    // Subtract 0.20 to saturation
+    hsv.saturation -= FLOAT_TO_FIXED(0.20f);
     hsv.saturation = CLAMP(hsv.saturation, 0, FIXED_MULTIPLIER + 1);
     
-    // Add 0.40 to saturation
-    hsv.value += FLOAT_TO_FIXED(0.40f);
+    // Add 0.20 to saturation
+    hsv.value += FLOAT_TO_FIXED(0.20f);
     hsv.value = CLAMP(hsv.value, 0, FIXED_MULTIPLIER + 1);
 
     // Convert back to RGB
@@ -352,19 +352,23 @@ u16 lerp_color(COLOR color1, COLOR color2, FIXED time) {
 void run_col_trigger_changes() {
     for (s32 channel = 0; channel < CHANNEL_COUNT; channel++) {
         if (col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE]) {
-            COLOR old_color = col_trigger_buffer[channel][COL_TRIG_BUFF_OLD_COLOR];
-            COLOR new_color = col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR];
-            u16 frames      = col_trigger_buffer[channel][COL_TRIG_BUFF_TOTAL_FRAMES];
-            u16 curr_frame  = col_trigger_buffer[channel][COL_TRIG_BUFF_CURRENT_FRAMES];
+            COLOR old_color      = col_trigger_buffer[channel][COL_TRIG_BUFF_OLD_COLOR];
+            COLOR new_color      = col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR];
+            COLOR new_color_orig = col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR_ORIGINAL];
+            u16 frames           = col_trigger_buffer[channel][COL_TRIG_BUFF_TOTAL_FRAMES];
+            u16 curr_frame       = col_trigger_buffer[channel][COL_TRIG_BUFF_CURRENT_FRAMES];
 
-            COLOR lerped_color;
+            COLOR lerped_color, lerped_original_color;
 
             // Calculate lerped color. If the value is less than 2, then it is an instant color change
             if (frames > 1) {
                 u32 lerp_value = TO_FIXED(curr_frame) / (frames - 1); // Division, scary stuff
                 lerped_color = lerp_color(old_color, new_color, lerp_value);
+                lerped_original_color = lerp_color(old_color, new_color_orig, lerp_value);
+                col_channels_original_color[channel] = lerped_original_color;
             } else {
                 lerped_color = new_color;
+                col_channels_original_color[channel] = new_color;
             } 
 
             // Run code depending on which channel is the trigger modifying

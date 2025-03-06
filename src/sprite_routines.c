@@ -277,7 +277,7 @@ void col_trigger(struct ObjectSlot *objectSlot) {
                 col_channels_flags[channel] &= ~COL_CHANNEL_BLENDING_FLAG;
             }
         }
-        col_channels_original_color[channel] = col_trigger.attrib2;
+        col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR_ORIGINAL] = col_trigger.attrib2;
         col_trigger_buffer[channel][COL_TRIG_BUFF_TOTAL_FRAMES] = frames; // Total frames
         col_trigger_buffer[channel][COL_TRIG_BUFF_CURRENT_FRAMES] = 0;      // Current frame
 
@@ -677,7 +677,7 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("SPEED_PORTAL_HALF", 18, 24, -1, -4,  8, 8)
     Object_Hitbox_Rectangle("SPEED_PORTAL_1x", 16, 30, 0, -7, 8, 8)
     Object_Hitbox_Rectangle("SPEED_PORTAL_2x",  28, 30, -6, -7, 8, 8)
-    Object_Hitbox_Rectangle("SPEED_PORTAL_3x",  34, 30, -9, -7, 8, 8)
+    Object_Hitbox_Rectangle("SPEED_PORTAL_3x",  34, 34, -9, -9, 8, 8)
     Object_Hitbox_Rectangle("SPEED_PORTAL_4x",  36, 30, -10, -7, 8, 8)
 
     Object_Hitbox_Rectangle("UFO_PORTAL", 20, 46, -2, -15, 8, 8)
