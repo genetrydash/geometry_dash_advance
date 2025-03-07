@@ -7,7 +7,7 @@ extern TILE bg_chr[256];
 extern TILE menu_chr[512];
 extern TILE animated_sprites[512];
 extern TILE level_text_chr[32];
-extern TILE level_complete_screen[80];
+extern TILE level_complete_screen[112];
 extern TILE grounds[256];
 extern TILE square_background_chr[256];
 extern TILE circle_background_chr[512];

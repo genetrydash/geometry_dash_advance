@@ -262,7 +262,7 @@ void game_loop() {
 
     // Set window registers
 
-    REG_WININ = WIN_BG0 | WIN_BG1 | WIN_BG2 | WIN_BLD | WIN_OBJ;
+    REG_WININ = WIN_BG0 | WIN_BG1 | WIN_BG2 | WIN_BG3 | WIN_BLD | WIN_OBJ;
     REG_WINOUT = WIN_BG2;
 
     REG_WIN0H = SCREEN_WIDTH;
@@ -271,7 +271,6 @@ void game_loop() {
     // Init OAM and VRAM
     oam_init(shadow_oam, 128);
     memcpy32(&tile_mem[0][0], blockset, sizeof(blockset) / 4);
-    memcpy16(&se_mem[30][0], level_complete_l3_tilemap, sizeof(level_complete_l3_tilemap) / 2);
 
     memcpy16(&palette_buffer[240], &menu_palette[16], 16);
     
@@ -410,6 +409,7 @@ u32 paused_routines() {
             } else {
                 // Start practice song
                 mmStart(MOD_PRACTICE, MM_PLAY_LOOP);
+                put_practice_gui();
             }
             break;
         }

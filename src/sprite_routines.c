@@ -238,44 +238,47 @@ void col_trigger(struct ObjectSlot *objectSlot) {
                 break;
         }
         col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE] = TRUE;
+
+        COLOR new_color = col_trigger.attrib2;
         if (copy) {
             u8 copied_channel = col_trigger.attrib3 >> 1;
 
             switch (copied_channel) {
                 case BG:
-                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[0x00];
+                    new_color = palette_buffer[0x00];
                     break;
                 case GROUND:
-                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[GROUND_PAL + BG_COLOR];
+                    new_color = palette_buffer[GROUND_PAL + BG_COLOR];
                     break;
                 case OBJ:
-                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[OBJ_COLOR];
+                    new_color = palette_buffer[OBJ_COLOR];
                     break;
                 case LINE:
-                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[GROUND_PAL + LINE_COLOR];
+                    new_color = palette_buffer[GROUND_PAL + LINE_COLOR];
                     break;
                 case P1:
-                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[PLAYER_SPR_PAL + P1_COLOR];
+                    new_color = palette_buffer[PLAYER_SPR_PAL + P1_COLOR];
                     break;
                 case P2:
-                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[PLAYER_SPR_PAL + P2_COLOR];
+                    new_color = palette_buffer[PLAYER_SPR_PAL + P2_COLOR];
                     break;
                 case COL1:
                 case COL2:
                 case COL3:
                 case COL4:
-                    col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = palette_buffer[COL_ID_COLOR + (channel << 4) + COL_CHN_PAL];
+                    new_color = palette_buffer[COL_ID_COLOR + (channel << 4) + COL_CHN_PAL];
                     break;
             }
+        }
+
+
+        if (col_trigger.rotation & COL_TRIGGER_ROT_VAR_BLENDING_MASK) {
+            COLOR blended_color = blend_colors(palette_buffer[0x00], new_color);
+            col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = blended_color;
+            col_channels_flags[channel] |= COL_CHANNEL_BLENDING_FLAG;
         } else {
-            if (col_trigger.rotation & COL_TRIGGER_ROT_VAR_BLENDING_MASK) {
-                COLOR blended_color = blend_colors(palette_buffer[0x00], col_trigger.attrib2);
-                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = blended_color;
-                col_channels_flags[channel] |= COL_CHANNEL_BLENDING_FLAG;
-            } else {
-                col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = col_trigger.attrib2;
-                col_channels_flags[channel] &= ~COL_CHANNEL_BLENDING_FLAG;
-            }
+            col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR] = new_color;
+            col_channels_flags[channel] &= ~COL_CHANNEL_BLENDING_FLAG;
         }
         col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR_ORIGINAL] = col_trigger.attrib2;
         col_trigger_buffer[channel][COL_TRIG_BUFF_TOTAL_FRAMES] = frames; // Total frames

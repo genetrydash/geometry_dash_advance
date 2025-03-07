@@ -1677,6 +1677,10 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 
             attribute2 = (attribute2 & ~ATTR2_PRIO_MASK) | ((priority << ATTR2_PRIO_SHIFT) & ATTR2_PRIO_MASK);
         }
 
+        if (!(attribute2 & ATTR2_PRIO_MASK)) {
+            attribute2 = (attribute2 & ~ATTR2_PRIO_MASK) | (1 << ATTR2_PRIO_SHIFT);
+        }
+
         // Set palette if positive
         if (palette >= 0) {
             attribute2 = (attribute2 & ~ATTR2_PALBANK_MASK) | ((palette << ATTR2_PALBANK_SHIFT) & ATTR2_PALBANK_MASK);
@@ -1778,6 +1782,10 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         // Set priority if modified
         if (!(priority & 0b100)) {
             attribute2 = (attribute2 & ~ATTR2_PRIO_MASK) | (((priority & 7) << ATTR2_PRIO_SHIFT) & ATTR2_PRIO_MASK);
+        }
+        
+        if (!(attribute2 & ATTR2_PRIO_MASK)) {
+            attribute2 = (attribute2 & ~ATTR2_PRIO_MASK) | (1 << ATTR2_PRIO_SHIFT);
         }
 
         // Set palette if positive

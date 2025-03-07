@@ -283,6 +283,9 @@ void reset_variables() {
     memset16(unloaded_object_buffer, 0xffff, sizeof(unloaded_object_buffer) / sizeof(s16));
     memset32(object_buffer, 0x0000, (sizeof(struct ObjectSlot) * MAX_OBJECTS) / sizeof(u32));
     memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
+    memset32(&se_mem[30][0], dup16(SE_BUILD(639, 0, 0, 0)), sizeof(SCREENBLOCK) / 2);
+
+    memcpy16(&se_mem[30][0], level_complete_l3_tilemap, sizeof(level_complete_l3_tilemap) / 2);
 
     REG_BG0HOFS = REG_BG1HOFS = 0;
     REG_BG0VOFS = REG_BG1VOFS = scroll_y >> SUBPIXEL_BITS;
@@ -400,7 +403,7 @@ void set_background(u16 background_ID) {
     }
 
     // Copy back menu tiles
-    memcpy32(&tile_mem[2][560], level_complete_screen, sizeof(level_complete_screen) / 4);
+    memcpy32(&tile_mem[2][528], level_complete_screen, sizeof(level_complete_screen) / 4);
 }
 
 #define GROUND_POS 896
@@ -532,6 +535,8 @@ void reset_level() {
 
     oam_init(shadow_oam, 128);
     load_level(loaded_level_id);
+
+    if (in_practice_mode) put_practice_gui();
 
     if (checkpoint_count > 0) {
         restore_practice_vars();
@@ -1428,4 +1433,14 @@ void wave_set_new_point() {
     wave_trail_size[curr_player_id][0] = curr_player.player_size;
 
     wave_trail_pointer[curr_player_id]++;
+}
+
+void put_practice_gui() {
+    for (s32 x = 0; x < PRACTICE_GUI_W; x++) {
+        for (s32 y = 0; y < PRACTICE_GUI_H; y++) {
+            s32 tile_id = FIRST_PRACTICE_GUI_TILE_ID + x + y * 16;
+            s32 se_index = PRACTICE_GUI_X + x + ((PRACTICE_GUI_Y + y) * 32);
+            se_mem[31][se_index] = SE_BUILD(tile_id, 0x0e, 0, 0);
+        }
+    }
 }

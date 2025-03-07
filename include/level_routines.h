@@ -8,6 +8,13 @@
 #define SCREEN_TRANSITION_HALF SCREEN_TRANSITION_SWITCH_FRAME
 
 #define BOTTOM_SCROLL_LIMIT ((((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS)) - (0x78 << (SUBPIXEL_BITS)))
+
+#define FIRST_PRACTICE_GUI_TILE_ID 583
+#define PRACTICE_GUI_X 11
+#define PRACTICE_GUI_Y 16
+#define PRACTICE_GUI_W 7
+#define PRACTICE_GUI_H 4
+
 extern s32 seam_x;
 extern s32 seam_y;
 
@@ -65,6 +72,7 @@ void update_scroll();
 
 void set_background(u16 background_ID);
 void set_ground(u16 ground_ID);
+void put_practice_gui();
 
 enum BG_types {
     BG_SQUARES,

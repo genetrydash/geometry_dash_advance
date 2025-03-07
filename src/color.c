@@ -166,6 +166,8 @@ void set_bg_color(COLOR *dst, COLOR color) {
         dst[pal] = dst[PORTAL_GLOW_COLOR]; 
     }
     
+    memcpy16(&dst[PRACTICE_MENU_PAL], &dst[BG_COLOR], 7);
+
     // Blend BG player colors
     blend_p1_with_bg(dst);
     blend_p2_with_bg(dst);
