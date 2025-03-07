@@ -7,7 +7,7 @@ const unsigned int clutterfunk_properties[] = {
  /*speed*/         1,
  /*level height*/  27,
  /*level width*/   994,
- /*song*/          MOD_STEREOMA,
+ /*song*/          MOD_CLTRFNK,
  /*name length*/   11,
  /*difficulty*/    4,
  /*stars*/         11,
