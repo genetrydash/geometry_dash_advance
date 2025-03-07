@@ -70,6 +70,7 @@ void menu_loop() {
     memcpy32(&se_mem[27][0], menu_l1_tilemap, sizeof(menu_l1_tilemap) / 4);
     memcpy32(&se_mem[28][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
     memcpy32(&se_mem[29][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
+    memset32(&se_mem[30][0], dup16(SE_BUILD(0x00, 0, 0, 0)), sizeof(SCREENBLOCK) / 2);
 
     s32 level_id = loaded_level_id;
     
