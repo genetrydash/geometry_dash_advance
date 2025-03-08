@@ -59,6 +59,7 @@ ARM_CODE void handle_fading_blocks();
 
 u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_adjustment);
 u64 approach_value(u64 current, u64 target, s32 inc, s32 dec);
+s16 lerp_angle(s16 current, s16 target, s16 divisor);
 
 void store_practice_vars();
 void delete_last_checkpoint();

@@ -103,6 +103,7 @@ struct Player {
 
     // Cube rotation angle
     u16 cube_rotation;
+    u16 lerped_cube_rotation;
 
     // - : left | + : right
     s8 ball_rotation_direction;

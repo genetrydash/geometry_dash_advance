@@ -602,6 +602,8 @@ void draw_player() {
     // Get player sprite depending
     const u16 *player_sprite = (curr_player_id == ID_PLAYER_1) ? player1Spr : player2Spr;
 
+    curr_player.lerped_cube_rotation = lerp_angle(curr_player.lerped_cube_rotation, curr_player.cube_rotation, 2);
+
     // Draw only if on screen vertically
     if (curr_player.relative_player_y > -48 && curr_player.relative_player_y < SCREEN_HEIGHT + 48) {
         switch (curr_player.gamemode) {
@@ -609,11 +611,11 @@ void draw_player() {
                 if (curr_player.player_size == SIZE_BIG && !curr_player.slope_counter) {
                     // Offset depending on screen mirror status
                     if (screen_mirrored) {
-                        x_offset = ((curr_player.cube_rotation >= 0x2000 && curr_player.cube_rotation < 0xa000) ? 9 : 8);
-                        y_offset = ((curr_player.cube_rotation >= 0x6000 && curr_player.cube_rotation < 0xe000) ? 9 : 8);
+                        x_offset = ((curr_player.lerped_cube_rotation >= 0x2000 && curr_player.lerped_cube_rotation < 0xa000) ? 9 : 8);
+                        y_offset = ((curr_player.lerped_cube_rotation >= 0x6000 && curr_player.lerped_cube_rotation < 0xe000) ? 9 : 8);
                     } else {
-                        x_offset = ((curr_player.cube_rotation >= 0x6000 && curr_player.cube_rotation < 0xe000) ? 9 : 8);
-                        y_offset = ((curr_player.cube_rotation >= 0x2000 && curr_player.cube_rotation < 0xa000) ? 9 : 8);
+                        x_offset = ((curr_player.lerped_cube_rotation >= 0x6000 && curr_player.lerped_cube_rotation < 0xe000) ? 9 : 8);
+                        y_offset = ((curr_player.lerped_cube_rotation >= 0x2000 && curr_player.lerped_cube_rotation < 0xa000) ? 9 : 8);
                     }
                 } else {
                     x_offset = 9;
@@ -647,9 +649,9 @@ void draw_player() {
 
         /// Change sprite size depending on player size and screen mirror status
         if (curr_player.player_size == SIZE_BIG) {
-            obj_aff_rotscale(&obj_aff_buffer[curr_player_id], mirror_scaling, float2fx(1.0) * sign, curr_player.cube_rotation);
+            obj_aff_rotscale(&obj_aff_buffer[curr_player_id], mirror_scaling, float2fx(1.0) * sign, curr_player.lerped_cube_rotation);
         } else {
-            obj_aff_rotscale(&obj_aff_buffer[curr_player_id], scale_inv(fxmul(mirror_scaling, float2fx(MINI_SIZE))), scale_inv(float2fx(MINI_SIZE) * sign), curr_player.cube_rotation); 
+            obj_aff_rotscale(&obj_aff_buffer[curr_player_id], scale_inv(fxmul(mirror_scaling, float2fx(MINI_SIZE))), scale_inv(float2fx(MINI_SIZE) * sign), curr_player.lerped_cube_rotation); 
         }
     }
 }

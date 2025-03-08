@@ -726,6 +726,29 @@ u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_a
     else return (current + adjustement);
 }
 
+s16 lerp_angle(s16 current, s16 target, s16 divisor) {
+    s16 temp = current;
+    s32 difference = (s16) (current - target);
+    if (divisor == 0 || difference >= 0x4000 || difference < -0x4000) {
+        current = target;
+    } else {
+        s32 diff = temp;
+
+        temp -= target;
+        temp -= (temp / divisor);
+        temp += target;
+        current = temp;
+
+        // Calculate difference
+        diff = current - diff;
+
+        if (ABS(diff) < 0x300) {
+            current = target;
+        }
+    }
+    return current;
+}
+
 u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
     s64 dist = (target - current);
     if (dist > 0) { // current < target
