@@ -37,6 +37,17 @@
 #define PLAYER_SPR_PAL 0x100
 
 
+enum COLOR_CHANNELS {
+    COL_1,
+    COL_2,
+    COL_3,
+    COL_4,
+    BG_CHANNEL,
+    GROUND_CHANNEL,
+    OBJ_CHANNEL,
+    LINE_CHANNEL,
+};
+
 struct RGB555 {
     u8 red;
     u8 green;

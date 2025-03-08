@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="1102" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="2611">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="1102" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="2613">
  <editorsettings>
   <export target="electrodynamix.json" format="json"/>
  </editorsettings>
@@ -11,7 +11,7 @@
   <property name="Gamemode" type="int" value="0"/>
   <property name="Ground Type" type="int" value="1"/>
   <property name="Level name" value="ELECTRO DYNAMIX"/>
-  <property name="Song" value="STEREOMA"/>
+  <property name="Song" value="DYNAMIX"/>
   <property name="Speed" type="int" value="1"/>
   <property name="Stars" type="int" value="12"/>
  </properties>
@@ -5863,7 +5863,7 @@
    <properties>
     <property name="Channel" value="1"/>
     <property name="Color" type="color" value="#ff690022"/>
-    <property name="Color Blending" type="bool" value="false"/>
+    <property name="Color Blending" type="bool" value="true"/>
     <property name="Copy color" type="bool" value="true"/>
     <property name="Copy from channel" value="P1"/>
     <property name="Frames" type="int" value="18"/>

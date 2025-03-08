@@ -230,12 +230,21 @@ ARM_CODE void decompress_column(u32 layer) {
 
 void set_initial_color(COLOR bg_color, COLOR ground_color) {
     set_bg_color(palette_buffer, bg_color);
+    col_channels_color[BG_CHANNEL] = bg_color;
+
     set_ground_color(palette_buffer, ground_color);
+    col_channels_color[GROUND_CHANNEL] = ground_color;
+
     for (u32 channel = 0; channel < 4; channel++) {
         set_color_channel_color(palette_buffer, CLR_RED, channel);
+        col_channels_color[channel] = CLR_RED;
     }
 
     set_obj_color(palette_buffer, 0x7fff);
+    col_channels_color[OBJ_CHANNEL] = 0x7fff;
+
+    col_channels_color[LINE_CHANNEL] = 0x1fff;
+
 }
 
 void reset_variables() {
@@ -310,7 +319,6 @@ void reset_variables() {
     // Disable color changes
     for (u32 channel = 0; channel < CHANNEL_COUNT; channel++) {
         col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE] = FALSE;
-        col_channels_original_color[channel] = 0;
         col_channels_flags[channel] = 0;
     }
 
@@ -1190,7 +1198,7 @@ void store_practice_vars() {
 
     memcpy16(new_checkpoint.col_trigger_buffer, col_trigger_buffer, sizeof(col_trigger_buffer) / 2);
     memcpy16(new_checkpoint.col_channels_flags, col_channels_flags, sizeof(col_channels_flags) / 2);
-    memcpy16(new_checkpoint.col_channels_original_color, col_channels_original_color, sizeof(col_channels_original_color) / 2);
+    memcpy16(new_checkpoint.col_channels_color, col_channels_color, sizeof(col_channels_color) / 2);
 
     // Wrap around
     if (++checkpoint_pointer >= NUM_PRACTICE_CHECKPOINTS) checkpoint_pointer = 0;
@@ -1322,7 +1330,7 @@ void restore_practice_vars() {
 
     memcpy16(col_trigger_buffer, curr_checkpoint.col_trigger_buffer, sizeof(col_trigger_buffer) / 2);
     memcpy16(col_channels_flags, curr_checkpoint.col_channels_flags, sizeof(col_channels_flags) / 2);
-    memcpy16(col_channels_original_color, curr_checkpoint.col_channels_original_color, sizeof(col_channels_original_color) / 2);
+    memcpy16(col_channels_color, curr_checkpoint.col_channels_color, sizeof(col_channels_color) / 2);
 
     update_scroll();
 }

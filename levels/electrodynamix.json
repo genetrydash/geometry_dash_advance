@@ -30503,7 +30503,7 @@
                         {
                          "name":"Color Blending",
                          "type":"bool",
-                         "value":false
+                         "value":true
                         }, 
                         {
                          "name":"Copy color",
@@ -37322,8 +37322,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":17387.6666666667,
-                 "y":240.333333333333
+                 "x":17387.7,
+                 "y":240.333
                 }, 
                 {
                  "gid":4100,
@@ -37418,7 +37418,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":2611,
+ "nextobjectid":2613,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -37459,7 +37459,7 @@
         {
          "name":"Song",
          "type":"string",
-         "value":"STEREOMA"
+         "value":"DYNAMIX"
         }, 
         {
          "name":"Speed",

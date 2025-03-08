@@ -9508,7 +9508,7 @@ electrodynamix_spr_data:
    .hword 0x90 @ changes 1 for 18 frames
    .hword 0x100d @ color
    .hword 0x11 @ copies {copy_channel}
-   .hword 0x0 @ normal trigger
+   .hword 0x1 @ blending normal trigger
 @ Object 1629
    .hword 0x10 @ delta x
    .hword 0x120 @ y

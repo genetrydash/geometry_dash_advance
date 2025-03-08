@@ -56,13 +56,12 @@ extern EWRAM_DATA u16 rotation_buffer[NUM_ROT_SLOTS];
 #define COL_TRIG_BUFF_ACTIVE 0
 #define COL_TRIG_BUFF_OLD_COLOR 1
 #define COL_TRIG_BUFF_NEW_COLOR 2
-#define COL_TRIG_BUFF_NEW_COLOR_ORIGINAL 3
-#define COL_TRIG_BUFF_TOTAL_FRAMES 4
-#define COL_TRIG_BUFF_CURRENT_FRAMES 5
+#define COL_TRIG_BUFF_TOTAL_FRAMES 3
+#define COL_TRIG_BUFF_CURRENT_FRAMES 4
 
-extern EWRAM_DATA u16 col_trigger_buffer[CHANNEL_COUNT][6];
+extern EWRAM_DATA u16 col_trigger_buffer[CHANNEL_COUNT][5];
 extern EWRAM_DATA u8 col_channels_flags[CHANNEL_COUNT];
-extern EWRAM_DATA u16 col_channels_original_color[CHANNEL_COUNT];
+extern EWRAM_DATA u16 col_channels_color[CHANNEL_COUNT];
 
 extern u8 curr_column;
 extern u8 curr_level_height;
@@ -166,7 +165,7 @@ struct PracticeCheckpoint {
 
     u16 col_trigger_buffer[CHANNEL_COUNT][5];
     u8 col_channels_flags[CHANNEL_COUNT];
-    u16 col_channels_original_color[CHANNEL_COUNT];
+    u16 col_channels_color[CHANNEL_COUNT];
 
     COLOR channels[CHANNEL_COUNT];
 };

@@ -64,7 +64,7 @@ INLINE void blend_bg_and_obj(COLOR *dst, u32 pal) {
 INLINE void blend_bg_and_col(COLOR *dst, u32 pal) {
     u32 index = (pal - COL_CHN_PAL) >> 4;
     if(col_channels_flags[index] & COL_CHANNEL_BLENDING_FLAG) {
-        COLOR blended_color = blend_colors(palette_buffer[pal + 0x01], col_channels_original_color[index]);
+        COLOR blended_color = blend_colors(palette_buffer[pal + 0x01], col_channels_color[index]);
         dst[COL_ID_COLOR + pal] = blended_color;
     }
 
@@ -356,22 +356,20 @@ void run_col_trigger_changes() {
         if (col_trigger_buffer[channel][COL_TRIG_BUFF_ACTIVE]) {
             COLOR old_color      = col_trigger_buffer[channel][COL_TRIG_BUFF_OLD_COLOR];
             COLOR new_color      = col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR];
-            COLOR new_color_orig = col_trigger_buffer[channel][COL_TRIG_BUFF_NEW_COLOR_ORIGINAL];
             u16 frames           = col_trigger_buffer[channel][COL_TRIG_BUFF_TOTAL_FRAMES];
             u16 curr_frame       = col_trigger_buffer[channel][COL_TRIG_BUFF_CURRENT_FRAMES];
 
-            COLOR lerped_color, lerped_original_color;
+            COLOR lerped_color;
 
             // Calculate lerped color. If the value is less than 2, then it is an instant color change
             if (frames > 1) {
                 u32 lerp_value = TO_FIXED(curr_frame) / (frames - 1); // Division, scary stuff
                 lerped_color = lerp_color(old_color, new_color, lerp_value);
-                lerped_original_color = lerp_color(old_color, new_color_orig, lerp_value);
-                col_channels_original_color[channel] = lerped_original_color;
             } else {
                 lerped_color = new_color;
-                col_channels_original_color[channel] = new_color;
             } 
+
+            col_channels_color[channel] = lerped_color;
 
             // Run code depending on which channel is the trigger modifying
             switch (channel) {

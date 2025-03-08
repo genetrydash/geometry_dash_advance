@@ -7,7 +7,7 @@ const unsigned int electrodynamix_properties[] = {
  /*speed*/         1,
  /*level height*/  27,
  /*level width*/   1102,
- /*song*/          MOD_STEREOMA,
+ /*song*/          MOD_DYNAMIX,
  /*name length*/   14,
  /*difficulty*/    4,
  /*stars*/         12,
