@@ -34315,6 +34315,17 @@
                  "height":16,
                  "id":2471,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"enable rotation",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"rotation angle",
+                         "type":"int",
+                         "value":90
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -34331,12 +34342,12 @@
                         {
                          "name":"enable rotation",
                          "type":"bool",
-                         "value":true
+                         "value":false
                         }, 
                         {
                          "name":"rotation angle",
                          "type":"int",
-                         "value":90
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"",

@@ -6557,11 +6557,16 @@
   <object id="2468" gid="4118" x="15760" y="392" width="16" height="16"/>
   <object id="2469" gid="4107" x="15820" y="416" width="16" height="16"/>
   <object id="2470" gid="4172" x="15820" y="424" width="16" height="16"/>
-  <object id="2471" gid="4158" x="15820" y="384" width="16" height="16"/>
-  <object id="2472" gid="4171" x="15820" y="384" width="16" height="16">
+  <object id="2471" gid="4158" x="15820" y="384" width="16" height="16">
    <properties>
     <property name="enable rotation" type="bool" value="true"/>
     <property name="rotation angle" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="2472" gid="4171" x="15820" y="384" width="16" height="16">
+   <properties>
+    <property name="enable rotation" type="bool" value="false"/>
+    <property name="rotation angle" type="int" value="0"/>
    </properties>
   </object>
   <object id="2473" gid="4137" x="15824" y="320" width="16" height="16">

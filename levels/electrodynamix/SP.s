@@ -11048,13 +11048,13 @@ electrodynamix_spr_data:
    .hword 0x4 @ delta x
    .hword 0x180 @ y
    .hword 0x3d @ type
-   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 16384 @ rotation
 @ Object 1914
    .hword 0x0 @ delta x
    .hword 0x180 @ y
    .hword 0x4a @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 16384 @ rotation
+   .hword 0x20 @ bg layer 4 non rotated   
 @ Object 1915
    .hword 0x0 @ delta x
    .hword 0x1a0 @ y
