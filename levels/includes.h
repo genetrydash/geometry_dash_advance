@@ -142,8 +142,16 @@
 #include "clubstep/SP.h"
 #include "clubstep/properties.h"
 
+// electrodynamix
+#define electrodynamix_ID 14
+
+#include "electrodynamix/l1.h"
+#include "electrodynamix/l2.h"
+#include "electrodynamix/SP.h"
+#include "electrodynamix/properties.h"
+
 // test
-#define test_ID 14
+#define test_ID 15
 
 #include "test/l1.h"
 #include "test/l2.h"
@@ -151,7 +159,7 @@
 #include "test/properties.h"
 
 // test2
-#define test2_ID 15
+#define test2_ID 16
 
 #include "test2/l1.h"
 #include "test2/l2.h"
@@ -159,13 +167,13 @@
 #include "test2/properties.h"
 
 // leveleasy
-#define leveleasy_ID 16
+#define leveleasy_ID 17
 
 #include "leveleasy/l1.h"
 #include "leveleasy/l2.h"
 #include "leveleasy/SP.h"
 #include "leveleasy/properties.h"
 
-#define LEVEL_COUNT 17
+#define LEVEL_COUNT 18
 extern ROM_DATA const u16 *level_defines[][4];
 extern ROM_DATA const u8 *level_names[];

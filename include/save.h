@@ -5,7 +5,7 @@
 #pragma once
 
 #define SAVE_BLOCK_ADDR 0
-#define SAVE_VERSION 4
+#define SAVE_VERSION 5
 
 struct SaveLevelData {
     u8 completed;
