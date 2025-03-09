@@ -752,7 +752,7 @@ const u16 yellowOrbSpr[] = {
     ATTR2_PALBANK(1) | ATTR2_ID(ORB_PARTICLE_VRAM_ID),
     -4, // x
     -4, // y
-    PRIO_IDOFF(4, 0, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -772,7 +772,7 @@ const u16 yellowPadSpr[] = {
     ATTR2_PALBANK(1) | ATTR2_ID(PAD_PARTICLE_VRAM_ID),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -792,7 +792,7 @@ const u16 blueOrbSpr[] = {
     ATTR2_PALBANK(2) | ATTR2_ID(ORB_PARTICLE_VRAM_ID),
     -4, // x
     -4, // y
-    PRIO_IDOFF(4, 0, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -812,7 +812,7 @@ const u16 bluePadSpr[] = {
     ATTR2_PALBANK(2) | ATTR2_ID(PAD_PARTICLE_VRAM_ID),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -832,7 +832,7 @@ const u16 pinkOrbSpr[] = {
     ATTR2_PALBANK(3) | ATTR2_ID(ORB_PARTICLE_VRAM_ID),
     -4, // x
     -4, // y
-    PRIO_IDOFF(4, 0, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -852,7 +852,7 @@ const u16 pinkPadSpr[] = {
     ATTR2_PALBANK(3) | ATTR2_ID(PAD_PARTICLE_VRAM_ID),
     0, // x
     0, // y
-    PRIO_IDOFF(4, 0, 0), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
