@@ -231,14 +231,15 @@ const COLOR black_buffer[] = {
 u16 animated_sprite_timer = 0;
 
 void run_animated_sprites() {
-    // Last 4 sprite tiles are for PAD particles
-    // TODO: orbs also need particles
-    u32 particle_id = (animated_sprite_timer & 0b1111) << 1;
-    memcpy32(&tile_mem_obj[0][PARTICLE_VRAM_ID], &animated_sprites[particle_id], (sizeof(TILE) / sizeof(u32)) * 2);
-    memcpy32(&tile_mem_obj[0][PARTICLE_VRAM_ID + 2], &animated_sprites[particle_id + 32], (sizeof(TILE) / sizeof(u32)) * 2);
+    u32 pad_particle_id = (animated_sprite_timer & 0b1111) << 1;
+    memcpy32(&tile_mem_obj[0][PAD_PARTICLE_VRAM_ID], &animated_sprites[pad_particle_id], (sizeof(TILE) / sizeof(u32)) * 2);
+    memcpy32(&tile_mem_obj[0][PAD_PARTICLE_VRAM_ID + 2], &animated_sprites[pad_particle_id + 32], (sizeof(TILE) / sizeof(u32)) * 2);
 
     u32 coin_id = (animated_sprite_timer >> 3) & 0b11;
     memcpy32(&tile_mem_obj[0][COIN_VRAM_ID], &animated_sprites[(coin_id << 4) + COIN_OFFSET], (sizeof(TILE) / sizeof(u32)) * 16);
+    
+    u32 orb_particle_id = (((animated_sprite_timer >> 2) & 0b1111) << 4);
+    memcpy32(&tile_mem_obj[0][ORB_PARTICLE_VRAM_ID], &animated_sprites[orb_particle_id + ORB_OFFSET], (sizeof(TILE) / sizeof(u32)) * 16);
 
     animated_sprite_timer += 1;
 }

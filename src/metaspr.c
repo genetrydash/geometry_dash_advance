@@ -746,6 +746,15 @@ const u16 yellowOrbSpr[] = {
     0, // y
     PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(1) | ATTR2_ID(ORB_PARTICLE_VRAM_ID),
+    -4, // x
+    -4, // y
+    PRIO_IDOFF(4, 0, 0), // id offset
+    CENTER(8, 8),
+
     0xffff
 };
 
@@ -760,7 +769,7 @@ const u16 yellowPadSpr[] = {
 
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(1) | ATTR2_ID(1020),
+    ATTR2_PALBANK(1) | ATTR2_ID(PAD_PARTICLE_VRAM_ID),
     0, // x
     0, // y
     PRIO_IDOFF(4, 0, 0), // id offset
@@ -777,6 +786,15 @@ const u16 blueOrbSpr[] = {
     0, // y
     PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(2) | ATTR2_ID(ORB_PARTICLE_VRAM_ID),
+    -4, // x
+    -4, // y
+    PRIO_IDOFF(4, 0, 0), // id offset
+    CENTER(8, 8),
+
     0xffff
 };
 
@@ -791,7 +809,7 @@ const u16 bluePadSpr[] = {
 
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(2) | ATTR2_ID(1020),
+    ATTR2_PALBANK(2) | ATTR2_ID(PAD_PARTICLE_VRAM_ID),
     0, // x
     0, // y
     PRIO_IDOFF(4, 0, 0), // id offset
@@ -808,6 +826,15 @@ const u16 pinkOrbSpr[] = {
     0, // y
     PRIO_IDOFF(4, 0, 0), // id offset
     CENTER(8, 8),
+
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(3) | ATTR2_ID(ORB_PARTICLE_VRAM_ID),
+    -4, // x
+    -4, // y
+    PRIO_IDOFF(4, 0, 0), // id offset
+    CENTER(8, 8),
+
     0xffff
 };
 
@@ -822,7 +849,7 @@ const u16 pinkPadSpr[] = {
 
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(3) | ATTR2_ID(1020),
+    ATTR2_PALBANK(3) | ATTR2_ID(PAD_PARTICLE_VRAM_ID),
     0, // x
     0, // y
     PRIO_IDOFF(4, 0, 0), // id offset
