@@ -353,6 +353,50 @@ s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer) {
     return FALSE;
 }
 
+s32 top_left_corner(u32 x_inside_block, u32 y_inside_block) {
+    if (x_inside_block < 0x8) {
+        if (y_inside_block < 0x8) {
+            eject_bottom = y_inside_block;
+            eject_top = 0x8 - y_inside_block;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+s32 top_right_corner(u32 x_inside_block, u32 y_inside_block) {
+    if (x_inside_block >= 0x8) {
+        if (y_inside_block < 0x8) {
+            eject_bottom = y_inside_block;
+            eject_top = 0x8 - y_inside_block;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+s32 bottom_left_corner(u32 x_inside_block, u32 y_inside_block) {
+    if (x_inside_block < 0x8) {
+        if (y_inside_block >= 0x8) {
+            eject_bottom = y_inside_block & 0x07;
+            eject_top = 0x10 - y_inside_block;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+s32 bottom_right_corner(u32 x_inside_block, u32 y_inside_block) {
+    if (x_inside_block >= 0x8) {
+        if (y_inside_block >= 0x8) {
+            eject_bottom = y_inside_block & 0x07;
+            eject_top = 0x10 - y_inside_block;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 const u8 gamemode_max_eject[] = {
     /* Cube */ 0x06,
     /* Ship */ 0x04,
@@ -369,12 +413,14 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
     switch (col_type) {
         case COL_FLOOR_CEIL:
         case COL_FULL:
+        case COL_MINIBLOCK_1111:
             eject_bottom = y_inside_block;
             eject_top = 0x10 - y_inside_block;
             break;
             
         // Normal slab 
 
+        case COL_MINIBLOCK_1100:
         case COL_SLAB_TOP:
             if (y_inside_block < 0x8) {
                 eject_bottom = y_inside_block & 0x07;
@@ -383,6 +429,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             }
             return 0;
 
+        case COL_MINIBLOCK_0011:
         case COL_SLAB_BOTTOM:
             if (y_inside_block >= 0x8) {
                 eject_bottom = y_inside_block - 0x08;
@@ -391,6 +438,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             }
             return 0;
 
+        case COL_MINIBLOCK_1010:
         case COL_SLAB_LEFT:
             if (x_inside_block < 0x8) {
                 eject_bottom = y_inside_block;
@@ -399,6 +447,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             }
             return 0;
 
+        case COL_MINIBLOCK_0101:
         case COL_SLAB_RIGHT:
             if (x_inside_block >= 0x8) {
                 eject_bottom = y_inside_block;
@@ -646,6 +695,47 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
                     break;
                 }
             }
+            return 0;
+
+        case COL_MINIBLOCK_0001:
+            if (bottom_right_corner(x_inside_block, y_inside_block)) break;
+            return 0;
+        case COL_MINIBLOCK_0010:
+            if (bottom_left_corner(x_inside_block, y_inside_block)) break;
+            return 0;
+        case COL_MINIBLOCK_0100:
+            if (top_right_corner(x_inside_block, y_inside_block)) break;
+            return 0;
+        case COL_MINIBLOCK_1000:
+            if (top_left_corner(x_inside_block, y_inside_block)) break;
+            return 0;
+        case COL_MINIBLOCK_1011:
+            if (top_left_corner(x_inside_block, y_inside_block)) break;
+            if (bottom_right_corner(x_inside_block, y_inside_block)) break;
+            if (bottom_left_corner(x_inside_block, y_inside_block)) break;
+            return 0;
+        case COL_MINIBLOCK_0111:
+            if (top_right_corner(x_inside_block, y_inside_block)) break;
+            if (bottom_right_corner(x_inside_block, y_inside_block)) break;
+            if (bottom_left_corner(x_inside_block, y_inside_block)) break;
+            return 0;
+        case COL_MINIBLOCK_1110:
+            if (top_right_corner(x_inside_block, y_inside_block)) break;
+            if (top_left_corner(x_inside_block, y_inside_block)) break;
+            if (bottom_left_corner(x_inside_block, y_inside_block)) break;
+            return 0;
+        case COL_MINIBLOCK_1101:
+            if (top_right_corner(x_inside_block, y_inside_block)) break;
+            if (top_left_corner(x_inside_block, y_inside_block)) break;
+            if (bottom_right_corner(x_inside_block, y_inside_block)) break;
+            return 0;
+        case COL_MINIBLOCK_1001:
+            if (top_left_corner(x_inside_block, y_inside_block)) break;
+            if (bottom_right_corner(x_inside_block, y_inside_block)) break;
+            return 0;
+        case COL_MINIBLOCK_0110:
+            if (top_right_corner(x_inside_block, y_inside_block)) break;
+            if (bottom_left_corner(x_inside_block, y_inside_block)) break;
             return 0;
 
         // Everything else
@@ -1252,6 +1342,22 @@ const jmp_table spike_coll_jump_table[] = {
     col_ground_wavy_spike_edge_lt, // COL_GROUND_WAVY_SPIKE_EDGE_LT
     col_ground_wavy_spike_edge_rb, // COL_GROUND_WAVY_SPIKE_EDGE_RB
     col_ground_wavy_spike_edge_rt, // COL_GROUND_WAVY_SPIKE_EDGE_RT
+
+    not_an_spike, //COL_MINIBLOCK_0001
+    not_an_spike, //COL_MINIBLOCK_0010
+    not_an_spike, //COL_MINIBLOCK_0100
+    not_an_spike, //COL_MINIBLOCK_1000
+    not_an_spike, //COL_MINIBLOCK_0011
+    not_an_spike, //COL_MINIBLOCK_1100
+    not_an_spike, //COL_MINIBLOCK_1010
+    not_an_spike, //COL_MINIBLOCK_0101
+    not_an_spike, //COL_MINIBLOCK_1011
+    not_an_spike, //COL_MINIBLOCK_0111
+    not_an_spike, //COL_MINIBLOCK_1110
+    not_an_spike, //COL_MINIBLOCK_1101
+    not_an_spike, //COL_MINIBLOCK_1001
+    not_an_spike, //COL_MINIBLOCK_0110
+    not_an_spike, //COL_MINIBLOCK_1111
 
     not_an_spike, // COL_SLOPE_45_UP
     not_an_spike, // COL_SLOPE_45_DOWN
