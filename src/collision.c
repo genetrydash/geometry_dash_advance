@@ -21,7 +21,7 @@ u32 eject_bottom = 0;
 ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side);
 ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer);
 s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
-u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer);
+u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height);
 
 ARM_CODE void collision_cube() {
     // Exit if above screen
@@ -33,8 +33,7 @@ ARM_CODE void collision_cube() {
     coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
     coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
 
-    collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, 0);
-    collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, 1);
+    collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
@@ -157,8 +156,7 @@ ARM_CODE void collision_ship_ball_ufo() {
     coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
     coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
     
-    collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, 0);
-    collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, 1);
+    collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
@@ -238,8 +236,7 @@ ARM_CODE void collision_wave() {
     coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
     coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
     
-    collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, 0);
-    collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height, 1);
+    collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
 
     u8 offset = curr_player.player_size ? 2 : 3;
 
@@ -1618,10 +1615,10 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
     }
 
 s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *player);
-ARM_CODE void collide_with_obj_slopes(struct circle_t *player);
+ARM_CODE u32 collide_with_obj_slopes(struct circle_t *player);
 
 // This function iterates through slopes that the player is touching and applies collision to it
-u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
+u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height) {
     struct circle_t player;
     player.radius = (width >> 1) - 1;
     player.cx = x + (width >> 1);
@@ -1630,26 +1627,30 @@ u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height, u8 layer) {
     // Make wave hitbox 2 pixels bigger
     if (curr_player.gamemode == GAMEMODE_WAVE) player.radius += 2;
 
-    // Try to collide with sprite slopes
-    collide_with_obj_slopes(&player);
+    // Try to collide with sprite slopes only in the first layer check
+    if (collide_with_obj_slopes(&player)) {
+        return FALSE;
+    }
 
-    // Iterate through 4 metatiles, forming a 2x2 metatile square
-    // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
-    for (u32 side = 0; side < 4; side++) {
-        // Get offset from the starting block
-        u32 x_offset = (side & 1) ? 0x10 : 0;
-        u32 y_offset = (side & 2) ? 0x10 : 0;
+    for (s32 layer = 0; layer < LEVEL_LAYERS; layer++) {
+        // Iterate through 4 metatiles, forming a 2x2 metatile square
+        // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
+        for (u32 side = 0; side < 4; side++) {
+            // Get offset from the starting block
+            u32 x_offset = (side & 1) ? 0x10 : 0;
+            u32 y_offset = (side & 2) ? 0x10 : 0;
 
-        u32 col_type = obtain_collision_type(x + x_offset, y + y_offset, layer);
+            u32 col_type = obtain_collision_type(x + x_offset, y + y_offset, layer);
 
-        // Slope origin is in the top left pixel, aka 0,0 inside the metatile
-        u32 slope_x = (x + x_offset) & 0xfffffff0;
-        u32 slope_y = (y + y_offset) & 0xfffffff0;
+            // Slope origin is in the top left pixel, aka 0,0 inside the metatile
+            u32 slope_x = (x + x_offset) & 0xfffffff0;
+            u32 slope_y = (y + y_offset) & 0xfffffff0;
 
-        if(slope_type_check(slope_x, slope_y, col_type, &player)) {
-            return FALSE;
-        }
-    }   
+            if(slope_type_check(slope_x, slope_y, col_type, &player)) {
+                return FALSE;
+            }
+        }   
+    }
 
     return FALSE;
 }
@@ -1953,7 +1954,7 @@ ARM_CODE void collide_with_obj_spikes(u32 x, u32 y, u32 width, u32 height) {
     }
 }
 
-ARM_CODE void collide_with_obj_slopes(struct circle_t *player) {
+ARM_CODE u32 collide_with_obj_slopes(struct circle_t *player) {
     for (s32 i = block_object_buffer_offset; i > 0; i--) {
         struct ObjectSlot slot = *((struct ObjectSlot *) block_object_buffer[i - 1]);
         
@@ -1961,6 +1962,11 @@ ARM_CODE void collide_with_obj_slopes(struct circle_t *player) {
         u32 obj_y = slot.object.y;
 
         u16 col_type = block_object_buffer_flags[i - 1];
-        slope_type_check(obj_x, obj_y, col_type, player);
+        if (col_type >= COL_SLOPE_START && col_type <= COL_SLOPE_END) {
+            if (slope_type_check(obj_x, obj_y, col_type, player)) {
+                return TRUE;
+            }
+        }
     }
+    return FALSE;
 }

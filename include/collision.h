@@ -123,6 +123,8 @@ enum CollisionTypes {
     COL_SLOPE_66_UP_UD_2,
     COL_SLOPE_66_DOWN_UD_1,
     COL_SLOPE_66_DOWN_UD_2,
+    
+    COL_SLOPE_END = COL_SLOPE_66_DOWN_UD_2,
 
     COL_TYPES_COUNT,
 };
