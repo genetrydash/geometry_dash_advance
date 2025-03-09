@@ -594,8 +594,8 @@ void draw_player() {
     
     curr_player.old_relative_player_y = curr_player.relative_player_y;
 
-    curr_player.relative_player_x = (curr_player.player_x - scroll_x) >> SUBPIXEL_BITS;
-    curr_player.relative_player_y = (curr_player.player_y - scroll_y) >> SUBPIXEL_BITS;
+    curr_player.relative_player_x = FROM_FIXED(curr_player.player_x - scroll_x);
+    curr_player.relative_player_y = FROM_FIXED(curr_player.player_y) - FROM_FIXED(scroll_y);
 
     u8 priority = (cutscene_frame > TOTAL_CUTSCENE_FRAMES - 20) ? 2 : 0;
 

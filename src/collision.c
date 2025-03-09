@@ -766,7 +766,6 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
-            if (curr_player.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) scroll_y &= ~0xffff;
             if (curr_player.gamemode == GAMEMODE_WAVE && col_type != COL_FLOOR_CEIL && !noclip) player_death = TRUE;
         }
     } else if (side == BOTTOM) {   
@@ -790,7 +789,6 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
-            if (curr_player.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) scroll_y &= ~0xffff;
             if (curr_player.gamemode == GAMEMODE_WAVE && col_type != COL_FLOOR_CEIL && !noclip) player_death = TRUE;
         }
     }
@@ -1684,7 +1682,6 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
     // Eject player
     curr_player.player_y += TO_FIXED(eject);
     curr_player.player_y &= ~0xffff;
-    if (curr_player.gamemode == GAMEMODE_CUBE && dual == DUAL_OFF) scroll_y &= ~0xffff;
     player->cy += eject;
 
     // If ball and 66.5 degree slope, halve speed

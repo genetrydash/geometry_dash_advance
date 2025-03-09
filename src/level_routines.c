@@ -1151,9 +1151,6 @@ void draw_both_players() {
 
 // Main player code
 void player_code() {
-    // Run vertical scroll code
-    scroll_screen_vertically();
-
     // Set speed for both players
     set_player_speed();
 
@@ -1162,12 +1159,15 @@ void player_code() {
     curr_player = player_1;
 
     s64 last_player_x = curr_player.player_x;
+
+    // Run vertical scroll code
+    scroll_screen_vertically();
+
+    // Run horizontal scroll code
+    scroll_screen_horizontally();
     
     // Run player 1
     player_main();
-    
-    // Run horizontal scroll code, it is important that it is ran between drawing and running the player
-    scroll_screen_horizontally();
     
     // Draw player 1
     draw_player();
