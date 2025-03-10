@@ -826,7 +826,6 @@ ARM_CODE s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
 
             return returned;
         }
-        
     }
     return FALSE;
 }
@@ -873,7 +872,7 @@ ARM_CODE u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2
     }
 
     // Left of object 1 > Right of object 2
-    if (x1 > x2 + w2) {
+    if (x1 >= x2 + w2) {
         return FALSE;
     }
 
@@ -883,7 +882,7 @@ ARM_CODE u32 is_colliding(u32 x1, u32 y1, u32 w1, u32 h1, u32 x2, u32 y2, u32 w2
     }
 
     // Top of object 1 > Bottom of object 1
-    if (y1 > y2 + h2) {
+    if (y1 >= y2 + h2) {
         return FALSE;
     }
 
