@@ -21,4 +21,9 @@ Download nightly build (unstable) [here](https://nightly.link/AleFunky/geometry_
 |Nicolestarlight|music|
 |Redgd|graphics|
 |[crafty_jumper](https://github.com/Crafty-Jumper)|music|
-|Additional thanks| jv_stin80 |
+
+## additional
+|additional thanks| name |
+|---|---|
+| RobTop games| original creator of geometry dash|
+| VGM & other instrument sources (discord) | samples |
