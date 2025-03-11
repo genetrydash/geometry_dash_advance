@@ -18,6 +18,9 @@ void init_sram() {
 		memset32((u32*)&save_data, 0x00, sizeof(save_data) / 4);
 		save_data.magic = 0xdeadbeef;
 		save_data.save_version = SAVE_VERSION;
+		save_data.p1_col_selected = DEFAULT_P1_COLOR;
+		save_data.p2_col_selected = DEFAULT_P2_COLOR;
+		save_data.glow_col_selected = DEFAULT_GLOW_COLOR;
 		write_save_block();
 	}
 }
