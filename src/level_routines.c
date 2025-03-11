@@ -1393,7 +1393,7 @@ void delete_last_checkpoint() {
         checkpoint_count--;
 
         // Wrap around pointer
-        if (--checkpoint_pointer == 0) {
+        if (checkpoint_pointer-- == 0) {
             checkpoint_pointer = NUM_PRACTICE_CHECKPOINTS - 1;
         }
     }
