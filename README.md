@@ -26,4 +26,5 @@ Download nightly build (unstable) [here](https://nightly.link/AleFunky/geometry_
 |additional thanks| name |
 |---|---|
 | RobTop games| original creator of geometry dash|
-| [VGM & other instrument sources](https://discord.gg/m4qzYNGHuS) (discord) | samples |
+| [TfdSoft (discord)](https://discord.gg/PCbwQaZs8K)| team in charge of famidash  |
+| [VGM & other instrument sources (discord)](https://discord.gg/m4qzYNGHuS) | samples |
