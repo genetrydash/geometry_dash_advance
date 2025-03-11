@@ -7,6 +7,7 @@ Sample instructions:
   •You can find some instruments to
    make your work easier in the 
    instruments folder.
+compress your samples here: https://audio.online-convert.com/convert-to-wav
 
 Attention: sample reuse is very important due to storage reasons. If you add samples, you must share them via discord to: ElAngel378.
 
