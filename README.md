@@ -1,7 +1,7 @@
 ![image](https://github.com/AleFunky/geometry_dash_advance/blob/main/images/Image.jpg)
 
 ## About
-Geometry Dash Advance is a demake of geometry dash for the gba.
+Geometry Dash Advance is a demake of Geometry Dash for the GBA.
 
 ## Nightly builds
 Download nightly build (unstable) [here](https://nightly.link/AleFunky/geometry_dash_advance/workflows/main/main/gd-adv.zip)
