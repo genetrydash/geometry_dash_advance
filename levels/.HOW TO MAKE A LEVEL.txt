@@ -3,7 +3,7 @@ If you want to make a level, copy the template.tmx file and open it in Tiled.
 -- LAYERS --
 There are a total of 3 layers: L1, L2 and SP. 
 
-L1 and L2 are tiled layers and use metatiles. They are found in the tileset called "famidash".
+L1 and L2 are tiled layers and use metatiles/blocks. They are found in the tileset called "famidash".
 SP layer is a object layer, this means that objects can be freely placed. The layer is for objects, those are in the tileset called "sprites".
 
 Each SP object contain some attributes. In the case for every object except some, it contains the following attributes.
@@ -13,21 +13,16 @@ Each SP object contain some attributes. In the case for every object except some
 - BG layer: chooses in which BG layer (0-3) the sprite will be placed. Layer 0 is L1, layer 1 is L2, layer 2 is the background and layer 3 is currently unused. If you for example
             put a saw in bg layer 2, it will be shown above the background, but below both metatile layers.
 
-In the case of sprite #43 (block) and sprite #44 (slab), the attribute set is as follows:
-- Hflip and Vflip: same as above.
-- BG layer: same as above.
-- Metatile ID appearance: chooses what metatile will it mimick. This essentially makes the sprite use the choosen metatile's graphics. By default it mimicks metatile #2 (1.0 block) for the sprite #43 and metatile #43 (1.0 slab) 
-                          for sprite #44. Note that this will not mimick collision, so if you choose for example metatile #1 (spike), it will still behave as a block or slab.
-
-NOTE: Sprite blocks/slabs do not support rotation.
+In the case you want to put a block offgrid, you can place blocks on the tileset "famidash" on the object layer. Keep in mind that there is a limit on how many objects can be on-screen (currently 96).
 
 In the case of color triggers (sprite #3), the attribute set is different:
 - Channel: the color channel to be modified. One of the following: BG, GROUND, OBJ, LINE, 1, 2, 3, 4.
 - Color: the color in RGB888. This is converted into BGR555 by the export script.
+- Color blending: blends the color with the BG color using additive blending. This is the "blending" checkbox in GD's color triggers (added in 1.7).
 - Copy color: this enables copying a color from another channel. 
 - Copy from channel: in the case that copy color is enabled, copy from the channel specified. The channel list is the same as before but with the addition of P1 and P2 (player color).
 - Frames: number of frames that the transition will last. For reference, 1 second is 60 frames. Max value is 8192, or 2 minutes and 16 minutes.
-- Touch trigger: mark if this trigger should activate by touching its hitbox (16x16 of size) instead of by crossing its center horizontally (added in 1.5)
+- Touch trigger: mark if this trigger should activate by touching its hitbox (16x16 of size) instead of by crossing its center horizontally (added in 1.5).
 
 NOTE: when making a ceiling for gamemodes other than cube, make sure the size of each square is 4x4 blocks wide, not 3x4. This is a common mistake. Usually, space above the ceiling is filled with the black metatile (metatile #125).
 
@@ -49,7 +44,7 @@ Once you have finished the level, export the .tmx file into .json. Once you expo
 add the name of the .json file into the arguments. The arguments are separated by spaces after "python3 export_levels.py". 
 
 Make sure you have installed python3 and make in your system. 
-Then run the export levels script you just edited, to export all levels. If the export was succesful, the last message should say the final size of all levels. If an error popped, you probably have messed up something.
+Then run the export levels script you just edited, to export all levels. You can also run "make levels". If the export was succesful, the last message should say the final size of all levels. If an error popped, you probably have messed up something.
 
 -- BUILDING -- 
 There are two ways. Hard way is to use Linux. Easy way is to use Windows. Either way, you need to install devkitpro.
