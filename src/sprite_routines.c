@@ -41,9 +41,9 @@ const s32 gamemode_cap_lut[GAMEMODE_COUNT][GAMEMODE_COUNT] = {
     /* Wave */ { RST,  RST,  RST,  RST, _ },
 };
 
-void portal_transition_speed() {
-    if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_CUBE] == CAP) curr_player.player_y_speed /= 2;
-    else if (gamemode_cap_lut[curr_player.gamemode][GAMEMODE_CUBE] == RST) curr_player.player_y_speed /= 3;
+void portal_transition_speed(u32 gamemode) {
+    if (gamemode_cap_lut[curr_player.gamemode][gamemode] == CAP) curr_player.player_y_speed /= 2;
+    else if (gamemode_cap_lut[curr_player.gamemode][gamemode] == RST) curr_player.player_y_speed /= 3;
 }
 
 #undef RST
@@ -51,7 +51,7 @@ void portal_transition_speed() {
 #undef _
 
 void cube_portal(struct ObjectSlot *objectSlot) {
-    portal_transition_speed();
+    portal_transition_speed(GAMEMODE_CUBE);
     if (curr_player.gamemode != GAMEMODE_CUBE) curr_player.inverse_rotation_flag = FALSE;
     curr_player.gamemode = GAMEMODE_CUBE;
     curr_player.on_floor = FALSE;
@@ -64,7 +64,7 @@ void cube_portal(struct ObjectSlot *objectSlot) {
 }
 
 void ship_portal(struct ObjectSlot *objectSlot) {
-    portal_transition_speed();
+    portal_transition_speed(GAMEMODE_SHIP);
     curr_player.gamemode = GAMEMODE_SHIP;
     curr_player.on_floor = FALSE;
     curr_player.inverse_rotation_flag = FALSE;
@@ -78,7 +78,7 @@ void ship_portal(struct ObjectSlot *objectSlot) {
 }
 
 void ball_portal(struct ObjectSlot *objectSlot) {
-    portal_transition_speed();
+    portal_transition_speed(GAMEMODE_BALL);
     curr_player.gamemode = GAMEMODE_BALL;
     curr_player.on_floor = FALSE;
     curr_player.inverse_rotation_flag = FALSE;
@@ -92,7 +92,7 @@ void ball_portal(struct ObjectSlot *objectSlot) {
 }
 
 void ufo_portal(struct ObjectSlot *objectSlot) {
-    portal_transition_speed();
+    portal_transition_speed(GAMEMODE_UFO);
     curr_player.gamemode = GAMEMODE_UFO;
     curr_player.on_floor = FALSE;
     curr_player.inverse_rotation_flag = FALSE;
