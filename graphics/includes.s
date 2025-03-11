@@ -1,6 +1,10 @@
 .section .rodata
 .global blockset
-.global icon_0
+.global cubes
+.global ships
+.global balls
+.global ufos
+.global waves
 .global sprites_chr
 .global square_background_chr
 .global circle_background_chr
@@ -15,9 +19,6 @@
 .align 2
 blockset:
     .incbin "graphics/tileset.chr"
-
-icon_0:
-    .incbin "graphics/player.chr"
 
 sprites_chr:
     .incbin "graphics/sprites.chr"
@@ -48,6 +49,18 @@ line_background_chr:
     
 checkerboard_background_chr:
     .incbin "graphics/backgrounds/checkerboard_background.chr"
+
+cubes:
+    .incbin "graphics/icons/cubes.chr"
+ships:
+    .incbin "graphics/icons/ships.chr"
+balls:
+    .incbin "graphics/icons/balls.chr"
+ufos:
+    .incbin "graphics/icons/ufos.chr"
+waves:
+    .incbin "graphics/icons/waves.chr"
+
 
 @ I put it there because gcc won't keep it
 .align 4

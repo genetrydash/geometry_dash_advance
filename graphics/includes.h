@@ -1,7 +1,11 @@
 #include <tonc.h>
 
 extern TILE blockset[512];
-extern TILE icon_0[32];
+extern TILE cubes[32];
+extern TILE ships[32];
+extern TILE balls[32];
+extern TILE ufos[32];
+extern TILE waves[32];
 extern TILE sprites_chr[1024-64];
 extern TILE bg_chr[256];
 extern TILE menu_chr[512];
