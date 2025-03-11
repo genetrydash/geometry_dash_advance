@@ -56,5 +56,4 @@ In Windows, you use MSys2 to navigate it to your folder (path must have only eng
 In Linux, just use the terminal lol. Also navigate it to your folder and run make.
 If the game compiled, the last line should say "rom build/gd_adv.gba", if not, an error probably occured.
 
-Also you might need to delete the "build" folder every time you build a new version.
-
+If you have modified graphics, you have to run "make clean" and then run "make" again.
