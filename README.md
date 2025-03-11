@@ -21,3 +21,4 @@ Download nightly build (unstable) [here](https://nightly.link/AleFunky/geometry_
 |Nicolestarlight|music|
 |Redgd|graphics|
 |[crafty_jumper](https://github.com/Crafty-Jumper)|music|
+|Additional thanks| jv_stin80 |
