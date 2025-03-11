@@ -1,6 +1,6 @@
 ![image](https://github.com/AleFunky/geometry_dash_advance/blob/main/images/Image.jpg)
 
-## about
+## About
 Geometry Dash Advance is a demake of geometry dash for the gba.
 
 ## Nightly builds
@@ -8,9 +8,9 @@ Download nightly build (unstable) [here](https://nightly.link/AleFunky/geometry_
 
 ## Dev-Team
 
-|contributor|role|
+|Contributor|Role|
 |---|---|
-|[AleFunky](https://github.com/PinguLinux)|code, levels, testing, bugfixes |
+|[AleFunky](https://github.com/PinguLinux)|code, levels, testing, bugfixes|
 |[ElAngel378](https://github.com/ElAngel378)|music, testing, bugfixes|
 |[adrluc096](https://github.com/123456oil)|graphics|
 |orionconstel|music and graphics|
@@ -22,9 +22,9 @@ Download nightly build (unstable) [here](https://nightly.link/AleFunky/geometry_
 |Redgd|graphics|
 |[crafty_jumper](https://github.com/Crafty-Jumper)|music|
 
-## additional
-|additional thanks| name |
+## Addditional
+|Additional thanks| Name |
 |---|---|
-| RobTop games| original creator of geometry dash|
-| [TfdSoft (discord)](https://discord.gg/PCbwQaZs8K)| team in charge of famidash  |
-| [VGM & other instrument sources (discord)](https://discord.gg/m4qzYNGHuS) | samples |
+|RobTop Games|original creator of Geometry Dash|
+|[TFDSoft (discord)](https://discord.gg/PCbwQaZs8K)|team in charge of FamiDash|
+|[VGM & other instrument sources (discord)](https://discord.gg/m4qzYNGHuS)|samples|
