@@ -439,3 +439,21 @@ ARM_CODE u32 obtain_flipped_pixel(u32 pixel) {
     // Not found
     return pixel;
 }
+
+void copy_pulsing_sprite() {
+    u32 index = 0;
+    switch (qran() & 0b11) {
+        case 0:
+            index = PULSING_CIRCUNFERENCE_INDEX;
+            break;
+        case 1:
+            index = PULSING_CIRCLE_INDEX;
+            break;
+        case 2:
+        case 3:
+            index = PULSING_FACE_INDEX;
+            break;
+    }
+
+    memcpy32(&tile_mem_obj[0][PULSING_VRAM_ID], &sprites_chr[index], (sizeof(TILE) / sizeof(u32)) * 4);
+}

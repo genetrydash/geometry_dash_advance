@@ -12,6 +12,13 @@
 #define COIN_VRAM_ID 1024-48
 #define COIN_OFFSET 0x40
 
+#define PULSING_VRAM_ID 1024-68
+
+#define PULSING_CIRCUNFERENCE_INDEX 0xf0
+#define PULSING_CIRCLE_INDEX 0x120
+#define PULSING_FACE_INDEX 0x108
+
+
 extern const COLOR blockPalette[240];
 extern const COLOR spritePalette[256];
 extern const COLOR menu_palette[64];
@@ -25,3 +32,4 @@ void load_chr_in_buffer();
 void unload_chr_in_buffer();
 ARM_CODE void flip_player_colors(u8 *dst, u8 *src, u8 tile_num);
 ARM_CODE u32 obtain_flipped_pixel(u32 pixel);
+void copy_pulsing_sprite();

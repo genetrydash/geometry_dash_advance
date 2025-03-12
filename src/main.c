@@ -278,6 +278,8 @@ void game_loop() {
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
 
     REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2 | DCNT_BG3 | DCNT_WIN0;
+    
+    copy_pulsing_sprite();
 
     load_level(loaded_level_id);
 

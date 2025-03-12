@@ -937,7 +937,7 @@ const u16 bgChainsBigSpr[] = {
 const u16 largePulsingCircleSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(0),
+    ATTR2_PALBANK(0) | ATTR2_ID(PULSING_VRAM_ID),
     0, // x
     -16, // y
     PRIO_IDOFF(4, 0, 0), // id offset
@@ -948,7 +948,7 @@ const u16 largePulsingCircleSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     -8, // y
-    PRIO_IDOFF(5, 0, 4), // id offset
+    PRIO_IDOFF(5, 0, 0), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -956,7 +956,7 @@ const u16 largePulsingCircleSpr[] = {
 const u16 mediumPulsingCircleSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(0),
+    ATTR2_PALBANK(0) | ATTR2_ID(PULSING_VRAM_ID),
     0,  // x
     -8, // y
     PRIO_IDOFF(4, 0, 0), // id offset
@@ -967,7 +967,7 @@ const u16 mediumPulsingCircleSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     0, // y
-    PRIO_IDOFF(5, 0, 6), // id offset
+    PRIO_IDOFF(5, 0, 2), // id offset
     CENTER(8, 8),
 
     0xffff
@@ -975,7 +975,7 @@ const u16 mediumPulsingCircleSpr[] = {
 const u16 smallPulsingCircleSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(0),
+    ATTR2_PALBANK(0) | ATTR2_ID(PULSING_VRAM_ID),
     0, // x
     0, // y
     PRIO_IDOFF(4, 0, 0), // id offset
@@ -986,7 +986,7 @@ const u16 smallPulsingCircleSpr[] = {
     ATTR2_PALBANK(1),
     0, // x
     8, // y
-    PRIO_IDOFF(5, 0, 8), // id offset
+    PRIO_IDOFF(5, 0, 4), // id offset
     CENTER(8, 8),
     0xffff
 };
@@ -1498,9 +1498,9 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("YELLOW_ORB", 0x130, 0x4)
     CHR_SLOT("YELLOW_PAD", 0x140, 0x4)
 
-    CHR_SLOT("MEDIUM_PULSING_CIRCLE", 0xf0, 0xc)
-    CHR_SLOT("SMALL_PULSING_CIRCLE", 0xf0, 0xc)
-    CHR_SLOT("LARGE_PULSING_CIRCLE", 0xf0, 0xc)
+    CHR_SLOT("MEDIUM_PULSING_CIRCLE", 0xf4, 0x8)
+    CHR_SLOT("SMALL_PULSING_CIRCLE", 0xf4, 0x8)
+    CHR_SLOT("LARGE_PULSING_CIRCLE", 0xf4, 0x8)
 
     CHR_SLOT("BLUE_GRAVITY_PORTAL", 0x30, 0x1c)
     CHR_SLOT("YELLOW_GRAVITY_PORTAL", 0x30, 0x1c)
