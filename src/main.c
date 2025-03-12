@@ -7,6 +7,7 @@
 #include "soundbank.bin.h"
 #include "soundbank.h"
 #include "menu.h"
+#include "sound_test.h"
 
 void game_loop();
 u32 paused_routines();
@@ -225,6 +226,10 @@ s32 main() {
             
             case STATE_PLAYING:
                 game_loop();
+                break;
+
+            case STATE_SOUND_TEST:
+                sound_test_loop();
                 break;
         }
     }

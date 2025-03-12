@@ -7,7 +7,8 @@ extern u16 loaded_level_id;
 
 enum GameState {
     STATE_MENU,
-    STATE_PLAYING
+    STATE_PLAYING,
+    STATE_SOUND_TEST
 };
 
 enum MenuDirection {

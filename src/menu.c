@@ -119,7 +119,9 @@ void menu_loop() {
 
 #ifdef DEBUG
         if (key_hit(KEY_SELECT)) {
-            debug_mode ^= 1;
+            game_state = STATE_SOUND_TEST;
+            fade_out();
+            break;
         }
 
         if (key_hit(KEY_L)) {
