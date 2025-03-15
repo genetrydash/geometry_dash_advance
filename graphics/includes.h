@@ -1,6 +1,6 @@
 #include <tonc.h>
 
-extern TILE blockset[512];
+extern TILE blockset[1024];
 extern TILE cubes[32];
 extern TILE ships[32];
 extern TILE balls[32];
