@@ -1,6 +1,6 @@
 #include <tonc.h>
 #include "main.h"
-#include "menu.h"
+#include "level_select.h"
 #include "tonc_tte.h"
 #include "pusab.h"
 #include "posprintf.h"

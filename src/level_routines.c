@@ -4,7 +4,7 @@
 #include "metatiles.h"
 #include <maxmod.h>
 #include "soundbank.h"
-#include "menu.h"
+#include "level_select.h"
 #include "physics_defines.h"
 #include "../levels/includes.h"
 
