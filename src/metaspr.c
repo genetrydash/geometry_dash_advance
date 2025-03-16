@@ -1478,6 +1478,10 @@ ROM_DATA const u16 *obj_sprites[] = {
     sawDecoMediumSmall,
     pulsingObjectBigSpr,
 
+    sawBig,
+    sawMedium,
+    sawMedium,
+
 };
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
@@ -1649,6 +1653,10 @@ const u32 obj_chr_offset[][2] = {
     CHR_SLOT("MEDIUM_ROTATING_FLOWER", 0x640, 0x10)
     CHR_SLOT("SMALL_ROTATING_FLOWER", 0x650, 0x10)
     CHR_SLOT("BIG_PULSING_CIRCUNFERENCE", 0x660, 0x10)
+    
+    CHR_SLOT("BIG_COLORED_SAW", 0x670, 0x40)
+    CHR_SLOT("MEDIUM_COLORED_SAW", 0x6b0, 0x10)
+    CHR_SLOT("SMALL_COLORED_SAW", 0x6c0, 0x10)
 };
 #undef CHR_SLOT
 
@@ -1669,7 +1677,7 @@ const u8 spr_width_height_table[] = {
     0x20, 0x40, // 32x64
 };
 
-ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 tile_id, s16 palette, u8 priority, u8 disable_mirror) {
+ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 tile_id, s16 palette, u8 priority, u8 zindex, u8 disable_mirror) {
     u32 i = 0;
     u16 offset;
     u8 should_flip = screen_mirrored;
@@ -1716,7 +1724,11 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 
         u8 bg_layer = (attribute2 & ATTR2_PRIO_MASK) >> ATTR2_PRIO_SHIFT;
 
         // Set priority into this array for sorting
-        obj_priorities[nextSpr] = (bg_layer << 3) | ((data[i + 5] & PRIORITY_MASK) >> ATTR2_PRIO_SHIFT);
+        if (zindex) {
+            obj_priorities[nextSpr] = (bg_layer << 6) | (zindex & 0b111111);
+        } else {
+            obj_priorities[nextSpr] = (bg_layer << 6) | ((data[i + 5] & PRIORITY_MASK) >> ATTR2_PRIO_SHIFT);
+        }
 
         // Set attributes
         obj_set_attr(newSpr, 
@@ -1766,7 +1778,7 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 
         i += 7;
     }
 }
-ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id, u8 dbl, u16 tile_id, s16 palette, u8 priority, u8 disable_mirror) {
+ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 aff_id, u8 dbl, u16 tile_id, s16 palette, u8 priority, u8 zindex, u8 disable_mirror) {
     u32 i = 0;
     u16 offset;
 
@@ -1823,7 +1835,11 @@ ARM_CODE void oam_affine_metaspr(u16 x, u8 y, const u16 *data, u16 rotation, u8 
         u8 bg_layer = (attribute2 & ATTR2_PRIO_MASK) >> ATTR2_PRIO_SHIFT;
 
         // Set priority into this array for sorting
-        obj_priorities[nextSpr] = (bg_layer << 3) | ((data[i + 5] & PRIORITY_MASK) >> ATTR2_PRIO_SHIFT);
+        if (zindex) {
+            obj_priorities[nextSpr] = (bg_layer << 6) | (zindex & 0b111111);
+        } else {
+            obj_priorities[nextSpr] = (bg_layer << 6) | ((data[i + 5] & PRIORITY_MASK) >> ATTR2_PRIO_SHIFT);
+        }
 
         // Set attributes
         obj_set_attr(newSpr, 

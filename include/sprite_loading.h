@@ -35,6 +35,10 @@
 
 #define CIRCLE_HITBOX_FLAG (1 << 0)
 
+#define ZINDEX_MASK 0b111111
+#define PAL_SHIFT 6
+#define PAL_MASK (0b111 << PAL_SHIFT)
+
 // Rotating flags (used by saws and objects that rotate continously)
 #define IS_ROTATING_FLAG          (1 << 1)
 #define ROTATING_OBJ_BIT 2
@@ -49,6 +53,7 @@ struct Object {
     u16 attrib1;
     u16 attrib2;
     u16 attrib3;
+    u16 z_index;
     u16 rotation;
 };
 

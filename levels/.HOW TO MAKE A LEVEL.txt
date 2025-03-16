@@ -12,6 +12,8 @@ Each SP object contain some attributes. In the case for every object except some
 - Hflip and Vflip: enables the sprite to be flipped horizontally or/and vertically. This option is not compatible with enable rotation as the GBA doesn't support flipping rotated sprites.
 - BG layer: chooses in which BG layer (0-3) the sprite will be placed. Layer 0 is L1, layer 1 is L2, layer 2 is the background and layer 3 is currently unused. If you for example
             put a saw in bg layer 2, it will be shown above the background, but below both metatile layers.
+- Z Index: marks the drawing order of the objects. Lowest is highest priority. This number ranges from 0 to 62 (inclusive). Not setting the attribute keeps the default Z index of the object.
+- Color channel: the color channel to use. One of the following: BLACK, LBG, 1, 2, 3, 4.
 
 In the case you want to put a block offgrid, you can place blocks on the tileset "famidash" on the object layer. Keep in mind that there is a limit on how many objects can be on-screen (currently 96).
 

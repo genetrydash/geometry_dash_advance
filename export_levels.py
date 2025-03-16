@@ -175,13 +175,19 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                         enable_rotation = False
                         rotation = 0
                         priority = 0x4
+                        zindex = 0
+                        pal = 0
+                        
+                        possible_spr_color_channels = ["BLACK", "LBG", "1", "2", "3", "4"]
 
                         if gid == 43: # sprite block
                             graphics = 2 # block
                         elif gid == 44: # sprite slab
                             graphics = 43 # slab
-                        try: 
+
+                        try:
                             properties = obj['properties']
+
                             for prop in properties:
                                 if prop['name'] == 'hflip':
                                     h_flip = bool(prop['value'])
@@ -196,8 +202,17 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                                         graphics = int(prop['value'])
                                 elif prop['name'] == 'bg layer':
                                     priority = (int(prop['value']) + 1) % 4
-
-                        except Exception:
+                                elif prop['name'] == 'z index':
+                                    zindex = int(prop['value']) + 1
+                                    if zindex < 1 or zindex > 63: 
+                                        raise Exception(f"Encountered invalid setting in pos {x/16}, {y/16}. Z index must be in the range 0 to 62.") 
+                                elif prop['name'] == 'color channel':
+                                    pal_name = prop['value']
+                                    if pal_name not in possible_spr_color_channels:
+                                        raise Exception(f"Encounterd invalid color channel of non trigger object in pos {x/16}, {y/16}. Must be one of the following: BLACK, LBG, 1, 2, 3, 4.")  
+                                    
+                                    pal = possible_spr_color_channels.index(pal_name) + 1
+                        except KeyError:
                             pass
                         
                         if saved_metatile_id >= 0:
@@ -207,20 +222,23 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
                         if gid == 43 or gid == 44:
                             out_file.write(f"   .hword {hex(((priority & 0x7) << 3) | (h_flip << 1) | v_flip)} @ bg layer {priority} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
                             out_file.write(f"   .hword {graphics} @ metatile ID appareance\n")
-                            byte_counter += 4
+                            out_file.write(f"   .hword {hex(zindex | (pal << 6))} @ z index {zindex}{f" pal {pal}" if pal != 0 else ""}\n")
+                            byte_counter += 6
                         elif gid == 89:
                             out_file.write(f"   .hword {hex((coin_counter << 7) | ((priority & 0x7) << 3) | (enable_rotation << 2) | (h_flip << 1) | v_flip)} @ coin {coin_counter} bg layer {priority} {"rotated" if enable_rotation else "non rotated"} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
+                            out_file.write(f"   .hword {hex(zindex | (pal << 6))} @ z index {zindex}{f" pal {pal}" if pal != 0 else ""}\n")
                             if enable_rotation:
                                 out_file.write(f"   .hword {int(rotation / 360.0 * 65536)} @ rotation\n")
                                 byte_counter += 2
-                            byte_counter += 2
+                            byte_counter += 4
                             coin_counter += 1
                         else:
                             out_file.write(f"   .hword {hex(((priority & 0x7) << 3) | (enable_rotation << 2) | (h_flip << 1) | v_flip)} @ bg layer {priority} {"rotated" if enable_rotation else "non rotated"} {"flipped horizontally" if h_flip else ""} {"flipped vertically" if v_flip else ""} \n")
+                            out_file.write(f"   .hword {hex(zindex | (pal << 6))} @ z index {zindex}{f" pal {pal}" if pal != 0 else ""}\n")
                             if enable_rotation:
                                 out_file.write(f"   .hword {int(rotation / 360.0 * 65536)} @ rotation\n")
                                 byte_counter += 2
-                            byte_counter += 2
+                            byte_counter += 4
                             
                         
 

@@ -587,7 +587,11 @@ const jmp_table routines_jump_table[] = {
     do_nothing,
     do_nothing,
     do_nothing,
-    do_nothing
+    do_nothing,
+
+    kill_player,
+    kill_player,
+    kill_player,
 
 };
 
@@ -638,8 +642,8 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_V", 4, 4, 6, 12, 8, 8)
     Object_Hitbox_Rectangle("GROUND_WAVY_SPIKE_H", 4, 4, 0, 6, 8, 8)
 
-    Object_Hitbox_Circle("SAW_BIG", TRUE, 16, 0, 0, 8, 8)
-    Object_Hitbox_Circle("SAW_MEDIUM", TRUE, 12, 0, 0, 8, 8)
+    Object_Hitbox_Circle("SAW_BIG", TRUE, 17, 0, 0, 8, 8)
+    Object_Hitbox_Circle("SAW_MEDIUM", TRUE, 14, 0, 0, 8, 8)
     Object_Hitbox_Circle("SAW_SMALL", TRUE, 7, 0, 0, 8, 8)
 
     Object_Hitbox_Rectangle("BASIC_BLOCK", 16, 16, 0, 0, 8, 8)
@@ -717,8 +721,8 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Circle("MEDIUM_CIRCLE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
     Object_Hitbox_Circle("SMALL_CIRCLE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
     
-    Object_Hitbox_Circle("BIG_OUTLINE_SAW", TRUE, 16, 0, 0, 8, 8)
-    Object_Hitbox_Circle("MEDIUM_OUTLINE_SAW", TRUE, 12, 0, 0, 8, 8)
+    Object_Hitbox_Circle("BIG_OUTLINE_SAW", TRUE, 17, 0, 0, 8, 8)
+    Object_Hitbox_Circle("MEDIUM_OUTLINE_SAW", TRUE, 14, 0, 0, 8, 8)
     Object_Hitbox_Circle("SMALL_OUTLINE_SAW", TRUE, 7, 0, 0, 8, 8)
 
     Object_Hitbox_Circle("BIG_SPIKE_SAW_DECO", TRUE, 0, 0, 0, 0, 0)
@@ -746,6 +750,10 @@ const s16 obj_hitbox[][6] = {
     Object_Hitbox_Circle("MEDIUM_ROTATING_FLOWER", TRUE, 0, 0, 0, 0, 0)
     Object_Hitbox_Circle("SMALL_ROTATING_FLOWER", TRUE, 0, 0, 0, 0, 0)
     Object_Hitbox_Rectangle("BIG_PULSING_CIRCUNFERENCE", 0, 0, 0, 0, 0, 0)
+
+    Object_Hitbox_Circle("COLORED_SAW_BIG", TRUE, 16, 0, 0, 8, 8)
+    Object_Hitbox_Circle("COLORED_SAW_MEDIUM", TRUE, 12, 0, 0, 8, 8)
+    Object_Hitbox_Circle("COLORED_SAW_SMALL", TRUE, 6, 0, 0, 8, 8)
 };
 
 #undef Object_Hitbox

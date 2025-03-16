@@ -14,6 +14,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="2">
@@ -23,6 +24,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="3">
@@ -43,6 +45,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="5">
@@ -52,6 +55,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="6">
@@ -61,6 +65,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="7">
@@ -70,6 +75,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="8">
@@ -79,6 +85,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="9">
@@ -88,6 +95,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="10">
@@ -97,6 +105,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="11">
@@ -106,6 +115,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="12">
@@ -115,6 +125,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="13">
@@ -124,6 +135,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="14">
@@ -133,6 +145,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="15">
@@ -142,6 +155,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="16">
@@ -151,6 +165,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="17">
@@ -160,6 +175,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="18">
@@ -169,6 +185,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="19">
@@ -178,6 +195,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="20">
@@ -187,6 +205,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="21">
@@ -196,6 +215,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="22">
@@ -205,6 +225,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="23">
@@ -214,6 +235,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="24">
@@ -223,6 +245,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="25">
@@ -232,6 +255,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="26">
@@ -241,6 +265,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="27">
@@ -250,6 +275,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="28">
@@ -259,6 +285,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="29">
@@ -268,6 +295,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="30">
@@ -277,6 +305,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="31">
@@ -286,6 +315,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="32">
@@ -295,6 +325,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="33">
@@ -304,6 +335,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="34">
@@ -313,6 +345,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="35">
@@ -322,6 +355,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="36">
@@ -331,6 +365,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="37">
@@ -340,6 +375,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="38">
@@ -349,6 +385,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="39">
@@ -358,33 +395,40 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="40">
   <properties>
    <property name="bg layer" value="-1"/>
+   <property name="color channel" value="1"/>
    <property name="enable rotation" type="bool" value="false"/>
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="41">
   <properties>
    <property name="bg layer" value="-1"/>
+   <property name="color channel" value="1"/>
    <property name="enable rotation" type="bool" value="false"/>
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="42">
   <properties>
    <property name="bg layer" value="-1"/>
+   <property name="color channel" value="1"/>
    <property name="enable rotation" type="bool" value="false"/>
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="43">
@@ -393,6 +437,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="metatile ID appearance" type="int" value="2"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="44">
@@ -401,6 +446,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="metatile ID appearance" type="int" value="43"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="45">
@@ -410,6 +456,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="46">
@@ -419,6 +466,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="47">
@@ -428,6 +476,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="48">
@@ -437,6 +486,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="49">
@@ -446,6 +496,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="50">
@@ -455,6 +506,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="51">
@@ -464,6 +516,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="52">
@@ -473,6 +526,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="53">
@@ -482,6 +536,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="54">
@@ -491,6 +546,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="55">
@@ -500,6 +556,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="56">
@@ -509,6 +566,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="57">
@@ -518,6 +576,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="58">
@@ -527,6 +586,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="59">
@@ -536,6 +596,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="60">
@@ -545,6 +606,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="61">
@@ -554,6 +616,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="62">
@@ -563,6 +626,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="63">
@@ -572,6 +636,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="64">
@@ -581,6 +646,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="65">
@@ -590,6 +656,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="66">
@@ -599,6 +666,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="67">
@@ -608,6 +676,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="68">
@@ -617,6 +686,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="69">
@@ -626,6 +696,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="70">
@@ -635,6 +706,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="71">
@@ -644,6 +716,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="72">
@@ -653,6 +726,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="73">
@@ -662,6 +736,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="74">
@@ -671,6 +746,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="75">
@@ -680,6 +756,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="76">
@@ -689,6 +766,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="77">
@@ -698,6 +776,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="78">
@@ -707,6 +786,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="79">
@@ -716,6 +796,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="80">
@@ -725,6 +806,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="81">
@@ -734,6 +816,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="82">
@@ -743,6 +826,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="83">
@@ -752,6 +836,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="84">
@@ -761,6 +846,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="85">
@@ -770,6 +856,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="86">
@@ -779,6 +866,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="87">
@@ -788,6 +876,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="88">
@@ -797,6 +886,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="89">
@@ -806,6 +896,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="90">
@@ -815,6 +906,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="91">
@@ -824,6 +916,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="92">
@@ -833,6 +926,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="93">
@@ -842,6 +936,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="94">
@@ -851,6 +946,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="95">
@@ -860,6 +956,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="96">
@@ -869,6 +966,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="97">
@@ -878,6 +976,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="98">
@@ -887,6 +986,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="99">
@@ -896,6 +996,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="100">
@@ -905,6 +1006,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="101">
@@ -914,6 +1016,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="102">
@@ -923,6 +1026,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="103">
@@ -932,6 +1036,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="104">
@@ -941,6 +1046,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="105">
@@ -950,6 +1056,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="106">
@@ -959,6 +1066,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="107">
@@ -968,6 +1076,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="108">
@@ -977,6 +1086,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="109">
@@ -986,6 +1096,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="110">
@@ -995,6 +1106,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="111">
@@ -1004,6 +1116,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="112">
@@ -1013,6 +1126,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="113">
@@ -1022,6 +1136,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="114">
@@ -1031,6 +1146,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="115">
@@ -1040,6 +1156,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="116">
@@ -1049,6 +1166,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="117">
@@ -1058,6 +1176,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="118">
@@ -1067,33 +1186,40 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="119">
   <properties>
    <property name="bg layer" value="-1"/>
+   <property name="color channel" value="1"/>
    <property name="enable rotation" type="bool" value="false"/>
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="120">
   <properties>
    <property name="bg layer" value="-1"/>
+   <property name="color channel" value="1"/>
    <property name="enable rotation" type="bool" value="false"/>
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="121">
   <properties>
    <property name="bg layer" value="-1"/>
+   <property name="color channel" value="1"/>
    <property name="enable rotation" type="bool" value="false"/>
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="122">
@@ -1103,6 +1229,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="123">
@@ -1112,6 +1239,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="124">
@@ -1121,6 +1249,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="125">
@@ -1130,6 +1259,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="126">
@@ -1139,6 +1269,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="127">
@@ -1148,6 +1279,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="128">
@@ -1157,6 +1289,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="129">
@@ -1166,6 +1299,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="130">
@@ -1175,6 +1309,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="131">
@@ -1184,6 +1319,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="132">
@@ -1193,6 +1329,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="133">
@@ -1202,6 +1339,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="134">
@@ -1211,6 +1349,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="135">
@@ -1220,6 +1359,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="136">
@@ -1229,6 +1369,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="137">
@@ -1238,6 +1379,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="138">
@@ -1247,6 +1389,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="139">
@@ -1256,6 +1399,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="140">
@@ -1265,6 +1409,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="141">
@@ -1274,6 +1419,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="142">
@@ -1283,6 +1429,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="143">
@@ -1292,6 +1439,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="144">
@@ -1301,6 +1449,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="145">
@@ -1310,6 +1459,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="146">
@@ -1319,6 +1469,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="147">
@@ -1328,6 +1479,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="148">
@@ -1337,6 +1489,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="149">
@@ -1346,6 +1499,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="150">
@@ -1355,6 +1509,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="151">
@@ -1364,6 +1519,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="152">
@@ -1373,6 +1529,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="153">
@@ -1382,6 +1539,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="154">
@@ -1391,6 +1549,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="155">
@@ -1400,6 +1559,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="156">
@@ -1409,6 +1569,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="157">
@@ -1418,6 +1579,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="158">
@@ -1427,6 +1589,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="159">
@@ -1436,6 +1599,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="160">
@@ -1445,6 +1609,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="161">
@@ -1454,6 +1619,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="162">
@@ -1463,6 +1629,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="163">
@@ -1472,6 +1639,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="164">
@@ -1481,6 +1649,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="165">
@@ -1490,6 +1659,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="166">
@@ -1499,6 +1669,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="167">
@@ -1508,6 +1679,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="168">
@@ -1517,6 +1689,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="169">
@@ -1526,6 +1699,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="170">
@@ -1535,6 +1709,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="171">
@@ -1544,6 +1719,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="172">
@@ -1553,6 +1729,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="173">
@@ -1562,6 +1739,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="174">
@@ -1571,6 +1749,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="175">
@@ -1580,6 +1759,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="176">
@@ -1589,6 +1769,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="177">
@@ -1598,6 +1779,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="178">
@@ -1607,6 +1789,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="179">
@@ -1616,6 +1799,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="180">
@@ -1625,6 +1809,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="181">
@@ -1634,6 +1819,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="182">
@@ -1643,6 +1829,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="183">
@@ -1652,6 +1839,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="184">
@@ -1661,6 +1849,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="185">
@@ -1670,6 +1859,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="186">
@@ -1679,6 +1869,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="187">
@@ -1688,6 +1879,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="188">
@@ -1697,6 +1889,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="189">
@@ -1706,6 +1899,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="190">
@@ -1715,6 +1909,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="191">
@@ -1724,6 +1919,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="192">
@@ -1733,6 +1929,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="193">
@@ -1742,6 +1939,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="194">
@@ -1751,6 +1949,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="195">
@@ -1760,6 +1959,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="196">
@@ -1769,6 +1969,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="197">
@@ -1778,6 +1979,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="198">
@@ -1787,6 +1989,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="199">
@@ -1796,6 +1999,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="200">
@@ -1805,6 +2009,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="201">
@@ -1814,6 +2019,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="202">
@@ -1823,6 +2029,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="203">
@@ -1832,6 +2039,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="204">
@@ -1841,6 +2049,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="205">
@@ -1850,6 +2059,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="206">
@@ -1859,6 +2069,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="207">
@@ -1868,6 +2079,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="208">
@@ -1877,6 +2089,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="209">
@@ -1886,6 +2099,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="210">
@@ -1895,6 +2109,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="211">
@@ -1904,6 +2119,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="212">
@@ -1913,6 +2129,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="213">
@@ -1922,6 +2139,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="214">
@@ -1931,6 +2149,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="215">
@@ -1940,6 +2159,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="216">
@@ -1949,6 +2169,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="217">
@@ -1958,6 +2179,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="218">
@@ -1967,6 +2189,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="219">
@@ -1976,6 +2199,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="220">
@@ -1985,6 +2209,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="221">
@@ -1994,6 +2219,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="222">
@@ -2003,6 +2229,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="223">
@@ -2012,6 +2239,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="224">
@@ -2021,6 +2249,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="225">
@@ -2030,6 +2259,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="226">
@@ -2039,6 +2269,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="227">
@@ -2048,6 +2279,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="228">
@@ -2057,6 +2289,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="229">
@@ -2066,6 +2299,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="230">
@@ -2075,6 +2309,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="231">
@@ -2084,6 +2319,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="232">
@@ -2093,6 +2329,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="233">
@@ -2102,6 +2339,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="234">
@@ -2111,6 +2349,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="235">
@@ -2120,6 +2359,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="236">
@@ -2129,6 +2369,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="237">
@@ -2138,6 +2379,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="238">
@@ -2147,6 +2389,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="239">
@@ -2156,6 +2399,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="240">
@@ -2165,6 +2409,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="241">
@@ -2174,6 +2419,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="242">
@@ -2183,6 +2429,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="243">
@@ -2192,6 +2439,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="244">
@@ -2201,6 +2449,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="245">
@@ -2210,6 +2459,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="246">
@@ -2219,6 +2469,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="247">
@@ -2228,6 +2479,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="248">
@@ -2237,6 +2489,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="249">
@@ -2246,6 +2499,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="250">
@@ -2255,6 +2509,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="251">
@@ -2264,6 +2519,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="252">
@@ -2273,6 +2529,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="253">
@@ -2282,6 +2539,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="254">
@@ -2291,6 +2549,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
  <tile id="255">
@@ -2300,6 +2559,7 @@
    <property name="hflip" type="bool" value="false"/>
    <property name="rotation angle" type="int" value="0"/>
    <property name="vflip" type="bool" value="false"/>
+   <property name="z index" type="int" value="0"/>
   </properties>
  </tile>
 </tileset>

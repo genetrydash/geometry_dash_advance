@@ -342,7 +342,7 @@ void game_loop() {
         nextSpr = 0;
 
 #ifdef DEBUG
-        if (noclip) oam_metaspr(0, 0, noclipSpr, 0, 0, 0, -1, 0, TRUE); 
+        if (noclip) oam_metaspr(0, 0, noclipSpr, 0, 0, 0, -1, 0, 0, TRUE); 
 #endif
 
         // Draw level progress
