@@ -28,7 +28,7 @@ void do_menu_color_transition();
 u64 target_scroll_x;
 #define scroll_page intended_scroll_y // REPURPOSED FOR MENU
 
-void menu_loop() {
+void level_select_loop() {
     // Enable all BGs, also enable sprites
     REG_DISPCNT = DCNT_OBJ | DCNT_OBJ_1D | DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2 | DCNT_BG3;
 
@@ -62,14 +62,14 @@ void menu_loop() {
 
     tte_set_special(0x2000);
 
-    memcpy32(&tile_mem[0][0], menu_chr, sizeof(menu_chr) / 8);
-    memcpy32(&tile_mem_obj[0][0], &menu_chr[256], sizeof(menu_chr) / 8);
+    memcpy32(&tile_mem[0][0], level_select_chr, sizeof(level_select_chr) / 8);
+    memcpy32(&tile_mem_obj[0][0], &level_select_chr[256], sizeof(level_select_chr) / 8);
     memcpy32(&tile_mem_obj[0][992], level_text_chr, sizeof(level_text_chr) / 4);
 
-    memcpy32(&se_mem[26][0], menu_l0_tilemap, sizeof(menu_l0_tilemap) / 4);
-    memcpy32(&se_mem[27][0], menu_l1_tilemap, sizeof(menu_l1_tilemap) / 4);
-    memcpy32(&se_mem[28][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
-    memcpy32(&se_mem[29][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
+    memcpy32(&se_mem[26][0], level_select_l0_tilemap, sizeof(level_select_l0_tilemap) / 4);
+    memcpy32(&se_mem[27][0], level_select_l1_tilemap, sizeof(level_select_l1_tilemap) / 4);
+    memcpy32(&se_mem[28][0], level_select_l2_tilemap, sizeof(level_select_l2_tilemap) / 4);
+    memcpy32(&se_mem[29][0], level_select_l2_tilemap, sizeof(level_select_l2_tilemap) / 4);
     memset32(&se_mem[30][0], dup16(SE_BUILD(0x00, 0, 0, 0)), sizeof(SCREENBLOCK) / 2);
 
     s32 level_id = loaded_level_id;
@@ -370,7 +370,7 @@ void print_level_info(u16 level_id) {
         start_y += SCREENBLOCK_H;
     }
 
-    memcpy32(&se_mem[sb_number][0], menu_l2_tilemap, sizeof(menu_l2_tilemap) / 4);
+    memcpy32(&se_mem[sb_number][0], level_select_l2_tilemap, sizeof(level_select_l2_tilemap) / 4);
 
     // Print all lines
     for (s32 line = 0; line < MAX_LINES; line++) {

@@ -220,8 +220,11 @@ s32 main() {
 
     while(1) {
         switch (game_state) {
-            case STATE_MENU:
-                menu_loop();
+            case STATE_TITLE_SCREEN:
+
+
+            case STATE_LEVEL_SELECT:
+                level_select_loop();
                 break;
             
             case STATE_PLAYING:
@@ -300,7 +303,7 @@ void game_loop() {
             if (paused_routines()) {
                 mmStop();
                 mmEffect(SFX_LEVEL_EXIT);
-                game_state = STATE_MENU;      
+                game_state = STATE_LEVEL_SELECT;      
                 memcpy32(palette_buffer, pal_bg_mem, 256);
                 clear_checkpoints();
                 in_practice_mode = FALSE;
@@ -311,7 +314,7 @@ void game_loop() {
         }
 
         if (cutscene_frame == EXIT_CUTSCENE_FRAME) {
-            game_state = STATE_MENU;      
+            game_state = STATE_LEVEL_SELECT;      
             memcpy32(palette_buffer, pal_bg_mem, 256);
             fade_out();
             clear_checkpoints();

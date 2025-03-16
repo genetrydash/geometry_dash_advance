@@ -102,7 +102,7 @@ void sound_test_loop() {
 
     tte_set_special(0x2000);
 
-    memcpy32(&tile_mem[0][0], menu_chr, sizeof(menu_chr) / 8);
+    memcpy32(&tile_mem[0][0], level_select_chr, sizeof(level_select_chr) / 8);
     memset32(&se_mem[26][0], 0x00000000, sizeof(SCREENBLOCK) / 4);
     
     mmStop();
@@ -121,7 +121,7 @@ void sound_test_loop() {
         if (key_hit(KEY_SELECT)) {
             mmStop();
             mmStart(MOD_MENU, MM_PLAY_LOOP);
-            game_state = STATE_MENU;
+            game_state = STATE_LEVEL_SELECT;
             fade_out();
             break;
         }
