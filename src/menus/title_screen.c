@@ -15,6 +15,7 @@
 EWRAM_DATA u32 title_screen_color_index = 0;
 EWRAM_DATA u16 title_screen_color_transition_backup[6];
 EWRAM_DATA u8 title_screen_player_hold;
+EWRAM_DATA u32 title_screen_scroll_x;
 
 void title_screen_players();
 void reset_title_screen_player();
@@ -42,6 +43,7 @@ void title_screen_loop() {
 
     memcpy32(&tile_mem[0][0], square_background_chr, sizeof(square_background_chr) / 8);
     memcpy32(&tile_mem[0][256], title_screen_chr, sizeof(title_screen_chr) / 8);
+    memcpy32(&tile_mem_obj[0][992], level_text_chr, sizeof(level_text_chr) / 4);
     memcpy32(&se_mem[26][0], title_screen_l0_tilemap, sizeof(title_screen_l0_tilemap) / sizeof(u32));
     memcpy32(&se_mem[27][0], title_screen_l1_tilemap, sizeof(title_screen_l1_tilemap) / sizeof(u32));
     memcpy32(&se_mem[28][0], square_background_tilemap, sizeof(square_background_tilemap) / sizeof(u32));
@@ -51,6 +53,8 @@ void title_screen_loop() {
     do_menu_color_transition();
 
     scroll_x = 0;
+    scroll_y = BOTTOM_SCROLL_LIMIT + TO_FIXED(14);
+    title_screen_scroll_x = 0;
 
     fade_in();
     
@@ -60,8 +64,6 @@ void title_screen_loop() {
     memset32(shadow_oam, ATTR0_HIDE, 256);
     memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
 
-    scroll_y = BOTTOM_SCROLL_LIMIT;
-    intended_scroll_y = BOTTOM_SCROLL_LIMIT;
 
     // Set default player colors
     set_player_colors(palette_buffer, DEFAULT_P1_COLOR, DEFAULT_P2_COLOR, DEFAULT_GLOW_COLOR);
@@ -75,8 +77,8 @@ void title_screen_loop() {
     while (1) {
         key_poll();
     
-        REG_BG1HOFS = scroll_x >> SUBPIXEL_BITS;
-        REG_BG2HOFS = scroll_x >> (2+SUBPIXEL_BITS);
+        REG_BG1HOFS = title_screen_scroll_x >> SUBPIXEL_BITS;
+        REG_BG2HOFS = title_screen_scroll_x >> (2+SUBPIXEL_BITS);
         
         nextSpr = 0;
         obj_copy(oam_mem, shadow_oam, 128);
@@ -95,7 +97,7 @@ void title_screen_loop() {
         }
 
         // Do scroll
-        scroll_x += SPEED_1x;
+        title_screen_scroll_x += SPEED_1x;
 
         do_menu_color_transition();
         
@@ -117,6 +119,8 @@ void title_screen_loop() {
 
         // Handle title screen players
         title_screen_players();
+        
+        sort_oam_by_prio();
         
         // Wait for VSYNC
         VBlankIntrWait();
@@ -141,6 +145,8 @@ void reset_title_screen_player() {
 
     // Get random speed
     speed_id = qran() % SPEED_COUNT;
+
+    wave_trail_pointer[ID_PLAYER_1] = 0;
 }
 
 void title_screen_players() {
@@ -181,12 +187,18 @@ void title_screen_players() {
     }
 
     player_main();
-    draw_player_sub();
+    draw_player();
+
+    // Cap y position
+    if (curr_player.player_y < TO_FIXED(0x728)) {
+        curr_player.player_y = TO_FIXED(0x728);
+        curr_player.player_y_speed = 0;
+    }
 
     player_1 = curr_player;
-
+    
     // Reset player if offscreen
-    if (curr_player.relative_player_x > 256) {
+    if (player_1.relative_player_x > 256) {
         reset_title_screen_player();
     }
 }

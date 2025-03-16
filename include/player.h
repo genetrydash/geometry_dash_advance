@@ -138,4 +138,3 @@ extern const u32 speed_constants[SPEED_COUNT];
 void player_main();
 void draw_player();
 void set_player_speed();
-void draw_player_sub();

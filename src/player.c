@@ -595,10 +595,6 @@ void draw_player() {
     curr_player.relative_player_x = FROM_FIXED(curr_player.player_x - scroll_x);
     curr_player.relative_player_y = FROM_FIXED(curr_player.player_y) - FROM_FIXED(scroll_y);
 
-    draw_player_sub();
-}
-
-void draw_player_sub() {
     // Draw only if on screen vertically
     if (curr_player.relative_player_y > -48 && curr_player.relative_player_y < SCREEN_HEIGHT + 48) {
         s8 sign = 1;
