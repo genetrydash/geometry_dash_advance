@@ -172,7 +172,7 @@ struct PracticeCheckpoint {
 
 extern u8 in_practice_mode;
 
-#define WAVE_TRAIL_MAX_POINTS 0x60
+#define WAVE_TRAIL_MAX_POINTS 0xC0
 
 extern u8 wave_trail_pointer[PLAYER_COUNT];
 
