@@ -14,6 +14,13 @@
 
 EWRAM_DATA u32 title_screen_color_index = 0;
 EWRAM_DATA u16 title_screen_color_transition_backup[6];
+EWRAM_DATA u8 title_screen_player_hold;
+
+void title_screen_players();
+void reset_title_screen_player();
+
+extern u16 __key_curr;
+
 void title_screen_loop() {
     REG_DISPCNT = DCNT_MODE0 | DCNT_BG0 | DCNT_BG1 | DCNT_BG2;
 
@@ -46,11 +53,34 @@ void title_screen_loop() {
     scroll_x = 0;
 
     fade_in();
+    
+    REG_DISPCNT = DCNT_MODE0 | DCNT_OBJ | DCNT_OBJ_1D | DCNT_BG0 | DCNT_BG1 | DCNT_BG2;
+
+    memset32(level_buffer, 0x0000, sizeof(level_buffer) / sizeof(u32));
+    memset32(shadow_oam, ATTR0_HIDE, 256);
+    memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
+
+    scroll_y = BOTTOM_SCROLL_LIMIT;
+    intended_scroll_y = BOTTOM_SCROLL_LIMIT;
+
+    // Set default player colors
+    set_player_colors(palette_buffer, DEFAULT_P1_COLOR, DEFAULT_P2_COLOR, DEFAULT_GLOW_COLOR);
+
+    reset_title_screen_player();
+
+    put_ground();
+
+    mirror_scaling = float2fx(1.0);
+    
     while (1) {
         key_poll();
     
         REG_BG1HOFS = scroll_x >> SUBPIXEL_BITS;
         REG_BG2HOFS = scroll_x >> (2+SUBPIXEL_BITS);
+        
+        nextSpr = 0;
+        obj_copy(oam_mem, shadow_oam, 128);
+        obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
 
         // Level select
         if (key_hit(KEY_A)) {
@@ -82,10 +112,81 @@ void title_screen_loop() {
             title_screen_color_index++;
         }
 
+        memset32(shadow_oam, ATTR0_HIDE, 256);
+        memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
+
+        // Handle title screen players
+        title_screen_players();
+        
         // Wait for VSYNC
         VBlankIntrWait();
     }
     
     memcpy16(title_screen_color_transition_backup, &col_trigger_buffer[0], 6);
     fade_out();
+}
+
+void reset_title_screen_player() {
+    player_1.player_x = TO_FIXED(-16);
+    player_1.player_y = ((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS);
+
+    // Get random gamemode
+    player_1.gamemode = qran() % GAMEMODE_COUNT;
+    
+    // 1/4 chance for player to be mini
+    if (!(qran() & 0b11)) player_1.player_size = SIZE_MINI;
+    else player_1.player_size = SIZE_BIG;
+    
+    upload_player_chr(player_1.gamemode, ID_PLAYER_1);
+
+    // Get random speed
+    speed_id = qran() % SPEED_COUNT;
+}
+
+void title_screen_players() {
+    curr_player_id = ID_PLAYER_1;
+    curr_player = player_1;
+    
+    curr_player.player_x_speed = speed_constants[speed_id];
+    
+    curr_player.relative_player_x = FROM_FIXED(curr_player.player_x) - 32;
+    curr_player.relative_player_y = FROM_FIXED(curr_player.player_y) - FROM_FIXED(scroll_y) - 14;
+
+    // Set movement depending on gamemode
+    switch (curr_player.gamemode) {
+        case GAMEMODE_CUBE:
+            // Press A 1/16 of time
+            if (!(qran() & 0b1111)) __key_curr = KEY_A;
+            break;
+        case GAMEMODE_UFO:
+            // Press A 1/32 of time
+            if (!(qran() & 0b11111)) __key_curr = KEY_A;
+            break;
+        case GAMEMODE_WAVE:
+            // Switch holding A 1/16 of time
+            if (!(qran() & 0b1111)) title_screen_player_hold ^= 1;
+
+            if (title_screen_player_hold) {
+                __key_curr = KEY_A;
+            }
+            break;
+        case GAMEMODE_SHIP:
+            // Switch holding A 1/16 of time
+            if (!(qran() & 0b1111)) title_screen_player_hold ^= 1;
+
+            if (title_screen_player_hold) {
+                __key_curr = KEY_A;
+            }
+            break;
+    }
+
+    player_main();
+    draw_player_sub();
+
+    player_1 = curr_player;
+
+    // Reset player if offscreen
+    if (curr_player.relative_player_x > 256) {
+        reset_title_screen_player();
+    }
 }

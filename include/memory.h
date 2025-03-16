@@ -26,10 +26,10 @@ typedef s32 FIXED_16;
 #define FIXED_SHIFT 16
 #define FIXED_MULTIPLIER (1 << FIXED_SHIFT)
 #define FLOAT_TO_FIXED(f) ((FIXED_LONG_16)((f)*FIXED_MULTIPLIER))
-#define TO_FIXED(a)     (((FIXED_LONG_16)(a) << FIXED_SHIFT))
-#define FROM_FIXED(a)   (((FIXED_LONG_16)(a) >> FIXED_SHIFT))
-#define FIXED_MUL(a, b) (((FIXED_LONG_16)(a) * (b)) >> FIXED_SHIFT)
-#define FIXED_DIV(a, b) (((FIXED_LONG_16)(a) << FIXED_SHIFT) / (b))
+#define TO_FIXED(a)     (((FIXED_LONG_16)(a) * FIXED_MULTIPLIER))
+#define FROM_FIXED(a)   (((FIXED_LONG_16)(a) / FIXED_MULTIPLIER))
+#define FIXED_MUL(a, b) (((FIXED_LONG_16)(a) * (b)) / FIXED_MULTIPLIER)
+#define FIXED_DIV(a, b) (((FIXED_LONG_16)(a) * FIXED_MULTIPLIER) / (b))
 
 #define BGR_TO_STRUCT(rgb, struct_rgb) \
     struct_rgb.red = rgb & 0x1f; \

@@ -2,6 +2,7 @@
 #include "color.h"
 #include "sprite_loading.h"
 #include "chr.h"
+#include "level_select.h"
 #include "mgba_log.h"
 
 #define NUM_FACES 6
@@ -112,8 +113,10 @@ void menu_set_bg_color(COLOR *dst, COLOR color) {
 
     dst[0x12] = dst[0x122] = dst[0x24] = dst[0x04];
 
-    for (s32 i = 3; i < NUM_FACES + 3; i++) {
-        dst[(i << 4) + 0x0e] = dst[0x04];
+    if (game_state == STATE_LEVEL_SELECT) {
+        for (s32 i = 3; i < NUM_FACES + 3; i++) {
+            dst[(i << 4) + 0x0e] = dst[0x04];
+        }
     }
 }
 

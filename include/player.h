@@ -25,7 +25,7 @@ enum SpeedID {
     SPEED_X2,
     SPEED_X3,
     SPEED_X4,
-    NUM_SPEEDS
+    SPEED_COUNT
 };
 
 enum GravityDir {
@@ -133,6 +133,9 @@ extern u8 dual;
 
 extern FIXED mirror_scaling;
 
+extern const u32 speed_constants[SPEED_COUNT];
+
 void player_main();
 void draw_player();
 void set_player_speed();
+void draw_player_sub();

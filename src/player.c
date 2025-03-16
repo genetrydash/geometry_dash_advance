@@ -590,22 +590,26 @@ void do_ufo_gravity() {
 }
 
 void draw_player() {
-    s8 sign = 1;
-    
     curr_player.old_relative_player_y = curr_player.relative_player_y;
 
     curr_player.relative_player_x = FROM_FIXED(curr_player.player_x - scroll_x);
     curr_player.relative_player_y = FROM_FIXED(curr_player.player_y) - FROM_FIXED(scroll_y);
 
-    u8 priority = (cutscene_frame > TOTAL_CUTSCENE_FRAMES - 20) ? 2 : 0;
+    draw_player_sub();
+}
 
-    // Get player sprite depending
-    const u16 *player_sprite = (curr_player_id == ID_PLAYER_1) ? player1Spr : player2Spr;
-
-    curr_player.lerped_cube_rotation = lerp_angle(curr_player.lerped_cube_rotation, curr_player.cube_rotation, 2);
-
+void draw_player_sub() {
     // Draw only if on screen vertically
     if (curr_player.relative_player_y > -48 && curr_player.relative_player_y < SCREEN_HEIGHT + 48) {
+        s8 sign = 1;
+
+        // Get player sprite depending
+        const u16 *player_sprite = (curr_player_id == ID_PLAYER_1) ? player1Spr : player2Spr;
+
+        curr_player.lerped_cube_rotation = lerp_angle(curr_player.lerped_cube_rotation, curr_player.cube_rotation, 2);
+        
+        u8 priority = (cutscene_frame > TOTAL_CUTSCENE_FRAMES - 20) ? 2 : 0;
+
         switch (curr_player.gamemode) {
             case GAMEMODE_CUBE:
                 if (curr_player.player_size == SIZE_BIG && !curr_player.slope_counter) {

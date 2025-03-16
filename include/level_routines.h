@@ -63,6 +63,7 @@ s16 lerp_angle(s16 current, s16 target, s16 divisor);
 
 void store_practice_vars();
 void delete_last_checkpoint();
+void put_ground();
 void draw_checkpoints();
 void clear_checkpoints();
 void handle_gamemode_uploads(); 
