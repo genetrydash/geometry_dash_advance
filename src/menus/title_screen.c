@@ -60,10 +60,11 @@ void title_screen_loop() {
     
     REG_DISPCNT = DCNT_MODE0 | DCNT_OBJ | DCNT_OBJ_1D | DCNT_BG0 | DCNT_BG1 | DCNT_BG2;
 
+    memset32(&player_1, 0, sizeof(player_1) / sizeof(u32));
     memset32(level_buffer, 0x0000, sizeof(level_buffer) / sizeof(u32));
+    memset32(object_buffer, 0x0000, sizeof(object_buffer) / 4);
     memset32(shadow_oam, ATTR0_HIDE, 256);
     memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
-
 
     // Set default player colors
     set_player_colors(palette_buffer, DEFAULT_P1_COLOR, DEFAULT_P2_COLOR, DEFAULT_GLOW_COLOR);
@@ -85,7 +86,7 @@ void title_screen_loop() {
         obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
 
         // Level select
-        if (key_hit(KEY_A)) {
+        if (key_hit(KEY_A) | key_hit(KEY_START)) {
             game_state = STATE_LEVEL_SELECT;
             break;
         }
