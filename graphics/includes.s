@@ -10,6 +10,7 @@
 .global circle_background_chr
 .global line_background_chr
 .global checkerboard_background_chr
+.global title_screen_chr
 .global level_select_chr
 .global animated_sprites
 .global level_text_chr
@@ -22,6 +23,9 @@ blockset:
 
 sprites_chr:
     .incbin "graphics/sprites.chr"
+    
+title_screen_chr:
+    .incbin "graphics/title_screen.chr"
 
 level_select_chr:
     .incbin "graphics/level_select.chr"

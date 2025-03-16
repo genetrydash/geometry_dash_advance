@@ -7,6 +7,7 @@
 #include "soundbank.bin.h"
 #include "soundbank.h"
 #include "level_select.h"
+#include "title_screen.h"
 #include "sound_test.h"
 
 void game_loop();
@@ -217,11 +218,14 @@ s32 main() {
     rom_waitstates();
 
     init_sram();
+    
+    mmStart(MOD_MENU, MM_PLAY_LOOP);
 
     while(1) {
         switch (game_state) {
             case STATE_TITLE_SCREEN:
-
+                title_screen_loop();
+                break;
 
             case STATE_LEVEL_SELECT:
                 level_select_loop();
@@ -309,6 +313,8 @@ void game_loop() {
                 in_practice_mode = FALSE;
 
                 fade_out();
+
+                mmStart(MOD_MENU, MM_PLAY_LOOP);
                 return;
             }
         }

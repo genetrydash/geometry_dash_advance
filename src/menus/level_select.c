@@ -21,7 +21,6 @@ u16 game_state;
 
 void print_level_info(u16 level_id);
 void do_page_change(u16 level_id);
-void do_menu_color_transition();
 
 #define HALF_U64 ((u64)1 << 63)
 
@@ -93,8 +92,6 @@ void level_select_loop() {
     memset32(shadow_oam, ATTR0_HIDE, 256);
     obj_copy(oam_mem, shadow_oam, 128);
     
-    mmStart(MOD_MENU, MM_PLAY_LOOP);
-    
     fade_in_menu();
     while (1) {
         key_poll();
@@ -116,14 +113,11 @@ void level_select_loop() {
         nextSpr = 0;
 
         do_menu_color_transition();
+        
+        // Copy palette from buffer
+        memcpy32(pal_bg_mem, palette_buffer, 256);
 
 #ifdef DEBUG
-        if (key_hit(KEY_SELECT)) {
-            game_state = STATE_SOUND_TEST;
-            fade_out();
-            break;
-        }
-
         if (key_hit(KEY_L)) {
             noclip ^= 1;
         }
@@ -161,6 +155,13 @@ void level_select_loop() {
             break;
         }
 
+        // Title screen
+        if (key_hit(KEY_B)) {
+            game_state = STATE_TITLE_SCREEN;
+            fade_out();
+            break;
+        }
+
         // Wait for VSYNC
         VBlankIntrWait();
     }
@@ -185,9 +186,6 @@ void do_menu_color_transition() {
         if (curr_frame >= frames) {
             col_trigger_buffer[0][COL_TRIG_BUFF_ACTIVE] = FALSE;
         }
-
-        // Copy palette from buffer
-        memcpy32(pal_bg_mem, palette_buffer, 256);
     }
 }
 

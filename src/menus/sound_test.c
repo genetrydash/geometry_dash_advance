@@ -117,19 +117,18 @@ void sound_test_loop() {
 
         REG_BG2HOFS = REG_BG3HOFS = scroll_x >> SUBPIXEL_BITS;
 
-#ifdef DEBUG
-        if (key_hit(KEY_SELECT)) {
+        // Title screen
+        if (key_hit(KEY_B)) {
             mmStop();
             mmStart(MOD_MENU, MM_PLAY_LOOP);
-            game_state = STATE_LEVEL_SELECT;
+            game_state = STATE_TITLE_SCREEN;
             fade_out();
             break;
         }
-#endif
 
         // Go right
         if (key_hit(KEY_RIGHT)) {
-            // Increment level ID
+            // Increment song ID
             song_id++;
             song_id = WRAP(song_id, 0, MSL_NSONGS);
             
@@ -138,7 +137,7 @@ void sound_test_loop() {
 
         // Go left
         if (key_hit(KEY_LEFT)) {
-            // Decrement level ID
+            // Decrement song ID
             song_id--;
             song_id = WRAP(song_id, 0, MSL_NSONGS);
 

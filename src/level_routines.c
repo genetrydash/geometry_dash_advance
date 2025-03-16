@@ -291,7 +291,7 @@ void reset_variables() {
     memset16(loaded_object_buffer, 0xffff, sizeof(loaded_object_buffer) / sizeof(s16));
     memset16(unloaded_object_buffer, 0xffff, sizeof(unloaded_object_buffer) / sizeof(s16));
     memset32(object_buffer, 0x0000, (sizeof(struct ObjectSlot) * MAX_OBJECTS) / sizeof(u32));
-    memcpy16(&se_mem[26][0], bg_tiles, sizeof(bg_tiles) / 2);
+    memcpy16(&se_mem[26][0], square_background_tilemap, sizeof(square_background_tilemap) / 2);
     memset32(&se_mem[30][0], dup16(SE_BUILD(639, 0, 0, 0)), sizeof(SCREENBLOCK) / 2);
 
     memcpy16(&se_mem[30][0], level_complete_l3_tilemap, sizeof(level_complete_l3_tilemap) / 2);
@@ -393,7 +393,7 @@ void load_level(u32 level_ID) {
 void set_background(u16 background_ID) {
     switch (background_ID) {
         case BG_SQUARES:
-            memcpy16(&se_mem[29][0], bg_tiles, sizeof(bg_tiles) / 2);
+            memcpy16(&se_mem[29][0], square_background_tilemap, sizeof(square_background_tilemap) / 2);
             memcpy32(&tile_mem[2][0], square_background_chr, sizeof(square_background_chr) / 4);
             break;
         case BG_CIRCLES:
