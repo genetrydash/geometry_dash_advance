@@ -199,8 +199,7 @@ void cube_gamemode() {
             switch (curr_player.slope_type) {
                 case DEGREES_45:
                 case DEGREES_45_DOWN:
-                    curr_player.cube_rotation = (curr_player.cube_rotation + 0x2000) & 0xC000;
-                    curr_player.cube_rotation |= 0x2000;
+                    curr_player.cube_rotation = snap_to_45(curr_player.cube_rotation);
                     break;
                 case DEGREES_26_5:
                 case DEGREES_63_5_DOWN:

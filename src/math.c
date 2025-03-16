@@ -54,3 +54,23 @@ s32 snap_to_tan_theta_1_2_rotated_90(s32 current_rotation) {
 
     return snapped_rotation;
 }
+
+// Function to snap to the nearest angle where tan(θ) = 1/2
+s32 snap_to_45(s32 current_rotation) {
+    // Define the four target angles
+    s32 target_angles[4] = {0x2000, 0x6000, 0xa000, 0xe000};
+
+    // Find the nearest target angle
+    s32 min_diff = FULL_CIRCLE;
+    s32 snapped_rotation = 0;
+
+    for (s32 i = 0; i < 4; i++) {
+        s32 diff = ABS(current_rotation - target_angles[i]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            snapped_rotation = target_angles[i];
+        }
+    }
+
+    return snapped_rotation;
+}
