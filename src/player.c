@@ -344,15 +344,6 @@ void ball_gamemode() {
         curr_player.ball_rotation_direction = (curr_player.gravity_dir == GRAVITY_DOWN) ? 2 : -2;
     }
 
-    if (curr_player.on_floor && curr_player.player_buffering == ORB_BUFFER_READY) {
-        curr_player.gravity_dir ^= 1;
-        curr_player.player_y_speed = BALL_SWITCH_SPEED * -sign; 
-        
-        curr_player.ball_rotation_direction = (curr_player.gravity_dir == GRAVITY_DOWN) ? -1 : 1;
-
-        curr_player.player_buffering = ORB_BUFFER_END;
-    }
-
     curr_player.cube_rotation -= 0x250 * curr_player.ball_rotation_direction * mirror_sign;
 
     curr_player.player_y_speed = CLAMP(curr_player.player_y_speed, -BALL_MAX_Y_SPEED, BALL_MAX_Y_SPEED);
@@ -393,6 +384,16 @@ void ball_gamemode() {
         
         // Run collision
         collision_ship_ball_ufo();
+
+
+        if (curr_player.on_floor && curr_player.player_buffering == ORB_BUFFER_READY) {
+            curr_player.gravity_dir ^= 1;
+            curr_player.player_y_speed = BALL_SWITCH_SPEED * -sign; 
+            
+            curr_player.ball_rotation_direction = (curr_player.gravity_dir == GRAVITY_DOWN) ? -1 : 1;
+            
+            curr_player.player_buffering = ORB_BUFFER_END;
+        }
     }
 }
 
