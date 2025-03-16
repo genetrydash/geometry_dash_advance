@@ -133,6 +133,7 @@ void title_screen_loop() {
 void reset_title_screen_player() {
     player_1.player_x = TO_FIXED(-16);
     player_1.player_y = ((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS);
+    player_1.player_y_speed = 0;
 
     // Get random gamemode
     player_1.gamemode = qran() % GAMEMODE_COUNT;
