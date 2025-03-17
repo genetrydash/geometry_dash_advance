@@ -323,7 +323,9 @@ void game_loop() {
             game_state = STATE_LEVEL_SELECT;      
             memcpy32(palette_buffer, pal_bg_mem, 256);
             fade_out();
+            mmStart(MOD_MENU, MM_PLAY_LOOP);
             clear_checkpoints();
+            complete_cutscene = FALSE; 
             in_practice_mode = FALSE;
             return;
         }

@@ -276,7 +276,6 @@ void reset_variables() {
     cutscene_frame = 0;
     player_1.cutscene_initial_player_x = 0;
     player_1.cutscene_initial_player_y = 0;
-    complete_cutscene = FALSE;
 
     scroll_x = 0;
     last_sprite_x = 0;
