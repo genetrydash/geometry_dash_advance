@@ -11,6 +11,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "color.h"
+#include "math.h"
 
 u16 game_state;
 

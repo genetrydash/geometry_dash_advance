@@ -710,55 +710,6 @@ void calculate_trans_window_pos() {
     REG_WIN0H = (left << 8) | right;
 }
 
-u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_adjustment) {
-    s64 diff = (target - current);
-    s64 adjustement = FIXED_MUL(diff, multiplier);
-
-    // Cap adjustment
-    if (adjustement > (s64)max_adjustment) {
-        adjustement = (s64)max_adjustment;
-    } else if (adjustement < -(s64)(max_adjustment)) {
-        adjustement = -(s64)max_adjustment;
-    }
-
-    // If too close, there will be a rounding error, so just finish the approach
-    if (ABS(diff) < 0x2000) return target;
-    else return (current + adjustement);
-}
-
-s16 lerp_angle(s16 current, s16 target, s16 divisor) {
-    s16 temp = current;
-    s32 difference = (s16) (current - target);
-    if (divisor == 0 || difference >= 0x4000 || difference < -0x4000) {
-        current = target;
-    } else {
-        s32 diff = temp;
-
-        temp -= target;
-        temp -= (temp / divisor);
-        temp += target;
-        current = temp;
-
-        // Calculate difference
-        diff = current - diff;
-
-        if (ABS(diff) < 0x300) {
-            current = target;
-        }
-    }
-    return current;
-}
-
-u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
-    s64 dist = (target - current);
-    if (dist > 0) { // current < target
-        current = ((dist >  inc) ? (current + inc) : target);
-    } else if (dist < 0) { // current > target
-        current = ((dist < -dec) ? (current - dec) : target);
-    }
-    return current;
-}
-
 void draw_percentage(u32 x, u32 y, u32 percentage, const u16* number_sprite, u16 priority) {
     if (percentage >= 100) {
         oam_metaspr(x,      y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 1, -1, priority, 0, TRUE);

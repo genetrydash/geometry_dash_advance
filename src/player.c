@@ -602,7 +602,7 @@ void draw_player() {
         // Get player sprite depending
         const u16 *player_sprite = (curr_player_id == ID_PLAYER_1) ? player1Spr : player2Spr;
 
-        curr_player.lerped_cube_rotation = lerp_angle(curr_player.lerped_cube_rotation, curr_player.cube_rotation, 2);
+        curr_player.lerped_cube_rotation = lerp_angle(curr_player.lerped_cube_rotation, curr_player.cube_rotation, (curr_player.gamemode == GAMEMODE_WAVE ? float2fx(1.75) : float2fx(2)), curr_player.gamemode != GAMEMODE_WAVE);
         
         u8 priority = (cutscene_frame > TOTAL_CUTSCENE_FRAMES - 20) ? 2 : 0;
 

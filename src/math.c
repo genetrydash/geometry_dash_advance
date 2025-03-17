@@ -74,3 +74,58 @@ s32 snap_to_45(s32 current_rotation) {
 
     return snapped_rotation;
 }
+
+
+u64 approach_value_asymptotic(u64 current, u64 target, u32 multiplier, u32 max_adjustment) {
+    s64 diff = (target - current);
+    s64 adjustement = FIXED_MUL(diff, multiplier);
+
+    // Cap adjustment
+    if (adjustement > (s64)max_adjustment) {
+        adjustement = (s64)max_adjustment;
+    } else if (adjustement < -(s64)(max_adjustment)) {
+        adjustement = -(s64)max_adjustment;
+    }
+
+    // If too close, there will be a rounding error, so just finish the approach
+    if (ABS(diff) < 0x2000) return target;
+    else return (current + adjustement);
+}
+
+s16 lerp_angle(s16 current, s16 target, FIXED divisor, u8 cap_angle) {
+    s16 temp = current;
+    s32 difference = (s16) (current - target);
+    if (cap_angle) {
+        if (difference >= 0x4000 || difference < -0x4000) {
+            current = target;
+        }
+    }
+    if (divisor == 0) {
+        current = target;
+    } else {
+        s32 diff = temp;
+
+        temp -= target;
+        temp -= (int2fx(temp) / divisor);
+        temp += target;
+        current = temp;
+
+        // Calculate difference
+        diff = current - diff;
+
+        if (ABS(diff) < 0x300) {
+            current = target;
+        }
+    }
+    return current;
+}
+
+u64 approach_value(u64 current, u64 target, s32 inc, s32 dec) {
+    s64 dist = (target - current);
+    if (dist > 0) { // current < target
+        current = ((dist >  inc) ? (current + inc) : target);
+    } else if (dist < 0) { // current > target
+        current = ((dist < -dec) ? (current - dec) : target);
+    }
+    return current;
+}
