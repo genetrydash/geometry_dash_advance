@@ -14,16 +14,16 @@ Download nightly build (unstable) [CLICK HERE](https://nightly.link/AleFunky/geo
 
 |Contributor|Role|
 |---|---|
-|[AleFunky](https://github.com/PinguLinux)|code, levels, testing and bugfixes|
+|[AleFunky](https://github.com/PinguLinux)|code, levels, testing and bugfixes.|
 |[ElAngel378](https://github.com/ElAngel378)|music, testing, bugfixes and graphics|
-|[adrluc096](https://github.com/123456oil)|graphics|
+|[adrluc096](https://github.com/123456oil)|graphics.|
 |orionconstel|music and graphics|
-|[KawaiiDawn](https://github.com/Astroclimber26)|graphics|
+|[KawaiiDawn](https://github.com/Astroclimber26)|graphics.|
 |KirikkSiSq|graphics|
-|[SeaGlowingPro](https://github.com/SeaGlowingPro)|levels|
-|[banana6000](https://github.com/xXFamidash_Fan69Xx)|graphics and levels|
-|Nicolestarlight|music|
-|Redgd|graphics|
+|[SeaGlowingPro](https://github.com/SeaGlowingPro)|levels.|
+|[banana6000](https://github.com/xXFamidash_Fan69Xx)|graphics and levels.|
+|Nicolestarlight|music.|
+|Redgd|graphics.|
 
 ## Addditional
 |Additional thanks| Name |
