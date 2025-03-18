@@ -57,12 +57,14 @@ GBAFIX	:= $(DEVKITPRO)/tools/bin/gbafix
 MMUTIL	:= $(DEVKITPRO)/tools/bin/mmutil
 GRIT	:= $(DEVKITPRO)/tools/bin/grit
 RUNNER	:= mgba-qt
+OBJDUMP	:= $(TOOLCHAIN)-objdump
 
 # Primary build artifacts
 ELFFILE	:= $(BUILDDIR)/$(PROJECT).elf
 ROMFILE	:= $(BUILDDIR)/$(PROJECT).gba
 MAPFILE	:= $(BUILDDIR)/$(PROJECT).map
 LIBFILE	:= $(BUILDDIR)/lib$(PROJECT).a
+DUMPFILE := $(BUILDDIR)/$(PROJECT).dump
 
 # Default compiler flags
 ALLFLAGS += \
@@ -180,6 +182,8 @@ $(BUILDDIR)/gen_bin/soundbank.bin $(BUILDDIR)/gen_inc/soundbank.h &: $(AUDIO)
 	$(SILENT)$(LD) -o $@ $^ $(LDFLAGS) lib/libsavgba.a
 
 %.gba:
+	@echo "dump    $@"
+	$(SILENT)$(OBJDUMP) -h -C -S $< > $(DUMPFILE)
 	@echo "rom     $@"
 	$(SILENT)$(OBJCOPY) -O binary $< $@
 	$(SILENT)$(GBAFIX) $@ $(GFFLAGS) >&-
