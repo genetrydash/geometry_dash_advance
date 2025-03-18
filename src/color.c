@@ -125,6 +125,7 @@ void set_bg_color(COLOR *dst, COLOR color) {
     // Set BG color
     dst[0x00] = color;
     dst[BG_PAL + BG_COLOR] = color;
+    dst[BG_PAL + DARK_COLOR] = dst[BG_COLOR + 4];
 
     dst[LIGHTER_BG_PAL + BG_COLOR] = color;
     
@@ -151,6 +152,7 @@ void set_bg_color(COLOR *dst, COLOR color) {
     for (u32 pal = COL_CHN_PAL; pal < COL_CHN_PAL_LAST; pal += 0x10) {  
         // Blend col
         dst[BG_COLOR + pal] = color;
+        dst[DARK_COLOR + pal] = dst[BG_COLOR + 4];
         blend_bg_and_col(dst, pal);
         blend_bg_and_obj(dst, pal);
 
@@ -181,6 +183,7 @@ void update_lbg_palette(COLOR *dst) {
     // Get LBG color
     COLOR lbg = calculate_lbg(dst[BG_PAL + BG_COLOR], dst[PLAYER_SPR_PAL + P1_COLOR]);
     dst[LIGHTER_BG_PAL + COL_ID_COLOR] = blend_colors(lbg, dst[BG_PAL + BG_COLOR]);
+    dst[LIGHTER_BG_PAL + DARK_COLOR] = dst[BG_COLOR + 4];
 
     // Blend both bg and lbg
     u32 blend_value = 0x1f / (COL_ID_COLOR - BG_COL_BLENDING + 1);

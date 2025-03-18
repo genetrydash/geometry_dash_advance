@@ -11,6 +11,9 @@
 #define OBJ_COLOR 0x0B
 #define COL_ID_COLOR 0x07
 #define BRIGHTER_COLOR 0x0C
+#define DARK_COLOR 0x0E
+#define BLACK_COLOR 0x0F
+
 
 #define PORTAL_WHITE_COLOR 0x112
 #define PORTAL_GLOW_COLOR 0x117
