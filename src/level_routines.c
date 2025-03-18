@@ -285,6 +285,8 @@ void reset_variables() {
 
     next_free_tile_id = START_OF_OBJECT_CHR;
 
+    memset16(trail_enabled, 0x0000, sizeof(trail_enabled) / sizeof(u16));
+
     memset32(level_buffer, 0x0000, sizeof(level_buffer) / sizeof(u32));
     memset32(chr_slots, 0x0000, (sizeof(struct ObjectCHRSlot) * MAX_OBJECTS) / sizeof(u32));
     memset16(loaded_object_buffer, 0xffff, sizeof(loaded_object_buffer) / sizeof(s16));
@@ -1418,6 +1420,38 @@ void handle_wave_trail() {
             wave_trail_pointer[curr_player_id]--;
         }
     }
+}
+
+void handle_trail() {
+    for (s32 i = 0; i < TRAIL_LENGTH; i++) {
+        u32 x = trail_x[curr_player_id][i];
+        u16 y = trail_y[curr_player_id][i];
+
+        // Get relative positions
+        s32 relative_x = x - FROM_FIXED(scroll_x);
+        s32 relative_y = y - FROM_FIXED(scroll_y);
+
+        // Put the trail sprite
+        if (trail_enabled[curr_player_id][i - 1]) oam_metaspr(relative_x, relative_y, waveTrailChunk, FALSE, FALSE, 0, 0, 0, 0, FALSE);
+
+        // Move left
+        if (i != 0) {
+            trail_enabled[curr_player_id][i - 1] = trail_enabled[curr_player_id][i];
+            trail_x[curr_player_id][i - 1] = trail_x[curr_player_id][i];
+            trail_y[curr_player_id][i - 1] = trail_y[curr_player_id][i];
+        }
+    }
+}
+
+void set_trail_point() {
+    // Obtain player position
+    u32 x = FROM_FIXED(curr_player.player_x);
+    u16 y = FROM_FIXED(curr_player.player_y);
+
+    // Set the new point in the first slot
+    trail_x[curr_player_id][TRAIL_LENGTH - 1] = x + 4;
+    trail_y[curr_player_id][TRAIL_LENGTH - 1] = y + 4;
+    trail_enabled[curr_player_id][TRAIL_LENGTH - 1] = TRUE;
 }
 
 void wave_set_new_point() {

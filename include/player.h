@@ -123,6 +123,10 @@ struct Player {
 
     // 0 : 45º, 1 : 26.5º, 2 : 26.5 + 90º
     u8 slope_type;
+
+    // Put a trail point in this frame
+    // 0 : do not, 1 : do
+    u8 trail_on;
 };
 
 extern u8 player_death;

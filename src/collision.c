@@ -763,6 +763,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             curr_player.player_y_speed = 0;
             
             curr_player.inverse_rotation_flag = FALSE;
+            curr_player.trail_on = FALSE;
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
@@ -784,6 +785,7 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             }
             curr_player.player_y -= eject_value;
             curr_player.player_y_speed = 0;
+            curr_player.trail_on = FALSE;
 
             curr_player.inverse_rotation_flag = FALSE;
 
@@ -1696,6 +1698,7 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
     // Set slope related variables
     curr_player.on_floor_step = TRUE;
     curr_player.on_floor = TRUE;
+    curr_player.trail_on = FALSE;
     
     // If collided with the horizontal edge, skip
     if (ejection_type == EJECTION_TYPE_HIPO) {

@@ -123,6 +123,7 @@ void blue_gravity_portal(struct ObjectSlot *objectSlot) {
         curr_player.player_y_speed /= 2;
         curr_player.gravity_dir = GRAVITY_DOWN;
         curr_player.on_floor = FALSE;
+        curr_player.trail_on = TRUE;
         
         curr_player.ball_rotation_direction = -1;
         check_for_same_dual_gravity();
@@ -136,6 +137,7 @@ void yellow_gravity_portal(struct ObjectSlot *objectSlot) {
         curr_player.player_y_speed /= 2;
         curr_player.gravity_dir = GRAVITY_UP;
         curr_player.on_floor = FALSE;
+        curr_player.trail_on = TRUE;
 
         curr_player.ball_rotation_direction = 1;
         check_for_same_dual_gravity();
@@ -272,6 +274,7 @@ void yellow_orb(struct ObjectSlot *objectSlot) {
         s32 sign = (curr_player.gravity_dir == GRAVITY_UP) ? 1 : -1;
         curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][YELLOW_ORB_INDEX] * sign;
         curr_player.inverse_rotation_flag = FALSE;
+        curr_player.trail_on = TRUE;
 
         curr_player.ball_rotation_direction = sign;
 
@@ -285,6 +288,7 @@ void yellow_pad(struct ObjectSlot *objectSlot) {
     s32 sign = (curr_player.gravity_dir == GRAVITY_UP) ? 1 : -1;
     curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][YELLOW_PAD_INDEX] * sign;
     curr_player.inverse_rotation_flag = FALSE;
+    curr_player.trail_on = TRUE;
     curr_player.on_floor = FALSE;
     objectSlot->activated[curr_player_id] = TRUE;
 }
@@ -294,6 +298,7 @@ void blue_orb(struct ObjectSlot *objectSlot) {
         curr_player.gravity_dir ^= 1;
         s32 sign = (curr_player.gravity_dir == GRAVITY_UP) ? -1 : 1;
         curr_player.inverse_rotation_flag = FALSE;
+        curr_player.trail_on = TRUE;
         
         curr_player.ball_rotation_direction = sign;
         
@@ -338,6 +343,7 @@ void blue_pad(struct ObjectSlot *objectSlot) {
 
     curr_player.ball_rotation_direction = sign;
     curr_player.inverse_rotation_flag = FALSE;
+    curr_player.trail_on = TRUE;
         
     curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][BLUE_ORB_PAD_INDEX] * sign;
     
@@ -355,6 +361,7 @@ void pink_orb(struct ObjectSlot *objectSlot) {
         
         curr_player.ball_rotation_direction = sign;
         curr_player.inverse_rotation_flag = FALSE;
+        curr_player.trail_on = TRUE;
         
         objectSlot->activated[curr_player_id] = TRUE;
         curr_player.on_floor = FALSE;
@@ -366,6 +373,7 @@ void pink_pad(struct ObjectSlot *objectSlot) {
     s32 sign = (curr_player.gravity_dir == GRAVITY_UP) ? 1 : -1;
     curr_player.player_y_speed = orb_pad_bounces[curr_player.player_size][curr_player.gamemode][PINK_PAD_INDEX] * sign;
     curr_player.inverse_rotation_flag = FALSE;
+    curr_player.trail_on = TRUE;
     curr_player.on_floor = FALSE;
     objectSlot->activated[curr_player_id] = TRUE;
 }

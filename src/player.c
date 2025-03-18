@@ -606,6 +606,23 @@ void draw_player() {
         
         u8 priority = (cutscene_frame > TOTAL_CUTSCENE_FRAMES - 20) ? 2 : 0;
 
+        // Handle trails depending on gamemode
+        if (curr_player.gamemode != GAMEMODE_WAVE) {
+            if (curr_player.gamemode == GAMEMODE_CUBE || curr_player.gamemode == GAMEMODE_BALL) {
+                if (curr_player.trail_on) {
+                    set_trail_point();
+                } else {
+                    trail_enabled[curr_player_id][TRAIL_LENGTH - 1] = FALSE;
+                }
+            } else {
+                set_trail_point();
+            }
+
+            handle_trail();
+        } else {
+            handle_wave_trail();
+        }
+
         switch (curr_player.gamemode) {
             case GAMEMODE_CUBE:
                 if (curr_player.player_size == SIZE_BIG && !curr_player.slope_counter) {
@@ -636,11 +653,10 @@ void draw_player() {
                 break;
             case GAMEMODE_UFO:
                 sign = curr_player.gravity_dir ? -1 : 1;
-
+                
                 oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE); 
                 break;
             case GAMEMODE_WAVE:
-                handle_wave_trail();
                 oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE); 
                 break;
         }

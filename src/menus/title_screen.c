@@ -136,6 +136,8 @@ void reset_title_screen_player() {
     player_1.player_y = ((GROUND_HEIGHT - 1) << (4 + SUBPIXEL_BITS)) + (0x2 << SUBPIXEL_BITS);
     player_1.player_y_speed = 0;
 
+    memset16(trail_enabled, 0x0000, sizeof(trail_enabled) / sizeof(u16));
+
     // Get random gamemode
     player_1.gamemode = qran() % GAMEMODE_COUNT;
     

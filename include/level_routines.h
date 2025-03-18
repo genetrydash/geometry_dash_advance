@@ -65,6 +65,8 @@ void clear_checkpoints();
 void handle_gamemode_uploads(); 
 
 void handle_wave_trail();
+void set_trail_point();
+void handle_trail();
 void wave_set_new_point();
 void update_scroll();
 

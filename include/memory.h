@@ -173,12 +173,17 @@ struct PracticeCheckpoint {
 extern u8 in_practice_mode;
 
 #define WAVE_TRAIL_MAX_POINTS 0xC0
+#define TRAIL_LENGTH 18
 
 extern u8 wave_trail_pointer[PLAYER_COUNT];
 
 extern u32 wave_trail_x[PLAYER_COUNT][WAVE_TRAIL_MAX_POINTS];
 extern u16 wave_trail_y[PLAYER_COUNT][WAVE_TRAIL_MAX_POINTS];
 extern u8 wave_trail_size[PLAYER_COUNT][WAVE_TRAIL_MAX_POINTS];
+
+extern EWRAM_DATA u32 trail_x[PLAYER_COUNT][TRAIL_LENGTH];
+extern EWRAM_DATA u16 trail_y[PLAYER_COUNT][TRAIL_LENGTH];
+extern EWRAM_DATA u8 trail_enabled[PLAYER_COUNT][TRAIL_LENGTH];
 
 extern u32 checkpoint_count;
 extern u32 checkpoint_pointer;

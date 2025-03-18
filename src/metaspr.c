@@ -48,7 +48,7 @@ const u16 practiceCheckpoint[] = {
 };
 
 const u16 waveTrailChunk[] = {
-    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_8x8,
     ATTR2_PALBANK(0) | ATTR2_ID(1017),
     0,
@@ -59,7 +59,7 @@ const u16 waveTrailChunk[] = {
 };
 
 const u16 miniWaveTrailChunk[] = {
-    ATTR0_4BPP | ATTR0_TALL,
+    ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
     ATTR1_SIZE_8x16,
     ATTR2_PALBANK(0) | ATTR2_ID(1018),
     0,
