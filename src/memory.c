@@ -137,6 +137,8 @@ EWRAM_DATA u32 trail_x[PLAYER_COUNT][TRAIL_LENGTH];
 EWRAM_DATA u16 trail_y[PLAYER_COUNT][TRAIL_LENGTH];
 EWRAM_DATA u8 trail_enabled[PLAYER_COUNT][TRAIL_LENGTH];
 
+EWRAM_DATA u8 trail_length[PLAYER_COUNT];
+
 u8 in_practice_mode;
 
 u32 checkpoint_count;

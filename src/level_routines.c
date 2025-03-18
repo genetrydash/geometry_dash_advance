@@ -1423,7 +1423,13 @@ void handle_wave_trail() {
 }
 
 void handle_trail() {
-    for (s32 i = 0; i < TRAIL_LENGTH; i++) {
+    // Get initial trail index
+    s32 initial_index = (curr_player.player_size == SIZE_BIG ? 0 : (u32) (TRAIL_LENGTH * (1 - MINI_SIZE)));
+
+    // Approach trail index by 1 per frame
+    trail_length[curr_player_id] = approach_value(trail_length[curr_player_id], initial_index, 1, 1);
+
+    for (s32 i = trail_length[curr_player_id]; i < TRAIL_LENGTH; i++) {
         u32 x = trail_x[curr_player_id][i];
         u16 y = trail_y[curr_player_id][i];
 
@@ -1434,7 +1440,7 @@ void handle_trail() {
         // Put the trail sprite
         if (trail_enabled[curr_player_id][i - 1]) oam_metaspr(relative_x, relative_y, waveTrailChunk, FALSE, FALSE, 0, 0, 0, 0, FALSE);
 
-        // Move left
+        // Shift left this trail chunk
         if (i != 0) {
             trail_enabled[curr_player_id][i - 1] = trail_enabled[curr_player_id][i];
             trail_x[curr_player_id][i - 1] = trail_x[curr_player_id][i];
@@ -1448,9 +1454,13 @@ void set_trail_point() {
     u32 x = FROM_FIXED(curr_player.player_x);
     u16 y = FROM_FIXED(curr_player.player_y);
 
-    // Set the new point in the first slot
+    // Set point in the last slot
     trail_x[curr_player_id][TRAIL_LENGTH - 1] = x + 4;
-    trail_y[curr_player_id][TRAIL_LENGTH - 1] = y + 4;
+    s32 y_offset = 4;
+    if (curr_player.gamemode != GAMEMODE_CUBE && curr_player.gamemode != GAMEMODE_BALL) {
+        y_offset += (curr_player.gravity_dir == GRAVITY_DOWN ? 4 : -4);
+    }
+    trail_y[curr_player_id][TRAIL_LENGTH - 1] = y + y_offset;
     trail_enabled[curr_player_id][TRAIL_LENGTH - 1] = TRUE;
 }
 
