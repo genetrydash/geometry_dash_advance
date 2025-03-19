@@ -606,8 +606,9 @@ void draw_player() {
         
         u8 priority = (cutscene_frame > TOTAL_CUTSCENE_FRAMES - 20) ? 2 : 0;
 
-        // Handle trails depending on gamemode
+        // Draw normal trail if not a wave
         if (curr_player.gamemode != GAMEMODE_WAVE) {
+            // If gamemode is a cube or ball, draw when trail_on is TRUE, if not a cube or ball, always draw the trail
             if (curr_player.gamemode == GAMEMODE_CUBE || curr_player.gamemode == GAMEMODE_BALL) {
                 if (curr_player.trail_on) {
                     set_trail_point();
@@ -619,7 +620,8 @@ void draw_player() {
             }
 
             handle_trail();
-        } else {
+        } else if (!complete_cutscene) {
+            // Else, if it's a wave and the complete cutscene is not playing, draw the wave trail
             handle_wave_trail();
         }
 
