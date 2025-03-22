@@ -58,6 +58,17 @@ const u16 waveTrailChunk[] = {
     0xffff
 };
 
+const u16 normalTrailChunk[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_8x8,
+    ATTR2_PALBANK(0) | ATTR2_ID(1020),
+    0,
+    0,
+    PRIO_IDOFF(3, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
 const u16 miniWaveTrailChunk[] = {
     ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
     ATTR1_SIZE_8x16,

@@ -1438,7 +1438,7 @@ void handle_trail() {
         s32 relative_y = y - FROM_FIXED(scroll_y);
 
         // Put the trail sprite
-        if (trail_enabled[curr_player_id][i - 1]) oam_metaspr(relative_x, relative_y, waveTrailChunk, FALSE, FALSE, 0, 0, 0, 0, FALSE);
+        if (trail_enabled[curr_player_id][i - 1]) oam_metaspr(relative_x, relative_y, normalTrailChunk, FALSE, FALSE, 0, 0, 0, 0, FALSE);
 
         // Shift left this trail chunk
         if (i != 0) {
