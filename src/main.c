@@ -303,7 +303,7 @@ void game_loop() {
         key_poll();
 
         // If pressed start, pause the game
-        if (key_hit(KEY_START)) {
+        if (key_hit(KEY_START) && !complete_cutscene) {
             if (paused_routines()) {
                 mmStop();
                 mmEffect(SFX_LEVEL_EXIT);
