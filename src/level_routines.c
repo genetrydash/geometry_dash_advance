@@ -1416,10 +1416,15 @@ void set_trail_point() {
 
     // Set point in the last slot
     trail_x[curr_player_id][TRAIL_LENGTH - 1] = x + 4;
+
     s32 y_offset = 4;
-    if (curr_player.gamemode != GAMEMODE_CUBE && curr_player.gamemode != GAMEMODE_BALL) {
-        y_offset += (curr_player.gravity_dir == GRAVITY_DOWN ? 4 : -4);
+    // If ship or ufo, offset the trail y
+    if (curr_player.gamemode == GAMEMODE_SHIP || curr_player.gamemode == GAMEMODE_UFO) {
+        // Offset by an amount depending on size
+        if (curr_player.player_size == SIZE_MINI) y_offset += (curr_player.gravity_dir == GRAVITY_DOWN ? 2 : -2);
+        else y_offset += (curr_player.gravity_dir == GRAVITY_DOWN ? 4 : -4);
     }
+
     trail_y[curr_player_id][TRAIL_LENGTH - 1] = y + y_offset;
     trail_enabled[curr_player_id][TRAIL_LENGTH - 1] = TRUE;
 }
