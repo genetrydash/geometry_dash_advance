@@ -35,6 +35,11 @@ ARM_CODE void collision_cube() {
 
     collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
 
+    // Check sprite spikes
+    coll_x = (curr_player.player_x >> SUBPIXEL_BITS);
+    coll_y = (curr_player.player_y >> SUBPIXEL_BITS);
+    collide_with_obj_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
+
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
         coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
@@ -153,6 +158,11 @@ ARM_CODE void collision_ship_ball_ufo() {
     coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
     
     collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
+    
+    // Check sprite spikes
+    coll_x = (curr_player.player_x >> SUBPIXEL_BITS);
+    coll_y = (curr_player.player_y >> SUBPIXEL_BITS);
+    collide_with_obj_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
@@ -234,6 +244,11 @@ ARM_CODE void collision_wave() {
     
     collide_with_map_slopes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
 
+    // Check sprite spikes
+    coll_x = (curr_player.player_x >> SUBPIXEL_BITS);
+    coll_y = (curr_player.player_y >> SUBPIXEL_BITS);
+    collide_with_obj_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
+    
     u8 offset = curr_player.player_size ? 2 : 3;
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
@@ -836,11 +851,13 @@ ARM_CODE u32 run_coll(u32 x, u32 y, u32 layer, u8 side) {
     return col_type_lookup(col_type, x, y, side, layer);
 }
 
+#define COLLISION_DISTANCE 48
+
 ARM_CODE s32 check_collision_distance(struct ObjectSlot curr_object) {
     s32 player_x_pixels = curr_player.player_x >> SUBPIXEL_BITS;
     s32 player_y_pixels = curr_player.player_y >> SUBPIXEL_BITS;
-    return (s32) curr_object.object.x > player_x_pixels - 48 && (s32) curr_object.object.x < player_x_pixels + 48 &&
-           (s32) curr_object.object.y > player_y_pixels - 48 && (s32) curr_object.object.y < player_y_pixels + 48;
+    return (s32) curr_object.object.x > player_x_pixels - COLLISION_DISTANCE && (s32) curr_object.object.x < player_x_pixels + COLLISION_DISTANCE &&
+           (s32) curr_object.object.y > player_y_pixels - COLLISION_DISTANCE && (s32) curr_object.object.y < player_y_pixels + COLLISION_DISTANCE;
 }
 
 ARM_CODE void do_collision_with_objects() {
@@ -1378,9 +1395,6 @@ const jmp_table spike_coll_jump_table[] = {
 
 // This function iterates through spikes that the player is touching and applies collision to it
 ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 layer) {
-    // Try to collide with sprite spikes
-    collide_with_obj_spikes(x, y, width, height);
-
     // Iterate through 4 metatiles, forming a 2x2 metatile square
     // As the cube won't be bigger than a single 16x16 metatile, the cube can touch up to 4 metatiles
     for (u32 side = 0; side < 4; side++) {

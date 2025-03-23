@@ -123,9 +123,9 @@ u8 curr_player_id;
 s32 gamemode_upload_buffer[2];
 
 // Holds collected coins while on a level
-u8 coin_buffer[NUM_COINS_PER_LEVEL];
-s32 coin_speed[NUM_COINS_PER_LEVEL];
-s32 coin_y_pos[NUM_COINS_PER_LEVEL];
+EWRAM_DATA u8 coin_buffer[NUM_COINS_PER_LEVEL];
+EWRAM_DATA s32 coin_speed[NUM_COINS_PER_LEVEL];
+EWRAM_DATA s32 coin_y_pos[NUM_COINS_PER_LEVEL];
 
 EWRAM_DATA u8 wave_trail_pointer[PLAYER_COUNT];
 

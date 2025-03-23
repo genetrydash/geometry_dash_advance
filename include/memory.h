@@ -141,9 +141,9 @@ extern u8 curr_player_id;
 
 extern s32 gamemode_upload_buffer[2];
 
-extern u8 coin_buffer[NUM_COINS_PER_LEVEL];
-extern s32 coin_speed[NUM_COINS_PER_LEVEL];
-extern s32 coin_y_pos[NUM_COINS_PER_LEVEL];
+extern EWRAM_DATA u8 coin_buffer[NUM_COINS_PER_LEVEL];
+extern EWRAM_DATA s32 coin_speed[NUM_COINS_PER_LEVEL];
+extern EWRAM_DATA s32 coin_y_pos[NUM_COINS_PER_LEVEL];
 
 #include "player.h"
 

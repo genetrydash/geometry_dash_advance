@@ -2091,13 +2091,9 @@
     <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="1084" gid="4145" x="4416" y="480" width="16" height="16"/>
   <object id="1085" gid="4117" x="4416" y="480" width="16" height="16"/>
-  <object id="1086" gid="4145" x="4448" y="480" width="16" height="16"/>
   <object id="1087" gid="4117" x="4448" y="480" width="16" height="16"/>
-  <object id="1088" gid="4145" x="4416" y="592" width="16" height="16"/>
   <object id="1089" gid="4117" x="4416" y="592" width="16" height="16"/>
-  <object id="1090" gid="4145" x="4448" y="592" width="16" height="16"/>
   <object id="1091" gid="4117" x="4448" y="592" width="16" height="16"/>
   <object id="1094" gid="129" x="4400" y="536" width="16" height="16"/>
   <object id="1095" gid="132" x="4416" y="536" width="16" height="16"/>
