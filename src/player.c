@@ -87,7 +87,7 @@ void player_main() {
         
         if (curr_player.player_y < -0x200000) player_death = TRUE;
 
-        if (key_held(KEY_A | KEY_UP)) {
+        if (key_is_down(KEY_A | KEY_UP)) {
             if (curr_player.player_buffering == NO_ORB_BUFFER) {
                 curr_player.player_buffering = ORB_BUFFER_READY;
             }
@@ -171,7 +171,7 @@ void cube_gamemode() {
     s8 mirror_sign = screen_mirrored ? -1 : 1;
    
     // If on floor and holding A or UP, jump
-    if (curr_player.on_floor && (key_hit(KEY_A | KEY_UP) || key_held(KEY_A | KEY_UP))) {
+    if (curr_player.on_floor && key_is_down(KEY_A | KEY_UP)) {
         if (key_hit(KEY_A | KEY_UP)) {
             curr_player.player_y_speed = -((curr_player.player_size == SIZE_BIG) ? CUBE_FIRST_JUMP_SPEED : CUBE_MINI_FIRST_JUMP_SPEED) * sign;     
         } else {
@@ -477,7 +477,7 @@ void wave_gamemode() {
     }
 
     s8 sign = curr_player.gravity_dir ? -1 : 1;
-    s8 hold_sign = key_held(KEY_A | KEY_UP) ? -1 : 1;
+    s8 hold_sign = key_is_down(KEY_A | KEY_UP) ? -1 : 1;
     s8 mirror_sign = screen_mirrored ? 1 : -1;
 
     curr_player.cube_rotation = ArcTan2(curr_player.player_x_speed >> 8, curr_player.player_y_speed >> 8) * mirror_sign;
@@ -538,7 +538,7 @@ void do_cube_gravity() {
 }
 
 void do_ship_gravity(s32 max_y_speed, s32 max_y_speed_holding) {
-    u32 holding = key_held(KEY_A | KEY_UP);
+    u32 holding = key_is_down(KEY_A | KEY_UP);
 
     if (holding) {
         curr_player.gravity = ((curr_player.player_size == SIZE_BIG) ? SHIP_GRAVITY_BASE : SHIP_MINI_GRAVITY_BASE);
