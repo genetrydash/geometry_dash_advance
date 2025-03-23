@@ -337,7 +337,8 @@ void game_loop() {
             fade_out();
             mmStart(MOD_MENU, MM_PLAY_LOOP);
             clear_checkpoints();
-            complete_cutscene = FALSE; 
+            complete_cutscene = FALSE;        
+            cutscene_frame = 0;
             in_practice_mode = FALSE;
             return;
         }
