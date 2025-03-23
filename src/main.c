@@ -9,6 +9,7 @@
 #include "level_select.h"
 #include "title_screen.h"
 #include "sound_test.h"
+#include "icon_kit.h"
 
 void game_loop();
 u32 paused_routines();
@@ -209,6 +210,7 @@ void rom_waitstates() {
         }
     }
 }
+void main_loop();
 
 s32 main() {
     init_maxmod();
@@ -218,9 +220,17 @@ s32 main() {
     rom_waitstates();
 
     init_sram();
+
+    game_state = STATE_TITLE_SCREEN;
     
     mmStart(MOD_MENU, MM_PLAY_LOOP);
 
+    main_loop();
+
+    return 0;
+}
+
+void main_loop() {
     while(1) {
         switch (game_state) {
             case STATE_TITLE_SCREEN:
@@ -230,18 +240,20 @@ s32 main() {
             case STATE_LEVEL_SELECT:
                 level_select_loop();
                 break;
-            
-            case STATE_PLAYING:
-                game_loop();
+                
+            case STATE_ICON_KIT:
+                icon_kit_loop();
                 break;
 
             case STATE_SOUND_TEST:
                 sound_test_loop();
                 break;
+        
+            case STATE_PLAYING:
+                game_loop();
+                break;
         }
     }
-
-    return 0;
 }
 
 void game_loop() {

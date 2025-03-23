@@ -74,7 +74,7 @@ const u16 sound_test_song_ids[] = {
 void put_song_info(u32 song_id);
 
 void sound_test_loop() {
-    // Enable all BGs, also enable sprites
+    // Enable BG 0 and 1
     REG_DISPCNT = DCNT_MODE0 | DCNT_BG0 | DCNT_BG1;
 
     REG_BG0CNT  = BG_CBB(0) | BG_SBB(26) | BG_REG_32x32 | BG_PRIO(1);

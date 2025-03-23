@@ -765,50 +765,6 @@ void set_new_best(u32 new_best, u32 mode) {
     
 }
 
-#define PLAYER_CHR_SIZE (2 * (sizeof(TILE) / sizeof(u32)))
-#define PLAYER_CHR_SIZE_BYTES (2 * sizeof(TILE))
-
-const TILE *icon_kit[] = {
-    cubes,
-    ships,
-    balls,
-    ufos,
-    waves,
-};
-
-const u16 *icon_selection_table[] = {
-    &save_data.cube_selected,
-    &save_data.ship_selected,
-    &save_data.ball_selected,
-    &save_data.ufo_selected,
-    &save_data.wave_selected
-};
-
-void upload_player_chr(u32 gamemode, u32 player_id) {
-    u16 icon_selected = *icon_selection_table[gamemode];
-
-    // Get lower nybble, this is inside the row of icons
-    u32 lower = (icon_selected & 0b111) << 1;
-
-    // Get the rest of bits, shift twice to get the proper even 16 tile line
-    u32 higher = (icon_selected & ~0b111) << 2;
-
-    u32 index = higher | lower;
-
-    if (player_id == ID_PLAYER_1) {
-        // Copy player sprite into VRAM
-        memcpy32(&tile_mem_obj[0][0], &icon_kit[gamemode][index], PLAYER_CHR_SIZE);
-        memcpy32(&tile_mem_obj[0][2], &icon_kit[gamemode][index + 0x10], PLAYER_CHR_SIZE);
-    } else {
-        // Flip colors
-        flip_player_colors(vram_copy_buffer, (u8*)(&icon_kit[gamemode][index]), 2);
-        memcpy32(&tile_mem_obj[0][4], vram_copy_buffer, PLAYER_CHR_SIZE);
-        
-        flip_player_colors(vram_copy_buffer, (u8*)(&icon_kit[gamemode][index + 0x10]), 2);
-        memcpy32(&tile_mem_obj[0][6], vram_copy_buffer, PLAYER_CHR_SIZE);
-    }
-}
-
 // This should be always called when curr_player is player 1
 void activate_dual() {
     if (dual == DUAL_OFF) {

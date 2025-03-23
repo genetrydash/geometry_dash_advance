@@ -15,6 +15,7 @@
 .global animated_sprites
 .global level_text_chr
 .global level_complete_screen
+.global icon_kit_chr
 .global grounds
     
 .align 2
@@ -25,10 +26,13 @@ sprites_chr:
     .incbin "graphics/sprites.chr"
     
 title_screen_chr:
-    .incbin "graphics/title_screen.chr"
+    .incbin "graphics/title_screen/title_screen.chr"
 
 level_select_chr:
-    .incbin "graphics/level_select.chr"
+    .incbin "graphics/level_select/level_select.chr"
+    
+icon_kit_chr:
+    .incbin "graphics/icon_kit/icon_kit.chr"
 
 animated_sprites:
     .incbin "graphics/animated_sprites.chr"
@@ -37,7 +41,7 @@ level_text_chr:
     .incbin "graphics/level_text.chr"
 
 level_complete_screen:
-    .incbin "graphics/level_complete_screen.chr"
+    .incbin "graphics/level_complete_screen/level_complete_screen.chr"
 
 grounds:
     .incbin "graphics/grounds.chr"

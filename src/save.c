@@ -15,6 +15,7 @@ void init_sram() {
 
 	// Clear if magic is invalid or different save version
 	if (save_data.magic != 0xdeadbeef || save_data.save_version != SAVE_VERSION) {
+		memcpy8(sram_mem, 0x00, SRAM_SIZE);
 		memset32((u32*)&save_data, 0x00, sizeof(save_data) / 4);
 		save_data.magic = 0xdeadbeef;
 		save_data.save_version = SAVE_VERSION;

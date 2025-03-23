@@ -164,6 +164,18 @@ const u16 numberSpr[] = {
     0xffff
 };
 
+// Icon Kit selection
+const u16 iconKitSelection[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(0) | ATTR2_ID(1008),
+    0,
+    0,
+    PRIO_IDOFF(0, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
 // Player
 
 const u16 player1Spr[] = {
@@ -181,6 +193,18 @@ const u16 player2Spr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_AFF_DBL,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(1),
     ATTR2_PALBANK(0) | ATTR2_ID(4),
+    0,
+    0,
+    PRIO_IDOFF(2, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+
+const u16 iconKitIcon[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(0),
     0,
     0,
     PRIO_IDOFF(2, 0, 0), // id offset

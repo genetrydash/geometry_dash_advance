@@ -90,7 +90,13 @@ void title_screen_loop() {
             game_state = STATE_LEVEL_SELECT;
             break;
         }
-        
+
+        // Icon kit
+        if (key_hit(KEY_L)) {
+            game_state = STATE_ICON_KIT;
+            break;
+        }
+
         // Sound test
         if (key_hit(KEY_SELECT)) {
             game_state = STATE_SOUND_TEST;

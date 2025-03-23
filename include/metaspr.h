@@ -18,8 +18,10 @@ extern const u16 fineBarSpr[];
 extern const u16 fineBarMaskSpr[];
 
 extern const u16 numberSpr[];
+extern const u16 iconKitSelection[];
 extern const u16 player1Spr[];
 extern const u16 player2Spr[];
+extern const u16 iconKitIcon[];
 extern const u16 *obj_sprites[];
 extern const u32 obj_chr_offset[][2];
 extern const u16 practiceCheckpoint[];

@@ -15,6 +15,10 @@
 #define PRACTICE_GUI_W 7
 #define PRACTICE_GUI_H 4
 
+#define PLAYER_CHR_SIZE (2 * (sizeof(TILE) / sizeof(u32)))
+#define PLAYER_CHR_SIZE_BYTES (2 * sizeof(TILE))
+
+
 extern s32 seam_x;
 extern s32 seam_y;
 
@@ -44,8 +48,6 @@ u32 get_level_progress();
 void set_new_best(u32 new_best, u32 mode);
 
 void mirror_transition();
-
-void upload_player_chr(u32 gamemode, u32 player_id);
 
 void activate_dual();
 void deactivate_dual();
