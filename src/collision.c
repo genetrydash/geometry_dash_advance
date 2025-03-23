@@ -51,23 +51,6 @@ ARM_CODE void collision_cube() {
             return;
         }
 
-
-        // Do center hitbox checks
-        coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
-        coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_height) >> 1);      
-
-#ifdef DEBUG
-        if (!noclip) {
-            if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
-                return;
-            }
-        }
-#else
-        if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
-            return;
-        }
-#endif
-
         if (curr_player.gravity_dir == GRAVITY_DOWN) {
             if (curr_player.player_y_speed >= 0) {
                 // Going down
@@ -144,6 +127,19 @@ ARM_CODE void collision_cube() {
         }
     }
 
+    // Do center hitbox checks
+    coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
+    coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_height) >> 1);      
+
+#ifdef DEBUG
+    if (!noclip) {
+        do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 0);
+        do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 1);
+    }
+#else
+    do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 0);
+    do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 1);
+#endif
 }
 
 ARM_CODE void collision_ship_ball_ufo() {
@@ -173,21 +169,6 @@ ARM_CODE void collision_ship_ball_ufo() {
         if (player_death) {
             return;
         }
-        // Do center hitbox checks
-        coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
-        coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_height) >> 1);      
-
-#ifdef DEBUG
-        if (!noclip) {
-            if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
-                return;
-            }
-        }
-#else
-        if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
-            return;
-        }
-#endif
 
         if (curr_player.player_y_speed >= 0) {
             // Going down
@@ -225,6 +206,21 @@ ARM_CODE void collision_ship_ball_ufo() {
             }
         }
     }
+    
+
+    // Do center hitbox checks
+    coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
+    coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_height) >> 1);      
+
+#ifdef DEBUG
+    if (!noclip) {
+        do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 0);
+        do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 1);
+    }
+#else
+    do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 0);
+    do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 1);
+#endif
 }
 ARM_CODE void collision_wave() {
     // Exit if above screen
@@ -255,22 +251,6 @@ ARM_CODE void collision_wave() {
         if (player_death) {
             return;
         }
-        
-        // Do center hitbox checks
-        coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
-        coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_height) >> 1);      
-
-#ifdef DEBUG
-        if (!noclip) {
-            if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
-                return;
-            }
-        }
-#else
-        if (do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, layer)) {
-            return;
-        }
-#endif
 
         if (curr_player.player_y_speed >= 0) {
             // Going down
@@ -307,6 +287,20 @@ ARM_CODE void collision_wave() {
             }
         }
     }
+    
+    // Do center hitbox checks
+    coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_width) >> 1);
+    coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_internal_hitbox_height) >> 1);      
+
+#ifdef DEBUG
+    if (!noclip) {
+        do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 0);
+        do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 1);
+    }
+#else
+    do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 0);
+    do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 1);
+#endif
 }
 
 ARM_CODE u32 obtain_level_buffer_index(u32 x, u32 y) {
@@ -402,7 +396,7 @@ const u8 gamemode_max_eject[] = {
     /* Ship */ 0x04,
     /* Ball */ 0x06,
     /* Ufo */  0x04,
-    /* Wave */ 0x06,
+    /* Wave */ 0x0a,
 };
 
 ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
@@ -1730,7 +1724,7 @@ u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height) {
     player.cy = y + (height >> 1);
 
     // Make wave hitbox 2 pixels bigger
-    if (curr_player.gamemode == GAMEMODE_WAVE) player.radius += 2;
+    if (curr_player.gamemode == GAMEMODE_WAVE) player.radius += 4;
 
     // Try to collide with sprite slopes only in the first layer check
     if (collide_with_obj_slopes(&player)) {

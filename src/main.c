@@ -255,6 +255,7 @@ void main_loop() {
         }
     }
 }
+void level_loop();
 
 void game_loop() {
     // Fade out
@@ -310,6 +311,10 @@ void game_loop() {
     frame_finished = TRUE;
     fade_in_level();
 
+    level_loop();
+}
+
+void level_loop() {
     while (1) { 
         frame_finished = FALSE;
         key_poll();
