@@ -12,7 +12,7 @@
 #include <ctype.h>
 #include "color.h"
 
-const char sound_test_songs_names[][100] = {
+const char *sound_test_songs_names[] = {
     "STEREO MADNESS",
     "BACK ON TRACK",
     "POLARGEIST",
@@ -32,7 +32,7 @@ const char sound_test_songs_names[][100] = {
     "STAY INSIDE ME",
 };
 
-const char sound_test_song_files[][50] = {
+const char *sound_test_song_files[] = {
     "STEREOMA.XM",
     "BACKOT.XM",
     "POLAR.XM",
