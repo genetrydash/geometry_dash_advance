@@ -3,7 +3,7 @@
 
 #pragma once
 
-#define NUM_STEPS 2
+#define NUM_STEPS 3
 
 #define TOTAL_CUTSCENE_FRAMES 60
 #define EXIT_CUTSCENE_FRAME 240
