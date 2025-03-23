@@ -339,6 +339,8 @@ void game_loop() {
             clear_checkpoints();
             complete_cutscene = FALSE;        
             cutscene_frame = 0;
+            screen_mirrored = FALSE;
+            screen_mirrored_transition = FALSE;
             in_practice_mode = FALSE;
             return;
         }

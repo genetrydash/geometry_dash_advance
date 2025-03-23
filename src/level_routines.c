@@ -1358,6 +1358,8 @@ void handle_gamemode_uploads() {
 }
 
 void handle_wave_trail() {
+    u32 priority = (cutscene_frame > TOTAL_CUTSCENE_FRAMES - 20) ? 2 : 0;
+    
     for (s32 i = 0; i < wave_trail_pointer[curr_player_id]; i++) {
         u32 x = wave_trail_x[curr_player_id][i];
         u16 y = wave_trail_y[curr_player_id][i];
@@ -1368,8 +1370,8 @@ void handle_wave_trail() {
         s32 relative_y = y - FROM_FIXED(scroll_y);
 
         // Put the trail sprite depending on size
-        if (size == SIZE_BIG) oam_metaspr(relative_x, relative_y, waveTrailChunk, FALSE, FALSE, 0, 0, 0, 0, FALSE);
-        else oam_metaspr(relative_x, relative_y - 4, miniWaveTrailChunk, FALSE, FALSE, 0, 0, 0, 0, FALSE);
+        if (size == SIZE_BIG) oam_metaspr(relative_x, relative_y, waveTrailChunk, FALSE, FALSE, 0, 0, priority, 0, FALSE);
+        else oam_metaspr(relative_x, relative_y - 4, miniWaveTrailChunk, FALSE, FALSE, 0, 0, priority, 0, FALSE);
 
         // If this point is offscreen, remove it
         if (relative_x < -8) {
@@ -1384,6 +1386,8 @@ void handle_trail() {
 
     // Approach trail index by 1 per frame
     trail_length[curr_player_id] = approach_value(trail_length[curr_player_id], initial_index, 1, 1);
+    
+    u32 priority = (cutscene_frame > TOTAL_CUTSCENE_FRAMES - 20) ? 2 : 0;
 
     for (s32 i = trail_length[curr_player_id]; i < TRAIL_LENGTH; i++) {
         u32 x = trail_x[curr_player_id][i];
@@ -1394,7 +1398,7 @@ void handle_trail() {
         s32 relative_y = y - FROM_FIXED(scroll_y);
 
         // Put the trail sprite
-        if (trail_enabled[curr_player_id][i - 1]) oam_metaspr(relative_x, relative_y, normalTrailChunk, FALSE, FALSE, 0, 0, 0, 0, FALSE);
+        if (trail_enabled[curr_player_id][i - 1]) oam_metaspr(relative_x, relative_y, normalTrailChunk, FALSE, FALSE, 0, 0, priority, 0, FALSE);
 
         // Shift left this trail chunk
         if (i != 0) {
