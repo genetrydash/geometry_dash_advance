@@ -3828,133 +3828,101 @@ clubstep_spr_data:
    .hword 16384 @ rotation
 @ Object 606
    .hword 0x50 @ delta x
-   .hword 0x1d0 @ y
-   .hword 0x5d @ type
-   .hword 0x14 @ bg layer 2 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 607
-   .hword 0x0 @ delta x
    .hword 0x1d8 @ y
    .hword 0x5c @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 608
+@ Object 607
    .hword 0x0 @ delta x
    .hword 0x1e0 @ y
    .hword 0x5d @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 609
+@ Object 608
    .hword 0x0 @ delta x
    .hword 0x1e8 @ y
    .hword 0x5c @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 610
+@ Object 609
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x5d @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 611
+@ Object 610
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x5d @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 612
+@ Object 611
    .hword 0x0 @ delta x
    .hword 0x248 @ y
    .hword 0x5c @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 613
+@ Object 612
    .hword 0x0 @ delta x
    .hword 0x250 @ y
    .hword 0x5d @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 614
+@ Object 613
    .hword 0x0 @ delta x
    .hword 0x258 @ y
    .hword 0x5c @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 615
-   .hword 0x0 @ delta x
-   .hword 0x260 @ y
-   .hword 0x5d @ type
-   .hword 0x14 @ bg layer 2 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 616
+@ Object 614
    .hword 0x10 @ delta x
    .hword 0x218 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 128 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 617
-   .hword 0x0 @ delta x
-   .hword 0x22c @ y
-   .hword 0x5b @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 618
+@ Object 615
    .hword 0x8 @ delta x
-   .hword 0x200 @ y
-   .hword 0x5c @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 619
-   .hword 0x0 @ delta x
    .hword 0x208 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 363 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 620
+@ Object 616
    .hword 0x0 @ delta x
    .hword 0x228 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 27 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 621
-   .hword 0x0 @ delta x
-   .hword 0x230 @ y
-   .hword 0x5b @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 622
+@ Object 617
    .hword 0x8 @ delta x
    .hword 0x1e0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 623
+@ Object 618
    .hword 0x0 @ delta x
    .hword 0x218 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 131 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 624
+@ Object 619
    .hword 0x0 @ delta x
    .hword 0x250 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 625
+@ Object 620
    .hword 0x8 @ delta x
    .hword 0x1a0 @ y
    .hword 0x3 @ type
@@ -3962,66 +3930,42 @@ clubstep_spr_data:
    .hword 0x583f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 626
-   .hword 0x0 @ delta x
-   .hword 0x200 @ y
-   .hword 0x5d @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 627
+@ Object 621
    .hword 0x0 @ delta x
    .hword 0x208 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 355 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 628
+@ Object 622
    .hword 0x0 @ delta x
    .hword 0x228 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 23 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 629
-   .hword 0x0 @ delta x
-   .hword 0x230 @ y
-   .hword 0x5d @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 630
+@ Object 623
    .hword 0x8 @ delta x
-   .hword 0x208 @ y
-   .hword 0x5d @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 631
-   .hword 0x0 @ delta x
    .hword 0x218 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 131 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 632
-   .hword 0x0 @ delta x
-   .hword 0x228 @ y
-   .hword 0x5c @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 633
+@ Object 624
    .hword 0x8 @ delta x
    .hword 0x208 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 355 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 634
+@ Object 625
    .hword 0x0 @ delta x
    .hword 0x228 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 23 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 635
+@ Object 626
    .hword 0x8 @ delta x
    .hword 0x1a0 @ y
    .hword 0x3 @ type
@@ -4029,194 +3973,162 @@ clubstep_spr_data:
    .hword 0x743f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 636
+@ Object 627
    .hword 0x0 @ delta x
    .hword 0x1e0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 637
-   .hword 0x0 @ delta x
-   .hword 0x208 @ y
-   .hword 0x5c @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 638
+@ Object 628
    .hword 0x0 @ delta x
    .hword 0x218 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 131 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 639
+@ Object 629
    .hword 0x0 @ delta x
    .hword 0x250 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 640
+@ Object 630
    .hword 0x8 @ delta x
-   .hword 0x200 @ y
-   .hword 0x5b @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 641
-   .hword 0x0 @ delta x
    .hword 0x208 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 363 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 642
+@ Object 631
    .hword 0x0 @ delta x
    .hword 0x228 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 23 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 643
-   .hword 0x0 @ delta x
-   .hword 0x230 @ y
-   .hword 0x5b @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 644
+@ Object 632
    .hword 0x8 @ delta x
    .hword 0x218 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 129 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 645
+@ Object 633
    .hword 0x10 @ delta x
-   .hword 0x1d0 @ y
-   .hword 0x5d @ type
-   .hword 0x14 @ bg layer 2 rotated   
-   .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
-@ Object 646
-   .hword 0x0 @ delta x
    .hword 0x1d8 @ y
    .hword 0x5c @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 647
+@ Object 634
    .hword 0x0 @ delta x
    .hword 0x1e0 @ y
    .hword 0x5d @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 648
+@ Object 635
    .hword 0x0 @ delta x
    .hword 0x1e8 @ y
    .hword 0x5c @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 649
+@ Object 636
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x5d @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 650
+@ Object 637
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x5d @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 651
+@ Object 638
    .hword 0x0 @ delta x
    .hword 0x248 @ y
    .hword 0x5c @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 652
+@ Object 639
    .hword 0x0 @ delta x
    .hword 0x250 @ y
    .hword 0x5d @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 653
+@ Object 640
    .hword 0x0 @ delta x
    .hword 0x258 @ y
    .hword 0x5c @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 654
-   .hword 0x0 @ delta x
-   .hword 0x260 @ y
-   .hword 0x5d @ type
-   .hword 0x14 @ bg layer 2 rotated   
-   .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
-@ Object 655
+@ Object 641
    .hword 0x20 @ delta x
    .hword 0x240 @ y
    .hword 0x68 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 656
+@ Object 642
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 657
+@ Object 643
    .hword 0x10 @ delta x
    .hword 0x1f0 @ y
    .hword 0x69 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 658
+@ Object 644
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 659
+@ Object 645
    .hword 0x20 @ delta x
    .hword 0x1e0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 660
+@ Object 646
    .hword 0x0 @ delta x
    .hword 0x1e8 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 661
+@ Object 647
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 662
+@ Object 648
    .hword 0x0 @ delta x
    .hword 0x1f8 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 663
+@ Object 649
    .hword 0x0 @ delta x
    .hword 0x200 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 664
+@ Object 650
    .hword 0x8 @ delta x
    .hword 0x1a0 @ y
    .hword 0x3 @ type
@@ -4224,183 +4136,183 @@ clubstep_spr_data:
    .hword 0x12ff @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 665
+@ Object 651
    .hword 0x18 @ delta x
    .hword 0x1f0 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 666
+@ Object 652
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 667
+@ Object 653
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0xf @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 668
+@ Object 654
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 669
+@ Object 655
    .hword 0x18 @ delta x
    .hword 0x210 @ y
    .hword 0x5b @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 670
+@ Object 656
    .hword 0x0 @ delta x
    .hword 0x230 @ y
    .hword 0x5b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 671
+@ Object 657
    .hword 0x8 @ delta x
    .hword 0x1f0 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 672
+@ Object 658
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 673
+@ Object 659
    .hword 0x8 @ delta x
    .hword 0x210 @ y
    .hword 0x5c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 674
+@ Object 660
    .hword 0x0 @ delta x
    .hword 0x230 @ y
    .hword 0x5d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 675
+@ Object 661
    .hword 0x18 @ delta x
    .hword 0x1e0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 676
+@ Object 662
    .hword 0x0 @ delta x
    .hword 0x1e8 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 677
+@ Object 663
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 678
+@ Object 664
    .hword 0x0 @ delta x
    .hword 0x1f8 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 679
+@ Object 665
    .hword 0x0 @ delta x
    .hword 0x200 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 680
+@ Object 666
    .hword 0x0 @ delta x
    .hword 0x200 @ y
    .hword 0x4d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 681
+@ Object 667
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x4d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 682
+@ Object 668
    .hword 0x10 @ delta x
    .hword 0x1e0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 683
+@ Object 669
    .hword 0x0 @ delta x
    .hword 0x1e8 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 684
+@ Object 670
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 685
+@ Object 671
    .hword 0x0 @ delta x
    .hword 0x1f8 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 686
+@ Object 672
    .hword 0x0 @ delta x
    .hword 0x200 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 687
+@ Object 673
    .hword 0x0 @ delta x
    .hword 0x200 @ y
    .hword 0x4d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 688
+@ Object 674
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x4d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 689
+@ Object 675
    .hword 0x18 @ delta x
    .hword 0x210 @ y
    .hword 0x5d @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 690
+@ Object 676
    .hword 0x8 @ delta x
    .hword 0x1f0 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 691
+@ Object 677
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 692
+@ Object 678
    .hword 0x8 @ delta x
    .hword 0x1a0 @ y
    .hword 0x3 @ type
@@ -4408,25 +4320,25 @@ clubstep_spr_data:
    .hword 0x125f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 693
+@ Object 679
    .hword 0x0 @ delta x
    .hword 0x210 @ y
    .hword 0x5b @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 694
+@ Object 680
    .hword 0x0 @ delta x
    .hword 0x230 @ y
    .hword 0x5d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 695
+@ Object 681
    .hword 0x10 @ delta x
    .hword 0x210 @ y
    .hword 0x5c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 696
+@ Object 682
    .hword 0x8 @ delta x
    .hword 0x1a0 @ y
    .hword 0x3 @ type
@@ -4434,189 +4346,189 @@ clubstep_spr_data:
    .hword 0x12ff @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 697
+@ Object 683
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 698
+@ Object 684
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 699
+@ Object 685
    .hword 0x8 @ delta x
    .hword 0x230 @ y
    .hword 0x5b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 700
+@ Object 686
    .hword 0x18 @ delta x
    .hword 0x1e0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 701
+@ Object 687
    .hword 0x0 @ delta x
    .hword 0x1e8 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
+@ Object 688
+   .hword 0x0 @ delta x
+   .hword 0x1f0 @ y
+   .hword 0x5d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
+@ Object 689
+   .hword 0x0 @ delta x
+   .hword 0x1f8 @ y
+   .hword 0x5c @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
+@ Object 690
+   .hword 0x0 @ delta x
+   .hword 0x200 @ y
+   .hword 0x5d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
+@ Object 691
+   .hword 0x0 @ delta x
+   .hword 0x200 @ y
+   .hword 0x4d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
+@ Object 692
+   .hword 0x0 @ delta x
+   .hword 0x240 @ y
+   .hword 0x4d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
+@ Object 693
+   .hword 0x10 @ delta x
+   .hword 0x1e0 @ y
+   .hword 0x5d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 694
+   .hword 0x0 @ delta x
+   .hword 0x1e8 @ y
+   .hword 0x5c @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 695
+   .hword 0x0 @ delta x
+   .hword 0x1f0 @ y
+   .hword 0x5d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 696
+   .hword 0x0 @ delta x
+   .hword 0x1f8 @ y
+   .hword 0x5c @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 697
+   .hword 0x0 @ delta x
+   .hword 0x200 @ y
+   .hword 0x5d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 698
+   .hword 0x0 @ delta x
+   .hword 0x200 @ y
+   .hword 0x4d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 699
+   .hword 0x0 @ delta x
+   .hword 0x240 @ y
+   .hword 0x4d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 700
+   .hword 0x18 @ delta x
+   .hword 0x210 @ y
+   .hword 0x5b @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 701
+   .hword 0x8 @ delta x
+   .hword 0x1f0 @ y
+   .hword 0x30 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
 @ Object 702
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
-   .hword 0x5d @ type
-   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
 @ Object 703
-   .hword 0x0 @ delta x
-   .hword 0x1f8 @ y
-   .hword 0x5c @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
-@ Object 704
-   .hword 0x0 @ delta x
-   .hword 0x200 @ y
+   .hword 0x8 @ delta x
+   .hword 0x210 @ y
    .hword 0x5d @ type
-   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
+@ Object 704
+   .hword 0x10 @ delta x
+   .hword 0x230 @ y
+   .hword 0x5b @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
 @ Object 705
-   .hword 0x0 @ delta x
-   .hword 0x200 @ y
-   .hword 0x4d @ type
-   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x8 @ delta x
+   .hword 0x1f0 @ y
+   .hword 0x30 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
 @ Object 706
    .hword 0x0 @ delta x
-   .hword 0x240 @ y
-   .hword 0x4d @ type
-   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x1f0 @ y
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
 @ Object 707
-   .hword 0x10 @ delta x
-   .hword 0x1e0 @ y
-   .hword 0x5d @ type
-   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x8 @ delta x
+   .hword 0x210 @ y
+   .hword 0x5b @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
 @ Object 708
    .hword 0x0 @ delta x
-   .hword 0x1e8 @ y
-   .hword 0x5c @ type
-   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x230 @ y
+   .hword 0x5d @ type
+   .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
 @ Object 709
-   .hword 0x0 @ delta x
-   .hword 0x1f0 @ y
-   .hword 0x5d @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 710
-   .hword 0x0 @ delta x
-   .hword 0x1f8 @ y
-   .hword 0x5c @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 711
-   .hword 0x0 @ delta x
-   .hword 0x200 @ y
-   .hword 0x5d @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 712
-   .hword 0x0 @ delta x
-   .hword 0x200 @ y
-   .hword 0x4d @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 713
-   .hword 0x0 @ delta x
-   .hword 0x240 @ y
-   .hword 0x4d @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 714
-   .hword 0x18 @ delta x
-   .hword 0x210 @ y
-   .hword 0x5b @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 715
-   .hword 0x8 @ delta x
-   .hword 0x1f0 @ y
-   .hword 0x30 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 716
-   .hword 0x0 @ delta x
-   .hword 0x1f0 @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 717
-   .hword 0x8 @ delta x
-   .hword 0x210 @ y
-   .hword 0x5d @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 718
-   .hword 0x10 @ delta x
-   .hword 0x230 @ y
-   .hword 0x5b @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 719
-   .hword 0x8 @ delta x
-   .hword 0x1f0 @ y
-   .hword 0x30 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 720
-   .hword 0x0 @ delta x
-   .hword 0x1f0 @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 721
-   .hword 0x8 @ delta x
-   .hword 0x210 @ y
-   .hword 0x5b @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 722
-   .hword 0x0 @ delta x
-   .hword 0x230 @ y
-   .hword 0x5d @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 723
    .hword 0x8 @ delta x
    .hword 0x220 @ y
    .hword 0x2 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 724
+@ Object 710
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 725
+@ Object 711
    .hword 0x10 @ delta x
    .hword 0x1b0 @ y
    .hword 0x3 @ type
@@ -4624,239 +4536,239 @@ clubstep_spr_data:
    .hword 0x743f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 726
+@ Object 712
    .hword 0x0 @ delta x
    .hword 0x1e0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 727
+@ Object 713
    .hword 0x0 @ delta x
    .hword 0x1e8 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 728
+@ Object 714
    .hword 0x0 @ delta x
    .hword 0x1f0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 729
+@ Object 715
    .hword 0x0 @ delta x
    .hword 0x1f8 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 730
+@ Object 716
    .hword 0x0 @ delta x
    .hword 0x1f8 @ y
    .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 731
+@ Object 717
    .hword 0x0 @ delta x
    .hword 0x200 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 732
+@ Object 718
    .hword 0x0 @ delta x
    .hword 0x208 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 157 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 733
+@ Object 719
    .hword 0x0 @ delta x
    .hword 0x210 @ y
+   .hword 0x4b @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 720
+   .hword 0x0 @ delta x
+   .hword 0x218 @ y
+   .hword 0x11 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 721
+   .hword 0x10 @ delta x
+   .hword 0x1c0 @ y
+   .hword 0x3 @ type
+   .hword 0x4 @ changes BG for 0 frames
+   .hword 0x12ff @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 722
+   .hword 0x0 @ delta x
+   .hword 0x228 @ y
+   .hword 0x11 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 723
+   .hword 0x0 @ delta x
+   .hword 0x230 @ y
+   .hword 0x4b @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 724
+   .hword 0x0 @ delta x
+   .hword 0x238 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 158 @ metatile ID appareance
+   .hword 0x0 @ z index 0
+@ Object 725
+   .hword 0x0 @ delta x
+   .hword 0x248 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 157 @ metatile ID appareance
+   .hword 0x0 @ z index 0
+@ Object 726
+   .hword 0x10 @ delta x
+   .hword 0x1b0 @ y
+   .hword 0x3 @ type
+   .hword 0x4 @ changes BG for 0 frames
+   .hword 0x743f @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 727
+   .hword 0x0 @ delta x
+   .hword 0x1f8 @ y
+   .hword 0x4f @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 728
+   .hword 0x0 @ delta x
+   .hword 0x208 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 144 @ metatile ID appareance
+   .hword 0x0 @ z index 0
+@ Object 729
+   .hword 0x0 @ delta x
+   .hword 0x210 @ y
+   .hword 0x4b @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 730
+   .hword 0x0 @ delta x
+   .hword 0x218 @ y
+   .hword 0x11 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 731
+   .hword 0x10 @ delta x
+   .hword 0x1c0 @ y
+   .hword 0x3 @ type
+   .hword 0x4 @ changes BG for 0 frames
+   .hword 0x12ff @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 732
+   .hword 0x0 @ delta x
+   .hword 0x228 @ y
+   .hword 0x11 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 733
+   .hword 0x0 @ delta x
+   .hword 0x230 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 734
    .hword 0x0 @ delta x
-   .hword 0x218 @ y
-   .hword 0x11 @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x238 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 158 @ metatile ID appareance
    .hword 0x0 @ z index 0
 @ Object 735
+   .hword 0x0 @ delta x
+   .hword 0x248 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 157 @ metatile ID appareance
+   .hword 0x0 @ z index 0
+@ Object 736
    .hword 0x10 @ delta x
-   .hword 0x1c0 @ y
+   .hword 0x1b0 @ y
    .hword 0x3 @ type
    .hword 0x4 @ changes BG for 0 frames
-   .hword 0x12ff @ color
+   .hword 0x743f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 736
-   .hword 0x0 @ delta x
-   .hword 0x228 @ y
-   .hword 0x11 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
 @ Object 737
    .hword 0x0 @ delta x
-   .hword 0x230 @ y
-   .hword 0x4b @ type
+   .hword 0x1f8 @ y
+   .hword 0x4f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 738
    .hword 0x0 @ delta x
-   .hword 0x238 @ y
+   .hword 0x208 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
-   .hword 158 @ metatile ID appareance
+   .hword 144 @ metatile ID appareance
    .hword 0x0 @ z index 0
 @ Object 739
    .hword 0x0 @ delta x
-   .hword 0x248 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 157 @ metatile ID appareance
+   .hword 0x210 @ y
+   .hword 0x4b @ type
+   .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 740
-   .hword 0x10 @ delta x
-   .hword 0x1b0 @ y
-   .hword 0x3 @ type
-   .hword 0x4 @ changes BG for 0 frames
-   .hword 0x743f @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
+   .hword 0x0 @ delta x
+   .hword 0x218 @ y
+   .hword 0x11 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
 @ Object 741
-   .hword 0x0 @ delta x
-   .hword 0x1f8 @ y
-   .hword 0x4f @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 742
-   .hword 0x0 @ delta x
-   .hword 0x208 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 144 @ metatile ID appareance
-   .hword 0x0 @ z index 0
-@ Object 743
-   .hword 0x0 @ delta x
-   .hword 0x210 @ y
-   .hword 0x4b @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 744
-   .hword 0x0 @ delta x
-   .hword 0x218 @ y
-   .hword 0x11 @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 745
-   .hword 0x10 @ delta x
-   .hword 0x1c0 @ y
-   .hword 0x3 @ type
-   .hword 0x4 @ changes BG for 0 frames
-   .hword 0x12ff @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 746
-   .hword 0x0 @ delta x
-   .hword 0x228 @ y
-   .hword 0x11 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 747
-   .hword 0x0 @ delta x
-   .hword 0x230 @ y
-   .hword 0x4b @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 748
-   .hword 0x0 @ delta x
-   .hword 0x238 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 158 @ metatile ID appareance
-   .hword 0x0 @ z index 0
-@ Object 749
-   .hword 0x0 @ delta x
-   .hword 0x248 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 157 @ metatile ID appareance
-   .hword 0x0 @ z index 0
-@ Object 750
-   .hword 0x10 @ delta x
-   .hword 0x1b0 @ y
-   .hword 0x3 @ type
-   .hword 0x4 @ changes BG for 0 frames
-   .hword 0x743f @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 751
-   .hword 0x0 @ delta x
-   .hword 0x1f8 @ y
-   .hword 0x4f @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 752
-   .hword 0x0 @ delta x
-   .hword 0x208 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 144 @ metatile ID appareance
-   .hword 0x0 @ z index 0
-@ Object 753
-   .hword 0x0 @ delta x
-   .hword 0x210 @ y
-   .hword 0x4b @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 754
-   .hword 0x0 @ delta x
-   .hword 0x218 @ y
-   .hword 0x11 @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 755
    .hword 0x10 @ delta x
    .hword 0x228 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 756
+@ Object 742
    .hword 0x0 @ delta x
    .hword 0x230 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 757
+@ Object 743
    .hword 0x0 @ delta x
    .hword 0x238 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 158 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 758
+@ Object 744
    .hword 0x0 @ delta x
    .hword 0x248 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 157 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 759
+@ Object 745
    .hword 0x44 @ delta x
    .hword 0x220 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 760
+@ Object 746
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 761
+@ Object 747
    .hword 0x40 @ delta x
    .hword 0x180 @ y
    .hword 0x3 @ type
@@ -4864,12 +4776,104 @@ clubstep_spr_data:
    .hword 0x7c3e @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 762
+@ Object 748
    .hword 0x0 @ delta x
    .hword 0x190 @ y
    .hword 0x3 @ type
    .hword 0x5 @ changes GROUND for 0 frames
    .hword 0x7c3e @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 749
+   .hword 0x0 @ delta x
+   .hword 0x210 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 750
+   .hword 0x0 @ delta x
+   .hword 0x210 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 751
+   .hword 0xc @ delta x
+   .hword 0x1a4 @ y
+   .hword 0x61 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 752
+   .hword 0x0 @ delta x
+   .hword 0x1a4 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 753
+   .hword 0x0 @ delta x
+   .hword 0x1a4 @ y
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 754
+   .hword 0x14 @ delta x
+   .hword 0x180 @ y
+   .hword 0x3 @ type
+   .hword 0x4 @ changes BG for 0 frames
+   .hword 0x7c37 @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 755
+   .hword 0x0 @ delta x
+   .hword 0x190 @ y
+   .hword 0x3 @ type
+   .hword 0x5 @ changes GROUND for 0 frames
+   .hword 0x7c37 @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 756
+   .hword 0x0 @ delta x
+   .hword 0x1d0 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 757
+   .hword 0x0 @ delta x
+   .hword 0x1d0 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 758
+   .hword 0x1c @ delta x
+   .hword 0x1a4 @ y
+   .hword 0x61 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 759
+   .hword 0x0 @ delta x
+   .hword 0x1a4 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 760
+   .hword 0x0 @ delta x
+   .hword 0x1a4 @ y
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 761
+   .hword 0x4 @ delta x
+   .hword 0x180 @ y
+   .hword 0x3 @ type
+   .hword 0x4 @ changes BG for 0 frames
+   .hword 0x7c31 @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 762
+   .hword 0x0 @ delta x
+   .hword 0x190 @ y
+   .hword 0x3 @ type
+   .hword 0x5 @ changes GROUND for 0 frames
+   .hword 0x7c31 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
 @ Object 763
@@ -4885,98 +4889,6 @@ clubstep_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 765
-   .hword 0xc @ delta x
-   .hword 0x1a4 @ y
-   .hword 0x61 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 766
-   .hword 0x0 @ delta x
-   .hword 0x1a4 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 767
-   .hword 0x0 @ delta x
-   .hword 0x1a4 @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 768
-   .hword 0x14 @ delta x
-   .hword 0x180 @ y
-   .hword 0x3 @ type
-   .hword 0x4 @ changes BG for 0 frames
-   .hword 0x7c37 @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 769
-   .hword 0x0 @ delta x
-   .hword 0x190 @ y
-   .hword 0x3 @ type
-   .hword 0x5 @ changes GROUND for 0 frames
-   .hword 0x7c37 @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 770
-   .hword 0x0 @ delta x
-   .hword 0x1d0 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 771
-   .hword 0x0 @ delta x
-   .hword 0x1d0 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 772
-   .hword 0x1c @ delta x
-   .hword 0x1a4 @ y
-   .hword 0x61 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 773
-   .hword 0x0 @ delta x
-   .hword 0x1a4 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 774
-   .hword 0x0 @ delta x
-   .hword 0x1a4 @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 775
-   .hword 0x4 @ delta x
-   .hword 0x180 @ y
-   .hword 0x3 @ type
-   .hword 0x4 @ changes BG for 0 frames
-   .hword 0x7c31 @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 776
-   .hword 0x0 @ delta x
-   .hword 0x190 @ y
-   .hword 0x3 @ type
-   .hword 0x5 @ changes GROUND for 0 frames
-   .hword 0x7c31 @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 777
-   .hword 0x0 @ delta x
-   .hword 0x210 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 778
-   .hword 0x0 @ delta x
-   .hword 0x210 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 779
    .hword 0x1f @ delta x
    .hword 0x17f @ y
    .hword 0x3 @ type
@@ -4984,7 +4896,7 @@ clubstep_spr_data:
    .hword 0x7c2c @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 780
+@ Object 766
    .hword 0x0 @ delta x
    .hword 0x190 @ y
    .hword 0x3 @ type
@@ -4992,189 +4904,189 @@ clubstep_spr_data:
    .hword 0x7c2c @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 781
+@ Object 767
    .hword 0x1 @ delta x
    .hword 0x1d0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 782
+@ Object 768
    .hword 0x0 @ delta x
    .hword 0x1d0 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 783
+@ Object 769
    .hword 0xc @ delta x
    .hword 0x1a4 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 784
+@ Object 770
    .hword 0x0 @ delta x
    .hword 0x1a4 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 785
+@ Object 771
    .hword 0x0 @ delta x
    .hword 0x1a4 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 786
+@ Object 772
    .hword 0x10 @ delta x
    .hword 0x230 @ y
    .hword 0x1c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 787
+@ Object 773
    .hword 0x0 @ delta x
    .hword 0x230 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 788
+@ Object 774
    .hword 0x20 @ delta x
    .hword 0x1b4 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 789
+@ Object 775
    .hword 0x0 @ delta x
    .hword 0x1b4 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 790
+@ Object 776
    .hword 0x0 @ delta x
    .hword 0x1b4 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 791
+@ Object 777
    .hword 0x10 @ delta x
    .hword 0x1e4 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 792
+@ Object 778
    .hword 0x0 @ delta x
    .hword 0x1e4 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 793
+@ Object 779
    .hword 0x0 @ delta x
    .hword 0x1e4 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 794
+@ Object 780
    .hword 0x10 @ delta x
    .hword 0x214 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 795
+@ Object 781
    .hword 0x0 @ delta x
    .hword 0x214 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 796
+@ Object 782
    .hword 0x0 @ delta x
    .hword 0x214 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 797
+@ Object 783
    .hword 0x10 @ delta x
    .hword 0x244 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 798
+@ Object 784
    .hword 0x0 @ delta x
    .hword 0x244 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 799
+@ Object 785
    .hword 0x0 @ delta x
    .hword 0x244 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 800
+@ Object 786
    .hword 0x0 @ delta x
    .hword 0x290 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 801
+@ Object 787
    .hword 0x20 @ delta x
    .hword 0x2a0 @ y
    .hword 0x4d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 802
+@ Object 788
    .hword 0x0 @ delta x
    .hword 0x2b0 @ y
    .hword 0x4d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 803
+@ Object 789
    .hword 0x0 @ delta x
    .hword 0x2c0 @ y
    .hword 0x4d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 804
+@ Object 790
    .hword 0x10 @ delta x
    .hword 0x2a0 @ y
    .hword 0x4d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 805
+@ Object 791
    .hword 0x0 @ delta x
    .hword 0x2b0 @ y
    .hword 0x4d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 806
+@ Object 792
    .hword 0x0 @ delta x
    .hword 0x2c0 @ y
    .hword 0x4d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 807
+@ Object 793
    .hword 0x18 @ delta x
    .hword 0x278 @ y
    .hword 0x3d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 808
+@ Object 794
    .hword 0x0 @ delta x
    .hword 0x290 @ y
    .hword 0x13 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 809
+@ Object 795
    .hword 0x0 @ delta x
    .hword 0x298 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 810
+@ Object 796
    .hword 0x28 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -5182,7 +5094,7 @@ clubstep_spr_data:
    .hword 0x7c2c @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 811
+@ Object 797
    .hword 0x0 @ delta x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -5190,37 +5102,37 @@ clubstep_spr_data:
    .hword 0x7c2c @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 812
+@ Object 798
    .hword 0x0 @ delta x
    .hword 0x23c @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 813
+@ Object 799
    .hword 0x0 @ delta x
    .hword 0x23c @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 814
+@ Object 800
    .hword 0x0 @ delta x
    .hword 0x23c @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 815
+@ Object 801
    .hword 0x0 @ delta x
    .hword 0x290 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 816
+@ Object 802
    .hword 0x0 @ delta x
    .hword 0x290 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 817
+@ Object 803
    .hword 0x20 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -5228,7 +5140,7 @@ clubstep_spr_data:
    .hword 0x7c31 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 818
+@ Object 804
    .hword 0x0 @ delta x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -5236,6 +5148,98 @@ clubstep_spr_data:
    .hword 0x7c31 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
+@ Object 805
+   .hword 0x0 @ delta x
+   .hword 0x258 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 806
+   .hword 0x0 @ delta x
+   .hword 0x258 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 807
+   .hword 0x10 @ delta x
+   .hword 0x22c @ y
+   .hword 0x61 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 808
+   .hword 0x0 @ delta x
+   .hword 0x22c @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 809
+   .hword 0x0 @ delta x
+   .hword 0x22c @ y
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 810
+   .hword 0x10 @ delta x
+   .hword 0x200 @ y
+   .hword 0x3 @ type
+   .hword 0x4 @ changes BG for 0 frames
+   .hword 0x7c37 @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 811
+   .hword 0x0 @ delta x
+   .hword 0x210 @ y
+   .hword 0x3 @ type
+   .hword 0x5 @ changes GROUND for 0 frames
+   .hword 0x7c37 @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 812
+   .hword 0x0 @ delta x
+   .hword 0x290 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 813
+   .hword 0x0 @ delta x
+   .hword 0x290 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 814
+   .hword 0x20 @ delta x
+   .hword 0x200 @ y
+   .hword 0x3 @ type
+   .hword 0x4 @ changes BG for 0 frames
+   .hword 0x7c3e @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 815
+   .hword 0x0 @ delta x
+   .hword 0x210 @ y
+   .hword 0x3 @ type
+   .hword 0x5 @ changes GROUND for 0 frames
+   .hword 0x7c3e @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 816
+   .hword 0x0 @ delta x
+   .hword 0x22c @ y
+   .hword 0x61 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 817
+   .hword 0x0 @ delta x
+   .hword 0x22c @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 818
+   .hword 0x0 @ delta x
+   .hword 0x22c @ y
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
 @ Object 819
    .hword 0x0 @ delta x
    .hword 0x258 @ y
@@ -5249,159 +5253,67 @@ clubstep_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 821
-   .hword 0x10 @ delta x
-   .hword 0x22c @ y
-   .hword 0x61 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 822
-   .hword 0x0 @ delta x
-   .hword 0x22c @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 823
-   .hword 0x0 @ delta x
-   .hword 0x22c @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 824
-   .hword 0x10 @ delta x
-   .hword 0x200 @ y
-   .hword 0x3 @ type
-   .hword 0x4 @ changes BG for 0 frames
-   .hword 0x7c37 @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 825
-   .hword 0x0 @ delta x
-   .hword 0x210 @ y
-   .hword 0x3 @ type
-   .hword 0x5 @ changes GROUND for 0 frames
-   .hword 0x7c37 @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 826
-   .hword 0x0 @ delta x
-   .hword 0x290 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 827
-   .hword 0x0 @ delta x
-   .hword 0x290 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 828
-   .hword 0x20 @ delta x
-   .hword 0x200 @ y
-   .hword 0x3 @ type
-   .hword 0x4 @ changes BG for 0 frames
-   .hword 0x7c3e @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 829
-   .hword 0x0 @ delta x
-   .hword 0x210 @ y
-   .hword 0x3 @ type
-   .hword 0x5 @ changes GROUND for 0 frames
-   .hword 0x7c3e @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 830
-   .hword 0x0 @ delta x
-   .hword 0x22c @ y
-   .hword 0x61 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 831
-   .hword 0x0 @ delta x
-   .hword 0x22c @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 832
-   .hword 0x0 @ delta x
-   .hword 0x22c @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 833
-   .hword 0x0 @ delta x
-   .hword 0x258 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 834
-   .hword 0x0 @ delta x
-   .hword 0x258 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 835
    .hword 0x28 @ delta x
    .hword 0x2a0 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 836
+@ Object 822
    .hword 0x8 @ delta x
    .hword 0x23c @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 837
+@ Object 823
    .hword 0x0 @ delta x
    .hword 0x23c @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 838
+@ Object 824
    .hword 0x0 @ delta x
    .hword 0x23c @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 839
+@ Object 825
    .hword 0x24 @ delta x
    .hword 0x2a4 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 840
+@ Object 826
    .hword 0x0 @ delta x
    .hword 0x2a4 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 841
+@ Object 827
    .hword 0x4c @ delta x
    .hword 0x2c0 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 842
+@ Object 828
    .hword 0x20 @ delta x
    .hword 0x2a8 @ y
    .hword 0x3d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 843
+@ Object 829
    .hword 0x0 @ delta x
    .hword 0x2c0 @ y
    .hword 0x11 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 844
+@ Object 830
    .hword 0x0 @ delta x
    .hword 0x2c8 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 845
+@ Object 831
    .hword 0x18 @ delta x
    .hword 0x248 @ y
    .hword 0x3 @ type
@@ -5409,7 +5321,7 @@ clubstep_spr_data:
    .hword 0x7c3e @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 846
+@ Object 832
    .hword 0x0 @ delta x
    .hword 0x259 @ y
    .hword 0x3 @ type
@@ -5417,31 +5329,31 @@ clubstep_spr_data:
    .hword 0x7c3e @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 847
+@ Object 833
    .hword 0x0 @ delta x
    .hword 0x28c @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 848
+@ Object 834
    .hword 0x0 @ delta x
    .hword 0x28c @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 849
+@ Object 835
    .hword 0x18 @ delta x
    .hword 0x2c4 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 850
+@ Object 836
    .hword 0x0 @ delta x
    .hword 0x2c4 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 851
+@ Object 837
    .hword 0x8 @ delta x
    .hword 0x248 @ y
    .hword 0x3 @ type
@@ -5449,7 +5361,7 @@ clubstep_spr_data:
    .hword 0x7c37 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 852
+@ Object 838
    .hword 0x0 @ delta x
    .hword 0x259 @ y
    .hword 0x3 @ type
@@ -5457,19 +5369,19 @@ clubstep_spr_data:
    .hword 0x7c37 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 853
+@ Object 839
    .hword 0x14 @ delta x
    .hword 0x28c @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 854
+@ Object 840
    .hword 0x0 @ delta x
    .hword 0x28c @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 855
+@ Object 841
    .hword 0xc @ delta x
    .hword 0x248 @ y
    .hword 0x3 @ type
@@ -5477,7 +5389,7 @@ clubstep_spr_data:
    .hword 0x7c31 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 856
+@ Object 842
    .hword 0x0 @ delta x
    .hword 0x259 @ y
    .hword 0x3 @ type
@@ -5485,19 +5397,19 @@ clubstep_spr_data:
    .hword 0x7c31 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 857
+@ Object 843
    .hword 0x1c @ delta x
    .hword 0x2d0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 858
+@ Object 844
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 859
+@ Object 845
    .hword 0x3 @ delta x
    .hword 0x248 @ y
    .hword 0x3 @ type
@@ -5505,7 +5417,7 @@ clubstep_spr_data:
    .hword 0x7c2c @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 860
+@ Object 846
    .hword 0x0 @ delta x
    .hword 0x258 @ y
    .hword 0x3 @ type
@@ -5513,32 +5425,32 @@ clubstep_spr_data:
    .hword 0x7c2c @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 861
+@ Object 847
    .hword 0x1d @ delta x
    .hword 0x330 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 862
+@ Object 848
    .hword 0x4 @ delta x
    .hword 0x318 @ y
    .hword 0x3d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 863
+@ Object 849
    .hword 0x0 @ delta x
    .hword 0x338 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 864
+@ Object 850
    .hword 0x4 @ delta x
    .hword 0x330 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 865
+@ Object 851
    .hword 0x4 @ delta x
    .hword 0x2b0 @ y
    .hword 0x3 @ type
@@ -5546,7 +5458,7 @@ clubstep_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 866
+@ Object 852
    .hword 0x0 @ delta x
    .hword 0x2c0 @ y
    .hword 0x3 @ type
@@ -5554,114 +5466,114 @@ clubstep_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 867
+@ Object 853
    .hword 0x30 @ delta x
    .hword 0x310 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 868
+@ Object 854
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 869
+@ Object 855
    .hword 0x10 @ delta x
    .hword 0x340 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 870
+@ Object 856
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 871
+@ Object 857
    .hword 0x80 @ delta x
    .hword 0x340 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 872
+@ Object 858
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 873
+@ Object 859
    .hword 0x40 @ delta x
    .hword 0x354 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 874
+@ Object 860
    .hword 0x0 @ delta x
    .hword 0x354 @ y
    .hword 0x64 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 875
+@ Object 861
    .hword 0x20 @ delta x
    .hword 0x338 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 876
+@ Object 862
    .hword 0x0 @ delta x
    .hword 0x338 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 877
+@ Object 863
    .hword 0x24 @ delta x
    .hword 0x308 @ y
    .hword 0x3d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 878
+@ Object 864
    .hword 0x0 @ delta x
    .hword 0x320 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 879
+@ Object 865
    .hword 0x0 @ delta x
    .hword 0x328 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 880
+@ Object 866
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 158 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 881
+@ Object 867
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 882
+@ Object 868
    .hword 0x0 @ delta x
    .hword 0x350 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 883
+@ Object 869
    .hword 0x0 @ delta x
    .hword 0x360 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 884
+@ Object 870
    .hword 0x2c @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -5669,7 +5581,7 @@ clubstep_spr_data:
    .hword 0x685f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 885
+@ Object 871
    .hword 0x0 @ delta x
    .hword 0x2b0 @ y
    .hword 0x3 @ type
@@ -5677,222 +5589,316 @@ clubstep_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 886
+@ Object 872
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x1a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 887
+@ Object 873
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 888
+@ Object 874
    .hword 0x10 @ delta x
    .hword 0x2c0 @ y
    .hword 0x5b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 889
+@ Object 875
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 890
+@ Object 876
    .hword 0x0 @ delta x
    .hword 0x2e0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 891
+@ Object 877
    .hword 0x18 @ delta x
    .hword 0x2f0 @ y
    .hword 0x5c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 892
+@ Object 878
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x5b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 893
+@ Object 879
    .hword 0x4 @ delta x
    .hword 0x2d0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 894
+@ Object 880
    .hword 0xc @ delta x
    .hword 0x310 @ y
    .hword 0x5d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 895
+@ Object 881
    .hword 0xc @ delta x
    .hword 0x2d0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 896
+@ Object 882
    .hword 0x4 @ delta x
    .hword 0x2f0 @ y
    .hword 0x5d @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 897
+@ Object 883
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x5c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 898
+@ Object 884
    .hword 0x8 @ delta x
    .hword 0x310 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 899
+@ Object 885
    .hword 0x10 @ delta x
    .hword 0x2c0 @ y
    .hword 0x5b @ type
    .hword 0x14 @ bg layer 2 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 900
+@ Object 886
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x5c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 901
+@ Object 887
    .hword 0x0 @ delta x
    .hword 0x2e0 @ y
    .hword 0x5d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 902
+@ Object 888
    .hword 0x10 @ delta x
    .hword 0x2c0 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 903
+@ Object 889
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 904
+@ Object 890
    .hword 0x10 @ delta x
    .hword 0x300 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 905
+@ Object 891
    .hword 0x0 @ delta x
    .hword 0x300 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 906
+@ Object 892
    .hword 0x20 @ delta x
    .hword 0x2c0 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 907
+@ Object 893
    .hword 0x0 @ delta x
    .hword 0x318 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 908
+@ Object 894
    .hword 0x0 @ delta x
    .hword 0x318 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 909
+@ Object 895
    .hword 0x10 @ delta x
    .hword 0x2ec @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 910
+@ Object 896
    .hword 0x0 @ delta x
    .hword 0x2ec @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 911
+@ Object 897
    .hword 0x20 @ delta x
    .hword 0x2d0 @ y
    .hword 0x68 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 912
+@ Object 898
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 913
+@ Object 899
    .hword 0x0 @ delta x
    .hword 0x320 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 914
+@ Object 900
    .hword 0x0 @ delta x
    .hword 0x320 @ y
    .hword 0x64 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 915
+@ Object 901
    .hword 0x18 @ delta x
    .hword 0x2c0 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 916
+@ Object 902
    .hword 0x8 @ delta x
    .hword 0x330 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 917
+@ Object 903
    .hword 0x10 @ delta x
    .hword 0x2d0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 918
+@ Object 904
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x64 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 919
+@ Object 905
    .hword 0x8 @ delta x
    .hword 0x318 @ y
    .hword 0x68 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 920
+@ Object 906
    .hword 0x0 @ delta x
    .hword 0x318 @ y
    .hword 0x16 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
+@ Object 907
+   .hword 0x10 @ delta x
+   .hword 0x2c0 @ y
+   .hword 0x5e @ type
+   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 908
+   .hword 0x18 @ delta x
+   .hword 0x2a0 @ y
+   .hword 0x3 @ type
+   .hword 0x4 @ changes BG for 0 frames
+   .hword 0x7f63 @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 909
+   .hword 0x0 @ delta x
+   .hword 0x2d0 @ y
+   .hword 0x16 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 910
+   .hword 0x0 @ delta x
+   .hword 0x2d0 @ y
+   .hword 0x68 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 911
+   .hword 0x10 @ delta x
+   .hword 0x2a0 @ y
+   .hword 0x3 @ type
+   .hword 0x64 @ changes BG for 12 frames
+   .hword 0x7d21 @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 912
+   .hword 0x0 @ delta x
+   .hword 0x2d0 @ y
+   .hword 0x5c @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 913
+   .hword 0x0 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x5b @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 914
+   .hword 0x0 @ delta x
+   .hword 0x2f0 @ y
+   .hword 0x5d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 915
+   .hword 0x30 @ delta x
+   .hword 0x2d8 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 916
+   .hword 0x30 @ delta x
+   .hword 0x2d8 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 917
+   .hword 0x20 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x13 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 918
+   .hword 0x10 @ delta x
+   .hword 0x2d0 @ y
+   .hword 0x5c @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
+@ Object 919
+   .hword 0x0 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x5b @ type
+   .hword 0x14 @ bg layer 2 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
+@ Object 920
+   .hword 0x0 @ delta x
+   .hword 0x2f0 @ y
+   .hword 0x5d @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
 @ Object 921
    .hword 0x10 @ delta x
    .hword 0x2c0 @ y
@@ -5900,160 +5906,66 @@ clubstep_spr_data:
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
 @ Object 922
-   .hword 0x18 @ delta x
-   .hword 0x2a0 @ y
-   .hword 0x3 @ type
-   .hword 0x4 @ changes BG for 0 frames
-   .hword 0x7f63 @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 923
-   .hword 0x0 @ delta x
-   .hword 0x2d0 @ y
-   .hword 0x16 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 924
-   .hword 0x0 @ delta x
-   .hword 0x2d0 @ y
-   .hword 0x68 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 925
-   .hword 0x10 @ delta x
-   .hword 0x2a0 @ y
-   .hword 0x3 @ type
-   .hword 0x64 @ changes BG for 12 frames
-   .hword 0x7d21 @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 926
-   .hword 0x0 @ delta x
-   .hword 0x2d0 @ y
-   .hword 0x5c @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 927
-   .hword 0x0 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x5b @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 928
-   .hword 0x0 @ delta x
-   .hword 0x2f0 @ y
-   .hword 0x5d @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 929
-   .hword 0x30 @ delta x
-   .hword 0x2d8 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 930
-   .hword 0x30 @ delta x
-   .hword 0x2d8 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 931
-   .hword 0x20 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x13 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 932
-   .hword 0x10 @ delta x
-   .hword 0x2d0 @ y
-   .hword 0x5c @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
-@ Object 933
-   .hword 0x0 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x5b @ type
-   .hword 0x14 @ bg layer 2 rotated   
-   .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
-@ Object 934
-   .hword 0x0 @ delta x
-   .hword 0x2f0 @ y
-   .hword 0x5d @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
-@ Object 935
-   .hword 0x10 @ delta x
-   .hword 0x2c0 @ y
-   .hword 0x5e @ type
-   .hword 0x10 @ bg layer 2 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 936
    .hword 0x0 @ delta x
    .hword 0x308 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 937
+@ Object 923
    .hword 0x0 @ delta x
    .hword 0x308 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 938
+@ Object 924
    .hword 0x10 @ delta x
    .hword 0x330 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 939
+@ Object 925
    .hword 0x20 @ delta x
    .hword 0x2c0 @ y
    .hword 0x5f @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 940
+@ Object 926
    .hword 0x0 @ delta x
    .hword 0x320 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 941
+@ Object 927
    .hword 0x0 @ delta x
    .hword 0x320 @ y
    .hword 0x64 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 942
+@ Object 928
    .hword 0x4 @ delta x
    .hword 0x2d8 @ y
    .hword 0x62 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 943
+@ Object 929
    .hword 0x0 @ delta x
    .hword 0x2d8 @ y
    .hword 0x5f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 944
+@ Object 930
    .hword 0x1c @ delta x
    .hword 0x330 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 945
+@ Object 931
    .hword 0x10 @ delta x
    .hword 0x2e0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 946
+@ Object 932
    .hword 0x28 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -6061,7 +5973,7 @@ clubstep_spr_data:
    .hword 0x7d1f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 947
+@ Object 933
    .hword 0x10 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -6069,79 +5981,79 @@ clubstep_spr_data:
    .hword 0x685f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 948
+@ Object 934
    .hword 0x28 @ delta x
    .hword 0x2d0 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 949
+@ Object 935
    .hword 0x0 @ delta x
    .hword 0x300 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 950
+@ Object 936
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x30 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 951
+@ Object 937
    .hword 0x50 @ delta x
    .hword 0x2d0 @ y
    .hword 0x30 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 952
+@ Object 938
    .hword 0x0 @ delta x
    .hword 0x300 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 953
+@ Object 939
    .hword 0x0 @ delta x
    .hword 0x320 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 954
+@ Object 940
    .hword 0x50 @ delta x
    .hword 0x2d0 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 955
+@ Object 941
    .hword 0x0 @ delta x
    .hword 0x300 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 956
+@ Object 942
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x30 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 957
+@ Object 943
    .hword 0x50 @ delta x
    .hword 0x2d0 @ y
    .hword 0x30 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 958
+@ Object 944
    .hword 0x0 @ delta x
    .hword 0x300 @ y
    .hword 0x8 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 959
+@ Object 945
    .hword 0x0 @ delta x
    .hword 0x320 @ y
    .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 960
+@ Object 946
    .hword 0x4 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -6149,7 +6061,7 @@ clubstep_spr_data:
    .hword 0x7f63 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 961
+@ Object 947
    .hword 0x10 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -6157,13 +6069,13 @@ clubstep_spr_data:
    .hword 0x7d21 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 962
+@ Object 948
    .hword 0x3c @ delta x
    .hword 0x330 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 963
+@ Object 949
    .hword 0x10 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -6171,130 +6083,130 @@ clubstep_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 964
+@ Object 950
    .hword 0x10 @ delta x
    .hword 0x310 @ y
    .hword 0x4f @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 965
+@ Object 951
    .hword 0x10 @ delta x
    .hword 0x330 @ y
    .hword 0x5f @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 966
+@ Object 952
    .hword 0x10 @ delta x
    .hword 0x310 @ y
    .hword 0x4e @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 967
+@ Object 953
    .hword 0x18 @ delta x
    .hword 0x330 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 968
+@ Object 954
    .hword 0x10 @ delta x
    .hword 0x310 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 969
+@ Object 955
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 970
+@ Object 956
    .hword 0x20 @ delta x
    .hword 0x328 @ y
    .hword 0x61 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 971
+@ Object 957
    .hword 0x0 @ delta x
    .hword 0x328 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 972
+@ Object 958
    .hword 0x18 @ delta x
    .hword 0x330 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 301 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 973
+@ Object 959
    .hword 0x8 @ delta x
    .hword 0x310 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 974
+@ Object 960
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 975
+@ Object 961
    .hword 0x8 @ delta x
    .hword 0x330 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 289 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 976
+@ Object 962
    .hword 0x10 @ delta x
    .hword 0x2c8 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 350 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 977
+@ Object 963
    .hword 0x0 @ delta x
    .hword 0x2d8 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 350 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 978
+@ Object 964
    .hword 0x0 @ delta x
    .hword 0x2e8 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 350 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 979
+@ Object 965
    .hword 0x0 @ delta x
    .hword 0x2f8 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 350 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 980
+@ Object 966
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 289 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 981
+@ Object 967
    .hword 0x10 @ delta x
    .hword 0x330 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 289 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 982
+@ Object 968
    .hword 0x10 @ delta x
    .hword 0x330 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 289 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 983
+@ Object 969
    .hword 0x10 @ delta x
    .hword 0x290 @ y
    .hword 0x3 @ type
@@ -6302,40 +6214,40 @@ clubstep_spr_data:
    .hword 0x1ff2 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 984
+@ Object 970
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 302 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 985
+@ Object 971
    .hword 0x8 @ delta x
    .hword 0x2f0 @ y
    .hword 0x39 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 986
+@ Object 972
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 987
+@ Object 973
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 988
+@ Object 974
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 989
+@ Object 975
    .hword 0x8 @ delta x
    .hword 0x290 @ y
    .hword 0x3 @ type
@@ -6343,101 +6255,191 @@ clubstep_spr_data:
    .hword 0x381 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 990
+@ Object 976
    .hword 0x0 @ delta x
    .hword 0x2b0 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 991
+@ Object 977
    .hword 0x0 @ delta x
    .hword 0x318 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 350 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 992
+@ Object 978
    .hword 0x0 @ delta x
    .hword 0x328 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 350 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 993
+@ Object 979
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 350 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 994
+@ Object 980
    .hword 0x40 @ delta x
    .hword 0x2b0 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 995
+@ Object 981
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 996
+@ Object 982
    .hword 0x10 @ delta x
    .hword 0x2d0 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 997
+@ Object 983
    .hword 0x18 @ delta x
    .hword 0x2f0 @ y
    .hword 0x5d @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 998
+@ Object 984
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x5c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 999
+@ Object 985
    .hword 0x8 @ delta x
    .hword 0x2d0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1000
+@ Object 986
    .hword 0x8 @ delta x
    .hword 0x2f0 @ y
    .hword 0x5b @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1001
+@ Object 987
    .hword 0x10 @ delta x
    .hword 0x310 @ y
    .hword 0x5d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1002
+@ Object 988
    .hword 0x8 @ delta x
    .hword 0x2d0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1003
+@ Object 989
    .hword 0x8 @ delta x
    .hword 0x2f0 @ y
    .hword 0x5c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1004
+@ Object 990
    .hword 0x18 @ delta x
    .hword 0x2d0 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
+@ Object 991
+   .hword 0x10 @ delta x
+   .hword 0x2b0 @ y
+   .hword 0x19 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 992
+   .hword 0x10 @ delta x
+   .hword 0x340 @ y
+   .hword 0x18 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 993
+   .hword 0x10 @ delta x
+   .hword 0x2c0 @ y
+   .hword 0x3b @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 994
+   .hword 0x18 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x5d @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 995
+   .hword 0x8 @ delta x
+   .hword 0x2c0 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 996
+   .hword 0x8 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x5c @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 997
+   .hword 0x0 @ delta x
+   .hword 0x300 @ y
+   .hword 0x5d @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 998
+   .hword 0x10 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x5b @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 999
+   .hword 0x8 @ delta x
+   .hword 0x2c0 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1000
+   .hword 0x4 @ delta x
+   .hword 0x290 @ y
+   .hword 0x3 @ type
+   .hword 0x4 @ changes BG for 0 frames
+   .hword 0x7f63 @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 1001
+   .hword 0x4 @ delta x
+   .hword 0x300 @ y
+   .hword 0x5c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1002
+   .hword 0xc @ delta x
+   .hword 0x290 @ y
+   .hword 0x3 @ type
+   .hword 0x64 @ changes BG for 12 frames
+   .hword 0x7d21 @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 1003
+   .hword 0xc @ delta x
+   .hword 0x2c0 @ y
+   .hword 0x3b @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
+@ Object 1004
+   .hword 0x10 @ delta x
+   .hword 0x340 @ y
+   .hword 0x19 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
 @ Object 1005
    .hword 0x10 @ delta x
    .hword 0x2b0 @ y
@@ -6446,116 +6448,112 @@ clubstep_spr_data:
    .hword 0x0 @ z index 0
 @ Object 1006
    .hword 0x10 @ delta x
-   .hword 0x340 @ y
-   .hword 0x18 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x2e0 @ y
+   .hword 0x3b @ type
+   .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
 @ Object 1007
-   .hword 0x10 @ delta x
-   .hword 0x2c0 @ y
-   .hword 0x3b @ type
-   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x18 @ delta x
+   .hword 0x300 @ y
+   .hword 0x5d @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
 @ Object 1008
-   .hword 0x18 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x5d @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 1009
-   .hword 0x8 @ delta x
-   .hword 0x2c0 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1010
-   .hword 0x8 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x5c @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 1011
-   .hword 0x0 @ delta x
-   .hword 0x300 @ y
-   .hword 0x5d @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1012
-   .hword 0x10 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x5b @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 1013
-   .hword 0x8 @ delta x
-   .hword 0x2c0 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1014
-   .hword 0x4 @ delta x
-   .hword 0x290 @ y
-   .hword 0x3 @ type
-   .hword 0x4 @ changes BG for 0 frames
-   .hword 0x7f63 @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 1015
-   .hword 0x4 @ delta x
-   .hword 0x300 @ y
-   .hword 0x5c @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1016
-   .hword 0xc @ delta x
-   .hword 0x290 @ y
-   .hword 0x3 @ type
-   .hword 0x64 @ changes BG for 12 frames
-   .hword 0x7d21 @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 1017
-   .hword 0xc @ delta x
-   .hword 0x2c0 @ y
-   .hword 0x3b @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
-@ Object 1018
-   .hword 0x10 @ delta x
-   .hword 0x340 @ y
-   .hword 0x19 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1019
-   .hword 0x10 @ delta x
-   .hword 0x2b0 @ y
-   .hword 0x19 @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 1020
-   .hword 0x10 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x3b @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 1021
-   .hword 0x18 @ delta x
-   .hword 0x300 @ y
-   .hword 0x5d @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 1022
    .hword 0x0 @ delta x
    .hword 0x320 @ y
    .hword 0x5d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1023
+@ Object 1009
    .hword 0x8 @ delta x
    .hword 0x2e0 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1010
+   .hword 0x8 @ delta x
+   .hword 0x300 @ y
+   .hword 0x5c @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 1011
+   .hword 0x10 @ delta x
+   .hword 0x320 @ y
+   .hword 0x5c @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1012
+   .hword 0x8 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1013
+   .hword 0x8 @ delta x
+   .hword 0x300 @ y
+   .hword 0x5b @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 1014
+   .hword 0x18 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x3b @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
+@ Object 1015
+   .hword 0x10 @ delta x
+   .hword 0x2b0 @ y
+   .hword 0x19 @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 1016
+   .hword 0x10 @ delta x
+   .hword 0x340 @ y
+   .hword 0x18 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1017
+   .hword 0x10 @ delta x
+   .hword 0x2c0 @ y
+   .hword 0x3b @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 1018
+   .hword 0x18 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x5d @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 1019
+   .hword 0x0 @ delta x
+   .hword 0x300 @ y
+   .hword 0x5d @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1020
+   .hword 0x8 @ delta x
+   .hword 0x2c0 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1021
+   .hword 0x8 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x5b @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 1022
+   .hword 0x10 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x5c @ type
+   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x0 @ z index 0
+@ Object 1023
+   .hword 0x8 @ delta x
+   .hword 0x2c0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
@@ -6563,95 +6561,9 @@ clubstep_spr_data:
    .hword 0x8 @ delta x
    .hword 0x300 @ y
    .hword 0x5c @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
+   .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1025
-   .hword 0x10 @ delta x
-   .hword 0x320 @ y
-   .hword 0x5c @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1026
-   .hword 0x8 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1027
-   .hword 0x8 @ delta x
-   .hword 0x300 @ y
-   .hword 0x5b @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 1028
-   .hword 0x18 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x3b @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
-@ Object 1029
-   .hword 0x10 @ delta x
-   .hword 0x2b0 @ y
-   .hword 0x19 @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 1030
-   .hword 0x10 @ delta x
-   .hword 0x340 @ y
-   .hword 0x18 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1031
-   .hword 0x10 @ delta x
-   .hword 0x2c0 @ y
-   .hword 0x3b @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 1032
-   .hword 0x18 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x5d @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 1033
-   .hword 0x0 @ delta x
-   .hword 0x300 @ y
-   .hword 0x5d @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1034
-   .hword 0x8 @ delta x
-   .hword 0x2c0 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1035
-   .hword 0x8 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x5b @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 1036
-   .hword 0x10 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x5c @ type
-   .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
-   .hword 0x0 @ z index 0
-@ Object 1037
-   .hword 0x8 @ delta x
-   .hword 0x2c0 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1038
-   .hword 0x8 @ delta x
-   .hword 0x300 @ y
-   .hword 0x5c @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1039
    .hword 0x18 @ delta x
    .hword 0x290 @ y
    .hword 0x3 @ type
@@ -6659,26 +6571,26 @@ clubstep_spr_data:
    .hword 0x1ff2 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1040
+@ Object 1026
    .hword 0x0 @ delta x
    .hword 0x2c0 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1041
+@ Object 1027
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x1 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1042
+@ Object 1028
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1043
+@ Object 1029
    .hword 0x10 @ delta x
    .hword 0x290 @ y
    .hword 0x3 @ type
@@ -6686,31 +6598,31 @@ clubstep_spr_data:
    .hword 0x381 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1044
+@ Object 1030
    .hword 0x3c @ delta x
    .hword 0x344 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1045
+@ Object 1031
    .hword 0x4 @ delta x
    .hword 0x2e0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1046
+@ Object 1032
    .hword 0x20 @ delta x
    .hword 0x2e0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1047
+@ Object 1033
    .hword 0x10 @ delta x
    .hword 0x344 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1048
+@ Object 1034
    .hword 0x60 @ delta x
    .hword 0x290 @ y
    .hword 0x3 @ type
@@ -6718,295 +6630,295 @@ clubstep_spr_data:
    .hword 0x1c40 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1049
+@ Object 1035
    .hword 0x8 @ delta x
    .hword 0x2ac @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1050
+@ Object 1036
    .hword 0x4c @ delta x
    .hword 0x308 @ y
    .hword 0x2 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1051
+@ Object 1037
    .hword 0x4 @ delta x
    .hword 0x308 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1052
+@ Object 1038
    .hword 0x4 @ delta x
    .hword 0x308 @ y
    .hword 0x1d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1053
+@ Object 1039
    .hword 0x74 @ delta x
    .hword 0x324 @ y
    .hword 0x5b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1054
+@ Object 1040
    .hword 0x14 @ delta x
    .hword 0x324 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1055
+@ Object 1041
    .hword 0x0 @ delta x
    .hword 0x324 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1056
+@ Object 1042
    .hword 0xc @ delta x
    .hword 0x2f0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1057
+@ Object 1043
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1058
+@ Object 1044
    .hword 0x20 @ delta x
    .hword 0x344 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1059
+@ Object 1045
    .hword 0x1c @ delta x
    .hword 0x2b4 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1060
+@ Object 1046
    .hword 0x0 @ delta x
    .hword 0x2b4 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1061
+@ Object 1047
    .hword 0x4 @ delta x
    .hword 0x308 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1062
+@ Object 1048
    .hword 0x0 @ delta x
    .hword 0x308 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1063
+@ Object 1049
    .hword 0x20 @ delta x
    .hword 0x2d0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1064
+@ Object 1050
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1065
+@ Object 1051
    .hword 0xc @ delta x
    .hword 0x2a4 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1066
+@ Object 1052
    .hword 0x0 @ delta x
    .hword 0x2a4 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1067
+@ Object 1053
    .hword 0x14 @ delta x
    .hword 0x308 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1068
+@ Object 1054
    .hword 0x0 @ delta x
    .hword 0x308 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1069
+@ Object 1055
    .hword 0x10 @ delta x
    .hword 0x334 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1070
+@ Object 1056
    .hword 0x10 @ delta x
    .hword 0x2d0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1071
+@ Object 1057
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1072
+@ Object 1058
    .hword 0x10 @ delta x
    .hword 0x260 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1073
+@ Object 1059
    .hword 0xc @ delta x
    .hword 0x304 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1074
+@ Object 1060
    .hword 0x0 @ delta x
    .hword 0x304 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1075
+@ Object 1061
    .hword 0x4 @ delta x
    .hword 0x334 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1076
+@ Object 1062
    .hword 0x10 @ delta x
    .hword 0x240 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1077
+@ Object 1063
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1078
+@ Object 1064
    .hword 0x0 @ delta x
    .hword 0x290 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1079
+@ Object 1065
    .hword 0x0 @ delta x
    .hword 0x304 @ y
    .hword 0x5b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1080
+@ Object 1066
    .hword 0x20 @ delta x
    .hword 0x200 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1081
+@ Object 1067
    .hword 0x0 @ delta x
    .hword 0x230 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1082
+@ Object 1068
    .hword 0x10 @ delta x
    .hword 0x270 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1083
+@ Object 1069
    .hword 0x0 @ delta x
    .hword 0x270 @ y
    .hword 0xf @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1084
+@ Object 1070
    .hword 0x10 @ delta x
    .hword 0x2d4 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1085
+@ Object 1071
    .hword 0xc @ delta x
    .hword 0x2a4 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1086
+@ Object 1072
    .hword 0x0 @ delta x
    .hword 0x2a4 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1087
+@ Object 1073
    .hword 0x4 @ delta x
    .hword 0x240 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1088
+@ Object 1074
    .hword 0x10 @ delta x
    .hword 0x1c0 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1089
+@ Object 1075
    .hword 0x0 @ delta x
    .hword 0x1e0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1090
+@ Object 1076
    .hword 0x0 @ delta x
    .hword 0x2a4 @ y
    .hword 0x5b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1091
+@ Object 1077
    .hword 0x10 @ delta x
    .hword 0x210 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1092
+@ Object 1078
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1093
+@ Object 1079
    .hword 0x0 @ delta x
    .hword 0x260 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1094
+@ Object 1080
    .hword 0x20 @ delta x
    .hword 0x1e8 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1095
+@ Object 1081
    .hword 0x0 @ delta x
    .hword 0x1e8 @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1096
+@ Object 1082
    .hword 0x10 @ delta x
    .hword 0x170 @ y
    .hword 0x3 @ type
@@ -7014,237 +6926,321 @@ clubstep_spr_data:
    .hword 0xd @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1097
+@ Object 1083
    .hword 0x0 @ delta x
    .hword 0x1a0 @ y
    .hword 0x52 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1098
+@ Object 1084
    .hword 0x10 @ delta x
    .hword 0x1c0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1099
+@ Object 1085
    .hword 0x10 @ delta x
    .hword 0x200 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1100
+@ Object 1086
    .hword 0x10 @ delta x
    .hword 0x230 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1101
+@ Object 1087
    .hword 0x10 @ delta x
    .hword 0x1d0 @ y
    .hword 0x50 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1102
+@ Object 1088
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1103
+@ Object 1089
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1104
+@ Object 1090
    .hword 0xc @ delta x
    .hword 0x194 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1105
+@ Object 1091
    .hword 0x0 @ delta x
    .hword 0x194 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1106
+@ Object 1092
    .hword 0x4 @ delta x
    .hword 0x1f0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1107
+@ Object 1093
    .hword 0x0 @ delta x
    .hword 0x260 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1108
+@ Object 1094
    .hword 0x0 @ delta x
    .hword 0x260 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1109
+@ Object 1095
    .hword 0x10 @ delta x
    .hword 0x220 @ y
    .hword 0x6b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1110
+@ Object 1096
    .hword 0x0 @ delta x
    .hword 0x2a0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1111
+@ Object 1097
    .hword 0x0 @ delta x
    .hword 0x2a0 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1112
+@ Object 1098
    .hword 0x0 @ delta x
    .hword 0x2c4 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1113
+@ Object 1099
    .hword 0x10 @ delta x
    .hword 0x260 @ y
    .hword 0x6b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1114
+@ Object 1100
    .hword 0xc @ delta x
    .hword 0x194 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1115
+@ Object 1101
    .hword 0x0 @ delta x
    .hword 0x194 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1116
+@ Object 1102
    .hword 0x4 @ delta x
    .hword 0x1c0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1117
+@ Object 1103
    .hword 0x4 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3d @ type
    .hword 0x22 @ bg layer 4 non rotated flipped horizontally  
    .hword 0x0 @ z index 0
-@ Object 1118
+@ Object 1104
    .hword 0x8 @ delta x
    .hword 0x1f4 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1119
+@ Object 1105
    .hword 0x0 @ delta x
    .hword 0x1f4 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1120
+@ Object 1106
    .hword 0x4 @ delta x
    .hword 0x2c4 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1121
+@ Object 1107
    .hword 0x8 @ delta x
    .hword 0x220 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1122
+@ Object 1108
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1123
+@ Object 1109
    .hword 0x14 @ delta x
    .hword 0x194 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1124
+@ Object 1110
    .hword 0x0 @ delta x
    .hword 0x194 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1125
+@ Object 1111
    .hword 0x4 @ delta x
    .hword 0x200 @ y
    .hword 0x5f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1126
+@ Object 1112
    .hword 0x0 @ delta x
    .hword 0x200 @ y
    .hword 0x62 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1127
+@ Object 1113
    .hword 0x0 @ delta x
    .hword 0x200 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1128
+@ Object 1114
    .hword 0x0 @ delta x
    .hword 0x250 @ y
    .hword 0x51 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1129
+@ Object 1115
    .hword 0x10 @ delta x
    .hword 0x230 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1130
+@ Object 1116
    .hword 0x0 @ delta x
    .hword 0x290 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1131
+@ Object 1117
    .hword 0x20 @ delta x
    .hword 0x210 @ y
    .hword 0x52 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1132
+@ Object 1118
    .hword 0xc @ delta x
    .hword 0x1bc @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1133
+@ Object 1119
    .hword 0x0 @ delta x
    .hword 0x1bc @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1134
+@ Object 1120
    .hword 0x4 @ delta x
    .hword 0x1e0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1135
+@ Object 1121
    .hword 0x0 @ delta x
    .hword 0x1e0 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1122
+   .hword 0x0 @ delta x
+   .hword 0x2c4 @ y
+   .hword 0x4b @ type
+   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1123
+   .hword 0x10 @ delta x
+   .hword 0x1e0 @ y
+   .hword 0x9 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1124
+   .hword 0x0 @ delta x
+   .hword 0x1e0 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1125
+   .hword 0x0 @ delta x
+   .hword 0x230 @ y
+   .hword 0x50 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1126
+   .hword 0x0 @ delta x
+   .hword 0x260 @ y
+   .hword 0x17 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1127
+   .hword 0x10 @ delta x
+   .hword 0x1c0 @ y
+   .hword 0x5f @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1128
+   .hword 0x0 @ delta x
+   .hword 0x1c0 @ y
+   .hword 0x62 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1129
+   .hword 0x0 @ delta x
+   .hword 0x1c0 @ y
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1130
+   .hword 0x10 @ delta x
+   .hword 0x200 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1131
+   .hword 0x0 @ delta x
+   .hword 0x200 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1132
+   .hword 0x10 @ delta x
+   .hword 0x1d4 @ y
+   .hword 0x61 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1133
+   .hword 0x0 @ delta x
+   .hword 0x1d4 @ y
+   .hword 0x5e @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1134
+   .hword 0x10 @ delta x
+   .hword 0x250 @ y
+   .hword 0x9 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1135
+   .hword 0x0 @ delta x
+   .hword 0x250 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
@@ -7255,170 +7251,86 @@ clubstep_spr_data:
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1137
-   .hword 0x10 @ delta x
-   .hword 0x1e0 @ y
-   .hword 0x9 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1138
-   .hword 0x0 @ delta x
-   .hword 0x1e0 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1139
-   .hword 0x0 @ delta x
-   .hword 0x230 @ y
-   .hword 0x50 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1140
-   .hword 0x0 @ delta x
-   .hword 0x260 @ y
-   .hword 0x17 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1141
-   .hword 0x10 @ delta x
-   .hword 0x1c0 @ y
-   .hword 0x5f @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1142
-   .hword 0x0 @ delta x
-   .hword 0x1c0 @ y
-   .hword 0x62 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1143
-   .hword 0x0 @ delta x
-   .hword 0x1c0 @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1144
-   .hword 0x10 @ delta x
-   .hword 0x200 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1145
-   .hword 0x0 @ delta x
-   .hword 0x200 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1146
-   .hword 0x10 @ delta x
-   .hword 0x1d4 @ y
-   .hword 0x61 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1147
-   .hword 0x0 @ delta x
-   .hword 0x1d4 @ y
-   .hword 0x5e @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1148
-   .hword 0x10 @ delta x
-   .hword 0x250 @ y
-   .hword 0x9 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1149
-   .hword 0x0 @ delta x
-   .hword 0x250 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1150
-   .hword 0x0 @ delta x
-   .hword 0x2c4 @ y
-   .hword 0x4b @ type
-   .hword 0x10 @ bg layer 2 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1151
    .hword 0x8 @ delta x
    .hword 0x1e8 @ y
    .hword 0x5f @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1152
+@ Object 1138
    .hword 0x0 @ delta x
    .hword 0x1e8 @ y
    .hword 0x62 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1153
+@ Object 1139
    .hword 0x0 @ delta x
    .hword 0x1e8 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1154
+@ Object 1140
    .hword 0x4 @ delta x
    .hword 0x27c @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1155
+@ Object 1141
    .hword 0x0 @ delta x
    .hword 0x27c @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1156
+@ Object 1142
    .hword 0x14 @ delta x
    .hword 0x27c @ y
    .hword 0x5b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1157
+@ Object 1143
    .hword 0x4 @ delta x
    .hword 0x230 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1158
+@ Object 1144
    .hword 0x0 @ delta x
    .hword 0x230 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1159
+@ Object 1145
    .hword 0xc @ delta x
    .hword 0x200 @ y
    .hword 0x11 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1160
+@ Object 1146
    .hword 0x8 @ delta x
    .hword 0x1f8 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1161
+@ Object 1147
    .hword 0x0 @ delta x
    .hword 0x218 @ y
    .hword 0x3d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1162
+@ Object 1148
    .hword 0x8 @ delta x
    .hword 0x200 @ y
    .hword 0x11 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1163
+@ Object 1149
    .hword 0x0 @ delta x
    .hword 0x2a0 @ y
    .hword 0x28 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1164
+@ Object 1150
    .hword 0x10 @ delta x
    .hword 0x240 @ y
    .hword 0x3 @ type
@@ -7426,57 +7338,57 @@ clubstep_spr_data:
    .hword 0x83f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1165
+@ Object 1151
    .hword 0x0 @ delta x
    .hword 0x260 @ y
    .hword 0x1 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1166
+@ Object 1152
    .hword 0x0 @ delta x
    .hword 0x260 @ y
    .hword 0x1c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1167
+@ Object 1153
    .hword 0x0 @ delta x
    .hword 0x260 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1168
+@ Object 1154
    .hword 0x4 @ delta x
    .hword 0x2a8 @ y
    .hword 0x29 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1169
+@ Object 1155
    .hword 0x1c @ delta x
    .hword 0x270 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1170
+@ Object 1156
    .hword 0x20 @ delta x
    .hword 0x288 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1171
+@ Object 1157
    .hword 0x20 @ delta x
    .hword 0x240 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1172
+@ Object 1158
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1173
+@ Object 1159
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x3 @ type
@@ -7484,13 +7396,13 @@ clubstep_spr_data:
    .hword 0x405f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1174
+@ Object 1160
    .hword 0x10 @ delta x
    .hword 0x288 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1175
+@ Object 1161
    .hword 0x4 @ delta x
    .hword 0x2d0 @ y
    .hword 0x3 @ type
@@ -7498,37 +7410,37 @@ clubstep_spr_data:
    .hword 0x83f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1176
+@ Object 1162
    .hword 0x1c @ delta x
    .hword 0x240 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1177
+@ Object 1163
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1178
+@ Object 1164
    .hword 0x10 @ delta x
    .hword 0x288 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1179
+@ Object 1165
    .hword 0x20 @ delta x
    .hword 0x270 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1180
+@ Object 1166
    .hword 0x20 @ delta x
    .hword 0x250 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1181
+@ Object 1167
    .hword 0x20 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7536,31 +7448,31 @@ clubstep_spr_data:
    .hword 0x7e8 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1182
+@ Object 1168
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0xf @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1183
+@ Object 1169
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1184
+@ Object 1170
    .hword 0x20 @ delta x
    .hword 0x250 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1185
+@ Object 1171
    .hword 0x20 @ delta x
    .hword 0x270 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1186
+@ Object 1172
    .hword 0x10 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7568,13 +7480,13 @@ clubstep_spr_data:
    .hword 0x27e3 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1187
+@ Object 1173
    .hword 0x10 @ delta x
    .hword 0x280 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1188
+@ Object 1174
    .hword 0x4 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7582,51 +7494,51 @@ clubstep_spr_data:
    .hword 0x7e8 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1189
+@ Object 1175
    .hword 0xc @ delta x
    .hword 0x238 @ y
    .hword 0x3a @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1190
+@ Object 1176
    .hword 0x4 @ delta x
    .hword 0x2b4 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1191
+@ Object 1177
    .hword 0x2c @ delta x
    .hword 0x240 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1192
+@ Object 1178
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1193
+@ Object 1179
    .hword 0x30 @ delta x
    .hword 0x240 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1194
+@ Object 1180
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1195
+@ Object 1181
    .hword 0x30 @ delta x
    .hword 0x238 @ y
    .hword 0x3a @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1196
+@ Object 1182
    .hword 0x10 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7634,77 +7546,77 @@ clubstep_spr_data:
    .hword 0x83f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1197
+@ Object 1183
    .hword 0x0 @ delta x
    .hword 0x264 @ y
    .hword 0x39 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1198
+@ Object 1184
    .hword 0x0 @ delta x
    .hword 0x264 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1199
+@ Object 1185
    .hword 0x0 @ delta x
    .hword 0x264 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1200
+@ Object 1186
    .hword 0x0 @ delta x
    .hword 0x288 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 158 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1201
+@ Object 1187
    .hword 0x0 @ delta x
    .hword 0x298 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1202
+@ Object 1188
    .hword 0x0 @ delta x
    .hword 0x2a8 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1203
+@ Object 1189
    .hword 0x0 @ delta x
    .hword 0x2b8 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 162 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1204
+@ Object 1190
    .hword 0x20 @ delta x
    .hword 0x280 @ y
    .hword 0x15 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1205
+@ Object 1191
    .hword 0x10 @ delta x
    .hword 0x2b8 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1206
+@ Object 1192
    .hword 0x10 @ delta x
    .hword 0x290 @ y
    .hword 0x15 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1207
+@ Object 1193
    .hword 0x20 @ delta x
    .hword 0x290 @ y
    .hword 0x15 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1208
+@ Object 1194
    .hword 0x4 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7712,7 +7624,7 @@ clubstep_spr_data:
    .hword 0x405f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1209
+@ Object 1195
    .hword 0x14 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7720,84 +7632,84 @@ clubstep_spr_data:
    .hword 0x83f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1210
+@ Object 1196
    .hword 0x8 @ delta x
    .hword 0x290 @ y
    .hword 0x15 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1211
+@ Object 1197
    .hword 0x0 @ delta x
    .hword 0x2b8 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1212
+@ Object 1198
    .hword 0x20 @ delta x
    .hword 0x280 @ y
    .hword 0x15 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1213
+@ Object 1199
    .hword 0x8 @ delta x
    .hword 0x268 @ y
    .hword 0x3d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1214
+@ Object 1200
    .hword 0x0 @ delta x
    .hword 0x298 @ y
    .hword 0x6b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1215
+@ Object 1201
    .hword 0x28 @ delta x
    .hword 0x240 @ y
    .hword 0x2b @ type
    .hword 0x10 @ bg layer 2   
    .hword 363 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1216
+@ Object 1202
    .hword 0x20 @ delta x
    .hword 0x230 @ y
    .hword 0x2b @ type
    .hword 0x10 @ bg layer 2   
    .hword 364 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1217
+@ Object 1203
    .hword 0x20 @ delta x
    .hword 0x240 @ y
    .hword 0x2b @ type
    .hword 0x10 @ bg layer 2   
    .hword 363 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1218
+@ Object 1204
    .hword 0x18 @ delta x
    .hword 0x298 @ y
    .hword 0x29 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1219
+@ Object 1205
    .hword 0x0 @ delta x
    .hword 0x298 @ y
    .hword 0x30 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1220
+@ Object 1206
    .hword 0x8 @ delta x
    .hword 0x230 @ y
    .hword 0x2b @ type
    .hword 0x10 @ bg layer 2   
    .hword 364 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1221
+@ Object 1207
    .hword 0x20 @ delta x
    .hword 0x240 @ y
    .hword 0x2b @ type
    .hword 0x10 @ bg layer 2   
    .hword 363 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1222
+@ Object 1208
    .hword 0x1c @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7805,25 +7717,25 @@ clubstep_spr_data:
    .hword 0x7e8 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1223
+@ Object 1209
    .hword 0x10 @ delta x
    .hword 0x230 @ y
    .hword 0x59 @ type
    .hword 0xa0 @ coin 1 bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1224
+@ Object 1210
    .hword 0x34 @ delta x
    .hword 0x220 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1225
+@ Object 1211
    .hword 0x0 @ delta x
    .hword 0x2b0 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1226
+@ Object 1212
    .hword 0x8 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7831,7 +7743,7 @@ clubstep_spr_data:
    .hword 0x27e3 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1227
+@ Object 1213
    .hword 0x14 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7839,26 +7751,26 @@ clubstep_spr_data:
    .hword 0x7e8 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1228
+@ Object 1214
    .hword 0x4 @ delta x
    .hword 0x240 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1229
+@ Object 1215
    .hword 0x20 @ delta x
    .hword 0x240 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1230
+@ Object 1216
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1231
+@ Object 1217
    .hword 0x30 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7866,69 +7778,69 @@ clubstep_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1232
+@ Object 1218
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1233
+@ Object 1219
    .hword 0x0 @ delta x
    .hword 0x240 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1234
+@ Object 1220
    .hword 0x20 @ delta x
    .hword 0x240 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1235
+@ Object 1221
    .hword 0x20 @ delta x
    .hword 0x220 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1236
+@ Object 1222
    .hword 0x0 @ delta x
    .hword 0x2b0 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1237
+@ Object 1223
    .hword 0x10 @ delta x
    .hword 0x260 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1238
+@ Object 1224
    .hword 0x20 @ delta x
    .hword 0x260 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1239
+@ Object 1225
    .hword 0x0 @ delta x
    .hword 0x260 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1240
+@ Object 1226
    .hword 0x30 @ delta x
    .hword 0x260 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1241
+@ Object 1227
    .hword 0x0 @ delta x
    .hword 0x260 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1242
+@ Object 1228
    .hword 0x20 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7936,44 +7848,44 @@ clubstep_spr_data:
    .hword 0x301f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1243
+@ Object 1229
    .hword 0x0 @ delta x
    .hword 0x260 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1244
+@ Object 1230
    .hword 0xc @ delta x
    .hword 0x287 @ y
    .hword 0x1 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1245
+@ Object 1231
    .hword 0x0 @ delta x
    .hword 0x287 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1246
+@ Object 1232
    .hword 0x0 @ delta x
    .hword 0x287 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1247
+@ Object 1233
    .hword 0x4 @ delta x
    .hword 0x220 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1248
+@ Object 1234
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1249
+@ Object 1235
    .hword 0x10 @ delta x
    .hword 0x1f0 @ y
    .hword 0x3 @ type
@@ -7981,7 +7893,7 @@ clubstep_spr_data:
    .hword 0x7c19 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1250
+@ Object 1236
    .hword 0x0 @ delta x
    .hword 0x200 @ y
    .hword 0x3 @ type
@@ -7989,76 +7901,76 @@ clubstep_spr_data:
    .hword 0x7c3e @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1251
+@ Object 1237
    .hword 0x30 @ delta x
    .hword 0x220 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1252
+@ Object 1238
    .hword 0x0 @ delta x
    .hword 0x270 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1253
+@ Object 1239
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x19 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1254
+@ Object 1240
    .hword 0x20 @ delta x
    .hword 0x270 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1255
+@ Object 1241
    .hword 0x0 @ delta x
    .hword 0x270 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1256
+@ Object 1242
    .hword 0x10 @ delta x
    .hword 0x270 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1257
+@ Object 1243
    .hword 0x0 @ delta x
    .hword 0x270 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1258
+@ Object 1244
    .hword 0x20 @ delta x
    .hword 0x270 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1259
+@ Object 1245
    .hword 0x10 @ delta x
    .hword 0x240 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1260
+@ Object 1246
    .hword 0x10 @ delta x
    .hword 0x2d0 @ y
    .hword 0x19 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1261
+@ Object 1247
    .hword 0x10 @ delta x
    .hword 0x250 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1262
+@ Object 1248
    .hword 0x8 @ delta x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -8066,7 +7978,7 @@ clubstep_spr_data:
    .hword 0x7c80 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1263
+@ Object 1249
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0x3 @ type
@@ -8074,57 +7986,57 @@ clubstep_spr_data:
    .hword 0x7dc0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1264
+@ Object 1250
    .hword 0x18 @ delta x
    .hword 0x250 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1265
+@ Object 1251
    .hword 0x0 @ delta x
    .hword 0x250 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1266
+@ Object 1252
    .hword 0x10 @ delta x
    .hword 0x250 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1267
+@ Object 1253
    .hword 0x0 @ delta x
    .hword 0x250 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1268
+@ Object 1254
    .hword 0x20 @ delta x
    .hword 0x250 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1269
+@ Object 1255
    .hword 0x10 @ delta x
    .hword 0x2d0 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1270
+@ Object 1256
    .hword 0x10 @ delta x
    .hword 0x240 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1271
+@ Object 1257
    .hword 0x10 @ delta x
    .hword 0x280 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1272
+@ Object 1258
    .hword 0x8 @ delta x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -8132,7 +8044,7 @@ clubstep_spr_data:
    .hword 0x7c1a @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1273
+@ Object 1259
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0x3 @ type
@@ -8140,57 +8052,57 @@ clubstep_spr_data:
    .hword 0x74bf @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1274
+@ Object 1260
    .hword 0x18 @ delta x
    .hword 0x280 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1275
+@ Object 1261
    .hword 0x0 @ delta x
    .hword 0x280 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1276
+@ Object 1262
    .hword 0x10 @ delta x
    .hword 0x280 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1277
+@ Object 1263
    .hword 0x0 @ delta x
    .hword 0x280 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1278
+@ Object 1264
    .hword 0x20 @ delta x
    .hword 0x280 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1279
+@ Object 1265
    .hword 0x10 @ delta x
    .hword 0x240 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1280
+@ Object 1266
    .hword 0x10 @ delta x
    .hword 0x2d0 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1281
+@ Object 1267
    .hword 0x10 @ delta x
    .hword 0x250 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1282
+@ Object 1268
    .hword 0x18 @ delta x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -8198,7 +8110,7 @@ clubstep_spr_data:
    .hword 0x381f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1283
+@ Object 1269
    .hword 0x0 @ delta x
    .hword 0x220 @ y
    .hword 0x3 @ type
@@ -8206,57 +8118,57 @@ clubstep_spr_data:
    .hword 0x40bf @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1284
+@ Object 1270
    .hword 0x8 @ delta x
    .hword 0x250 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1285
+@ Object 1271
    .hword 0x0 @ delta x
    .hword 0x250 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1286
+@ Object 1272
    .hword 0x10 @ delta x
    .hword 0x250 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1287
+@ Object 1273
    .hword 0x0 @ delta x
    .hword 0x250 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1288
+@ Object 1274
    .hword 0x20 @ delta x
    .hword 0x250 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1289
+@ Object 1275
    .hword 0x18 @ delta x
    .hword 0x2d0 @ y
    .hword 0x18 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1290
+@ Object 1276
    .hword 0x8 @ delta x
    .hword 0x240 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1291
+@ Object 1277
    .hword 0x10 @ delta x
    .hword 0x270 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1292
+@ Object 1278
    .hword 0x8 @ delta x
    .hword 0x220 @ y
    .hword 0x3 @ type
@@ -8264,7 +8176,7 @@ clubstep_spr_data:
    .hword 0x7fff @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1293
+@ Object 1279
    .hword 0x8 @ delta x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -8272,19 +8184,19 @@ clubstep_spr_data:
    .hword 0x68df @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1294
+@ Object 1280
    .hword 0x10 @ delta x
    .hword 0x270 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1295
+@ Object 1281
    .hword 0x0 @ delta x
    .hword 0x270 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1296
+@ Object 1282
    .hword 0x8 @ delta x
    .hword 0x210 @ y
    .hword 0x3 @ type
@@ -8292,80 +8204,80 @@ clubstep_spr_data:
    .hword 0x301f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1297
+@ Object 1283
    .hword 0x8 @ delta x
    .hword 0x270 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1298
+@ Object 1284
    .hword 0x0 @ delta x
    .hword 0x270 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1299
+@ Object 1285
    .hword 0x20 @ delta x
    .hword 0x270 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1300
+@ Object 1286
    .hword 0x20 @ delta x
    .hword 0x2a0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1301
+@ Object 1287
    .hword 0x20 @ delta x
    .hword 0x2b0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1302
+@ Object 1288
    .hword 0x20 @ delta x
    .hword 0x280 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1303
+@ Object 1289
    .hword 0x0 @ delta x
    .hword 0x2b0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1304
+@ Object 1290
    .hword 0x20 @ delta x
    .hword 0x2b0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1305
+@ Object 1291
    .hword 0x10 @ delta x
    .hword 0x280 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1306
+@ Object 1292
    .hword 0x10 @ delta x
    .hword 0x2b0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1307
+@ Object 1293
    .hword 0x20 @ delta x
    .hword 0x2a0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1308
+@ Object 1294
    .hword 0x20 @ delta x
    .hword 0x280 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1309
+@ Object 1295
    .hword 0x20 @ delta x
    .hword 0x220 @ y
    .hword 0x3 @ type
@@ -8373,31 +8285,31 @@ clubstep_spr_data:
    .hword 0x7c07 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1310
+@ Object 1296
    .hword 0x0 @ delta x
    .hword 0x278 @ y
    .hword 0xf @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1311
+@ Object 1297
    .hword 0x0 @ delta x
    .hword 0x278 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1312
+@ Object 1298
    .hword 0x20 @ delta x
    .hword 0x280 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1313
+@ Object 1299
    .hword 0x20 @ delta x
    .hword 0x2a0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1314
+@ Object 1300
    .hword 0x20 @ delta x
    .hword 0x220 @ y
    .hword 0x3 @ type
@@ -8405,31 +8317,31 @@ clubstep_spr_data:
    .hword 0x301f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1315
+@ Object 1301
    .hword 0x0 @ delta x
    .hword 0x2a8 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1316
+@ Object 1302
    .hword 0x0 @ delta x
    .hword 0x2a8 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1317
+@ Object 1303
    .hword 0x20 @ delta x
    .hword 0x2a0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1318
+@ Object 1304
    .hword 0x20 @ delta x
    .hword 0x280 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1319
+@ Object 1305
    .hword 0x10 @ delta x
    .hword 0x220 @ y
    .hword 0x3 @ type
@@ -8437,43 +8349,43 @@ clubstep_spr_data:
    .hword 0x2805 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1320
+@ Object 1306
    .hword 0x10 @ delta x
    .hword 0x260 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1321
+@ Object 1307
    .hword 0x10 @ delta x
    .hword 0x268 @ y
    .hword 0xf @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1322
+@ Object 1308
    .hword 0x0 @ delta x
    .hword 0x268 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1323
+@ Object 1309
    .hword 0x10 @ delta x
    .hword 0x260 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1324
+@ Object 1310
    .hword 0x20 @ delta x
    .hword 0x280 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1325
+@ Object 1311
    .hword 0x20 @ delta x
    .hword 0x290 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1326
+@ Object 1312
    .hword 0x10 @ delta x
    .hword 0x220 @ y
    .hword 0x3 @ type
@@ -8481,43 +8393,43 @@ clubstep_spr_data:
    .hword 0x7c01 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1327
+@ Object 1313
    .hword 0x0 @ delta x
    .hword 0x290 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1328
+@ Object 1314
    .hword 0x0 @ delta x
    .hword 0x290 @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1329
+@ Object 1315
    .hword 0x0 @ delta x
    .hword 0x290 @ y
    .hword 0x2 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1330
+@ Object 1316
    .hword 0x0 @ delta x
    .hword 0x290 @ y
    .hword 0x1d @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1331
+@ Object 1317
    .hword 0x30 @ delta x
    .hword 0x2b0 @ y
    .hword 0xb @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1332
+@ Object 1318
    .hword 0x40 @ delta x
    .hword 0x2e4 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1333
+@ Object 1319
    .hword 0xc @ delta x
    .hword 0x230 @ y
    .hword 0x3 @ type
@@ -8525,37 +8437,37 @@ clubstep_spr_data:
    .hword 0x7d80 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1334
+@ Object 1320
    .hword 0x4 @ delta x
    .hword 0x2a0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1335
+@ Object 1321
    .hword 0x0 @ delta x
    .hword 0x2a0 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1336
+@ Object 1322
    .hword 0x10 @ delta x
    .hword 0x244 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1337
+@ Object 1323
    .hword 0x0 @ delta x
    .hword 0x244 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1338
+@ Object 1324
    .hword 0x0 @ delta x
    .hword 0x244 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1339
+@ Object 1325
    .hword 0xc @ delta x
    .hword 0x230 @ y
    .hword 0x3 @ type
@@ -8563,19 +8475,19 @@ clubstep_spr_data:
    .hword 0x7640 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1340
+@ Object 1326
    .hword 0x4 @ delta x
    .hword 0x264 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1341
+@ Object 1327
    .hword 0x0 @ delta x
    .hword 0x264 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1342
+@ Object 1328
    .hword 0x1c @ delta x
    .hword 0x230 @ y
    .hword 0x3 @ type
@@ -8583,37 +8495,37 @@ clubstep_spr_data:
    .hword 0x7380 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1343
+@ Object 1329
    .hword 0x4 @ delta x
    .hword 0x244 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1344
+@ Object 1330
    .hword 0x0 @ delta x
    .hword 0x244 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1345
+@ Object 1331
    .hword 0x0 @ delta x
    .hword 0x244 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1346
+@ Object 1332
    .hword 0x0 @ delta x
    .hword 0x2a0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1347
+@ Object 1333
    .hword 0x0 @ delta x
    .hword 0x2a0 @ y
    .hword 0x64 @ type
    .hword 0x8 @ bg layer 1 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1348
+@ Object 1334
    .hword 0x1c @ delta x
    .hword 0x230 @ y
    .hword 0x3 @ type
@@ -8621,57 +8533,57 @@ clubstep_spr_data:
    .hword 0x740 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1349
+@ Object 1335
    .hword 0x4 @ delta x
    .hword 0x264 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1350
+@ Object 1336
    .hword 0x0 @ delta x
    .hword 0x264 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1351
+@ Object 1337
    .hword 0x10 @ delta x
    .hword 0x244 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1352
+@ Object 1338
    .hword 0x0 @ delta x
    .hword 0x244 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1353
+@ Object 1339
    .hword 0x0 @ delta x
    .hword 0x244 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1354
+@ Object 1340
    .hword 0x0 @ delta x
    .hword 0x318 @ y
    .hword 0xf @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1355
+@ Object 1341
    .hword 0x0 @ delta x
    .hword 0x318 @ y
    .hword 0x1c @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1356
+@ Object 1342
    .hword 0x0 @ delta x
    .hword 0x318 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1357
+@ Object 1343
    .hword 0x30 @ delta x
    .hword 0x270 @ y
    .hword 0x3 @ type
@@ -8679,127 +8591,127 @@ clubstep_spr_data:
    .hword 0x25f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1358
+@ Object 1344
    .hword 0x0 @ delta x
    .hword 0x300 @ y
    .hword 0x8 @ type
    .hword 0x1 @ bg layer 0 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1359
+@ Object 1345
    .hword 0x20 @ delta x
    .hword 0x2e0 @ y
    .hword 0x68 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1360
+@ Object 1346
    .hword 0x0 @ delta x
    .hword 0x2e0 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1361
+@ Object 1347
    .hword 0x0 @ delta x
    .hword 0x354 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1362
+@ Object 1348
    .hword 0x10 @ delta x
    .hword 0x2a4 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1363
+@ Object 1349
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x8 @ type
    .hword 0x1 @ bg layer 0 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1364
+@ Object 1350
    .hword 0x20 @ delta x
    .hword 0x2f0 @ y
    .hword 0x68 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1365
+@ Object 1351
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1366
+@ Object 1352
    .hword 0x10 @ delta x
    .hword 0x2bc @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1367
+@ Object 1353
    .hword 0x0 @ delta x
    .hword 0x320 @ y
    .hword 0x8 @ type
    .hword 0x1 @ bg layer 0 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1368
+@ Object 1354
    .hword 0x10 @ delta x
    .hword 0x354 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1369
+@ Object 1355
    .hword 0xc @ delta x
    .hword 0x300 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1370
+@ Object 1356
    .hword 0x0 @ delta x
    .hword 0x300 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1371
+@ Object 1357
    .hword 0x14 @ delta x
    .hword 0x330 @ y
    .hword 0x8 @ type
    .hword 0x1 @ bg layer 0 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1372
+@ Object 1358
    .hword 0x20 @ delta x
    .hword 0x2d0 @ y
    .hword 0x68 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1373
+@ Object 1359
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1374
+@ Object 1360
    .hword 0x18 @ delta x
    .hword 0x309 @ y
    .hword 0x1 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1375
+@ Object 1361
    .hword 0x0 @ delta x
    .hword 0x309 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1376
+@ Object 1362
    .hword 0x8 @ delta x
    .hword 0x2c4 @ y
    .hword 0x68 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1377
+@ Object 1363
    .hword 0x0 @ delta x
    .hword 0x2c4 @ y
    .hword 0x5e @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1378
+@ Object 1364
    .hword 0x10 @ delta x
    .hword 0x290 @ y
    .hword 0x3 @ type
@@ -8807,81 +8719,81 @@ clubstep_spr_data:
    .hword 0x401f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1379
+@ Object 1365
    .hword 0x10 @ delta x
    .hword 0x310 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1380
+@ Object 1366
    .hword 0x20 @ delta x
    .hword 0x2f0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1381
+@ Object 1367
    .hword 0x30 @ delta x
    .hword 0x2f0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1382
+@ Object 1368
    .hword 0x20 @ delta x
    .hword 0x310 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1383
+@ Object 1369
    .hword 0x18 @ delta x
    .hword 0x320 @ y
    .hword 0xe @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1384
+@ Object 1370
    .hword 0x0 @ delta x
    .hword 0x320 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1385
+@ Object 1371
    .hword 0x8 @ delta x
    .hword 0x330 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1386
+@ Object 1372
    .hword 0x20 @ delta x
    .hword 0x340 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1387
+@ Object 1373
    .hword 0x10 @ delta x
    .hword 0x364 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1388
+@ Object 1374
    .hword 0x20 @ delta x
    .hword 0x330 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1389
+@ Object 1375
    .hword 0x28 @ delta x
    .hword 0x310 @ y
    .hword 0xf @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1390
+@ Object 1376
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1391
+@ Object 1377
    .hword 0x18 @ delta x
    .hword 0x2b0 @ y
    .hword 0x3 @ type
@@ -8889,61 +8801,61 @@ clubstep_spr_data:
    .hword 0x7c05 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1392
+@ Object 1378
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1393
+@ Object 1379
    .hword 0x18 @ delta x
    .hword 0x2cc @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1394
+@ Object 1380
    .hword 0x18 @ delta x
    .hword 0x2f0 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1395
+@ Object 1381
    .hword 0x20 @ delta x
    .hword 0x310 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1396
+@ Object 1382
    .hword 0x10 @ delta x
    .hword 0x300 @ y
    .hword 0x5c @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1397
+@ Object 1383
    .hword 0x8 @ delta x
    .hword 0x350 @ y
    .hword 0x5c @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1398
+@ Object 1384
    .hword 0x8 @ delta x
    .hword 0x330 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1399
+@ Object 1385
    .hword 0x8 @ delta x
    .hword 0x310 @ y
    .hword 0x5b @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1400
+@ Object 1386
    .hword 0x18 @ delta x
    .hword 0x320 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1401
+@ Object 1387
    .hword 0x4 @ delta x
    .hword 0x2b0 @ y
    .hword 0x3 @ type
@@ -8951,13 +8863,13 @@ clubstep_spr_data:
    .hword 0x7dc5 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1402
+@ Object 1388
    .hword 0x8 @ delta x
    .hword 0x364 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1403
+@ Object 1389
    .hword 0x10 @ delta x
    .hword 0x2b0 @ y
    .hword 0x3 @ type
@@ -8965,29 +8877,123 @@ clubstep_spr_data:
    .hword 0x7c05 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1404
+@ Object 1390
    .hword 0x4 @ delta x
    .hword 0x2e0 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1405
+@ Object 1391
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1406
+@ Object 1392
    .hword 0x18 @ delta x
    .hword 0x340 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 246 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1407
+@ Object 1393
    .hword 0x0 @ delta x
    .hword 0x350 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 246 @ metatile ID appareance
+   .hword 0x0 @ z index 0
+@ Object 1394
+   .hword 0x0 @ delta x
+   .hword 0x360 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 246 @ metatile ID appareance
+   .hword 0x0 @ z index 0
+@ Object 1395
+   .hword 0x8 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1396
+   .hword 0x0 @ delta x
+   .hword 0x310 @ y
+   .hword 0x17 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1397
+   .hword 0x8 @ delta x
+   .hword 0x340 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 247 @ metatile ID appareance
+   .hword 0x0 @ z index 0
+@ Object 1398
+   .hword 0x0 @ delta x
+   .hword 0x350 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 247 @ metatile ID appareance
+   .hword 0x0 @ z index 0
+@ Object 1399
+   .hword 0x0 @ delta x
+   .hword 0x360 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 247 @ metatile ID appareance
+   .hword 0x0 @ z index 0
+@ Object 1400
+   .hword 0x18 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x3b @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 16384 @ rotation
+@ Object 1401
+   .hword 0x0 @ delta x
+   .hword 0x310 @ y
+   .hword 0x17 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1402
+   .hword 0x10 @ delta x
+   .hword 0x2b0 @ y
+   .hword 0x3 @ type
+   .hword 0x244 @ changes BG for 72 frames
+   .hword 0x741f @ color
+   .hword 0x0 @ doesn't copy any channel
+   .hword 0x0 @ normal trigger
+@ Object 1403
+   .hword 0x0 @ delta x
+   .hword 0x364 @ y
+   .hword 0x4b @ type
+   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1404
+   .hword 0x10 @ delta x
+   .hword 0x300 @ y
+   .hword 0x3b @ type
+   .hword 0x24 @ bg layer 4 rotated   
+   .hword 0x0 @ z index 0
+   .hword 49152 @ rotation
+@ Object 1405
+   .hword 0x0 @ delta x
+   .hword 0x330 @ y
+   .hword 0x17 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1406
+   .hword 0x18 @ delta x
+   .hword 0x2d0 @ y
+   .hword 0x2b @ type
+   .hword 0x20 @ bg layer 4   
+   .hword 246 @ metatile ID appareance
+   .hword 0x0 @ z index 0
+@ Object 1407
+   .hword 0x0 @ delta x
+   .hword 0x2e0 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 246 @ metatile ID appareance
@@ -9001,26 +9007,26 @@ clubstep_spr_data:
    .hword 0x0 @ z index 0
 @ Object 1409
    .hword 0x8 @ delta x
-   .hword 0x2e0 @ y
+   .hword 0x300 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1410
    .hword 0x0 @ delta x
-   .hword 0x310 @ y
+   .hword 0x330 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1411
    .hword 0x8 @ delta x
-   .hword 0x340 @ y
+   .hword 0x2d0 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 247 @ metatile ID appareance
    .hword 0x0 @ z index 0
 @ Object 1412
    .hword 0x0 @ delta x
-   .hword 0x350 @ y
+   .hword 0x2e0 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 247 @ metatile ID appareance
@@ -9034,247 +9040,153 @@ clubstep_spr_data:
    .hword 0x0 @ z index 0
 @ Object 1414
    .hword 0x18 @ delta x
-   .hword 0x2e0 @ y
+   .hword 0x300 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
 @ Object 1415
    .hword 0x0 @ delta x
-   .hword 0x310 @ y
+   .hword 0x330 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1416
-   .hword 0x10 @ delta x
-   .hword 0x2b0 @ y
-   .hword 0x3 @ type
-   .hword 0x244 @ changes BG for 72 frames
-   .hword 0x741f @ color
-   .hword 0x0 @ doesn't copy any channel
-   .hword 0x0 @ normal trigger
-@ Object 1417
-   .hword 0x0 @ delta x
-   .hword 0x364 @ y
-   .hword 0x4b @ type
-   .hword 0x10 @ bg layer 2 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1418
-   .hword 0x10 @ delta x
-   .hword 0x300 @ y
-   .hword 0x3b @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 49152 @ rotation
-@ Object 1419
-   .hword 0x0 @ delta x
-   .hword 0x330 @ y
-   .hword 0x17 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1420
-   .hword 0x18 @ delta x
-   .hword 0x2d0 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 246 @ metatile ID appareance
-   .hword 0x0 @ z index 0
-@ Object 1421
-   .hword 0x0 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 246 @ metatile ID appareance
-   .hword 0x0 @ z index 0
-@ Object 1422
-   .hword 0x0 @ delta x
-   .hword 0x360 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 246 @ metatile ID appareance
-   .hword 0x0 @ z index 0
-@ Object 1423
-   .hword 0x8 @ delta x
-   .hword 0x300 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1424
-   .hword 0x0 @ delta x
-   .hword 0x330 @ y
-   .hword 0x17 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1425
-   .hword 0x8 @ delta x
-   .hword 0x2d0 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 247 @ metatile ID appareance
-   .hword 0x0 @ z index 0
-@ Object 1426
-   .hword 0x0 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 247 @ metatile ID appareance
-   .hword 0x0 @ z index 0
-@ Object 1427
-   .hword 0x0 @ delta x
-   .hword 0x360 @ y
-   .hword 0x2b @ type
-   .hword 0x20 @ bg layer 4   
-   .hword 247 @ metatile ID appareance
-   .hword 0x0 @ z index 0
-@ Object 1428
-   .hword 0x18 @ delta x
-   .hword 0x300 @ y
-   .hword 0x3b @ type
-   .hword 0x24 @ bg layer 4 rotated   
-   .hword 0x0 @ z index 0
-   .hword 16384 @ rotation
-@ Object 1429
-   .hword 0x0 @ delta x
-   .hword 0x330 @ y
-   .hword 0x17 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1430
    .hword 0x14 @ delta x
    .hword 0x364 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1431
+@ Object 1417
    .hword 0xc @ delta x
    .hword 0x310 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1432
+@ Object 1418
    .hword 0x1 @ delta x
    .hword 0x2df @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1433
+@ Object 1419
    .hword 0x17 @ delta x
    .hword 0x340 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 246 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1434
+@ Object 1420
    .hword 0x0 @ delta x
    .hword 0x350 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 246 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1435
+@ Object 1421
    .hword 0x0 @ delta x
    .hword 0x360 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 246 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1436
+@ Object 1422
    .hword 0x8 @ delta x
    .hword 0x2e0 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1437
+@ Object 1423
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x17 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1438
+@ Object 1424
    .hword 0x8 @ delta x
    .hword 0x340 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 247 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1439
+@ Object 1425
    .hword 0x0 @ delta x
    .hword 0x350 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 247 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1440
+@ Object 1426
    .hword 0x0 @ delta x
    .hword 0x360 @ y
    .hword 0x2b @ type
    .hword 0x20 @ bg layer 4   
    .hword 247 @ metatile ID appareance
    .hword 0x0 @ z index 0
-@ Object 1441
+@ Object 1427
    .hword 0x18 @ delta x
    .hword 0x2e0 @ y
    .hword 0x3b @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1442
+@ Object 1428
    .hword 0x4 @ delta x
    .hword 0x30c @ y
    .hword 0x2 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1443
+@ Object 1429
    .hword 0x0 @ delta x
    .hword 0x30c @ y
    .hword 0xe @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1444
+@ Object 1430
    .hword 0x0 @ delta x
    .hword 0x30c @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1445
+@ Object 1431
    .hword 0x1c @ delta x
    .hword 0x318 @ y
    .hword 0x3d @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1446
+@ Object 1432
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x13 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1447
+@ Object 1433
    .hword 0x0 @ delta x
    .hword 0x338 @ y
    .hword 0x4b @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1448
+@ Object 1434
    .hword 0x2c @ delta x
    .hword 0x330 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1449
+@ Object 1435
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1450
+@ Object 1436
    .hword 0x4 @ delta x
    .hword 0x364 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1451
+@ Object 1437
    .hword 0x10 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -9282,8 +9194,92 @@ clubstep_spr_data:
    .hword 0x81f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1452
+@ Object 1438
    .hword 0x10 @ delta x
+   .hword 0x310 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1439
+   .hword 0x0 @ delta x
+   .hword 0x310 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1440
+   .hword 0x8 @ delta x
+   .hword 0x2c0 @ y
+   .hword 0x61 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1441
+   .hword 0x0 @ delta x
+   .hword 0x2c0 @ y
+   .hword 0x5e @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1442
+   .hword 0x0 @ delta x
+   .hword 0x2c0 @ y
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1443
+   .hword 0x8 @ delta x
+   .hword 0x340 @ y
+   .hword 0x61 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1444
+   .hword 0x0 @ delta x
+   .hword 0x340 @ y
+   .hword 0x5e @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1445
+   .hword 0x0 @ delta x
+   .hword 0x340 @ y
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1446
+   .hword 0x10 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1447
+   .hword 0x0 @ delta x
+   .hword 0x2e0 @ y
+   .hword 0x64 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1448
+   .hword 0x4 @ delta x
+   .hword 0x364 @ y
+   .hword 0x4b @ type
+   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1449
+   .hword 0x4 @ delta x
+   .hword 0x2a8 @ y
+   .hword 0x61 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1450
+   .hword 0x0 @ delta x
+   .hword 0x2a8 @ y
+   .hword 0x5e @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1451
+   .hword 0x0 @ delta x
+   .hword 0x2a8 @ y
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 1452
+   .hword 0x18 @ delta x
    .hword 0x310 @ y
    .hword 0x10 @ type
    .hword 0x20 @ bg layer 4 non rotated   
@@ -9295,252 +9291,168 @@ clubstep_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1454
-   .hword 0x8 @ delta x
-   .hword 0x2c0 @ y
+   .hword 0x0 @ delta x
+   .hword 0x340 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1455
    .hword 0x0 @ delta x
-   .hword 0x2c0 @ y
+   .hword 0x340 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1456
    .hword 0x0 @ delta x
-   .hword 0x2c0 @ y
+   .hword 0x340 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1457
-   .hword 0x8 @ delta x
-   .hword 0x340 @ y
+   .hword 0x10 @ delta x
+   .hword 0x290 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1458
    .hword 0x0 @ delta x
-   .hword 0x340 @ y
+   .hword 0x290 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1459
    .hword 0x0 @ delta x
-   .hword 0x340 @ y
+   .hword 0x290 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1460
-   .hword 0x10 @ delta x
+   .hword 0xc @ delta x
    .hword 0x2e0 @ y
-   .hword 0x10 @ type
+   .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1461
    .hword 0x0 @ delta x
    .hword 0x2e0 @ y
-   .hword 0x64 @ type
+   .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1462
-   .hword 0x4 @ delta x
-   .hword 0x364 @ y
-   .hword 0x4b @ type
-   .hword 0x10 @ bg layer 2 non rotated   
+   .hword 0x8 @ delta x
+   .hword 0x2b4 @ y
+   .hword 0x10 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1463
-   .hword 0x4 @ delta x
-   .hword 0x2a8 @ y
-   .hword 0x61 @ type
+   .hword 0x0 @ delta x
+   .hword 0x2b4 @ y
+   .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1464
-   .hword 0x0 @ delta x
-   .hword 0x2a8 @ y
-   .hword 0x5e @ type
+   .hword 0xc @ delta x
+   .hword 0x340 @ y
+   .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1465
    .hword 0x0 @ delta x
-   .hword 0x2a8 @ y
-   .hword 0x14 @ type
+   .hword 0x340 @ y
+   .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1466
-   .hword 0x18 @ delta x
-   .hword 0x310 @ y
-   .hword 0x10 @ type
+   .hword 0x0 @ delta x
+   .hword 0x340 @ y
+   .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1467
-   .hword 0x0 @ delta x
-   .hword 0x310 @ y
-   .hword 0x64 @ type
+   .hword 0x10 @ delta x
+   .hword 0x290 @ y
+   .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1468
    .hword 0x0 @ delta x
-   .hword 0x340 @ y
-   .hword 0x61 @ type
+   .hword 0x290 @ y
+   .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1469
    .hword 0x0 @ delta x
-   .hword 0x340 @ y
-   .hword 0x5e @ type
+   .hword 0x290 @ y
+   .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 1470
-   .hword 0x0 @ delta x
-   .hword 0x340 @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1471
-   .hword 0x10 @ delta x
-   .hword 0x290 @ y
-   .hword 0x61 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1472
-   .hword 0x0 @ delta x
-   .hword 0x290 @ y
-   .hword 0x5e @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1473
-   .hword 0x0 @ delta x
-   .hword 0x290 @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1474
-   .hword 0xc @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1475
-   .hword 0x0 @ delta x
-   .hword 0x2e0 @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1476
-   .hword 0x8 @ delta x
-   .hword 0x2b4 @ y
-   .hword 0x10 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1477
-   .hword 0x0 @ delta x
-   .hword 0x2b4 @ y
-   .hword 0x64 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1478
-   .hword 0xc @ delta x
-   .hword 0x340 @ y
-   .hword 0x61 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1479
-   .hword 0x0 @ delta x
-   .hword 0x340 @ y
-   .hword 0x5e @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1480
-   .hword 0x0 @ delta x
-   .hword 0x340 @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1481
-   .hword 0x10 @ delta x
-   .hword 0x290 @ y
-   .hword 0x61 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1482
-   .hword 0x0 @ delta x
-   .hword 0x290 @ y
-   .hword 0x5e @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1483
-   .hword 0x0 @ delta x
-   .hword 0x290 @ y
-   .hword 0x14 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 1484
    .hword 0x8 @ delta x
    .hword 0x364 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1485
+@ Object 1471
    .hword 0x8 @ delta x
    .hword 0x310 @ y
    .hword 0x12 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1486
+@ Object 1472
    .hword 0x0 @ delta x
    .hword 0x310 @ y
    .hword 0x64 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1487
+@ Object 1473
    .hword 0x10 @ delta x
    .hword 0x340 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1488
+@ Object 1474
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1489
+@ Object 1475
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1490
+@ Object 1476
    .hword 0x10 @ delta x
    .hword 0x2a0 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1491
+@ Object 1477
    .hword 0x0 @ delta x
    .hword 0x2a0 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1492
+@ Object 1478
    .hword 0x0 @ delta x
    .hword 0x2a0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1493
+@ Object 1479
    .hword 0x10 @ delta x
    .hword 0x330 @ y
    .hword 0xc @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1494
+@ Object 1480
    .hword 0x20 @ delta x
    .hword 0x330 @ y
    .hword 0xa @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1495
+@ Object 1481
    .hword 0x20 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -9548,55 +9460,55 @@ clubstep_spr_data:
    .hword 0x19f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1496
+@ Object 1482
    .hword 0x14 @ delta x
    .hword 0x364 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1497
+@ Object 1483
    .hword 0x2c @ delta x
    .hword 0x340 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1498
+@ Object 1484
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1499
+@ Object 1485
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1500
+@ Object 1486
    .hword 0x28 @ delta x
    .hword 0x364 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1501
+@ Object 1487
    .hword 0x8 @ delta x
    .hword 0x330 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1502
+@ Object 1488
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1503
+@ Object 1489
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1504
+@ Object 1490
    .hword 0x30 @ delta x
    .hword 0x2b0 @ y
    .hword 0x3 @ type
@@ -9604,68 +9516,68 @@ clubstep_spr_data:
    .hword 0xf7f @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1505
+@ Object 1491
    .hword 0x0 @ delta x
    .hword 0x2e0 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1506
+@ Object 1492
    .hword 0x0 @ delta x
    .hword 0x2e0 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1507
+@ Object 1493
    .hword 0x0 @ delta x
    .hword 0x2e0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1508
+@ Object 1494
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x61 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1509
+@ Object 1495
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x5e @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1510
+@ Object 1496
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1511
+@ Object 1497
    .hword 0x20 @ delta x
    .hword 0x309 @ y
    .hword 0x1 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1512
+@ Object 1498
    .hword 0x0 @ delta x
    .hword 0x309 @ y
    .hword 0x4a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1513
+@ Object 1499
    .hword 0x1c @ delta x
    .hword 0x364 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1514
+@ Object 1500
    .hword 0x14 @ delta x
    .hword 0x2f0 @ y
    .hword 0x6 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1515
+@ Object 1501
    .hword 0x20 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -9673,50 +9585,50 @@ clubstep_spr_data:
    .hword 0x18 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1516
+@ Object 1502
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1517
+@ Object 1503
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1518
+@ Object 1504
    .hword 0x20 @ delta x
    .hword 0x2f0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1519
+@ Object 1505
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1520
+@ Object 1506
    .hword 0x20 @ delta x
    .hword 0x2f0 @ y
    .hword 0x6 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1521
+@ Object 1507
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x60 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1522
+@ Object 1508
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x6a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1523
+@ Object 1509
    .hword 0x10 @ delta x
    .hword 0x2b0 @ y
    .hword 0x3 @ type
@@ -9724,99 +9636,99 @@ clubstep_spr_data:
    .hword 0x9bf @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1524
+@ Object 1510
    .hword 0x0 @ delta x
    .hword 0x2d0 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1525
+@ Object 1511
    .hword 0x0 @ delta x
    .hword 0x33c @ y
    .hword 0x60 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1526
+@ Object 1512
    .hword 0x0 @ delta x
    .hword 0x33c @ y
    .hword 0x6a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1527
+@ Object 1513
    .hword 0x10 @ delta x
    .hword 0x336 @ y
    .hword 0x60 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1528
+@ Object 1514
    .hword 0x0 @ delta x
    .hword 0x336 @ y
    .hword 0x6a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1529
+@ Object 1515
    .hword 0x0 @ delta x
    .hword 0x364 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1530
+@ Object 1516
    .hword 0x10 @ delta x
    .hword 0x2e0 @ y
    .hword 0x6 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1531
+@ Object 1517
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x60 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1532
+@ Object 1518
    .hword 0x0 @ delta x
    .hword 0x330 @ y
    .hword 0x6a @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1533
+@ Object 1519
    .hword 0x20 @ delta x
    .hword 0x2e0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1534
+@ Object 1520
    .hword 0x0 @ delta x
    .hword 0x2e0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1535
+@ Object 1521
    .hword 0x20 @ delta x
    .hword 0x2e0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1536
+@ Object 1522
    .hword 0x0 @ delta x
    .hword 0x2e0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1537
+@ Object 1523
    .hword 0x20 @ delta x
    .hword 0x2e0 @ y
    .hword 0x6 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1538
+@ Object 1524
    .hword 0x0 @ delta x
    .hword 0x340 @ y
    .hword 0x59 @ type
    .hword 0x120 @ coin 2 bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1539
+@ Object 1525
    .hword 0x10 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -9824,26 +9736,26 @@ clubstep_spr_data:
    .hword 0x7fff @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1540
+@ Object 1526
    .hword 0x10 @ delta x
    .hword 0x2d0 @ y
    .hword 0x19 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1541
+@ Object 1527
    .hword 0x0 @ delta x
    .hword 0x364 @ y
    .hword 0x4a @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1542
+@ Object 1528
    .hword 0x10 @ delta x
    .hword 0x300 @ y
    .hword 0x6 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1543
+@ Object 1529
    .hword 0x10 @ delta x
    .hword 0x2a0 @ y
    .hword 0x3 @ type
@@ -9851,81 +9763,81 @@ clubstep_spr_data:
    .hword 0x0 @ color
    .hword 0x0 @ doesn't copy any channel
    .hword 0x0 @ normal trigger
-@ Object 1544
+@ Object 1530
    .hword 0x10 @ delta x
    .hword 0x300 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1545
+@ Object 1531
    .hword 0x0 @ delta x
    .hword 0x300 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1546
+@ Object 1532
    .hword 0x20 @ delta x
    .hword 0x300 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1547
+@ Object 1533
    .hword 0x0 @ delta x
    .hword 0x300 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1548
+@ Object 1534
    .hword 0x20 @ delta x
    .hword 0x300 @ y
    .hword 0x6 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 16384 @ rotation
-@ Object 1549
+@ Object 1535
    .hword 0x18 @ delta x
    .hword 0x2d0 @ y
    .hword 0x18 @ type
    .hword 0x21 @ bg layer 4 non rotated  flipped vertically 
    .hword 0x0 @ z index 0
-@ Object 1550
+@ Object 1536
    .hword 0x8 @ delta x
    .hword 0x364 @ y
    .hword 0x4b @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1551
+@ Object 1537
    .hword 0x10 @ delta x
    .hword 0x2f0 @ y
    .hword 0x6 @ type
    .hword 0x24 @ bg layer 4 rotated   
    .hword 0x0 @ z index 0
    .hword 49152 @ rotation
-@ Object 1552
+@ Object 1538
    .hword 0x20 @ delta x
    .hword 0x2f0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1553
+@ Object 1539
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1554
+@ Object 1540
    .hword 0x20 @ delta x
    .hword 0x2f0 @ y
    .hword 0x14 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1555
+@ Object 1541
    .hword 0x0 @ delta x
    .hword 0x2f0 @ y
    .hword 0x9 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
-@ Object 1556
+@ Object 1542
    .hword 0x20 @ delta x
    .hword 0x2f0 @ y
    .hword 0x6 @ type

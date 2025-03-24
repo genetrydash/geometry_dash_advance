@@ -808,7 +808,11 @@ ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
 ARM_CODE s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
     for (s32 i = block_object_buffer_offset; i > 0; i--) {
         struct ObjectSlot slot = *((struct ObjectSlot *) block_object_buffer[i - 1]);
-        
+
+        u16 col_type = block_object_buffer_flags[i - 1];
+
+        if (col_type == COL_NONE) continue;
+
         u32 obj_x = slot.object.x;
         u32 obj_y = slot.object.y;
         u32 obj_width = obj_hitbox[slot.object.type][0];
@@ -822,8 +826,6 @@ ARM_CODE s32 collision_with_block_obj(u32 x, u32 y, u8 side) {
 
             // Set old player y pos to get the displacement later
             u64 old_player_y = curr_player.player_y;
-
-            u16 col_type = block_object_buffer_flags[i - 1];
             
             u32 returned = col_type_lookup(col_type, mod_x, mod_y, side, 3);
             

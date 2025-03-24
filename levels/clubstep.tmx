@@ -2175,13 +2175,6 @@
     <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
-  <object id="1148" gid="4190" x="4480" y="464" width="16" height="16">
-   <properties>
-    <property name="bg layer" value="1"/>
-    <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
-   </properties>
-  </object>
   <object id="1149" gid="4190" x="4480" y="496" width="16" height="16">
    <properties>
     <property name="bg layer" value="1"/>
@@ -2217,13 +2210,6 @@
     <property name="rotation angle" type="int" value="90"/>
    </properties>
   </object>
-  <object id="1154" gid="4190" x="4480" y="608" width="16" height="16">
-   <properties>
-    <property name="bg layer" value="1"/>
-    <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="90"/>
-   </properties>
-  </object>
   <object id="1155" gid="4189" x="4384" y="472" width="16" height="16">
    <properties>
     <property name="bg layer" value="1"/>
@@ -2239,13 +2225,6 @@
    </properties>
   </object>
   <object id="1157" gid="4190" x="4384" y="480" width="16" height="16">
-   <properties>
-    <property name="bg layer" value="1"/>
-    <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
-   </properties>
-  </object>
-  <object id="1158" gid="4190" x="4384" y="464" width="16" height="16">
    <properties>
     <property name="bg layer" value="1"/>
     <property name="enable rotation" type="bool" value="true"/>
@@ -2285,43 +2264,6 @@
     <property name="bg layer" value="1"/>
     <property name="enable rotation" type="bool" value="true"/>
     <property name="rotation angle" type="int" value="270"/>
-   </properties>
-  </object>
-  <object id="1164" gid="4190" x="4384" y="608" width="16" height="16">
-   <properties>
-    <property name="bg layer" value="1"/>
-    <property name="enable rotation" type="bool" value="true"/>
-    <property name="rotation angle" type="int" value="270"/>
-   </properties>
-  </object>
-  <object id="1165" gid="4188" x="4408" y="560" width="16" height="16"/>
-  <object id="1166" gid="4188" x="4456" y="560" width="16" height="16"/>
-  <object id="1167" gid="4188" x="4456" y="512" width="16" height="16">
-   <properties>
-    <property name="vflip" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="1168" gid="4189" x="4408" y="512" width="16" height="16">
-   <properties>
-    <property name="vflip" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="1169" gid="4190" x="4424" y="512" width="16" height="16">
-   <properties>
-    <property name="vflip" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="1170" gid="4190" x="4432" y="520" width="16" height="16"/>
-  <object id="1171" gid="4189" x="4448" y="520" width="16" height="16"/>
-  <object id="1172" gid="4190" x="4424" y="560" width="16" height="16"/>
-  <object id="1173" gid="4189" x="4432" y="552" width="16" height="16">
-   <properties>
-    <property name="vflip" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="1174" gid="4188" x="4400" y="556" width="16" height="16">
-   <properties>
-    <property name="vflip" type="bool" value="true"/>
    </properties>
   </object>
   <object id="1175" gid="4112" x="4592" y="544" width="16" height="16"/>
