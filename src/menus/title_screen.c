@@ -168,6 +168,10 @@ void title_screen_players() {
     curr_player.relative_player_x = FROM_FIXED(curr_player.player_x) - 32;
     curr_player.relative_player_y = FROM_FIXED(curr_player.player_y) - FROM_FIXED(scroll_y) - 14;
 
+    // Disable input
+    __key_curr = 0;
+    __key_prev = 0;
+
     // Set movement depending on gamemode
     switch (curr_player.gamemode) {
         case GAMEMODE_CUBE:
