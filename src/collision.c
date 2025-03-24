@@ -249,7 +249,7 @@ ARM_CODE void collision_wave() {
     coll_y = (curr_player.player_y >> SUBPIXEL_BITS);
     collide_with_obj_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
     
-    u8 offset = curr_player.player_size ? 2 : 3;
+    u8 offset = curr_player.player_size == SIZE_MINI ? 2 : 2;
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
@@ -266,29 +266,27 @@ ARM_CODE void collision_wave() {
         if (player_death) {
             return;
         }
+        
+        coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
+        coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
 
         if (curr_player.player_y_speed >= 0) {
             // Going down
-            coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
-            coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
             
             if (!curr_player.slope_counter) {
-                if (run_coll(coll_x, coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
+                if (run_coll(coll_x, coll_y + curr_player.player_height + offset + 1, layer, BOTTOM)) {
                     continue;
                 }
-                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
+                if (run_coll(coll_x + (curr_player.player_width >> 1), coll_y + curr_player.player_height + offset + 1, layer, BOTTOM)) {
                     continue;
                 }
             }
-            if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height + offset, layer, BOTTOM)) {
+            if (run_coll(coll_x + curr_player.player_width, coll_y + curr_player.player_height + offset + 1, layer, BOTTOM)) {
                 continue;
             }
         }
         if (curr_player.player_y_speed <= 0) {
             // Going up
-            coll_x = (curr_player.player_x >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_width) >> 1);
-            coll_y = (curr_player.player_y >> SUBPIXEL_BITS) + ((0x10 - curr_player.player_height) >> 1);
-
             if (!curr_player.slope_counter) {
                 if (run_coll(coll_x, coll_y - offset, layer, TOP)) {
                     continue;
