@@ -950,22 +950,22 @@
   <object id="797" gid="4115" x="3128" y="416" width="16" height="16"/>
   <object id="798" gid="4215" x="3128" y="416" width="16" height="16"/>
   <object id="800" gid="4197" x="3128" y="416" width="16" height="16"/>
-  <object id="801" gid="4137" x="3088" y="416" width="16" height="16">
+  <object id="801" gid="4137" x="3076" y="412" width="16" height="16">
    <properties>
     <property name="bg layer" value="2"/>
    </properties>
   </object>
-  <object id="802" gid="4117" x="3088" y="416" width="16" height="16">
+  <object id="802" gid="4117" x="3076" y="412" width="16" height="16">
    <properties>
     <property name="bg layer" value="1"/>
    </properties>
   </object>
-  <object id="803" gid="4212" x="3088" y="416" width="16" height="16">
+  <object id="803" gid="4212" x="3076" y="412" width="16" height="16">
    <properties>
     <property name="bg layer" value="2"/>
    </properties>
   </object>
-  <object id="804" gid="4105" x="3088" y="400" width="16" height="16"/>
+  <object id="804" gid="4105" x="3076" y="396" width="16" height="16"/>
   <object id="805" gid="4156" x="3088" y="432" width="16" height="16"/>
   <object id="806" gid="4157" x="3152" y="432" width="16" height="16"/>
   <object id="807" gid="4157" x="3120" y="432" width="16" height="16"/>

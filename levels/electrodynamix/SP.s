@@ -2112,34 +2112,34 @@ electrodynamix_spr_data:
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 325
-   .hword 0x10 @ delta x
-   .hword 0x15c @ y
-   .hword 0x14 @ type
+   .hword 0x4 @ delta x
+   .hword 0x18c @ y
+   .hword 0x8 @ type
    .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 326
    .hword 0x0 @ delta x
-   .hword 0x190 @ y
-   .hword 0x8 @ type
-   .hword 0x20 @ bg layer 4 non rotated   
-   .hword 0x0 @ z index 0
-@ Object 327
-   .hword 0x0 @ delta x
-   .hword 0x1a0 @ y
+   .hword 0x19c @ y
    .hword 0x28 @ type
    .hword 0x18 @ bg layer 3 non rotated   
    .hword 0x0 @ z index 0
-@ Object 328
+@ Object 327
    .hword 0x0 @ delta x
-   .hword 0x1a0 @ y
+   .hword 0x19c @ y
    .hword 0x14 @ type
    .hword 0x10 @ bg layer 2 non rotated   
    .hword 0x0 @ z index 0
-@ Object 329
+@ Object 328
    .hword 0x0 @ delta x
-   .hword 0x1a0 @ y
+   .hword 0x19c @ y
    .hword 0x73 @ type
    .hword 0x18 @ bg layer 3 non rotated   
+   .hword 0x0 @ z index 0
+@ Object 329
+   .hword 0xc @ delta x
+   .hword 0x15c @ y
+   .hword 0x14 @ type
+   .hword 0x20 @ bg layer 4 non rotated   
    .hword 0x0 @ z index 0
 @ Object 330
    .hword 0x0 @ delta x
