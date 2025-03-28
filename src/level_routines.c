@@ -1139,6 +1139,7 @@ void store_practice_vars() {
     new_checkpoint.player1 = player_1;
     new_checkpoint.player2 = player_2;
     new_checkpoint.speed_id = speed_id;
+    new_checkpoint.dual = dual;
 
     new_checkpoint.screen_mirrored = screen_mirrored;
     new_checkpoint.screen_mirrored_transition = screen_mirrored_transition;
@@ -1222,6 +1223,7 @@ void restore_practice_vars() {
     player_1 = curr_checkpoint.player1;
     player_2 = curr_checkpoint.player2;
     speed_id = curr_checkpoint.speed_id;
+    dual = curr_checkpoint.dual;
 
     upload_player_chr(player_1.gamemode, ID_PLAYER_1);
     upload_player_chr(player_2.gamemode, ID_PLAYER_2);

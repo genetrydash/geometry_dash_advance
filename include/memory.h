@@ -162,6 +162,7 @@ struct PracticeCheckpoint {
     s8 transition_frame;
 
     u8 speed_id;
+    u8 dual;
 
     u16 col_trigger_buffer[CHANNEL_COUNT][5];
     u8 col_channels_flags[CHANNEL_COUNT];
