@@ -23,7 +23,7 @@ ARM_CODE void collide_with_map_spikes(u32 x, u32 y, u32 width, u32 height, u8 la
 s32 do_center_checks(u32 x, u32 y, u32 width, u32 height, u32 layer);
 u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height);
 
-ARM_CODE void collision_cube() {
+void collision_cube() {
     // Exit if above screen
     if (curr_player.player_y < 0) return;
 
@@ -147,7 +147,7 @@ ARM_CODE void collision_cube() {
 #endif
 }
 
-ARM_CODE void collision_ship_ball_ufo() {
+void collision_ship_ball_ufo() {
     // Exit if above screen
     if (curr_player.player_y < 0) return;
 
@@ -232,7 +232,7 @@ ARM_CODE void collision_ship_ball_ufo() {
     do_center_checks(coll_x, coll_y, curr_player.player_internal_hitbox_width, curr_player.player_internal_hitbox_height, 1);
 #endif
 }
-ARM_CODE void collision_wave() {
+void collision_wave() {
     // Exit if above screen
     if (curr_player.player_y < 0) return;
 
@@ -412,7 +412,7 @@ const u8 gamemode_max_eject[] = {
     /* Wave */ 0x0a,
 };
 
-ARM_CODE u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
+u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
     // Positions inside block, top left pixel is [0,0]
     u32 x_inside_block = x & 0x0f;
     u32 y_inside_block = y & 0x0f;

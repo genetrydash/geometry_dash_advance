@@ -386,12 +386,17 @@ void block(UNUSED struct ObjectSlot *objectSlot) {
         }
     }
     
+    u16 metatile_ID = objectSlot->object.attrib3;
+
+    u16 collision = metatiles[metatile_ID][4];
+
+    // If no collision, don't add it
+    if (collision == COL_NONE) return;
+    
     // If not, add it
     block_object_buffer[block_object_buffer_offset] = (s32 *) objectSlot;
 
-    u16 metatile_ID = objectSlot->object.attrib3;
-
-    block_object_buffer_flags[block_object_buffer_offset++] = metatiles[metatile_ID][4];
+    block_object_buffer_flags[block_object_buffer_offset++] = collision;
 }
 
 void slab(UNUSED struct ObjectSlot *objectSlot) {
@@ -401,13 +406,18 @@ void slab(UNUSED struct ObjectSlot *objectSlot) {
             return;
         }
     }
+    
+    u16 metatile_ID = objectSlot->object.attrib3;
+    
+    u16 collision = metatiles[metatile_ID][4];
+
+    // If no collision, don't add it
+    if (collision == COL_NONE) return;
 
     // If not, add it
     block_object_buffer[block_object_buffer_offset] = (s32 *) objectSlot;
     
-    u16 metatile_ID = objectSlot->object.attrib3;
-    
-    block_object_buffer_flags[block_object_buffer_offset++] = metatiles[metatile_ID][4];
+    block_object_buffer_flags[block_object_buffer_offset++] = collision;
 }
 
 void coin(UNUSED struct ObjectSlot *objectSlot) {
