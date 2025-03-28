@@ -5,7 +5,7 @@ Geometry Dash Advance is a demake of Geometry Dash for the GBA.
 
 ## links
 
-Join our Discord: [CLICK HERE](https://discord.gg/WvUUqn2HMc)
+Join our Discord: [CLICK HERE](https://discord.gg/Yh6JrS7eSU)
 
 ## Nightly builds
 Download nightly build (unstable) [CLICK HERE](https://nightly.link/AleFunky/geometry_dash_advance/workflows/main/main/gd-adv.zip)
