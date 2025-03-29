@@ -79,8 +79,8 @@ def export_objects_to_assembly(json_file_path, level_name, layer_name, output_s_
 
                     y = int(obj['y'])  # Convert to int
                     gid = int(obj['gid'])
-                    if gid > 4096:
-                        gid = int(obj['gid']) - 4097  # Sprite
+                    if gid > 16384:
+                        gid = int(obj['gid']) - 16385  # Sprite
                     else:
                         saved_metatile_id = gid - 1
                         gid = 43
