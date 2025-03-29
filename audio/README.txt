@@ -17,7 +17,7 @@ Module instructions:
 •Chanels:        4-8 sample chanels
 ATTENTION: FM SYNTHESIZERS, MIDI OR OTHER MODERN SYNTHESIZER CHANNELS ARE NOT SUPPORTED, ONLY SAMPLES.
 
-To make your music you can use: Fasttracker II, Impulse tracker, OpenMPT, Milky tracker or another music tracker.
-If you have any questions, or want your track added to the game, send a message via discord to: @ElAngel378.
+To make your music you can use: Fasttracker II (recomended), Impulse tracker, OpenMPT, Milky tracker or another music tracker.
+If you have any questions, or want your track added to the game, send a message via discord to: @ElAngel378 or geometry dash advance server.
 
-On windows you need to install Devkitpro. 
+On windows you need to install Devkitpro.
