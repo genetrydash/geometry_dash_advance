@@ -21,7 +21,7 @@ Download nightly build (unstable) [CLICK HERE](https://nightly.link/AleFunky/geo
 |[KawaiiDawn](https://github.com/Astroclimber26)|graphics.|
 |KirikkSiSq|graphics.|
 |[SeaGlowingPro](https://github.com/SeaGlowingPro)|levels.|
-|[banana6000](https://github.com/xXFamidash_Fan69Xx)|graphics and levels.|
+|[banana6000](https://github.com/xXFamidashFan69Xx)|graphics and levels.|
 |Nicolestarlight|music.|
 |Redgd|graphics.|
 
