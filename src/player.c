@@ -63,7 +63,7 @@ FIXED mirror_scaling;
 void player_main() {    
     // Halve steps if dual
     num_steps = (dual == DUAL_ON) ? (NUM_STEPS / 2) : NUM_STEPS;
-    
+
     if (complete_cutscene) {
         level_complete_cutscene();
     } else {
@@ -401,6 +401,10 @@ void ball_gamemode() {
             curr_player.ball_rotation_direction = (curr_player.gravity_dir == GRAVITY_DOWN) ? -1 : 1;
             
             curr_player.player_buffering = ORB_BUFFER_END;
+
+            if (curr_player.slope_counter) {
+                curr_player.player_y_speed += 0x4000 * -sign;
+            }
         }
     }
 }
