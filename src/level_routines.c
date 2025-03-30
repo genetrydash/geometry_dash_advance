@@ -1089,9 +1089,6 @@ void draw_both_players() {
 
 // Main player code
 void player_code() {
-    // Halve steps if dual
-    num_steps = (dual == DUAL_ON) ? (NUM_STEPS / 2) : NUM_STEPS;
-
     // Set speed for both players
     set_player_speed();
 

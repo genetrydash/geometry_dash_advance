@@ -61,6 +61,9 @@ void do_ufo_gravity();
 FIXED mirror_scaling;
 
 void player_main() {    
+    // Halve steps if dual
+    num_steps = (dual == DUAL_ON) ? (NUM_STEPS / 2) : NUM_STEPS;
+    
     if (complete_cutscene) {
         level_complete_cutscene();
     } else {
@@ -199,14 +202,20 @@ void cube_gamemode() {
             switch (curr_player.slope_type) {
                 case DEGREES_45:
                 case DEGREES_45_DOWN:
+                case DEGREES_45_UD:
+                case DEGREES_45_UD_DOWN:
                     curr_player.cube_rotation = snap_to_45(curr_player.cube_rotation);
                     break;
                 case DEGREES_26_5:
+                case DEGREES_26_5_UD_DOWN:
                 case DEGREES_63_5_DOWN:
+                case DEGREES_63_5_UD:
                     curr_player.cube_rotation = snap_to_tan_theta_1_2(curr_player.cube_rotation);
                     break;
                 case DEGREES_63_5:
+                case DEGREES_63_5_UD_DOWN:
                 case DEGREES_26_5_DOWN:
+                case DEGREES_26_5_UD:
                     curr_player.cube_rotation = snap_to_tan_theta_1_2_rotated_90(curr_player.cube_rotation);
                     break;
             }

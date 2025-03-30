@@ -1746,12 +1746,13 @@ ARM_CODE u32 collide_with_obj_slopes(struct circle_t *player);
 // This function iterates through slopes that the player is touching and applies collision to it
 u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height) {
     struct circle_t player;
-    player.radius = (width >> 1) - 2;
+    player.radius = (width >> 1) - 1;
     player.cx = x + (width >> 1);
     player.cy = y + (height >> 1);
 
     // Make wave hitbox 2 pixels bigger
     if (curr_player.gamemode == GAMEMODE_WAVE) player.radius += 4;
+    else if (curr_player.gamemode == GAMEMODE_SHIP) player.radius -= 1;
 
     // Try to collide with sprite slopes only in the first layer check
     if (collide_with_obj_slopes(&player)) {
@@ -1826,7 +1827,7 @@ s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *pl
             slope.p3.x = slope_x;
             slope.p3.y = slope_y;
             
-            SLOPE_CHECK(DEGREES_45)
+            SLOPE_CHECK(DEGREES_45_UD)
             break;
 
         case COL_SLOPE_45_DOWN_UD:
@@ -1839,7 +1840,7 @@ s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *pl
             slope.p3.x = slope_x + 0x10;
             slope.p3.y = slope_y;
             
-            SLOPE_CHECK(DEGREES_45_DOWN)
+            SLOPE_CHECK(DEGREES_45_UD_DOWN)
             break;
 
         // 22 deg
@@ -1908,7 +1909,7 @@ s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *pl
             slope.p3.x = slope_x;
             slope.p3.y = slope_y;
             
-            SLOPE_CHECK(DEGREES_26_5)
+            SLOPE_CHECK(DEGREES_26_5_UD)
             break;
 
         case COL_SLOPE_22_UP_UD_2:
@@ -1921,7 +1922,7 @@ s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *pl
             slope.p3.x = slope_x - 0x10;
             slope.p3.y = slope_y;
             
-            SLOPE_CHECK(DEGREES_26_5)
+            SLOPE_CHECK(DEGREES_26_5_UD)
             break;
 
         case COL_SLOPE_22_DOWN_UD_1:
@@ -1934,7 +1935,7 @@ s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *pl
             slope.p3.x = slope_x + 0x20;
             slope.p3.y = slope_y;
             
-            SLOPE_CHECK(DEGREES_26_5_DOWN)
+            SLOPE_CHECK(DEGREES_26_5_UD_DOWN)
             break;
 
         
@@ -1948,7 +1949,7 @@ s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *pl
             slope.p3.x = slope_x + 0x10;
             slope.p3.y = slope_y;
             
-            SLOPE_CHECK(DEGREES_26_5_DOWN)
+            SLOPE_CHECK(DEGREES_26_5_UD_DOWN)
             break;
 
         // 66 DEG
@@ -2016,7 +2017,7 @@ s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *pl
             slope.p3.x = slope_x;
             slope.p3.y = slope_y - 0x10;
             
-            SLOPE_CHECK(DEGREES_63_5)
+            SLOPE_CHECK(DEGREES_63_5_UD)
             break;
 
         case COL_SLOPE_66_UP_UD_2:
@@ -2029,7 +2030,7 @@ s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *pl
             slope.p3.x = slope_x;
             slope.p3.y = slope_y;
             
-            SLOPE_CHECK(DEGREES_63_5)
+            SLOPE_CHECK(DEGREES_63_5_UD)
             break;
 
         case COL_SLOPE_66_DOWN_UD_1:
@@ -2042,7 +2043,7 @@ s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *pl
             slope.p3.x = slope_x + 0x10;
             slope.p3.y = slope_y;
             
-            SLOPE_CHECK(DEGREES_63_5_DOWN)
+            SLOPE_CHECK(DEGREES_63_5_UD_DOWN)
             break;
 
         case COL_SLOPE_66_DOWN_UD_2:
@@ -2055,7 +2056,7 @@ s32 slope_type_check(u32 slope_x, u32 slope_y, u32 col_type, struct circle_t *pl
             slope.p3.x = slope_x + 0x10;
             slope.p3.y = slope_y - 0x10;
             
-            SLOPE_CHECK(DEGREES_63_5_DOWN)
+            SLOPE_CHECK(DEGREES_63_5_UD_DOWN)
             break;
 
     }
