@@ -121,7 +121,7 @@ void player_main() {
         
         if (curr_player.slope_counter) {
             if (curr_player.slope_speed_multiplier < 0x10000) {
-                curr_player.slope_speed_multiplier += 0x2000;
+                curr_player.slope_speed_multiplier += 0x4000;
             }
             if (--curr_player.slope_counter == 0) {
                 curr_player.on_slope = FALSE;
