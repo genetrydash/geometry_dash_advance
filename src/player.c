@@ -187,7 +187,10 @@ void cube_gamemode() {
     }
 
     if (!curr_player.on_floor && curr_player.slope_counter) {
-        curr_player.gravity = 0;
+        const FIXED_16 x_speed_doubled = curr_player.player_x_speed;
+        if (curr_player.player_y_speed >= -x_speed_doubled && curr_player.player_y_speed < x_speed_doubled) {
+            curr_player.gravity = 0;
+        }
     }
 
     // If the cube is on the air and not on slope, rotate, else, snap to nearest 

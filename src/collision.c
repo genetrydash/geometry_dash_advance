@@ -1728,7 +1728,7 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
     // If collided with the horizontal edge, skip
     if (ejection_type == EJECTION_TYPE_HIPO) {
         curr_player.on_slope = TRUE;
-        curr_player.slope_counter = 3;
+        curr_player.slope_counter = 5;
         curr_player.inverse_rotation_flag = TRUE;
         curr_player.slope_type = type;
     }
