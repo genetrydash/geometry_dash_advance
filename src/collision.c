@@ -1746,7 +1746,7 @@ ARM_CODE u32 collide_with_obj_slopes(struct circle_t *player);
 // This function iterates through slopes that the player is touching and applies collision to it
 u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height) {
     struct circle_t player;
-    player.radius = (width >> 1) - 1;
+    player.radius = (width >> 1) - 2;
     player.cx = x + (width >> 1);
     player.cy = y + (height >> 1);
 
