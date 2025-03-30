@@ -939,16 +939,16 @@ ARM_CODE INLINE void rotate_point_fixed(s32 cx, s32 cy, s32 px, s32 py, s16 sin_
     s32 dx = px - cx;
     s32 dy = py - cy;
 
-    *rx = cx + ((dx * cos_theta - dy * sin_theta) >> SCALE_FACTOR);
-    *ry = cy + ((dx * sin_theta + dy * cos_theta) >> SCALE_FACTOR);
+    *rx = cx + (s32)(((s64)dx * cos_theta - (s64)dy * sin_theta) >> SCALE_FACTOR);
+    *ry = cy + (s32)(((s64)dx * sin_theta + (s64)dy * cos_theta) >> SCALE_FACTOR);
 }
 
 // Project a rectangle's corners onto an axis and calculate min/max projections
 ARM_CODE void project_onto_axis_fixed(s32* corners, s32 ax, s32 ay, s32* min, s32* max) {
-    *min = *max = (corners[0] * ax + corners[1] * ay) >> SCALE_FACTOR;
+    *min = *max = (s32)(((s64)corners[0] * ax + (s64)corners[1] * ay) >> SCALE_FACTOR);
 
     for (s32 i = 1; i < 4; i++) {
-        s32 projection = (corners[i << 1] * ax + corners[(i << 1) + 1] * ay) >> SCALE_FACTOR;
+        s32 projection = (s32)(((s64)corners[i << 1] * ax + (s64)corners[(i << 1) + 1] * ay) >> SCALE_FACTOR);
         if (projection < *min) *min = projection;
         if (projection > *max) *max = projection;
     }
@@ -959,47 +959,59 @@ ARM_CODE INLINE s32 overlap_on_axis_fixed(s32 min1, s32 max1, s32 min2, s32 max2
     return !(max1 < min2 || max2 < min1);
 }
 
-// Same as is_colliding but second hitbox supports rotation
-ARM_CODE s32 is_colliding_rotated_fixed(s32 x1, s32 y1, s32 w1, s32 h1, s32 x2, s32 y2, s32 w2, s32 h2, s32 orig_x, s32 orig_y, s32 cx2offset, s32 cy2offset, u16 angle) {
-    // Center of second rectangle
-    s32 cx2 = orig_x + cx2offset;
-    s32 cy2 = orig_y + cy2offset;
+// Same function but with some improvements
+ARM_CODE s32 is_colliding_rotated_fixed(
+    s32 x1, s32 y1, s32 w1, s32 h1, 
+    s32 x2, s32 y2, s32 w2, s32 h2, 
+    s32 origin_x, s32 origin_y, s32 cx2offset, s32 cy2offset, u16 angle) {
+    // First do a simple AABB check to potentially early-out
+    if (x1 > x2 + w2 || x1 + w1 < x2 || y1 > y2 + h2 || y1 + h1 < y2) {
+        return FALSE;
+    }
 
-    // Get sine and cosine for the angle
-    s16 sin_theta = lu_sin(angle) / 16;
-    s16 cos_theta = lu_cos(angle) / 16;
+    // Center of second rectangle
+    s32 cx2 = origin_x + cx2offset;
+    s32 cy2 = origin_y + cy2offset;
+
+    // Get sine and cosine (lu_sin/lu_cos return .12f values)
+    s16 sin_theta = lu_sin(angle) / 16;  // Now .8f
+    s16 cos_theta = lu_cos(angle) / 16;  // Now .8f
 
     // Calculate the four corners of the rotated rectangle
     s32 corners[8];
-    rotate_point_fixed(cx2, cy2, x2, y2, sin_theta, cos_theta, &corners[0], &corners[1]);           // Top-left
-    rotate_point_fixed(cx2, cy2, x2 + w2, y2, sin_theta, cos_theta, &corners[2], &corners[3]);      // Top-right
-    rotate_point_fixed(cx2, cy2, x2 + w2, y2 + h2, sin_theta, cos_theta, &corners[4], &corners[5]); // Bottom-right
-    rotate_point_fixed(cx2, cy2, x2, y2 + h2, sin_theta, cos_theta, &corners[6], &corners[7]);      // Bottom-left
+    rotate_point_fixed(cx2, cy2, x2, y2, sin_theta, cos_theta, &corners[0], &corners[1]);
+    rotate_point_fixed(cx2, cy2, x2 + w2, y2, sin_theta, cos_theta, &corners[2], &corners[3]);
+    rotate_point_fixed(cx2, cy2, x2 + w2, y2 + h2, sin_theta, cos_theta, &corners[4], &corners[5]);
+    rotate_point_fixed(cx2, cy2, x2, y2 + h2, sin_theta, cos_theta, &corners[6], &corners[7]);
 
-    // Define axes to test
+    // Define axes to test (adding some protection against degenerate cases)
     s32 axes[4][2] = {
-        {FIXED_ONE, 0}, {0, FIXED_ONE},                     // Non-rotated rectangle axes
-        {corners[2] - corners[0], corners[3] - corners[1]}, // Rotated rectangle edge 1
-        {corners[6] - corners[0], corners[7] - corners[1]}  // Rotated rectangle edge 2
+        {FIXED_ONE, 0}, // Axis 1 of rect1
+        {0, FIXED_ONE}, // Axis 2 of rect1
+        {corners[2] - corners[0], corners[3] - corners[1]}, // Edge1 of rect2
+        {corners[6] - corners[0], corners[7] - corners[1]}  // Edge2 of rect2
     };
 
-    // Project both rectangles onto each axis and check for overlap
+    // Project both rectangles onto each axis
     for (s32 i = 0; i < 4; i++) {
-        s32 min1, max1, min2, max2;
-        s32 rect1_corners[8] = {
-            x1, y1, x1 + w1, y1,
-            x1 + w1, y1 + h1, x1, y1 + h1
-        };
+        s32 ax = axes[i][0];
+        s32 ay = axes[i][1];
 
-        project_onto_axis_fixed(rect1_corners, axes[i][0], axes[i][1], &min1, &max1);
-        project_onto_axis_fixed(corners, axes[i][0], axes[i][1], &min2, &max2);
+        // Skip zero-length axes (degenerate case)
+        if (ax == 0 && ay == 0) continue;
+
+        s32 min1, max1, min2, max2;
+        s32 rect1_corners[8] = {x1, y1, x1+w1, y1, x1+w1, y1+h1, x1, y1+h1};
+
+        project_onto_axis_fixed(rect1_corners, ax, ay, &min1, &max1);
+        project_onto_axis_fixed(corners, ax, ay, &min2, &max2);
 
         if (!overlap_on_axis_fixed(min1, max1, min2, max2)) {
-            return FALSE; // Separating axis found, no collision
+            return FALSE;
         }
     }
 
-    return TRUE; // No separating axis, collision detected
+    return TRUE;
 }
 
 void col_spike_top_bottom(u32 x, u32 y, u32 width, u32 height, u32 spk_x, u32 spk_y) {
