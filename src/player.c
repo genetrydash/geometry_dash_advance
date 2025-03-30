@@ -181,16 +181,13 @@ void cube_gamemode() {
             curr_player.player_y_speed = -((curr_player.player_size == SIZE_BIG) ? CUBE_JUMP_SPEED : CUBE_MINI_JUMP_SPEED) * sign;       
         }
 
-        // Give a small boost if on rising 45 degrees or 26.6 degrees slope
-        if (curr_player.slope_counter) {
-            if (curr_player.slope_type == DEGREES_45 || curr_player.slope_type == DEGREES_26_5) {
-                curr_player.player_y_speed += -0x8000 * sign;
-            }
-        }
-
         curr_player.player_buffering = ORB_BUFFER_END;
         curr_player.on_slope = FALSE;
         curr_player.inverse_rotation_flag = FALSE;
+    }
+
+    if (!curr_player.on_floor && curr_player.slope_counter) {
+        curr_player.gravity = 0;
     }
 
     // If the cube is on the air and not on slope, rotate, else, snap to nearest 
