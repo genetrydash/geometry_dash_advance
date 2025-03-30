@@ -38,7 +38,12 @@ void collision_cube() {
     // Check sprite spikes
     coll_x = (curr_player.player_x >> SUBPIXEL_BITS);
     coll_y = (curr_player.player_y >> SUBPIXEL_BITS);
+    
+#ifdef DEBUG
+    if (!noclip) collide_with_obj_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
+#else
     collide_with_obj_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
+#endif
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
@@ -162,7 +167,11 @@ void collision_ship_ball_ufo() {
     // Check sprite spikes
     coll_x = (curr_player.player_x >> SUBPIXEL_BITS);
     coll_y = (curr_player.player_y >> SUBPIXEL_BITS);
+#ifdef DEBUG
+    if (!noclip) collide_with_obj_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
+#else
     collide_with_obj_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
+#endif
 
     for (u32 layer = 0; layer < LEVEL_LAYERS; layer++) {
         // Check spikes
@@ -247,7 +256,11 @@ void collision_wave() {
     // Check sprite spikes
     coll_x = (curr_player.player_x >> SUBPIXEL_BITS);
     coll_y = (curr_player.player_y >> SUBPIXEL_BITS);
+#ifdef DEBUG
+    if (!noclip) collide_with_obj_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
+#else
     collide_with_obj_spikes(coll_x, coll_y, curr_player.player_width, curr_player.player_height);
+#endif
     
     u8 offset = curr_player.player_size == SIZE_MINI ? 2 : 2;
 
@@ -1741,6 +1754,12 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
     if (ejection_type == EJECTION_TYPE_HIPO) {
         curr_player.on_slope = TRUE;
         curr_player.slope_counter = 5;
+
+        // If on 26.5 deg slope and cube, have a lower slope counter
+        if (curr_player.gamemode == GAMEMODE_CUBE && (curr_player.slope_type == DEGREES_26_5 || curr_player.slope_type == DEGREES_26_5_UD)) {
+            curr_player.slope_counter = 3;
+        }
+
         curr_player.inverse_rotation_flag = TRUE;
         curr_player.slope_type = type;
     }
