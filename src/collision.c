@@ -1783,6 +1783,13 @@ s32 slope_check(u16 type, u32 col_type, s32 eject, u32 ejection_type, struct cir
         if (!noclip) player_death = TRUE;
     }
     
+    // Sync if desynced
+    if (player_1.slope_speed_multiplier + 0x4000 == player_2.slope_speed_multiplier) {
+        curr_player.slope_speed_multiplier = player_1.slope_speed_multiplier = player_2.slope_speed_multiplier;
+    } else if (player_2.slope_speed_multiplier + 0x4000 == player_1.slope_speed_multiplier) {
+        curr_player.slope_speed_multiplier = player_2.slope_speed_multiplier = player_1.slope_speed_multiplier;
+    }
+
     // Set slope related variables
     curr_player.on_floor_step = TRUE;
     curr_player.on_floor = TRUE;
@@ -1825,7 +1832,7 @@ u32 collide_with_map_slopes(u64 x, u32 y, u32 width, u32 height) {
 
     // Make wave hitbox 2 pixels bigger
     if (curr_player.gamemode == GAMEMODE_WAVE) player.radius += 4;
-    else if (curr_player.gamemode == GAMEMODE_SHIP) player.radius -= 1;
+    else if (curr_player.gamemode == GAMEMODE_SHIP) player.radius -= 2;
 
     // Try to collide with sprite slopes only in the first layer check
     if (collide_with_obj_slopes(&player)) {
