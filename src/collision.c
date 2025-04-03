@@ -811,7 +811,6 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
 
             // Remove subpixels
             curr_player.player_y &= ~0xffff;
-            curr_player.player_y |= 0xffff;
             if (curr_player.gamemode == GAMEMODE_WAVE && col_type != COL_FLOOR_CEIL && !noclip) player_death = TRUE;
         }
     }
