@@ -70,8 +70,8 @@ const SCR_ENTRY metatiles[][5] = {
     
     Metatile("SLAB_UP",            TILE(0x4e, 0, 0, 0), TILE(0x4f, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_SLAB_TOP)
     Metatile("SLAB_DOWN",          TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x4e, 0, 0, V), TILE(0x4f, 0, 0, V), COL_SLAB_BOTTOM)
-    Metatile("SLAB_LEFT",          TILE(0x50, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x51, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_NONE)
-    Metatile("SLAB_RIGHT",         TILE(0x00, 0, 0, 0), TILE(0x50, 0, H, 0), TILE(0x00, 0, 0, 0), TILE(0x51, 0, H, 0), COL_NONE)
+    Metatile("SLAB_LEFT",          TILE(0x50, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x51, 0, 0, 0), TILE(0x00, 0, 0, 0), COL_SLAB_LEFT)
+    Metatile("SLAB_RIGHT",         TILE(0x00, 0, 0, 0), TILE(0x50, 0, H, 0), TILE(0x00, 0, 0, 0), TILE(0x51, 0, H, 0), COL_SLAB_RIGHT)
     Metatile("SLAB_DOWN_FLIPPED",  TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x4e, 0, 0, 0), TILE(0x4f, 0, 0, 0), COL_SLAB_BOTTOM)
 
     Metatile("GROUND_WAVY_SPIKE_BOTTOM",TILE(0x00, 0, 0, 0), TILE(0x00, 0, 0, 0), TILE(0x6f, 0, 0, 0), TILE(0x6f, 0, 0, 0), COL_GROUND_WAVY_SPIKE_BOTTOM) // 0x30
