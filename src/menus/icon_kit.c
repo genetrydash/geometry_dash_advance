@@ -286,7 +286,7 @@ void palette_kit_loop() {
 
         // Switch color page right
         if (key_hit(KEY_R)) {
-            if (selected_color < 3) selected_color++;
+            if (selected_color < 2) selected_color++;
         }
 
         // Go UP
