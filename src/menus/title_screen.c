@@ -11,6 +11,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "color.h"
+#include "icon_kit.h"
 
 EWRAM_DATA u32 title_screen_color_index = 0;
 EWRAM_DATA u16 title_screen_color_transition_backup[6];
@@ -67,7 +68,7 @@ void title_screen_loop() {
     memset16(rotation_buffer, 0x0000, NUM_ROT_SLOTS);
 
     // Set default player colors
-    set_player_colors(palette_buffer, DEFAULT_P1_COLOR, DEFAULT_P2_COLOR, DEFAULT_GLOW_COLOR);
+    set_player_colors(palette_buffer, palette_kit_colors[save_data.p1_col_selected], palette_kit_colors[save_data.p2_col_selected], palette_kit_colors[save_data.glow_col_selected]);
 
     reset_title_screen_player();
 

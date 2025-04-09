@@ -25,5 +25,20 @@
 #define ICON_TAB_X 10
 #define ICON_TAB_Y 9
 
+#define PALETTE_KIT_ICONS_WIDTH (((GAMEMODE_COUNT - 1) * ICON_STEP) + ICON_SIZE)
+
+#define PALETTE_KIT_ICONS_X (SCREEN_WIDTH/2 - (PALETTE_KIT_ICONS_WIDTH / 2))
+#define PALETTE_KIT_ICONS_Y 40
+
+#define PALETTE_KIT_SELECTION_X 40
+#define PALETTE_KIT_SELECTION_Y 68
+
+#define PALETTE_KIT_BUTTON_X 136
+#define PALETTE_KIT_BUTTON_Y 16
+#define PALETTE_KIT_BUTTON_ID 1012
+
+#define NUM_COLORS (sizeof(palette_kit_colors) / sizeof(COLOR))
+
+extern const COLOR palette_kit_colors[112];
 
 void icon_kit_loop();

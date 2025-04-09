@@ -19,6 +19,8 @@ extern const u16 fineBarMaskSpr[];
 
 extern const u16 numberSpr[];
 extern const u16 iconKitSelection[];
+extern const u16 paletteKitSelection[];
+extern const u16 paletteKitButton[];
 extern const u16 player1Spr[];
 extern const u16 player2Spr[];
 extern const u16 iconKitIcon[];

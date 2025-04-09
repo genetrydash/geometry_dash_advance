@@ -168,7 +168,31 @@ const u16 numberSpr[] = {
 const u16 iconKitSelection[] = {
     ATTR0_4BPP | ATTR0_SQUARE,
     ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(0) | ATTR2_ID(992),
+    0,
+    0,
+    PRIO_IDOFF(0, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+// Palette Kit selection
+const u16 paletteKitSelection[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
     ATTR2_PALBANK(0) | ATTR2_ID(1008),
+    0,
+    0,
+    PRIO_IDOFF(0, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+// Palette Kit button
+const u16 paletteKitButton[] = {
+    ATTR0_4BPP | ATTR0_WIDE,
+    ATTR1_SIZE_8x32,
+    ATTR2_PALBANK(0),
     0,
     0,
     PRIO_IDOFF(0, 0, 0), // id offset

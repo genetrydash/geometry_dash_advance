@@ -23,12 +23,13 @@ extern const COLOR blockPalette[240];
 extern const COLOR spritePalette[256];
 extern const COLOR menu_palette[64];
 extern const COLOR menu_spr_palette[48];
-extern const COLOR icon_kit_palette[240];
+extern const COLOR icon_kit_palette[320];
 extern const COLOR black_buffer[512];
 extern const SCR_ENTRY square_background_tilemap[1024];
 
 extern const TILE *icon_kit[];
 extern u16 *icon_selection_table[];
+extern u16 *color_selection_table[];
 
 void run_animated_sprites();
 void deoccupy_chr_slots();

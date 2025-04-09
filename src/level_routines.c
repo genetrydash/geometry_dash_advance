@@ -7,6 +7,7 @@
 #include "level_select.h"
 #include "physics_defines.h"
 #include "../levels/includes.h"
+#include "icon_kit.h"
 
 #define TOP_SCROLL_Y 0x24
 #define BOTTOM_SCROLL_Y SCREEN_HEIGHT-0x24
@@ -376,7 +377,7 @@ void load_level(u32 level_ID) {
     // Copy palettes into the buffer
     memcpy16(palette_buffer, blockPalette, sizeof(blockPalette) / sizeof(COLOR));
     memcpy16(&palette_buffer[256], spritePalette, sizeof(spritePalette) / sizeof(COLOR));
-    set_player_colors(palette_buffer, save_data.p1_col_selected, save_data.p2_col_selected, save_data.glow_col_selected);
+    set_player_colors(palette_buffer, palette_kit_colors[save_data.p1_col_selected], palette_kit_colors[save_data.p2_col_selected], palette_kit_colors[save_data.glow_col_selected]);
 
     // Set initial player gamemode CHR
     upload_player_chr(player_1.gamemode, ID_PLAYER_1);
