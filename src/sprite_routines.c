@@ -55,6 +55,7 @@ void cube_portal(struct ObjectSlot *objectSlot) {
     if (curr_player.gamemode != GAMEMODE_CUBE) curr_player.inverse_rotation_flag = FALSE;
     curr_player.gamemode = GAMEMODE_CUBE;
     curr_player.on_floor = FALSE;
+    curr_player.airborne_jumped = TRUE;
 
     gamemode_upload_buffer[curr_player_id] = GAMEMODE_CUBE;
 
@@ -68,6 +69,7 @@ void ship_portal(struct ObjectSlot *objectSlot) {
     curr_player.gamemode = GAMEMODE_SHIP;
     curr_player.on_floor = FALSE;
     curr_player.inverse_rotation_flag = FALSE;
+    curr_player.airborne_jumped = TRUE;
 
     gamemode_upload_buffer[curr_player_id] = GAMEMODE_SHIP;
 
@@ -82,6 +84,7 @@ void ball_portal(struct ObjectSlot *objectSlot) {
     curr_player.gamemode = GAMEMODE_BALL;
     curr_player.on_floor = FALSE;
     curr_player.inverse_rotation_flag = FALSE;
+    curr_player.airborne_jumped = TRUE;
     
     gamemode_upload_buffer[curr_player_id] = GAMEMODE_BALL;
     
@@ -96,6 +99,7 @@ void ufo_portal(struct ObjectSlot *objectSlot) {
     curr_player.gamemode = GAMEMODE_UFO;
     curr_player.on_floor = FALSE;
     curr_player.inverse_rotation_flag = FALSE;
+    curr_player.airborne_jumped = TRUE;
 
     gamemode_upload_buffer[curr_player_id] = GAMEMODE_UFO;
     
@@ -109,6 +113,7 @@ void wave_portal(struct ObjectSlot *objectSlot) {
     curr_player.gamemode = GAMEMODE_WAVE;
     curr_player.on_floor = FALSE;
     curr_player.inverse_rotation_flag = FALSE;
+    curr_player.airborne_jumped = TRUE;
 
     gamemode_upload_buffer[curr_player_id] = GAMEMODE_WAVE;
     
