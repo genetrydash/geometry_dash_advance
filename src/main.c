@@ -283,7 +283,7 @@ void game_loop() {
     REG_BLDCNT = BLD_BUILD(BLD_OBJ, BLD_BG0 | BLD_BG1 | BLD_BG2, BLD_MODE(1));
 
     // Update blend weights
-    REG_BLDALPHA = BLDA_BUILD(16, 12);
+    REG_BLDALPHA = BLDA_BUILD(16, 16);
 
     // Set window registers
 

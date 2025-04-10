@@ -774,7 +774,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
 
         if (eject_value < max_eject) {
             // Disable trail if cube jumped and is on ground
-            if (curr_player.airborne_jumped) curr_player.trail_on = FALSE;
+            if (curr_player.gamemode != GAMEMODE_CUBE || curr_player.airborne_jumped) curr_player.trail_on = FALSE;
             
             // If just landed and cube did a jump, then remove jumping status
             if (!curr_player.on_floor && curr_player.airborne_jumped) curr_player.airborne_jumped = FALSE;
@@ -803,7 +803,7 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
 
         if (eject_value < max_eject) {
             // Disable trail if cube jumped and is on ground
-            if (curr_player.airborne_jumped) curr_player.trail_on = FALSE;
+            if (curr_player.gamemode != GAMEMODE_CUBE || curr_player.airborne_jumped) curr_player.trail_on = FALSE;
             
             // If just landed and cube did a jump, then remove jumping status
             if (!curr_player.on_floor && curr_player.airborne_jumped) curr_player.airborne_jumped = FALSE;

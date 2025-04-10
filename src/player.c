@@ -355,10 +355,6 @@ void ball_gamemode() {
     s8 sign = (curr_player.gravity_dir == GRAVITY_UP) ? -1 : 1;
     s8 mirror_sign = screen_mirrored ? -1 : 1;
 
-    if (curr_player.on_floor) {
-        curr_player.ball_rotation_direction = (curr_player.gravity_dir == GRAVITY_DOWN) ? 2 : -2;
-    }
-
     curr_player.cube_rotation -= 0x250 * curr_player.ball_rotation_direction * mirror_sign;
 
     curr_player.player_y_speed = CLAMP(curr_player.player_y_speed, -BALL_MAX_Y_SPEED, BALL_MAX_Y_SPEED);
@@ -411,6 +407,8 @@ void ball_gamemode() {
             if (curr_player.slope_counter) {
                 curr_player.player_y_speed += 0x4000 * -sign;
             }
+        } else if (curr_player.on_floor) {
+            curr_player.ball_rotation_direction = (curr_player.gravity_dir == GRAVITY_DOWN) ? 2 : -2;
         }
     }
 }

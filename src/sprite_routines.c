@@ -128,7 +128,7 @@ void blue_gravity_portal(struct ObjectSlot *objectSlot) {
         curr_player.player_y_speed /= 2;
         curr_player.gravity_dir = GRAVITY_DOWN;
         curr_player.on_floor = FALSE;
-        curr_player.trail_on = TRUE;
+        if (curr_player.gamemode != GAMEMODE_BALL) curr_player.trail_on = TRUE;
         curr_player.airborne_jumped = TRUE;
         
         curr_player.ball_rotation_direction = -1;
@@ -143,7 +143,7 @@ void yellow_gravity_portal(struct ObjectSlot *objectSlot) {
         curr_player.player_y_speed /= 2;
         curr_player.gravity_dir = GRAVITY_UP;
         curr_player.on_floor = FALSE;
-        curr_player.trail_on = TRUE;
+        if (curr_player.gamemode != GAMEMODE_BALL) curr_player.trail_on = TRUE;
         curr_player.airborne_jumped = TRUE;
 
         curr_player.ball_rotation_direction = 1;
