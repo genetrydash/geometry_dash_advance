@@ -285,6 +285,8 @@ void reset_variables() {
     player_1.cutscene_initial_player_x = 0;
     player_1.cutscene_initial_player_y = 0;
 
+    player_1.trail_on = FALSE;
+
     scroll_x = 0;
     last_sprite_x = 0;
 

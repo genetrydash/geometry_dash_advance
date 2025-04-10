@@ -69,6 +69,7 @@ void title_screen_loop() {
 
     // Set default player colors
     set_player_colors(palette_buffer, palette_kit_colors[save_data.p1_col_selected], palette_kit_colors[save_data.p2_col_selected], palette_kit_colors[save_data.glow_col_selected]);
+    palette_buffer[0x10e] = CLR_WHITE;
 
     reset_title_screen_player();
 

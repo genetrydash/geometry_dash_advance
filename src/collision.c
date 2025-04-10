@@ -773,6 +773,12 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
         if (curr_player.changed_size_frames) max_eject = 0x10;
 
         if (eject_value < max_eject) {
+            // Disable trail if cube jumped and is on ground
+            if (curr_player.airborne_jumped) curr_player.trail_on = FALSE;
+            
+            // If just landed and cube did a jump, then remove jumping status
+            if (!curr_player.on_floor && curr_player.airborne_jumped) curr_player.airborne_jumped = FALSE;
+
             if (curr_player.gamemode != GAMEMODE_CUBE || curr_player.gravity_dir == GRAVITY_UP) {
                 // We are resting on the ceiling so allow jumping and stuff
                 curr_player.on_floor = TRUE;
@@ -781,7 +787,6 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             }
             curr_player.player_y += eject_value << SUBPIXEL_BITS;
             curr_player.player_y_speed = 0;
-            curr_player.trail_on = FALSE;
             
             curr_player.inverse_rotation_flag = FALSE;
             // Remove subpixels
@@ -797,6 +802,12 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
         if (curr_player.changed_size_frames) max_eject = 0x10;
 
         if (eject_value < max_eject) {
+            // Disable trail if cube jumped and is on ground
+            if (curr_player.airborne_jumped) curr_player.trail_on = FALSE;
+            
+            // If just landed and cube did a jump, then remove jumping status
+            if (!curr_player.on_floor && curr_player.airborne_jumped) curr_player.airborne_jumped = FALSE;
+            
             if (curr_player.gamemode != GAMEMODE_CUBE || curr_player.gravity_dir == GRAVITY_DOWN) {
                 // We are resting on the floor so allow jumping and stuff
                 curr_player.on_floor = TRUE;
@@ -805,7 +816,6 @@ u32 col_type_lookup(u16 col_type, u32 x, u32 y, u8 side, u32 layer) {
             }
             curr_player.player_y -= eject_value << SUBPIXEL_BITS;
             curr_player.player_y_speed = 0;
-            curr_player.trail_on = FALSE;
 
             curr_player.inverse_rotation_flag = FALSE;
 
