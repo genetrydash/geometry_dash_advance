@@ -342,7 +342,7 @@ void palette_kit_loop() {
         }
 
         // Toggle glow
-        if (selected_color == PALETTE_KIT_GLOW && key_hit(KEY_START)) {
+        if (key_hit(KEY_START)) {
             save_data.glow_enabled ^= 1;
             upload_palette_kit_icons();
         }
