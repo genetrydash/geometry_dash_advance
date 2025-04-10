@@ -30,6 +30,7 @@ ROM_DATA char *sound_test_songs_names[] = {
     "ELECTRODYNAMIX",
     "MENU LOOP",
     "STAY INSIDE ME",
+    "GROUND TO SPACE",
 };
 
 ROM_DATA char *sound_test_song_files[] = {
@@ -50,6 +51,7 @@ ROM_DATA char *sound_test_song_files[] = {
     "DYNAMIX.XM",
     "MENU.XM",
     "PRACTICE.XM",
+    "GROUND.XM",
 };
 
 ROM_DATA u16 sound_test_song_ids[] = {
@@ -70,6 +72,7 @@ ROM_DATA u16 sound_test_song_ids[] = {
     MOD_DYNAMIX,
     MOD_MENU,
     MOD_PRACTICE,
+    MOD_GROUND,
 };
 void put_song_info(u32 song_id);
 
