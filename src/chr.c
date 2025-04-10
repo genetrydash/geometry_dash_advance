@@ -433,6 +433,34 @@ ARM_CODE void flip_player_colors(u8 *dst, u8 *src, u8 tile_num) {
             u32 left_pixel = obtain_flipped_pixel(tile_byte >> 4);
             
             u32 right_pixel = obtain_flipped_pixel(tile_byte & 0b1111);
+            
+            // Remove glow pixels if disabled
+            if (!save_data.glow_enabled) {
+                if (left_pixel == 15) left_pixel = 0;
+                if (right_pixel == 15) right_pixel = 0;
+            }
+
+            // Set new byte
+            dst[index] = (left_pixel << 4) | right_pixel;
+        }
+    }
+
+}
+ARM_CODE void remove_glow_pixels(u8 *dst, u8 *src, u8 tile_num) {
+    for (s32 curr_tile = 0; curr_tile < tile_num; curr_tile++) {
+        for (u32 byte = 0; byte < sizeof(TILE); byte++) {
+            s32 index = (curr_tile << 5) + byte;
+            
+            // Get byte
+            u32 tile_byte = src[index];
+
+            u32 left_pixel = tile_byte >> 4;
+            
+            u32 right_pixel = tile_byte & 0b1111;
+            
+            // Remove glow pixels if disabled
+            if (left_pixel == 15) left_pixel = 0;
+            if (right_pixel == 15) right_pixel = 0;
 
             // Set new byte
             dst[index] = (left_pixel << 4) | right_pixel;
@@ -517,8 +545,17 @@ void upload_player_chr(u32 gamemode, u32 player_id) {
 
     if (player_id == ID_PLAYER_1) {
         // Copy player sprite into VRAM
-        memcpy32(&tile_mem_obj[0][0], &icon_kit[gamemode][index], PLAYER_CHR_SIZE);
-        memcpy32(&tile_mem_obj[0][2], &icon_kit[gamemode][index + 0x10], PLAYER_CHR_SIZE);
+        if (save_data.glow_enabled) {
+            memcpy32(&tile_mem_obj[0][0], &icon_kit[gamemode][index], PLAYER_CHR_SIZE);
+            memcpy32(&tile_mem_obj[0][2], &icon_kit[gamemode][index + 0x10], PLAYER_CHR_SIZE);
+        } else {
+            // Flip colors
+            remove_glow_pixels(vram_copy_buffer, (u8*)(&icon_kit[gamemode][index]), 2);
+            memcpy32(&tile_mem_obj[0][0], vram_copy_buffer, PLAYER_CHR_SIZE);
+            
+            remove_glow_pixels(vram_copy_buffer, (u8*)(&icon_kit[gamemode][index + 0x10]), 2);
+            memcpy32(&tile_mem_obj[0][2], vram_copy_buffer, PLAYER_CHR_SIZE);
+        }
     } else {
         // Flip colors
         flip_player_colors(vram_copy_buffer, (u8*)(&icon_kit[gamemode][index]), 2);

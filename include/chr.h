@@ -37,6 +37,7 @@ void load_chr_in_buffer();
 void unload_chr_in_buffer();
 ARM_CODE void flip_player_colors(u8 *dst, u8 *src, u8 tile_num);
 ARM_CODE u32 obtain_flipped_pixel(u32 pixel);
+ARM_CODE void remove_glow_pixels(u8 *dst, u8 *src, u8 tile_num);
 void copy_pulsing_sprite();
 
 void upload_player_chr(u32 gamemode, u32 player_id);

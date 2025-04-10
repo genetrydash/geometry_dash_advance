@@ -5,7 +5,7 @@
 #pragma once
 
 #define SAVE_BLOCK_ADDR 0
-#define SAVE_VERSION 8
+#define SAVE_VERSION 9
 
 #define DEFAULT_P1_COLOR 15 
 #define DEFAULT_P2_COLOR 51
@@ -33,6 +33,7 @@ struct SaveBlock {
     u16 p1_col_selected;
     u16 p2_col_selected;
     u16 glow_col_selected;
+    u8 glow_enabled;
 
     struct SaveLevelData saved_levels[LEVEL_COUNT];
 };

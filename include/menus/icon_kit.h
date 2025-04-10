@@ -37,6 +37,10 @@
 #define PALETTE_KIT_BUTTON_Y 16
 #define PALETTE_KIT_BUTTON_ID 1012
 
+#define PALETTE_KIT_COL1 0
+#define PALETTE_KIT_COL2 1
+#define PALETTE_KIT_GLOW 2
+
 #define NUM_COLORS (sizeof(palette_kit_colors) / sizeof(COLOR))
 
 extern const COLOR palette_kit_colors[112];

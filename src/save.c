@@ -22,6 +22,7 @@ void init_sram() {
 		save_data.p1_col_selected = DEFAULT_P1_COLOR;
 		save_data.p2_col_selected = DEFAULT_P2_COLOR;
 		save_data.glow_col_selected = DEFAULT_GLOW_COLOR;
+		save_data.glow_enabled = FALSE;
 		write_save_block();
 	}
 }

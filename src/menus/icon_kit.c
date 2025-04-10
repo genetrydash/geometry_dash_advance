@@ -281,12 +281,12 @@ void palette_kit_loop() {
 
         // Switch color page left
         if (key_hit(KEY_L)) {
-            if (selected_color > 0) selected_color--;
+            if (selected_color > PALETTE_KIT_COL1) selected_color--;
         }
 
         // Switch color page right
         if (key_hit(KEY_R)) {
-            if (selected_color < 2) selected_color++;
+            if (selected_color < PALETTE_KIT_GLOW) selected_color++;
         }
 
         // Go UP
@@ -341,8 +341,14 @@ void palette_kit_loop() {
             }
         }
 
+        // Toggle glow
+        if (selected_color == PALETTE_KIT_GLOW && key_hit(KEY_START)) {
+            save_data.glow_enabled ^= 1;
+            upload_palette_kit_icons();
+        }
+
         // Close palette kit
-        if (key_hit(KEY_SELECT)){
+        if (key_hit(KEY_SELECT | KEY_B)){
             break;
         }
         
@@ -428,8 +434,16 @@ void upload_palette_kit_icons() {
         u32 index = higher | lower;
 
         // Copy player sprite into VRAM
-        memcpy32(&tile_mem_obj[0][(gamemode << 2) + 64], &icon_kit[gamemode][index], PLAYER_CHR_SIZE);
-        memcpy32(&tile_mem_obj[0][(gamemode << 2) + 2 + 64], &icon_kit[gamemode][index + 0x10], PLAYER_CHR_SIZE);
+        if (save_data.glow_enabled) {
+            memcpy32(&tile_mem_obj[0][(gamemode << 2) + 64], &icon_kit[gamemode][index], PLAYER_CHR_SIZE);
+            memcpy32(&tile_mem_obj[0][(gamemode << 2) + 2 + 64], &icon_kit[gamemode][index + 0x10], PLAYER_CHR_SIZE);
+        } else {
+            remove_glow_pixels(vram_copy_buffer, (u8*)(&icon_kit[gamemode][index]), 2);
+            memcpy32(&tile_mem_obj[0][(gamemode << 2) + 64], vram_copy_buffer, PLAYER_CHR_SIZE);
+
+            remove_glow_pixels(vram_copy_buffer, (u8*)(&icon_kit[gamemode][index + 0x10]), 2);
+            memcpy32(&tile_mem_obj[0][(gamemode << 2) + 2 + 64], vram_copy_buffer, PLAYER_CHR_SIZE);
+        }
     }
 }
 
