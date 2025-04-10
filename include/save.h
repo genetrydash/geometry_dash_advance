@@ -5,7 +5,7 @@
 #pragma once
 
 #define SAVE_BLOCK_ADDR 0
-#define SAVE_VERSION 7
+#define SAVE_VERSION 8
 
 #define DEFAULT_P1_COLOR 15 
 #define DEFAULT_P2_COLOR 51

@@ -179,6 +179,14 @@
 #include "leveleasy/SP.h"
 #include "leveleasy/properties.h"
 
-#define LEVEL_COUNT 18
+// groundtospace
+#define groundtospace_ID 18
+
+#include "groundtospace/l1.h"
+#include "groundtospace/l2.h"
+#include "groundtospace/SP.h"
+#include "groundtospace/properties.h"
+
+#define LEVEL_COUNT 19
 extern ROM_DATA const u16 *level_defines[][4];
 extern ROM_DATA const u8 *level_names[];
