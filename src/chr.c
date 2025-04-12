@@ -206,6 +206,9 @@ const SCR_ENTRY square_background_tilemap[] = {
     0x0020,0x0020,0x0020,0x0020,0x0020,0x0020,0x0020,0x0021
 };
 
+const COLOR button_glyph_pal[] = {
+    0x0000, 0x0000, 0x7fff
+};
 
 // This is all the color black for transition purposes
 const COLOR black_buffer[] = {

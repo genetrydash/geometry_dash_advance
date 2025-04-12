@@ -10,6 +10,7 @@ void draw_icons(u32 gamemode, u32 page);
 void draw_selected_icon(u32 gamemode);
 void draw_selected_glyph(u32 selected_x, u32 selected_y);
 void update_gamemode_palette(u32 gamemode);
+void draw_button_glyphs_icon_kit();
 
 void palette_kit_loop();
 
@@ -65,6 +66,10 @@ void icon_kit_loop() {
     memset16(&se_mem[27][0], SE_BUILD(0x33, 0, 0, 0), sizeof(SCREENBLOCK) * 2 / sizeof(u16));
     memcpy32(&se_mem[27][0], palette_kit_tilemap, sizeof(palette_kit_tilemap) / sizeof(u32));
     memcpy32(&tile_mem[0][0], icon_kit_chr, sizeof(icon_kit_chr) / 8);
+    
+    // Button glyph chr
+    memcpy16(&palette_buffer[0x1f0], button_glyph_pal, sizeof(button_glyph_pal) / sizeof(COLOR));
+    memcpy32(&tile_mem_obj[0][512], &title_screen_chr[0xf0], 24 * sizeof(TILE8) / 4);
 
     nextSpr = 0;
 
@@ -83,6 +88,7 @@ void icon_kit_loop() {
     draw_icons(GAMEMODE_CUBE, selected_page);
     draw_selected_glyph(selected_x, selected_y);
     update_gamemode_palette(GAMEMODE_CUBE);
+    draw_button_glyphs_icon_kit();
     
     obj_copy(oam_mem, shadow_oam, 128);
     obj_aff_copy(obj_aff_mem, obj_aff_buffer, 32);
@@ -223,6 +229,7 @@ void icon_kit_loop() {
         draw_icons(selected_gamemode, selected_page);
         draw_selected_icon(selected_gamemode);
         draw_selected_glyph(selected_x, selected_y);
+        draw_button_glyphs_icon_kit();
 
         // Open palette kit
         if (key_hit(KEY_SELECT)) {
@@ -232,6 +239,14 @@ void icon_kit_loop() {
         // Wait for VSYNC
         VBlankIntrWait();
     }
+}
+
+
+void draw_button_glyphs_icon_kit() {
+    oam_metaspr( 16, 16, menuButton, FALSE, FALSE, 516, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE); // B
+    oam_metaspr(  8, 72, menuButton, FALSE, FALSE, 528, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE); // SELECT
+    oam_metaspr( 56, 72, menuButton, FALSE, FALSE, 524, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE); // L
+    oam_metaspr(168, 72, menuButton, FALSE, FALSE, 520, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE); // R
 }
 
 void upload_palette_kit_icons();
@@ -260,6 +275,7 @@ void palette_kit_loop() {
         draw_selected_glyph(selected_x, selected_y);
         draw_palette_selection(*color_selection_table[selected_color]);
         draw_palette_kit_buttons();
+        draw_button_glyphs_icon_kit();
     
         sort_oam_by_prio();
 
@@ -278,6 +294,7 @@ void palette_kit_loop() {
         draw_palette_kit_icons();
         draw_palette_selection(*color_selection_table[selected_color]);
         draw_palette_kit_buttons();
+        draw_button_glyphs_icon_kit();
 
         // Switch color page left
         if (key_hit(KEY_L)) {
@@ -374,6 +391,7 @@ void palette_kit_loop() {
         draw_selected_glyph(selected_x, selected_y);
         draw_palette_selection(*color_selection_table[selected_color]);
         draw_palette_kit_buttons();
+        draw_button_glyphs_icon_kit();
         
         sort_oam_by_prio();
 

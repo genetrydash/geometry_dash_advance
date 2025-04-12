@@ -30,6 +30,7 @@ extern const SCR_ENTRY square_background_tilemap[1024];
 extern const TILE *icon_kit[];
 extern u16 *icon_selection_table[];
 extern u16 *color_selection_table[];
+extern const COLOR button_glyph_pal[3];
 
 void run_animated_sprites();
 void deoccupy_chr_slots();

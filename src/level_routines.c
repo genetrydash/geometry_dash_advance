@@ -526,6 +526,7 @@ void fade_in_menu() {
         // Copy OAM buffer into OAM
         obj_copy(oam_mem, shadow_oam, 128);
         put_level_info_sprites(loaded_level_id);
+        draw_button_glyphs_level_select();
         
         clr_blend_fast(palette_buffer, (COLOR*) black_buffer, pal_bg_mem, 512, 32 - frame);
     }

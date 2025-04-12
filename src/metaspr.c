@@ -200,6 +200,17 @@ const u16 paletteKitButton[] = {
     0xffff
 };
 
+const u16 menuButton[] = {
+    ATTR0_4BPP | ATTR0_SQUARE,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(15),
+    0,
+    0,
+    PRIO_IDOFF(0, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
 // Player
 
 const u16 player1Spr[] = {
@@ -1767,11 +1778,12 @@ ARM_CODE void oam_metaspr(u16 x, u8 y, const u16 *data, u8 hflip, u8 vflip, u16 
         }
 
         // Set priority if modified
-        if (!(priority & 0b100)) {
+        if (!(priority & PRIORITY_DONT_MODIFY_PRIO)) {
             attribute2 = (attribute2 & ~ATTR2_PRIO_MASK) | ((priority << ATTR2_PRIO_SHIFT) & ATTR2_PRIO_MASK);
         }
 
-        if (!(attribute2 & ATTR2_PRIO_MASK)) {
+        // Convert priority 0 to 1 if not flagged
+        if (!(attribute2 & ATTR2_PRIO_MASK) && !(priority & PRIORITY_DONT_DISABLE_0)) {
             attribute2 = (attribute2 & ~ATTR2_PRIO_MASK) | (1 << ATTR2_PRIO_SHIFT);
         }
 
