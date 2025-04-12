@@ -7,8 +7,8 @@
 #define PRIORITY_MASK 0xfc00
 #define DLB_SCALE_MASK 0x0200
 
-#define PRIORITY_DONT_DISABLE_0 (1 << 4)
-#define PRIORITY_DONT_MODIFY_PRIO (1 << 3)
+#define PRIORITY_DONT_DISABLE_0 (1 << 3)
+#define PRIORITY_DONT_MODIFY_PRIO (1 << 2)
 
 extern u8 nextSpr;
 extern const u16 noclipSpr[];
