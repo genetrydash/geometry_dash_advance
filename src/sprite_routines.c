@@ -307,6 +307,7 @@ void blue_orb(struct ObjectSlot *objectSlot) {
         s32 sign = (curr_player.gravity_dir == GRAVITY_UP) ? -1 : 1;
         curr_player.inverse_rotation_flag = FALSE;
         curr_player.trail_on = TRUE;
+        curr_player.airborne_jumped = TRUE;
         
         curr_player.ball_rotation_direction = sign;
         
