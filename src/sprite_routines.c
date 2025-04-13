@@ -52,7 +52,10 @@ void portal_transition_speed(u32 gamemode) {
 
 void cube_portal(struct ObjectSlot *objectSlot) {
     portal_transition_speed(GAMEMODE_CUBE);
-    if (curr_player.gamemode != GAMEMODE_CUBE) curr_player.inverse_rotation_flag = FALSE;
+    if (curr_player.gamemode != GAMEMODE_CUBE) {
+        curr_player.inverse_rotation_flag = FALSE;
+        curr_player.trail_on = FALSE;
+    }
     curr_player.gamemode = GAMEMODE_CUBE;
     curr_player.on_floor = FALSE;
     curr_player.airborne_jumped = TRUE;
