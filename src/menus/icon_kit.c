@@ -116,7 +116,7 @@ void icon_kit_loop() {
         }
 
         // Decrement selected gamemode
-        if (key_hit(KEY_L)) {
+        if (handle_key_holding(KEY_L)) {
             // If we aren't on the first gamemode, switch pages
             if (selected_gamemode > 0) {
                 selected_gamemode--;
@@ -131,7 +131,7 @@ void icon_kit_loop() {
         }
 
         // Increment selected gamemode
-        if (key_hit(KEY_R)) {
+        if (handle_key_holding(KEY_R)) {
             // If we aren't on the last gamemode, switch pages
             if (selected_gamemode < GAMEMODE_COUNT - 1) {
                 selected_gamemode++;
