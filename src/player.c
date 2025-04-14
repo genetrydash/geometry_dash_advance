@@ -657,25 +657,25 @@ void draw_player() {
                     y_offset = 9;
                 }
                 
-                oam_metaspr(curr_player.relative_player_x - x_offset, curr_player.relative_player_y - y_offset, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE);
+                oam_metaspr(curr_player.relative_player_x - x_offset, curr_player.relative_player_y - y_offset, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE, FALSE);
                 break;
             case GAMEMODE_SHIP:
                 sign = curr_player.gravity_dir ? -1 : 1;
 
                 y_offset = curr_player.gravity_dir ? 9 : 7;
 
-                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - y_offset, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE);
+                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - y_offset, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE, FALSE);
                 break;
             case GAMEMODE_BALL:
-                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE); 
+                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE, FALSE); 
                 break;
             case GAMEMODE_UFO:
                 sign = curr_player.gravity_dir ? -1 : 1;
                 
-                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE); 
+                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE, FALSE); 
                 break;
             case GAMEMODE_WAVE:
-                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE); 
+                oam_metaspr(curr_player.relative_player_x - 8, curr_player.relative_player_y - 8, player_sprite, FALSE, FALSE, 0, -1, priority, 0, FALSE, FALSE); 
                 break;
         }
         

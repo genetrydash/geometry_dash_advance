@@ -185,7 +185,7 @@
   <object id="553" gid="16431" x="1320" y="432" width="16" height="16"/>
   <object id="554" gid="16432" x="128" y="352" width="16" height="16">
    <properties>
-    <property name="color channel" value="1"/>
+    <property name="color channel" value="LBG"/>
    </properties>
   </object>
   <object id="555" gid="16433" x="168" y="352" width="16" height="16"/>

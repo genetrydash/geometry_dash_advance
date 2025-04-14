@@ -243,10 +243,10 @@ void icon_kit_loop() {
 
 
 void draw_button_glyphs_icon_kit() {
-    oam_metaspr( 16, 16, menuButton, FALSE, FALSE, 516, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE); // B
-    oam_metaspr(  8, 72, menuButton, FALSE, FALSE, 528, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE); // SELECT
-    oam_metaspr( 56, 72, menuButton, FALSE, FALSE, 524, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE); // L
-    oam_metaspr(168, 72, menuButton, FALSE, FALSE, 520, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE); // R
+    oam_metaspr( 16, 16, menuButton, FALSE, FALSE, 516, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE, FALSE); // B
+    oam_metaspr(  8, 72, menuButton, FALSE, FALSE, 528, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE, FALSE); // SELECT
+    oam_metaspr( 56, 72, menuButton, FALSE, FALSE, 524, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE, FALSE); // L
+    oam_metaspr(168, 72, menuButton, FALSE, FALSE, 520, 15, PRIORITY_DONT_DISABLE_0 | 3, 0, TRUE, FALSE); // R
 }
 
 void upload_palette_kit_icons();
@@ -402,7 +402,7 @@ void palette_kit_loop() {
 void draw_palette_kit_icons() {
     if (scroll_y < TO_FIXED(80)) {
         for (s32 gamemode = 0; gamemode < GAMEMODE_COUNT; gamemode++) {
-            oam_metaspr(PALETTE_KIT_ICONS_X + (gamemode * ICON_STEP), PALETTE_KIT_ICONS_Y - (scroll_y >> SUBPIXEL_BITS), iconKitIcon, FALSE, FALSE, (gamemode << 2) + 64, 1, 2, 0, TRUE);
+            oam_metaspr(PALETTE_KIT_ICONS_X + (gamemode * ICON_STEP), PALETTE_KIT_ICONS_Y - (scroll_y >> SUBPIXEL_BITS), iconKitIcon, FALSE, FALSE, (gamemode << 2) + 64, 1, 2, 0, TRUE, FALSE);
         }
     }
 }
@@ -424,7 +424,7 @@ void draw_palette_selection(u32 id) {
     // Move up if on extra blues
     if (id >= 100 && id <= 103) y_offset -= 8; 
 
-    oam_metaspr(PALETTE_KIT_SELECTION_X + x_offset, PALETTE_KIT_SELECTION_Y + y_offset - (scroll_y >> SUBPIXEL_BITS), paletteKitSelection, FALSE, FALSE, 0, 0, 2, 0, TRUE);
+    oam_metaspr(PALETTE_KIT_SELECTION_X + x_offset, PALETTE_KIT_SELECTION_Y + y_offset - (scroll_y >> SUBPIXEL_BITS), paletteKitSelection, FALSE, FALSE, 0, 0, 2, 0, TRUE, FALSE);
 }
 
 void draw_palette_kit_buttons() {
@@ -435,7 +435,7 @@ void draw_palette_kit_buttons() {
         u32 palette = 3;
         if (button == (s32) selected_color) palette = 2;
         
-        oam_metaspr(PALETTE_KIT_BUTTON_X + (button * 28), PALETTE_KIT_BUTTON_Y - (scroll_y >> SUBPIXEL_BITS), paletteKitButton, FALSE, FALSE, PALETTE_KIT_BUTTON_ID + (button << 2), palette, 2, 0, TRUE);
+        oam_metaspr(PALETTE_KIT_BUTTON_X + (button * 28), PALETTE_KIT_BUTTON_Y - (scroll_y >> SUBPIXEL_BITS), paletteKitButton, FALSE, FALSE, PALETTE_KIT_BUTTON_ID + (button << 2), palette, 2, 0, TRUE, FALSE);
     }
 }
 
@@ -491,7 +491,7 @@ void draw_icons(u32 gamemode, u32 page) {
     for (s32 y = 0; y < ICONS_ROWS; y++) {
         for (s32 x = 0; x < ICONS_COLUMNS; x++) {
             // Draw icon following a grid pattern
-            oam_metaspr(x_pos + (x * ICON_STEP), y_pos + (y * ICON_STEP), iconKitIcon, FALSE, FALSE, (icon << 2) + VRAM_ICON_OFFSET, 0, 3, 0, TRUE);
+            oam_metaspr(x_pos + (x * ICON_STEP), y_pos + (y * ICON_STEP), iconKitIcon, FALSE, FALSE, (icon << 2) + VRAM_ICON_OFFSET, 0, 3, 0, TRUE, FALSE);
 
             icon++;
 
@@ -503,12 +503,12 @@ void draw_icons(u32 gamemode, u32 page) {
 
 void draw_selected_icon(u32 gamemode) {
     upload_player_chr(gamemode, ID_PLAYER_1);
-    oam_metaspr(SELECTED_ICON_X, SELECTED_ICON_Y, player1Spr, FALSE, FALSE, 0, 1, 3, 0, TRUE);   
+    oam_metaspr(SELECTED_ICON_X, SELECTED_ICON_Y, player1Spr, FALSE, FALSE, 0, 1, 3, 0, TRUE, FALSE);   
     obj_aff_scale_inv(&obj_aff_buffer[0], float2fx(2.0), float2fx(2.0));
 }
 
 void draw_selected_glyph(u32 selected_x, u32 selected_y) {
-    oam_metaspr(ICON_X + (selected_x * ICON_STEP) - 8, ICON_Y + (selected_y * ICON_STEP) - 8, iconKitSelection, FALSE, FALSE, 0, 0, 3, 0, TRUE);
+    oam_metaspr(ICON_X + (selected_x * ICON_STEP) - 8, ICON_Y + (selected_y * ICON_STEP) - 8, iconKitSelection, FALSE, FALSE, 0, 0, 3, 0, TRUE, FALSE);
 }
 
 void set_tab_palette(u32 pal, u32 x, u32 y);

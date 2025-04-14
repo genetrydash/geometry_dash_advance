@@ -904,7 +904,7 @@
                         {
                          "name":"color channel",
                          "type":"string",
-                         "value":"1"
+                         "value":"LBG"
                         }],
                  "rotation":0,
                  "type":"",

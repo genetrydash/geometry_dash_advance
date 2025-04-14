@@ -729,17 +729,17 @@ void calculate_trans_window_pos() {
 
 void draw_percentage(u32 x, u32 y, u32 percentage, const u16* number_sprite, u16 priority) {
     if (percentage >= 100) {
-        oam_metaspr(x,      y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 1, -1, priority, 0, TRUE);
-        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, -1, priority, 0, TRUE);
-        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, -1, priority, 0, TRUE);
-        oam_metaspr(x + 24, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, -1, priority, 0, TRUE);
+        oam_metaspr(x,      y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 1, -1, priority, 0, TRUE, FALSE);
+        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, -1, priority, 0, TRUE, FALSE);
+        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + 0, -1, priority, 0, TRUE, FALSE);
+        oam_metaspr(x + 24, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, -1, priority, 0, TRUE, FALSE);
     } else if (percentage >= 10) {
-        oam_metaspr(x + 4,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage / 10), -1, priority, 0, TRUE);
-        oam_metaspr(x + 12, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage % 10), -1, priority, 0, TRUE);
-        oam_metaspr(x + 20, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, -1, priority, 0, TRUE);
+        oam_metaspr(x + 4,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage / 10), -1, priority, 0, TRUE, FALSE);
+        oam_metaspr(x + 12, y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + (percentage % 10), -1, priority, 0, TRUE, FALSE);
+        oam_metaspr(x + 20, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, -1, priority, 0, TRUE, FALSE);
     } else {
-        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + percentage, -1, priority, 0, TRUE);
-        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, -1, priority, 0, TRUE);
+        oam_metaspr(x + 8,  y, number_sprite, FALSE, FALSE, FIRST_NUMBER_ID + percentage, -1, priority, 0, TRUE, FALSE);
+        oam_metaspr(x + 16, y, number_sprite, FALSE, FALSE, PERCENTAGE_SYMBOL_ID, -1, priority, 0, TRUE, FALSE);
     }
 }
 
@@ -1344,7 +1344,7 @@ void draw_checkpoints() {
         if (relative_x > -32 && relative_x < SCREEN_WIDTH + 128) { 
             // If the checkpoint is inside the screen vertically, draw it
             if (relative_y > -48 && relative_y < SCREEN_HEIGHT + 48) {
-                oam_metaspr(relative_x, relative_y, practiceCheckpoint, FALSE, FALSE, 0, -1, 0, 0, FALSE);
+                oam_metaspr(relative_x, relative_y, practiceCheckpoint, FALSE, FALSE, 0, -1, 0, 0, FALSE, FALSE);
             }
         }
     }
@@ -1389,8 +1389,8 @@ void handle_wave_trail() {
         s32 relative_y = y - FROM_FIXED(scroll_y);
 
         // Put the trail sprite depending on size
-        if (size == SIZE_BIG) oam_metaspr(relative_x, relative_y, waveTrailChunk, FALSE, FALSE, 0, trail_palette, priority, 0, FALSE);
-        else oam_metaspr(relative_x, relative_y - 4, miniWaveTrailChunk, FALSE, FALSE, 0, trail_palette, priority, 0, FALSE);
+        if (size == SIZE_BIG) oam_metaspr(relative_x, relative_y, waveTrailChunk, FALSE, FALSE, 0, trail_palette, priority, 0, FALSE, FALSE);
+        else oam_metaspr(relative_x, relative_y - 4, miniWaveTrailChunk, FALSE, FALSE, 0, trail_palette, priority, 0, FALSE, FALSE);
 
         // If this point is offscreen, remove it
         if (relative_x < -8) {
@@ -1419,7 +1419,7 @@ void handle_trail() {
         s32 relative_y = y - FROM_FIXED(scroll_y);
 
         // Put the trail sprite
-        if (trail_enabled[curr_player_id][i - 1]) oam_metaspr(relative_x, relative_y, normalTrailChunk, FALSE, FALSE, 0, trail_palette, priority, 0, FALSE);
+        if (trail_enabled[curr_player_id][i - 1]) oam_metaspr(relative_x, relative_y, normalTrailChunk, FALSE, FALSE, 0, trail_palette, priority, 0, FALSE, FALSE);
 
         // Shift left this trail chunk
         if (i != 0) {
