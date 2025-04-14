@@ -2,6 +2,9 @@
 #include "main.h"
 #include "memory.h"
 
+#define P1 8
+#define P2 9
+
 #define CENTER(x,y) ((x & 0xff) << 8) | (y & 0xff)
 #define PRIO_IDOFF(prio, use_dbl, id_off) ((prio << 10) & PRIORITY_MASK) | ((use_dbl << 9) & DLB_SCALE_MASK) | (id_off & TILE_OFFSET_MASK)
 
@@ -50,7 +53,7 @@ const u16 practiceCheckpoint[] = {
 const u16 waveTrailChunk[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_8x8,
-    ATTR2_PALBANK(0) | ATTR2_ID(1017),
+    ATTR2_PALBANK(P2) | ATTR2_ID(1017),
     0,
     0,
     PRIO_IDOFF(3, 0, 0), // id offset
@@ -61,7 +64,7 @@ const u16 waveTrailChunk[] = {
 const u16 normalTrailChunk[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_8x8,
-    ATTR2_PALBANK(0) | ATTR2_ID(1020),
+    ATTR2_PALBANK(P2) | ATTR2_ID(1020),
     0,
     0,
     PRIO_IDOFF(3, 0, 0), // id offset
@@ -72,7 +75,7 @@ const u16 normalTrailChunk[] = {
 const u16 miniWaveTrailChunk[] = {
     ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
     ATTR1_SIZE_8x16,
-    ATTR2_PALBANK(0) | ATTR2_ID(1018),
+    ATTR2_PALBANK(P2) | ATTR2_ID(1018),
     0,
     0,
     PRIO_IDOFF(3, 0, 0), // id offset
@@ -933,7 +936,7 @@ const u16 pinkPadSpr[] = {
 const u16 bigBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     -24,   // x
     -10,   // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -944,7 +947,7 @@ const u16 bigBgDecoSpr[] = {
 const u16 mediumBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     -24, // x
     -10, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -955,7 +958,7 @@ const u16 mediumBgDecoSpr[] = {
 const u16 smallBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_32x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     -8, // x
     0,  // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -966,7 +969,51 @@ const u16 smallBgDecoSpr[] = {
 const u16 tinyBgSpikesSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_16x8,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
+    0, // x
+    6, // y
+    PRIO_IDOFF(5, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 bigBgDecoP2Spr[] = {
+    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
+    ATTR1_SIZE_64x32,
+    ATTR2_PALBANK(P2) | ATTR2_PRIO(3),
+    -24,   // x
+    -10,   // y
+    PRIO_IDOFF(5, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 mediumBgDecoP2Spr[] = {
+    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
+    ATTR1_SIZE_64x32,
+    ATTR2_PALBANK(P2) | ATTR2_PRIO(3),
+    -24, // x
+    -10, // y
+    PRIO_IDOFF(5, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 smallBgDecoP2Spr[] = {
+    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
+    ATTR1_SIZE_32x16,
+    ATTR2_PALBANK(P2) | ATTR2_PRIO(3),
+    -8, // x
+    0,  // y
+    PRIO_IDOFF(5, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 tinyBgSpikesP2Spr[] = {
+    ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
+    ATTR1_SIZE_16x8,
+    ATTR2_PALBANK(P2) | ATTR2_PRIO(3),
     0, // x
     6, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -977,7 +1024,18 @@ const u16 tinyBgSpikesSpr[] = {
 const u16 bgChainsSpr[] = {
     ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
+    0,   // x
+    -16, // y
+    PRIO_IDOFF(6, 0, 0), // id offset
+    CENTER(8, 8),
+    0xffff
+};
+
+const u16 bgChainsP2Spr[] = {
+    ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
+    ATTR1_SIZE_16x32,
+    ATTR2_PALBANK(P2) | ATTR2_PRIO(3),
     0,   // x
     -16, // y
     PRIO_IDOFF(6, 0, 0), // id offset
@@ -988,7 +1046,7 @@ const u16 bgChainsSpr[] = {
 const u16 bgChainsBigSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P2) | ATTR2_PRIO(3),
     0,   // x
     -32, // y
     PRIO_IDOFF(6, 0, 0), // id offset
@@ -996,7 +1054,7 @@ const u16 bgChainsBigSpr[] = {
 
     ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P2) | ATTR2_PRIO(3),
     0,   // x
     -16, // y
     PRIO_IDOFF(6, 0, 4), // id offset
@@ -1007,7 +1065,7 @@ const u16 bgChainsBigSpr[] = {
 const u16 largePulsingCircleSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(0) | ATTR2_ID(PULSING_VRAM_ID),
+    ATTR2_PALBANK(P1) | ATTR2_ID(PULSING_VRAM_ID),
     0, // x
     -16, // y
     PRIO_IDOFF(4, 0, 0), // id offset
@@ -1026,7 +1084,7 @@ const u16 largePulsingCircleSpr[] = {
 const u16 mediumPulsingCircleSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(0) | ATTR2_ID(PULSING_VRAM_ID),
+    ATTR2_PALBANK(P1) | ATTR2_ID(PULSING_VRAM_ID),
     0,  // x
     -8, // y
     PRIO_IDOFF(4, 0, 0), // id offset
@@ -1045,7 +1103,7 @@ const u16 mediumPulsingCircleSpr[] = {
 const u16 smallPulsingCircleSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(0) | ATTR2_ID(PULSING_VRAM_ID),
+    ATTR2_PALBANK(P1) | ATTR2_ID(PULSING_VRAM_ID),
     0, // x
     0, // y
     PRIO_IDOFF(4, 0, 0), // id offset
@@ -1064,7 +1122,7 @@ const u16 smallPulsingCircleSpr[] = {
 const u16 pulsingObjectSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_AFF | ATTR0_BLEND,
     ATTR1_SIZE_16x16 | ATTR1_AFF_ID(4),
-    ATTR2_PALBANK(0),
+    ATTR2_PALBANK(P2),
     0, // x
     0, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -1075,7 +1133,7 @@ const u16 pulsingObjectSpr[] = {
 const u16 pulsingObjectBigSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(0),
+    ATTR2_PALBANK(P2),
     -8, // x
     -8, // y
     PRIO_IDOFF(4, 1, 0), // id offset
@@ -1086,7 +1144,7 @@ const u16 pulsingObjectBigSpr[] = {
 const u16 squareBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     0, // x
     0, // y
     PRIO_IDOFF(5, 1, 0), // id offset
@@ -1097,7 +1155,7 @@ const u16 squareBgDecoSpr[] = {
 const u16 tallBgDecoSpr[] = {
     ATTR0_4BPP | ATTR0_TALL | ATTR0_BLEND,
     ATTR1_SIZE_16x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     0, // x
     -16, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -1278,7 +1336,7 @@ const u16 basicSlab[] = {
 const u16 sawDecoBig[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_64x64,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     -24, // x
     -24, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -1290,7 +1348,7 @@ const u16 sawDecoBig[] = {
 const u16 sawDecoMediumSmall[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     -8, // x
     -8, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -1302,7 +1360,43 @@ const u16 sawDecoMediumSmall[] = {
 const u16 sawDecoTiny[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
+    0, // x
+    0, // y
+    PRIO_IDOFF(5, 0, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 sawDecoBigP2[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_64x64,
+    ATTR2_PALBANK(P2) | ATTR2_PRIO(3),
+    -24, // x
+    -24, // y
+    PRIO_IDOFF(5, 0, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 sawDecoMediumSmallP2[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_32x32,
+    ATTR2_PALBANK(P2) | ATTR2_PRIO(3),
+    -8, // x
+    -8, // y
+    PRIO_IDOFF(5, 0, 0), // id offset
+    CENTER(8, 8),
+
+    0xffff
+};
+
+const u16 sawDecoTinyP2[] = {
+    ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
+    ATTR1_SIZE_16x16,
+    ATTR2_PALBANK(P2) | ATTR2_PRIO(3),
     0, // x
     0, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -1314,7 +1408,7 @@ const u16 sawDecoTiny[] = {
 const u16 bigCloud[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_64x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     -24, // x
     -8, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -1326,7 +1420,7 @@ const u16 bigCloud[] = {
 const u16 mediumCloud[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_32x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     -16, // x
     0, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -1334,7 +1428,7 @@ const u16 mediumCloud[] = {
 
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     16, // x
     0, // y
     PRIO_IDOFF(5, 0, 8), // id offset
@@ -1346,7 +1440,7 @@ const u16 mediumCloud[] = {
 const u16 smallCloud[] = {
     ATTR0_4BPP | ATTR0_WIDE | ATTR0_BLEND,
     ATTR1_SIZE_32x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     -16, // x
     0, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -1358,7 +1452,7 @@ const u16 smallCloud[] = {
 const u16 bushDeco[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_16x16,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     0, // x
     0, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -1370,7 +1464,7 @@ const u16 bushDeco[] = {
 const u16 bushDecoBig[] = {
     ATTR0_4BPP | ATTR0_SQUARE | ATTR0_BLEND,
     ATTR1_SIZE_32x32,
-    ATTR2_PALBANK(0) | ATTR2_PRIO(3),
+    ATTR2_PALBANK(P1) | ATTR2_PRIO(3),
     -8, // x
     -16, // y
     PRIO_IDOFF(5, 0, 0), // id offset
@@ -1416,8 +1510,8 @@ ROM_DATA const u16 *obj_sprites[] = {
     pulsingObjectSpr,
     pulsingObjectSpr,
     pulsingObjectSpr,
-    bigBgDecoSpr,
-    smallBgDecoSpr,
+    bigBgDecoP2Spr,
+    smallBgDecoP2Spr,
     ballPortalSpr,
     pulsingObjectSpr,
     sizePortalPinkSpr,
@@ -1487,12 +1581,12 @@ ROM_DATA const u16 *obj_sprites[] = {
     dualPortalBlueSpr,
 
     // Toe Deco
-    sawDecoBig,
-    sawDecoMediumSmall,
-    sawDecoTiny,
+    sawDecoBigP2,
+    sawDecoMediumSmallP2,
+    sawDecoTinyP2,
 
     bgChainsSpr,
-    bgChainsSpr,
+    bgChainsP2Spr,
     bgChainsBigSpr,
 
     bigCloud,
@@ -1514,9 +1608,9 @@ ROM_DATA const u16 *obj_sprites[] = {
     squareBgDecoSpr,
     squareBgDecoSpr,
 
-    sawDecoMediumSmall,
-    sawDecoMediumSmall,
-    sawDecoTiny,
+    sawDecoMediumSmallP2,
+    sawDecoMediumSmallP2,
+    sawDecoTinyP2,
     
     sawBig,
     sawMedium,
@@ -1526,7 +1620,7 @@ ROM_DATA const u16 *obj_sprites[] = {
     sawDecoMediumSmall,
     sawDecoMediumSmall,
 
-    bgChainsSpr,
+    bgChainsP2Spr,
     
     sawBig,
     sawMedium,
@@ -1553,6 +1647,9 @@ ROM_DATA const u16 *obj_sprites[] = {
     sawMedium,
 
 };
+
+#undef P1
+#undef P2
 
 #define CHR_SLOT(name, rom, vram) {rom, vram},
 
