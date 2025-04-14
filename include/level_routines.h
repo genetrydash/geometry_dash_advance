@@ -75,6 +75,7 @@ void update_scroll();
 void set_background(u16 background_ID);
 void set_ground(u16 ground_ID);
 void put_practice_gui();
+u32 handle_key_holding(u16 keys);
 
 enum BG_types {
     BG_SQUARES,

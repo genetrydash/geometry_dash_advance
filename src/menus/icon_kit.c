@@ -146,7 +146,7 @@ void icon_kit_loop() {
         }
 
         // Key UP
-        if(key_hit(KEY_UP)) {
+        if(handle_key_holding(KEY_UP)) {
             selected_y -= 1;
 
             // Keep y pos positive (in bounds)
@@ -158,7 +158,7 @@ void icon_kit_loop() {
         }
 
         // Key DOWN
-        if(key_hit(KEY_DOWN)) {
+        if(handle_key_holding(KEY_DOWN)) {
             selected_y += 1;
 
             // Keep y pos in bounds
@@ -173,7 +173,7 @@ void icon_kit_loop() {
         }
 
         // Key LEFT
-        if(key_hit(KEY_LEFT)) {
+        if(handle_key_holding(KEY_LEFT)) {
             selected_x -= 1;
             // Check if we switched pages by moving left on the first column
             if (selected_x < 0) {
@@ -193,7 +193,7 @@ void icon_kit_loop() {
         }
 
         // Key RIGHT
-        if(key_hit(KEY_RIGHT)) {
+        if(handle_key_holding(KEY_RIGHT)) {
             selected_x += 1;
             // Check if we switched pages by moving right on the last column
             if (selected_x >= ICONS_COLUMNS) {
@@ -307,7 +307,7 @@ void palette_kit_loop() {
         }
 
         // Go UP
-        if (key_hit(KEY_UP)) {
+        if (handle_key_holding(KEY_UP)) {
             if (*color_selection_table[selected_color] >= 16) {
                 *color_selection_table[selected_color] -= 16;
             
@@ -320,7 +320,7 @@ void palette_kit_loop() {
         }
 
         // Go DOWN
-        if (key_hit(KEY_DOWN)) {
+        if (handle_key_holding(KEY_DOWN)) {
             if (*color_selection_table[selected_color] < NUM_COLORS - 16) {
                 *color_selection_table[selected_color] += 16;
 
@@ -333,7 +333,7 @@ void palette_kit_loop() {
         }
 
         // Go RIGHT
-        if (key_hit(KEY_RIGHT)) {
+        if (handle_key_holding(KEY_RIGHT)) {
             if (*color_selection_table[selected_color] % 16 < 15) {
                 *color_selection_table[selected_color] += 1;
             
@@ -346,7 +346,7 @@ void palette_kit_loop() {
         }
 
         // Go LEFT
-        if (key_hit(KEY_LEFT)) {
+        if (handle_key_holding(KEY_LEFT)) {
             if (*color_selection_table[selected_color] % 16 > 0) {
                 *color_selection_table[selected_color] -= 1;
                 

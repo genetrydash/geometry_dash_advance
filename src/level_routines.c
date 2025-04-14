@@ -1485,3 +1485,21 @@ void put_practice_gui() {
         }
     }
 }
+
+EWRAM_DATA u8 dpad_delay = 0;
+
+u32 handle_key_holding(u16 keys) {
+    if (key_is_down(keys)) {
+        if (key_hit(keys)) {
+            dpad_delay = 30;
+            return TRUE;
+        } 
+
+        if (--dpad_delay == 0) {
+            dpad_delay = 4;
+            return TRUE;  
+        }
+    } 
+
+    return FALSE;
+}
