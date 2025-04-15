@@ -6,10 +6,10 @@
 // Max number of loaded objects
 #define MAX_OBJECTS 96
 
-// Max level height in blocks (level height can be variable)
+// Max level height in blocks (level height is variable)
 #define MAX_LEVEL_HEIGHT 128
 
-// Number of level layers (GBA can use up to 4, one being reserved for the background and another for the menus)
+// Number of level layers (GBA can use up to 4, one is reserved for the background and another for the menus)
 #define LEVEL_LAYERS 2
 
 // Number of coins in a single level
@@ -17,7 +17,7 @@
 
 
 /* GAMEPLAY*/
-// Number of stored checkpoints before older ones are overwritter
+// Number of stored checkpoints before older ones are overwritten
 #define NUM_PRACTICE_CHECKPOINTS 100
 
 // Number of physics steps
