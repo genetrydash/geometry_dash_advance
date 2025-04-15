@@ -355,7 +355,7 @@ void ball_gamemode() {
     s8 sign = (curr_player.gravity_dir == GRAVITY_UP) ? -1 : 1;
     s8 mirror_sign = screen_mirrored ? -1 : 1;
 
-    curr_player.cube_rotation -= 0x250 * curr_player.ball_rotation_direction * mirror_sign;
+    curr_player.cube_rotation -= (curr_player.player_x_speed >> 8) * curr_player.ball_rotation_direction * mirror_sign;
 
     curr_player.player_y_speed = CLAMP(curr_player.player_y_speed, -BALL_MAX_Y_SPEED, BALL_MAX_Y_SPEED);
     
