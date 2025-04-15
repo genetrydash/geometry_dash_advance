@@ -18,7 +18,6 @@
 #define PLAYER_CHR_SIZE (2 * (sizeof(TILE) / sizeof(u32)))
 #define PLAYER_CHR_SIZE_BYTES (2 * sizeof(TILE))
 
-
 extern s32 seam_x;
 extern s32 seam_y;
 

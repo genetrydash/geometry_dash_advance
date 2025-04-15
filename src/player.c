@@ -62,7 +62,7 @@ FIXED mirror_scaling;
 
 void player_main() {    
     // Halve steps if dual
-    num_steps = (dual == DUAL_ON) ? (NUM_STEPS / 2) : NUM_STEPS;
+    num_steps = (dual == DUAL_ON) ? NUM_DUAL_STEPS : NUM_STEPS;
 
     if (complete_cutscene) {
         level_complete_cutscene();
@@ -216,13 +216,15 @@ void cube_gamemode() {
                 case DEGREES_26_5_UD_DOWN:
                 case DEGREES_63_5_DOWN:
                 case DEGREES_63_5_UD:
-                    curr_player.cube_rotation = snap_to_tan_theta_1_2(curr_player.cube_rotation);
+                    if (screen_mirrored) curr_player.cube_rotation = snap_to_tan_theta_1_2_rotated_90(curr_player.cube_rotation);
+                    else curr_player.cube_rotation = snap_to_tan_theta_1_2(curr_player.cube_rotation);
                     break;
                 case DEGREES_63_5:
                 case DEGREES_63_5_UD_DOWN:
                 case DEGREES_26_5_DOWN:
                 case DEGREES_26_5_UD:
-                    curr_player.cube_rotation = snap_to_tan_theta_1_2_rotated_90(curr_player.cube_rotation);
+                    if (screen_mirrored) curr_player.cube_rotation = snap_to_tan_theta_1_2(curr_player.cube_rotation);
+                    else curr_player.cube_rotation = snap_to_tan_theta_1_2_rotated_90(curr_player.cube_rotation);
                     break;
             }
         } else {

@@ -11,6 +11,7 @@
 // Next sprite slot in OAM
 u8 nextSpr = 0;
 
+#ifdef DEBUG
 const u16 noclipSpr[] = {
     ATTR0_4BPP | ATTR0_WIDE,
     ATTR1_SIZE_16x8,
@@ -38,6 +39,7 @@ const u16 noclipSpr[] = {
 
     0xffff
 };
+#endif
 
 const u16 practiceCheckpoint[] = {
     ATTR0_4BPP | ATTR0_SQUARE,

@@ -11,7 +11,10 @@
 #define PRIORITY_DONT_MODIFY_PRIO (1 << 2)
 
 extern u8 nextSpr;
+
+#ifdef DEBUG
 extern const u16 noclipSpr[];
+#endif
 
 extern const u16 menuStarSpr[];
 extern const u16 menuNumberSpr[];
