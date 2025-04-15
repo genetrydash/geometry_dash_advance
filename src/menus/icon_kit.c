@@ -198,7 +198,7 @@ void icon_kit_loop() {
             // Check if we switched pages by moving right on the last column
             if (selected_x >= ICONS_COLUMNS) {
                 // If the selected page not the last one, switch pages
-                if (selected_page < (num_icons[selected_gamemode] / ICONS_PER_PAGE)) {
+                if (selected_page < ((num_icons[selected_gamemode] - 1) / ICONS_PER_PAGE)) {
                     selected_x = 0;
                     selected_page++;
                     s32 selection = *icon_selection_table[selected_gamemode] + (ICONS_PER_PAGE / 2) + 1;
