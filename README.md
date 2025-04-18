@@ -25,7 +25,7 @@ Download nightly build (unstable) [CLICK HERE](https://nightly.link/AleFunky/geo
 |Nicolestarlight|music.|
 |Redgd|graphics.|
 
-## Addditional
+## Additional
 |Additional thanks| Name |
 |---|---|
 |RobTop Games|original creator of Geometry Dash|
