@@ -56,9 +56,7 @@ void wave_gamemode();
 void do_cube_gravity();
 void do_ship_gravity(s32 max_y_speed, s32 max_y_speed_holding);
 void do_ball_gravity();
-void do_ufo_gravity(s32 max_y_speed);
-
-void update_falling();
+void do_ufo_gravity();
 
 FIXED mirror_scaling;
 
@@ -69,6 +67,13 @@ void player_main() {
     if (complete_cutscene) {
         level_complete_cutscene();
     } else {
+        // Detect if falling
+        if (curr_player.gravity_dir == GRAVITY_DOWN) {
+            curr_player.falling = (curr_player.player_y_speed > 0);
+        } else {
+            curr_player.falling = (curr_player.player_y_speed < 0);
+        }
+
         // Set internal square hitbox size, for wave this is always 1
         if (curr_player.gamemode != GAMEMODE_WAVE) {
             if (curr_player.player_size == SIZE_BIG) {
@@ -411,19 +416,15 @@ void ball_gamemode() {
 }
 
 void ufo_gamemode() {
-    s32 max_y_speed;
-
     if (curr_player.player_size == SIZE_BIG) {
         curr_player.player_width = UFO_WIDTH;
         curr_player.player_height = UFO_HEIGHT;
-
-        max_y_speed = UFO_MAX_Y_SPEED;
     } else {
         curr_player.player_width = MINI_UFO_WIDTH;
         curr_player.player_height = MINI_UFO_HEIGHT;
-        
-        max_y_speed = UFO_MINI_MAX_Y_SPEED;
     }
+
+    curr_player.gravity = UFO_GRAVITY;
 
     s8 sign = curr_player.gravity_dir ? -1 : 1;
     s8 mirror_sign = screen_mirrored ? -1 : 1;
@@ -452,7 +453,7 @@ void ufo_gamemode() {
         curr_player.player_y += curr_player.player_y_speed / num_steps;
 
         // Do gravity
-        do_ufo_gravity(max_y_speed);
+        do_ufo_gravity();
         
         // Do collision with objects
         do_collision_with_objects();
@@ -472,7 +473,7 @@ void ufo_gamemode() {
         curr_player.player_y += curr_player.player_y_speed - ((curr_player.player_y_speed / num_steps) * (num_steps - 1));
         
         // Do gravity
-        do_ufo_gravity(max_y_speed);
+        do_ufo_gravity();
     
         // Do collision with objects
         do_collision_with_objects();
@@ -545,8 +546,6 @@ void wave_gamemode() {
 }
 
 void do_cube_gravity() {
-    update_falling();
-
     // Depending on which direction the curr_player.gravity points, apply curr_player.gravity and cap speed in one direction or in the other
     if (curr_player.gravity_dir) {
         curr_player.player_y_speed -= curr_player.gravity / num_steps;
@@ -558,8 +557,6 @@ void do_cube_gravity() {
 }
 
 void do_ship_gravity(s32 max_y_speed, s32 max_y_speed_holding) {
-    update_falling();
-
     u32 holding = key_is_down(KEY_A | KEY_UP);
 
     if (holding) {
@@ -594,37 +591,19 @@ void do_ship_gravity(s32 max_y_speed, s32 max_y_speed_holding) {
 }
 
 void do_ball_gravity() {
-    update_falling();
-
     s8 sign = (curr_player.gravity_dir == GRAVITY_UP) ? -1 : 1;
     curr_player.player_y_speed += (curr_player.gravity / num_steps) * sign;
 }
 
-void do_ufo_gravity(s32 max_y_speed) {
-    update_falling();
-
-    if (curr_player.falling) {
-        curr_player.gravity = (curr_player.player_size == SIZE_BIG) ? UFO_GRAVITY_FALLING : UFO_MINI_GRAVITY_FALLING;
-    } else {
-        curr_player.gravity = (curr_player.player_size == SIZE_BIG) ? UFO_GRAVITY_RAISING : UFO_MINI_GRAVITY_RAISING;
-    }
-
+void do_ufo_gravity() {
+    s32 ufo_max_y_speed = (curr_player.player_size == SIZE_BIG) ? UFO_MAX_Y_SPEED : UFO_MINI_MAX_Y_SPEED;
     // Depending on which direction the curr_player.gravity points, apply curr_player.gravity and cap speed in one direction or in the other
     if (curr_player.gravity_dir) {
         curr_player.player_y_speed -= curr_player.gravity / num_steps;
-        if (curr_player.player_y_speed < -max_y_speed) curr_player.player_y_speed = -max_y_speed;
+        if (curr_player.player_y_speed < -ufo_max_y_speed) curr_player.player_y_speed = -ufo_max_y_speed;
     } else {
         curr_player.player_y_speed += curr_player.gravity / num_steps;
-        if (curr_player.player_y_speed > max_y_speed) curr_player.player_y_speed = max_y_speed;
-    }
-}
-
-void update_falling() {
-    // Detect if falling
-    if (curr_player.gravity_dir == GRAVITY_DOWN) {
-        curr_player.falling = (curr_player.player_y_speed > 0);
-    } else {
-        curr_player.falling = (curr_player.player_y_speed < 0);
+        if (curr_player.player_y_speed > ufo_max_y_speed) curr_player.player_y_speed = ufo_max_y_speed;
     }
 }
 
